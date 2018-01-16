@@ -9,13 +9,16 @@ googleAnalytics = ""
 pluralizeListTitles = false
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
+[permalinks]
+  post = "/:year/:month/:day/:slug/"
+
 [params]
   # Sets the meta tag description
   description          = "Hello World"
   # Sets the navbarTitle that appears in the top left of the navigation bar
   navbarTitle          = "Test"
   # Sets where "View More Posts" links
-  viewMorePostLink     = "/blog/"
+  viewMorePostLink     = "/post/"
 
 # Optional Params
   # Sets navbarTitle to match the section of the website
@@ -83,7 +86,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params.postAmount]
 # Sets the number of recent posts to show in the sidebar. The default value is 5.
-    sidebar = 5
+    sidebar = 3
 
 # Sets the menu items in the navigation bar
 # Identifier prepends a Font Awesome icon to the menu item
@@ -101,7 +104,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [[menu.main]]
   name = "Blog"
-  url = "/blog/"
+  url = "/post/"
   identifier = "fa fa-newspaper-o"
   weight = 3
 
@@ -136,21 +139,21 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   codepen         = ""
   # Visual Art Communities
   deviantart      = ""
-  flickr          = "example"
+  flickr          = ""
   behance         = ""
   dribbble        = ""
   # Publishing Communities
   wordpress       = ""
   medium          = ""
   # Professional/Business Oriented Communities
-  linkedin        = "example"
+  linkedin        = ""
   foursquare      = ""
   xing            = ""
   slideshare      = ""
   # Social Networks
-  facebook        = "example"
+  facebook        = "plussixone"
   googleplus      = ""
-  reddit          = "example"
+  reddit          = ""
   quora           = ""
   youtube         = ""
   vimeo           = ""
@@ -158,13 +161,13 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     # WeChat and QQ need testing.
     wechat          = ""
     qq              = "" # User ID Number
-  instagram       = "example"
+  instagram       = ""
   tumblr          = ""
-  twitter         = "example"
+  twitter         = "plussixoneblog"
   skype           = ""
   snapchat        = ""
-  pinterest       = "example"
-  telegram        = "example"
+  pinterest       = ""
+  telegram        = ""
   vine            = ""
   # Email
-  email           = "example"
+  email           = "jamesthomasday@gmail.com"
