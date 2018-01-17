@@ -15,7 +15,7 @@ Onto our last game of the season and what a pretty awesome matchup! The crazines
 
 We can see below that both teams have taken different paths this year. Adelaide started the year near the top of our rankings and have been pretty consistant in their rating, apart from a significant drop after round 7 and 8, where they lost to North Melbourne and Melbourne by significant margins. The Tigers on the other hand have been slowly building all season. It wasn't until mid year they actual broke through the 'average' team barrier of 1500. Interestingly both teams have been on a nice upward trend since July - coinciding with really strong finals performances.
 
-![plot of chunk paths1](http://plussixoneblog.com/wp-content/uploads/2017/09/paths1-1.png)
+![plot of chunk paths1](http://plussixoneblog.com/static/img/2017/09/paths1-1.png)
 
 We can extend these out a bit to try and look at where these teams have come from over the last few years. Adelaide has been on the up since late 2015. The Tigers 2016 season really was terrible! As noted in the media this week - from where they were placed at this point last year it's a pretty meteoric rise.
 
