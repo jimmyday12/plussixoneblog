@@ -1,4 +1,4 @@
-baseurl = "www.plussixone.netifly.com/"
+baseurl = "/"
 languageCode = "en-us"
 title = "plusSixOne"
 theme = "hugo-future-imperfect"
