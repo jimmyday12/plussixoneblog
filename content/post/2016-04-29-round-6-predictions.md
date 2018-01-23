@@ -14,7 +14,7 @@ Nonetheless, its not too late to start posting predictions! I plan to maybe go b
 
 Here are my [ELO predictions](http://plussixoneblog.com/elo-rating-system/) for Round 6. At some stage, I plan to turn this into an interactive page, similar to the [FiveThirtyEight ](http://projects.fivethirtyeight.com/2016-nba-picks/) ones but for now, I'll just post some predictions.
 
-![Probability and Margins for each game in round 6, 2016](http://plussixoneblog.com/wp-content/uploads/2016/04/round6.jpg)
+![Probability and Margins for each game in round 6, 2016](http://plussixoneblog.com/img/2016/04/round6.jpg)
 
 <p class="caption">Probability and Margins for each game in round 6, 2016</p>
 

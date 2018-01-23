@@ -9,4 +9,4 @@ slug: preliminary-finals-quick-tips
 
 No preview from me this weekend unfortunately guys. Here are my tips below - all the best to fans from all 4 teams!
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/09/unnamed-chunk-1-1-2.png)
+![](http://plussixoneblog.com/img/2017/09/unnamed-chunk-1-1-2.png)

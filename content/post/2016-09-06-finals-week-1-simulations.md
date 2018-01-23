@@ -17,10 +17,10 @@ I touched briefly on these last week but we can see heading into our finals camp
 
 Adelaide drop back into a chase pack that all increased their ratings this week. The Crows, Cats, GWS and West Coast all now sit roughly equally placed. The Hawks continued their decline, falling back to 6th on our ratings, after being top only 5 weeks ago. They remain significantly better than our other finals teams in North and Western Bulldogs who have both begun to come perilously close to only 'average' teams.
 
-![plot of chunk ratingplot](http://plussixoneblog.com/wp-content/uploads/2016/09/ratingplot-1.png)
+![plot of chunk ratingplot](http://plussixoneblog.com/img/2016/09/ratingplot-1.png)
 
 ## Simulations
 
 Our simulated finals show us the importance of finishing top 4 - with each of those current top 4 sides >70% chances of making the prelim, largely due to playing at home rather than any significant ratings differences. Of those sides, Sydney are clear favourites to get into the GF - achieving this in almost 6 out of 10 simulations. They also go onto to win the flag in more than 1 in 3 simulations. They are certainly the team to beat.
 
-![simTableR24](http://plussixoneblog.com/wp-content/uploads/2016/09/simTableR24.png)
+![simTableR24](http://plussixoneblog.com/img/2016/09/simTableR24.png)

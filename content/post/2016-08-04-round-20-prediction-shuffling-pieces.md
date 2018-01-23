@@ -12,16 +12,16 @@ Leading into the final month of the season, [match simulations suggesting that t
 
 ### Round Predictions
 
-![round20](http://plussixoneblog.com/wp-content/uploads/2016/08/round20-1024x155.png)
+![round20](http://plussixoneblog.com/img/2016/08/round20-1024x155.png)
 
 Unlike [last week](http://plussixoneblog.com/2016/07/29/round-prediction/) - our [ELO model](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/) sees some harder to predict matches this week. There are few matchups between teams [close on our ELO rankings](http://plussixoneblog.com/2016/08/01/round-20-elo-simulations/). While our two closest games have very little 'importance' in terms of the season, one could argue that each team has a fair bit to play for. Richmond v Collingwood on Friday night shapes as a big match for a Tigers team under siege, while Carlton v St Kilda is probably the key match between two up and coming teams on the tail end of a rebuild. As per our norm though - I'll discuss some of the more important matches below.
 
 ### Match Importance
 
-![plot of chunk unnamed-chunk-5](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-5-1-1.png)
+![plot of chunk unnamed-chunk-5](http://plussixoneblog.com/img/2016/08/unnamed-chunk-5-1-1.png)
 
 ###### **Sydney v Port Adelaide, Sat 1:45pm, SGC.[
-](http://plussixoneblog.com/wp-content/uploads/2016/07/simTableR19-1.png)**
+](http://plussixoneblog.com/img/2016/07/simTableR19-1.png)**
 
 Port Adelaide continues to keep themselves in with an (albeit) small chance of making the top 8. This match looks like being their last chance to remain in with a realistic chance. A win sees their probability jump to ~20%, while a loss sees it drop down to <2%. Given Sydney is one of 4 of our best rated teams vying for 3 spots in the top 4, losing this match puts a big dent in their hopes of top 4. We see a 40 percentage point swing between a win and a loss. Given the relative strength of Sydney and their home ground advantage (HGA), our ELO model is giving Sydney a 63% chance of winning this one. _**Sydney by 21 points. **_
 

@@ -23,7 +23,7 @@ Most of the remaining games all see around 45% to 60% swings for one team chance
 
 The only games with little interest are NM v St Kilda and Hawthorn v Carlton. While technically the Hawks and Saints can each make the top 8, their chances are still small and a win only slightly bumps that up. Nonetheless, they are still alive!
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/08/importance_R23-1024x1003.png)
+![](http://plussixoneblog.com/img/2017/08/importance_R23-1024x1003.png)
 
 ## Tipping
 
@@ -38,10 +38,10 @@ In both cases, one or two models have gone against the grain. Unfortunately (or 
 Happy tipping in what should be a pretty tense round for lots of supporters!
 
 [
-](http://plussixoneblog.com/wp-content/uploads/2017/08/unnamed-chunk-1-1-2.png)
+](http://plussixoneblog.com/img/2017/08/unnamed-chunk-1-1-2.png)
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-22-1024x181.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-22-1024x181.png)
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/08/unnamed-chunk-1-1-3.png)
+![](http://plussixoneblog.com/img/2017/08/unnamed-chunk-1-1-3.png)
 
 Happy tipping!

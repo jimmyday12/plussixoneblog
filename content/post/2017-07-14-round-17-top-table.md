@@ -18,7 +18,7 @@ I haven't had a whole lot of time for the blog this week but read on for a bit o
 
 The Giants have just managed to hold onto top stop despite their draw with the lowly (but resurgent) Hawks. It is certainly getting tight at the top, with very little separating GWS, Sydney, Adelaide and Geelong. Port remains probably on their own tier behind those 4 while the rest struggle to make any headways.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/07/ratings_plot-1-1.png)
+![](http://plussixoneblog.com/img/2017/07/ratings_plot-1-1.png)
 
 ### Simulations
 
@@ -28,7 +28,7 @@ Outside of those 4, it is relatively even between Sydney, Melbourne, Richmond an
 
 Lastly, our realistic Top 8 race remains at 11. The Bulldogs are falling rapidly and now make finals less than a quarter of simulations. Essendon are the next most likely to miss out. After that, it is still pretty even for those teams below Port Adelaide.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/simSeas-15-1024x919.png)
+![](http://plussixoneblog.com/img/2017/03/simSeas-15-1024x919.png)
 
 ### Tipping
 
@@ -37,4 +37,4 @@ Here are our tops this week. With that congestion at the top and middle of the t
 Happy tipping!
 
 [
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-20-1024x181.png)](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-20.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-20-1024x181.png)](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-20.png)

@@ -14,7 +14,7 @@ Below, I've taken each teams current ELO rating, with their current record, and 
 
 I'm hoping to potentially turn this into an interactive table [ref]anyone with advice? ShinyApps is something I've considered)[/ref]. For now, I'll update each week with a static image.
 
-![finalR7to23_2016C](http://plussixoneblog.com/wp-content/uploads/2016/05/finalR7to23_2016C.gif)
+![finalR7to23_2016C](http://plussixoneblog.com/img/2016/05/finalR7to23_2016C.gif)
 
 One interesting point is the big drop-off in percentages for finishing in the top 8 between 8th placed West Coast and 9th placed Port. It seems, as I wrote about previously, [that the final 8 is taking shape already this early on. ](http://plussixoneblog.com/2016/05/05/the-round-7-rule/) In fact, this seems quite common amongst those generating rating systems.
 

@@ -18,10 +18,10 @@ These results lift our season total to 124 correct tips out of 171 games (72.5%)
 
 Our results plots show that we've been tracking along nicely with our tipping percentage over the last period, although our accuracy in the margin has been slipping above our goal.
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-1-1.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2-1.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-1-1.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2-1.png)
 
 At the end of the season I'll do a bit more work on this plot as a potential source of improvement for our model. For now, I'll keep posting it for reference.
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-3-1.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-3-1.png)
 
 #

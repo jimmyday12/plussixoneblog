@@ -7,11 +7,11 @@ categories:
 slug: round-23-prediction-shuffling-the-pieces
 ---
 
-![round23](http://plussixoneblog.com/wp-content/uploads/2016/08/round23.png)
+![round23](http://plussixoneblog.com/img/2016/08/round23.png)
 
 While our fight for the top 8 is basically over, there remains some important games this weekend. Our top 4 is certainly not set, with only 1 win separating 1st from 7th. As such, [our match importance rating](http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/) has thrown up some big games this week - largely because teams chances of various finishing positions fall close to 100% or 0% based on a win or a loss, obviously dependant on other results.
 <!-- more -->
-![plot of chunk unnamed-chunk-5](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-5-1-6.png)
+![plot of chunk unnamed-chunk-5](http://plussixoneblog.com/img/2016/08/unnamed-chunk-5-1-6.png)
 I'll summarise some key match-ups below.
 
 **Adelaide v West Coast, Fri 7:40pm, Adelaide Oval.**

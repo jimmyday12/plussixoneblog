@@ -31,7 +31,7 @@ For those who are new to the site, last year we introduced our ELO rating system
 
 Let's look at our current ratings of each team heading into 2017. As a reminder, we regress each teams rating back towards the mean at the end of the year. Accordingly, these ratings are slightly different to the [end of season ratings](http://plussixoneblog.com/2016/09/29/grand-final-preview4/) in that they are more 'condense'.
 
-![plot of chunk Ratings](http://plussixoneblog.com/wp-content/uploads/2017/02/Ratings-1-6.png)
+![plot of chunk Ratings](http://plussixoneblog.com/img/2017/02/Ratings-1-6.png)
 
 To summarise some trends that we can see (and what we saw towards the end of last year).
 
@@ -55,13 +55,13 @@ We could simply take our ratings and assume that this would be the order of our 
 
 As per our methodology, we can take this years fixture and simulate each result based on the respective ELO ratings of each team. Repeat that 10 000 times and we get some estimates for various finishing positions!
 
-![plot of chunk Simulation](http://plussixoneblog.com/wp-content/uploads/2017/02/Simulation-1-6.png)
+![plot of chunk Simulation](http://plussixoneblog.com/img/2017/02/Simulation-1-6.png)
 
 An obvious take-away from the heat map is the massive spread of each team's finishing position. With the exception of Sydney at the top and the Lions and Bombers at the bottom, no team finishes in a single position in more than 13% of simulations. In fact, the only position where a team doesn't finish at least once is the Lions finishing 1st. Every other team finishes in each position in at least 1 simulation!
 
 Nonetheless, we can also see that the 'better' teams, at least according to our ELO model, tend to finish towards the top and the 'worse' teams towards the bottom, which is what we'd expect. This large spread, with a general trend, is also apparent in the density plots for each team. It's a little hard to fit all teams on one graph but you can see the spread of finishing positions for each team, peaking around their median result.
 
-![plot of chunk distribution](http://plussixoneblog.com/wp-content/uploads/2017/02/distribution-1-6.png)
+![plot of chunk distribution](http://plussixoneblog.com/img/2017/02/distribution-1-6.png)
 
 ### Finals Probabilities
 
@@ -69,4 +69,4 @@ Lastly, we can use our probabilities of finishing positions to also estimate lar
 
 I've submitted these to [The Arc](http://thearcfooty.com) - wish me luck!
 
-![prob table](http://plussixoneblog.com/wp-content/uploads/2017/02/roundPred.png)
+![prob table](http://plussixoneblog.com/img/2017/02/roundPred.png)

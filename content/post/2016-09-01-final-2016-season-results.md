@@ -14,12 +14,12 @@ With the home and away season over, and the controversial bye weekend, it gives 
 
 The brings to end the season with a total of 142 out of 198 (71.7%) and a MAPE of 29.3. That has allowed me to scrape within both of the goals I'd set at the start of the season (actually - I started this in round 6) of >70% tipping and <30 MAPE. While I'm happy with those results, there are some pretty obvious things I'll look to improve in the off season. I'll write another in-depth post about that later on but a big example is the parameterisation of the home ground advantage, which is currently constant across all games. More to come on that topic!
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-2.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-3.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/09/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-2.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-3.png)
 
 # New ratings
 
 Normally I release the readings and simulations together but since I probably won't do the simulations until next week, I'll put the ratings below for reference. We can see the big effect that Adelaide's poor performance has had on their ratings - dropping back to our pack of chasing teams. This leaves Sydney as our clear top rated team. The Hawks continue their tumble down the ratings ladder - potentially losing touch with that chasing pack, although well ahead of the rest.
-![plot of chunk unnamed-chunk-3](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3](http://plussixoneblog.com/img/2016/09/unnamed-chunk-3-1.png)
 
 Melbourne's foray into 'above average' team hasn't lasted long. [We discussed how long it had been since that happened in a previous post](http://plussixoneblog.com/2016/08/10/round-21-simulations/). Hopefully for Melbourne fans, that wait isn't that long to get back there again!
 

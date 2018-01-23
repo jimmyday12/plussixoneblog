@@ -17,10 +17,10 @@ As per usual, I didn't write a preview before Thursday night. Nonetheless, I did
 
 There has been some big movements in our ratings since the start of the year - it will be interesting to see where some of these teams (e.g. Hawks/Sydney) end up settling in our final ratings.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/04/ratings_plot-1-1.png)
+![](http://plussixoneblog.com/img/2017/04/ratings_plot-1-1.png)
 
 Here are the tips for the weekend. I hope you enjoy your Easter!
 
 [Current Tips and Predictions](http://plussixoneblog.com/current-afl-mens-ratings-predictions/) | [Squiggle](http://squiggle.com.au)
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-7-1024x181.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-7-1024x181.png)

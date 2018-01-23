@@ -36,7 +36,7 @@ Before I decide, I thought I'd explore how long it takes a team's rating to stab
 
 Firstly, I've taken each teams ELO rating over the first 100 games they player and plotted it blow. I've applied a bit of [loess](https://en.wikipedia.org/wiki/Local_regression) smoothing to make the graph a little neater.
 
-![plot of chunk ELO new](http://plussixoneblog.com/wp-content/uploads/2017/02/ELO-new-1.png)
+![plot of chunk ELO new](http://plussixoneblog.com/img/2017/02/ELO-new-1.png)
 
 While there probably isn't a general trend, a few things are apparent.
 
@@ -48,11 +48,11 @@ While there probably isn't a general trend, a few things are apparent.
 
 Another way to look at this is to use the 'change in ELO' of each team. The change in ELO represents how different the result was from our expectation. Given we set each team at the arbitrary 1500 mark, we would expect that this would improve over team as teams get closer to their "true" ELO rating[ref]this probably doesn't exist since team levels are changing so much over time due to form, injuries, lucky etc[\ref].
 
-![plot of chunk delta_elo](http://plussixoneblog.com/wp-content/uploads/2017/02/delta_elo-1.png)
+![plot of chunk delta_elo](http://plussixoneblog.com/img/2017/02/delta_elo-1.png)
 
 It certainly doesn't look like the change in ELO changes much over time? What about the mean absolute average (note, I only take the home team since this is offset by the opposite change in rating of the away team).
 
-![plot of chunk datsum](http://plussixoneblog.com/wp-content/uploads/2017/02/datsum-1.png)
+![plot of chunk datsum](http://plussixoneblog.com/img/2017/02/datsum-1.png)
 
 Interestingly, the change in ELO trends upward over the first 100 games. Thinking about this now however, it does kind of make sense. Firstly, by setting teams up with a starting position of 1500, we are condensing them close to the average team. While some teams will outperform this, generally, most teams sit around this average number. So, we do in fact see ratings take a little while to get going. After a season or two, a lot of new teams tend to improve and so it's likely we see the change in ELO jump up, following this improvement.
 

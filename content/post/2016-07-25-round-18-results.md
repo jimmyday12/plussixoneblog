@@ -14,10 +14,10 @@ In 4 matches last week, our had difficulty separating teams after the Home Groun
 
 Onto our rating system and, with a poor round of tipping, that gives my model more ammo for changing team ratings to try and make sense of it all. Adelaide loses its 8 week long rein as our top team, handing the title back to Hawthorn after their disappointing loss to Geelong, who also benefit, gaining 13 points and jumping back into our top 4 in ratings. The biggest mover in our ratings was North Melbourne, who jumped 17 points and 2 positions to be tied for the 7th best team in the league.
 
-![ELO_post18](http://plussixoneblog.com/wp-content/uploads/2016/07/ELO_post18-1-1024x1003.png)
+![ELO_post18](http://plussixoneblog.com/img/2016/07/ELO_post18-1-1024x1003.png)
 Our simulated season sees Hawthorn as the first team to clinch a finals birth for the year. They also strengthened their grip on securing home field advantage for the whole finals series and avoiding any travel, which could be important given some of the teams just below them. In fact, Hawthorn now finish on top in a neat 2/3 of our simulations.
 
-![simTableR19](http://plussixoneblog.com/wp-content/uploads/2016/07/simTableR19.png)
+![simTableR19](http://plussixoneblog.com/img/2016/07/simTableR19.png)
 
 The biggest loser from the weekends matches in terms of finals positioning appears to be Adelaide, losing 12%, 21% and 18% in their top 4, 2, and minor premiership chances, respectively. The main beneficiary of those chances has been Hawthorn, with only Geelong's top 4 chances (up 15%) changing significantly outside of Hawthorn.
 

@@ -27,13 +27,13 @@ While I don't have the time or expertise to implement their Network analyses (ye
 
 The first thing we need to know is which games have Richmond played in during Deledios career where he did and didn't play. I've used data [afltables](www.afltables.com), to come up with all Deledio-less games. Knowing this, we can now take a look at Richmonds record in the time since Deledio's debut in Round 1, 2005. In the **262** games that Richmond has played in since his debut, he has missed **19**, with Richmond only winning **3** of them, a rate of **15.79%**. This is on contrast to his career winning percentage of **45.27%** over **243** games. It is this descrepancy that is often terrmed the _Deledio Effect_.
 
-![plot of chunk winsPlot](http://plussixoneblog.com/wp-content/uploads/2016/07/winsPlot-1-3.png)
+![plot of chunk winsPlot](http://plussixoneblog.com/img/2016/07/winsPlot-1-3.png)
 
 The first thing we note here is how small our sample size is for games in which Deledio missed, compared to those in which he won. We could probably just stop our analyses here and make a statement about how we need more information to better understand the true impact of having Deledio has on the Tigers. But as promised, I've got my [ELO model](http://wp.me/p7soFv-3G) that can at least give us a slightly deeper understanding about how anomalous this result is.
 
 Below, I've taken the expected margin computed from the difference in ELO rating (plus a home ground advantage boost) for those games in which Deledio missed and plotted those expected Margins against the actual margins.
 
-![plot of chunk marginPlot](http://plussixoneblog.com/wp-content/uploads/2016/07/marginPlot-1-3.png)
+![plot of chunk marginPlot](http://plussixoneblog.com/img/2016/07/marginPlot-1-3.png)
 
 This plot again shows that there is really a very small dataset to work with for the missing data. It also shows that when he does play, our model does a pretty good job at predicting the margin on average, with an MAE of **31.3** for when he does play. Tentatively, this value is slightly higher when he doesn't play (**36.2**), although, n = small.
 
@@ -41,7 +41,7 @@ In those games where he does miss, we can see that there is a _relatively_ big p
 
 To attempt to further explore this data, I've performed some simulations (you can read about the methodology [here](http://wp.me/p7soFv-3G)) on the Tigers games during Deledio's career. Breifly, I use the difference in ELO ratings between the two teams to estimate a predicted margin. I then draw an actual simulated Margin from a normal distribution with a mean of that expected margin and some noise. I've then repeated this 10000 times for each game during the Deledio era. You can see the distribution of wins for each category (Missed v Played) below.
 
-![plot of chunk distributionPlot](http://plussixoneblog.com/wp-content/uploads/2016/07/distributionPlot-1-3.png)
+![plot of chunk distributionPlot](http://plussixoneblog.com/img/2016/07/distributionPlot-1-3.png)
 
 We can see that our distribution of wins for the Missed games centers around 10 (a percentage of **52.63%**), well above our actual wins of **3**. In fact, we only saw 3 wins or less in **0.05%** of our simulations! In games where he played, this rises to a **76.87%** in games where he does play, suggesting that Richmond actually outperform expectations in those games.
 

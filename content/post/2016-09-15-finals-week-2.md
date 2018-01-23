@@ -20,7 +20,7 @@ Firstly, we can see that the weekend was clearly kind to the Bulldogs and GWS, w
 
 The GWS were similarly outsiders (at 38% chance of winning) against the ELO leading Swans team (who received, I should admit, a likely unwarranted Home Ground Advantage boost being the notional 'home team'). Their big loss saw the Swans lose their large lead at the top of the ELO rating system. The Crows impressive win against North saw them move up in rating points but, perhaps unluckily, dropped a spot to GWS, such was the impressiveness of their win. The Hawks and Geelong game saw those two teams however around their current levels which, it must be said, is probably 1 tier behind those leading teams.
 
-![plot of chunk ratingplot](http://plussixoneblog.com/wp-content/uploads/2016/09/ratingplot-1-1.png)
+![plot of chunk ratingplot](http://plussixoneblog.com/img/2016/09/ratingplot-1-1.png)
 
 # Simulations
 
@@ -30,11 +30,11 @@ As expected, both of those two teams are leading our premiership race, with Geel
 
 The news doesn't look good for the winner of Hawthorn and Western Bulldogs though - only lifting the cup in 7% and 4% of simulations respectively. That is largely due to running into a red hot GWS team at their home ground in the prelim.
 
-![simtabler25](http://plussixoneblog.com/wp-content/uploads/2016/09/simTableR25.png)
+![simtabler25](http://plussixoneblog.com/img/2016/09/simTableR25.png)
 
 # Predictions
 
-![round25](http://plussixoneblog.com/wp-content/uploads/2016/09/round25.png)
+![round25](http://plussixoneblog.com/img/2016/09/round25.png)
 
 ##### Hawthorn V Bulldogs, Friday 7:30pm, MCG
 

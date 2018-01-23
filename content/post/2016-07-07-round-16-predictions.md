@@ -10,11 +10,11 @@ slug: round-16-predictions
 
 As our [ELO model](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/) suggests, the top 8 is super tight. In fact, our [simulations](http://plussixoneblog.com/2016/07/04/313/) have a really tough time separating out clear favourites in our top 8 race. [Data from The Arc](https://thearcfooty.com/2016/07/05/the-top-8-is-tighter-than-ever/), suggests that this is the tightest race we've ever had at this stage of the year. Considering that, anytime two top 8 teams play each other, its going to be [important](http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/).
 
-![round16](http://plussixoneblog.com/wp-content/uploads/2016/07/round16-1.png)[
-](http://plussixoneblog.com/wp-content/uploads/2016/07/importance_R15-1.png)
+![round16](http://plussixoneblog.com/img/2016/07/round16-1.png)[
+](http://plussixoneblog.com/img/2016/07/importance_R15-1.png)
 We've got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams. In fact, in the very short life of our [Match Importance rating](http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/), the Sydney v Geelong clash is the most important game of the season.
 
-![importance_R15](http://plussixoneblog.com/wp-content/uploads/2016/07/importance_R15-1.png)The three most important matches are below:
+![importance_R15](http://plussixoneblog.com/img/2016/07/importance_R15-1.png)The three most important matches are below:
 
 ###### **Port Adelaide v Hawthorn, Thurs 7:20pm Adelaide Oval**
 

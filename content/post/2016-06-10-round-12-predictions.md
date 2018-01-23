@@ -9,7 +9,7 @@ slug: round-12-predictions
 
 Last week was a great week for our model, [tipping all 9 games correctly](http://plussixoneblog.com/2016/06/06/round-11-results/)! Onto this weeks set of games and it looks like a tough round to tip! There are a bunch of games that are difficult to seperate by bookmakers and also by my ELO model.
 
-![round12](http://plussixoneblog.com/wp-content/uploads/2016/06/round12.gif)
+![round12](http://plussixoneblog.com/img/2016/06/round12.gif)
 
 ###### **Port Adelaide v Western Bulldogs, Sat 1:30pm Adelaide Oval**
 
@@ -29,4 +29,4 @@ Even taking away the subplot of big brother versus little brother, the '[battle 
 
 Even games like Melbourne v Collingwood and St Kilda v Carlton promise to be close - my model is perhaps operating the home team chances here due to applying a flat home ground advantage, despite one probably not existing in these Melbourne based games[ref] something I'd like to fix[/ref]. The only real confidence that my model has appears to be losses for the 3 worst sides in my ratings system (Essendon 20%, Brisbane 37% and Gold Coast 31%).
 
-![round12to23](http://plussixoneblog.com/wp-content/uploads/2016/06/round12to23.gif)
+![round12to23](http://plussixoneblog.com/img/2016/06/round12to23.gif)

@@ -10,13 +10,13 @@ slug: round-18-predictions
 
 We've talked for a while about how tight the top 8 is, meaning every game the top 8 play in is important. Interestingly this round, we actually only see two top 8 teams play each other - our likely match of the round in Geelong v Adelaide. Given that Adelaide are [our top rated team ](http://plussixoneblog.com/2016/07/18/round-17-results/) according to our [ELO model](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/) and that match has some big implications as measured by our [match importance rating](http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/), it is setup to be a cracker.
 
-![round18](http://plussixoneblog.com/wp-content/uploads/2016/07/round18.png)
+![round18](http://plussixoneblog.com/img/2016/07/round18.png)
 
 Two of our other higher rating implication games relate to likely the only two teams who may swap places between inside and outside the top 8 in Port Adelaide and North Melbourne. Port need to keep winning to stay in touch, while North can't afford to keep dropping games.
 
 I've outlined some of the bigger games below.
 
-![importance_R18](http://plussixoneblog.com/wp-content/uploads/2016/07/importance_R18.png)
+![importance_R18](http://plussixoneblog.com/img/2016/07/importance_R18.png)
 
 ###### **Collingwood v North Melbourne, Fri 7:50pm Etihad Stadium**
 
@@ -30,6 +30,6 @@ The Bulldogs probably haven't impressed our ELO model as much as their ladder po
 
 Adelaide has been sitting at the top of our ratings for a few weeks now and sit fairly comfortably in 2nd spot of our simulated season. Geelong on the other hand have been disappointing in recent works to our model and have seen their top 4 chances slipping as the season goes by. This week sees them face a 41 percentage point swing in their top 4 chances based on a win or loss. Our model slightly favours Adelaide with Geeling getting over Geelongs HGA ._** Crows by 3 points. **_
 
-![round18ImportanceTable](http://plussixoneblog.com/wp-content/uploads/2016/07/round18ImportanceTable-1.png)[
-](http://plussixoneblog.com/wp-content/uploads/2016/07/round18ImportanceTable.png)[
-](http://plussixoneblog.com/wp-content/uploads/2016/07/round18.png)
+![round18ImportanceTable](http://plussixoneblog.com/img/2016/07/round18ImportanceTable-1.png)[
+](http://plussixoneblog.com/img/2016/07/round18ImportanceTable.png)[
+](http://plussixoneblog.com/img/2016/07/round18.png)

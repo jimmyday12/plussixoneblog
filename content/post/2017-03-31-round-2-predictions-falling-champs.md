@@ -25,7 +25,7 @@ As I mentioned previously, you can always find my up to date Tips, Simulations a
 
 ### Round Predictions
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-5-1024x181.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-5-1024x181.png)
 
 Despite our round 1 difficulties (tipping 4 our 9), our [ELO model](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/) seems pretty confident about most games this week. The final 6 games of a round each give the ELO model favourite >66% chance. As you can see above, that generally coincides with a roughly 4-5 goal predicted margin. The remaining games are all seemingly harder to predict, with <1.5 goal predicted margin between the teams. Interestingly, each of our predicted winners also falls in line with the bookmaker favourites.
 

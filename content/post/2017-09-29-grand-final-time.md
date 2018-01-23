@@ -19,17 +19,17 @@ We can see below that both teams have taken different paths this year. Adelaide 
 
 We can extend these out a bit to try and look at where these teams have come from over the last few years. Adelaide has been on the up since late 2015. The Tigers 2016 season really was terrible! As noted in the media this week - from where they were placed at this point last year it's a pretty meteoric rise.
 
-![plot of chunk paths2](http://plussixoneblog.com/wp-content/uploads/2017/09/paths2-1.png)
+![plot of chunk paths2](http://plussixoneblog.com/img/2017/09/paths2-1.png)
 
 Where do these teams fit in the grand scheme of things? Adelaide is now our clear number one rated team. Richmond has risen the ranks rapidly over the last few weeks to sit in 3rd.
 
-![plot of chunk ratings](http://plussixoneblog.com/wp-content/uploads/2017/09/ratings-1.png)
+![plot of chunk ratings](http://plussixoneblog.com/img/2017/09/ratings-1.png)
 
 ## Prediction
 
 Given these ratings - what are we predicting this match? Well, with a superier rating and the nominal 'home team advantage', we are tipping the Crows by 21. Percentage wise, this equates to a 62.9% probability of a Crows win It has long been a bear bug of my model that I use nominal home team rather than some kind of measure of experience at the ground but nonetheless, it's served me pretty well.
 
-![plot of chunk unnamed-chunk-1](http://plussixoneblog.com/wp-content/uploads/2017/09/unnamed-chunk-1-1-3.png)
+![plot of chunk unnamed-chunk-1](http://plussixoneblog.com/img/2017/09/unnamed-chunk-1-1-3.png)
 
 So there you have it. The Crows have up there in our ratings all year. They are clearly the best performed team of the year. But Richmond is trending rapidly upwards and riding a pretty big surge of emotion! All the best to supporters of both teams. It's been a fun year (even though I've struggled with time) and I look forward to touching base next year. Stay tuned on Twitter for an exciting little project :)
 

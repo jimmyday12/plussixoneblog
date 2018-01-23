@@ -34,7 +34,7 @@ gg<-ggplot(filter(dat, !gf & Season == 2016), aes(x = Date, y = ELO_post, group 
 gg<-addBanner(gg)
 ```
 
-![plot of chunk paths1](http://plussixoneblog.com/wp-content/uploads/2016/09/paths1-1-2.png)
+![plot of chunk paths1](http://plussixoneblog.com/img/2016/09/paths1-1-2.png)
 
 We can extend these out a bit to try to look at where these teams have come from over the last few years. Clearly the storyline of the Bulldogs is one that they have risen rapidly up the ranks. What is less apparent is that the Bulldogs (at least according to our ELO model), actually had that rapid rise last year. They in fact started this year more highly rated than they finished it!
 
@@ -52,7 +52,7 @@ gg<-ggplot(filter(dat, !gf & Season > 2013), aes(x = Date, y = ELO_post, group =
 gg<-addBanner(gg)
 ```
 
-![plot of chunk paths2](http://plussixoneblog.com/wp-content/uploads/2016/09/paths2-1-2.png)
+![plot of chunk paths2](http://plussixoneblog.com/img/2016/09/paths2-1-2.png)
 
 Sydney's form over those years shows just how strong they have been for such a long time.  Apart from a dip towards the end of last year, which coincided with a slew of injuries and Buddy's well publicised time away from football, they have consistently hovered near the heights of traditional premiers. Their current rating is their highest in the last 3 years, while they haven't dropped below average (1500 points) in a long time - more than 6 years to be exact.
 
@@ -75,7 +75,7 @@ dat %>%
 
 So, where are we now with these two teams? Clearly, Sydney is the higher rated team and is going to be a clear favourite in our system. Below is our rating system as it stands after the prelim, with the Bulldogs still sitting down in 7th spot!
 
-![plot of chunk ratings](http://plussixoneblog.com/wp-content/uploads/2016/09/ratings-1-2.png)
+![plot of chunk ratings](http://plussixoneblog.com/img/2016/09/ratings-1-2.png)
 
 Onto this weekend - before predicting this game, I wondered if Grand Finals were different beasts to normal games? My model is 'optimised' just across all games, with no changes for grand final matches. I haven't looked out historical Grand Final performance before. How do we go at predicting them specifically?
 
@@ -92,7 +92,7 @@ gg <- ggplot(filter(dat_home, Round != "GF"), aes(x = PredMarg, y = Margin)) +
 gg <- addBanner(gg)
 ```
 
-![plot of chunk gf](http://plussixoneblog.com/wp-content/uploads/2016/09/gf-1-2.png)
+![plot of chunk gf](http://plussixoneblog.com/img/2016/09/gf-1-2.png)
 
 Pretty good actually! We have correctly tipped more than 85% of Grand Finals, which is above our long-term average of 69%. We have a mean absolute prediction error (MAPE) of 22.6, which again is much better than our long-term MAPE of 26.8. We also clearly have less 'blowout' games in Grand Finals, likely due to the fact that we are more likely to have two 'relatively' event matched teams than in a normal game.
 
@@ -100,4 +100,4 @@ Pretty good actually! We have correctly tipped more than 85% of Grand Finals, wh
 
 Finally - onto our all important prediction. How do we rate the chances for the weekend? Based on these ELO ratings, a team with that big a lead and a nominal home ground advantage[ref]I should really call this home team advantage[/ref], we expect Sydney to comfortably get up. Considering we have a pretty good record in tipping Grand Finals, I'd like to be pretty confident in that tip. But the Bulldogs are, if nothing else, a pretty tantalising story to follow. My head says follow the model, my heart barks like a Dog!
 
-![round27](http://plussixoneblog.com/wp-content/uploads/2016/09/round27-1.png)
+![round27](http://plussixoneblog.com/img/2016/09/round27-1.png)

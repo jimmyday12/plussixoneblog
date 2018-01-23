@@ -13,6 +13,6 @@ As we enter the final round of the year, our [ELO model](http://plussixoneblog.c
 
 That gives us a season total of 136 out of 189 (72%) which means that we only need to tip 3 wins this weekend to beat our season goal of 70%. We would also need a disaster to have a MAPE push outside of a goal of
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-1-5.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2-4.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-3-4.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-1-5.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2-4.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-3-4.png)
 
 #

@@ -18,7 +18,7 @@ I posted our simulations earlier in the week - find them [here](http://plussixon
 This weekend we see that St Kilda v Melbourne has the biggest swing - causing a collective 96% swing in top 8 chances for either team! The Richmond v Geelong game has big impacts on Geelong's minor premiership chances but also both teams Top 4 aspirations.
 
 [
-![](http://plussixoneblog.com/wp-content/uploads/2017/08/importance_R22-1-1024x1003.png)](http://plussixoneblog.com/wp-content/uploads/2017/08/importance_R22-1.png)
+![](http://plussixoneblog.com/img/2017/08/importance_R22-1-1024x1003.png)](http://plussixoneblog.com/wp-content/uploads/2017/08/importance_R22-1.png)
 
 ## Tipping
 
@@ -26,6 +26,6 @@ Onto this weeks tips and we can see that some of those important games are quite
 
 Interestingly, our most important match of the round is also our closest in our predictions! St Kilda v Melbourne has big impacts on both teams finals changes and we are given Melbourne the edge slightly by 8 points, only really due to being the nominal home team.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/08/unnamed-chunk-1-1-2.png) ![](http://plussixoneblog.com/wp-content/uploads/2017/08/afl_m_pred-1024x181.png)
+![](http://plussixoneblog.com/img/2017/08/unnamed-chunk-1-1-2.png) ![](http://plussixoneblog.com/wp-content/uploads/2017/08/afl_m_pred-1024x181.png)
 
 Happy tipping!

@@ -10,7 +10,7 @@ slug: round-14-predictions
 
 Our next bye round, subjectively, doesn't look great on paper. Only the Collingwood v Freo match is considered tight by our [ELO model](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/), however it is fairly insignificant as measured by our [Match Importance](http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/) metric. The remaining matches, despite having some significance on the relevant team finishing positions, look fairly one sided.
 
-![round14](http://plussixoneblog.com/wp-content/uploads/2016/06/round14.gif)
+![round14](http://plussixoneblog.com/img/2016/06/round14.gif)
 
 ###### **Adelaide v North Melbourne, Thurs 7:20pm Adelaide Oval**
 

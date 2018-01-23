@@ -22,7 +22,7 @@ This measure is something I'll report each week but to explore it in this post, 
 
 The table below shows the Importance measure for each team ahead of round 12 for the range of outcomes I typically report in my simulations.
 
-![round12Importance](http://plussixoneblog.com/wp-content/uploads/2016/06/round12Importance.gif)
+![round12Importance](http://plussixoneblog.com/img/2016/06/round12Importance.gif)
 
 Taking the Bulldogs v Port game as an example last week - from the Bulldogs perspective, in simulations where they won that match, they finished top four 64.8% of the time, while in simulations where they lost that match, they finished top four 37.4% of the time. Thus, the relative importance (for top four) for the Bulldogs is 27.5. For Port Adelaide, the match didn't have a big bearing on their top 4 chances (influence score of 8.6), mostly because their chances of making the top 4 are so low anyway, but did have a big bearing on their top 8 chances (influence score of 29).
 
@@ -30,6 +30,6 @@ You'll see from that table that In order to pick an 'influence' score for an act
 
 At least for me, I feel that subjectively, matches that can also have an influence of the make up of the 8 are quite important. As such, I've decided[ref]at least for now, I may end up using 'sum' as we progress through the season[/ref] to take the maximum importance measure for each team across the values in the table above (Top 8, Top 4, Top 2 and Top 1) to give an idea of the maximum effect this result of this match might have on that teams change in position. I'll then add these two values together for the teams taking place to give an idea of the overall match importance.
 
-![round12MatchImportance](http://plussixoneblog.com/wp-content/uploads/2016/06/round12MatchImportance.gif)
+![round12MatchImportance](http://plussixoneblog.com/img/2016/06/round12MatchImportance.gif)
 
 Not surprisingly, the importance of matches is much higher for the better teams in the competition, so it will be interesting to explore how this measure changes over the course of the season. I may also revisit round 12 as, at least the general feeling I had while watching and reading about it, it seemed like quite an important one!

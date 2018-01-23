@@ -15,7 +15,7 @@ After a good week last week ([my ELO model tipped 8 out 9 in a tough round](http
 
 As like every week, we now have a new leader in our ratings! It seems like ELO favouritism doesn't bode well so tip GWS with caution! Adelaide were probably the big losers from their big upset loss to the Hawks but given our tips were pretty accurate, there wasn't a whole lot of movement in our tipping table.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/06/ratings_plot-1-5.png)
+![](http://plussixoneblog.com/img/2017/06/ratings_plot-1-5.png)
 
 ## Simulations
 
@@ -25,19 +25,19 @@ Adelaide's loss also opened up Melbourne and Port's top 4 chances, each jumping 
 
 We are finally starting to trim some teams from realistic finals chances! The list of teams with >10% chance of making it is down to 11 (down from 15 last week!). Unfortunately, of those 11 teams, 10 of them have >48 chance of making it! Those final spots remain very tightly contested.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/simSeas-14-1024x919.png)
+![](http://plussixoneblog.com/img/2017/03/simSeas-14-1024x919.png)
 
 ## Tips
 
 This week again proves to be very difficult to tip! With so many teams close in our ratings, there continues to be a significant number of close matchups. 3 of our games are basically coin tosses! Melb v Syd, Bulldogs v West Coast and Hawthorn v Collingwood can't be separated by more than 2 points!
 
 I'm a lone wolf against Melbourne over at [The Squiggle](http://squiggle.com.au) tonight, which is the opposite of last week. What a strange season! [
-](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-18.png)
+](http://plussixoneblog.com/img/2017/03/afl_m_pred-18.png)
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-19-1024x181.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-19-1024x181.png)
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/06/unnamed-chunk-1-1-3.png)
+![](http://plussixoneblog.com/img/2017/06/unnamed-chunk-1-1-3.png)
 
 [
-](http://plussixoneblog.com/wp-content/uploads/2017/06/unnamed-chunk-1-1-2.png)[
-](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-17.png)
+](http://plussixoneblog.com/img/2017/06/unnamed-chunk-1-1-2.png)[
+](http://plussixoneblog.com/img/2017/03/afl_m_pred-17.png)

@@ -14,6 +14,6 @@ Unfortunately I didn't get a chance to review the round last week (or post predi
 
 <!-- more -->
 
-![plot of chunk unnamed-chunk-3](http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-3-1-2.png)
+![plot of chunk unnamed-chunk-3](http://plussixoneblog.com/img/2016/09/unnamed-chunk-3-1-2.png)
 
 For the record, based on these ratings my system tipped Sydney by 2 points (51% chance of winning) and the Giants by 25 points (64% chance of winning).

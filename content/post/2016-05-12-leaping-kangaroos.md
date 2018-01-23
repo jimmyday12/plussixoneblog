@@ -14,7 +14,7 @@ They are also a good chance to extend their 'perfect' start to the season[ref]At
 
 Firstly, I've plotted below the distribution of games before we have a team that 'loses' its perfect record. In other words, how many rounds did it take until we had no more undefeated teams left in the season. As we can see, for most seasons, this falls within the range of around 4-6 wins.
 
-![LastManStanding](http://plussixoneblog.com/wp-content/uploads/2016/05/LastManStanding.gif)
+![LastManStanding](http://plussixoneblog.com/img/2016/05/LastManStanding.gif)
 
 In fact, across 119 seasons of VFL/AFL, only 26 teams have started the season with a better record than North Melbourne's current streak of 7. They are shown below.
 
@@ -26,7 +26,7 @@ Clearly, there are three standouts -
 
   * Collingwood's 1929 season, [still the only "perfect" season in VLF/AFL history](https://en.wikipedia.org/wiki/1929_VFL_season), albeit from an 18 game season.
 
-![bestStarts](http://plussixoneblog.com/wp-content/uploads/2016/05/bestStarts.gif)
+![bestStarts](http://plussixoneblog.com/img/2016/05/bestStarts.gif)
 
 Given North Melbournes two lowly upcoming opponents, they should certainly be confident of continuing this run. This week we give them a 73% chance of winning. The biggest stumbling block is obviously Sydney in round 10 (currently rank 3rd on my rankings). You can see the rest of season simulations [here](http://plussixoneblog.com/2016/05/12/simulating-the-season/).
 

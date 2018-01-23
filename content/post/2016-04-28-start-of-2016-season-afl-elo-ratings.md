@@ -11,6 +11,6 @@ Throughout the year, I'm hoping to use my ELO ratings system to predict results 
 
 Granted I'm writing this after round 5 and a fair bit has happened in the AFL already (such as [Freo, Port, Collingwood and Richmond all sucking](http://www.foxsports.com.au/the-crowd/ross-lyon-ken-hinkley-damien-hardwick-and-nathan-buckley-all-under-the-pump-after-poor-starts/news-story/fc5c429ce75d9e7a11aa2cc1f7f09850)) but I wanted to have this post as a record of what my model thought at the start of the year. These ratings essentially are our end of year ratings for 2016, regressed toward the mean rating of 1500.
 
-![ELO_preR1](http://plussixoneblog.com/wp-content/uploads/2016/04/ELO_preR1.gif)
+![ELO_preR1](http://plussixoneblog.com/img/2016/04/ELO_preR1.gif)
 
 I may also update this post later with some simulations for the season but this is enough for now!

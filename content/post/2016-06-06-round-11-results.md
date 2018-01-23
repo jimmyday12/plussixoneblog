@@ -14,12 +14,12 @@ Anyway, after 4 weeks in a row tipping 6 out of 9 winners, my [ELO model ](http:
 
 The updated ELO ratings are below and, for the first time since Hawthorn lost the 2014 Grand Final, they are no longer the top team in our ratings! With Adelaide's trashing of the Saints, and Hawthorn not putting Melbourne away by as much as expected, the Crows leapfrogged the Hawks into top spot! Port Adaide and North Melbourne also impressed our model, bridging the gap to the other top teams, with a relatively close group of 9 teams now clear of the rest of the pack.
 
-![ELO_postR11](http://plussixoneblog.com/wp-content/uploads/2016/06/ELO_postR11.gif)
+![ELO_postR11](http://plussixoneblog.com/img/2016/06/ELO_postR11.gif)
 
 Our simulated ladder still favours Sydney, obviously taking into account their rating of 3rd, their current record and remaining draw, with North Melbourne also jumping up into 2nd spot by average. The model still has trouble splitting the make up of the top 8, but is getting pretty certain that no-one apart from Port Adelaide can jump up into the 8. For Port, their win on the weekend gave them a nice bump in ratings and lifted their percentage of top 8 finishes to 45% in our rating system.
 
-![round12to23](http://plussixoneblog.com/wp-content/uploads/2016/06/round12to23.gif)
+![round12to23](http://plussixoneblog.com/img/2016/06/round12to23.gif)
 
 We are also starting to see some different shapes emerge in our distribution plots for seasons, essentially signalling that the model is more certain about where some teams will finish than others. Hawthorn and North, for example, despite winning on the same amount of wins, show different distribution shapes. It will be interesting to see how this changes during the season.
 
-![round11SimDist](http://plussixoneblog.com/wp-content/uploads/2016/06/round11SimDist.gif)
+![round11SimDist](http://plussixoneblog.com/img/2016/06/round11SimDist.gif)

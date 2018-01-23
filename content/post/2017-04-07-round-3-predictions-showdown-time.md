@@ -19,7 +19,7 @@ Our model is predicting some pretty one sided affairs this week. Only 2 games ha
 
 [Current Tips and Predictions](http://plussixoneblog.com/current-afl-mens-ratings-predictions/) | [Squiggle](http://squiggle.com.au)
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-6-1024x181.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-6-1024x181.png)
 
 Below are a couple of selected interesting games involving two close matchups.
 

@@ -18,7 +18,7 @@ After chopping and changing a fair bit over the season, Adelaide finally holds o
 
 The Bulldogs, Hawthorn and Richmond all managed to peak just above average this week, with Hawthorns late season rise impressive. Brisbane is also continuing to close to gap to 2nd last place. I find the relatively equal step size down from 12th to 18th rather nice!
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/07/ratings_plot-1-3.png)
+![](http://plussixoneblog.com/img/2017/07/ratings_plot-1-3.png)
 
 ## Simulations
 
@@ -34,7 +34,7 @@ The remainder of the 8 is becoming clearer. We now have 8 teams with relatively 
 
 The best chance to jump into that are West Coast, Bulldogs and Saints, although those chances are slipping. Hawthorn fans, you still remain a small chance to jump in at 6%. Collingwood and Fremantle fans can also hold a little bit of hope. Outside of that, our model has ruled out Gold Coast, North Melbourne, Carlton and the Lions from calculations.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/simSeas-16-1024x702.png)
+![](http://plussixoneblog.com/img/2017/03/simSeas-16-1024x702.png)
 
 Onto our early finals simulations. Adelaide makes the Grand Final just over half of all simulations. They are also our flag favourites, winning the big dance 31% of the time. Outside of that, we actually have GWS as our premiership favourite, followed by Geelong and Sydney.
 
@@ -49,4 +49,4 @@ Onto this weeks tips! There are some relatively one sided matchups this week (at
 Happy tipping!
 
 [
-![](http://plussixoneblog.com/wp-content/uploads/2017/07/afl_m_pred-1024x181.png)](http://plussixoneblog.com/wp-content/uploads/2017/07/afl_m_pred.png)
+![](http://plussixoneblog.com/img/2017/07/afl_m_pred-1024x181.png)](http://plussixoneblog.com/wp-content/uploads/2017/07/afl_m_pred.png)

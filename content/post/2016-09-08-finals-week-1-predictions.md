@@ -11,5 +11,5 @@ A quick post here as I've run out of time to do a preview. Will try get one up b
 
 <!-- more -->
 
-[![round24](http://plussixoneblog.com/wp-content/uploads/2016/09/round24.png)
-](http://plussixoneblog.com/wp-content/uploads/2016/09/round24.png)
+[![round24](http://plussixoneblog.com/img/2016/09/round24.png)
+](http://plussixoneblog.com/img/2016/09/round24.png)

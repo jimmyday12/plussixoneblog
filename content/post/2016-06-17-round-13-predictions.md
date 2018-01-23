@@ -9,11 +9,11 @@ slug: round-13-predictions
 ---
 
 The first bye round of the year presents us with two groups of games - coin flip's in the North/Hawks, Freo/Port and Bulldogs/Geelong games, while the others the ELO model expects to be relative blowouts. You'll also notice that I've added 'match importance' to the table below, which you can read about in my [recent blog post](http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/).
-![round13](http://plussixoneblog.com/wp-content/uploads/2016/06/round13.gif)
+![round13](http://plussixoneblog.com/img/2016/06/round13.gif)
 
 I'll summarise some of the important games below.
 
-![Round13MatchImportance](http://plussixoneblog.com/wp-content/uploads/2016/06/Round13MatchImportance.gif)
+![Round13MatchImportance](http://plussixoneblog.com/img/2016/06/Round13MatchImportance.gif)
 
 ###### **North Melbourne v Hawthorn, Fri 7:40pm Etihad Stadium**
 

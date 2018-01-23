@@ -47,7 +47,7 @@ $latex Result_{actual} = \frac{1}{1 + e(-0.05 * Margin)} &bg=f0f0f0$
 
 The mapping of those results is below. Essentially, my model rewards winning by bigger margins, but with diminishing returns. The difference between a 70 and 80 point win is less than the difference between a 5 and a 15 point win. Again, this isn't based on anything other than some creative license on my behalf based on the shape of the curve and by some sage advice in the previously mentioned Matter of Stats post.
 
-![eloAct](http://plussixoneblog.com/wp-content/uploads/2016/04/eloAct.gif)
+![eloAct](http://plussixoneblog.com/img/2016/04/eloAct.gif)
 
 ###### Predicted Result
 
@@ -61,7 +61,7 @@ The two main parameters we can set are M and HGA. M is a constant that scales th
 
 You can see, for a range of rating differences (including HGA), the expected outcome. This expected outcome is also what I currently use as my probability[ref] I'm looking to change this for next year, likely to actually model historical ELO rating differences on probability of winning [/ref], so an expected outcome of 0.75 equates to a 75% chance of winning.
 
-![expOutcome](http://plussixoneblog.com/wp-content/uploads/2016/04/expOutcome.gif)
+![expOutcome](http://plussixoneblog.com/img/2016/04/expOutcome.gif)
 
 ###### Special K
 
@@ -79,8 +79,8 @@ $latex ELO_{New Seas} = (0.6\times ELO_{Old Seas}) + ((1-0.6)\times 1500) &bg=f0
 
 Now that I've got that out of the way, I can go through each match in the period of the VFL/AFL and get ELO ratings for each team! Below I've plotted each teams ratings over their history. There will be a few posts later on (and, one day, an interactive page) to explore these ratings, but this gives a bit of an idea. I've added a line at 1500 to show where a team is rated compared to the league average.
 
-![teams](http://plussixoneblog.com/wp-content/uploads/2016/04/teams.gif)
+![teams](http://plussixoneblog.com/img/2016/04/teams.gif)
 
 I also can use the ELO difference before each game to predict the binary outcome (win/loss), the margin and also a probability. I plan to write another piece on that, but for now, I can report that across the entire history of VFL/AFL, the model has tipped 68.6% of games correctly, with a Mean Absolute Error in the Margin of 26.8 points. We can see that the performance is in general getting worse over time - possibly due to expansion of the league (i.e. more games to get wrong).
 
-![mapeandtips](http://plussixoneblog.com/wp-content/uploads/2016/04/mapeandtips.gif)
+![mapeandtips](http://plussixoneblog.com/img/2016/04/mapeandtips.gif)

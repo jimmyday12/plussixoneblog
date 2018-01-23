@@ -16,9 +16,9 @@ The round total of 8 out of 9 came with a mean absolute prediction error (MAPE) 
 
 The following two plots outline how the performance of these two metrics have tracked over the season.
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-1.png)
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-2.png)
 
 Below I've plotted our expected margin against our actual margin. The line on the graph shows what we would expect if our model was perfect. I'll likely use this plot in the off-season to improve the model performance, but will continue to report it.
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-3.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-3.png)

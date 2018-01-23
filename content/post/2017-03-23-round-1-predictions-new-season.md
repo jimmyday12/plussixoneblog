@@ -17,7 +17,7 @@ This year, I'll be changing things a little to have a central place for all rati
 
 For those who are used to my normal tips - I'll include them below.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-4-1024x181.png)
+![](http://plussixoneblog.com/img/2017/03/afl_m_pred-4-1024x181.png)
 
 _(edit: The original version of this had slightly incorrect numbers for the Margin. Fixed Thursday night (Richmond changed from 9 points to 3 points so didn't help!))_
 

@@ -12,10 +12,10 @@ Last weekend I managed to tip 6 out of 9, with an MAE of 31.2. A bit better than
 
 Here are my Round 8 predictions, based on my [ELO predictions](http://plussixoneblog.com/elo-rating-system/)[ref] I promise I have started writing the methodology[/ref]. I wrote about how there is a [big gap currently in my ratings between the 8th placed North Melbourne and the 9th placed Port Adelaide](http://plussixoneblog.com/2016/05/12/simulating-the-season/). Interestingly this week, apart from the Friday night matchup between Adelaide and Geelong, the other top 8 teams in my rankings are all playing against teams below them. My ELO ratings do reward 'better than expected' performances, so it doesn't necessarily mean that if each of those teams wins then the gap will widen, but it is an interesting quirk nonetheless.
 
-![ELOpreR8](http://plussixoneblog.com/wp-content/uploads/2016/05/ELOpreR8.gif)
+![ELOpreR8](http://plussixoneblog.com/img/2016/05/ELOpreR8.gif)
 
-![round8](http://plussixoneblog.com/wp-content/uploads/2016/05/round8-1.gif)
+![round8](http://plussixoneblog.com/img/2016/05/round8-1.gif)
 
 And finally, I published yesterday my [rest of season simulations](http://plussixoneblog.com/2016/05/12/simulating-the-season/), but here are those tables for reference here.
 
-![finalR7to23_2016C](http://plussixoneblog.com/wp-content/uploads/2016/05/finalR7to23_2016C.gif)
+![finalR7to23_2016C](http://plussixoneblog.com/img/2016/05/finalR7to23_2016C.gif)

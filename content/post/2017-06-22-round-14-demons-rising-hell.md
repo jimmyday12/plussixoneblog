@@ -20,7 +20,7 @@ Probably the two most notable movements have been Melbourne and the Bulldogs. Th
 
 On the opposite end are our reigning premiers in the Bulldogs who continue their free fall. They've now dropped out of the top 8 ranked teams and are almost below the dreaded 'average team' marker of 1500.
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/06/ratings_plot-1-4.png)
+![](http://plussixoneblog.com/img/2017/06/ratings_plot-1-4.png)
 
 ## Simulations
 
@@ -30,7 +30,7 @@ Those 3 teams still dominate our top 4 calculations, although Geelong again slip
 
 Lastly, to our finals race! The Giants, Crows and Cats look pretty safe. Our next tier sees Port, Melbourne, Richmond and West coast all finish in the top 8 between 63% and 78% of the time. A third tier of teams in Essendon, Bulldogs and Sydney are all 50/50 prospects while the Saints (32%) and Collingwood (20%) still appear in their fair share of finals! We will probably start to see those chances fall away for the rest of the teams but that is still 12 teams with a >20% of making it!
 
-![](http://plussixoneblog.com/wp-content/uploads/2017/03/simSeas-13-1024x919.png)
+![](http://plussixoneblog.com/img/2017/03/simSeas-13-1024x919.png)
 
 ## Tips
 
@@ -40,5 +40,5 @@ The most interesting of these is probably the Port Adelaide v Collingwood game -
 
 I also seem to be the lone range tipping the Demon's over at West Coast!
 
-[](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-17.png)![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-18-1024x181.png)![](http://plussixoneblog.com/wp-content/uploads/2017/06/unnamed-chunk-1-1-2.png)[
-](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-17.png)
+[](http://plussixoneblog.com/img/2017/03/afl_m_pred-17.png)![](http://plussixoneblog.com/wp-content/uploads/2017/03/afl_m_pred-18-1024x181.png)![](http://plussixoneblog.com/wp-content/uploads/2017/06/unnamed-chunk-1-1-2.png)[
+](http://plussixoneblog.com/img/2017/03/afl_m_pred-17.png)

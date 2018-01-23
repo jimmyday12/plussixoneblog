@@ -15,4 +15,4 @@ As we touched upon in [last weeks predictions](http://plussixoneblog.com/2016/08
 
 These results give us a season total of 129 out of 180 (71.7%), with a MAPE of 29.4
 
-![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-1-3.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2-2.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-3-2.png)
+![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-1-3.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-2-2.png)![plot of chunk unnamed-chunk-2](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-2-3-2.png)

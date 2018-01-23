@@ -14,8 +14,8 @@ Nonetheless, my season results for the ELO model (understanding I haven't made t
 
 It is with some trepidation then that I release my round 7 predictions, based on my [ELO predictions](http://plussixoneblog.com/elo-rating-system/)[ref] I endeavour to write up my methodology over the weekend![/ref].
 
-![round7](http://plussixoneblog.com/wp-content/uploads/2016/05/round7.gif)
+![round7](http://plussixoneblog.com/img/2016/05/round7.gif)
 
 Here are our current ELO ratings
 
-[![ELOpreR7](http://plussixoneblog.com/wp-content/uploads/2016/05/ELOpreR7.gif)](http://plussixoneblog.com/wp-content/up<a href=)
+[![ELOpreR7](http://plussixoneblog.com/img/2016/05/ELOpreR7.gif)](http://plussixoneblog.com/wp-content/up<a href=)

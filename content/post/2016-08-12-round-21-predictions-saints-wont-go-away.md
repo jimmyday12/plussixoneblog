@@ -12,13 +12,13 @@ While I keep writing that our top 8 [has been set for awhile](http://plussixoneb
 
 ### Round Predictions
 
-![round21](http://plussixoneblog.com/wp-content/uploads/2016/08/round21.png)
+![round21](http://plussixoneblog.com/img/2016/08/round21.png)
 
 The [ELO model](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/) is relatively confident in most matches this week. With our only top 8 matchups (Hawthron v Kangaroos and GWS v West Coast) coming between teams at the top of the rankings versus those near the bottom, we see a fairly big discrepancy in relative rankings this week. In fact, the discrepancy is so big that 5 of our matches are predicting relatively comfortable wins to the away team, despite [our HGA boost](http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/). Next week I might take a look at how well my model historically does during this period but it could be argued - [as Figuring Footy has](http://figuringfooty.com/2016/08/12/2016-round-21-tips-and-predictions/) - that there is a lot more noise during these periods as teams start playing for different reasons other than making finals.
 
 ### Match Importance
 
-![plot of chunk unnamed-chunk-5](http://plussixoneblog.com/wp-content/uploads/2016/08/unnamed-chunk-5-1-3.png)
+![plot of chunk unnamed-chunk-5](http://plussixoneblog.com/img/2016/08/unnamed-chunk-5-1-3.png)
 
 **St Kilda v Sydney, Sat 7:25pm, Etihad.**
 
