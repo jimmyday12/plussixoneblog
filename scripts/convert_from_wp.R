@@ -1,7 +1,7 @@
 xml_file = 'plussixone.xml'
 
 old_url = 'https?://plussixoneblog.com'
-new_url = 'https://plussixone.netlify.com'
+new_url = 'https://plussixoneblog.com'
 
 
 # use the new domain
@@ -38,6 +38,11 @@ for (f in files) {
   # possible Unicode characters that yaml::yaml.load cannot handle (e.g. emoji)
   blogdown:::process_file(f, function(x) {
     gsub('(\\\\u[A-Z0-9]{4})+', '', x)
+  })
+  
+  # Fix URLS
+  blogdown:::process_file(f, function(x) {
+    str_replace(x, "wp-content/uploads", "img")
   })
   
   # clean up YAML
@@ -141,7 +146,6 @@ for (f in files) {
   blogdown:::remove_extra_empty_lines(f)
 }
 
-# old permalinks
 links1 = local({
   x = readLines(xml_file)
   r = paste0('\\s*<link>', new_url, '/(.*)</link>\\s*')
