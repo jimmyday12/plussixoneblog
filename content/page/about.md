@@ -2,15 +2,23 @@
 title: About me
 subtitle: Why you'd want to go on a date with me
 comments: false
+author: James Day
+date: 2016-04-26 00:09:36+00:00
+link: http://plussixoneblog.com/about/
+slug: about
 ---
 
-My name is Inigo Montoya. I have the following qualities:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+This site is very much under construction.
 
-What else do you need?
+I am a data loving Biomechanist by trade. I graduated from my PhD in 2016 form the University of Queensland. I'm currently currently working in Sports Science Research and Development at a Brisbane based sports technology company, [Fusion Sport](https://www.fusionsport.com).
 
-### my history
+I'm using this blog mostly to develop better skills in data science, in particular using R, developing visualisations and understanding various machine learning techniques. I am also obsessed with AFL. 
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Much of my inspiration, as you will probably notice, comes from Nate Silver's growing giant in Sports Analytics, [FiveThirtyEight](http://fivethirtyeight.com). Many thanks also to Tony Corke from [Matter of Stats](https://mafl-online.squarespace.com), whose fantastic website gave me many ideas for creating my [ELO model](http://plussixoneblog.com/elo-rating-system/). 
+
+All thoughts, opinion and content is my own. Although I deal with various sporting organisations in Australia through my job, all data will be openly sourced and referenced. 
+
+This site is for non-commercial purposes only. I don't make any money from the site, either from advertising, or by gambling based on my predictions. 
+
+All graphs are build with the fantastic ggplot2 package, with heavy lifting done mostly by other packages from Hadley Wickham's [tidyverse](http://tidyverse.org). Most of the data comes from [afltables](http://afltables.com/afl/afl_index.html), unless otherwise specified.
