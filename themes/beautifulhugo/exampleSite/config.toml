@@ -1,8 +1,7 @@
-baseurl = "https://plussixoneblog.com/"
+baseurl = "https://username.github.io"
 DefaultContentLanguage = "en"
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 #DefaultContentLanguage = "ja"
-title = "plusSixOne"
+title = "Beautiful Hugo"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
@@ -11,11 +10,11 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
-disqusShortname = "plussixone"
-googleAnalytics = "UA-77406420-1"
+#disqusShortname = "XXX"
+#googleAnalytics = "XXX"
 
 [Params]
-  subtitle = "Data driven exploration of Australian Sport"
+  subtitle = "Build a beautiful and simple website in minutes"
   logo = "img/avatar-icon.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
@@ -39,28 +38,28 @@ googleAnalytics = "UA-77406420-1"
 #  desc = "Hexagon"
 
 [Author]
-  name = "James Day"
-  website = "plussixoneblog.com"
-  email = "jamesthomasday@gmail.com"
-  facebook = "plussixoneblog"
-  # googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
-  github = "jimmyday12"
-  # gitlab = "username"
-  twitter = "plusSixOneblog"
-  # reddit = "username"
+  name = "Some Person"
+  website = "yourwebsite.com"
+  email = "youremail@domain.com"
+  facebook = "username"
+  googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
+  github = "username"
+  gitlab = "username"
+  twitter = "username"
+  reddit = "username"
   linkedin = "username"
-  # xing = "username"
-  # stackoverflow = "users/XXXXXXX/username"
-  # snapchat = "username"
-  # instagram = "username"
-  # youtube = "user/username" # or channel/channelname
-  # soundcloud = "username"
-  # spotify = "username"
-  # bandcamp = "username"
-  # itchio = "username"
-  # vk = "username"
-  # paypal = "username"
-  # telegram = "username"
+  xing = "username"
+  stackoverflow = "users/XXXXXXX/username"
+  snapchat = "username"
+  instagram = "username"
+  youtube = "user/username" # or channel/channelname
+  soundcloud = "username"
+  spotify = "username"
+  bandcamp = "username"
+  itchio = "username"
+  vk = "username"
+  paypal = "username"
+  telegram = "username"
 
 [[menu.main]]
     name = "Blog"
