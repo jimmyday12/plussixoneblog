@@ -96,6 +96,6 @@ googleAnalytics = "UA-77406420-1"
     weight = 3
 
 [[menu.main]]
-    name = "Tags"
-    url = "tags"
+    name = "Categories"
+    url = "categories"
     weight = 3
