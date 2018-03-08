@@ -1,0 +1,34 @@
+---
+title: Simulating the 2018 Season
+author: James Day
+date: '2018-03-12'
+slug: simulating-the-2018-season
+categories:
+  - AFL
+  - Simulation
+tags: []
+---
+
+"Training the house down" is definately not an addage that has applied to me this off-season. Despite the best intentions, I've left it to the final moment to start getting some content for the new season. In fairness, a lot of work behind the scenes has been happening...
+
+
+```{r setup, include=FALSE}
+library(scales)
+library(formattable)
+library(DT)
+
+```
+
+```{r data, echo = FALSE}
+# Load Historical Data
+
+# Add new results
+
+# Process new ELO
+
+# Get Fixture
+ 
+```
+
+
+```{r simulations, echo = FALSE}
