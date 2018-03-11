@@ -1,4 +1,4 @@
-
+library(tidyverse)
 
 x <- datNew %>%
   filter(Season == 2017) 
@@ -17,4 +17,18 @@ dat.2017 <- x %>%
   select(Game:Venue, Home, Away, Margin, everything()) %>%
   mutate(Season.Game = Game - min(x$Game) + 1)
 
+# Create phone results
+results <- dat.2017 %>%
+  filter(RoundNum < 5)
+
+fixture <- dat.2017 %>%
+  filter(RoundNum >= 5) %>%
+  select(Game:Away)
+
+  current_elo <- x %>%
+    group_by(Team) %>% 
+    filter(RoundNum < 5) %>%
+    filter(TeamSeasGame == max(TeamSeasGame)) %>%
+    select(Team, ELO_post) %>%
+    rename(ELO = ELO_post)
   

@@ -1,129 +1,63 @@
 simSeason <- function(fixture, 
-                      results = data.frame(),
-                      current_elo = data.frame(),
-                      season = 2017, seasons = 10000){
-  library(tidyverse)
-  library(purr)
+                      team_elo = data.frame(),
+                      simulation = 1){
   
-  # Script to simulate a season
-  #For each row
-  # a) take ELO_pre for each to simulate a margin/Result using rnorm
-  # b) use that margin to update ELO
-  # #After season simulated, calc Total Wins, PointsDiff
-  #rm(list = ls()) #remove all items from environment
-
-  # Get first game
-  if(is_empty(results)) {
-    first_game <- 1
-  } else {
-    first_game <- max(results$Season.Game)
-  }
+  message("Simulating season", simulation)
+  simulated_results <- tibble()
   
-  
-  
-  
-  
-  
-  
-  # Set data frames
-  # Want to insert current 2016 data into this, based on Start Rnd. 
-  seasDat <- seasDat     
-  simDat <- data.frame(Team=character(), Wins=integer(), Margin=numeric(),Simulation=integer(), stringsAsFactors=FALSE) 
-  
-  # Create progress bar
-  pb <- tkProgressBar(title = "progress bar", min = 0,
-                      max = seasons, width = 300)
-  
-  
-  # Simulations
-  ## Start timer
-  ptm <- proc.time()
-  for (j in 1:seasons){
-    
-    # Update progress bar
-    
-    Sys.sleep(0.1)
-    setTkProgressBar(pb, j, label=paste( round(j/seasons*100, 0),
-                                         "% done"))
-    
     # Get data
-    dat <- filter(seasDat,Round>=strtRnd & Round <= endRnd) #reset data to raw season dat
-    numGms <- nrow(dat)/2
-    for (i in 1:numGms){
+    for (i in seq_along(fixture$Game)){
       
-      gameNum <- dat$Game[i]
-      rowHome <- i*2
-      rowAway <- (i*2) -1
+      # get game details
+      game <- fixture[i,]
       
-      # Get team names
-      HomeTeam <- dat$Team[rowHome]
-      AwayTeam <- dat$Team[rowAway]
+      # Find elo diff
+      game$home_elo <- team_elo$ELO[(team_elo$Team == game$Home)]
+      game$away_elo <- team_elo$ELO[(team_elo$Team == game$Away)]
+      elo_diff <- game$home_elo - game$away_elo + HGA
       
-      # Get game number for team
-      HomeGame <- dat$TeamSeasGame[rowHome]
-      AwayGame <- dat$TeamSeasGame[rowAway]
-      
-      
-      ## Now we can perform calculations
-      
-      # First find expected outcomes
-      eloHome <- dat$ELO_pre[rowHome] # Get ELO home ratings
-      eloAway <- dat$ELO_pre[rowAway] # Get ELO away ratings
-      eloDiff <- eloHome + HGA - eloAway # Calculate ELO Diff
-      
-      # Find expected outcome
-      expOut <- eloExpOutcome(eloDiff,M)
-      
-      # Convert expected outcome to expected Margin
-      expMarg <- eloExpMarg(eloDiff,M,actualRate)
-      expRes <- expMarg > 0 #if margin is greater than zero, Res = True = Win
+      # Find expected outcome based on elo
+      exp_margin <- find_expected_margin(elo_diff, M)
       
       # sample from rnorm of mean marg and historical SD
-      predMargin <- rnorm(1,expMarg,sd=marginSD)
-      predRes <- predMargin > 0 #if margin is greater than zero, Res = True = Win
+      game$margin <- round(rnorm(1, exp_margin, sd = 41))
+
+      team_elo$ELO[(team_elo$Team == game$Home)] <- update_elo(game$margin, home_elo, away_elo)
+      team_elo$ELO[(team_elo$Team == game$Away)] <- update_elo(game$margin, home_elo, away_elo, returns = "away")
       
-      # First normalises actual Outcome between 0 and 1, slightly squashed so that
-      # there are diminishing gains at higher levels.
-      actOut <- eloActOutcome(predMargin,B=actualRate) 
-      
-      # find Margin of Victory Multiplier
-      MOV <- eloMargOfVic(eloDiff,predMargin)
-      
-      # Expected outcome is for home team. Away team is the negative of it, since
-      # ELO is zero sum
-      eloChange <- round((k*MOV*(actOut - expOut)))
-      
-      # Set the new ELO value
-      dat$ELO_post[rowHome] <- eloHome + eloChange
-      dat$ELO_post[rowAway] <- eloAway - eloChange
-      
-      ## Set the predictions
-      dat$PredRes[rowHome] <- expRes
-      dat$PredRes[rowAway] <- !expRes
-      dat$PredMarg[rowHome] <- expMarg
-      dat$PredMarg[rowAway] <- -expMarg
-      dat$PredOut[rowHome] <- expOut
-      dat$PredOut[rowAway] <- 1-expOut
-      
-      # Set the predictions
-      dat$Result[rowHome] <- predRes
-      dat$Result[rowAway] <- !predRes
-      dat$Margin[rowHome] <- predMargin
-      dat$Margin[rowAway] <- -predMargin
-      
-      ## Set next ELO values
-      # home team
-      homeInd <- dat$Team == HomeTeam & dat$TeamSeasGame == HomeGame + 1
-      dat$ELO_pre[homeInd] <- eloHome + eloChange
-      
-      # away team
-      awayInd <- dat$Team == AwayTeam & dat$TeamSeasGame == AwayGame + 1
-      dat$ELO_pre[awayInd] <- eloAway - eloChange
-      
-      
+      simulated_results <- simulated_results %>%
+        bind_rows(game)
     }
-    
-    
+  
+  simulated_results <- simulated_results %>%
+    mutate(sim_number = simulation)
+  
+  return(simulated_results)
+}   
+
+library(tidy)
+
+fixture <- dat.2017 %>%
+  filter(RoundNum >= 5) %>%
+  select(Game:Away)
+
+current_elo <- x %>%
+  group_by(Team) %>% 
+  filter(RoundNum < 5) %>%
+  filter(TeamSeasGame == max(TeamSeasGame)) %>%
+  select(Team, ELO_post) %>%
+  rename(ELO = ELO_post)
+
+library(purrr)
+sims <- 1:5
+simdf <- map_df(sims, ~ simSeason(fixture, team_elo = current_elo, simulation = .x))
+
+
+
+
+
+
+
     sim <- group_by(dat,Team) %>% 
       summarise(Wins = sum(as.logical(Result)),
                 Margin = sum(Margin),
