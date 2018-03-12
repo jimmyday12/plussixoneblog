@@ -7,6 +7,7 @@ categories:
   - AFL
   - Simulation
 tags: []
+draft: true
 ---
 
 "Training the house down" is definately not an addage that has applied to me this off-season. Despite the best intentions, I've left it to the final moment to start getting some content for the new season. In fairness, a lot of work behind the scenes has been happening...
