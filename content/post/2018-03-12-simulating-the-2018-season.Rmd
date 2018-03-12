@@ -20,7 +20,7 @@ library(fitzRoy)
 
 ```
 
-```{r get_data}
+```{r get_data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Download Historical data
 hist <- fitzRoy::get_match_results()
 
@@ -31,12 +31,12 @@ hist <- fitzRoy::get_match_results()
 
 
 ```
-```{r get_fixture}
+```{r get_fixture, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Get Fixture
 fixture <- fitzRoy::get_fixture()
 ```
 
-```{r simulations}
+```{r simulations, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Create simulations - we want to do 10k
 sims <- 1:10000
 
@@ -55,7 +55,7 @@ sims_df <- sims %>%
 ```
 
 
-```{r}
+```{r test, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
 # Conmbine with existing
 
