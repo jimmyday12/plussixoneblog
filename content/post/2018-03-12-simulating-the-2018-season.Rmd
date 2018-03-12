@@ -13,22 +13,52 @@ tags: []
 
 
 ```{r setup, include=FALSE}
-library(scales)
-library(formattable)
-library(DT)
+library(purrr)
+library(tidyverse)
+library(fitzRoy)
 
 ```
 
-```{r data, echo = FALSE}
-# Load Historical Data
-
-# Add new results
+```{r get_data}
+# Download Historical data
+hist <- fitzRoy::get_match_results()
 
 # Process new ELO
 
+# Get current ELO
+
+
+
+```
+```{r get_fixture}
 # Get Fixture
- 
+fixture <- fitzRoy::get_fixture()
+```
+
+```{r simulations}
+# Create simulations - we want to do 10k
+sims <- 1:10000
+
+# Start the progress bar
+pb <- progress_estimated(length(sims))
+
+# Call map_df to perform all the simulations
+sims_df <- sims %>%
+  map_df(~{
+    pb$tick()$print() # update the progress bar (tick())
+    fitzRoy::simulate_season(fixture, team_elo = current_elo, simulation = .x) # do function
+  })
+
+
+
 ```
 
 
-```{r simulations, echo = FALSE}
+```{r}
+
+# Conmbine with existing
+
+# Summarise wins
+# Calculate Rank
+# Calculate Percentage of finishing positions
+```
