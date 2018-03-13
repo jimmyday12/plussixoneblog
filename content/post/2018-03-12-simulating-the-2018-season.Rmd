@@ -17,17 +17,22 @@ draft: true
 library(purrr)
 library(tidyverse)
 library(fitzRoy)
+library(plussixelo)
 
 ```
 
 ```{r get_data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Download Historical data
-hist <- fitzRoy::get_match_results()
+results <- get_match_results()
 
 # Process new ELO
+historical_data <- process_historical_elo(results)
 
 # Get current ELO
-
+library(dplyr)
+current_elo <- historical_data %>% 
+  group_by(Team) %>%
+  summarise(ELO = last(ELO))
 
 
 ```
@@ -47,7 +52,7 @@ pb <- progress_estimated(length(sims))
 sims_df <- sims %>%
   map_df(~{
     pb$tick()$print() # update the progress bar (tick())
-    fitzRoy::simulate_season(fixture, team_elo = current_elo, simulation = .x) # do function
+    simulate_season(fixture, team_elo = current_elo, simulation = .x) # do function
   })
 
 
