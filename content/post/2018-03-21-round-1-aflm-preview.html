@@ -1,0 +1,332 @@
+---
+title: Round 1 AFLM Preview
+author: James Day
+date: '2018-03-21'
+slug: round-1-aflm-preview
+categories:
+  - AFLM
+  - Predictions
+tags: []
+draft: true
+---
+
+
+
+<p>Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I’ve had a busy offseason moving this blog over to <a href="insertlink">blogdown</a>. This has meant I’ve had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning <code>R</code> and so it wasn’t my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I’m getting there.</p>
+<p>You’ll notice things a bit different this year - I’ll be including a lot of code in my posts in the interest of sharing how I do things and hopefuly inspiring people with more time than me to learn <code>R</code> and do some cool footy analytics. A lot of the code relies heavily on a new package that I’ve beenw working on with XXX called <code>fitzRoy</code>. You can read about that here (INSERTLINK).</p>
+<p>Anyway, onto the footy!</p>
+<div id="afl-mens-pre-season-ratings" class="section level2">
+<h2>AFL Men’s Pre-Season Ratings</h2>
+<p>My ELO rating explanation page hasn’t been migrated yet but for those who followed this blog over the last few years, you’ll remember that my ELO page was inspired by Tony from Matter of Stats (INSERT LINK). Each team has a relative ranking that relates to their performance against expectations and gets updated after each game. It is also regressed back towards the mean of 1500 after each season.</p>
+<pre class="r"><code># Load libraries
+library(fitzRoy)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
+## ✔ tibble  1.4.2          ✔ dplyr   0.7.4     
+## ✔ tidyr   0.8.0          ✔ stringr 1.3.0     
+## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(formattable)
+library(ggthemes)
+library(plussixelo)</code></pre>
+<pre class="r"><code># Get fixture data using FitzRoy
+fixture &lt;- get_fixture()
+
+# Get processed ELO data
+load(&quot;~/Documents/R_scripts/Fusion/AFLELO/Data/AFL_ELO_Hist.rda&quot;)
+results &lt;- datNew %&gt;%
+  mutate(Team = replace_teams(Team))</code></pre>
+<pre class="r"><code># Get current ELO ratings
+elo &lt;- results %&gt;% 
+  group_by(Team) %&gt;%
+  arrange(Game) %&gt;%
+  filter(Game == last(Game) &amp; !Team %in% c(&quot;Fitzroy&quot;, &quot;University&quot;)) %&gt;%
+  mutate(ELO_norm = ELO_post - 1500)
+  
+
+
+ggplot(data = elo, aes(x = reorder(Team, ELO_post))) +
+  geom_point(aes(y = ELO_post), colour = &quot;#669999&quot;) + 
+  #geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  #geom_linerange(aes(ymin = ELO_pre, ymax = ELO_post)) +
+  coord_flip() + 
+  theme_minimal() +
+  labs(title = &quot;ELO Ratings&quot;,
+       subtitle = &quot;The ELO rating of each AFL Men&#39;s team at the start of the 2018 season&quot;,
+       caption = &quot;(data sourced from afltables.com)&quot;)</code></pre>
+<p><img src="/post/2018-03-21-round-1-aflm-preview_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="predictions" class="section level2">
+<h2>Predictions</h2>
+<pre class="r"><code>round &lt;-  1
+HGA = 30
+
+# Get current elo and merge into current fixture
+elo &lt;- elo %&gt;%
+  select(Team, ELO_post)
+
+# Join with current ELO
+round_games &lt;- fixture %&gt;%
+  filter(Round == round) %&gt;%
+  left_join(elo, by = c(&quot;Home.Team&quot; = &quot;Team&quot;)) %&gt;% 
+  rename(ELO.Home = ELO_post) %&gt;%
+  left_join(elo, by = c(&quot;Away.Team&quot; = &quot;Team&quot;)) %&gt;%
+  rename(ELO.Away = ELO_post)
+
+# Do predictions
+round_games %&gt;%
+  group_by(Season.Game) %&gt;%
+  mutate(Prediction = find_expected_margin(ELO.Home - ELO.Away + HGA),
+         Probability = find_expected_outcome(ELO.Home - ELO.Away + HGA),
+         Result = case_when(
+           Probability &gt; 0.5 ~ paste(Home.Team, &quot;by&quot;, Prediction),
+           Probability &lt; 0.5 ~ paste(Away.Team, &quot;by&quot;, -Prediction),
+           TRUE ~ &quot;Draw&quot;
+         )) %&gt;%
+  ungroup() %&gt;%
+  select(Date, Venue, Home.Team, Away.Team, Prediction, Probability, Result) %&gt;%
+formattable(list(
+  Home.Team = formatter(&quot;span&quot;, style = ~ style(&quot;font-weight&quot; = ifelse(Probability &gt;= 0.5, &quot;bold&quot;, NA))),
+    Away.Team = formatter(&quot;span&quot;, style = ~ style(&quot;font-weight&quot; = ifelse(Probability &lt;= 0.5, &quot;bold&quot;, NA)))
+  )
+  )</code></pre>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+Date
+</th>
+<th style="text-align:right;">
+Venue
+</th>
+<th style="text-align:right;">
+Home.Team
+</th>
+<th style="text-align:right;">
+Away.Team
+</th>
+<th style="text-align:right;">
+Prediction
+</th>
+<th style="text-align:right;">
+Probability
+</th>
+<th style="text-align:right;">
+Result
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2018-03-22 19:25:00
+</td>
+<td style="text-align:right;">
+MCG
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Richmond </span>
+</td>
+<td style="text-align:right;">
+<span>Carlton </span>
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+0.7936407
+</td>
+<td style="text-align:right;">
+Richmond by 54
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-23 19:50:00
+</td>
+<td style="text-align:right;">
+Etihad Stadium
+</td>
+<td style="text-align:right;">
+<span>Essendon </span>
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Adelaide </span>
+</td>
+<td style="text-align:right;">
+-20
+</td>
+<td style="text-align:right;">
+0.3746486
+</td>
+<td style="text-align:right;">
+Adelaide by 20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-24 15:35:00
+</td>
+<td style="text-align:right;">
+Etihad Stadium
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">St Kilda </span>
+</td>
+<td style="text-align:right;">
+<span>Brisbane Lions </span>
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0.7081664
+</td>
+<td style="text-align:right;">
+St Kilda by 35
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-24 16:05:00
+</td>
+<td style="text-align:right;">
+Adelaide Oval
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Port Adelaide</span>
+</td>
+<td style="text-align:right;">
+<span>Fremantle </span>
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+0.7840537
+</td>
+<td style="text-align:right;">
+Port Adelaide by 52
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-24 18:25:00
+</td>
+<td style="text-align:right;">
+Cazaly’s Stadium
+</td>
+<td style="text-align:right;">
+<span>Gold Coast </span>
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">North Melbourne</span>
+</td>
+<td style="text-align:right;">
+-12
+</td>
+<td style="text-align:right;">
+0.4229075
+</td>
+<td style="text-align:right;">
+North Melbourne by 12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-24 19:25:00
+</td>
+<td style="text-align:right;">
+MCG
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Hawthorn </span>
+</td>
+<td style="text-align:right;">
+<span>Collingwood </span>
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.5387781
+</td>
+<td style="text-align:right;">
+Hawthorn by 6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-25 13:10:00
+</td>
+<td style="text-align:right;">
+Manuka Oval
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">GWS </span>
+</td>
+<td style="text-align:right;">
+<span>Footscray </span>
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+0.6571187
+</td>
+<td style="text-align:right;">
+GWS by 26
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-25 15:20:00
+</td>
+<td style="text-align:right;">
+MCG
+</td>
+<td style="text-align:right;">
+<span>Melbourne </span>
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Geelong </span>
+</td>
+<td style="text-align:right;">
+-9
+</td>
+<td style="text-align:right;">
+0.4469531
+</td>
+<td style="text-align:right;">
+Geelong by 9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018-03-25 16:20:00
+</td>
+<td style="text-align:right;">
+Perth Stadium
+</td>
+<td style="text-align:right;">
+<span>West Coast </span>
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Sydney </span>
+</td>
+<td style="text-align:right;">
+-16
+</td>
+<td style="text-align:right;">
+0.3992218
+</td>
+<td style="text-align:right;">
+Sydney by 16
+</td>
+</tr>
+</tbody>
+</table>
+</div>

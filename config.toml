@@ -67,35 +67,25 @@ googleAnalytics = "UA-77406420-1"
     url = ""
     weight = 1
 
-[[menu.main]]
-    name = "About"
-    url = "page/about/"
-    weight = 3
+
 
 [[menu.main]]
-    identifier = "samples"
-    name = "Samples"
+    identifier = "ratings"
+    name = "Ratings and Predictions"
     weight = 2
 
 [[menu.main]]
-    parent = "samples"
-    name = "Big Image Sample"
-    url = "post/2017-03-07-bigimg-sample"
+    parent = "ratings"
+    name = "AFL Men's Ratings and Predictions"
+    url = "page/current-afl-men-s-predictions"
     weight = 1
-
-[[menu.main]]
-    parent = "samples"
-    name = "Math Sample"
-    url = "post/2017-03-05-math-sample"
-    weight = 2
-
-[[menu.main]]
-    parent = "samples"
-    name = "Code Sample"
-    url = "post/2016-03-08-code-sample"
-    weight = 3
 
 [[menu.main]]
     name = "Categories"
     url = "categories"
     weight = 3
+    
+[[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 4

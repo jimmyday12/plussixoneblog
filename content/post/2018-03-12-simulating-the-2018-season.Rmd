@@ -18,21 +18,24 @@ library(purrr)
 library(tidyverse)
 library(fitzRoy)
 library(plussixelo)
-
 ```
 
 ```{r get_data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Download Historical data
 results <- get_match_results()
 
+
+
 # Process new ELO
 historical_data <- process_historical_elo(results)
 
+# Convert
+historical_data <- convert_elo_results(historical_data)
+
 # Get current ELO
-library(dplyr)
 current_elo <- historical_data %>% 
   group_by(Team) %>%
-  summarise(ELO = last(ELO))
+  summarise(ELO = as.numeric(last(ELO)))
 
 
 ```

@@ -1,0 +1,105 @@
+---
+title: Round 1 AFLM Preview
+author: James Day
+date: '2018-03-21'
+slug: round-1-aflm-preview
+categories:
+  - AFLM
+  - Predictions
+tags: []
+draft: true
+---
+
+Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I've had a busy offseason moving this blog over to [blogdown](insertlink). This has meant I've had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning `R` and so it wasn't my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I'm getting there. 
+
+You'll notice things a bit different this year - I'll be including a lot of code in my posts in the interest of sharing how I do things and hopefuly inspiring people with more time than me to learn `R` and do some cool footy analytics. A lot of the code relies heavily on a new package that I've beenw working on with XXX called `fitzRoy`. You can read about that here (INSERTLINK). 
+
+Anyway, onto the footy! 
+
+## AFL Men's Pre-Season Ratings
+My ELO rating explanation page hasn't been migrated yet but for those who followed this blog over the last few years, you'll remember that my ELO page was inspired by Tony from Matter of Stats (INSERT LINK). Each team has a relative ranking that relates to their performance against expectations and gets updated after each game. It is also regressed back towards the mean of 1500 after each season. 
+
+```{r setup}
+# Load libraries
+library(fitzRoy)
+library(tidyverse)
+library(formattable)
+library(ggthemes)
+library(plussixelo)
+```
+
+```{r get data, message=FALSE, warning=FALSE}
+# Get fixture data using FitzRoy
+fixture <- get_fixture()
+
+# Get processed ELO data
+load("~/Documents/R_scripts/Fusion/AFLELO/Data/AFL_ELO_Hist.rda")
+results <- datNew %>%
+  mutate(Team = replace_teams(Team))
+
+```
+
+
+```{r}
+# Get current ELO ratings
+elo <- results %>% 
+  group_by(Team) %>%
+  arrange(Game) %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University")) %>%
+  mutate(ELO_norm = ELO_post - 1500)
+  
+
+
+ggplot(data = elo, aes(x = reorder(Team, ELO_post))) +
+  geom_point(aes(y = ELO_post), colour = "#669999") + 
+  #geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  #geom_linerange(aes(ymin = ELO_pre, ymax = ELO_post)) +
+  coord_flip() + 
+  theme_minimal() +
+  labs(title = "ELO Ratings",
+       subtitle = "The ELO rating of each AFL Men's team at the start of the 2018 season",
+       caption = "(data sourced from afltables.com)")
+
+
+
+
+```
+
+
+## Predictions
+```{r}
+round <-  1
+HGA = 30
+
+# Get current elo and merge into current fixture
+elo <- elo %>%
+  select(Team, ELO_post)
+
+# Join with current ELO
+round_games <- fixture %>%
+  filter(Round == round) %>%
+  left_join(elo, by = c("Home.Team" = "Team")) %>% 
+  rename(ELO.Home = ELO_post) %>%
+  left_join(elo, by = c("Away.Team" = "Team")) %>%
+  rename(ELO.Away = ELO_post)
+
+# Do predictions
+round_games %>%
+  group_by(Season.Game) %>%
+  mutate(Prediction = find_expected_margin(ELO.Home - ELO.Away + HGA),
+         Probability = find_expected_outcome(ELO.Home - ELO.Away + HGA),
+         Result = case_when(
+           Probability > 0.5 ~ paste(Home.Team, "by", Prediction),
+           Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
+           TRUE ~ "Draw"
+         )) %>%
+  ungroup() %>%
+  select(Date, Venue, Home.Team, Away.Team, Prediction, Probability, Result) %>%
+formattable(list(
+  Home.Team = formatter("span", style = ~ style("font-weight" = ifelse(Probability >= 0.5, "bold", NA))),
+    Away.Team = formatter("span", style = ~ style("font-weight" = ifelse(Probability <= 0.5, "bold", NA)))
+  )
+  )
+
+```
+
