@@ -1,0 +1,28 @@
+---
+title: Cool Links
+author: James Day
+date: '2018-03-27'
+slug: cool-links
+categories: []
+tags: []
+---
+
+The AFL Analytics community is wonderfully inclusive and supportive. If you are looking for discussions about AFL Analytics, I highly reccomend Twitter. There is a very active commnity there. 
+
+## AFL Data
+Most of the data I use comes from the following two websites  
+[AFL Tables](afltables.com)  
+[Footy Wire](footywire.com)  
+
+## AFL Analytics 
+Below are some fantastic blogs that I could only dream to be. They create some amazing content week in week out. 
+
+[Matter of Stats](http://www.matterofstats.com/) | [Twitter](https://twitter.com/MatterOfStats)  
+[Analysis of AFL](anoafl.github.io) | [Twitter](https://twitter.com/anoafl)  
+[The Arc](http://thearcfooty.com/) | [Twitter](https://twitter.com/thearcfooty)  
+[Squiggle](https://squiggle.com.au/)   
+[Hurling People Now](http://www.hpnfooty.com/) | [Twitter](https://twitter.com/HurlingPeople)  
+[The Graft](http://graftratings.com/afl/) | [Twitter](https://twitter.com/graftratings)  
+[Figuring Footy](http://figuringfooty.com/) | [Twitter](https://twitter.com/figuringfooty)  
+[Footy Maths Institue](https://footymaths.blogspot.com.au/) | [Twitter](https://twitter.com/The_FMI)  
+[Insight Lane](insightlane.com) | [Twitter](https://twitter.com/insightlane)  

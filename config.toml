@@ -63,29 +63,59 @@ googleAnalytics = "UA-77406420-1"
   # telegram = "username"
 
 [[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 1
+
+[[menu.main]]
     name = "Blog"
     url = ""
-    weight = 1
-
-
-
-[[menu.main]]
-    identifier = "ratings"
-    name = "Ratings and Predictions"
     weight = 2
-
-[[menu.main]]
-    parent = "ratings"
-    name = "AFL Men's Ratings and Predictions"
-    url = "page/current-afl-men-s-predictions"
-    weight = 1
-
+    
 [[menu.main]]
     name = "Categories"
     url = "categories"
     weight = 3
+
+[[menu.main]]
+    identifier = "aflm"
+    name = "AFL Mens"
+    weight = 4
+
+[[menu.main]]
+    parent = "aflm"
+    name = "Ratings and Simulations"
+    url = "page/aflm-ratings-and-simulations"
+    weight = 1
     
 [[menu.main]]
-    name = "About"
-    url = "page/about/"
-    weight = 4
+    parent = "aflm"
+    name = "Current Tips"
+    url = "page/aflm-current-tips"
+    weight = 2
+    
+[[menu.main]]
+    parent = "aflm"
+    name = "Model Results"
+    url = "page/aflm-model-results"
+    weight = 3    
+
+[[menu.main]]
+    identifier = "aflw"
+    name = "AFL Womens"
+    weight = 5
+    
+[[menu.main]]
+    parent = "aflw"
+    name = "Coming Soon"
+    url = "page/aflw-coming-soon/"
+    weight = 1
+
+
+[[menu.main]]
+    name = "Cool Links"
+    url = "page/cool-links/"
+    weight = 6
+    
+
+

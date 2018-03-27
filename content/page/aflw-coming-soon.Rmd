@@ -1,0 +1,11 @@
+---
+title: AFLW - Coming soon
+author: James Day
+date: '2018-03-27'
+slug: aflw-coming-soon
+categories:
+  - AFLW
+tags: []
+---
+
+For those looking for AFLW content - hang tight! Unfortunately, due to the new nature of AFLW, data is hard to come by. I managed in the first season by manually adding data after each game but this is not feasible. I'm hoping, with help from [anoafl](https://twitter.com/anoafl), to add some data scraping into our newly released `fitzRoy` package. Details on that can be found [here](https://jimmyday12.github.io/fitzRoy/)
