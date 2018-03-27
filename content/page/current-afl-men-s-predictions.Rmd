@@ -14,6 +14,14 @@ knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE
 )
+
+round <-  2
+
+HGA <- 36
+B <- 0.025
+k_val <- 18
+carryOver <- 0.07
+M <- 400
 ```
 
 ```{r get data, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
@@ -22,41 +30,79 @@ library(fitzRoy)
 library(tidyverse)
 library(formattable)
 library(ggthemes)
-library(plussixelo)
+library(elo)
 
 # Get fixture data using FitzRoy
 fixture <- get_fixture()
 
-# Get processed ELO data
-elo_url <- "https://github.com/jimmyday12/plussixoneblog/blob/master/data/raw-data/AFL_ELO_Hist.rda?raw=true"
-load(url(elo_url))
+# Get results
+results <- fitzRoy::get_match_results()
+results <- results %>%
+  mutate(
+    seas_rnd = paste0(Season, ".", Round.Number),
+    First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
+  )
 
-# Fix for names and elo (will change into the season)
-results <- datNew %>%
-  mutate(Team = replace_teams(Team)) %>%
-  mutate(ELO_pre = ELO_post, 
-         ELO_post = plussixelo:::calculate_season_carryover(ELO_post, weight = 0.6))
-
+results_long <- convert_results(results)
 ```
 
 ## AFL Men's Ratings
 Below are the updated AFL Men's ratings. The figure shows the current rating in green, with the tail indicating the previous rating for that team. 
 
+```{r calculate ELO, echo=FALSE, message=FALSE, warning=FALSE}
+# mapping
+map_margin_to_outcome <- function(margin, B = 0.025) {
+  outcome <- 1 / (1 + (exp(-B * margin)))
+  return(outcome)
+}
+
+# mapping
+map_outcome_to_margin <- function(outcome, B = 0.025) {
+  margin <- log((1 / outcome) - 1) / -B
+  return(margin)
+}
+
+  # calculate ELO
+  elo.data <- elo.run(
+    map_margin_to_outcome(Home.Points - Away.Points, B = B) ~
+    adjust(Home.Team, HGA) +
+      Away.Team +
+      group(seas_rnd) +
+      regress(First.Game, 1500, carryOver) +
+      k(k_val * log(abs(Home.Points - Away.Points) + 1)),
+    data = results
+  )
+```
+
+
 ```{r ratings, echo=FALSE, message=FALSE, warning=FALSE}
-# Get current ELO ratings
-elo <- results %>% 
+
+elo <- results %>%
+  bind_cols(as.data.frame(elo.data)) %>%
+  rename(Home.ELO = elo.A, 
+         Away.ELO = elo.B) %>%
+  mutate(Home.ELO_pre = Home.ELO - update,
+         Away.ELO_pre = Away.ELO + update) %>%
+  select(Date, Game, Home.Team, Away.Team, Home.ELO:Away.ELO_pre) 
+
+elo_long <- elo %>%
+  gather(variable, value, Home.Team:Away.ELO_pre) %>%
+  separate(variable, into = c("Status", "variable"), sep = "\\.") %>%
+  spread(variable, value) %>%
+  mutate(ELO = as.numeric(ELO), ELO_pre = as.numeric(ELO_pre)) %>%
   group_by(Team) %>%
   arrange(Game) %>%
-  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University")) %>%
-  mutate(ELO_norm = ELO_post - 1500)
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University")) 
   
+```
 
+```{r ratings-plot, echo=FALSE, message=FALSE, warning=FALSE}
 
-ggplot(data = elo, aes(x = reorder(Team, ELO_post))) +
+ggplot(data = elo_long, aes(x = reorder(Team, ELO))) +
   geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
-  geom_linerange(aes(ymin = ELO_pre, ymax = ELO_post), alpha = 0.3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
   geom_point(aes(y = ELO_pre), alpha = 0.1) +
-  geom_point(aes(y = ELO_post), colour = "#669999", size = 2) + 
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) + 
   coord_flip() + 
   theme_minimal() +
   labs(x = "Team",
@@ -66,9 +112,6 @@ ggplot(data = elo, aes(x = reorder(Team, ELO_post))) +
 season in green, with the tail showing their end of 2017 rating",
        caption = "(data sourced from afltables.com)")
 
-
-
-
 ```
 
 
@@ -77,39 +120,27 @@ season in green, with the tail showing their end of 2017 rating",
 Below are the predictions for the current round. The margin and probability are for the home team winning, so a margin `< 0` or a probability `<0.5` indicates the away team is favourite. 
 
 ```{r Predictions, echo=FALSE, message=FALSE, warning=FALSE}
-round <-  1
-HGA = 35
-
-# Get current elo and merge into current fixture
-elo <- elo %>%
-  select(Team, ELO_post)
-
-# Join with current ELO
-round_games <- fixture %>%
-  filter(Round == round) %>%
-  left_join(elo, by = c("Home.Team" = "Team")) %>% 
-  rename(ELO.Home = ELO_post) %>%
-  left_join(elo, by = c("Away.Team" = "Team")) %>%
-  rename(ELO.Away = ELO_post)
-
-# Do predictions
-predictions <- round_games %>%
-  group_by(Season.Game) %>%
-  mutate(Prediction = find_expected_margin(ELO.Home - ELO.Away + HGA),
-         Probability = find_expected_outcome(ELO.Home - ELO.Away + HGA),
-         Result = case_when(
+# Filter round and do predictions
+predictions <- fixture %>%
+  mutate(
+    Day = format(Date, "%a, %d"),
+    Time = format(Date, "%H:%M"),
+    Probability = round(predict(elo.data, newdata = fixture), 3),
+    Prediction = ceiling(map_outcome_to_margin(Probability)),
+    Result = case_when(
            Probability > 0.5 ~ paste(Home.Team, "by", Prediction),
            Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
            TRUE ~ "Draw"
-         )) %>%
-  ungroup() %>%
-  select(Date, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
+  )) %>%
+  select(Day, Time, Round, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
+
 
 # Pass those onto Formattable
 predictions %>%
+  filter(Round == round) %>%
 formattable(list(
-  Home.Team = formatter("span", style = ~ style("font-weight" = ifelse(Probability >= 0.5, "bold", NA))),
-  Away.Team = formatter("span", style = ~ style("font-weight" = ifelse(Probability <= 0.5, "bold", NA)))
+  Home.Team = formatter("span", style = ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))),
+  Away.Team = formatter("span", style = ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA)))
   )
   ) 
 
