@@ -14,107 +14,82 @@ Welcome to our all new AFL Men's ratings and tips page! Here you will the latest
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
-	echo = FALSE,
-	message = FALSE,
-	warning = FALSE
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+```{r get data, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate)
+
+# Load data that has been run using 'weekly_data_process.R'
+path <- here::here("data", "raw-data", "AFLM.rds")
+dat_list <- read_rds(path)
+```
+
+## Summary
+Below are the updated AFL Men's ratings and simulations. These are based off our ELO model (insert explainer) and simulations (insert explainer). 
+
+First, let's get our data into a good format. 
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(dat_list$sim.simple.summary, by = "Team") %>%
+  mutate(ELO.change = ELO - ELO_pre) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), percent, digits = 1) %>%
+  mutate_at(c("ELO", "Wins", "ELO.change"), as.integer) %>%
+  select(Team, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+#kable(elo_table)
+```
+
+Now we can pass that table onto `formattable` and create a slightly nicer table. 
+```{r formattable, echo=TRUE, message=FALSE, warning=FALSE}
+# Write to formattable with some formatting
+elo_table %>%
+  format_table(list(
+    ELO = normalize_bar("#20B2AA80"),
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  ))
+```
+
+And below you can see the change in ratings for each team. 
+
+```{r ratings-plot, echo=TRUE, message=FALSE, warning=FALSE}
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
 )
 
-round <-  2
-
-HGA <- 36
-B <- 0.025
-k_val <- 18
-carryOver <- 0.07
-M <- 400
-```
-
-```{r get data, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
-# Load libraries
-library(fitzRoy)
-library(tidyverse)
-library(formattable)
-library(ggthemes)
-library(elo)
-
-# Get fixture data using FitzRoy
-fixture <- get_fixture()
-
-# Get results
-results <- fitzRoy::get_match_results()
-results <- results %>%
-  mutate(
-    seas_rnd = paste0(Season, ".", Round.Number),
-    First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
-  )
-
-results_long <- convert_results(results)
-```
-
-## AFL Men's Ratings
-Below are the updated AFL Men's ratings. The figure shows the current rating in green, with the tail indicating the previous rating for that team. 
-
-```{r calculate ELO, echo=FALSE, message=FALSE, warning=FALSE}
-# mapping
-map_margin_to_outcome <- function(margin, B = 0.025) {
-  outcome <- 1 / (1 + (exp(-B * margin)))
-  return(outcome)
-}
-
-# mapping
-map_outcome_to_margin <- function(outcome, B = 0.025) {
-  margin <- log((1 / outcome) - 1) / -B
-  return(margin)
-}
-
-  # calculate ELO
-  elo.data <- elo.run(
-    map_margin_to_outcome(Home.Points - Away.Points, B = B) ~
-    adjust(Home.Team, HGA) +
-      Away.Team +
-      group(seas_rnd) +
-      regress(First.Game, 1500, carryOver) +
-      k(k_val * log(abs(Home.Points - Away.Points) + 1)),
-    data = results
-  )
-```
-
-
-```{r ratings, echo=FALSE, message=FALSE, warning=FALSE}
-
-elo <- results %>%
-  bind_cols(as.data.frame(elo.data)) %>%
-  rename(Home.ELO = elo.A, 
-         Away.ELO = elo.B) %>%
-  mutate(Home.ELO_pre = Home.ELO - update,
-         Away.ELO_pre = Away.ELO + update) %>%
-  select(Date, Game, Home.Team, Away.Team, Home.ELO:Away.ELO_pre) 
-
-elo_long <- elo %>%
-  gather(variable, value, Home.Team:Away.ELO_pre) %>%
-  separate(variable, into = c("Status", "variable"), sep = "\\.") %>%
-  spread(variable, value) %>%
-  mutate(ELO = as.numeric(ELO), ELO_pre = as.numeric(ELO_pre)) %>%
-  group_by(Team) %>%
-  arrange(Game) %>%
-  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University")) 
-  
-```
-
-```{r ratings-plot, echo=FALSE, message=FALSE, warning=FALSE}
-
-ggplot(data = elo_long, aes(x = reorder(Team, ELO))) +
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
   geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
   geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
   geom_point(aes(y = ELO_pre), alpha = 0.1) +
-  geom_point(aes(y = ELO), colour = "#669999", size = 2) + 
-  coord_flip() + 
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
   theme_minimal() +
-  labs(x = "Team",
-       y = "ELO Rating",
+  labs(
+    x = "Team",
+    y = "ELO Rating",
     title = "AFL Men's ELO Ratings",
-       subtitle = "Showing the ELO rating of each AFL Men's team at the start of the 2018 
-season in green, with the tail showing their end of 2017 rating",
-       caption = "(data sourced from afltables.com)")
-
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
 ```
 
