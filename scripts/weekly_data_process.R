@@ -8,6 +8,7 @@ library(fitzRoy)
 library(tidyverse)
 library(elo)
 library(lubridate)
+library(here)
 
 # Set Parameters
 round <- 2
@@ -71,14 +72,13 @@ elo <- results %>%
     Home.ELO_pre = Home.ELO - update,
     Away.ELO_pre = Away.ELO + update
   ) %>%
-  select(Date, Game, Home.Team, Away.Team, Home.ELO:Away.ELO_pre) %>%
+  select(Date, Game, Round, Round.Number, Home.Team, Away.Team, Home.ELO:Away.ELO_pre) %>%
   gather(variable, value, Home.Team:Away.ELO_pre) %>%
   separate(variable, into = c("Status", "variable"), sep = "\\.") %>%
   spread(variable, value) %>%
   mutate(ELO = as.numeric(ELO), ELO_pre = as.numeric(ELO_pre)) %>%
   group_by(Team) %>%
-  arrange(Game) %>%
-  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+  arrange(Game) 
 
 
 # Simulation --------------------------------------------------------------
@@ -169,9 +169,14 @@ predictions <- fixture %>%
 
 # Save Data ---------------------------------------------------------------
 # Create list
-aflm_data <- list(elo.data, elo, predictions, sim_data, sim_data_all_summary, sim_data_sim_summary)
+aflm_data <- list(
+  elo.data = elo.data, 
+  elo = elo, 
+  predictions = predictions, 
+  sim.simple.summary = sim_data_all_summary, 
+  sim.data = sim_data_sim_summary)
 
 # Save
-saveRDS(aflm_data, file = "./data/raw-data/AFLM.rds")
-rm(elo.data)
+write_rds(aflm_data, path = here("data", "raw-data", "AFLM.rds"), compress = "bz")
+rm(elo.data, sim_data)
 print(proc.time() - ptm)
