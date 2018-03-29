@@ -11,8 +11,6 @@ library(lubridate)
 library(here)
 
 # Set Parameters
-round <- 2
-
 HGA <- 36
 B <- 0.025
 k_val <- 18
@@ -35,19 +33,45 @@ results <- fitzRoy::get_match_results() %>%
 # Get results_long
 results_long <- convert_results(results)
 
+# # Find distance and eperience for each venue
+# results_long2 <- results_long %>%
+#   group_by(Team) %>%
+#   arrange(Team, Venue) %>%
+#   mutate(Count = 1) %>%
+#   mutate(roll = Venue == Venue)
+
+# 
+# tt <- as.Date("2000-01-01") + c(1, 2, 5, 6, 7, 8, 10)
+# z <- zoo(seq_along(tt), tt)
+# ## - fill it out to a daily series, zm, using NAs
+# ## using a zero width zoo series g on a grid
+# g <- zoo(, seq(start(z), end(z), "day"))
+# zm <- merge(z, g)
+# ## - 3-day rolling mean
+# rollapply(zm, 3, mean, na.rm = TRUE, fill = NA)
+#   
 
 # Calculate ELO --------------------------------------------------------
 # First some helper functions. These are used to adjust margin/outcome/k/HGA
+
+# Squash margin between 0 and 1
 map_margin_to_outcome <- function(margin, B = 0.025) {
   1 / (1 + (exp(-B * margin)))
 }
 
+# Inverse of above, convert outcome to margin
 map_outcome_to_margin <- function(outcome, B = 0.025) {
-  log((1 / outcome) - 1) / -B
+  log((1 / outcome) - 1) / - B
 }
 
+# Function to calculate k (how much weight we add to each result)
 calculate_k <- function(margin, k_val) {
   k_val * log(abs(margin) + 1)
+}
+
+# Not using: function to calculate HGA adjust
+calculate_hga <- function(experience, distance, e = 1, d = 1){
+  (e * experience) +  (d * distance)
 }
 
 # calculate ELO using elo package.
