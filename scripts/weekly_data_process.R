@@ -202,7 +202,7 @@ predictions <- fixture %>%
   select(Day, Time, Round, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
 
 
-# Save Data ---------------------------------------------------------------
+pre# Save Data ---------------------------------------------------------------
 # Create list
 aflm_data <- list(
   elo.data = elo.data, 
@@ -217,7 +217,7 @@ aflm_sims <- list(
 # Save
 write_rds(aflm_data, path = here("data", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
-
+write_csv(predictions, path = here("data", "raw-data", "predictions.csv"))
 # Clean up large files
 rm(elo.data, sim_data, aflm_sims, aflm_data)
 print(proc.time() - ptm)
