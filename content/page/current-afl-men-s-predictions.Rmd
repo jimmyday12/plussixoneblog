@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 	warning = FALSE
 )
 
-round <-  2
+round <-  3
 
 HGA <- 36
 B <- 0.025

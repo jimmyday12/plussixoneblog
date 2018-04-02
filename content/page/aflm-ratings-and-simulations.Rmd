@@ -26,8 +26,8 @@ library(pacman)
 pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate)
 
 # Load data that has been run using 'weekly_data_process.R'
-path <- here::here("data", "raw-data", "AFLM.rds")
-dat_list <- read_rds(path)
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 ```
 
 ## Summary
@@ -40,12 +40,16 @@ First, let's get our data into a good format.
 elo_round <- dat_list$elo %>%
   filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
 
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
 # Combine Simulation and ELO data
 elo_table <- elo_round %>%
-  left_join(dat_list$sim.simple.summary, by = "Team") %>%
+  left_join(sim_round, by = "Team") %>%
   mutate(ELO.change = ELO - ELO_pre) %>%
   mutate_at(c("Top.8", "Top.4", "Top.1"), percent, digits = 1) %>%
-  mutate_at(c("ELO", "Wins", "ELO.change"), as.integer) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
   select(Team, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
   arrange(desc(Wins))
 
@@ -91,5 +95,22 @@ elo_round %>%
     subtitle = subt,
     caption = "(data sourced from afltables.com)"
   )
+```
+
+# Current Tips
+
+Below are the predictions for the current round. The margin and probability are for the home team winning, so a margin `< 0` or a probability `<0.5` indicates the away team is favourite. 
+
+```{r}
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round == last(dat_list$elo$Round.Number+1)) %>%
+  formattable(list(
+  Home.Team = formatter("span", style = 
+                          ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))),
+  Away.Team = formatter("span", style = 
+                          ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA)))
+)) 
+
 ```
 
