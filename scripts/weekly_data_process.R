@@ -143,7 +143,7 @@ sim_data <- sims %>%
 # Summarise simulated data
 win_calc <- function(x) case_when(x == 0 ~ 0.5, x > 0 ~ 1, TRUE ~ 0)
 
-sim_data_sim_summary <- sim_data %>%
+sim_data_all <- sim_data %>%
   gather(Status, Team, Home.Team:Away.Team) %>%
   mutate(
     Margin = ifelse(Status == "Home.Team", Margin, -Margin),
@@ -163,9 +163,13 @@ sim_data_sim_summary <- sim_data %>%
     Top.1 = Rank == 1
   )
 
-sim_data_all_summary <- sim_data_sim_summary %>%
+
+# Summarise the simulations into percentages
+sim_data_summary <- sim_data_all %>%
   group_by(Team) %>%
   summarise(
+    Season = last(results$Season),
+    Round = last(results$Round.Number),
     Margin = mean(Margin),
     Wins = mean(Wins),
     Top.8 = sum(Top.8) / max(sims),
@@ -173,6 +177,14 @@ sim_data_all_summary <- sim_data_sim_summary %>%
     Top.1 = sum(Top.1) / max(sims)
   )
 
+# Combine these simulations with previous ones for plotting
+# Load old sims
+past_sims <- read_rds(here("data", "raw-data", "AFLM.rds"))
+
+# Bind with last entry
+sim_data_summary <- past_sims$sim_data_summary %>%
+  bind_rows(sim_data_summary)
+  
 # Predictions -------------------------------------------------------------
 # Do predictions
 predictions <- fixture %>%
@@ -190,17 +202,22 @@ predictions <- fixture %>%
   select(Day, Time, Round, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
 
 
-
 # Save Data ---------------------------------------------------------------
 # Create list
 aflm_data <- list(
   elo.data = elo.data, 
   elo = elo, 
-  predictions = predictions, 
-  sim.simple.summary = sim_data_all_summary, 
-  sim.data = sim_data_sim_summary)
+  predictions = predictions)
+
+aflm_sims <- list(
+  sim_data_all = sim_data_all,
+  sim_data_summary = sim_data_summary
+)
 
 # Save
 write_rds(aflm_data, path = here("data", "raw-data", "AFLM.rds"), compress = "bz")
-rm(elo.data, sim_data)
+write_rds(aflm_sims, path = here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
+
+# Clean up large files
+rm(elo.data, sim_data, aflm_sims, aflm_data)
 print(proc.time() - ptm)
