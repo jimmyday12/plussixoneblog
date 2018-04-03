@@ -9,6 +9,7 @@ library(tidyverse)
 library(elo)
 library(lubridate)
 library(here)
+library(tibbletime)
 
 # Set Parameters
 HGA <- 36
@@ -30,26 +31,6 @@ results <- fitzRoy::get_match_results() %>%
     First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
   )
 
-# Get results_long
-results_long <- convert_results(results)
-
-# # Find distance and eperience for each venue
-# results_long2 <- results_long %>%
-#   group_by(Team) %>%
-#   arrange(Team, Venue) %>%
-#   mutate(Count = 1) %>%
-#   mutate(roll = Venue == Venue)
-
-# 
-# tt <- as.Date("2000-01-01") + c(1, 2, 5, 6, 7, 8, 10)
-# z <- zoo(seq_along(tt), tt)
-# ## - fill it out to a daily series, zm, using NAs
-# ## using a zero width zoo series g on a grid
-# g <- zoo(, seq(start(z), end(z), "day"))
-# zm <- merge(z, g)
-# ## - 3-day rolling mean
-# rollapply(zm, 3, mean, na.rm = TRUE, fill = NA)
-#   
 
 # Calculate ELO --------------------------------------------------------
 # First some helper functions. These are used to adjust margin/outcome/k/HGA
@@ -70,9 +51,23 @@ calculate_k <- function(margin, k_val) {
 }
 
 # Not using: function to calculate HGA adjust
-calculate_hga <- function(experience, distance, e = 1, d = 1){
-  (e * experience) +  (d * distance)
+calculate_hga <- function(experience, distance, home.ground, e = 1, d = 1, h = 1){
+  (e * experience) +  (d * distance) + (h * home.ground)
 }
+
+# Prep calculations
+# We want to calculate the experience and distance value for each team
+
+# Experience - number of games in last 100
+# Create rolling function
+last_n_games = 100
+count_games <- rollify(function(x) sum(last(x) == x), window = last_n_games, na_value = NA)
+
+results_long <- convert_results(results) %>% 
+  group_by(Team) %>%
+  arrange(Team, Game) %>%
+  mutate(venue_experience = count_games(Venue)) %>%
+  arrange(Game)
 
 # calculate ELO using elo package.
 elo.data <- elo.run(
@@ -202,7 +197,7 @@ predictions <- fixture %>%
   select(Day, Time, Round, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
 
 
-pre# Save Data ---------------------------------------------------------------
+# Save Data ---------------------------------------------------------------
 # Create list
 aflm_data <- list(
   elo.data = elo.data, 
@@ -218,6 +213,7 @@ aflm_sims <- list(
 write_rds(aflm_data, path = here("data", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
 write_csv(predictions, path = here("data", "raw-data", "predictions.csv"))
+
 # Clean up large files
 rm(elo.data, sim_data, aflm_sims, aflm_data)
 print(proc.time() - ptm)
