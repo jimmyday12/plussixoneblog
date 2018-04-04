@@ -9,12 +9,15 @@ categories:
 tags: []
 ---
 
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
 
 
 <p>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!</p>
 <pre class="r"><code># Load libraries
 library(pacman)
-pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
 
 # Load data that has been run using &#39;weekly_data_process.R&#39;
 dat_list &lt;- read_rds(here::here(&quot;data&quot;, &quot;raw-data&quot;, &quot;AFLM.rds&quot;))
@@ -33,466 +36,29 @@ sim_round &lt;- sim_dat_list$sim_data_summary %&gt;%
 # Combine Simulation and ELO data
 elo_table &lt;- elo_round %&gt;%
   left_join(sim_round, by = &quot;Team&quot;) %&gt;%
+  ungroup() %&gt;%
   mutate(ELO.change = ELO - ELO_pre) %&gt;%
-  mutate_at(c(&quot;Top.8&quot;, &quot;Top.4&quot;, &quot;Top.1&quot;), percent, digits = 1) %&gt;%
+  mutate_at(c(&quot;Top.8&quot;, &quot;Top.4&quot;, &quot;Top.1&quot;), formattable::percent, digits = 1) %&gt;%
   mutate_at(c(&quot;ELO&quot;, &quot;ELO.change&quot;), as.integer) %&gt;%
   mutate_at(&quot;Wins&quot;, round, 1) %&gt;%
   select(Team, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %&gt;%
-  arrange(desc(Wins))
-
-#kable(elo_table)</code></pre>
-<p>Now we can pass that table onto <code>formattable</code> and create a slightly nicer table.</p>
+  arrange(desc(Wins))</code></pre>
+<p>Now we can pass that table onto <code>formattable</code> and create a slightly nicer table. I’ve also worked out that the <code>framewidget</code> package allows us to generate html widgets (which means interactive tables!)</p>
 <pre class="r"><code># Write to formattable with some formatting
-elo_table %&gt;%
-  format_table(list(
+dt_elo &lt;- elo_table %&gt;%
+  formattable(list(
     ELO = normalize_bar(&quot;#20B2AA80&quot;),
+    ELO.change = formatter(&quot;span&quot;, 
+    style = ~ style(color = ifelse(ELO.change &gt;= 0, &quot;green&quot;, &quot;red&quot;))),
     Top.8 = color_tile(&quot;transparent&quot;, &quot;lightblue&quot;),
     Top.4 = color_tile(&quot;transparent&quot;, &quot;lightblue&quot;),
     Top.1 = color_tile(&quot;transparent&quot;, &quot;lightblue&quot;)
-  ))</code></pre>
-<table class="table table-condensed">
-<thead>
-<tr>
-<th style="text-align:right;">
-Team
-</th>
-<th style="text-align:right;">
-ELO
-</th>
-<th style="text-align:right;">
-ELO.change
-</th>
-<th style="text-align:right;">
-Wins
-</th>
-<th style="text-align:right;">
-Top.8
-</th>
-<th style="text-align:right;">
-Top.4
-</th>
-<th style="text-align:right;">
-Top.1
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-Port Adelaide
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 87.22%">1548</span>
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-15.8
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #add8e6">0.7694</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #add8e6">0.5261</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #add8e6">0.2054</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-GWS
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 90.98%">1553</span>
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-15.0
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #aed8e6">0.7576</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b8dde9">0.4532</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cfe8f0">0.1189</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Sydney
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 90.98%">1553</span>
-</td>
-<td style="text-align:right;">
--13
-</td>
-<td style="text-align:right;">
-14.9
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b2dae7">0.7214</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bcdfea">0.4317</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d1e9f1">0.1140</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Adelaide
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 100.00%">1565</span>
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-14.7
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #afd9e6">0.7457</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bddfeb">0.4236</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #dceef4">0.0882</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Richmond
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 80.45%">1539</span>
-</td>
-<td style="text-align:right;">
--9
-</td>
-<td style="text-align:right;">
-14.4
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #badeea">0.6588</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c0e1eb">0.4084</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cee8f0">0.1213</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Geelong
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 75.94%">1533</span>
-</td>
-<td style="text-align:right;">
--1
-</td>
-<td style="text-align:right;">
-13.9
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bcdfea">0.6408</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cae5ee">0.3449</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d8ecf3">0.0963</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Hawthorn
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 52.63%">1502</span>
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-12.5
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cae6ef">0.5244</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d5ebf2">0.2775</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ddeff4">0.0842</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-West Coast
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 64.66%">1518</span>
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-12.3
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c9e5ee">0.5365</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #dbeef4">0.2399</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #edf6f9">0.0444</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Melbourne
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 59.40%">1511</span>
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-11.8
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d0e8f0">0.4748</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #deeff5">0.2174</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ecf6f9">0.0483</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Essendon
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 48.12%">1496</span>
-</td>
-<td style="text-align:right;">
--7
-</td>
-<td style="text-align:right;">
-10.8
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6ebf2">0.4227</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #e6f3f7">0.1721</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f3f9fb">0.0288</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-North Melbourne
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 40.60%">1486</span>
-</td>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:right;">
-9.8
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #e1f0f5">0.3351</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f1f8fa">0.1058</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fbfdfd">0.0097</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Collingwood
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 42.11%">1488</span>
-</td>
-<td style="text-align:right;">
--3
-</td>
-<td style="text-align:right;">
-9.8
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #dff0f5">0.3478</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f0f8fa">0.1105</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fbfdfe">0.0088</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Gold Coast
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 15.79%">1453</span>
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-8.8
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ecf6f9">0.2435</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f7fbfc">0.0685</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fcfdfe">0.0074</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-St Kilda
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 31.58%">1474</span>
-</td>
-<td style="text-align:right;">
--19
-</td>
-<td style="text-align:right;">
-8.7
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #eaf5f8">0.2577</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f3f9fb">0.0934</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f9fcfd">0.0153</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Fremantle
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 7.52%">1442</span>
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-7.1
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f7fbfc">0.1492</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fdfefe">0.0313</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fefefe">0.0031</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Carlton
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 7.52%">1442</span>
-</td>
-<td style="text-align:right;">
--18
-</td>
-<td style="text-align:right;">
-6.9
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f3f9fb">0.1819</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f9fcfd">0.0508</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fefefe">0.0034</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Footscray
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 17.29%">1455</span>
-</td>
-<td style="text-align:right;">
--21
-</td>
-<td style="text-align:right;">
-6.7
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #f8fcfd">0.1422</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fefefe">0.0253</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">0.0012</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Brisbane Lions
-</td>
-<td style="text-align:right;">
-<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: rgba(32, 178, 170, 0.5); width: 0.00%">1432</span>
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">0.0905</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">0.0196</span>
-</td>
-<td style="text-align:right;">
-<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fefefe">0.0013</span>
-</td>
-</tr>
-</tbody>
-</table>
+  )) %&gt;% 
+  as.datatable(options = list(dom = &#39;t&#39;, pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = &#39;95%&#39;)</code></pre>
+<div id="htmlwidget-1" style="width:95%;height:700px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/page/aflm-ratings-and-simulations_files/figure-html//widgets/widget_formattable.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p>And below you can see the change in ratings for each team.</p>
 <pre class="r"><code># Create a subtitle for plot
 subt &lt;- paste(
@@ -579,7 +145,7 @@ MCG
 -2
 </td>
 <td style="text-align:right;">
-0.486
+48.6%
 </td>
 <td style="text-align:right;">
 Collingwood by 2
@@ -608,7 +174,7 @@ Adelaide Oval
 36
 </td>
 <td style="text-align:right;">
-0.706
+70.6%
 </td>
 <td style="text-align:right;">
 Port Adelaide by 36
@@ -637,7 +203,7 @@ MCG
 15
 </td>
 <td style="text-align:right;">
-0.587
+58.7%
 </td>
 <td style="text-align:right;">
 Melbourne by 15
@@ -666,7 +232,7 @@ Perth Stadium
 11
 </td>
 <td style="text-align:right;">
-0.568
+56.8%
 </td>
 <td style="text-align:right;">
 Gold Coast by 11
@@ -695,7 +261,7 @@ SCG
 9
 </td>
 <td style="text-align:right;">
-0.551
+55.1%
 </td>
 <td style="text-align:right;">
 Sydney by 9
@@ -724,7 +290,7 @@ Etihad Stadium
 -12
 </td>
 <td style="text-align:right;">
-0.422
+42.2%
 </td>
 <td style="text-align:right;">
 Adelaide by 12
@@ -753,7 +319,7 @@ MCG
 17
 </td>
 <td style="text-align:right;">
-0.603
+60.3%
 </td>
 <td style="text-align:right;">
 Richmond by 17
@@ -782,7 +348,7 @@ Perth Stadium
 5
 </td>
 <td style="text-align:right;">
-0.530
+53.0%
 </td>
 <td style="text-align:right;">
 West Coast by 5
@@ -811,7 +377,7 @@ Etihad Stadium
 -1
 </td>
 <td style="text-align:right;">
-0.491
+49.1%
 </td>
 <td style="text-align:right;">
 Essendon by 1
