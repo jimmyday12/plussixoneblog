@@ -1,28 +1,26 @@
 # Script to run weekly updating of data, ratings simulations and predictions. Data should be saved into github for us by blog.
 ptm <- proc.time()
 
-
 # preamble ----------------------------------------------------------------
 # Load libraries
-library(fitzRoy)
-library(tidyverse)
-library(elo)
-library(lubridate)
-library(here)
-library(tibbletime)
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
 
 # Set Parameters
-HGA <- 36
-B <- 0.025
-k_val <- 18
-carryOver <- 0.07
-M <- 400
+B <- 0.025          # Rate function for 'squashing' results between 0 and 1
+k_val <- 18.8       # Base k value for adjusting ELO
+carryOver <- 0.07   # Amount of carryover to apply each season
+e = 2.2             # Weighting for log(experience), where experience is # games in last 100 at venue
+d = -23.7           # Weighting for Interstate = TRUE
+h = 29.2            # Weighting for being Home.Team
 
 
 # Get Data ----------------------------------------------------------------
 # Get fixture data using FitzRoy
 fixture <- fitzRoy::get_fixture() %>%
-  filter(Date > Sys.Date())
+  filter(Date > Sys.Date()) %>%
+  mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
+  rename(Round.Number = Round)
 
 # Get results
 results <- fitzRoy::get_match_results() %>%
@@ -32,16 +30,44 @@ results <- fitzRoy::get_match_results() %>%
   )
 
 
-# Calculate ELO --------------------------------------------------------
-# First some helper functions. These are used to adjust margin/outcome/k/HGA
+# Get states data - this comes from another script I run when a new venue or team occurs
+states <- read_rds(here("data", "raw-data", "states.rds"))
 
+# Data Cleaning -----------------------------------------------------------
+# Fix Venues
+venue_fix <- function(x){
+  case_when(
+    x == "MCG" ~ "M.C.G.",
+    x == "SCG" ~ "S.C.G.",
+    x == "Etihad Stadium" ~ "Docklands",
+    x == "Blundstone Area" ~ "Bellerive Oval",
+    x == "GMHBA Stadium" ~ "Kardinia Park",
+    x == "Spotless Stadium" ~ "Blacktown",
+    x == "UTAS Stadium" ~ "York Park",
+    x == "Mars Stadium" ~ "Eureka Stadium",
+    x == "Adelaide Arena at Jiangwan Stadium" ~ "Jiangwan Stadium",
+    x == "TIO Traegar Park" ~ "Traeger Park",
+    x == "Metricon Stadium" ~ "Carrara",
+    x == "TIO Stadium" ~ "Marrara Oval",
+    TRUE ~ as.character(x)
+  )
+}
+
+# Bind together and fix stadiums
+game_dat <- bind_rows(results, fixture) %>%
+  mutate(Game = row_number()) %>%
+  ungroup() %>%
+  mutate(Venue = venue_fix(Venue))
+
+# ELO Preparation --------------------------------------------------------
+# First some helper functions. These are used to adjust margin/outcome/k/HGA
 # Squash margin between 0 and 1
-map_margin_to_outcome <- function(margin, B = 0.025) {
+map_margin_to_outcome <- function(margin, B) {
   1 / (1 + (exp(-B * margin)))
 }
 
 # Inverse of above, convert outcome to margin
-map_outcome_to_margin <- function(outcome, B = 0.025) {
+map_outcome_to_margin <- function(outcome, B) {
   log((1 / outcome) - 1) / - B
 }
 
@@ -51,29 +77,59 @@ calculate_k <- function(margin, k_val) {
 }
 
 # Not using: function to calculate HGA adjust
-calculate_hga <- function(experience, distance, home.ground, e = 1, d = 1, h = 1){
-  (e * experience) +  (d * distance) + (h * home.ground)
+calculate_hga <- function(experience, interstate, home.team, e, d, h){
+  (e * log(experience)) +  (d * as.numeric(interstate)) + (h * home.team)
 }
 
 # Prep calculations
-# We want to calculate the experience and distance value for each team
+# We want to calculate the experience and interstate value for each team
 
 # Experience - number of games in last 100
 # Create rolling function
 last_n_games = 100
 count_games <- rollify(function(x) sum(last(x) == x), window = last_n_games, na_value = NA)
 
-results_long <- convert_results(results) %>% 
+# Make data long and apply our function
+game_dat_long <- game_dat %>%
+  gather(Status, Team, Home.Team, Away.Team)  %>% 
   group_by(Team) %>%
   arrange(Team, Game) %>%
   mutate(venue_experience = count_games(Venue)) %>%
-  arrange(Game)
+  group_by(Team, Venue) %>%
+  mutate(venue_experience = ifelse(is.na(venue_experience), row_number(Team), venue_experience)) %>%
+  ungroup() %>%
+  select(Game, Team, venue_experience)
 
-# calculate ELO using elo package.
+# Add back into wide dataset
+game_dat <- game_dat %>%
+  left_join(game_dat_long, by = c("Game", "Home.Team" = "Team")) %>%
+  rename(Home.Venue.Exp = venue_experience) %>%
+  left_join(game_dat_long, by = c("Game", "Away.Team" = "Team")) %>%
+  rename(Away.Venue.Exp = venue_experience)
+
+## Add interstate
+get_state <- function(team, venue, all_teams = states$team, all_venues = states$venue){
+  all_teams$State[match(team, all_teams$Team)] != all_venues$State[match(venue, all_venues$Venue)]
+}
+
+game_dat <- game_dat %>%
+  mutate(Home.Interstate = get_state(Home.Team, Venue),
+         Away.Interstate = get_state(Away.Team, Venue),
+         Home.Factor = 1,
+         Away.Factor = 0)
+  
+# Run ELO calculation -----------------------------------------------------
+# Get results
+results <- game_dat %>%
+  filter(Date < Sys.Date())
+
+# Run ELO
 elo.data <- elo.run(
   map_margin_to_outcome(Home.Points - Away.Points, B = B) ~
-  adjust(Home.Team, HGA) +
-    Away.Team +
+  adjust(Home.Team, 
+         calculate_hga(Home.Venue.Exp, Home.Interstate, Home.Factor, e = e, d = d, h = h)) +
+    adjust(Away.Team, 
+           calculate_hga(Away.Venue.Exp, Away.Interstate, Away.Factor, e = e, d = d, h = h)) +
     group(seas_rnd) +
     regress(First.Game, 1500, carryOver) +
     k(calculate_k(Home.Points - Away.Points, k_val)),
@@ -182,19 +238,22 @@ sim_data_summary <- past_sims$sim_data_summary %>%
   
 # Predictions -------------------------------------------------------------
 # Do predictions
+fixture <- game_dat %>%
+  filter(Date > Sys.Date())
+
 predictions <- fixture %>%
   mutate(
     Day = format(Date, "%a, %d"),
     Time = format(Date, "%H:%M"),
     Probability = round(predict(elo.data, newdata = fixture), 3),
-    Prediction = ceiling(map_outcome_to_margin(Probability)),
+    Prediction = ceiling(map_outcome_to_margin(Probability, B = B)),
     Result = case_when(
       Probability > 0.5 ~ paste(Home.Team, "by", Prediction),
       Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
       TRUE ~ "Draw"
     )
   ) %>%
-  select(Day, Time, Round, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
+  select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
 
 
 # Save Data ---------------------------------------------------------------
