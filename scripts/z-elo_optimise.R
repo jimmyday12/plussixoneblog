@@ -25,7 +25,7 @@ game_dat <- bind_rows(results, fixture) %>%
   mutate(Game = row_number())
 
 # Get states data - this comes from another script I run when a new venue or team occurs
-states <- read_rds(here("data", "raw-data", "states.rds"))
+states <- read_rds(here::here("data", "raw-data", "states.rds"))
 
 # Prep calculations
 # We want to calculate the experience and interstate value for each team
@@ -72,12 +72,13 @@ eloOptim <- function(par, dat){
   #B <- par[1]
   #k_val <- par[2]
   #carryOver <- par[3]
-  B <- par[6]
-  k_val <- par[4]
-  carryOver <- par[5]
   e <- par[1]
   d <- par[2]
-  h <- par[3]
+  h <- 0
+  k_val <- par[4]
+  carryOver <- 0.05
+  B <- par[6]
+  
   results <- dat
   
   map_margin_to_outcome <- function(margin, B = 0.025) {
@@ -119,9 +120,21 @@ eloOptim <- function(par, dat){
       pred.Prob = p.A
     ) %>%
     mutate(pred.Margin = map_outcome_to_margin(pred.Prob)) %>%
-    select(-team.A, -team.B, -wins.A, -update)
-  err <- mean(abs(results_processed$Margin - results_processed$pred.Margin))
-  return(err)
+    select(-team.A, -team.B, -wins.A, -update) %>%
+    filter(Date > dmy("01/01/1990"))
+  
+  mae <- mean(abs(results_processed$Margin - results_processed$pred.Margin))
+  results_processed <- results_processed %>%
+    mutate(bits = case_when(
+      Margin > 0 ~ 1 + log2(pred.Prob),
+      Margin > 0 ~ 1 + log2(pred.Prob),
+      TRUE ~ 1 + (0.5 * log2(pred.Prob * (1 - pred.Prob)))
+    ))
+  
+  bits <- sum(results_processed$bits)
+  
+  message(paste("Mean error of", mae, cat(par), ",", bits))
+  return(mae)
 }
 
 # Run Optim calculation -----------------------------------------------------
@@ -131,21 +144,63 @@ results <- game_dat %>%
 
 # Loop through these
 # Set Parameters
-B <- 0.025
-k_val <- 18.8
-carryOver <- 0.07
-e = 2.2
-d = -23.7
-h = 29.2
+e <- 1.7#1.352
+d <- -32#-24.289
+h <- 20#29.489
+k_val <- 20#22.769
+carryOver <- 0.05
+B <- 0.02#0.05
 
+# 30.5519, 637
+
+# Set Parameters
+e <- 2.933086
+d <- -29.90852
+h <- 21.8839
+k_val <- 20.60298
+carryOver <- 0.3113717
+B <- 0.02236992
+
+# 30.552, 636
 pars <- c(e, d, h, k_val, carryOver, B)
 
-
+eloOptim(pars, results)
 # Do optimisation
 opt_results <- optim(pars,
-                     method = "L-BFGS-B",
-                     lower = c(-Inf, -Inf, -Inf, -Inf, 0, -Inf),
-                     upper = c(Inf, Inf, Inf, Inf, 1, Inf),
+                     control= list(fnscale = 1),
                      fn = eloOptim,
-                     dat = results,
-                     control = list(maxit = 1000))
+                     dat = results)
+
+pars_df <- expand.grid(
+  e = c(0, 2, 4),
+  d = c(0, -15, -30),
+  h = c(0, 15, 30),
+  kval = c(0, 10, 20),
+  B = c(0, 0.02, 0.07)
+)
+
+res <- 
+  pars_df %>%
+  pmap(function(e, d, h, kval, B){
+    pars <- c(e, d, h, k_val, carryOver, B)
+    opt_results <- optim(pars,
+                       control= list(fnscale = 1),
+                       fn = eloOptim,
+                       dat = results)
+    }
+    )
+
+
+res <- read_rds(path = here::here("data", "raw-data", "elo_optim_test.rds"))
+res <- res %>% transpose
+
+tmp_par <- res$par %>% map_dfc(~as.data.frame(.))
+tmp_par <- t(tmp_par) %>% as.data.frame()
+
+tmp_result <- res$value %>% map_dfc(~as.data.frame(.))
+tmp_result <- t(tmp_result) %>% as.data.frame()
+
+res_df <- bind_cols(tmp_par, tmp_result)
+names(res_df) <- c("e", "d", "h", "k_val", "carryOver", "B", "MAE")
+
+z$par[[1]]
