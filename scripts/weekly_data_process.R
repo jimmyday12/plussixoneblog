@@ -7,18 +7,20 @@ library(pacman)
 pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
 
 # Set Parameters
-B <- 0.025          # Rate function for 'squashing' results between 0 and 1
-k_val <- 18.8       # Base k value for adjusting ELO
-carryOver <- 0.07   # Amount of carryover to apply each season
-e = 2.2             # Weighting for log(experience), where experience is # games in last 100 at venue
-d = -23.7           # Weighting for Interstate = TRUE
-h = 29.2            # Weighting for being Home.Team
+e <- 1.7
+d <- -32
+h <- 20
+k_val <- 20
+carryOver <- 0.05
+B <- 0.03
+
 
 
 # Get Data ----------------------------------------------------------------
+filt_date <- Sys.Date() + 1
 # Get fixture data using FitzRoy
 fixture <- fitzRoy::get_fixture() %>%
-  filter(Date > Sys.Date()) %>%
+  filter(Date > filt_date) %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
@@ -31,7 +33,7 @@ results <- fitzRoy::get_match_results() %>%
 
 
 # Get states data - this comes from another script I run when a new venue or team occurs
-states <- read_rds(here("data", "raw-data", "states.rds"))
+states <- read_rds(here::here("data", "raw-data", "states.rds"))
 
 # Data Cleaning -----------------------------------------------------------
 # Fix Venues
@@ -40,7 +42,7 @@ venue_fix <- function(x){
     x == "MCG" ~ "M.C.G.",
     x == "SCG" ~ "S.C.G.",
     x == "Etihad Stadium" ~ "Docklands",
-    x == "Blundstone Area" ~ "Bellerive Oval",
+    x == "Blundstone Arena" ~ "Bellerive Oval",
     x == "GMHBA Stadium" ~ "Kardinia Park",
     x == "Spotless Stadium" ~ "Blacktown",
     x == "UTAS Stadium" ~ "York Park",
@@ -57,7 +59,8 @@ venue_fix <- function(x){
 game_dat <- bind_rows(results, fixture) %>%
   mutate(Game = row_number()) %>%
   ungroup() %>%
-  mutate(Venue = venue_fix(Venue))
+  mutate(Venue = venue_fix(Venue)) %>%
+  mutate(Round = Round.Number)
 
 # ELO Preparation --------------------------------------------------------
 # First some helper functions. These are used to adjust margin/outcome/k/HGA
@@ -121,7 +124,7 @@ game_dat <- game_dat %>%
 # Run ELO calculation -----------------------------------------------------
 # Get results
 results <- game_dat %>%
-  filter(Date < Sys.Date())
+  filter(Date < filt_date)
 
 # Run ELO
 elo.data <- elo.run(
@@ -157,15 +160,16 @@ elo <- results %>%
 
 
 # Simulation --------------------------------------------------------------
-res <- results %>%
+sim_res <- results %>%
   filter(year(Date) == year(Sys.Date())) %>%
   mutate(
     Season.Game = Game - min(Game) + 1,
     Round = Round.Number
   )
 
-remaining_fixture <- fixture %>%
-  mutate(Date = mdy(format(Date[1], "%D")))
+remaining_fixture <- 
+  game_dat %>%
+  filter(Date >= filt_date)
 
 # Get ELOS and perturb them
 form <- elo:::clean_elo_formula(stats::terms(elo.data)) # needed for elo.prob
@@ -176,7 +180,7 @@ sims <- 1:10000
 
 # First replicate results
 res <- sims %>%
-  map_df(~mutate(res, Sim = .x))
+  map_df(~mutate(sim_res, Sim = .x))
 
 # Now simulate
 sim_data <- sims %>%
@@ -185,7 +189,7 @@ sim_data <- sims %>%
   map(~ elo.prob(form, data = remaining_fixture, elos = .x)) %>%
   map2_df(sims, ~ mutate(
     remaining_fixture, Probability = .x,
-    Margin = ceiling(map_outcome_to_margin(Probability)),
+    Margin = ceiling(map_outcome_to_margin(Probability, B = B)),
     Sim = .y
   )) %>%
   bind_rows(res)
@@ -196,6 +200,7 @@ win_calc <- function(x) case_when(x == 0 ~ 0.5, x > 0 ~ 1, TRUE ~ 0)
 
 sim_data_all <- sim_data %>%
   gather(Status, Team, Home.Team:Away.Team) %>%
+  filter(str_detect(Status, "Team")) %>%
   mutate(
     Margin = ifelse(Status == "Home.Team", Margin, -Margin),
     Win = win_calc(Margin)
@@ -218,7 +223,7 @@ sim_data_all <- sim_data %>%
 # Summarise the simulations into percentages
 sim_data_summary <- sim_data_all %>%
   group_by(Team) %>%
-  summarise(
+  dplyr::summarise(
     Season = last(results$Season),
     Round = last(results$Round.Number),
     Margin = mean(Margin),
@@ -230,16 +235,17 @@ sim_data_summary <- sim_data_all %>%
 
 # Combine these simulations with previous ones for plotting
 # Load old sims
-past_sims <- read_rds(here("data", "raw-data", "AFLM.rds"))
+past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds")) 
 
 # Bind with last entry
 sim_data_summary <- past_sims$sim_data_summary %>%
+  filter(Round != last(results$Round.Number)) %>%
   bind_rows(sim_data_summary)
   
 # Predictions -------------------------------------------------------------
 # Do predictions
 fixture <- game_dat %>%
-  filter(Date > Sys.Date())
+  filter(Date > filt_date)
 
 predictions <- fixture %>%
   mutate(
@@ -255,7 +261,7 @@ predictions <- fixture %>%
   ) %>%
   select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
 
-
+predictions
 # Save Data ---------------------------------------------------------------
 # Create list
 aflm_data <- list(
@@ -269,10 +275,8 @@ aflm_sims <- list(
 )
 
 # Save
-write_rds(aflm_data, path = here("data", "raw-data", "AFLM.rds"), compress = "bz")
-write_rds(aflm_sims, path = here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
-write_csv(predictions, path = here("data", "raw-data", "predictions.csv"))
+write_rds(aflm_data, path = here::here("data", "raw-data", "AFLM.rds"), compress = "bz")
+write_rds(aflm_sims, path = here::here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
+write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
 
-# Clean up large files
-rm(elo.data, sim_data, aflm_sims, aflm_data)
 print(proc.time() - ptm)
