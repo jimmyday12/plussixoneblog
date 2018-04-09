@@ -1,0 +1,120 @@
+---
+title: 'Round 4 AFL Men''s ratings '
+author: James Day
+date: '2018-04-09'
+slug: round-4-afl-men-s-ratings
+categories:
+  - AFLM
+tags: []
+---
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+```
+
+With round 3 done and dusted, are the top teams beginning to emerge? <!--more--> You can see the full ratings, results and tips [here](http://plussixoneblog.com/page/aflm-ratings-and-simulations/) but see our current ratings and simulations below. 
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
+)
+
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
+  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
+  geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    x = "Team",
+    y = "ELO Rating",
+    title = "AFL Men's ELO Ratings",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+
+
+
+Not a whole lot of movement at the top, with Adelaide, Sydney, GWS, Richmond and Port remaining in the top tier of teams. These teams are all projected around 16 wins and ~80% chance of finals at this early stage, with Adelaide poking it's nose out in front. 
+
+The pack following is lead by Geelong and rounded out by West Coast, Melbourne and Hawthorn. This cluster all sits at around ~13 projected wins and ~55% chance of finals. 
+
+Of the rest, Collingwood looks the most likely to jump into that next tier, sitting just below the average rating of 1500 and a finals change of ~40%. Essendon, North and St Kilda fell away this round and now comfortably 'below average' teams, along with winners Freo and Bulldogs. 
+
+It also looks like we can rule a line through Gold Coast, Brisbane and Carlton who are all projected below 7 wins for the year.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre,
+         change = min_rank(desc(ELO_pre)) - min_rank(desc(ELO))) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, change, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+# Write to formattable with some formatting
+# Create a sign formatrer
+sign_formatter <- formatter("span", 
+                            style = x ~ style(color = case_when(
+                              x > 0 ~ "green", 
+                              x < 0 ~ "red",
+                              TRUE ~ "transparent")))
+# Create formattable/DT object
+dt_elo <- elo_table %>%
+  formattable(list(
+    change = sign_formatter,
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = sign_formatter,
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>% 
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = '95%')
+
+#change = formatter("span",
+    #                   style = 
+    #                     x ~ style(color = case_when(
+    #                       x > 0 ~ "green",
+    #                       x < 0 ~ "red",
+    #                       TRUE ~ "grey")),
+    #                   x ~ icontext(case_when(
+    #                     x > 0 ~ "chevron-up",
+    #                     x < 0 ~ "chevron-down",
+    #                     TRUE ~ "minus")
+    #                     )),
+```
+
+

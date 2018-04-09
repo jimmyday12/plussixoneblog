@@ -15,7 +15,7 @@ tags: []
 
 
 <p>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!</p>
-<p>Last updated: 2018-04-08</p>
+<p>Last updated: 2018-04-09</p>
 <pre class="r"><code># Load libraries
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
@@ -100,7 +100,7 @@ Day
 Time
 </th>
 <th style="text-align:right;">
-Round
+Round.Number
 </th>
 <th style="text-align:right;">
 Venue
@@ -125,216 +125,129 @@ Result
 <tbody>
 <tr>
 <td style="text-align:right;">
-Fri, 06
+Fri, 13
 </td>
 <td style="text-align:right;">
-19:50
+00:00
 </td>
 <td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-MCG
-</td>
-<td style="text-align:right;">
-<span>Carlton </span>
-</td>
-<td style="text-align:right;">
-<span style="font-weight: bold">Collingwood </span>
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-48.6%
-</td>
-<td style="text-align:right;">
-Collingwood by 2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Sat, 07
-</td>
-<td style="text-align:right;">
-13:15
-</td>
-<td style="text-align:right;">
-3
+4
 </td>
 <td style="text-align:right;">
 Adelaide Oval
 </td>
 <td style="text-align:right;">
-<span style="font-weight: bold">Port Adelaide</span>
+<span style="font-weight: bold">Adelaide </span>
 </td>
 <td style="text-align:right;">
-<span>Brisbane Lions </span>
+<span>Collingwood </span>
 </td>
 <td style="text-align:right;">
-36
+34
 </td>
 <td style="text-align:right;">
-70.6%
+73.0%
 </td>
 <td style="text-align:right;">
-Port Adelaide by 36
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Sat, 07
-</td>
-<td style="text-align:right;">
-14:10
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-MCG
-</td>
-<td style="text-align:right;">
-<span style="font-weight: bold">Melbourne </span>
-</td>
-<td style="text-align:right;">
-<span>North Melbourne</span>
-</td>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:right;">
-58.7%
-</td>
-<td style="text-align:right;">
-Melbourne by 15
+Adelaide by 34
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-Sat, 07
+Sat, 14
 </td>
 <td style="text-align:right;">
-14:35
+00:00
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 <td style="text-align:right;">
-Perth Stadium
+Manuka Oval
 </td>
 <td style="text-align:right;">
-<span style="font-weight: bold">Gold Coast </span>
+<span style="font-weight: bold">GWS </span>
 </td>
 <td style="text-align:right;">
 <span>Fremantle </span>
 </td>
 <td style="text-align:right;">
-11
+32
 </td>
 <td style="text-align:right;">
-56.8%
+72.2%
 </td>
 <td style="text-align:right;">
-Gold Coast by 11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Sat, 07
-</td>
-<td style="text-align:right;">
-19:25
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-SCG
-</td>
-<td style="text-align:right;">
-<span style="font-weight: bold">Sydney </span>
-</td>
-<td style="text-align:right;">
-<span>GWS </span>
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-55.1%
-</td>
-<td style="text-align:right;">
-Sydney by 9
+GWS by 32
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-Sat, 07
+Sat, 14
 </td>
 <td style="text-align:right;">
-19:25
+00:00
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 <td style="text-align:right;">
-Etihad Stadium
-</td>
-<td style="text-align:right;">
-<span>St Kilda </span>
-</td>
-<td style="text-align:right;">
-<span style="font-weight: bold">Adelaide </span>
-</td>
-<td style="text-align:right;">
--12
-</td>
-<td style="text-align:right;">
-42.2%
-</td>
-<td style="text-align:right;">
-Adelaide by 12
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Sun, 08
-</td>
-<td style="text-align:right;">
-13:10
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-MCG
+M.C.G.
 </td>
 <td style="text-align:right;">
 <span style="font-weight: bold">Richmond </span>
 </td>
 <td style="text-align:right;">
-<span>Hawthorn </span>
+<span>Brisbane Lions</span>
 </td>
 <td style="text-align:right;">
-17
+40
 </td>
 <td style="text-align:right;">
-60.3%
+76.8%
 </td>
 <td style="text-align:right;">
-Richmond by 17
+Richmond by 40
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-Sun, 08
+Sat, 14
 </td>
 <td style="text-align:right;">
-14:40
+00:00
 </td>
 <td style="text-align:right;">
-3
+4
+</td>
+<td style="text-align:right;">
+Docklands
+</td>
+<td style="text-align:right;">
+<span>Footscray </span>
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Sydney </span>
+</td>
+<td style="text-align:right;">
+-13
+</td>
+<td style="text-align:right;">
+40.0%
+</td>
+<td style="text-align:right;">
+Sydney by 13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sat, 14
+</td>
+<td style="text-align:right;">
+00:00
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 Perth Stadium
@@ -343,45 +256,132 @@ Perth Stadium
 <span style="font-weight: bold">West Coast </span>
 </td>
 <td style="text-align:right;">
-<span>Geelong </span>
+<span>Gold Coast </span>
 </td>
 <td style="text-align:right;">
-5
+33
 </td>
 <td style="text-align:right;">
-53.0%
+72.4%
 </td>
 <td style="text-align:right;">
-West Coast by 5
+West Coast by 33
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-Sun, 08
+Sat, 14
 </td>
 <td style="text-align:right;">
-15:20
+00:00
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 <td style="text-align:right;">
-Etihad Stadium
+Bellerive Oval
 </td>
 <td style="text-align:right;">
-<span>Footscray </span>
+<span style="font-weight: bold">North Melbourne</span>
 </td>
 <td style="text-align:right;">
-<span style="font-weight: bold">Essendon </span>
+<span>Carlton </span>
 </td>
 <td style="text-align:right;">
--1
+16
 </td>
 <td style="text-align:right;">
-49.1%
+61.3%
 </td>
 <td style="text-align:right;">
-Essendon by 1
+North Melbourne by 16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sun, 15
+</td>
+<td style="text-align:right;">
+00:00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+Docklands
+</td>
+<td style="text-align:right;">
+<span>Essendon </span>
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Port Adelaide </span>
+</td>
+<td style="text-align:right;">
+-3
+</td>
+<td style="text-align:right;">
+47.6%
+</td>
+<td style="text-align:right;">
+Port Adelaide by 3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sun, 15
+</td>
+<td style="text-align:right;">
+00:00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+M.C.G.
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Hawthorn </span>
+</td>
+<td style="text-align:right;">
+<span>Melbourne </span>
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+50.4%
+</td>
+<td style="text-align:right;">
+Hawthorn by 1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Sun, 15
+</td>
+<td style="text-align:right;">
+00:00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+Kardinia Park
+</td>
+<td style="text-align:right;">
+<span style="font-weight: bold">Geelong </span>
+</td>
+<td style="text-align:right;">
+<span>St Kilda </span>
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+66.7%
+</td>
+<td style="text-align:right;">
+Geelong by 24
 </td>
 </tr>
 </tbody>
