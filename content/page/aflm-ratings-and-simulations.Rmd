@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 ```{r get data, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
 # Load libraries
 library(pacman)
-pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe, ggridges)
 
 # Load data that has been run using 'weekly_data_process.R'
 dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
@@ -62,15 +62,17 @@ Now we can pass that table onto `formattable` and create a slightly nicer table.
 dt_elo <- elo_table %>%
   formattable(list(
     ELO = normalize_bar("#20B2AA80"),
-    ELO.change = formatter("span", 
-    style = ~ style(color = ifelse(ELO.change >= 0, "green", "red"))),
+    ELO.change = formatter(
+      "span",
+      style = ~ style(color = ifelse(ELO.change >= 0, "green", "red"))
+    ),
     Top.8 = color_tile("transparent", "lightblue"),
     Top.4 = color_tile("transparent", "lightblue"),
     Top.1 = color_tile("transparent", "lightblue")
-  )) %>% 
-  as.datatable(options = list(dom = 't', pageLength = 18))
+  )) %>%
+  as.datatable(options = list(dom = "t", pageLength = 18))
 
-frameWidget(dt_elo, height = 700, width = '95%')
+frameWidget(dt_elo, height = 700, width = "95%")
 ```
 
 And below you can see the change in ratings for each team. 
@@ -101,6 +103,36 @@ elo_round %>%
     caption = "(data sourced from afltables.com)"
   )
 ```
+# Simulations
+In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season 50 000 times. This has been optimised considerably this year (code to come) which is nice. The following plot shows a ridgegraph of the number of wins of each team in those simulations. 
+
+```{r}
+subt <- paste(
+  "Show the win distribution across 10k simulations from",
+  dat_list$elo$Round.Number %>% last(),
+  dat_list$elo$Date %>% last() %>% year(),
+  "to the end of the season"
+)
+
+sim_dat_list$sim_data_all %>%
+  ungroup() %>%
+  ggplot(aes(x = Wins, y = reorder(Team, Wins), fill = 0.5 - abs(0.5-..ecdf..))) +
+  stat_density_ridges(geom = "density_ridges_gradient", 
+                      scale = 2, 
+                      rel_min_height = 0.05,
+                      calc_ecdf = TRUE) +
+  scale_fill_viridis_c(name = "Tail probability", direction = -1) +
+  theme_minimal() +
+  guides(fill = FALSE, color = FALSE) +
+  labs(
+    y = "Team",
+    title = "Win distribution",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+
+
 
 # Current Tips
 
@@ -109,14 +141,17 @@ Below are the predictions for the current round. The margin and probability are 
 ```{r}
 # Get predictions for current round and present as table
 dat_list$predictions %>%
-  filter(Round.Number == last(dat_list$elo$Round.Number+1)) %>%
+  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
   mutate_at("Probability", formattable::percent, digits = 1) %>%
   formattable(list(
-  Home.Team = formatter("span", style = 
-                          ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))),
-  Away.Team = formatter("span", style = 
-                          ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA)))
-)) 
-
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
 ```
 
