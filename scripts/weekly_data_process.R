@@ -34,6 +34,7 @@ results <- fitzRoy::get_match_results() %>%
 
 # Get states data - this comes from another script I run when a new venue or team occurs
 states <- read_rds(here::here("data", "raw-data", "states.rds"))
+message("Data loaded")
 
 # Data Cleaning -----------------------------------------------------------
 # Fix Venues
@@ -139,6 +140,20 @@ elo.data <- elo.run(
   data = results
 )
 
+# # Simple ELO
+# HGA <- 30
+# carryOver <- 0.5
+# B <- 0.03
+# elo.data <- elo.run(
+#   map_margin_to_outcome(Home.Points - Away.Points, B = B) ~
+#     adjust(Home.Team, HGA) +
+#     Away.Team +
+#     group(seas_rnd) +
+#     regress(First.Game, 1500, carryOver),
+#   k = k_val,
+#   data = results
+# )
+
 # Need to combine this with results to get into long format. May be able to simplify.
 elo <- results %>%
   bind_cols(as.data.frame(elo.data)) %>%
@@ -158,6 +173,9 @@ elo <- results %>%
   group_by(Team) %>%
   arrange(Game) 
 
+# Message
+print(proc.time() - ptm)
+message("ELO Run")
 
 # Simulation --------------------------------------------------------------
 sim_res <- results %>%
@@ -182,16 +200,17 @@ sims <- 1:10000
 res <- sims %>%
   map_df(~mutate(sim_res, Sim = .x))
 
+message("Simulating")
+
 # Now simulate
 sim_data <- sims %>%
   rep_along(list(elo.data)) %>%
   map(perturb_elos) %>%
-  map(~ elo.prob(form, data = remaining_fixture, elos = .x)) %>%
-  map2_df(sims, ~ mutate(
+  map(~elo.prob(form, data = remaining_fixture, elos = .x)) %>%
+  map2_df(sims, ~mutate(
     remaining_fixture, Probability = .x,
     Margin = ceiling(map_outcome_to_margin(Probability, B = B)),
-    Sim = .y
-  )) %>%
+    Sim = .y)) %>%
   bind_rows(res)
 
 
@@ -233,6 +252,7 @@ sim_data_summary <- sim_data_all %>%
     Top.1 = sum(Top.1) / max(sims)
   )
 
+rm(sim_data_all)
 # Combine these simulations with previous ones for plotting
 # Load old sims
 past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds")) 
@@ -241,7 +261,14 @@ past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 sim_data_summary <- past_sims$sim_data_summary %>%
   filter(Round != last(results$Round.Number)) %>%
   bind_rows(sim_data_summary)
-  
+
+# Print to console
+sim_data_summary %>% 
+  filter(Round == last(results$Round.Number))
+
+# MEssage
+print(proc.time() - ptm)
+("Sims done")
 # Predictions -------------------------------------------------------------
 # Do predictions
 fixture <- game_dat %>%
@@ -270,7 +297,6 @@ aflm_data <- list(
   predictions = predictions)
 
 aflm_sims <- list(
-  sim_data_all = sim_data_all,
   sim_data_summary = sim_data_summary
 )
 
@@ -279,4 +305,6 @@ write_rds(aflm_data, path = here::here("data", "raw-data", "AFLM.rds"), compress
 write_rds(aflm_sims, path = here::here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
 write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
 
+# Message
 print(proc.time() - ptm)
+messagea("Data saved")
