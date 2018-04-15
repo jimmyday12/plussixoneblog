@@ -52,6 +52,7 @@ venue_fix <- function(x){
     x == "TIO Traegar Park" ~ "Traeger Park",
     x == "Metricon Stadium" ~ "Carrara",
     x == "TIO Stadium" ~ "Marrara Oval",
+    x == "Optus Stadium" ~ "Perth Stadium",
     TRUE ~ as.character(x)
   )
 }
@@ -252,7 +253,6 @@ sim_data_summary <- sim_data_all %>%
     Top.1 = sum(Top.1) / max(sims)
   )
 
-rm(sim_data_all)
 # Combine these simulations with previous ones for plotting
 # Load old sims
 past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds")) 
@@ -297,7 +297,8 @@ aflm_data <- list(
   predictions = predictions)
 
 aflm_sims <- list(
-  sim_data_summary = sim_data_summary
+  sim_data_summary = sim_data_summary,
+  sim_data_all = sim_data_all
 )
 
 # Save

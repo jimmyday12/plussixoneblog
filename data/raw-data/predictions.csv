@@ -2,7 +2,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Fri, 20",00:00,5,S.C.G.,Sydney,Adelaide,14,0.6,Sydney by 14
 "Sat, 21",00:00,5,Docklands,St Kilda,GWS,-15,0.384,GWS by 15
 "Sat, 21",00:00,5,M.C.G.,Carlton,West Coast,-21,0.347,West Coast by 21
-"Sat, 21",00:00,5,Optus Stadium,Fremantle,Footscray,NA,NA,Draw
+"Sat, 21",00:00,5,Perth Stadium,Fremantle,Footscray,6,0.541,Fremantle by 6
 "Sat, 21",00:00,5,Adelaide Oval,Port Adelaide,Geelong,9,0.564,Port Adelaide by 9
 "Sun, 22",00:00,5,Docklands,North Melbourne,Hawthorn,-4,0.467,Hawthorn by 4
 "Sun, 22",00:00,5,Gabba,Brisbane Lions,Gold Coast,4,0.529,Brisbane Lions by 4
@@ -15,12 +15,12 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 28",00:00,6,Adelaide Oval,Adelaide,Gold Coast,43,0.782,Adelaide by 43
 "Sat, 28",00:00,6,York Park,Hawthorn,St Kilda,25,0.677,Hawthorn by 25
 "Sun, 29",00:00,6,Docklands,Essendon,Melbourne,5,0.531,Essendon by 5
-"Sun, 29",00:00,6,Optus Stadium,Fremantle,West Coast,NA,NA,Draw
+"Sun, 29",00:00,6,Perth Stadium,Fremantle,West Coast,-18,0.366,West Coast by 18
 "Sun, 29",00:00,6,M.C.G.,Collingwood,Richmond,-5,0.46,Richmond by 5
 "Fri, 04",00:00,7,Kardinia Park,Geelong,GWS,8,0.553,Geelong by 8
 "Sat, 05",00:00,7,Eureka Stadium,Footscray,Gold Coast,22,0.656,Footscray by 22
 "Sat, 05",00:00,7,M.C.G.,Essendon,Hawthorn,-5,0.461,Hawthorn by 5
-"Sat, 05",00:00,7,Optus Stadium,West Coast,Port Adelaide,NA,NA,Draw
+"Sat, 05",00:00,7,Perth Stadium,West Coast,Port Adelaide,12,0.585,West Coast by 12
 "Sat, 05",00:00,7,Adelaide Oval,Adelaide,Carlton,46,0.797,Adelaide by 46
 "Sat, 05",00:00,7,S.C.G.,Sydney,North Melbourne,27,0.69,Sydney by 27
 "Sun, 06",00:00,7,M.C.G.,Richmond,Fremantle,39,0.763,Richmond by 39
@@ -31,7 +31,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 12",00:00,8,M.C.G.,Carlton,Essendon,-17,0.372,Essendon by 17
 "Sat, 12",00:00,8,Gabba,Gold Coast,Melbourne,-8,0.439,Melbourne by 8
 "Sat, 12",00:00,8,Adelaide Oval,Port Adelaide,Adelaide,-0,0.497,Adelaide by 0
-"Sat, 12",00:00,8,Optus Stadium,Fremantle,St Kilda,NA,NA,Draw
+"Sat, 12",00:00,8,Perth Stadium,Fremantle,St Kilda,10,0.573,Fremantle by 10
 "Sat, 12",00:00,8,Docklands,Footscray,Brisbane Lions,23,0.661,Footscray by 23
 "Sun, 13",00:00,8,Docklands,North Melbourne,Richmond,-11,0.412,Richmond by 11
 "Sun, 13",00:00,8,M.C.G.,Collingwood,Geelong,-0,0.499,Geelong by 0
@@ -42,7 +42,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 19",00:00,9,Docklands,St Kilda,Collingwood,-14,0.396,Collingwood by 14
 "Sat, 19",00:00,9,S.C.G.,Sydney,Fremantle,39,0.763,Sydney by 39
 "Sun, 20",00:00,9,M.C.G.,Carlton,Melbourne,-17,0.371,Melbourne by 17
-"Sun, 20",00:00,9,Optus Stadium,West Coast,Richmond,NA,NA,Draw
+"Sun, 20",00:00,9,Perth Stadium,West Coast,Richmond,5,0.533,West Coast by 5
 "Sun, 20",00:00,9,Gabba,Brisbane Lions,Hawthorn,-17,0.375,Hawthorn by 17
 "Fri, 25",00:00,10,Docklands,Collingwood,Footscray,18,0.629,Collingwood by 18
 "Sat, 26",00:00,10,M.C.G.,Richmond,St Kilda,32,0.723,Richmond by 32
@@ -50,13 +50,13 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 26",00:00,10,Kardinia Park,Geelong,Carlton,38,0.755,Geelong by 38
 "Sat, 26",00:00,10,Blacktown,GWS,Essendon,26,0.681,GWS by 26
 "Sun, 27",00:00,10,Docklands,Hawthorn,West Coast,9,0.565,Hawthorn by 9
-"Sun, 27",00:00,10,Optus Stadium,Fremantle,North Melbourne,NA,NA,Draw
+"Sun, 27",00:00,10,Perth Stadium,Fremantle,North Melbourne,-1,0.487,North Melbourne by 1
 "Sun, 27",00:00,10,Traeger Park,Melbourne,Adelaide,-8,0.433,Adelaide by 8
 "Fri, 01",00:00,11,S.C.G.,Sydney,Carlton,49,0.809,Sydney by 49
 "Sat, 02",00:00,11,Docklands,Footscray,Melbourne,-2,0.478,Melbourne by 2
 "Sat, 02",00:00,11,York Park,Hawthorn,Port Adelaide,5,0.534,Hawthorn by 5
 "Sat, 02",00:00,11,Carrara,Gold Coast,Geelong,-18,0.362,Geelong by 18
-"Sat, 02",00:00,11,Optus Stadium,West Coast,St Kilda,NA,NA,Draw
+"Sat, 02",00:00,11,Perth Stadium,West Coast,St Kilda,32,0.722,West Coast by 32
 "Sat, 02",00:00,11,M.C.G.,Essendon,Richmond,-12,0.406,Richmond by 12
 "Sun, 03",00:00,11,Docklands,North Melbourne,Brisbane Lions,30,0.708,North Melbourne by 30
 "Sun, 03",00:00,11,M.C.G.,Collingwood,Fremantle,30,0.709,Collingwood by 30
@@ -66,7 +66,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 09",00:00,12,Blacktown,GWS,Gold Coast,44,0.788,GWS by 44
 "Sat, 09",00:00,12,Docklands,St Kilda,Sydney,-16,0.376,Sydney by 16
 "Sun, 10",00:00,12,Gabba,Brisbane Lions,Essendon,-8,0.439,Essendon by 8
-"Sun, 10",00:00,12,Optus Stadium,Fremantle,Adelaide,NA,NA,Draw
+"Sun, 10",00:00,12,Perth Stadium,Fremantle,Adelaide,-14,0.39,Adelaide by 14
 "Mon, 11",00:00,12,M.C.G.,Melbourne,Collingwood,-3,0.476,Collingwood by 3
 "Thu, 14",00:00,13,Adelaide Oval,Port Adelaide,Footscray,27,0.692,Port Adelaide by 27
 "Fri, 15",00:00,13,S.C.G.,Sydney,West Coast,17,0.624,Sydney by 17
@@ -74,7 +74,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 16",00:00,13,Carrara,Gold Coast,St Kilda,4,0.527,Gold Coast by 4
 "Sat, 16",00:00,13,M.C.G.,Hawthorn,Adelaide,6,0.544,Hawthorn by 6
 "Sun, 17",00:00,13,M.C.G.,Geelong,Richmond,-1,0.489,Richmond by 1
-"Thu, 21",00:00,14,Optus Stadium,West Coast,Essendon,NA,NA,Draw
+"Thu, 21",00:00,14,Perth Stadium,West Coast,Essendon,21,0.65,West Coast by 21
 "Fri, 22",00:00,14,Adelaide Oval,Port Adelaide,Melbourne,20,0.644,Port Adelaide by 20
 "Sat, 23",00:00,14,York Park,Hawthorn,Gold Coast,32,0.721,Hawthorn by 32
 "Sat, 23",00:00,14,Gabba,Brisbane Lions,GWS,-23,0.332,GWS by 23
@@ -87,7 +87,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 30",00:00,15,Carrara,Gold Coast,Collingwood,-14,0.391,Collingwood by 14
 "Sat, 30",00:00,15,Blacktown,GWS,Hawthorn,17,0.622,GWS by 17
 "Sun, 01",00:00,15,M.C.G.,Melbourne,St Kilda,16,0.616,Melbourne by 16
-"Sun, 01",00:00,15,Optus Stadium,Fremantle,Brisbane Lions,NA,NA,Draw
+"Sun, 01",00:00,15,Perth Stadium,Fremantle,Brisbane Lions,18,0.63,Fremantle by 18
 "Sun, 01",00:00,15,Docklands,Essendon,North Melbourne,4,0.526,Essendon by 4
 "Thu, 05",00:00,16,S.C.G.,Sydney,Geelong,16,0.616,Sydney by 16
 "Fri, 06",00:00,16,M.C.G.,Richmond,Adelaide,14,0.599,Richmond by 14
@@ -96,7 +96,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 07",00:00,16,Marrara Oval,Melbourne,Fremantle,17,0.618,Melbourne by 17
 "Sat, 07",00:00,16,Docklands,Footscray,Hawthorn,-11,0.413,Hawthorn by 11
 "Sun, 08",00:00,16,Docklands,North Melbourne,Gold Coast,30,0.705,North Melbourne by 30
-"Sun, 08",00:00,16,Optus Stadium,West Coast,GWS,NA,NA,Draw
+"Sun, 08",00:00,16,Perth Stadium,West Coast,GWS,6,0.544,West Coast by 6
 "Sun, 08",00:00,16,M.C.G.,Essendon,Collingwood,-3,0.474,Collingwood by 3
 "Thu, 12",00:00,17,Adelaide Oval,Adelaide,Geelong,13,0.595,Adelaide by 13
 "Fri, 13",00:00,17,Docklands,St Kilda,Carlton,15,0.604,St Kilda by 15
@@ -105,7 +105,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 14",00:00,17,Carrara,Gold Coast,Essendon,-7,0.443,Essendon by 7
 "Sat, 14",00:00,17,Blacktown,GWS,Richmond,10,0.569,GWS by 10
 "Sun, 15",00:00,17,M.C.G.,Collingwood,West Coast,8,0.556,Collingwood by 8
-"Sun, 15",00:00,17,Optus Stadium,Fremantle,Port Adelaide,NA,NA,Draw
+"Sun, 15",00:00,17,Perth Stadium,Fremantle,Port Adelaide,-10,0.42,Port Adelaide by 10
 "Sun, 15",00:00,17,Docklands,North Melbourne,Sydney,-5,0.459,Sydney by 5
 "Fri, 20",00:00,18,Docklands,St Kilda,Richmond,-23,0.332,Richmond by 23
 "Sat, 21",00:00,18,M.C.G.,Collingwood,North Melbourne,12,0.584,Collingwood by 12
@@ -114,7 +114,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 21",00:00,18,Kardinia Park,Geelong,Melbourne,16,0.617,Geelong by 16
 "Sat, 21",00:00,18,Gabba,Brisbane Lions,Adelaide,-21,0.343,Adelaide by 21
 "Sun, 22",00:00,18,Docklands,Carlton,Hawthorn,-26,0.313,Hawthorn by 26
-"Sun, 22",00:00,18,Optus Stadium,West Coast,Footscray,NA,NA,Draw
+"Sun, 22",00:00,18,Perth Stadium,West Coast,Footscray,28,0.697,West Coast by 28
 "Sun, 22",00:00,18,Adelaide Oval,Port Adelaide,GWS,5,0.536,Port Adelaide by 5
 "Fri, 27",00:00,19,Docklands,Essendon,Sydney,-5,0.457,Sydney by 5
 "Sat, 28",00:00,19,M.C.G.,Richmond,Collingwood,14,0.597,Richmond by 14
@@ -123,7 +123,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 28",00:00,19,Adelaide Oval,Adelaide,Melbourne,25,0.673,Adelaide by 25
 "Sat, 28",00:00,19,Carrara,Gold Coast,Carlton,14,0.602,Gold Coast by 14
 "Sun, 29",00:00,19,Bellerive Oval,North Melbourne,West Coast,-5,0.459,West Coast by 5
-"Sun, 29",00:00,19,Optus Stadium,Fremantle,Hawthorn,NA,NA,Draw
+"Sun, 29",00:00,19,Perth Stadium,Fremantle,Hawthorn,-10,0.424,Hawthorn by 10
 "Sun, 29",00:00,19,Eureka Stadium,Footscray,Port Adelaide,-6,0.454,Port Adelaide by 6
 "Fri, 03",00:00,20,M.C.G.,Richmond,Geelong,10,0.568,Richmond by 10
 "Sat, 04",00:00,20,M.C.G.,Hawthorn,Essendon,13,0.596,Hawthorn by 13
@@ -132,7 +132,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 04",00:00,20,Docklands,St Kilda,Footscray,-0,0.498,Footscray by 0
 "Sat, 04",00:00,20,S.C.G.,Sydney,Collingwood,20,0.644,Sydney by 20
 "Sun, 05",00:00,20,Docklands,Carlton,GWS,-26,0.314,GWS by 26
-"Sun, 05",00:00,20,Optus Stadium,West Coast,Fremantle,NA,NA,Draw
+"Sun, 05",00:00,20,Perth Stadium,West Coast,Fremantle,27,0.686,West Coast by 27
 "Sun, 05",00:00,20,M.C.G.,Melbourne,Gold Coast,30,0.706,Melbourne by 30
 "Fri, 10",00:00,21,Docklands,Essendon,St Kilda,16,0.611,Essendon by 16
 "Sat, 11",00:00,21,M.C.G.,Hawthorn,Geelong,2,0.513,Hawthorn by 2
@@ -141,7 +141,7 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 11",00:00,21,Docklands,Collingwood,Brisbane Lions,37,0.747,Collingwood by 37
 "Sat, 11",00:00,21,Manuka Oval,GWS,Adelaide,7,0.546,GWS by 7
 "Sun, 12",00:00,21,Docklands,North Melbourne,Footscray,12,0.583,North Melbourne by 12
-"Sun, 12",00:00,21,Optus Stadium,Fremantle,Carlton,NA,NA,Draw
+"Sun, 12",00:00,21,Perth Stadium,Fremantle,Carlton,21,0.646,Fremantle by 21
 "Sun, 12",00:00,21,M.C.G.,Melbourne,Sydney,-5,0.458,Sydney by 5
 "Fri, 17",00:00,22,M.C.G.,Richmond,Essendon,21,0.648,Richmond by 21
 "Sat, 18",00:00,22,M.C.G.,Collingwood,Port Adelaide,9,0.564,Collingwood by 9
@@ -150,9 +150,9 @@ Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 "Sat, 18",00:00,22,Docklands,St Kilda,Hawthorn,-15,0.383,Hawthorn by 15
 "Sat, 18",00:00,22,Carrara,Gold Coast,Brisbane Lions,6,0.54,Gold Coast by 6
 "Sun, 19",00:00,22,Docklands,Carlton,Footscray,-10,0.422,Footscray by 10
-"Sun, 19",00:00,22,Optus Stadium,West Coast,Melbourne,NA,NA,Draw
+"Sun, 19",00:00,22,Perth Stadium,West Coast,Melbourne,21,0.652,West Coast by 21
 "Sun, 19",00:00,22,Adelaide Oval,Adelaide,North Melbourne,24,0.672,Adelaide by 24
-"Fri, 24",00:00,23,Optus Stadium,Fremantle,Collingwood,NA,NA,Draw
+"Fri, 24",00:00,23,Perth Stadium,Fremantle,Collingwood,-8,0.438,Collingwood by 8
 "Fri, 24",00:00,23,Docklands,St Kilda,Carlton,15,0.604,St Kilda by 15
 "Fri, 24",00:00,23,Gabba,Brisbane Lions,West Coast,-18,0.366,West Coast by 18
 "Fri, 24",00:00,23,S.C.G.,Sydney,Hawthorn,19,0.632,Sydney by 19

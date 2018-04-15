@@ -48,7 +48,15 @@ venue_states <- venues %>%
     TRUE ~ as.character(State)
   ))
 
-# Step 3: Give team states
+# Step 4: Add new Stadiums
+venue_states <- venue_states %>%
+  bind_rows(
+    data.frame(Venue = "Perth Stadium",
+               State = "Western Asutralia")
+  )
+
+
+# Step 5: Give team states
 team_states <- data.frame(
   Teams = c(
     "Fitzroy", "Collingwood", "Geelong", "Footscray",
@@ -69,4 +77,4 @@ team_states <- data.frame(
 
 # Save Data ---------------------------------------------------------------
 states <- list(team = team_states, venue = venue_states)
-write_rds(states, path = here("data", "raw-data", "states.rds"))
+write_rds(states, path = here::here("data", "raw-data", "states.rds"))
