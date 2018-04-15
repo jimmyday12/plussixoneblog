@@ -307,4 +307,4 @@ write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
 
 # Message
 print(proc.time() - ptm)
-messagea("Data saved")
+message("Data saved")
