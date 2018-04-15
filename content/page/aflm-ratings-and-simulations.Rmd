@@ -11,7 +11,7 @@ tags: []
 
 Welcome to our all new AFL Men's ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I'll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter! 
 
-Last updated: `r Sys.Date()`
+Last updated: `r Sys.Date()`.
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
@@ -19,12 +19,15 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE
 )
+Round <- 5
 ```
 
 ```{r get data, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
 # Load libraries
 library(pacman)
-pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe, ggridges)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
 
 # Load data that has been run using 'weekly_data_process.R'
 dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
