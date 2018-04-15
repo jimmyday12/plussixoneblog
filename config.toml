@@ -16,8 +16,10 @@ googleAnalytics = "UA-77406420-1"
 
 [Params]
   subtitle = "Data driven exploration of Australian Sport"
-  logo = "img/circle/400x400_circle.png"
-  favicon = "img/square/100x100_square_icon.ico"
+  #logo = "img/circle/400x400_circle.png"
+  #favicon = "img/square/100x100_square_icon.ico"
+  logo = "img/avatar-icon.png"
+  favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
   rss = true
