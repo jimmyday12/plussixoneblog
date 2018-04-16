@@ -34,6 +34,7 @@ dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
 # Get predictions for current round and present as table
 dat_list$predictions %>%
   filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  select(-Time, -Round.Number) %>%
   mutate_at("Probability", formattable::percent, digits = 1) %>%
   formattable(list(
     Home.Team = formatter(

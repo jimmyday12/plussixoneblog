@@ -137,24 +137,5 @@ sim_dat_list$sim_data_all %>%
 
 
 
-# Current Tips
 
-Below are the predictions for the current round. The margin and probability are for the home team winning, so a margin `< 0` or a probability `<0.5` indicates the away team is favourite. 
-
-```{r}
-# Get predictions for current round and present as table
-dat_list$predictions %>%
-  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
-  mutate_at("Probability", formattable::percent, digits = 1) %>%
-  formattable(list(
-    Home.Team = formatter(
-      "span", style =
-        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
-    ),
-    Away.Team = formatter(
-      "span", style =
-        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
-    )
-  ))
-```
 
