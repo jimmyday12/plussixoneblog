@@ -14,8 +14,6 @@ k_val <- 20
 carryOver <- 0.05
 B <- 0.03
 
-
-
 # Get Data ----------------------------------------------------------------
 filt_date <- Sys.Date() + 1
 # Get fixture data using FitzRoy
@@ -174,9 +172,35 @@ elo <- results %>%
   group_by(Team) %>%
   arrange(Game) 
 
+# Also add predicted margin and probability to results
+results <- results %>%
+  mutate(Probability = round(predict(elo.data, newdata = results), 3),
+         Prediction = ceiling(map_outcome_to_margin(Probability, B = B)))
+
 # Message
 print(proc.time() - ptm)
 message("ELO Run")
+
+# Predictions -------------------------------------------------------------
+# Do predictions
+fixture <- game_dat %>%
+  filter(Date > filt_date)
+
+predictions <- fixture %>%
+  mutate(
+    Day = format(Date, "%a, %d"),
+    Time = format(Date, "%H:%M"),
+    Probability = round(predict(elo.data, newdata = fixture), 3),
+    Prediction = ceiling(map_outcome_to_margin(Probability, B = B)),
+    Result = case_when(
+      Probability > 0.5 ~ paste(Home.Team, "by", Prediction),
+      Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
+      TRUE ~ "Draw"
+    )
+  ) %>%
+  select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
+
+predictions
 
 # Simulation --------------------------------------------------------------
 sim_res <- results %>%
@@ -269,29 +293,11 @@ sim_data_summary %>%
 # MEssage
 print(proc.time() - ptm)
 ("Sims done")
-# Predictions -------------------------------------------------------------
-# Do predictions
-fixture <- game_dat %>%
-  filter(Date > filt_date)
 
-predictions <- fixture %>%
-  mutate(
-    Day = format(Date, "%a, %d"),
-    Time = format(Date, "%H:%M"),
-    Probability = round(predict(elo.data, newdata = fixture), 3),
-    Prediction = ceiling(map_outcome_to_margin(Probability, B = B)),
-    Result = case_when(
-      Probability > 0.5 ~ paste(Home.Team, "by", Prediction),
-      Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
-      TRUE ~ "Draw"
-    )
-  ) %>%
-  select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
-
-predictions
 # Save Data ---------------------------------------------------------------
 # Create list
 aflm_data <- list(
+  results = results,
   elo.data = elo.data, 
   elo = elo, 
   predictions = predictions)

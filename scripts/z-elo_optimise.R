@@ -74,10 +74,10 @@ eloOptim <- function(par, dat){
   #carryOver <- par[3]
   e <- par[1]
   d <- par[2]
-  h <- 0
+  h <- par[3]
   k_val <- par[4]
+  B <- par[5]
   carryOver <- 0.05
-  B <- par[6]
   
   results <- dat
   
@@ -154,15 +154,16 @@ B <- 0.02#0.05
 # 30.5519, 637
 
 # Set Parameters
-e <- 2.933086
-d <- -29.90852
-h <- 21.8839
-k_val <- 20.60298
-carryOver <- 0.3113717
-B <- 0.02236992
+e <- 1.7
+d <- -32
+h <- 20
+k_val <- 20
+carryOver <- 0.05
+B <- 0.03
+#30.7543771093934  , 581.687906609577
 
 # 30.552, 636
-pars <- c(e, d, h, k_val, carryOver, B)
+pars <- c(e, d, h, k_val, B)
 
 eloOptim(pars, results)
 # Do optimisation
