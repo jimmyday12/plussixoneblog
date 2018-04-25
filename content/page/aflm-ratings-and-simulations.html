@@ -16,36 +16,10 @@ tags: []
 
 <p>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!</p>
 <p>Last updated: 2018-04-25.</p>
-<pre class="r"><code># Load libraries
-library(pacman)
-pacman::p_load(fitzRoy, tidyverse, formattable, 
-               ggthemes, elo, here, lubridate, 
-               widgetframe, ggridges, DT)
-
-# Load data that has been run using &#39;weekly_data_process.R&#39;
-dat_list &lt;- read_rds(here::here(&quot;data&quot;, &quot;raw-data&quot;, &quot;AFLM.rds&quot;))
-sim_dat_list &lt;- read_rds(here::here(&quot;data&quot;, &quot;raw-data&quot;, &quot;AFLM_sims.rds&quot;))</code></pre>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <p>Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model (insert explainer) and simulations (insert explainer).</p>
 <p>First, let’s get our data into a good format.</p>
-<pre class="r"><code># Get the round data
-elo_round &lt;- dat_list$elo %&gt;%
-  filter(Game == last(Game) &amp; !Team %in% c(&quot;Fitzroy&quot;, &quot;University&quot;))
-
-sim_round &lt;- sim_dat_list$sim_data_summary %&gt;%
-  filter(Round == last(dat_list$elo$Round.Number))
-
-# Combine Simulation and ELO data
-elo_table &lt;- elo_round %&gt;%
-  left_join(sim_round, by = &quot;Team&quot;) %&gt;%
-  ungroup() %&gt;%
-  mutate(ELO.change = ELO - ELO_pre) %&gt;%
-  mutate_at(c(&quot;Top.8&quot;, &quot;Top.4&quot;, &quot;Top.1&quot;), formattable::percent, digits = 1) %&gt;%
-  mutate_at(c(&quot;ELO&quot;, &quot;ELO.change&quot;), as.integer) %&gt;%
-  mutate_at(&quot;Wins&quot;, round, 1) %&gt;%
-  select(Team, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %&gt;%
-  arrange(desc(Wins))</code></pre>
 <p>Now we can pass that table onto <code>formattable</code> and create a slightly nicer table. I’ve also worked out that the <code>framewidget</code> package allows us to generate html widgets (which means interactive tables!)</p>
 <pre class="r"><code># Write to formattable with some formatting
 dt_elo &lt;- elo_table %&gt;%
@@ -65,30 +39,6 @@ frameWidget(dt_elo, height = 700, width = &quot;95%&quot;)</code></pre>
 <div id="htmlwidget-1" style="width:95%;height:700px;" class="widgetframe html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/page/aflm-ratings-and-simulations_files/figure-html//widgets/widget_formattable.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p>And below you can see the change in ratings for each team.</p>
-<pre class="r"><code># Create a subtitle for plot
-subt &lt;- paste(
-  &quot;Showing the ELO rating of each AFL Men&#39;s team at the end of Round&quot;,
-  dat_list$elo$Round.Number %&gt;% last(), &quot;&quot;,
-  dat_list$elo$Date %&gt;% last() %&gt;% year(),
-  &quot;in green,\nwith the tail showing their previous rating&quot;
-)
-
-# Do ggplot
-elo_round %&gt;%
-  ggplot(aes(x = reorder(Team, ELO))) +
-  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
-  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
-  geom_point(aes(y = ELO_pre), alpha = 0.1) +
-  geom_point(aes(y = ELO), colour = &quot;#669999&quot;, size = 2) +
-  coord_flip() +
-  theme_minimal() +
-  labs(
-    x = &quot;Team&quot;,
-    y = &quot;ELO Rating&quot;,
-    title = &quot;AFL Men&#39;s ELO Ratings&quot;,
-    subtitle = subt,
-    caption = &quot;(data sourced from afltables.com)&quot;
-  )</code></pre>
 <p><img src="/page/aflm-ratings-and-simulations_files/figure-html/ratings-plot-1.png" width="672" /> # Simulations In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season 50 000 times. This has been optimised considerably this year (code to come) which is nice. The following plot shows a ridgegraph of the number of wins of each team in those simulations.</p>
-<p><img src="/page/aflm-ratings-and-simulations_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/page/aflm-ratings-and-simulations_files/figure-html/sims-plot-1.png" width="672" /></p>
 </div>

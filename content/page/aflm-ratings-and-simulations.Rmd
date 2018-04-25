@@ -15,14 +15,14 @@ Last updated: `r Sys.Date()`.
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE,
-  message = FALSE,
-  warning = FALSE
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
 )
 Round <- 6
 ```
 
-```{r get data, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r get data, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 # Load libraries
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, formattable, 
@@ -39,7 +39,7 @@ Below are the updated AFL Men's ratings and simulations. These are based off our
 
 First, let's get our data into a good format. 
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Get the round data
 elo_round <- dat_list$elo %>%
   filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
@@ -80,7 +80,7 @@ frameWidget(dt_elo, height = 700, width = "95%")
 
 And below you can see the change in ratings for each team. 
 
-```{r ratings-plot, echo=TRUE, message=FALSE, warning=FALSE}
+```{r ratings-plot, echo=FALSE, message=FALSE, warning=FALSE}
 # Create a subtitle for plot
 subt <- paste(
   "Showing the ELO rating of each AFL Men's team at the end of Round",
@@ -109,7 +109,7 @@ elo_round %>%
 # Simulations
 In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season 50 000 times. This has been optimised considerably this year (code to come) which is nice. The following plot shows a ridgegraph of the number of wins of each team in those simulations. 
 
-```{r}
+```{r sims-plot, echo=FALSE, message=FALSE, warning=FALSE}
 subt <- paste(
   "Showing the distribution of each teams total wins across 10k simulations from",
   dat_list$elo$Round.Number %>% last(),
