@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE
 )
-Round <- 5
+Round <- 6
 ```
 
 ```{r get data, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
@@ -111,7 +111,7 @@ In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season
 
 ```{r}
 subt <- paste(
-  "Show the win distribution across 10k simulations from",
+  "Showing the distribution of each teams total wins across 10k simulations from",
   dat_list$elo$Round.Number %>% last(),
   dat_list$elo$Date %>% last() %>% year(),
   "to the end of the season"
@@ -129,7 +129,7 @@ sim_dat_list$sim_data_all %>%
   guides(fill = FALSE, color = FALSE) +
   labs(
     y = "Team",
-    title = "Win distribution",
+    title = "AFL Mens Simulated Win distribution",
     subtitle = subt,
     caption = "(data sourced from afltables.com)"
   )
