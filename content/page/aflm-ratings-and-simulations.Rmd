@@ -27,7 +27,7 @@ Round <- 7
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, formattable, 
                ggthemes, elo, here, lubridate, 
-               widgetframe, ggridges, DT)
+               widgetframe, ggridges, DT, scales)
 
 # Load data that has been run using 'weekly_data_process.R'
 dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
@@ -106,12 +106,13 @@ elo_round %>%
     caption = "(data sourced from afltables.com)"
   )
 ```
+
 # Simulations
 In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season 50 000 times. This has been optimised considerably this year (code to come) which is nice. The following plot shows a ridgegraph of the number of wins of each team in those simulations. 
 
 ```{r sims-plot, echo=FALSE, message=FALSE, warning=FALSE}
 subt <- paste(
-  "Showing the distribution of each teams total wins across 10k simulations from",
+  "Showing the distribution of each teams total wins across 10k simulations from\nRound",
   dat_list$elo$Round.Number %>% last(),
   dat_list$elo$Date %>% last() %>% year(),
   "to the end of the season"
@@ -131,10 +132,67 @@ sim_dat_list$sim_data_all %>%
     y = "Team",
     title = "AFL Mens Simulated Win distribution",
     subtitle = subt,
-    caption = "(data sourced from afltables.com)"
+    caption = "data sourced from afltables.com"
   )
 ```
 
+And below we show the probability of each team finishing at each ladder position in a heatmap. 
+```{r sim_code, message=FALSE, warning=FALSE, include=FALSE}
+sims <- 10000
+
+# Get Table of percentages
+simCount <-
+  sim_dat_list$sim_data_all %>%
+  ungroup() %>%
+  select(Team, Rank) %>%
+  table() %>%
+  as.data.frame() %>%
+  group_by(Team) %>%
+  mutate(Freq = Freq/sims * 100) 
+
+simCount$Freq[simCount$Freq == 0] <- NA
+
+## Reorder table by number of wins
+# Find order of wins
+simWins <- 
+  sim_dat_list$sim_data_summary %>%
+  filter(Round == max(Round)) %>%
+  arrange(Wins)
+
+# Refactor
+simCount$Team <- factor(simCount$Team, levels = simWins$Team)
+
+# Get rankings within team
+simCount <- simCount %>% 
+  group_by(Team) %>% 
+  mutate(order = dense_rank(desc(Freq)),
+         txt = case_when(
+           Freq < 1 ~ "<1", 
+           Freq > 1 ~ as.character(round(Freq, 0)), 
+           TRUE ~ "")) %>%
+  arrange(Team, order)
+
+# Define Quantiles
+quant <- quantile(simCount$Freq, na.rm = T)
+
+```
+
+```{r sim_plotr, echo=FALSE, message=FALSE, warning=FALSE}
+# Plot
+ggplot(simCount, aes(x = Rank, y = Team)) +
+  geom_tile(aes(fill = Freq)) +
+  scale_fill_gradientn(colours = c("#ECECEC", "#ffffcc", "#bd0026"),
+                       values = rescale(c(quant["0%"], quant["25%"], quant["100%"])),
+                       na.value = "white") +
+  geom_text(aes(label = txt, alpha = 0.5)) +
+  scale_x_discrete(position = "top") +
+  theme_minimal() + 
+  guides(alpha = F, fill = F) + 
+  labs(title = "AFL Mens Finishing Position",
+       subtitle = "Probability of each team finishing in each ladder position",
+       caption = "data sourced from afltables.com")
+
+```
 
 
 
