@@ -312,7 +312,7 @@ aflm_sims <- list(
 write_rds(aflm_data, path = here::here("data", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here::here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
 write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
-write_csv(aflm_sims$sim_data_all, path = here::here("data", "raw-data", "AFLM_sims_summary.csv"))
+write_csv(aflm_sims$sim_data_summary, path = here::here("data", "raw-data", "AFLM_sims_summary.csv"))
 
 # Message
 print(proc.time() - ptm)
