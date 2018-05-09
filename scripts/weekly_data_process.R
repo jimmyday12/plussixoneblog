@@ -13,6 +13,7 @@ h <- 20
 k_val <- 20
 carryOver <- 0.05
 B <- 0.03
+sim_num <- 10000
 
 # Get Data ----------------------------------------------------------------
 filt_date <- Sys.Date() + 1
@@ -219,7 +220,7 @@ form <- elo:::clean_elo_formula(stats::terms(elo.data)) # needed for elo.prob
 perturb_elos <- function(x) final.elos(x) + rnorm(length(x$teams), mean = 0, sd = 65) # function to map over
 
 # Do simulations
-sims <- 1:10000
+sims <- 1:sim_num
 
 # First replicate results
 res <- sims %>%
@@ -311,6 +312,7 @@ aflm_sims <- list(
 write_rds(aflm_data, path = here::here("data", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here::here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
 write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
+write_csv(aflm_sims$sim_data_all, path = here::here("data", "raw-data", "AFLM_sims_summary.csv"))
 
 # Message
 print(proc.time() - ptm)
