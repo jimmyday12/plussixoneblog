@@ -1,0 +1,68 @@
+---
+title: Wednesday Wonk - v1
+author: James Day
+date: '2018-04-27'
+slug: wednesday-wonk-v1
+categories:
+  - AFL
+  - AFLWednesdayWonk
+tags: []
+draft: true
+---
+
+
+
+<p>For those who are part….</p>
+<p>First, let’s grab the results using <code>fitzRoy</code>.</p>
+<pre class="r"><code>library(fitzRoy)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
+## ✔ tibble  1.4.2          ✔ dplyr   0.7.4     
+## ✔ tidyr   0.8.0          ✔ stringr 1.3.0     
+## ✔ readr   1.1.1          ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>results &lt;- get_match_results()
+
+glimpse(results)</code></pre>
+<pre><code>## Observations: 15,272
+## Variables: 16
+## $ Game         &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15...
+## $ Date         &lt;date&gt; 1897-05-08, 1897-05-08, 1897-05-08, 1897-05-08, ...
+## $ Round        &lt;chr&gt; &quot;R1&quot;, &quot;R1&quot;, &quot;R1&quot;, &quot;R1&quot;, &quot;R2&quot;, &quot;R2&quot;, &quot;R2&quot;, &quot;R2&quot;, &quot;...
+## $ Home.Team    &lt;chr&gt; &quot;Fitzroy&quot;, &quot;Collingwood&quot;, &quot;Geelong&quot;, &quot;Sydney&quot;, &quot;S...
+## $ Home.Goals   &lt;int&gt; 6, 5, 3, 3, 6, 4, 3, 9, 6, 5, 12, 8, 5, 5, 2, 11,...
+## $ Home.Behinds &lt;int&gt; 13, 11, 6, 9, 4, 6, 8, 10, 5, 9, 6, 11, 14, 11, 8...
+## $ Home.Points  &lt;int&gt; 49, 41, 24, 27, 40, 30, 26, 64, 41, 39, 78, 59, 4...
+## $ Away.Team    &lt;chr&gt; &quot;Carlton&quot;, &quot;St Kilda&quot;, &quot;Essendon&quot;, &quot;Melbourne&quot;, &quot;...
+## $ Away.Goals   &lt;int&gt; 2, 2, 7, 6, 5, 8, 10, 3, 5, 7, 6, 0, 3, 5, 6, 7, ...
+## $ Away.Behinds &lt;int&gt; 4, 4, 5, 8, 6, 2, 6, 1, 7, 8, 5, 2, 4, 3, 6, 4, 8...
+## $ Away.Points  &lt;int&gt; 16, 16, 47, 44, 36, 50, 66, 19, 37, 50, 41, 2, 22...
+## $ Venue        &lt;chr&gt; &quot;Brunswick St&quot;, &quot;Victoria Park&quot;, &quot;Corio Oval&quot;, &quot;L...
+## $ Margin       &lt;int&gt; 33, 25, -23, -17, 4, -20, -40, 45, 4, -11, 37, 57...
+## $ Season       &lt;dbl&gt; 1897, 1897, 1897, 1897, 1897, 1897, 1897, 1897, 1...
+## $ Round.Type   &lt;chr&gt; &quot;Regular&quot;, &quot;Regular&quot;, &quot;Regular&quot;, &quot;Regular&quot;, &quot;Regu...
+## $ Round.Number &lt;int&gt; 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5...</code></pre>
+<pre class="r"><code>#squiggle &lt;- get_squiggle_data(&quot;tips&quot;)
+#tail(squiggle)</code></pre>
+<p>Now, first thing - how many draws have occured. To show that, we need to create a <code>result</code> column that contains <code>win</code>, <code>loss</code> or <code>draw</code>.</p>
+<pre class="r"><code>results &lt;- results %&gt;%
+  mutate(Result = case_when(
+    Margin &lt; 0 ~ &quot;Loss&quot;,
+    Margin &gt; 0 ~ &quot;Win&quot;,
+    TRUE ~ &quot;Draw&quot;
+  ))
+
+results %&gt;%
+  group_by(Result) %&gt;%
+  summarise(n = n(),
+            perc = n/nrow(results) * 100)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   Result     n  perc
+##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 Draw     158  1.03
+## 2 Loss    6057 39.7 
+## 3 Win     9057 59.3</code></pre>
+<p>So, across all history, about 1% of games end up in a draw. Incidentally, this also shows the long term home team result breakdown with ~59% winning rate.</p>

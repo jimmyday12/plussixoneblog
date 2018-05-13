@@ -1,0 +1,36 @@
+---
+title: Squiggle Disagreement
+author: James Day
+date: '2018-05-01'
+slug: squiggle-disagreement
+categories:
+  - Squiggle
+tags: []
+draft: true
+---
+
+For those who follow me, I'm sure you are well aware of [The Squiggle](squiggle.com.au) run by Max Barry. In recent years, Max has done some amazing work at combining a bunch of different Footy models in one place. He recently created an API and [Rob](LINK) and I have now integrated it into the latest version of [`fitzRoy`](LINK).  
+
+There is a lot of value at having this information available. I'm hoping to delve into that throughout the year.
+
+This post is my first dive into it and looks into how much agreement there is between our models. 
+
+## Getting the data
+First of all, we can get the data with `fitzRoy`. 
+
+```{r}
+library(fitzRoy)
+library(tidyverse)
+results <- get_squiggle_data("tips")
+glimpse(results)
+```
+We need our data in wide format to use the `dist` function. 
+
+```{r}
+results_w <- results %>%
+  select(source, gameid, margin) %>%
+  spread(gameid, margin)
+
+dist(results_w)
+
+```

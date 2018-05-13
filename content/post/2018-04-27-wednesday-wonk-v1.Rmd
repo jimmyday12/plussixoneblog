@@ -1,0 +1,51 @@
+---
+title: Wednesday Wonk - v1
+author: James Day
+date: '2018-04-27'
+slug: wednesday-wonk-v1
+categories:
+  - AFL
+  - AFLWednesdayWonk
+tags: []
+draft: true
+---
+
+For those who are part....
+
+First, let's grab the results using `fitzRoy`. 
+
+```{r}
+library(fitzRoy)
+library(tidyverse)
+
+results <- get_match_results()
+
+glimpse(results)
+#squiggle <- get_squiggle_data("tips")
+#tail(squiggle)
+
+```
+
+Now, first thing - how many draws have occured. To show that, we need to create a `result` column that contains `win`, `loss` or `draw`.
+
+```{r}
+results <- results %>%
+  mutate(Result = case_when(
+    Margin < 0 ~ "Loss",
+    Margin > 0 ~ "Win",
+    TRUE ~ "Draw"
+  ))
+
+results %>%
+  group_by(Result) %>%
+  summarise(n = n(),
+            perc = n/nrow(results) * 100)
+
+```
+
+So, across all history, about 1% of games end up in a draw. Incidentally, this also shows the long term home team result breakdown with ~59% winning rate. 
+
+```{r}
+
+
+```
