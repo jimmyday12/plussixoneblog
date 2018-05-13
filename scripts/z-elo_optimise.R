@@ -77,12 +77,13 @@ eloOptim <- function(par, dat){
   h <- par[3]
   k_val <- par[4]
   B <- par[5]
+  b <- par[6]
   carryOver <- 0.05
   
   results <- dat
   
-  map_margin_to_outcome <- function(margin, B = 0.025) {
-    1 / (1 + (exp(-B * margin)))
+  map_margin_to_outcome <- function(margin, b = 0.025) {
+    1 / (1 + (exp(-b * margin)))
   }
   
   # Inverse of above, convert outcome to margin
@@ -101,7 +102,7 @@ eloOptim <- function(par, dat){
   }
   
   elo.data <- elo.run(
-    map_margin_to_outcome(Home.Points - Away.Points, B = B) ~
+    map_margin_to_outcome(Home.Points - Away.Points, b = b) ~
       adjust(Home.Team, 
              calculate_hga(Home.Venue.Exp, Home.Interstate, Home.Factor, e = e, d = d, h = h)) +
       adjust(Away.Team, 
@@ -142,28 +143,17 @@ eloOptim <- function(par, dat){
 results <- game_dat %>%
   filter(Date < Sys.Date())
 
-# Loop through these
-# Set Parameters
-e <- 1.7#1.352
-d <- -32#-24.289
-h <- 20#29.489
-k_val <- 20#22.769
-carryOver <- 0.05
-B <- 0.02#0.05
-
-# 30.5519, 637
-
-# Set Parameters
 e <- 1.7
 d <- -32
 h <- 20
 k_val <- 20
 carryOver <- 0.05
 B <- 0.03
-#30.7543771093934  , 581.687906609577
+b <- 0.03
+
 
 # 30.552, 636
-pars <- c(e, d, h, k_val, B)
+pars <- c(e, d, h, k_val, B, b)
 
 eloOptim(pars, results)
 # Do optimisation
