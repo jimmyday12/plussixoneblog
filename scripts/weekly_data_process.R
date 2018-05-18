@@ -222,7 +222,6 @@ perturb_elos <- function(x) final.elos(x) + rnorm(length(x$teams), mean = 0, sd 
 # Do simulations
 sims <- 1:sim_num
 
-# First replicate results
 res <- sims %>%
   map_df(~mutate(sim_res, Sim = .x))
 
