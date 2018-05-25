@@ -89,6 +89,7 @@ eloOptim <- function(par, dat){
   # Inverse of above, convert outcome to margin
   map_outcome_to_margin <- function(outcome, B = 0.025) {
     log((1 / outcome) - 1) / - B
+    #-log((1-outcome)/outcome)/B
   }
   
   # Function to calculate k (how much weight we add to each result)
@@ -143,13 +144,13 @@ eloOptim <- function(par, dat){
 results <- game_dat %>%
   filter(Date < Sys.Date())
 
-e <- 1.7
-d <- -32
+e <- 2.9
+d <- -30
 h <- 20
 k_val <- 20
 carryOver <- 0.05
-B <- 0.03
-b <- 0.03
+B <- 0.046
+b <- 0.046
 
 
 # 30.552, 636

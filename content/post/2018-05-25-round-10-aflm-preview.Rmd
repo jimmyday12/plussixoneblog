@@ -1,0 +1,143 @@
+---
+title: Round 10 AFLM Preview
+author: James Day
+date: '2018-05-25'
+slug: round-10-aflm-preview
+categories:
+  - AFLM
+tags: []
+---
+
+
+A pretty brief preview this week - I'm at the airport on my way to Melbourne for the weekend. You can see my tips, as always, at [this link](http://plussixoneblog.com/page/aflm-current-tips/) or on [Squiggle](squiggle.com.au). 
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+```
+
+## Ratings
+Again, Richmond are the big talking points of the week. However, with their big loss to WCE, it's not for the same reasons as the last few. That loss brings them back to the chasing pack and parachutes the Eagles up to 2nd spot! In fact, that chasing pack now just looks like one big group, with Geelong dropping off significantly and the resurgent Demons jumping into 5th. 
+
+Port and Collingwood lead the next group which involves some big movers - North jumping up significantly at the expense of GWS, who are in freefall. The Hawks take a big hit as well, dropping below the 'average' team for the first time this year. 
+
+At the bottom, the Lions big win catapaults them to their highest rating since Round 3, 2014. Carlton takes back bottom spot after their massive loss to the Dees.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
+)
+
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
+  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
+  geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    x = "Team",
+    y = "ELO Rating",
+    title = "AFL Men's ELO Ratings",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+
+
+## Simulations
+Richmond take a big hit in our simulations. They now only sit 0.4 games on average better than WCE, after being as much as 3.5 clear in previous weeks. They also drop their minor premiership chances from ~66% to ~45%. Most of that goes to WCE, with Sydney and, remarkably, Melbourne, our next bets at around 9%. 
+
+The finals race still appears to be between our 11 teams that we've been watching, but some teams chances as slipping by the week. GWS has dropped to ~25%, with North and Hawks just below 50%. Richmond, West Coast and Sydney are looking pretty good in more than 90% of our simulations, with the remainder of those 11 teams pretty even. 
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre,
+         change = min_rank(desc(ELO_pre)) - min_rank(desc(ELO))) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, change, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+# Write to formattable with some formatting
+# Create a sign formatrer
+sign_formatter <- formatter("span", 
+                            style = x ~ style(color = case_when(
+                              x > 0 ~ "green", 
+                              x < 0 ~ "red",
+                              TRUE ~ "transparent")))
+# Create formattable/DT object
+dt_elo <- elo_table %>%
+  formattable(list(
+    change = sign_formatter,
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = sign_formatter,
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>% 
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = '95%')
+```
+
+## Predictions
+The match of the round looms to be Sunday afternoon in Alice Springs - the resurgant Demons and the consistant crows. We have both teams relatively close on ratings and, both with not a lot of ground history, Melbourne get the edge as the designated home team. If the Demons can win by more than expected, they will continue their climb up our ratings! 
+
+Happy tipping and you can follow along with how these tips (and others) go at [The Squiggle](squiggle.com.au)
+
+```{r predict, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
