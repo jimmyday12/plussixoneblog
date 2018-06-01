@@ -4,7 +4,7 @@
 # preamble ----------------------------------------------------------------
 # Load libraries
 library(pacman)
-pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
+pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime, rfUtilities)
 
 # Get Data ----------------------------------------------------------------
 # Get fixture data using FitzRoy
@@ -130,13 +130,18 @@ eloOptim <- function(par, dat){
     mutate(bits = case_when(
       Margin > 0 ~ 1 + log2(pred.Prob),
       Margin > 0 ~ 1 + log2(pred.Prob),
-      TRUE ~ 1 + (0.5 * log2(pred.Prob * (1 - pred.Prob)))
-    ))
-  
+      TRUE ~ 1 + (0.5 * log2(pred.Prob * (1 - pred.Prob)))),
+      result = case_when(
+        Margin > 0 ~ 1,
+        Margin > 0 ~ 0,
+        TRUE ~ 0.5))
+
   bits <- sum(results_processed$bits)
+  logLoss <- logLoss(results_processed$result, results_processed$pred.Prob)
   
-  message(paste("Mean error of", mae, cat(par), ",", bits))
-  return(mae)
+  if (mae > 35) logLoss <- 1
+  message(paste("Mean error of", mae, cat(par), ",", bits), ",", logLoss)
+  return(logLoss)
 }
 
 # Run Optim calculation -----------------------------------------------------
@@ -144,13 +149,13 @@ eloOptim <- function(par, dat){
 results <- game_dat %>%
   filter(Date < Sys.Date())
 
-e <- 2.9
-d <- -30
+e <- 1.7
+d <- -32
 h <- 20
 k_val <- 20
 carryOver <- 0.05
-B <- 0.046
-b <- 0.046
+B <- 0.03
+b <- 0.03
 
 
 # 30.552, 636

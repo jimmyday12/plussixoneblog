@@ -1,0 +1,167 @@
+---
+title: Round 11 AFL Mens Preview
+author: james day
+date: '2018-06-01'
+slug: round-11-afl-mens-preview
+categories:
+  - AFLM
+tags: []
+---
+
+Round 11 is on us - read on for an overview of the weekend ahead. You can see my tips, as always, at [this link](http://plussixoneblog.com/page/aflm-current-tips/) or on [Squiggle](squiggle.com.au). 
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+elo <- dat_list$elo
+```
+
+## Ratings
+Don't look now but we have a new ELO leader! The Demons, on the back of three huge weeks have jumped the competition to be in top spot. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
+)
+
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
+  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
+  geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    x = "Team",
+    y = "ELO Rating",
+    title = "AFL Men's ELO Ratings",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+
+Given this, I wondered when was the last time they reached these heights? Firstly, we can look at the last time they had an ELO this high.
+
+```{r}
+elo %>%
+  filter(Team == "Melbourne" & ELO >= last(ELO)) %>%
+  arrange(desc(Date)) 
+```
+
+So they briefly were above their current level in 1994 and then not since wayyyy back in 1964, the year of their last Premiership. 
+
+What about being on top of the ratings? 
+
+```{r paged.print=TRUE}
+elo %>%
+  mutate(Season = year(Date)) %>%
+  group_by(Season, Round) %>%
+  mutate(rank = min_rank(desc(ELO))) %>%
+  filter(Team == "Melbourne" & rank == 1) %>%
+  arrange(desc(Date))
+
+```
+
+Again, we have to look to the 1994 season and then back to their premiership era. I wonder how long the lid will stay on? 
+
+The remainder of our ratings reveals some distinct groups at the top - the top 4 of Melbourne, West Coast, Richmond and Sydney are all neck and neck. Geelong sits a bit in no-mans land between that top group and our chasing pack of finals aspirants in Adelaide, Port, Collingwood and North. 
+
+
+## Simulations
+Those top 9 teams continue to battle it out for our finals spots in our simulations - the leading pack all now but assured of making it with probabilities of >90%. Hawthorn, on the back of some banked wins and a presumably soft draw, still remains close to a 50% chance of making it, despite sitting a lowly 11th on our ratings. It is starting to look like a battle between them, North and Adelaide for that final 8th spot. 
+
+Of course, as we've seen with GWS and Melbourne, those chances can change dramatically on the back of some big wins or losses! 
+
+The race for the minor premiership has also been blown open - what was seemingly the Tigers to lose is now a pretty even race between West Coast, Richmond and Melbourne. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre,
+         change = min_rank(desc(ELO_pre)) - min_rank(desc(ELO))) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, change, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+# Write to formattable with some formatting
+# Create a sign formatrer
+sign_formatter <- formatter("span", 
+                            style = x ~ style(color = case_when(
+                              x > 0 ~ "green", 
+                              x < 0 ~ "red",
+                              TRUE ~ "transparent")))
+# Create formattable/DT object
+dt_elo <- elo_table %>%
+  formattable(list(
+    change = sign_formatter,
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = sign_formatter,
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>% 
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = '95%')
+```
+
+## Predictions
+It looks like a pretty lopsided weekend on paper. The only game with a margin of less than 2 goals being the Port v Hawks game. Both teams are pretty precariously placed in our ratings and simulations so we may learn a bit about their finals chances! 
+
+Happy tipping and you can follow along with how these tips (and others) go at [The Squiggle](squiggle.com.au)
+
+```{r predict, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
+
