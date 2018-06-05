@@ -10,7 +10,7 @@ draft: true
 ---
 
 # Introduction
-some text
+
 
 
 # Setup
