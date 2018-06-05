@@ -1,8 +1,8 @@
 ---
-title: Football World Cup Datathon
+title: 'Football World Cup Datathon - Part 1: Intro'
 author: James Day
-date: '2018-06-03'
-slug: football-world-cup-datathon
+date: '2018-06-04'
+slug: football-world-cup-datathon-part-1-intro
 categories:
   - Football
 tags: []
@@ -100,3 +100,4 @@ actual <- dat_test$outcome
 
 MultiLogLoss(y_pred = pred, y_true = dat_test$outcome)
 ```
+So there is a baseline to start with. In my next post, I'm going to go over some data collection, processing and feature engineering.

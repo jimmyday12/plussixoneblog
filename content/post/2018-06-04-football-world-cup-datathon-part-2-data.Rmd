@@ -1,0 +1,128 @@
+---
+title: 'Football World Cup Datathon - Part 2: Data'
+author: James Day
+date: '2018-06-04'
+slug: football-world-cup-datathon-part-2-data
+categories:
+  - Football
+tags: []
+draft: true
+output: 
+  html_document: 
+    toc: yes
+---
+
+In Part 1, we talked about the intro to this task and created a baseline test model. I now want to go a bit more in depth doing some early data exploration and getting some extra data. 
+
+```{r setup}
+library(pacman)
+pacman::p_load(tidyverse, lubridate, rvest)
+```
+# Data Aquisition
+At this stage, I have our Betafair data which gives us match results and the Betfair odds. Unfortunately a lot of those odds are missing but for now I'm going to use all games. 
+
+I don't have a lot of time to do a deep dive into different football prediction models (and the effort required to acquire the data) so as a simple proxy for team strength, I'm going to combine a few different rating systems I've found that are relatively accesable and create some kind of blended system using some machine learning packages. This is more a chance to use those than anything else. 
+
+## FIFA
+Logically, if we wanted to try and assess team ratings we could look towards the official [FIFA World rankings](https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html). These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally [critisied for being too simplistic](https://en.wikipedia.org/wiki/FIFA_World_Rankings) and most people prefer ELO rating systems. Nonetheless, it is a dataset I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model. 
+
+### Scraping data
+The code to get this information has been adapted from a [Github respository](https://github.com/rboberg/rross/blob/master/Soccer/2014/WorldCup/Scrape%20Fifa%20World%20Rankings.R) I found from Github user [Ross Boberg](https://github.com/rboberg). 
+
+If you would prefer to take a scripted version of my code below, you can find that [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/scrape_fifa.R). You can also just grab the data directly from [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv).
+
+Firstly, we have to create a function that builds us a URL. We can then use this to get all the combinations of URLS we need. Based on Ross' work, we know that each URL contains a query for `rank`, `confediration`, `gender` and `page`. This function will dynamically generate the URL with the values for those queries. 
+
+```{r Get Fifa, echo=FALSE}
+# Create function to generate URL
+get_ranking_table_URL <- function(rank, confederation, gender = "m", page = 1){
+  base <- "http://www.fifa.com/worldranking/rankingtable"
+  tail <- "_ranking_table.html"
+  return(paste0(base,
+                "/gender=", gender,
+                "/rank=", rank,
+                "/confederation=", confederation,
+                "/page=", page,
+                "/",
+                tail)
+  ) 
+}
+```
+
+Now, let's generate a bunch of URL's. Based on Ross's code, I know the rough start and end points for `rank` and I also know the id's of the `confedirations`. 
+
+```{r generate_urls}
+# Specify parameters
+start_rank = 286 # the last update (as of Jun 5th, 2018)
+end_rank = 57 # corresponds to Jan99, when point method was revised
+conf_ids = c(23913, 23914, 23915, 23916, 25998, 27275)
+
+rank <- rep(start_rank:end_rank, each = length(conf_ids))
+conf_vec <- rep(conf_ids, times = length(start_rank:end_rank))
+
+urls <- rank %>%
+  map2_chr(conf_vec, ~ get_ranking_table_URL(rank = .x, confederation = .y))
+
+length(urls)
+```
+
+Now we've got a list of URL's to search through - I can pass them to `read_html` and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I've actually just done the first 10 of 1380 for this blog post so comment that out if needed.
+
+```{r read_htmls}
+# Uncomment 1st line and comment out 2nd line to do all data. I've just done 1st 10 for illustration purposes
+# ind <- seq_along(urls)
+ind <- 1:10 
+
+htmls <- urls[ind] %>%
+  map(read_html)
+
+```
+
+Success! Now we've got those htmls, we can do some extraction and data cleaning. We basically just need to get the dates and then the table of data on each page. Again, using the handy `purrr` package to do our heavy lifting makes this relatively simple.
+
+```{r clean}
+# Read date
+dates <- htmls %>% 
+  map(~html_nodes(.x, ".lb")) %>%
+  map(html_text) %>%
+  map_chr(~str_remove(.x, "Last Updated ")) %>%
+  map(dmy) 
+
+# Read Tables
+tables <- htmls %>% 
+  map(~html_nodes(.x, "#tbl_rankingTable")) %>%
+  map(html_table) %>%
+  map(as.data.frame)
+
+# Add date, conf id and make into one dataframe
+dat <- tables %>%
+  map2(dates, ~ .x %>% mutate(Date = .y)) %>%
+  map2(conf_vec[ind], ~ .x %>% mutate(Conference_id = .y)) %>%
+  reduce(bind_rows) %>%
+  select(Date, Team, Pts, Conference_id) %>%
+  arrange(Date, desc(Pts))
+
+head(dat)
+
+```
+Great - so now we have the official FIFA ranking points! 
+
+## Transfermarkt
+
+
+
+# Data Cleaning
+
+# Feature Engineering
+## ELO
+
+## World Cup Home Team
+
+## Games in last n months
+
+
+
+# Data Split
+
+# Baseline Model
+
