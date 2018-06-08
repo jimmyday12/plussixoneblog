@@ -1,0 +1,30 @@
+---
+title: 'Football World Cup Datathon - Part 1: Intro'
+author: James Day
+date: '2018-06-09'
+slug: football-world-cup-datathon-part-1-intro
+categories:
+  - Football
+  - World Cup Datathon
+tags: []
+draft: true
+---
+
+# Introduction
+I've never been able to get into that round ball game we cheekily refer to as soccer in this country. I've got mates who are big watchers of the Premier League and it's always something I wish I could learn to love but it has never clicked for me. 
+
+The closest I get to being a football fan however is World Cup time, where I take on an out-of-character amount of patriotism in following the Socceroos. Every four years I get caught up in World Cup fever and then don't think about it again until next time. 
+
+Anyway, at a conference last week, Betfair anounced a [World Cup datathon competition](https://www.betfair.com.au/hub/insights/minihubs/world-cup-datathon/). World Cup and data - two things I quite enjoy. For a while I've also really wanted to try my hands at implementing some machine learning algorithms in R. Given I've got this newly migrated blogging platform setup on `blogdown` - I've no real excuse for not giving it a go! 
+
+So my plan, over the next week and a bit, is to map out my attempts at doing this. I'll loosely follow the structure, borrowed from the fantastic [R for Data Science](http://r4ds.had.co.nz/) book. 
+
+![](/img/2018/data-science-explore.png)
+
+My general strategy is to get as much data as I can from various data sources, do some basic feature engineering - possibly doing some ELO ratings - and then try a few different machine learning algorithms. I'll publish most of it as I'm going along but probably will hold the final model until after the competition closes (i.e. the start of the 1st game). 
+
+I can't promise that it'll be good or interesting but making it public will at least hold me to putting out some follow ups! 
+
+First up will be my data acquisition journey! 
+
+

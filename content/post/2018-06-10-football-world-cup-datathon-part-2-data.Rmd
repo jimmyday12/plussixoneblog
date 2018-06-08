@@ -1,0 +1,205 @@
+---
+title: 'Football World Cup Datathon - Part 2: Data Aquisition'
+author: James Day
+date: '2018-06-10'
+slug: football-world-cup-datathon-part-2-data-aquisition
+categories:
+  - Football
+  - World Cup Datathon
+tags: []
+draft: true
+output: 
+  html_document: 
+    toc: yes
+---
+
+In Part 1, we talked about the intro to this task and created a baseline test model. I now want to go a bit more in depth doing some early data exploration and getting some extra data. 
+
+```{r setup}
+library(pacman)
+pacman::p_load(tidyverse, lubridate, rvest, zoo, ggthemes)
+```
+
+I don't have a lot of time to do a deep dive into different football prediction models (and the effort required to acquire the data) so as a simple proxy for team strength, I'm going to combine a few different rating systems I've found that are relatively accesable and create some kind of blended system using some machine learning packages. This is more a chance to use those than anything else. 
+
+## Betfair
+Betfair has provided all participants with data. That is hosted here.
+
+```{r load_betfair, warning=FALSE, message=FALSE}
+betfair_dat <- read_csv(here::here("projects", "world-cup-2018", "wc_datathon_dataset.csv"))
+glimpse(betfair_dat)
+```
+So - it looks like each row is a game that contains the final score, the tournament, who is the home team and then the odds of each outcome. 
+
+One thing I noticed when I downloaded that file was that there were NA values in some columns. Let's count how many. 
+
+```{r betfair_NA}
+summary(betfair_dat)
+```
+
+So it's just odds data that is missing, but it's missing for about a third of our dataset. I'm going to explore this more in another post but as a quick look, let's see what the range of data is in terms of dates.
+
+```{r plot_betfair, message=FALSE, warning=FALSE}
+betfair_dat %>%
+  ggplot(aes(as.yearmon(date), fill = is.na(draw_betfair_odds))) + 
+  geom_bar() +
+  labs(title = "Number of games per month") + 
+  theme_minimal()
+```
+
+So, we have odds data that is pretty evenly spread from late 1998 all the way to 2017. Most of our missing odds are from older matches but some exists in later matches. 
+
+## Kaggle Odds dataset
+I found this dataset on [Kaggle](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data) that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other datasets.  
+
+```{r load_kaggle, message=FALSE, warning=FALSE}
+odds_dat <- read_csv(here::here("projects", "world-cup-2018", "closing_odds.csv"))
+
+glimpse(odds_dat)
+summary(odds_dat)
+```
+
+So this dataset has different odds but has it for way more data and nothing missing. One problem I might have is that I'm not sure I can get these specific odds (bookies) easily for the World Cup games. If I want to include it in a model that will be an issue. I'll need to see what I can get. 
+
+## FIFA
+Logically, if we wanted to try and assess team ratings we could look towards the official [FIFA World rankings](https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html). These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally [critisied for being too simplistic](https://en.wikipedia.org/wiki/FIFA_World_Rankings) and most people prefer ELO rating systems. Nonetheless, it is a dataset I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model. 
+
+### Scraping data
+The code to get this information has been adapted from a [Github respository](https://github.com/rboberg/rross/blob/master/Soccer/2014/WorldCup/Scrape%20Fifa%20World%20Rankings.R) I found from Github user [Ross Boberg](https://github.com/rboberg). 
+
+If you would prefer to take a scripted version of my code below, you can find that [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/scrape_fifa.R). You can also just grab the data directly from [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv).
+
+Firstly, we have to create a function that builds us a URL. We can then use this to get all the combinations of URLS we need. Based on Ross' work, we know that each URL contains a query for `rank`, `confediration`, `gender` and `page`. This function will dynamically generate the URL with the values for those queries. 
+
+```{r load_fifa, echo=FALSE, message=FALSE, warning=FALSE}
+# Create function to generate URL
+get_ranking_table_URL <- function(rank, confederation, gender = "m", page = 1){
+  base <- "http://www.fifa.com/worldranking/rankingtable"
+  tail <- "_ranking_table.html"
+  return(paste0(base,
+                "/gender=", gender,
+                "/rank=", rank,
+                "/confederation=", confederation,
+                "/page=", page,
+                "/",
+                tail)
+  ) 
+}
+```
+
+Now, let's generate a bunch of URL's. Based on Ross's code, I know the rough start and end points for `rank` and I also know the id's of the `confedirations`. 
+
+```{r generate_urls}
+# Specify parameters
+start_rank = 286 # the last update (as of Jun 5th, 2018)
+end_rank = 57 # corresponds to Jan99, when point method was revised
+conf_ids = c(23913, 23914, 23915, 23916, 25998, 27275)
+
+rank <- rep(start_rank:end_rank, each = length(conf_ids))
+conf_vec <- rep(conf_ids, times = length(start_rank:end_rank))
+
+urls <- rank %>%
+  map2_chr(conf_vec, ~ get_ranking_table_URL(rank = .x, confederation = .y))
+
+length(urls)
+```
+
+Now we've got a list of URL's to search through - I can pass them to `read_html` and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I've actually just done the first 10 of 1380 for this blog post so comment that out if needed.
+
+```{r read_htmls}
+# Uncomment 1st line and comment out 2nd line to do all data. I've just done 1st 10 for illustration purposes
+# ind <- seq_along(urls)
+ind <- 1:10 
+
+htmls <- urls[ind] %>%
+  map(read_html)
+
+```
+
+Success! Now we've got those htmls, we can do some extraction and data cleaning. We basically just need to get the dates and then the table of data on each page. Again, using the handy `purrr` package to do our heavy lifting makes this relatively simple.
+
+```{r clean_fifa, message=FALSE, warning=FALSE}
+# Read date
+dates <- htmls %>% 
+  map(~html_nodes(.x, ".lb")) %>%
+  map(html_text) %>%
+  map_chr(~str_remove(.x, "Last Updated ")) %>%
+  map(dmy) 
+
+# Read Tables
+tables <- htmls %>% 
+  map(~html_nodes(.x, "#tbl_rankingTable")) %>%
+  map(html_table) %>%
+  map(as.data.frame)
+
+# Add date, conf id and make into one dataframe
+fifa_dat <- tables %>%
+  map2(dates, ~ .x %>% mutate(Date = .y)) %>%
+  map2(conf_vec[ind], ~ .x %>% mutate(Conference_id = .y)) %>%
+  reduce(bind_rows) %>%
+  select(Date, Team, Pts, Conference_id) %>%
+  arrange(Date, desc(Pts))
+
+head(fifa_dat)
+```
+Great - so now we have the official FIFA ranking points! 
+
+## Other source
+I had looked at some other sources but found it either too tricky or they didn't have wide enough covered. These including trying to include 'team value' information from Transfermarkt. I think this would be awesome but I could only get the value of each of the current World Cup squads. I'm sure it's possible to try and find backdate information but I don't have the time.
+
+Another option that would be cool would be to use the EA Sports FIFA player ratings as a bit of a proxy for the talent in each team. I did find some promising websites but they were ultimately going to take too much time to scrape. 
+
+# Combining dataset
+Now that we have acquired our data, we need to combine it in some way to make one big datafile. Again, I want this to be one row per match and it's going to be fairy wide. 
+
+I'm first going to read in the big fifa file (the one I scraped above is just a subset - find this  [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv)).
+
+
+```{r load_fifa_full, message=FALSE, warning=FALSE}
+fifa_dat <- read_csv(here::here("projects", "world-cup-2018", "fifa_rank_history.csv"))
+```
+
+Now, what we want is to add the fifa data to our betfair odds. This isn't going to a simple join I don't think - we want to match the home team name and the date of the match to the closest date and team in our fifa file and return the rating. I'm pretty sure that the FIFA ratings get updated once per month so we may be able to join on `year`, `month` and `team`
+
+```{r combine}
+# Add in a date/month to fifa and betfair data
+fifa_dat <- fifa_dat %>%
+  mutate(year = year(Date),
+         month = month(Date)) %>%
+  select(year, month, Team, Pts) 
+
+betfair_dat <- betfair_dat %>%
+  mutate(year = year(date),
+         month = month(date))
+
+odds_dat <- odds_dat %>%
+  select(match_id, match_date, home_team, away_team, avg_odds_home_win:avg_odds_away_win)
+
+# Join data together
+dat <- betfair_dat %>%
+  left_join(fifa_dat, by = c("year", "month", "team_1" = "Team")) %>%
+  rename(team_1_fifa = Pts) %>%
+  left_join(fifa_dat, by = c("year", "month", "team_2" = "Team")) %>%
+  rename(team_2_fifa = Pts) %>%
+  left_join(odds_dat, by = c("date" = "match_date", "team_1" = "home_team", "team_2" = "away_team"))
+
+head(dat)
+```
+
+
+
+# Feature Engineering
+## ELO
+
+## Regista
+
+## Last n games/wins/goals/conceded
+
+## World Cup Home Team
+
+## Players?
+
+# Data Split
+
+# Baseline Model
+
