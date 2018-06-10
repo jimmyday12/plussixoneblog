@@ -18,9 +18,10 @@ get_ranking_table_URL <- function(rank, confederation, gender = "m", page = 1){
 
 # Generate URLS ----------------------------------------------------------------
 # Specify parameters
-start_rank = 286 # the last update (as of Jun 5th, 2018)
-end_rank = 57 # corresponds to Jan99, when point method was revised
+start_rank <- 286 # the last update (as of Jun 5th, 2018)
+end_rank <- 57 # corresponds to Jan99, when point method was revised
 conf_ids = c(23913, 23914, 23915, 23916, 25998, 27275)
+
 
 rank <- rep(start_rank:end_rank, each = length(conf_ids))
 conf_vec <- rep(conf_ids, times = length(start_rank:end_rank))
