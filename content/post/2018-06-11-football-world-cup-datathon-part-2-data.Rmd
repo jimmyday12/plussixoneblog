@@ -12,19 +12,25 @@ output:
   html_document: 
     toc: yes
 ---
-
-This is part of a series of posts on the World Cup Betfair datathon. See the links to others below. 
-Part 1 - Data Acquisition
-Part 3 - Feature Engineering (coming soon)
-Part 4 - Models (coming soon)
+---
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
+   
+Part 1 - Intro   
+Part 2 - Data Acquisition (coming soon)   
+Part 3 - Data Exploration and Feature Engineering (coming soon)   
+Part 4 - Models (coming soon) 
 Part 5 - Review (coming soon)
 
+---
+
+So - first thing we need is data. Given I don't have a lot of domain knowledge, I can't go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I've been able to easily access. 
 ```{r setup}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(pacman)
-pacman::p_load(tidyverse, lubridate, rvest, zoo, ggthemes, fuzzyjoin)
+pacman::p_load(tidyverse, here, ggthemes, rvest, lubridate)
 ```
 
-Given I don't have a lot of domain knowledge, I can't go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I've been able to easily access. 
+
 
 ## Betfair
 Betfair has provided all participants with data. To get that data you need to sign up to the competition, which you can do [here](https://www.betfair.com.au/hub/insights/minihubs/world-cup-datathon/). I'm also hosting it on Github [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/wc_datathon_dataset.csv).
@@ -36,6 +42,9 @@ summary(betfair_dat)
 ```
 
 So - it looks like each row is a game that contains the final score, the tournament, who is the home team and then the odds of each outcome. There is quite a lot of games (~14k) which is good! There are some missing values which is a bit annoying but we'll work out how to deal with that later! I'll be doing a more detailed data exploration in Part 3. 
+
+
+
 
 ## Kaggle Odds dataset
 I found this dataset on [Kaggle](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data) that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other datasets.  
@@ -77,7 +86,7 @@ get_ranking_table_URL <- function(rank, confederation, gender = "m", page = 1){
 
 Now, let's generate a bunch of URL's. Based on Ross's code, I know the rough start and end points for `rank` and I also know the id's of the `confedirations`. 
 
-```{r generate_urls}
+```{r generate_urls, message=FALSE, warning=FALSE}
 # Specify parameters
 start_rank = 286 # the last update (as of Jun 5th, 2018)
 end_rank = 57 # corresponds to Jan99, when point method was revised
@@ -94,13 +103,13 @@ length(urls)
 
 Now we've got a list of URL's to search through - I can pass them to `read_html` and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I've actually just done the first 10 of 1380 for this blog post so comment that out if needed.
 
-```{r read_htmls}
+```{r read_htmls, message=FALSE, warning=FALSE}
 # Uncomment 1st line and comment out 2nd line to do all data. I've just done 1st 10 for illustration purposes
 # ind <- seq_along(urls)
 ind <- 1:10 
 
 htmls <- urls[ind] %>%
-  map(read_html)
+  map(xml2::read_html)
 
 ```
 
@@ -148,7 +157,7 @@ Now that we have acquired our data, we need to combine it in some way to make on
 
 Now, what we want is to add the fifa data to our betfair odds. This isn't going to a simple join I don't think - we want to match the home team name and the date of the match to the closest date and team in our fifa file and return the rating. I'm pretty sure that the FIFA ratings get updated once per month so we may be able to join on `year`, `month` and `team`
 
-```{r combine}
+```{r combine, message=FALSE, warning=FALSE}
 # Add in a date/month to fifa and betfair data
 fifa_dat <- fifa_dat %>%
   mutate(year = year(Date),
@@ -243,8 +252,64 @@ summary(dat)
 
 ```
 
+# World Cup data
+We also have data for the matches we need to predict. Ideally, this needs to have the same fields that we've got 
+
+```{r world_cup, message=FALSE, warning=FALSE}
+world_cup <- read_csv(here::here("projects", "world-cup-2018", "john_smith_numbersman.csv"))
+glimpse(world_cup)
+```
+First thing that jumps out is that the team's are in lower case. I'll need to fix that. Also, the date isn't being read properly. Lastly, those probability columns are just examples from Betfair so I can get rid of those.
+
+```{r world_cup_clean, message=FALSE, warning=FALSE}
+world_cup <- world_cup %>%
+  mutate(date = dmy(date)) %>%
+  mutate_at(vars(team_1, team_2), tools::toTitleCase) %>%
+  select(date, team_1, team_2)
+```
+
+Now the other fields that we don't have are `tournament`, `is_team_1_home`, `is_team_2_home` and `is_neutral`. We can also hopefully get the `betfair` odds and the `fifa` points. 
+
+```{r world_cup_add, message=FALSE, warning=FALSE}
+# Add extra columns
+world_cup <- world_cup %>%
+  mutate(
+    tournament = "World Cup 2018",
+    is_team_1_home = ifelse(team_1 == "Russia", TRUE, FALSE),
+    is_team_2_home = ifelse(team_2 == "Russia", TRUE, FALSE),
+    is_neutral = !is_team_1_home & !is_team_2_home,
+    year = year(date),
+    month = month(date)
+    )
+
+# Join with fifa
+fifa_dat_final <- fifa_dat %>% 
+  group_by(Team) %>% 
+  filter(row_number() == n()) %>%
+  select(Team, Pts)
+
+world_cup <- world_cup %>%
+  left_join(fifa_dat_final, by = c("team_1" = "Team")) %>%
+  rename(team_1_fifa = Pts) %>%
+  left_join(fifa_dat_final, by = c("team_2" = "Team")) %>%
+  rename(team_2_fifa = Pts)
+
+```
+
+I've also used the betfair API to get the betfair data. I haven't included the code for that as it uses login details, but you can see my script [here](INSERTLINK) and load the data from [here](INSERTLINK).
+
+Here I join it to my world cup data. 
+
+```{r world_cup_betfair, message=FALSE, warning=FALSE}
+betfair_wc <- read_csv(here::here("projects", "world-cup-2018", "world_cup_2018_betfair.csv"))
+
+world_cup <- world_cup %>%
+  left_join(betfair_wc, by = c("date", "team_1", "team_2"))
+```
+# Save
 Anyway, enough for now. Let's save it and we'll revist in Part 3! 
 
-```{r save}
-write_csv(here::here("projects", "world-cup-2018", "combined-data.csv"))
+```{r save, message=FALSE, warning=FALSE}
+write_csv(dat, here::here("projects", "world-cup-2018", "combined-data.csv"))
+write_csv(world_cup, here::here("projects", "world-cup-2018", "world-cup.csv"))
 ```
