@@ -28,9 +28,10 @@ I can't promise that it'll be good or interesting but making it public will at l
 First up will be my data acquisition journey! 
 
 --- 
-This is part of a series of posts on the World Cup Betfair datathon. See the links to others below. 
-Part 1 - Intro
-Part 2 - Data Acquisition (coming soon)
-Part 3 - Data Exploration and Feature Engineering (coming soon)
-Part 4 - Models (coming soon)
-Part 5 - Review (coming soon)
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
+   
+Part 1 - Intro   
+Part 2 - Data Acquisition (coming soon)   
+Part 3 - Data Exploration and Feature Engineering (coming soon)   
+Part 4 - Models (coming soon)   
+Part 5 - Review (coming soon)   
