@@ -1,0 +1,48 @@
+---
+title: 'World Cup Datathon - Part 3: Data Exploration'
+author: James Day
+date: '2018-06-12'
+slug: world-cup-datathon-part-3-data-exploration
+categories:
+  - World Cup Datathon
+tags: []
+subtitle: ''
+---
+
+
+One thing we notice is the date range - from 1998 through to the end of last year. There are also some missing data in the odd's columns - around 5k matches. I wonder if that's just older games? 
+
+```{r plot_betfair, message=FALSE, warning=FALSE}
+betfair_plot <- betfair_dat %>%
+  ggplot(aes(as.yearmon(date), fill = is.na(draw_betfair_odds))) + 
+  geom_bar() +
+  labs(title = "Number of games per month") + 
+  theme_minimal()
+betfair_plot
+```
+
+So, yep - it does look like mostly older games. But also in recent years there are games that don't have odds. 
+
+```{r}
+betfair_plot + 
+  facet_wrap(~tournament)
+
+```
+
+
+# Feature Engineering
+## ELO
+
+## Regista
+
+## Last n games/wins/goals/conceded
+
+## World Cup Home Team
+
+## Players?
+
+# Data Split
+
+# Baseline Model
+
+## Fix Tournament Field
