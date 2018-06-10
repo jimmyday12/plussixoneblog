@@ -1,5 +1,5 @@
 ---
-title: 'World Cup Datathon - Part 3: Data Exploration'
+title: 'World Cup Datathon - Part 3: Feature Engineering'
 author: James Day
 date: '2018-06-12'
 slug: world-cup-datathon-part-3-data-exploration
@@ -7,42 +7,177 @@ categories:
   - World Cup Datathon
 tags: []
 subtitle: ''
+draft: true
 ---
 
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below. 
+Part 1 - Data Acquisition
+Part 3 - Feature Engineering (coming soon)
+Part 4 - Models (coming soon)
+Part 5 - Review (coming soon)
 
-One thing we notice is the date range - from 1998 through to the end of last year. There are also some missing data in the odd's columns - around 5k matches. I wonder if that's just older games? 
+# Introduction
+Feature Engineering is where the art comes into our modelling process. Given I don't have a lot of domain knowledge here, I've done a bit of quick reading. Again - I'm not going to go into some advanced Soccer analystics like Expected Goal (XG) or any kind of network analysis - and simply use the match results, FIFA rankings and betfair data. 
 
-```{r plot_betfair, message=FALSE, warning=FALSE}
-betfair_plot <- betfair_dat %>%
-  ggplot(aes(as.yearmon(date), fill = is.na(draw_betfair_odds))) + 
-  geom_bar() +
-  labs(title = "Number of games per month") + 
-  theme_minimal()
-betfair_plot
+First - let's load our combined data from Part 2.
+
+```{r setup}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(pacman)
+pacman::p_load(tidyverse, here, elo, ggthemes, zoo)
+
+dat <- read_csv(here::here("projects", "world-cup-2018", "combined-data.csv"))
 ```
 
-So, yep - it does look like mostly older games. But also in recent years there are games that don't have odds. 
+# Data Exploration
 
-```{r}
-betfair_plot + 
-  facet_wrap(~tournament)
+## Data Cleaning
+I need to replace missing data.
 
-```
+### Betfair
+Given that I don't think I'll be able to get the `avg_odds` data for the new data. 
+### ELO
+
 
 
 # Feature Engineering
 ## ELO
+For my AFL ELO ratings, I've recently started using a fantastic R package called `elo`. You can find details of that package [here](https://github.com/eheinzen/elo) and my weekly R code [here](https://github.com/jimmyday12/plussixoneblog/blob/master/scripts/weekly_data_process.R). Again - not knowing how to best implement an ELO model in Football specifically, I've left it pretty simple. I'm following loosely the method employed at [eloratings.net](http://www.eloratings.net/about).
 
-## Regista
+Firstly, I need to clasify the tournaments into groupings so that I can assign different k values for them. Namely,
 
-## Last n games/wins/goals/conceded
+    60 for World Cup finals;
+    50 for continental championship finals and major intercontinental tournaments;
+    40 for World Cup and continental qualifiers and major tournaments;
+    30 for all other tournaments;
+    20 for friendly matches.
+    
+I also need to adjust the k value based on the goal difference and give a 100 point HGA to any team playing at home. 
 
-## World Cup Home Team
+```{r elo_calcs}
+# Function to clasify tournament
+find_k <- function(x){
+  case_when(
+    x == "World Cup" ~ 60,
+    x %in% c("Euro", "Copa America", "African Cup of Nations", 
+             "Asian Cup", "Gold Cup", "Confederations Cup") ~ 50,
+    str_detect(x, "Qualifiers") ~ 40,
+    x == "Friendly" ~ 20,
+    TRUE ~ 30
+  )
+}
 
-## Players?
+# Function to adjust based on goal difference
+k_adjust <- function(x){
+  case_when(
+    x == 2 ~ 1.5,
+    x == 3 ~ 1.75,
+    x > 3 ~ 1.75 + ((x - 3)/8),
+    TRUE ~ 1
+  )
+}
+```
+
+Now, we can go and apply those functions to our data and perform the `elo.run` function. 
+
+```{r elo}
+dat <- dat %>%
+  ungroup() %>%
+  mutate(game_id = row_number()) %>%
+  group_by(team_1) %>%
+  mutate(
+    team_1_result = case_when(
+      team_1_goals < team_2_goals ~ 0,
+      team_1_goals > team_2_goals ~ 1,
+      TRUE ~ 0.5),
+    team_2_result = 1 - team_1_result,
+    team_1_goals_against = team_2_goals,
+    team_2_goals_against = team_1_goals)
+
+# Clasify tournemt and calculate k value
+dat <- dat %>%
+  mutate(tournament_cat = str_remove(tournament, "[[:digit:]]+") %>% str_squish(),
+         k_val = find_k(tournament_cat),
+         hga = ifelse(is_team_1_home, 100, 0)) %>%
+  arrange(date)
+
+# Run ELO
+elo.data <- elo.run(
+  team_1_result ~
+    adjust(team_1, hga) + 
+    team_2  +
+    k(k_adjust(abs(team_1_goals - team_2_goals)) * k_val),
+  data = dat
+)
+
+dat <- dat %>%
+  bind_cols(as.data.frame(elo.data)) %>%
+  mutate(team_1_elo = elo.A - update,
+         team_2_elo = elo.B + update, 
+         team_1_elo_prob = p.A) %>%
+  select(date:k_val, team_1_elo:team_1_elo_prob)
+
+```
+## Team history
+For these next few features, I actually need to make my dataset 'long'. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.
+
+```{r team_long, message=FALSE, warning=FALSE}
+team_dat <- dat %>%
+  ungroup() %>%
+  select(date, game_id, tournament_cat, contains("team")) %>%
+  gather(variable, value, -date, -game_id, -tournament_cat) %>%
+  separate(variable, into = c("team", "number", "measure"), extra = "merge") %>%
+  mutate(measure = ifelse(is.na(measure), "team", measure)) %>%
+  spread(measure, value) %>%
+  select(date, game_id, tournament_cat, team, result, goals, goals_against) %>%
+  na.omit()
+
+head(team_dat)
+nrow(team_dat)
+nrow(dat) * 2
+```
+Ok - that was tricky. Oh well - we got it! 
+
+## Values for Last 10 games
+One thing that I've seen in a few prediction models is looking at the results and scores for a team over their last n games. In theory, some of this should be reflected in our ELO rating. But nonetheless, our ELO rating isn't a very sophisticated one (it looks at just results rather than scores), so I can add this in. Since I'm going to put it into some machine learning models, we can trim these out if they aren't very useful.
+
+I've picked the last 10 games based on a couple examples I found [here](https://github.com/mrthlinh/FIFA-World-Cup-Prediction) and 
+
+First - it makes sense to see how many games a team has won in it's last 10 games. I'll do this as their average value of result where a win is assigned 1, a draw is 0.5 and a loss is 0. I'll also calculate the average goals for and against in that period. 
+
+```{r rolling, message=FALSE, warning=FALSE}
+# Specify variables
+variables <- vars(goals, result, goals_against)
+team_dat <- team_dat %>%
+  group_by(team) %>%
+  arrange(team, date) %>%
+  mutate_at(variables, as.numeric) %>%
+  mutate(result_game = result) %>%
+  mutate_at(variables,
+            .funs = rollmean, k = 10, na.rm = T, fill = NA, partial = T, align = "right") %>%
+  rename_at(variables, funs(paste0("last_10_", .)))
+```
+
+## World Cup Appearances
+Being at a World Cup multiple times generally, you'd think, would be a good predictor of performing well at world cups. In particular, playing more games would seem to indicate that you've done well at world cups. 
+
+```{r world_cup}
+team_dat <- team_dat %>%
+  group_by(team) %>%
+  mutate(world_cup_wins = cumsum(tournament_cat == "World Cup" & result_game == 1),
+         world_cup_games = cumsum(tournament_cat == "World Cup")) %>%
+  select(-tournament_cat, -result_game, -date)
+
+```
+
+
+Now we've got this player level data
+```{r join}
+dat %>%
+  left_join(team_dat, by = c("game_id", "team_1" = "team")) %>%
+  left_join(team_dat, by = c("game_id", "team_2" = "team"), suffix = c("_team_1", "_team_2"))
+
+```
+## Players
 
 # Data Split
-
-# Baseline Model
-
-## Fix Tournament Field

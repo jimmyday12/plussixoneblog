@@ -1,0 +1,217 @@
+---
+title: 'World Cup Datathon - Part 3: Feature Engineering'
+author: James Day
+date: '2018-06-12'
+slug: world-cup-datathon-part-3-data-exploration
+categories:
+  - World Cup Datathon
+tags: []
+subtitle: ''
+draft: true
+---
+
+
+
+<p>This is part of a series of posts on the World Cup Betfair datathon. See the links to others below. Part 1 - Data Acquisition Part 3 - Feature Engineering (coming soon) Part 4 - Models (coming soon) Part 5 - Review (coming soon)</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analystics like Expected Goal (XG) or any kind of network analysis - and simply use the match results, FIFA rankings and betfair data.</p>
+<p>First - let’s load our combined data from Part 2.</p>
+<pre class="r"><code>knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(pacman)
+pacman::p_load(tidyverse, here, elo, ggthemes, zoo)
+
+dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   date = col_date(format = &quot;&quot;),
+##   team_1_goals = col_integer(),
+##   team_2_goals = col_integer(),
+##   is_team_1_home = col_logical(),
+##   is_team_2_home = col_logical(),
+##   is_neutral = col_logical(),
+##   team_1_betfair_odds = col_double(),
+##   draw_betfair_odds = col_double(),
+##   team_2_betfair_odds = col_double(),
+##   year = col_double(),
+##   month = col_integer(),
+##   team_1_fifa = col_integer(),
+##   team_2_fifa = col_integer()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+</div>
+<div id="data-exploration" class="section level1">
+<h1>Data Exploration</h1>
+<div id="data-cleaning" class="section level2">
+<h2>Data Cleaning</h2>
+<p>I need to replace missing data.</p>
+<div id="betfair" class="section level3">
+<h3>Betfair</h3>
+<p>Given that I don’t think I’ll be able to get the <code>avg_odds</code> data for the new data. ### ELO</p>
+</div>
+</div>
+</div>
+<div id="feature-engineering" class="section level1">
+<h1>Feature Engineering</h1>
+<div id="elo" class="section level2">
+<h2>ELO</h2>
+<p>For my AFL ELO ratings, I’ve recently started using a fantastic R package called <code>elo</code>. You can find details of that package <a href="https://github.com/eheinzen/elo">here</a> and my weekly R code <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/scripts/weekly_data_process.R">here</a>. Again - not knowing how to best implement an ELO model in Football specifically, I’ve left it pretty simple. I’m following loosely the method employed at <a href="http://www.eloratings.net/about">eloratings.net</a>.</p>
+<p>Firstly, I need to clasify the tournaments into groupings so that I can assign different k values for them. Namely,</p>
+<pre><code>60 for World Cup finals;
+50 for continental championship finals and major intercontinental tournaments;
+40 for World Cup and continental qualifiers and major tournaments;
+30 for all other tournaments;
+20 for friendly matches.</code></pre>
+<p>I also need to adjust the k value based on the goal difference and give a 100 point HGA to any team playing at home.</p>
+<pre class="r"><code># Function to clasify tournament
+find_k &lt;- function(x){
+  case_when(
+    x == &quot;World Cup&quot; ~ 60,
+    x %in% c(&quot;Euro&quot;, &quot;Copa America&quot;, &quot;African Cup of Nations&quot;, 
+             &quot;Asian Cup&quot;, &quot;Gold Cup&quot;, &quot;Confederations Cup&quot;) ~ 50,
+    str_detect(x, &quot;Qualifiers&quot;) ~ 40,
+    x == &quot;Friendly&quot; ~ 20,
+    TRUE ~ 30
+  )
+}
+
+# Function to adjust based on goal difference
+k_adjust &lt;- function(x){
+  case_when(
+    x == 2 ~ 1.5,
+    x == 3 ~ 1.75,
+    x &gt; 3 ~ 1.75 + ((x - 3)/8),
+    TRUE ~ 1
+  )
+}</code></pre>
+<p>Now, we can go and apply those functions to our data and perform the <code>elo.run</code> function.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  ungroup() %&gt;%
+  mutate(game_id = row_number()) %&gt;%
+  group_by(team_1) %&gt;%
+  mutate(
+    team_1_result = case_when(
+      team_1_goals &lt; team_2_goals ~ 0,
+      team_1_goals &gt; team_2_goals ~ 1,
+      TRUE ~ 0.5),
+    team_2_result = 1 - team_1_result,
+    team_1_goals_against = team_2_goals,
+    team_2_goals_against = team_1_goals)
+
+# Clasify tournemt and calculate k value
+dat &lt;- dat %&gt;%
+  mutate(tournament_cat = str_remove(tournament, &quot;[[:digit:]]+&quot;) %&gt;% str_squish(),
+         k_val = find_k(tournament_cat),
+         hga = ifelse(is_team_1_home, 100, 0)) %&gt;%
+  arrange(date)
+
+# Run ELO
+elo.data &lt;- elo.run(
+  team_1_result ~
+    adjust(team_1, hga) + 
+    team_2  +
+    k(k_adjust(abs(team_1_goals - team_2_goals)) * k_val),
+  data = dat
+)
+
+dat &lt;- dat %&gt;%
+  bind_cols(as.data.frame(elo.data)) %&gt;%
+  mutate(team_1_elo = elo.A - update,
+         team_2_elo = elo.B + update, 
+         team_1_elo_prob = p.A) %&gt;%
+  select(date:k_val, team_1_elo:team_1_elo_prob)</code></pre>
+</div>
+<div id="team-history" class="section level2">
+<h2>Team history</h2>
+<p>For these next few features, I actually need to make my dataset ‘long’. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.</p>
+<pre class="r"><code>team_dat &lt;- dat %&gt;%
+  ungroup() %&gt;%
+  select(date, game_id, tournament_cat, contains(&quot;team&quot;)) %&gt;%
+  gather(variable, value, -date, -game_id, -tournament_cat) %&gt;%
+  separate(variable, into = c(&quot;team&quot;, &quot;number&quot;, &quot;measure&quot;), extra = &quot;merge&quot;) %&gt;%
+  mutate(measure = ifelse(is.na(measure), &quot;team&quot;, measure)) %&gt;%
+  spread(measure, value) %&gt;%
+  select(date, game_id, tournament_cat, team, result, goals, goals_against) %&gt;%
+  na.omit()
+
+head(team_dat)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   date       game_id tournament_cat team        result goals goals_against
+##   &lt;date&gt;       &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        
+## 1 1998-07-15    8948 Friendly       Ukraine     0      1     2            
+## 2 1998-07-18    8949 Friendly       Malawi      1      1     0            
+## 3 1998-07-18    8950 Friendly       Uganda      0.5    3     3            
+## 4 1998-07-20    8951 Friendly       Malawi      0.5    0     0            
+## 5 1998-07-22    8952 Friendly       Senegal     1      1     0            
+## 6 1998-07-24    8953 Friendly       Burkina Fa… 1      1     0</code></pre>
+<pre class="r"><code>nrow(team_dat)</code></pre>
+<pre><code>## [1] 29476</code></pre>
+<pre class="r"><code>nrow(dat) * 2</code></pre>
+<pre><code>## [1] 29476</code></pre>
+<p>Ok - that was tricky. Oh well - we got it!</p>
+</div>
+<div id="values-for-last-10-games" class="section level2">
+<h2>Values for Last 10 games</h2>
+<p>One thing that I’ve seen in a few prediction models is looking at the results and scores for a team over their last n games. In theory, some of this should be reflected in our ELO rating. But nonetheless, our ELO rating isn’t a very sophisticated one (it looks at just results rather than scores), so I can add this in. Since I’m going to put it into some machine learning models, we can trim these out if they aren’t very useful.</p>
+<p>I’ve picked the last 10 games based on a couple examples I found <a href="https://github.com/mrthlinh/FIFA-World-Cup-Prediction">here</a> and</p>
+<p>First - it makes sense to see how many games a team has won in it’s last 10 games. I’ll do this as their average value of result where a win is assigned 1, a draw is 0.5 and a loss is 0. I’ll also calculate the average goals for and against in that period.</p>
+<pre class="r"><code># Specify variables
+variables &lt;- vars(goals, result, goals_against)
+team_dat &lt;- team_dat %&gt;%
+  group_by(team) %&gt;%
+  arrange(team, date) %&gt;%
+  mutate_at(variables, as.numeric) %&gt;%
+  mutate(result_game = result) %&gt;%
+  mutate_at(variables,
+            .funs = rollmean, k = 10, na.rm = T, fill = NA, partial = T, align = &quot;right&quot;) %&gt;%
+  rename_at(variables, funs(paste0(&quot;last_10_&quot;, .)))</code></pre>
+</div>
+<div id="world-cup-appearances" class="section level2">
+<h2>World Cup Appearances</h2>
+<p>Being at a World Cup multiple times generally, you’d think, would be a good predictor of performing well at world cups. In particular, playing more games would seem to indicate that you’ve done well at world cups.</p>
+<pre class="r"><code>team_dat &lt;- team_dat %&gt;%
+  group_by(team) %&gt;%
+  mutate(world_cup_wins = cumsum(tournament_cat == &quot;World Cup&quot; &amp; result_game == 1),
+         world_cup_games = cumsum(tournament_cat == &quot;World Cup&quot;)) %&gt;%
+  select(-tournament_cat, -result_game, -date)</code></pre>
+<p>Now we’ve got this player level data</p>
+<pre class="r"><code>dat %&gt;%
+  left_join(team_dat, by = c(&quot;game_id&quot;, &quot;team_1&quot; = &quot;team&quot;)) %&gt;%
+  left_join(team_dat, by = c(&quot;game_id&quot;, &quot;team_2&quot; = &quot;team&quot;), suffix = c(&quot;_team_1&quot;, &quot;_team_2&quot;))</code></pre>
+<pre><code>## # A tibble: 14,738 x 40
+## # Groups:   team_1 [?]
+##    date       team_1    team_2        team_1_goals team_2_goals tournament
+##    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;                &lt;int&gt;        &lt;int&gt; &lt;chr&gt;     
+##  1 1998-07-15 Ukraine   Poland                   1            2 Friendly  
+##  2 1998-07-18 Malawi    Zimbabwe                 1            0 Friendly  
+##  3 1998-07-18 Uganda    Kenya                    3            3 Friendly  
+##  4 1998-07-20 Malawi    Zimbabwe                 0            0 Friendly  
+##  5 1998-07-22 Senegal   Cape Verde               1            0 Friendly  
+##  6 1998-07-24 Burkina … Niger                    1            0 Friendly  
+##  7 1998-07-25 Benin     Ghana                    0            1 Friendly  
+##  8 1998-07-26 Niger     Ivory Coast              1            0 Friendly  
+##  9 1998-07-26 Senegal   Mali                     3            1 Friendly  
+## 10 1998-07-30 Guam      Northern Mar…            2            1 Friendly  
+## # ... with 14,728 more rows, and 34 more variables: is_team_1_home &lt;lgl&gt;,
+## #   is_team_2_home &lt;lgl&gt;, is_neutral &lt;lgl&gt;, team_1_betfair_odds &lt;dbl&gt;,
+## #   draw_betfair_odds &lt;dbl&gt;, team_2_betfair_odds &lt;dbl&gt;, year &lt;dbl&gt;,
+## #   month &lt;int&gt;, team_1_fifa &lt;int&gt;, team_2_fifa &lt;int&gt;, match_id &lt;chr&gt;,
+## #   avg_odds_home_win &lt;chr&gt;, avg_odds_draw &lt;chr&gt;, avg_odds_away_win &lt;chr&gt;,
+## #   game_id &lt;int&gt;, team_1_result &lt;dbl&gt;, team_2_result &lt;dbl&gt;,
+## #   team_1_goals_against &lt;int&gt;, team_2_goals_against &lt;int&gt;,
+## #   tournament_cat &lt;chr&gt;, k_val &lt;dbl&gt;, team_1_elo &lt;dbl&gt;, team_2_elo &lt;dbl&gt;,
+## #   team_1_elo_prob &lt;dbl&gt;, last_10_result_team_1 &lt;dbl&gt;,
+## #   last_10_goals_team_1 &lt;dbl&gt;, last_10_goals_against_team_1 &lt;dbl&gt;,
+## #   world_cup_wins_team_1 &lt;int&gt;, world_cup_games_team_1 &lt;int&gt;,
+## #   last_10_result_team_2 &lt;dbl&gt;, last_10_goals_team_2 &lt;dbl&gt;,
+## #   last_10_goals_against_team_2 &lt;dbl&gt;, world_cup_wins_team_2 &lt;int&gt;,
+## #   world_cup_games_team_2 &lt;int&gt;</code></pre>
+</div>
+<div id="players" class="section level2">
+<h2>Players</h2>
+</div>
+</div>
+<div id="data-split" class="section level1">
+<h1>Data Split</h1>
+</div>
