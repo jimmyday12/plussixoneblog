@@ -24,13 +24,12 @@ Part 5 - Review (coming soon)
 ---
 
 So - first thing we need is data. Given I don't have a lot of domain knowledge, I can't go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I've been able to easily access. 
+
 ```{r setup}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(pacman)
 pacman::p_load(tidyverse, here, ggthemes, rvest, lubridate)
 ```
-
-
 
 ## Betfair
 Betfair has provided all participants with data. To get that data you need to sign up to the competition, which you can do [here](https://www.betfair.com.au/hub/insights/minihubs/world-cup-datathon/). I'm also hosting it on Github [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/wc_datathon_dataset.csv).
