@@ -2,7 +2,7 @@
 title: 'Football World Cup Datathon - Part 1: Intro'
 author: James Day
 date: '2018-06-10'
-slug: football-world-cup-datathon-part-1-intro
+slug: football-world-cup-datathon-part-1
 categories:
   - Football
   - World Cup Datathon
@@ -30,8 +30,8 @@ First up will be my data acquisition journey!
 --- 
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
    
-Part 1 - Intro   
+[Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)   
 Part 2 - Data Acquisition (coming soon)   
 Part 3 - Data Exploration and Feature Engineering (coming soon)   
-Part 4 - Models (coming soon)   
-Part 5 - Review (coming soon)   
+Part 4 - Models (coming soon) 
+Part 5 - Review (coming soon)
