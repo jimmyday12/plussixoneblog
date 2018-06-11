@@ -7,6 +7,7 @@ categories:
   - World Cup Datathon
 tags: []
 subtitle: ''
+draft: true
 ---
 
 ```{r}
@@ -15,18 +16,24 @@ p_load(tidyverse, caret)
 ```
 
 
-```{r}
-dat <- write_csv(here::here("projects", "world-cup-2018", "combined-data-cleaned.csv"))
-world_cup <- write_csv(here::here("projects", "world-cup-2018", "world-cup-cleaned.csv"))
+```{r message=FALSE, warning=FALSE}
+dat <- read_csv(here::here("projects", "world-cup-2018", "combined-data-cleaned.csv"))
+glimpse(dat)
 ```
 
+Firstly, reading that data in caused some issues with `betfair` columns. I'm guessing because there is missing data, it's rading it as a character.
 
+```{r}
+dat <- dat %>%
+  mutate_at(vars(contains("betfair")), as.numeric) %>%
+  mutate_at(vars(tournament_cat, result), as.factor) 
+
+```
 # Pre-Processing
-
 ## Inputation
 For our missing data, we could simply delete all of the rows that has missing data. That would get rid about about 30% of our data however. Another method is to inpute those missing values. This can be problematic as well by reducing variance in the data. I'm taking a bit of a mixed approach. First, I'll remove early data from the set. Then remove any data with missing values in `last_10_games` since this data will have unstable `elo` values anyway. Whatever is left will be imputed during `preProcess`. 
 
-```{r omit}
+```{r omit, message=FALSE, warning=FALSE}
 dat <- dat %>%
   filter(!is.na(last_10_result_team_1)) %>%
   filter(!is.na(last_10_result_team_2)) %>%
@@ -35,18 +42,48 @@ dat <- dat %>%
 ## Near zero variance
 According to the [caret documentation](https://topepo.github.io/caret/pre-processing.html#zero--and-near-zero-variance-predictors) - it is good to check for this and caret has a built in tool. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 nearZeroVar(dat, saveMetrics = TRUE)
-findLinearCombos(dat)
 ```
 
 So - all of our data, apart from `is_team_2_home` passes the tests of zero variance. They also have a good `freqRatio`, which according to the documentation should be less than 
 
+## 
 
+```{r}
+vars <- c("date", "team_1", "team_2", "team_1_goals", "team_2_goals", "tournament", 
+          "is_team_2_home", "year", "month", "match_id", "game_id")
 
+dat_mod <- dat %>%
+  select(-one_of(vars)) %>%
+  select(-result, everything())
+
+pp_no_nzv <- dat_mod %>%
+  select(-result) %>%
+  preProcess(., method = c("center", "scale", "knnImpute", "nzv"))
+
+```
 
 # Split
-```{r}
+```{r eval=FALSE, include=FALSE}
+set.seed(42)
+dat_mod <- na.omit(dat_mod)
+inTraining <- createDataPartition(dat_mod$result, p = .75, list = FALSE)
+training <- dat_mod[ inTraining,]
+testing  <- dat_mod[-inTraining,]
 
+
+fitControl <- trainControl(## 10-fold CV
+                           method = "repeatedcv",
+                           number = 10,
+                           ## repeated ten times
+                           repeats = 10)
+
+gbmFit1 <- train(result ~ ., data = training, 
+                 method = "gbm", 
+                 trControl = fitControl,
+                 preProcess = c("center", "scale"),
+                 verbose = TRUE)
+gbmFit1
 
 ```
