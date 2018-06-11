@@ -1,0 +1,52 @@
+---
+title: 'World Cup Datathon: Part 4 - Modelling'
+author: James Day
+date: '2018-06-15'
+slug: world-cup-datathon-part-4-modelling
+categories:
+  - World Cup Datathon
+tags: []
+subtitle: ''
+---
+
+```{r}
+library(pacman)
+p_load(tidyverse, caret)
+```
+
+
+```{r}
+dat <- write_csv(here::here("projects", "world-cup-2018", "combined-data-cleaned.csv"))
+world_cup <- write_csv(here::here("projects", "world-cup-2018", "world-cup-cleaned.csv"))
+```
+
+
+# Pre-Processing
+
+## Inputation
+For our missing data, we could simply delete all of the rows that has missing data. That would get rid about about 30% of our data however. Another method is to inpute those missing values. This can be problematic as well by reducing variance in the data. I'm taking a bit of a mixed approach. First, I'll remove early data from the set. Then remove any data with missing values in `last_10_games` since this data will have unstable `elo` values anyway. Whatever is left will be imputed during `preProcess`. 
+
+```{r omit}
+dat <- dat %>%
+  filter(!is.na(last_10_result_team_1)) %>%
+  filter(!is.na(last_10_result_team_2)) %>%
+  filter(year > 2001)
+```
+## Near zero variance
+According to the [caret documentation](https://topepo.github.io/caret/pre-processing.html#zero--and-near-zero-variance-predictors) - it is good to check for this and caret has a built in tool. 
+
+```{r}
+nearZeroVar(dat, saveMetrics = TRUE)
+findLinearCombos(dat)
+```
+
+So - all of our data, apart from `is_team_2_home` passes the tests of zero variance. They also have a good `freqRatio`, which according to the documentation should be less than 
+
+
+
+
+# Split
+```{r}
+
+
+```
