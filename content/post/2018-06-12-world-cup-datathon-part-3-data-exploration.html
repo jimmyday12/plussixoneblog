@@ -2,7 +2,7 @@
 title: 'World Cup Datathon - Part 3: Feature Engineering'
 author: James Day
 date: '2018-06-12'
-slug: world-cup-datathon-part-3-data-exploration
+slug: world-cup-datathon-part-3
 categories:
   - World Cup Datathon
 tags: []
@@ -12,7 +12,6 @@ draft: true
 
 
 
-<p>This is part of a series of posts on the World Cup Betfair datathon. See the links to others below. Part 1 - Data Acquisition Part 3 - Feature Engineering (coming soon) Part 4 - Models (coming soon) Part 5 - Review (coming soon)</p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analystics like Expected Goal (XG) or any kind of network analysis - and simply use the match results, FIFA rankings and betfair data.</p>
@@ -175,38 +174,9 @@ team_dat &lt;- team_dat %&gt;%
   mutate(world_cup_wins = cumsum(tournament_cat == &quot;World Cup&quot; &amp; result_game == 1),
          world_cup_games = cumsum(tournament_cat == &quot;World Cup&quot;)) %&gt;%
   select(-tournament_cat, -result_game, -date)</code></pre>
-<p>Now we’ve got this player level data</p>
-<pre class="r"><code>dat %&gt;%
+<pre class="r"><code>dat &lt;- dat %&gt;%
   left_join(team_dat, by = c(&quot;game_id&quot;, &quot;team_1&quot; = &quot;team&quot;)) %&gt;%
   left_join(team_dat, by = c(&quot;game_id&quot;, &quot;team_2&quot; = &quot;team&quot;), suffix = c(&quot;_team_1&quot;, &quot;_team_2&quot;))</code></pre>
-<pre><code>## # A tibble: 14,738 x 40
-## # Groups:   team_1 [?]
-##    date       team_1    team_2        team_1_goals team_2_goals tournament
-##    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;                &lt;int&gt;        &lt;int&gt; &lt;chr&gt;     
-##  1 1998-07-15 Ukraine   Poland                   1            2 Friendly  
-##  2 1998-07-18 Malawi    Zimbabwe                 1            0 Friendly  
-##  3 1998-07-18 Uganda    Kenya                    3            3 Friendly  
-##  4 1998-07-20 Malawi    Zimbabwe                 0            0 Friendly  
-##  5 1998-07-22 Senegal   Cape Verde               1            0 Friendly  
-##  6 1998-07-24 Burkina … Niger                    1            0 Friendly  
-##  7 1998-07-25 Benin     Ghana                    0            1 Friendly  
-##  8 1998-07-26 Niger     Ivory Coast              1            0 Friendly  
-##  9 1998-07-26 Senegal   Mali                     3            1 Friendly  
-## 10 1998-07-30 Guam      Northern Mar…            2            1 Friendly  
-## # ... with 14,728 more rows, and 34 more variables: is_team_1_home &lt;lgl&gt;,
-## #   is_team_2_home &lt;lgl&gt;, is_neutral &lt;lgl&gt;, team_1_betfair_odds &lt;dbl&gt;,
-## #   draw_betfair_odds &lt;dbl&gt;, team_2_betfair_odds &lt;dbl&gt;, year &lt;dbl&gt;,
-## #   month &lt;int&gt;, team_1_fifa &lt;int&gt;, team_2_fifa &lt;int&gt;, match_id &lt;chr&gt;,
-## #   avg_odds_home_win &lt;chr&gt;, avg_odds_draw &lt;chr&gt;, avg_odds_away_win &lt;chr&gt;,
-## #   game_id &lt;int&gt;, team_1_result &lt;dbl&gt;, team_2_result &lt;dbl&gt;,
-## #   team_1_goals_against &lt;int&gt;, team_2_goals_against &lt;int&gt;,
-## #   tournament_cat &lt;chr&gt;, k_val &lt;dbl&gt;, team_1_elo &lt;dbl&gt;, team_2_elo &lt;dbl&gt;,
-## #   team_1_elo_prob &lt;dbl&gt;, last_10_result_team_1 &lt;dbl&gt;,
-## #   last_10_goals_team_1 &lt;dbl&gt;, last_10_goals_against_team_1 &lt;dbl&gt;,
-## #   world_cup_wins_team_1 &lt;int&gt;, world_cup_games_team_1 &lt;int&gt;,
-## #   last_10_result_team_2 &lt;dbl&gt;, last_10_goals_team_2 &lt;dbl&gt;,
-## #   last_10_goals_against_team_2 &lt;dbl&gt;, world_cup_wins_team_2 &lt;int&gt;,
-## #   world_cup_games_team_2 &lt;int&gt;</code></pre>
 </div>
 <div id="players" class="section level2">
 <h2>Players</h2>

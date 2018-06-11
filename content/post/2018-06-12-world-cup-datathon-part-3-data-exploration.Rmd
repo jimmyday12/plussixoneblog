@@ -2,7 +2,7 @@
 title: 'World Cup Datathon - Part 3: Feature Engineering'
 author: James Day
 date: '2018-06-12'
-slug: world-cup-datathon-part-3-data-exploration
+slug: world-cup-datathon-part-3
 categories:
   - World Cup Datathon
 tags: []
@@ -10,35 +10,161 @@ subtitle: ''
 draft: true
 ---
 
-This is part of a series of posts on the World Cup Betfair datathon. See the links to others below. 
-Part 1 - Data Acquisition
-Part 3 - Feature Engineering (coming soon)
-Part 4 - Models (coming soon)
-Part 5 - Review (coming soon)
+In [Part 1](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) and  
+[Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) of this series, I introduced the Betfair World Cup datathon and aquired some data. Now, let's spend a bit of time exploring that data and creating some features! 
 
-# Introduction
-Feature Engineering is where the art comes into our modelling process. Given I don't have a lot of domain knowledge here, I've done a bit of quick reading. Again - I'm not going to go into some advanced Soccer analystics like Expected Goal (XG) or any kind of network analysis - and simply use the match results, FIFA rankings and betfair data. 
+Feature Engineering is where the art comes into our modelling process. Given I don't have a lot of domain knowledge here, I've done a bit of quick reading. Again - I'm not going to go into some advanced Soccer analystics like [Expected Goal (XG)](https://understat.com/) or any kind of network analysis - so I'll simply use the match results, FIFA rankings and betfair data. 
 
-First - let's load our combined data from Part 2.
+First - let's load our combined data from [Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1).
 
-```{r setup}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+```{r Load}
+# Load libraries
 library(pacman)
-pacman::p_load(tidyverse, here, elo, ggthemes, zoo)
+pacman::p_load(tidyverse, here, elo, ggthemes, zoo, nanier, visdat, lubridate)
 
 dat <- read_csv(here::here("projects", "world-cup-2018", "combined-data.csv"))
+world_cup <- read_csv(here::here("projects", "world-cup-2018", "world-cup.csv"))
 ```
 
 # Data Exploration
+Let's do a quick exploration of our `dat` dataframe. I did a little it of this in [Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) but we'll try get a bit more in depth.
 
-## Data Cleaning
-I need to replace missing data.
+Before we start, let's create our output variable and then look at it's distribution. 
 
-### Betfair
-Given that I don't think I'll be able to get the `avg_odds` data for the new data. 
-### ELO
+```{r base}
+dat <- dat %>%
+  mutate(
+    result = case_when(
+      team_1_goals > team_2_goals ~ "win",
+      team_1_goals < team_2_goals ~ "lose",
+      TRUE ~ "draw"),
+    result = as.factor(result))
+
+dat %>%
+  ungroup() %>%
+  count(result) %>%
+  mutate(perc = n/sum(n))
+```
+So - that is essentially my baseline model. For an game I can naively put in those percentages. If any other model can't beat that, it's not adding anything! 
+
+What about getting an understanding of the rest of the data. 
+
+```{r data_exp1}
+glimpse(dat)
+```
+
+The first thing that jumps out at me is the `tournament` column contains the tournament and the year in it. It would be nice to group say, all "Euro" tournements together. I also want to get a match_id that is just the game number in our datset. 
+
+```{r data_exp2}
+dat <- dat %>%
+  arrange(date) %>%
+  mutate(tournament_cat = as.factor(str_remove(tournament, "[[:digit:]]+") %>% str_squish()),
+         match_id = row_number())
+
+dat %>% distinct(tournament_cat)
+```
+
+That's better. The other thing is that the `odds` data is being read as characters rather than numneric. That's pretty easy to fix. 
 
 
+```{r data_exp3}
+dat <- dat %>%
+  mutate_at(vars(contains("odds")), as.numeric)
+```
+
+Now we can use `skim` to look at how each column is distributed or structured. 
+
+```{r data_exp4}
+skimr::skim(dat)
+```
+
+
+
+First thing to note is that we have a large chunk of our odds data missing. There is a smaller group of fifa ratings missing and then after that, all our data is complete. We can also see from that plot that a lot of our numeric variables are skewed in their distribution. In particular, the betfair odds seem to have some really large outliers at the top end. 
+
+
+```{r visdat}
+visdat::vis_dat(dat)
+```
+
+This plot shows us where the missing data occurs. You can see that a lot of the missing betfair data is also missing from the other odds data. One suspects that these are probably either early games in our dataset or from pretty small competitions. The FIFA data doesn't seem to have that same relationship.
+
+Firstly, let's just remove the `odds` columns - that's way too many missing variables unfortunately. 
+
+```{r remove_missing}
+dat <- dat %>%
+  select(-avg_odds_draw, -avg_odds_away_win, -avg_odds_home_win)
+```
+
+Let's see if we can find if the betfair or Fifa data that is missing has something common. 
+
+```{r miss_fct}
+naniar::gg_miss_fct(dat, tournament_cat)
+```
+So our `fifa` data is mostly missing for World Cups. I suspect that this has something to do with when those ratings are done - typically out of season. Maybe the FIFA ratings aren't updated as often enough.
+
+```{r fifa_fix1}
+dat %>%
+  filter(tournament_cat == "World Cup") %>%
+  select(date, team_1, team_2, team_1_fifa, team_2_fifa)
+
+```
+
+Let's pick a date and take a look. I'm going to look through the 2010 World Cup for Australia. 
+
+```{r fifa_fix2}
+dat %>%
+  filter((team_1 == "Australia" | team_2 == "Australia") & year == 2010) %>%
+  select(date, team_1, team_2, team_1_fifa, team_2_fifa, tournament)
+
+fifa_dat <- read_csv(here::here("projects", "world-cup-2018", "fifa_rank_history.csv"))
+fifa_dat %>%
+  filter(Team == "Australia" & year(Date)  == 2010)
+```
+
+So - there was no rating update during the month of the World Cup. I think the best bet here is to simply move the data forward (i.e. take the rating from the month beforehand). That seems like a safe thing to do in general here. 
+
+```{r fifa_fix3}
+# Make fifa data long again and then fill
+fifa <- dat %>%
+  gather(team, team_val, team_1:team_2) %>%
+  select(date, match_id, team, team_val, team_1_fifa, team_2_fifa) %>%
+  mutate(fifa_points = ifelse(team == "team_1", team_1_fifa, team_2_fifa)) %>%
+  group_by(team_val) %>%
+  arrange(team_val, date) %>%
+  fill(fifa_points, .direction = "down") %>%
+  fill(fifa_points, .direction = "up") %>%
+  select(-team_1_fifa, -team_2_fifa, -team)
+
+# Join back in with dat
+dat <- dat %>%
+  select(-team_1_fifa, -team_2_fifa) %>%
+  left_join(fifa, by = c("date", "match_id", "team_1" = "team_val")) %>%
+  rename(team_1_fifa = fifa_points) %>%
+  left_join(fifa, by = c("date", "match_id","team_2" = "team_val")) %>%
+  rename(team_2_fifa = fifa_points)
+  
+summary(dat)
+```
+
+So we've fixed up most of the fifa data.
+
+Onto the betfair data. It looked like the most missing data was coming from Oceania Nations Cup, Friendlies and African Cup of Nations. 
+
+What about over time? We'd suspect older games to be less likely to have odds data. 
+
+```{r missing_1}
+dat %>%
+  ggplot(aes(x = date, fill = is.na(team_1_betfair_odds))) +
+  geom_histogram(binwidth = 30) + 
+  theme_minimal()
+```
+
+Yep! So - the Betfair data isn't just randomly missing. It is mostly likely to be missing for older data and most likely to be missing for certain less popular tournamnts and friendlies. I'll probably remove that data later but I need those games to do some feature engineering, like ELO, so I'll leave it for now.
 
 # Feature Engineering
 ## ELO
@@ -96,7 +222,7 @@ dat <- dat %>%
 
 # Clasify tournemt and calculate k value
 dat <- dat %>%
-  mutate(tournament_cat = str_remove(tournament, "[[:digit:]]+") %>% str_squish(),
+  mutate(
          k_val = find_k(tournament_cat),
          hga = ifelse(is_team_1_home, 100, 0)) %>%
   arrange(date)
@@ -118,6 +244,21 @@ dat <- dat %>%
   select(date:k_val, team_1_elo:team_1_elo_prob)
 
 ```
+
+Let's do a quick exploration of those ELO values.
+
+```{r elo_viz}
+dat %>%
+  ggplot(aes(team_1_elo)) +
+  geom_histogram()
+
+final.elos(elo.data) %>%
+  data.frame(elo = .) %>%
+  rownames_to_column("Team") %>%
+  filter(Team %in% world_cup$team_1) %>%
+  arrange(desc(elo))
+```
+
 ## Team history
 For these next few features, I actually need to make my dataset 'long'. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.
 
@@ -168,16 +309,51 @@ team_dat <- team_dat %>%
          world_cup_games = cumsum(tournament_cat == "World Cup")) %>%
   select(-tournament_cat, -result_game, -date)
 
-```
-
-
-Now we've got this player level data
-```{r join}
-dat %>%
+dat <- dat %>%
   left_join(team_dat, by = c("game_id", "team_1" = "team")) %>%
   left_join(team_dat, by = c("game_id", "team_2" = "team"), suffix = c("_team_1", "_team_2"))
-
 ```
-## Players
 
-# Data Split
+
+# Test Data Set
+For our final data, we need all of these variables to exist. 
+
+```{r world_cup_add}
+# Add ELO
+final_elo <- final.elos(elo.data) %>%
+  data.frame(elo = .) %>%
+  rownames_to_column("Team")
+
+world_cup <- world_cup %>%
+  left_join(final_elo, by = c("team_1" = "Team")) %>%
+  rename(team_1_elo = elo) %>%
+  left_join(final_elo, by = c("team_2" = "Team")) %>%
+  rename(team_2_elo = elo)
+  
+# Add the team history data - take last value
+team_dat_last <- team_dat %>%
+  group_by(team) %>%
+  filter(row_number() == n())
+
+world_cup <- world_cup %>%
+  left_join(team_dat_last, by = c("team_1" = "team")) %>%
+  left_join(team_dat_last, by = c("team_2" = "team"), suffix = c("_team_1", "_team_2"))
+```
+
+# Save
+Now we can save our data.
+
+```{r save, message=FALSE, warning=FALSE}
+write_csv(dat, here::here("projects", "world-cup-2018", "combined-data-cleaned.csv"))
+write_csv(world_cup, here::here("projects", "world-cup-2018", "world-cup-cleaned.csv"))
+```
+
+---
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
+   
+[Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
+[Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)   
+Part 3 - Data Exploration and Feature Engineering (coming soon)   
+Part 4 - Models (coming soon) 
+Part 5 - Review (coming soon)
+---
