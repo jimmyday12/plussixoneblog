@@ -2,7 +2,7 @@
 title: 'Football World Cup Datathon - Part 2: Data Aquisition'
 author: James Day
 date: '2018-06-11'
-slug: football-world-cup-datathon-part-2-data-aquisition
+slug: football-world-cup-datathon-part-2
 categories:
   - Football
   - World Cup Datathon
@@ -12,30 +12,25 @@ output:
   html_document: 
     toc: yes
 ---
----
-This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
-   
-Part 1 - Intro   
-Part 2 - Data Acquisition (coming soon)   
-Part 3 - Data Exploration and Feature Engineering (coming soon)   
-Part 4 - Models (coming soon) 
-Part 5 - Review (coming soon)
 
----
-
-So - first thing we need is data. Given I don't have a lot of domain knowledge, I can't go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I've been able to easily access. 
+I introduced the Betfair World Cup Datathon in [Part 1](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) of this series of posts. In this second post, I'm going to focus on getting data. Given I don't have a lot of domain knowledge, I can't go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I've been able to easily access. 
 
 ```{r setup}
+# Set some defaults and load libraries
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(pacman)
 pacman::p_load(tidyverse, here, ggthemes, rvest, lubridate)
 ```
 
-## Betfair
+## Load Data
+### Betfair
 Betfair has provided all participants with data. To get that data you need to sign up to the competition, which you can do [here](https://www.betfair.com.au/hub/insights/minihubs/world-cup-datathon/). I'm also hosting it on Github [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/wc_datathon_dataset.csv).
 
 ```{r load_betfair, warning=FALSE, message=FALSE}
+# Load betfair data
 betfair_dat <- read_csv(here::here("projects", "world-cup-2018", "wc_datathon_dataset.csv"))
+
+# View
 glimpse(betfair_dat)
 summary(betfair_dat)
 ```
@@ -45,22 +40,24 @@ So - it looks like each row is a game that contains the final score, the tournam
 
 
 
-## Kaggle Odds dataset
+### Kaggle Odds dataset
 I found this dataset on [Kaggle](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data) that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other datasets.  
 
 ```{r load_kaggle, message=FALSE, warning=FALSE}
+# Load odds data
 odds_dat <- read_csv(here::here("projects", "world-cup-2018", "closing_odds.csv"))
 
+# View
 glimpse(odds_dat)
 summary(odds_dat)
 ```
 
 So this dataset has different odds but has it for way more data and nothing missing. One problem I might have is that I'm not sure I can get these specific odds (bookies) easily for the upcoming World Cup games. If I want to include it in a model that will be an issue. I'll need to see what I can get. 
 
-## FIFA
+### FIFA
 Logically, if we wanted to try and assess team ratings we could look towards the official [FIFA World rankings](https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html). These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally [critisied for being too simplistic](https://en.wikipedia.org/wiki/FIFA_World_Rankings) and most people prefer ELO rating systems. Nonetheless, it is a dataset I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model. 
 
-### Scraping data
+#### Scraping data
 The code to get this information has been adapted from a [Github respository](https://github.com/rboberg/rross/blob/master/Soccer/2014/WorldCup/Scrape%20Fifa%20World%20Rankings.R) I found from Github user [Ross Boberg](https://github.com/rboberg). 
 
 If you would prefer to take a scripted version of my code below, you can find that [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/scrape_fifa.R). You can also just grab the data directly from [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv).
@@ -138,7 +135,7 @@ fifa_dat <- tables %>%
 
 head(fifa_dat)
 ```
-For the purposes of joining my datsets, I need the full set of data (the above code is just for the last 10 ratings). [Here's some I prepared earlier!](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv)).
+For the purposes of joining my datsets, I need the full set of data (the above code is just for the last 10 ratings). [Here's some I prepared earlier!](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv).
 
 ```{r load_fifa_full, message=FALSE, warning=FALSE}
 fifa_dat <- read_csv(here::here("projects", "world-cup-2018", "fifa_rank_history.csv"))
@@ -146,7 +143,7 @@ glimpse(fifa_dat)
 summary(fifa_dat)
 ```
 
-## Other source
+### Other sources
 I had looked at some other sources but found it either too tricky or they didn't have wide enough covered. These including trying to include 'team value' information from Transfermarkt. I think this would be awesome but I could only get the value of each of the current World Cup squads. I'm sure it's possible to try and find backdate information but I don't have the time.
 
 Another option that would be cool would be to use the EA Sports FIFA player ratings as a bit of a proxy for the talent in each team. I did find some promising websites but they were ultimately going to take too much time to scrape. 
@@ -251,8 +248,10 @@ summary(dat)
 
 ```
 
-# World Cup data
-We also have data for the matches we need to predict. Ideally, this needs to have the same fields that we've got 
+# Submission
+One of the important things is getting a good submission file in the right format. There is no point building a big model with heaps of variables and then not having those variables available for our actual submission! 
+
+Luckily, Betfair has given us a starting point with the matches we need to predict. Let's load that file in (I'm hosting it [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/john_smith_numbersman.csv) if you want it.)
 
 ```{r world_cup, message=FALSE, warning=FALSE}
 world_cup <- read_csv(here::here("projects", "world-cup-2018", "john_smith_numbersman.csv"))
@@ -295,20 +294,31 @@ world_cup <- world_cup %>%
 
 ```
 
-I've also used the betfair API to get the betfair data. I haven't included the code for that as it uses login details, but you can see my script [here](INSERTLINK) and load the data from [here](INSERTLINK).
+I've also used the betfair API to get the betfair data. I haven't included the code for that as it uses login details, but you can see my script [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/betfair_api.R) or just load the data from [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/world_cup_2018_betfair.csv).
 
-Here I join it to my world cup data. 
+Let's load that in and join it to our existing world cup dataframe. 
 
 ```{r world_cup_betfair, message=FALSE, warning=FALSE}
 betfair_wc <- read_csv(here::here("projects", "world-cup-2018", "world_cup_2018_betfair.csv"))
 
 world_cup <- world_cup %>%
   left_join(betfair_wc, by = c("date", "team_1", "team_2"))
+glimpse(world_cup)
 ```
-# Save
+
+# Finishing up
 Anyway, enough for now. Let's save it and we'll revist in Part 3! 
 
 ```{r save, message=FALSE, warning=FALSE}
 write_csv(dat, here::here("projects", "world-cup-2018", "combined-data.csv"))
 write_csv(world_cup, here::here("projects", "world-cup-2018", "world-cup.csv"))
 ```
+
+
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
+   
+[Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)   
+Part 2 - Data Acquisition (coming soon)   
+Part 3 - Data Exploration and Feature Engineering (coming soon)   
+Part 4 - Models (coming soon) 
+Part 5 - Review (coming soon)

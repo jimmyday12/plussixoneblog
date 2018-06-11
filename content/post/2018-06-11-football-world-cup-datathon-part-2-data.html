@@ -2,7 +2,7 @@
 title: 'Football World Cup Datathon - Part 2: Data Aquisition'
 author: James Day
 date: '2018-06-11'
-slug: football-world-cup-datathon-part-2-data-aquisition
+slug: football-world-cup-datathon-part-2
 categories:
   - Football
   - World Cup Datathon
@@ -15,14 +15,20 @@ output:
 
 
 
-<p>So - first thing we need is data. Given I don’t have a lot of domain knowledge, I can’t go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I’ve been able to easily access.</p>
-<pre class="r"><code>knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+<p>I introduced the Betfair World Cup Datathon in <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 1</a> of this series of posts. In this second post, I’m going to focus on getting data. Given I don’t have a lot of domain knowledge, I can’t go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I’ve been able to easily access.</p>
+<pre class="r"><code># Set some defaults and load libraries
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(pacman)
 pacman::p_load(tidyverse, here, ggthemes, rvest, lubridate)</code></pre>
-<div id="betfair" class="section level2">
-<h2>Betfair</h2>
+<div id="load-data" class="section level2">
+<h2>Load Data</h2>
+<div id="betfair" class="section level3">
+<h3>Betfair</h3>
 <p>Betfair has provided all participants with data. To get that data you need to sign up to the competition, which you can do <a href="https://www.betfair.com.au/hub/insights/minihubs/world-cup-datathon/">here</a>. I’m also hosting it on Github <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/wc_datathon_dataset.csv">here</a>.</p>
-<pre class="r"><code>betfair_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;wc_datathon_dataset.csv&quot;))
+<pre class="r"><code># Load betfair data
+betfair_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;wc_datathon_dataset.csv&quot;))
+
+# View
 glimpse(betfair_dat)</code></pre>
 <pre><code>## Observations: 14,568
 ## Variables: 12
@@ -73,11 +79,13 @@ glimpse(betfair_dat)</code></pre>
 ##  NA&#39;s   :5764</code></pre>
 <p>So - it looks like each row is a game that contains the final score, the tournament, who is the home team and then the odds of each outcome. There is quite a lot of games (~14k) which is good! There are some missing values which is a bit annoying but we’ll work out how to deal with that later! I’ll be doing a more detailed data exploration in Part 3.</p>
 </div>
-<div id="kaggle-odds-dataset" class="section level2">
-<h2>Kaggle Odds dataset</h2>
+<div id="kaggle-odds-dataset" class="section level3">
+<h3>Kaggle Odds dataset</h3>
 <p>I found this dataset on <a href="https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data">Kaggle</a> that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other datasets.</p>
-<pre class="r"><code>odds_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;closing_odds.csv&quot;))
+<pre class="r"><code># Load odds data
+odds_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;closing_odds.csv&quot;))
 
+# View
 glimpse(odds_dat)</code></pre>
 <pre><code>## Observations: 479,440
 ## Variables: 19
@@ -145,11 +153,11 @@ glimpse(odds_dat)</code></pre>
 ##  Max.   :29.00</code></pre>
 <p>So this dataset has different odds but has it for way more data and nothing missing. One problem I might have is that I’m not sure I can get these specific odds (bookies) easily for the upcoming World Cup games. If I want to include it in a model that will be an issue. I’ll need to see what I can get.</p>
 </div>
-<div id="fifa" class="section level2">
-<h2>FIFA</h2>
+<div id="fifa" class="section level3">
+<h3>FIFA</h3>
 <p>Logically, if we wanted to try and assess team ratings we could look towards the official <a href="https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html">FIFA World rankings</a>. These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally <a href="https://en.wikipedia.org/wiki/FIFA_World_Rankings">critisied for being too simplistic</a> and most people prefer ELO rating systems. Nonetheless, it is a dataset I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model.</p>
-<div id="scraping-data" class="section level3">
-<h3>Scraping data</h3>
+<div id="scraping-data" class="section level4">
+<h4>Scraping data</h4>
 <p>The code to get this information has been adapted from a <a href="https://github.com/rboberg/rross/blob/master/Soccer/2014/WorldCup/Scrape%20Fifa%20World%20Rankings.R">Github respository</a> I found from Github user <a href="https://github.com/rboberg">Ross Boberg</a>.</p>
 <p>If you would prefer to take a scripted version of my code below, you can find that <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/scrape_fifa.R">here</a>. You can also just grab the data directly from <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv">here</a>.</p>
 <p>Firstly, we have to create a function that builds us a URL. We can then use this to get all the combinations of URLS we need. Based on Ross’ work, we know that each URL contains a query for <code>rank</code>, <code>confediration</code>, <code>gender</code> and <code>page</code>. This function will dynamically generate the URL with the values for those queries.</p>
@@ -204,7 +212,7 @@ head(fifa_dat)</code></pre>
 ## 4 2018-04-12      Peru 1106         23915
 ## 5 2018-04-12   Tunisia 1012         23913
 ## 6 2018-04-12    Mexico 1008         23914</code></pre>
-<p>For the purposes of joining my datsets, I need the full set of data (the above code is just for the last 10 ratings). <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv">Here’s some I prepared earlier!</a>).</p>
+<p>For the purposes of joining my datsets, I need the full set of data (the above code is just for the last 10 ratings). <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv">Here’s some I prepared earlier!</a>.</p>
 <pre class="r"><code>fifa_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;fifa_rank_history.csv&quot;))
 glimpse(fifa_dat)</code></pre>
 <pre><code>## Observations: 47,104
@@ -223,10 +231,11 @@ glimpse(fifa_dat)</code></pre>
 ##  Max.   :2018-05-17                      Max.   :1920.0   Max.   :27275</code></pre>
 </div>
 </div>
-<div id="other-source" class="section level2">
-<h2>Other source</h2>
+<div id="other-sources" class="section level3">
+<h3>Other sources</h3>
 <p>I had looked at some other sources but found it either too tricky or they didn’t have wide enough covered. These including trying to include ‘team value’ information from Transfermarkt. I think this would be awesome but I could only get the value of each of the current World Cup squads. I’m sure it’s possible to try and find backdate information but I don’t have the time.</p>
 <p>Another option that would be cool would be to use the EA Sports FIFA player ratings as a bit of a proxy for the talent in each team. I did find some promising websites but they were ultimately going to take too much time to scrape.</p>
+</div>
 </div>
 <div id="combining-dataset" class="section level1">
 <h1>Combining dataset</h1>
@@ -547,9 +556,10 @@ head(dat)</code></pre>
 ##  Max.   :103.024  
 ##  NA&#39;s   :9728</code></pre>
 </div>
-<div id="world-cup-data" class="section level1">
-<h1>World Cup data</h1>
-<p>We also have data for the matches we need to predict. Ideally, this needs to have the same fields that we’ve got</p>
+<div id="submission" class="section level1">
+<h1>Submission</h1>
+<p>One of the important things is getting a good submission file in the right format. There is no point building a big model with heaps of variables and then not having those variables available for our actual submission!</p>
+<p>Luckily, Betfair has given us a starting point with the matches we need to predict. Let’s load that file in (I’m hosting it <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/john_smith_numbersman.csv">here</a> if you want it.)</p>
 <pre class="r"><code>world_cup &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;john_smith_numbersman.csv&quot;))
 glimpse(world_cup)</code></pre>
 <pre><code>## Observations: 48
@@ -589,16 +599,38 @@ world_cup &lt;- world_cup %&gt;%
   rename(team_1_fifa = Pts) %&gt;%
   left_join(fifa_dat_final, by = c(&quot;team_2&quot; = &quot;Team&quot;)) %&gt;%
   rename(team_2_fifa = Pts)</code></pre>
-<p>I’ve also used the betfair API to get the betfair data. I haven’t included the code for that as it uses login details, but you can see my script <a href="INSERTLINK">here</a> and load the data from <a href="INSERTLINK">here</a>.</p>
-<p>Here I join it to my world cup data.</p>
+<p>I’ve also used the betfair API to get the betfair data. I haven’t included the code for that as it uses login details, but you can see my script <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/betfair_api.R">here</a> or just load the data from <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/world_cup_2018_betfair.csv">here</a>.</p>
+<p>Let’s load that in and join it to our existing world cup dataframe.</p>
 <pre class="r"><code>betfair_wc &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world_cup_2018_betfair.csv&quot;))
 
 world_cup &lt;- world_cup %&gt;%
-  left_join(betfair_wc, by = c(&quot;date&quot;, &quot;team_1&quot;, &quot;team_2&quot;))</code></pre>
+  left_join(betfair_wc, by = c(&quot;date&quot;, &quot;team_1&quot;, &quot;team_2&quot;))
+glimpse(world_cup)</code></pre>
+<pre><code>## Observations: 48
+## Variables: 14
+## $ date                &lt;date&gt; 2018-06-14, 2018-06-15, 2018-06-15, 2018-...
+## $ team_1              &lt;chr&gt; &quot;Russia&quot;, &quot;Egypt&quot;, &quot;Morocco&quot;, &quot;Portugal&quot;, ...
+## $ team_2              &lt;chr&gt; &quot;Saudi Arabia&quot;, &quot;Uruguay&quot;, &quot;Iran&quot;, &quot;Spain&quot;...
+## $ tournament          &lt;chr&gt; &quot;World Cup 2018&quot;, &quot;World Cup 2018&quot;, &quot;World...
+## $ is_team_1_home      &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, F...
+## $ is_team_2_home      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, ...
+## $ is_neutral          &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,...
+## $ year                &lt;dbl&gt; 2018, 2018, 2018, 2018, 2018, 2018, 2018, ...
+## $ month               &lt;dbl&gt; 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+## $ team_1_fifa         &lt;int&gt; 493, 636, 681, 1306, 1166, 1254, 1106, 975...
+## $ team_2_fifa         &lt;int&gt; 462, 976, 798, 1162, 700, 930, 1054, 635, ...
+## $ draw_betfair_odds   &lt;dbl&gt; 4.60, 3.80, 3.05, 3.50, 7.00, 5.30, 3.35, ...
+## $ team_1_betfair_odds &lt;dbl&gt; 1.47, 7.80, 2.38, 4.80, 1.27, 1.35, 3.30, ...
+## $ team_2_betfair_odds &lt;dbl&gt; 10.00, 1.65, 4.00, 1.99, 14.50, 15.00, 2.4...</code></pre>
 </div>
-<div id="save" class="section level1">
-<h1>Save</h1>
+<div id="finishing-up" class="section level1">
+<h1>Finishing up</h1>
 <p>Anyway, enough for now. Let’s save it and we’ll revist in Part 3!</p>
 <pre class="r"><code>write_csv(dat, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))
 write_csv(world_cup, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup.csv&quot;))</code></pre>
+<p>This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.</p>
+<p><a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 1 - Intro</a><br />
+Part 2 - Data Acquisition (coming soon)<br />
+Part 3 - Data Exploration and Feature Engineering (coming soon)<br />
+Part 4 - Models (coming soon) Part 5 - Review (coming soon)</p>
 </div>
