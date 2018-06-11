@@ -341,7 +341,7 @@ world_cup <- world_cup %>%
 ```
 
 # Save
-Now we can save our data.
+Let's save our data.
 
 ```{r save, message=FALSE, warning=FALSE}
 write_csv(dat, here::here("projects", "world-cup-2018", "combined-data-cleaned.csv"))

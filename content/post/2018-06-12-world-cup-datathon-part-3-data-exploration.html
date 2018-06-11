@@ -12,44 +12,298 @@ draft: true
 
 
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analystics like Expected Goal (XG) or any kind of network analysis - and simply use the match results, FIFA rankings and betfair data.</p>
-<p>First - let’s load our combined data from Part 2.</p>
-<pre class="r"><code>knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+<p>In <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 1</a> and<br />
+<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a> of this series, I introduced the Betfair World Cup datathon and aquired some data. Now, let’s spend a bit of time exploring that data and creating some features!</p>
+<p>Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analystics like <a href="https://understat.com/">Expected Goal (XG)</a> or any kind of network analysis - so I’ll simply use the match results, FIFA rankings and betfair data.</p>
+<p>First - let’s load our combined data from <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a>.</p>
+<pre class="r"><code># Load libraries
 library(pacman)
-pacman::p_load(tidyverse, here, elo, ggthemes, zoo)
+pacman::p_load(tidyverse, here, elo, ggthemes, zoo, nanier, visdat, lubridate)
 
-dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   .default = col_character(),
-##   date = col_date(format = &quot;&quot;),
-##   team_1_goals = col_integer(),
-##   team_2_goals = col_integer(),
-##   is_team_1_home = col_logical(),
-##   is_team_2_home = col_logical(),
-##   is_neutral = col_logical(),
-##   team_1_betfair_odds = col_double(),
-##   draw_betfair_odds = col_double(),
-##   team_2_betfair_odds = col_double(),
-##   year = col_double(),
-##   month = col_integer(),
-##   team_1_fifa = col_integer(),
-##   team_2_fifa = col_integer()
-## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-</div>
+dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))
+world_cup &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup.csv&quot;))</code></pre>
 <div id="data-exploration" class="section level1">
 <h1>Data Exploration</h1>
-<div id="data-cleaning" class="section level2">
-<h2>Data Cleaning</h2>
-<p>I need to replace missing data.</p>
-<div id="betfair" class="section level3">
-<h3>Betfair</h3>
-<p>Given that I don’t think I’ll be able to get the <code>avg_odds</code> data for the new data. ### ELO</p>
-</div>
-</div>
+<p>Let’s do a quick exploration of our <code>dat</code> dataframe. I did a little it of this in <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a> but we’ll try get a bit more in depth.</p>
+<p>Before we start, let’s create our output variable and then look at it’s distribution.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  mutate(
+    result = case_when(
+      team_1_goals &gt; team_2_goals ~ &quot;win&quot;,
+      team_1_goals &lt; team_2_goals ~ &quot;lose&quot;,
+      TRUE ~ &quot;draw&quot;),
+    result = as.factor(result))
+
+dat %&gt;%
+  ungroup() %&gt;%
+  count(result) %&gt;%
+  mutate(perc = n/sum(n))</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   result     n  perc
+##   &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 draw    3565 0.242
+## 2 lose    4053 0.275
+## 3 win     7120 0.483</code></pre>
+<p>So - that is essentially my baseline model. For an game I can naively put in those percentages. If any other model can’t beat that, it’s not adding anything!</p>
+<p>What about getting an understanding of the rest of the data.</p>
+<pre class="r"><code>glimpse(dat)</code></pre>
+<pre><code>## Observations: 14,738
+## Variables: 21
+## $ date                &lt;date&gt; 2000-06-10, 2000-06-11, 2000-06-11, 2000-...
+## $ team_1              &lt;chr&gt; &quot;Belgium&quot;, &quot;France&quot;, &quot;Netherlands&quot;, &quot;Turke...
+## $ team_2              &lt;chr&gt; &quot;Sweden&quot;, &quot;Denmark&quot;, &quot;Czech Republic&quot;, &quot;It...
+## $ team_1_goals        &lt;int&gt; 2, 3, 1, 1, 1, 3, 3, 0, 0, 3, 1, 0, 0, 1, ...
+## $ team_2_goals        &lt;int&gt; 1, 0, 0, 2, 1, 2, 3, 1, 2, 0, 0, 1, 1, 2, ...
+## $ tournament          &lt;chr&gt; &quot;Euro 2000&quot;, &quot;Euro 2000&quot;, &quot;Euro 2000&quot;, &quot;Eu...
+## $ is_team_1_home      &lt;lgl&gt; TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA...
+## $ is_team_2_home      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, ...
+## $ is_neutral          &lt;lgl&gt; FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE...
+## $ team_1_betfair_odds &lt;dbl&gt; 2.72, 1.68, 1.80, 5.90, 2.22, 3.60, 1.76, ...
+## $ draw_betfair_odds   &lt;dbl&gt; 2.90, 3.75, 3.45, 3.25, 3.10, 3.10, 3.65, ...
+## $ team_2_betfair_odds &lt;dbl&gt; 3.30, 6.60, 5.90, 1.86, 4.20, 2.40, 5.80, ...
+## $ year                &lt;dbl&gt; 2000, 2000, 2000, 2000, 2000, 2000, 2000, ...
+## $ month               &lt;int&gt; 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+## $ team_1_fifa         &lt;int&gt; 585, 758, 629, 568, 706, 647, NA, 728, 585...
+## $ team_2_fifa         &lt;int&gt; 646, 662, 750, 660, 692, 682, 538, 703, 66...
+## $ match_id            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ avg_odds_home_win   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ avg_odds_draw       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ avg_odds_away_win   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ result              &lt;fct&gt; win, win, win, lose, draw, win, draw, lose...</code></pre>
+<p>The first thing that jumps out at me is the <code>tournament</code> column contains the tournament and the year in it. It would be nice to group say, all “Euro” tournements together. I also want to get a match_id that is just the game number in our datset.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  arrange(date) %&gt;%
+  mutate(tournament_cat = as.factor(str_remove(tournament, &quot;[[:digit:]]+&quot;) %&gt;% str_squish()),
+         match_id = row_number())
+
+dat %&gt;% distinct(tournament_cat)</code></pre>
+<pre><code>## # A tibble: 13 x 1
+##    tournament_cat                   
+##    &lt;fct&gt;                            
+##  1 Friendly                         
+##  2 African Cup of Nations Qualifiers
+##  3 Euro Qualifiers                  
+##  4 Oceania Nations Cup              
+##  5 Copa America                     
+##  6 Confederations Cup               
+##  7 Asian Cup Qualifiers             
+##  8 African Cup of Nations           
+##  9 Gold Cup                         
+## 10 World Cup Qualifiers             
+## 11 Euro                             
+## 12 Asian Cup                        
+## 13 World Cup</code></pre>
+<p>That’s better. The other thing is that the <code>odds</code> data is being read as characters rather than numneric. That’s pretty easy to fix.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  mutate_at(vars(contains(&quot;odds&quot;)), as.numeric)</code></pre>
+<p>Now we can use <code>skim</code> to look at how each column is distributed or structured.</p>
+<pre class="r"><code>skimr::skim(dat)</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 14738 
+##  n variables: 22 
+## 
+## Variable type: character 
+##    variable missing complete     n min max empty n_unique
+##      team_1       0    14738 14738   3  30     0      228
+##      team_2       0    14738 14738   3  30     0      230
+##  tournament       0    14738 14738   8  38     0       81
+## 
+## Variable type: Date 
+##  variable missing complete     n        min        max     median n_unique
+##      date       0    14738 14738 1998-07-15 2017-11-15 2008-06-22     3220
+## 
+## Variable type: factor 
+##        variable missing complete     n n_unique
+##          result       0    14738 14738        3
+##  tournament_cat       0    14738 14738       13
+##                                 top_counts ordered
+##     win: 7120, los: 4053, dra: 3565, NA: 0   FALSE
+##  Fri: 6634, Wor: 3987, Eur: 1258, Afr: 895   FALSE
+## 
+## Variable type: integer 
+##      variable missing complete     n    mean      sd p0     p25 median
+##      match_id       0    14738 14738 7369.5  4254.64  1 3685.25 7369.5
+##         month       0    14738 14738    6.73    3.15  1    4       7  
+##   team_1_fifa    1037    13701 14738  538.93  290     0  338     518  
+##  team_1_goals       0    14738 14738    1.6     1.63  0    0       1  
+##   team_2_fifa    1072    13666 14738  526.14  288.35  0  330     507  
+##  team_2_goals       0    14738 14738    1.05    1.21  0    0       1  
+##       p75  p100     hist
+##  11053.75 14738 ▇▇▇▇▇▇▇▇
+##     10       12 ▅▅▃▇▂▇▆▅
+##    687     1887 ▃▇▇▃▁▁▁▁
+##      2       31 ▇▁▁▁▁▁▁▁
+##    663     1920 ▃▇▇▃▁▁▁▁
+##      2       15 ▇▂▁▁▁▁▁▁
+## 
+## Variable type: logical 
+##        variable missing complete     n mean                        count
+##      is_neutral       0    14738 14738 0.19 FAL: 11944, TRU: 2794, NA: 0
+##  is_team_1_home       0    14738 14738 0.81 TRU: 11924, FAL: 2814, NA: 0
+##  is_team_2_home       0    14738 14738 0               FAL: 14738, NA: 0
+## 
+## Variable type: numeric 
+##             variable missing complete     n    mean    sd      p0     p25
+##    avg_odds_away_win    9728     5010 14738    6.19  7.85    1.01    2.21
+##        avg_odds_draw    9728     5010 14738    4.42  2.4     1.74    3.21
+##    avg_odds_home_win    9728     5010 14738    3.42  5.22    1.01    1.42
+##    draw_betfair_odds    5791     8947 14738    6.64 17.21    1.01    3.35
+##  team_1_betfair_odds    5791     8947 14738    5.89 26.61    1.01    1.46
+##  team_2_betfair_odds    5791     8947 14738   13.17 44.99    1.01    2.32
+##                 year       0    14738 14738 2007.96  5.5  1998    2003   
+##   median     p75    p100     hist
+##     3.53    7.17  103.02 ▇▁▁▁▁▁▁▁
+##     3.49    4.53   32.23 ▇▁▁▁▁▁▁▁
+##     2.04    3.16   60.69 ▇▁▁▁▁▁▁▁
+##     3.8     5.3   980    ▇▁▁▁▁▁▁▁
+##     2.14    3.6   980    ▇▁▁▁▁▁▁▁
+##     4.1     9    1000    ▇▁▁▁▁▁▁▁
+##  2008    2013    2017    ▅▅▇▅▅▇▅▇</code></pre>
+<p>First thing to note is that we have a large chunk of our odds data missing. There is a smaller group of fifa ratings missing and then after that, all our data is complete. We can also see from that plot that a lot of our numeric variables are skewed in their distribution. In particular, the betfair odds seem to have some really large outliers at the top end.</p>
+<pre class="r"><code>visdat::vis_dat(dat)</code></pre>
+<p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/visdat-1.png" width="672" /></p>
+<p>This plot shows us where the missing data occurs. You can see that a lot of the missing betfair data is also missing from the other odds data. One suspects that these are probably either early games in our dataset or from pretty small competitions. The FIFA data doesn’t seem to have that same relationship.</p>
+<p>Firstly, let’s just remove the <code>odds</code> columns - that’s way too many missing variables unfortunately.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  select(-avg_odds_draw, -avg_odds_away_win, -avg_odds_home_win)</code></pre>
+<p>Let’s see if we can find if the betfair or Fifa data that is missing has something common.</p>
+<pre class="r"><code>naniar::gg_miss_fct(dat, tournament_cat)</code></pre>
+<p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/miss_fct-1.png" width="672" /> So our <code>fifa</code> data is mostly missing for World Cups. I suspect that this has something to do with when those ratings are done - typically out of season. Maybe the FIFA ratings aren’t updated as often enough.</p>
+<pre class="r"><code>dat %&gt;%
+  filter(tournament_cat == &quot;World Cup&quot;) %&gt;%
+  select(date, team_1, team_2, team_1_fifa, team_2_fifa)</code></pre>
+<pre><code>## # A tibble: 256 x 5
+##    date       team_1    team_2       team_1_fifa team_2_fifa
+##    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;int&gt;       &lt;int&gt;
+##  1 2002-05-31 France    Senegal              802         599
+##  2 2002-06-01 Germany   Saudi Arabia          NA          NA
+##  3 2002-06-01 Ireland   Cameroon              NA          NA
+##  4 2002-06-01 Uruguay   Denmark               NA          NA
+##  5 2002-06-02 Argentina Nigeria               NA          NA
+##  6 2002-06-02 England   Sweden                NA          NA
+##  7 2002-06-02 Paraguay  South Africa          NA          NA
+##  8 2002-06-02 Spain     Slovenia              NA          NA
+##  9 2002-06-03 Brazil    Turkey                NA          NA
+## 10 2002-06-03 Croatia   Mexico                NA          NA
+## # ... with 246 more rows</code></pre>
+<p>Let’s pick a date and take a look. I’m going to look through the 2010 World Cup for Australia.</p>
+<pre class="r"><code>dat %&gt;%
+  filter((team_1 == &quot;Australia&quot; | team_2 == &quot;Australia&quot;) &amp; year == 2010) %&gt;%
+  select(date, team_1, team_2, team_1_fifa, team_2_fifa, tournament)</code></pre>
+<pre><code>## # A tibble: 16 x 6
+##    date       team_1      team_2      team_1_fifa team_2_fifa tournament  
+##    &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;             &lt;int&gt;       &lt;int&gt; &lt;chr&gt;       
+##  1 2010-01-06 Kuwait      Australia            NA          NA Asian Cup 2…
+##  2 2010-03-03 Australia   Indonesia           867         155 Asian Cup 2…
+##  3 2010-03-03 Australia   Indonesia           867         155 Asian Cup 2…
+##  4 2010-03-03 Australia   Indonesia           898         155 Asian Cup 2…
+##  5 2010-03-03 Australia   Indonesia           898         155 Asian Cup 2…
+##  6 2010-05-24 Australia   New Zealand         886         410 Friendly    
+##  7 2010-06-01 Australia   Denmark              NA          NA Friendly    
+##  8 2010-06-05 Australia   USA                  NA          NA Friendly    
+##  9 2010-06-13 Germany     Australia            NA          NA World Cup 2…
+## 10 2010-06-19 Ghana       Australia            NA          NA World Cup 2…
+## 11 2010-06-23 Australia   Serbia               NA          NA World Cup 2…
+## 12 2010-08-11 Slovenia    Australia           917         911 Friendly    
+## 13 2010-09-03 Switzerland Australia           882         874 Friendly    
+## 14 2010-09-07 Poland      Australia           504         874 Friendly    
+## 15 2010-10-09 Australia   Paraguay            862         840 Friendly    
+## 16 2010-11-17 Egypt       Australia          1047         853 Friendly</code></pre>
+<pre class="r"><code>fifa_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;fifa_rank_history.csv&quot;))
+fifa_dat %&gt;%
+  filter(Team == &quot;Australia&quot; &amp; year(Date)  == 2010)</code></pre>
+<pre><code>## # A tibble: 11 x 4
+##    Date       Team        Pts Conference_id
+##    &lt;date&gt;     &lt;chr&gt;     &lt;int&gt;         &lt;int&gt;
+##  1 2010-02-03 Australia   857         25998
+##  2 2010-03-03 Australia   867         25998
+##  3 2010-03-31 Australia   898         25998
+##  4 2010-04-28 Australia   883         25998
+##  5 2010-05-26 Australia   886         25998
+##  6 2010-07-14 Australia   911         25998
+##  7 2010-08-11 Australia   911         25998
+##  8 2010-09-15 Australia   874         25998
+##  9 2010-10-20 Australia   862         25998
+## 10 2010-11-17 Australia   853         25998
+## 11 2010-12-15 Australia   816         25998</code></pre>
+<p>So - there was no rating update during the month of the World Cup. I think the best bet here is to simply move the data forward (i.e. take the rating from the month beforehand). That seems like a safe thing to do in general here.</p>
+<pre class="r"><code># Make fifa data long again and then fill
+fifa &lt;- dat %&gt;%
+  gather(team, team_val, team_1:team_2) %&gt;%
+  select(date, match_id, team, team_val, team_1_fifa, team_2_fifa) %&gt;%
+  mutate(fifa_points = ifelse(team == &quot;team_1&quot;, team_1_fifa, team_2_fifa)) %&gt;%
+  group_by(team_val) %&gt;%
+  arrange(team_val, date) %&gt;%
+  fill(fifa_points, .direction = &quot;down&quot;) %&gt;%
+  fill(fifa_points, .direction = &quot;up&quot;) %&gt;%
+  select(-team_1_fifa, -team_2_fifa, -team)
+
+# Join back in with dat
+dat &lt;- dat %&gt;%
+  select(-team_1_fifa, -team_2_fifa) %&gt;%
+  left_join(fifa, by = c(&quot;date&quot;, &quot;match_id&quot;, &quot;team_1&quot; = &quot;team_val&quot;)) %&gt;%
+  rename(team_1_fifa = fifa_points) %&gt;%
+  left_join(fifa, by = c(&quot;date&quot;, &quot;match_id&quot;,&quot;team_2&quot; = &quot;team_val&quot;)) %&gt;%
+  rename(team_2_fifa = fifa_points)
+  
+summary(dat)</code></pre>
+<pre><code>##       date               team_1             team_2         
+##  Min.   :1998-07-15   Length:14738       Length:14738      
+##  1st Qu.:2003-10-12   Class :character   Class :character  
+##  Median :2008-06-22   Mode  :character   Mode  :character  
+##  Mean   :2008-06-19                                        
+##  3rd Qu.:2013-02-06                                        
+##  Max.   :2017-11-15                                        
+##                                                            
+##   team_1_goals     team_2_goals     tournament        is_team_1_home 
+##  Min.   : 0.000   Min.   : 0.000   Length:14738       Mode :logical  
+##  1st Qu.: 0.000   1st Qu.: 0.000   Class :character   FALSE:2814     
+##  Median : 1.000   Median : 1.000   Mode  :character   TRUE :11924    
+##  Mean   : 1.603   Mean   : 1.051                                     
+##  3rd Qu.: 2.000   3rd Qu.: 2.000                                     
+##  Max.   :31.000   Max.   :15.000                                     
+##                                                                      
+##  is_team_2_home  is_neutral      team_1_betfair_odds draw_betfair_odds
+##  Mode :logical   Mode :logical   Min.   :  1.010     Min.   :  1.010  
+##  FALSE:14738     FALSE:11944     1st Qu.:  1.460     1st Qu.:  3.350  
+##                  TRUE :2794      Median :  2.140     Median :  3.800  
+##                                  Mean   :  5.888     Mean   :  6.645  
+##                                  3rd Qu.:  3.600     3rd Qu.:  5.300  
+##                                  Max.   :980.000     Max.   :980.000  
+##                                  NA&#39;s   :5791        NA&#39;s   :5791     
+##  team_2_betfair_odds      year          month           match_id    
+##  Min.   :   1.01     Min.   :1998   Min.   : 1.000   Min.   :    1  
+##  1st Qu.:   2.32     1st Qu.:2003   1st Qu.: 4.000   1st Qu.: 3685  
+##  Median :   4.10     Median :2008   Median : 7.000   Median : 7370  
+##  Mean   :  13.17     Mean   :2008   Mean   : 6.726   Mean   : 7370  
+##  3rd Qu.:   9.00     3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:11054  
+##  Max.   :1000.00     Max.   :2017   Max.   :12.000   Max.   :14738  
+##  NA&#39;s   :5791                                                       
+##   result                               tournament_cat  team_1_fifa    
+##  draw:3565   Friendly                         :6634   Min.   :   0.0  
+##  lose:4053   World Cup Qualifiers             :3987   1st Qu.: 340.0  
+##  win :7120   Euro Qualifiers                  :1258   Median : 520.0  
+##              African Cup of Nations Qualifiers: 895   Mean   : 540.9  
+##              Asian Cup Qualifiers             : 458   3rd Qu.: 692.0  
+##              African Cup of Nations           : 317   Max.   :1887.0  
+##              (Other)                          :1189   NA&#39;s   :377     
+##   team_2_fifa    
+##  Min.   :   0.0  
+##  1st Qu.: 332.0  
+##  Median : 511.0  
+##  Mean   : 528.5  
+##  3rd Qu.: 671.0  
+##  Max.   :1920.0  
+##  NA&#39;s   :411</code></pre>
+<p>So we’ve fixed up most of the fifa data.</p>
+<p>Onto the betfair data. It looked like the most missing data was coming from Oceania Nations Cup, Friendlies and African Cup of Nations.</p>
+<p>What about over time? We’d suspect older games to be less likely to have odds data.</p>
+<pre class="r"><code>dat %&gt;%
+  ggplot(aes(x = date, fill = is.na(team_1_betfair_odds))) +
+  geom_histogram(binwidth = 30) + 
+  theme_minimal()</code></pre>
+<p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/missing_1-1.png" width="672" /></p>
+<p>Yep! So - the Betfair data isn’t just randomly missing. It is mostly likely to be missing for older data and most likely to be missing for certain less popular tournamnts and friendlies. I’ll probably remove that data later but I need those games to do some feature engineering, like ELO, so I’ll leave it for now.</p>
 </div>
 <div id="feature-engineering" class="section level1">
 <h1>Feature Engineering</h1>
@@ -100,7 +354,7 @@ k_adjust &lt;- function(x){
 
 # Clasify tournemt and calculate k value
 dat &lt;- dat %&gt;%
-  mutate(tournament_cat = str_remove(tournament, &quot;[[:digit:]]+&quot;) %&gt;% str_squish(),
+  mutate(
          k_val = find_k(tournament_cat),
          hga = ifelse(is_team_1_home, 100, 0)) %&gt;%
   arrange(date)
@@ -120,6 +374,49 @@ dat &lt;- dat %&gt;%
          team_2_elo = elo.B + update, 
          team_1_elo_prob = p.A) %&gt;%
   select(date:k_val, team_1_elo:team_1_elo_prob)</code></pre>
+<p>Let’s do a quick exploration of those ELO values.</p>
+<pre class="r"><code>dat %&gt;%
+  ggplot(aes(team_1_elo)) +
+  geom_histogram()</code></pre>
+<p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/elo_viz-1.png" width="672" /></p>
+<pre class="r"><code>final.elos(elo.data) %&gt;%
+  data.frame(elo = .) %&gt;%
+  rownames_to_column(&quot;Team&quot;) %&gt;%
+  filter(Team %in% world_cup$team_1) %&gt;%
+  arrange(desc(elo))</code></pre>
+<pre><code>##              Team      elo
+## 1          Brazil 2076.692
+## 2         Germany 2074.395
+## 3           Spain 1989.556
+## 4        Portugal 1963.627
+## 5       Argentina 1956.556
+## 6          France 1942.805
+## 7        Colombia 1908.238
+## 8            Peru 1893.125
+## 9         Belgium 1886.284
+## 10        England 1881.405
+## 11           Iran 1864.564
+## 12         Mexico 1844.091
+## 13        Senegal 1831.558
+## 14        Uruguay 1827.805
+## 15          Japan 1826.381
+## 16        Croatia 1821.584
+## 17    Switzerland 1814.110
+## 18      Australia 1793.759
+## 19         Poland 1791.896
+## 20     Costa Rica 1783.080
+## 21        Iceland 1781.230
+## 22        Denmark 1772.941
+## 23          Egypt 1769.524
+## 24         Sweden 1765.550
+## 25 Korea Republic 1758.811
+## 26        Nigeria 1756.240
+## 27        Morocco 1752.210
+## 28         Panama 1725.075
+## 29         Serbia 1714.644
+## 30        Tunisia 1705.438
+## 31   Saudi Arabia 1700.681
+## 32         Russia 1684.373</code></pre>
 </div>
 <div id="team-history" class="section level2">
 <h2>Team history</h2>
@@ -137,13 +434,13 @@ dat &lt;- dat %&gt;%
 head(team_dat)</code></pre>
 <pre><code>## # A tibble: 6 x 7
 ##   date       game_id tournament_cat team        result goals goals_against
-##   &lt;date&gt;       &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        
-## 1 1998-07-15    8948 Friendly       Ukraine     0      1     2            
-## 2 1998-07-18    8949 Friendly       Malawi      1      1     0            
-## 3 1998-07-18    8950 Friendly       Uganda      0.5    3     3            
-## 4 1998-07-20    8951 Friendly       Malawi      0.5    0     0            
-## 5 1998-07-22    8952 Friendly       Senegal     1      1     0            
-## 6 1998-07-24    8953 Friendly       Burkina Fa… 1      1     0</code></pre>
+##   &lt;date&gt;       &lt;int&gt; &lt;fct&gt;          &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;        
+## 1 1998-07-15       1 Friendly       Ukraine     0      1     2            
+## 2 1998-07-18       2 Friendly       Malawi      1      1     0            
+## 3 1998-07-18       3 Friendly       Uganda      0.5    3     3            
+## 4 1998-07-20       4 Friendly       Malawi      0.5    0     0            
+## 5 1998-07-22       5 Friendly       Senegal     1      1     0            
+## 6 1998-07-24       6 Friendly       Burkina Fa… 1      1     0</code></pre>
 <pre class="r"><code>nrow(team_dat)</code></pre>
 <pre><code>## [1] 29476</code></pre>
 <pre class="r"><code>nrow(dat) * 2</code></pre>
@@ -173,15 +470,39 @@ team_dat &lt;- team_dat %&gt;%
   group_by(team) %&gt;%
   mutate(world_cup_wins = cumsum(tournament_cat == &quot;World Cup&quot; &amp; result_game == 1),
          world_cup_games = cumsum(tournament_cat == &quot;World Cup&quot;)) %&gt;%
-  select(-tournament_cat, -result_game, -date)</code></pre>
-<pre class="r"><code>dat &lt;- dat %&gt;%
+  select(-tournament_cat, -result_game, -date)
+
+dat &lt;- dat %&gt;%
   left_join(team_dat, by = c(&quot;game_id&quot;, &quot;team_1&quot; = &quot;team&quot;)) %&gt;%
   left_join(team_dat, by = c(&quot;game_id&quot;, &quot;team_2&quot; = &quot;team&quot;), suffix = c(&quot;_team_1&quot;, &quot;_team_2&quot;))</code></pre>
 </div>
-<div id="players" class="section level2">
-<h2>Players</h2>
 </div>
+<div id="test-data-set" class="section level1">
+<h1>Test Data Set</h1>
+<p>For our final data, we need all of these variables to exist.</p>
+<pre class="r"><code># Add ELO
+final_elo &lt;- final.elos(elo.data) %&gt;%
+  data.frame(elo = .) %&gt;%
+  rownames_to_column(&quot;Team&quot;)
+
+world_cup &lt;- world_cup %&gt;%
+  left_join(final_elo, by = c(&quot;team_1&quot; = &quot;Team&quot;)) %&gt;%
+  rename(team_1_elo = elo) %&gt;%
+  left_join(final_elo, by = c(&quot;team_2&quot; = &quot;Team&quot;)) %&gt;%
+  rename(team_2_elo = elo)
+  
+# Add the team history data - take last value
+team_dat_last &lt;- team_dat %&gt;%
+  group_by(team) %&gt;%
+  filter(row_number() == n())
+
+world_cup &lt;- world_cup %&gt;%
+  left_join(team_dat_last, by = c(&quot;team_1&quot; = &quot;team&quot;)) %&gt;%
+  left_join(team_dat_last, by = c(&quot;team_2&quot; = &quot;team&quot;), suffix = c(&quot;_team_1&quot;, &quot;_team_2&quot;))</code></pre>
 </div>
-<div id="data-split" class="section level1">
-<h1>Data Split</h1>
+<div id="save" class="section level1">
+<h1>Save</h1>
+<p>Let’s save our data.</p>
+<pre class="r"><code>write_csv(dat, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data-cleaned.csv&quot;))
+write_csv(world_cup, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup-cleaned.csv&quot;))</code></pre>
 </div>
