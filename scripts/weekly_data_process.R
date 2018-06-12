@@ -12,7 +12,7 @@ d <- -32
 h <- 20
 k_val <- 20
 carryOver <- 0.05
-B <- 0.03
+B <- 0.04
 sim_num <- 10000
 
 # Get Data ----------------------------------------------------------------
@@ -76,8 +76,9 @@ map_outcome_to_margin <- function(outcome, B) {
 }
 
 # Function to calculate k (how much weight we add to each result)
-calculate_k <- function(margin, k_val) {
-  k_val * log(abs(margin) + 1)
+calculate_k <- function(margin, k_val, round) {
+  mult <- (log(abs(margin) + 1) - log(round))
+  k_val * ifelse(mult <= 0, 1, mult)
 }
 
 # Not using: function to calculate HGA adjust
@@ -136,23 +137,9 @@ elo.data <- elo.run(
            calculate_hga(Away.Venue.Exp, Away.Interstate, Away.Factor, e = e, d = d, h = h)) +
     group(seas_rnd) +
     regress(First.Game, 1500, carryOver) +
-    k(calculate_k(Home.Points - Away.Points, k_val)),
+    k(calculate_k(Home.Points - Away.Points, k_val, Round.Number)),
   data = results
 )
-
-# # Simple ELO
-# HGA <- 30
-# carryOver <- 0.5
-# B <- 0.03
-# elo.data <- elo.run(
-#   map_margin_to_outcome(Home.Points - Away.Points, B = B) ~
-#     adjust(Home.Team, HGA) +
-#     Away.Team +
-#     group(seas_rnd) +
-#     regress(First.Game, 1500, carryOver),
-#   k = k_val,
-#   data = results
-# )
 
 # Need to combine this with results to get into long format. May be able to simplify.
 elo <- results %>%
