@@ -444,7 +444,7 @@ matched %&gt;%
 <p>Hmmm - so it didn’t join because the FIFA data using “China PR”. Also, it didn’t match Northern Ireland or Republic of Ireland. I’m guessing that is the case for the rest of these 172 countires as well. I really should explore doing some fuzzy matching but it’s only a small group and most of those teams aren’t featuring in many matches so I’m just going to do it for the top 5. I manually worked out what these differences were.</p>
 <pre class="r"><code>fix_teams &lt;- function(team){
     case_when(
-      team == &quot;China&quot; ~ &quot;China PR&quot;,
+      team == &quot;China PR&quot; ~ &quot;China&quot;,
       team == &quot;Republic of Ireland&quot; ~ &quot;Ireland&quot;,
       team == &quot;Côte d&#39;Ivoire&quot; ~ &quot;Ivory Coast&quot;,
       team == &quot;FYR Macedonia&quot; ~ &quot;Macedonia&quot;,
@@ -480,7 +480,7 @@ head(dat)</code></pre>
 ## #   team_2_fifa &lt;int&gt;, match_id &lt;int&gt;, avg_odds_home_win &lt;dbl&gt;,
 ## #   avg_odds_draw &lt;dbl&gt;, avg_odds_away_win &lt;dbl&gt;</code></pre>
 <pre class="r"><code>glimpse(dat)</code></pre>
-<pre><code>## Observations: 14,738
+<pre><code>## Observations: 14,740
 ## Variables: 20
 ## $ date                &lt;date&gt; 2000-06-10, 2000-06-11, 2000-06-11, 2000-...
 ## $ team_1              &lt;chr&gt; &quot;Belgium&quot;, &quot;France&quot;, &quot;Netherlands&quot;, &quot;Turke...
@@ -504,51 +504,51 @@ head(dat)</code></pre>
 ## $ avg_odds_away_win   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</code></pre>
 <pre class="r"><code>summary(dat)</code></pre>
 <pre><code>##       date               team_1             team_2         
-##  Min.   :1998-07-15   Length:14738       Length:14738      
+##  Min.   :1998-07-15   Length:14740       Length:14740      
 ##  1st Qu.:2003-10-12   Class :character   Class :character  
 ##  Median :2008-06-22   Mode  :character   Mode  :character  
-##  Mean   :2008-06-19                                        
+##  Mean   :2008-06-20                                        
 ##  3rd Qu.:2013-02-06                                        
 ##  Max.   :2017-11-15                                        
 ##                                                            
-##   team_1_goals     team_2_goals     tournament        is_team_1_home 
-##  Min.   : 0.000   Min.   : 0.000   Length:14738       Mode :logical  
-##  1st Qu.: 0.000   1st Qu.: 0.000   Class :character   FALSE:2814     
-##  Median : 1.000   Median : 1.000   Mode  :character   TRUE :11924    
-##  Mean   : 1.603   Mean   : 1.051                                     
-##  3rd Qu.: 2.000   3rd Qu.: 2.000                                     
-##  Max.   :31.000   Max.   :15.000                                     
-##                                                                      
+##   team_1_goals     team_2_goals    tournament        is_team_1_home 
+##  Min.   : 0.000   Min.   : 0.00   Length:14740       Mode :logical  
+##  1st Qu.: 0.000   1st Qu.: 0.00   Class :character   FALSE:2814     
+##  Median : 1.000   Median : 1.00   Mode  :character   TRUE :11926    
+##  Mean   : 1.603   Mean   : 1.05                                     
+##  3rd Qu.: 2.000   3rd Qu.: 2.00                                     
+##  Max.   :31.000   Max.   :15.00                                     
+##                                                                     
 ##  is_team_2_home  is_neutral      team_1_betfair_odds draw_betfair_odds
 ##  Mode :logical   Mode :logical   Min.   :  1.010     Min.   :  1.010  
-##  FALSE:14738     FALSE:11944     1st Qu.:  1.460     1st Qu.:  3.350  
+##  FALSE:14740     FALSE:11946     1st Qu.:  1.460     1st Qu.:  3.350  
 ##                  TRUE :2794      Median :  2.140     Median :  3.800  
-##                                  Mean   :  5.888     Mean   :  6.645  
+##                                  Mean   :  5.887     Mean   :  6.645  
 ##                                  3rd Qu.:  3.600     3rd Qu.:  5.300  
 ##                                  Max.   :980.000     Max.   :980.000  
 ##                                  NA&#39;s   :5791        NA&#39;s   :5791     
-##  team_2_betfair_odds      year          month         team_1_fifa    
-##  Min.   :   1.01     Min.   :1998   Min.   : 1.000   Min.   :   0.0  
-##  1st Qu.:   2.32     1st Qu.:2003   1st Qu.: 4.000   1st Qu.: 338.0  
-##  Median :   4.10     Median :2008   Median : 7.000   Median : 518.0  
-##  Mean   :  13.17     Mean   :2008   Mean   : 6.726   Mean   : 538.9  
-##  3rd Qu.:   9.00     3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.: 687.0  
-##  Max.   :1000.00     Max.   :2017   Max.   :12.000   Max.   :1887.0  
-##  NA&#39;s   :5791                                        NA&#39;s   :1037    
+##  team_2_betfair_odds      year          month         team_1_fifa  
+##  Min.   :   1.01     Min.   :1998   Min.   : 1.000   Min.   :   0  
+##  1st Qu.:   2.32     1st Qu.:2003   1st Qu.: 4.000   1st Qu.: 339  
+##  Median :   4.10     Median :2008   Median : 7.000   Median : 517  
+##  Mean   :  13.17     Mean   :2008   Mean   : 6.725   Mean   : 538  
+##  3rd Qu.:   9.00     3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.: 685  
+##  Max.   :1000.00     Max.   :2017   Max.   :12.000   Max.   :1887  
+##  NA&#39;s   :5791                                        NA&#39;s   :901   
 ##   team_2_fifa        match_id      avg_odds_home_win avg_odds_draw   
 ##  Min.   :   0.0   Min.   :173540   Min.   : 1.010    Min.   : 1.737  
-##  1st Qu.: 330.0   1st Qu.:337482   1st Qu.: 1.422    1st Qu.: 3.207  
-##  Median : 507.0   Median :464970   Median : 2.035    Median : 3.492  
-##  Mean   : 526.1   Mean   :496662   Mean   : 3.419    Mean   : 4.423  
-##  3rd Qu.: 663.0   3rd Qu.:653966   3rd Qu.: 3.157    3rd Qu.: 4.526  
+##  1st Qu.: 331.0   1st Qu.:337483   1st Qu.: 1.421    1st Qu.: 3.207  
+##  Median : 506.0   Median :464970   Median : 2.035    Median : 3.492  
+##  Mean   : 525.6   Mean   :496636   Mean   : 3.419    Mean   : 4.423  
+##  3rd Qu.: 662.0   3rd Qu.:653965   3rd Qu.: 3.154    3rd Qu.: 4.527  
 ##  Max.   :1920.0   Max.   :876298   Max.   :60.687    Max.   :32.230  
-##  NA&#39;s   :1072     NA&#39;s   :9728     NA&#39;s   :9728      NA&#39;s   :9728    
+##  NA&#39;s   :996      NA&#39;s   :9728     NA&#39;s   :9728      NA&#39;s   :9728    
 ##  avg_odds_away_win
 ##  Min.   :  1.010  
-##  1st Qu.:  2.214  
-##  Median :  3.525  
-##  Mean   :  6.193  
-##  3rd Qu.:  7.166  
+##  1st Qu.:  2.215  
+##  Median :  3.526  
+##  Mean   :  6.196  
+##  3rd Qu.:  7.183  
 ##  Max.   :103.024  
 ##  NA&#39;s   :9728</code></pre>
 </div>
@@ -624,9 +624,4 @@ glimpse(world_cup)</code></pre>
 <p>Anyway, enough for now. Let’s save it and we’ll revist in Part 3!</p>
 <pre class="r"><code>write_csv(dat, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))
 write_csv(world_cup, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup.csv&quot;))</code></pre>
-<p>This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.</p>
-<p><a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 1 - Intro</a><br />
-Part 2 - Data Acquisition (coming soon)<br />
-Part 3 - Data Exploration and Feature Engineering (coming soon)<br />
-Part 4 - Models (coming soon) Part 5 - Review (coming soon)</p>
 </div>
