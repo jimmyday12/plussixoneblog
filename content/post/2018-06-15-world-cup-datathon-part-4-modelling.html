@@ -12,124 +12,56 @@ draft: true
 
 
 
-<pre class="r"><code>library(pacman)
-p_load(tidyverse, caret)</code></pre>
-<pre class="r"><code>dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data-cleaned.csv&quot;))
-glimpse(dat)</code></pre>
-<pre><code>## Observations: 14,738
-## Variables: 38
-## $ date                         &lt;date&gt; 1998-07-15, 1998-07-18, 1998-07-...
-## $ team_1                       &lt;chr&gt; &quot;Ukraine&quot;, &quot;Malawi&quot;, &quot;Uganda&quot;, &quot;M...
-## $ team_2                       &lt;chr&gt; &quot;Poland&quot;, &quot;Zimbabwe&quot;, &quot;Kenya&quot;, &quot;Z...
-## $ team_1_goals                 &lt;int&gt; 1, 1, 3, 0, 1, 1, 0, 1, 3, 2, 3, ...
-## $ team_2_goals                 &lt;int&gt; 2, 0, 3, 0, 0, 0, 1, 0, 1, 1, 0, ...
-## $ tournament                   &lt;chr&gt; &quot;Friendly&quot;, &quot;Friendly&quot;, &quot;Friendly...
-## $ is_team_1_home               &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRU...
-## $ is_team_2_home               &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE...
-## $ is_neutral                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE...
-## $ team_1_betfair_odds          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ draw_betfair_odds            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ team_2_betfair_odds          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ year                         &lt;dbl&gt; 1998, 1998, 1998, 1998, 1998, 199...
-## $ month                        &lt;int&gt; 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, ...
-## $ match_id                     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11...
-## $ result                       &lt;chr&gt; &quot;lose&quot;, &quot;win&quot;, &quot;draw&quot;, &quot;draw&quot;, &quot;w...
-## $ tournament_cat               &lt;chr&gt; &quot;Friendly&quot;, &quot;Friendly&quot;, &quot;Friendly...
-## $ team_1_fifa                  &lt;int&gt; 565, 364, 342, 364, 401, 415, 200...
-## $ team_2_fifa                  &lt;int&gt; 586, 442, 366, 442, NA, 124, 547,...
-## $ game_id                      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11...
-## $ team_1_result                &lt;dbl&gt; 0.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.0...
-## $ team_2_result                &lt;dbl&gt; 1.0, 0.0, 0.5, 0.5, 0.0, 0.0, 1.0...
-## $ team_1_goals_against         &lt;int&gt; 2, 0, 3, 0, 0, 0, 1, 0, 1, 1, 0, ...
-## $ team_2_goals_against         &lt;int&gt; 1, 1, 3, 0, 1, 1, 0, 1, 3, 2, 3, ...
-## $ k_val                        &lt;int&gt; 20, 20, 20, 20, 20, 20, 20, 20, 2...
-## $ team_1_elo                   &lt;dbl&gt; 1500.000, 1500.000, 1500.000, 150...
-## $ team_2_elo                   &lt;dbl&gt; 1500.000, 1500.000, 1500.000, 149...
-## $ team_1_elo_prob              &lt;dbl&gt; 0.6400650, 0.6400650, 0.6400650, ...
-## $ last_10_result_team_1        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ last_10_goals_team_1         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ last_10_goals_against_team_1 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ world_cup_wins_team_1        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
-## $ world_cup_games_team_1       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
-## $ last_10_result_team_2        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ last_10_goals_team_2         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ last_10_goals_against_team_2 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
-## $ world_cup_wins_team_2        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
-## $ world_cup_games_team_2       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</code></pre>
 <p>Firstly, reading that data in caused some issues with <code>betfair</code> columns. I’m guessing because there is missing data, it’s rading it as a character.</p>
-<pre class="r"><code>dat &lt;- dat %&gt;%
-  mutate_at(vars(contains(&quot;betfair&quot;)), as.numeric) %&gt;%
-  mutate_at(vars(tournament_cat, result), as.factor) </code></pre>
-<pre><code>## Warning: package &#39;bindrcpp&#39; was built under R version 3.4.4</code></pre>
 <div id="pre-processing" class="section level1">
 <h1>Pre-Processing</h1>
-<div id="inputation" class="section level2">
-<h2>Inputation</h2>
+<div id="imputation" class="section level2">
+<h2>Imputation</h2>
 <p>For our missing data, we could simply delete all of the rows that has missing data. That would get rid about about 30% of our data however. Another method is to inpute those missing values. This can be problematic as well by reducing variance in the data. I’m taking a bit of a mixed approach. First, I’ll remove early data from the set. Then remove any data with missing values in <code>last_10_games</code> since this data will have unstable <code>elo</code> values anyway. Whatever is left will be imputed during <code>preProcess</code>.</p>
-<pre class="r"><code>dat &lt;- dat %&gt;%
-  filter(!is.na(last_10_result_team_1)) %&gt;%
-  filter(!is.na(last_10_result_team_2)) %&gt;%
-  filter(year &gt; 2001)</code></pre>
 </div>
 <div id="near-zero-variance" class="section level2">
 <h2>Near zero variance</h2>
 <p>According to the <a href="https://topepo.github.io/caret/pre-processing.html#zero--and-near-zero-variance-predictors">caret documentation</a> - it is good to check for this and caret has a built in tool.</p>
-<pre class="r"><code>nearZeroVar(dat, saveMetrics = TRUE)</code></pre>
-<pre><code>##                              freqRatio percentUnique zeroVar   nzv
-## date                          2.776119  2.050321e+01   FALSE FALSE
-## team_1                        1.128655  1.849538e+00   FALSE FALSE
-## team_2                        1.000000  1.882863e+00   FALSE FALSE
-## team_1_goals                  1.163116  1.333000e-01   FALSE FALSE
-## team_2_goals                  1.224604  9.997501e-02   FALSE FALSE
-## tournament                    6.893484  5.415313e-01   FALSE FALSE
-## is_team_1_home                4.066695  1.666250e-02   FALSE FALSE
-## is_team_2_home                0.000000  8.331251e-03    TRUE  TRUE
-## is_neutral                    4.090331  1.666250e-02   FALSE FALSE
-## team_1_betfair_odds           1.246575  2.424394e+00   FALSE FALSE
-## draw_betfair_odds             1.008130  1.333000e+00   FALSE FALSE
-## team_2_betfair_odds           1.000000  2.582688e+00   FALSE FALSE
-## year                          1.016129  1.333000e-01   FALSE FALSE
-## month                         1.269729  9.997501e-02   FALSE FALSE
-## match_id                      1.000000  1.000000e+02   FALSE FALSE
-## result                        1.736161  2.499375e-02   FALSE FALSE
-## tournament_cat                1.746349  1.083063e-01   FALSE FALSE
-## team_1_fifa                   1.073171  1.162209e+01   FALSE FALSE
-## team_2_fifa                   1.204545  1.169708e+01   FALSE FALSE
-## game_id                       1.000000  1.000000e+02   FALSE FALSE
-## team_1_result                 1.736161  2.499375e-02   FALSE FALSE
-## team_2_result                 1.736161  2.499375e-02   FALSE FALSE
-## team_1_goals_against          1.224604  9.997501e-02   FALSE FALSE
-## team_2_goals_against          1.163116  1.333000e-01   FALSE FALSE
-## k_val                         1.054437  4.165625e-02   FALSE FALSE
-## team_1_elo                    1.000000  9.986670e+01   FALSE FALSE
-## team_2_elo                    1.500000  9.995834e+01   FALSE FALSE
-## team_1_elo_prob               2.000000  9.999167e+01   FALSE FALSE
-## last_10_result_team_1         1.015845  2.332750e-01   FALSE FALSE
-## last_10_goals_team_1          1.012876  4.415563e-01   FALSE FALSE
-## last_10_goals_against_team_1  1.034197  5.581938e-01   FALSE FALSE
-## world_cup_wins_team_1         8.354680  1.666250e-01   FALSE FALSE
-## world_cup_games_team_1        6.983501  2.249438e-01   FALSE FALSE
-## last_10_result_team_2         1.000000  2.249438e-01   FALSE FALSE
-## last_10_goals_team_2          1.000000  4.248938e-01   FALSE FALSE
-## last_10_goals_against_team_2  1.011957  6.331750e-01   FALSE FALSE
-## world_cup_wins_team_2         8.688055  1.666250e-01   FALSE FALSE
-## world_cup_games_team_2        7.748054  2.166125e-01   FALSE FALSE</code></pre>
 <p>So - all of our data, apart from <code>is_team_2_home</code> passes the tests of zero variance. They also have a good <code>freqRatio</code>, which according to the documentation should be less than</p>
 </div>
 <div id="section" class="section level2">
 <h2></h2>
-<pre class="r"><code>vars &lt;- c(&quot;date&quot;, &quot;team_1&quot;, &quot;team_2&quot;, &quot;team_1_goals&quot;, &quot;team_2_goals&quot;, &quot;tournament&quot;, 
-          &quot;is_team_2_home&quot;, &quot;year&quot;, &quot;month&quot;, &quot;match_id&quot;, &quot;game_id&quot;)
-
-dat_mod &lt;- dat %&gt;%
-  select(-one_of(vars)) %&gt;%
-  select(-result, everything())
-
-pp_no_nzv &lt;- dat_mod %&gt;%
-  select(-result) %&gt;%
-  preProcess(., method = c(&quot;center&quot;, &quot;scale&quot;, &quot;knnImpute&quot;, &quot;nzv&quot;))</code></pre>
 </div>
 </div>
 <div id="split" class="section level1">
 <h1>Split</h1>
+</div>
+<div id="modelling" class="section level1">
+<h1>Modelling</h1>
+<p>I’m using the <code>caret</code> package for this. The nice thing about <code>caret</code> is that you can use a very big range of machine learning models and they all use very simplir inputs, functions and outputs, which makes the code consistent. This also allows easy comparison between models.</p>
+<div id="base-model" class="section level2">
+<h2>Base Model</h2>
+<p>Firstly, we want a baseline model to compare our new models to. This is simply taken the number of times team 1 wins, draws and loses across our whole dataset and giving that the odds for each row.</p>
+</div>
+<div id="caret-models" class="section level2">
+<h2>Caret Models</h2>
+<div id="create-control" class="section level3">
+<h3>Create Control</h3>
+<p>One of the things I need to do first is to create a ‘control’ parameters object. This can be passed to each model to control some of the computational aspects of the <code>train</code> function. A lot of these have been taken from tutorials so I’m guessing a bit. I know that I need <code>classProbs = TRUE</code> and <code>summaryFunction = mnLogLoss</code> to do our logloss function later on.</p>
+</div>
+<div id="cart" class="section level3">
+<h3>CART</h3>
+<p>The first one I want to try is a classification and regression tree (CART). A lot of tutorials have reccomended these since they are pretty easy to interpret at the end. At the most basic level, these trees keen making binary decisions on a data-point to try and clasify each point into a group of points. There are various rules and parameters which control what those ‘split’ looks like.</p>
+<p>I’ll be using the <code>rpart</code> method for my CART model.</p>
+<div id="train" class="section level4">
+<h4>Train</h4>
+<p>Firslty, we can train our model. As I mentioned, the <code>caret</code> package is nice in that it allows a consistant format for applying machine learning algorithms. The training part is all done by the <code>train</code> function!</p>
+<p>First, we pass it our formula - in this case, we are trying to predict the <code>outcome</code> variable from all others. So we write <code>outcome ~ .</code>. Next, we give it our trianing data, specify the method. I also pass it the control object from the previous step. I do some pre-processing - I’m doing this because our numeric data was largely not normally distributed. I’m unsure if this is correct but I’ll do some more reading.</p>
+</div>
+<div id="test" class="section level4">
+<h4>Test</h4>
+</div>
+<div id="train-1" class="section level4">
+<h4>Train</h4>
+</div>
+<div id="test-1" class="section level4">
+<h4>Test</h4>
+</div>
+</div>
+</div>
 </div>

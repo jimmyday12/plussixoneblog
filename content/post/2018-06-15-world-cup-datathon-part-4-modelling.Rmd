@@ -10,39 +10,44 @@ subtitle: ''
 draft: true
 ---
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 library(pacman)
-p_load(tidyverse, caret)
+p_load(tidyverse, caret, recipes, rpart)
 ```
 
 
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 dat <- read_csv(here::here("projects", "world-cup-2018", "combined-data-cleaned.csv"))
 glimpse(dat)
+
+
 ```
 
 Firstly, reading that data in caused some issues with `betfair` columns. I'm guessing because there is missing data, it's rading it as a character.
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 dat <- dat %>%
   mutate_at(vars(contains("betfair")), as.numeric) %>%
   mutate_at(vars(tournament_cat, result), as.factor) 
 
 ```
 # Pre-Processing
-## Inputation
+## Imputation
 For our missing data, we could simply delete all of the rows that has missing data. That would get rid about about 30% of our data however. Another method is to inpute those missing values. This can be problematic as well by reducing variance in the data. I'm taking a bit of a mixed approach. First, I'll remove early data from the set. Then remove any data with missing values in `last_10_games` since this data will have unstable `elo` values anyway. Whatever is left will be imputed during `preProcess`. 
 
-```{r omit, message=FALSE, warning=FALSE}
+```{r omit, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 dat <- dat %>%
   filter(!is.na(last_10_result_team_1)) %>%
   filter(!is.na(last_10_result_team_2)) %>%
-  filter(year > 2001)
+  filter(year > 2001) %>%
+  filter(!is.na(team_1_fifa) | !is.na(team_2_fifa))
+
+
 ```
 ## Near zero variance
 According to the [caret documentation](https://topepo.github.io/caret/pre-processing.html#zero--and-near-zero-variance-predictors) - it is good to check for this and caret has a built in tool. 
 
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 nearZeroVar(dat, saveMetrics = TRUE)
 ```
 
@@ -50,40 +55,185 @@ So - all of our data, apart from `is_team_2_home` passes the tests of zero varia
 
 ## 
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 vars <- c("date", "team_1", "team_2", "team_1_goals", "team_2_goals", "tournament", 
-          "is_team_2_home", "year", "month", "match_id", "game_id")
+          "team_1_goals_against", "team_2_goals_against",
+          "is_team_2_home", "year", "month", "match_id", "game_id", "team_1_result", "team_2_result")
 
 dat_mod <- dat %>%
   select(-one_of(vars)) %>%
   select(-result, everything())
 
-pp_no_nzv <- dat_mod %>%
-  select(-result) %>%
-  preProcess(., method = c("center", "scale", "knnImpute", "nzv"))
-
+glimpse(dat_mod)
 ```
 
 # Split
 ```{r eval=FALSE, include=FALSE}
 set.seed(42)
-dat_mod <- na.omit(dat_mod)
-inTraining <- createDataPartition(dat_mod$result, p = .75, list = FALSE)
+
+dat_mod <- dat_mod %>%
+  mutate(obs = as.factor(result)) %>%
+  select(-result)
+
+# Split
+#dat_mod <- na.omit(dat_mod)
+inTraining <- createDataPartition(dat_mod$obs, p = .75, list = FALSE)
 training <- dat_mod[ inTraining,]
 testing  <- dat_mod[-inTraining,]
 
+model_recipe <- recipe(obs ~ ., data = training) %>%
+  step_knnimpute(all_predictors()) %>%
+  step_nzv(all_predictors()) %>%
+  step_corr(all_numeric()) %>%
+  step_center(all_numeric())  %>%
+  step_scale(all_numeric()) 
 
-fitControl <- trainControl(## 10-fold CV
-                           method = "repeatedcv",
-                           number = 10,
-                           ## repeated ten times
-                           repeats = 10)
 
-gbmFit1 <- train(result ~ ., data = training, 
-                 method = "gbm", 
-                 trControl = fitControl,
-                 preProcess = c("center", "scale"),
-                 verbose = TRUE)
-gbmFit1
+trained_rec <- prep(model_recipe, data = training)
+ 
+train_data <- bake(trained_rec, newdata = training) %>% na.omit() %>% mutate_if(is.logical, as.numeric)
+test_data  <- bake(trained_rec, newdata = testing) %>% na.omit() %>% mutate_if(is.logical, as.numeric)
+```
+
+# Modelling
+I'm using the `caret` package for this. The nice thing about `caret` is that you can use a very big range of machine learning models and they all use very simplir inputs, functions and outputs, which makes the code consistent. This also allows easy comparison between models. 
+
+## Base Model
+Firstly, we want a baseline model to compare our new models to. This is simply taken the number of times team 1 wins, draws and loses across our whole dataset and giving that the odds for each row. 
+
+```{r eval=FALSE, include=FALSE}
+base <- train_data %>%
+  dplyr::count(obs) %>%
+  mutate(perc = n/sum(n))
+
+base_test <- test_data %>%
+  mutate(win = base$perc[base$obs == "win"],
+         draw = base$perc[base$obs == "draw"],
+         lose = base$perc[base$obs == "lose"])
+
+base_logLoss <- mnLogLoss(base_test, lev = c("win", "draw", "lose"))
+base_logLoss
+mod_results <- data.frame(model = "base", log_loss = base_logLoss)
+```
+
+## Caret Models
+### Create Control
+One of the things I need to do first is to create a 'control' parameters object. This can be passed to each model to control some of the computational aspects of the `train` function. A lot of these have been taken from tutorials so I'm guessing a bit. I know that I need `classProbs = TRUE` and `summaryFunction = mnLogLoss` to do our logloss function later on.
+
+```{r eval=FALSE, include=FALSE}
+# Create a control function
+train_control <- trainControl(method = "repeatedcv", 
+                        number = 3,
+                        repeats = 10,
+                        classProbs = TRUE, 
+                        summaryFunction = mnLogLoss,
+                        verboseIter = TRUE)
+```
+
+### CART
+The first one I want to try is a classification and regression tree (CART). A lot of tutorials have reccomended these since they are pretty easy to interpret at the end. At the most basic level, these trees keen making binary decisions on a data-point to try and clasify each point into a group of points. There are various rules and parameters which control what those 'split' looks like.
+
+I'll be using the `rpart` method for my CART model.
+
+#### Train
+Firslty, we can train our model. As I mentioned, the `caret` package is nice in that it allows a consistant format for applying machine learning algorithms. The training part is all done by the `train` function! 
+
+First, we pass it our formula - in this case, we are trying to predict the `outcome` variable from all others. So we write `outcome ~ .`. Next, we give it our trianing data, specify the method. I also pass it the control object from the previous step. I do some pre-processing - I'm doing this because our numeric data was largely not normally distributed. I'm unsure if this is correct but I'll do some more reading. 
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+set.seed(42)
+
+# RPart
+rpart_model <- train(model_recipe, 
+             data = train_data, 
+             method = "rpart",
+             metric = "logLoss",
+             tuneLength = 10,
+             trControl = train_control)
 
 ```
+
+```{r eval=FALSE, include=FALSE}
+
+# Print Results
+print(rpart_model)
+
+# Plot results
+plot(rpart_model)
+
+# Plot variable importance
+plot(varImp(rpart_model))
+
+# Plot final model
+rpart.plot(rpart_model$finalModel)
+```
+
+#### Test
+```{r eval=FALSE, include=FALSE}
+predictions <- predict.train(object = rpart_model,
+                             test_data,
+                             type = "prob")
+
+# Add predictions to test set and rename outcome
+rpart_test_set <- test_data %>%
+  bind_cols(predictions) 
+
+
+log_loss <- mnLogLoss(data = rpart_test_set, lev = levels(rpart_test_set$obs))
+log_loss
+mod_results <- mod_results %>%
+  add_row(model = "rpart", log_loss = log_loss)
+```
+
+#### Train
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# Set seed and start parallel process
+set.seed(42)
+
+# Randon Forest
+model <- train(model_recipe, 
+             data = train_data, 
+             method = "gbm_h2o",
+             metric = "logLoss",
+             tuneLength = 5,
+             trControl = train_control)
+
+```
+
+```{r eval=FALSE, include=FALSE}
+
+# Print Results
+print(tb_model)
+
+# Plot results
+plot(tb_model)
+
+# Plot variable importance
+plot(varImp(tb_model))
+
+# Plot final model
+plot(tb_model$finalModel)
+```
+#### Test
+```{r eval=FALSE, include=FALSE}
+predictions <- predict.train(object = tb_model,
+                             test_data,
+                             type = "prob",
+                             preProcess = c("center", "scale"))
+
+# Add predictions to test set and rename outcome
+test_set <- test_data %>%
+  bind_cols(predictions) 
+
+
+log_loss <- mnLogLoss(data = test_set, lev = levels(test_set$obs))
+log_loss
+```
+---
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
+   
+[Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
+[Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
+[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)   
+Part 4 - Models (coming soon) 
+Part 5 - Review (coming soon)
+---
