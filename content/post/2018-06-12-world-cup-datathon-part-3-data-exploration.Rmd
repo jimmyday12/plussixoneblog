@@ -24,7 +24,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 ```{r Load}
 # Load libraries
 library(pacman)
-pacman::p_load(tidyverse, here, elo, ggthemes, zoo, nanier, visdat, lubridate)
+pacman::p_load(tidyverse, here, elo, ggthemes, zoo, naniar, visdat, lubridate)
 
 dat <- read_csv(here::here("projects", "world-cup-2018", "combined-data.csv"))
 world_cup <- read_csv(here::here("projects", "world-cup-2018", "world-cup.csv"))
@@ -352,8 +352,9 @@ write_csv(world_cup, here::here("projects", "world-cup-2018", "world-cup-cleaned
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
    
 [Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
-[Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)   
-Part 3 - Data Exploration and Feature Engineering (coming soon)   
-Part 4 - Models (coming soon) 
-Part 5 - Review (coming soon)
+[Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
+[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)     
+Part 4 - Models (coming soon)   
+Part 5 - Review (coming soon)    
+
 ---

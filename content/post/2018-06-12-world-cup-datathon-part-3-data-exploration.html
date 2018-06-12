@@ -18,7 +18,7 @@ draft: true
 <p>First - let’s load our combined data from <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a>.</p>
 <pre class="r"><code># Load libraries
 library(pacman)
-pacman::p_load(tidyverse, here, elo, ggthemes, zoo, nanier, visdat, lubridate)
+pacman::p_load(tidyverse, here, elo, ggthemes, zoo, naniar, visdat, lubridate)
 
 dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))
 world_cup &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup.csv&quot;))</code></pre>
@@ -43,11 +43,11 @@ dat %&gt;%
 ##   &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt;
 ## 1 draw    3565 0.242
 ## 2 lose    4053 0.275
-## 3 win     7120 0.483</code></pre>
+## 3 win     7122 0.483</code></pre>
 <p>So - that is essentially my baseline model. For an game I can naively put in those percentages. If any other model can’t beat that, it’s not adding anything!</p>
 <p>What about getting an understanding of the rest of the data.</p>
 <pre class="r"><code>glimpse(dat)</code></pre>
-<pre><code>## Observations: 14,738
+<pre><code>## Observations: 14,740
 ## Variables: 21
 ## $ date                &lt;date&gt; 2000-06-10, 2000-06-11, 2000-06-11, 2000-...
 ## $ team_1              &lt;chr&gt; &quot;Belgium&quot;, &quot;France&quot;, &quot;Netherlands&quot;, &quot;Turke...
@@ -99,62 +99,62 @@ dat %&gt;% distinct(tournament_cat)</code></pre>
 <p>Now we can use <code>skim</code> to look at how each column is distributed or structured.</p>
 <pre class="r"><code>skimr::skim(dat)</code></pre>
 <pre><code>## Skim summary statistics
-##  n obs: 14738 
+##  n obs: 14740 
 ##  n variables: 22 
 ## 
 ## Variable type: character 
 ##    variable missing complete     n min max empty n_unique
-##      team_1       0    14738 14738   3  30     0      228
-##      team_2       0    14738 14738   3  30     0      230
-##  tournament       0    14738 14738   8  38     0       81
+##      team_1       0    14740 14740   3  30     0      228
+##      team_2       0    14740 14740   3  30     0      230
+##  tournament       0    14740 14740   8  38     0       81
 ## 
 ## Variable type: Date 
 ##  variable missing complete     n        min        max     median n_unique
-##      date       0    14738 14738 1998-07-15 2017-11-15 2008-06-22     3220
+##      date       0    14740 14740 1998-07-15 2017-11-15 2008-06-22     3220
 ## 
 ## Variable type: factor 
 ##        variable missing complete     n n_unique
-##          result       0    14738 14738        3
-##  tournament_cat       0    14738 14738       13
+##          result       0    14740 14740        3
+##  tournament_cat       0    14740 14740       13
 ##                                 top_counts ordered
-##     win: 7120, los: 4053, dra: 3565, NA: 0   FALSE
-##  Fri: 6634, Wor: 3987, Eur: 1258, Afr: 895   FALSE
+##     win: 7122, los: 4053, dra: 3565, NA: 0   FALSE
+##  Fri: 6636, Wor: 3987, Eur: 1258, Afr: 895   FALSE
 ## 
 ## Variable type: integer 
 ##      variable missing complete     n    mean      sd p0     p25 median
-##      match_id       0    14738 14738 7369.5  4254.64  1 3685.25 7369.5
-##         month       0    14738 14738    6.73    3.15  1    4       7  
-##   team_1_fifa    1037    13701 14738  538.93  290     0  338     518  
-##  team_1_goals       0    14738 14738    1.6     1.63  0    0       1  
-##   team_2_fifa    1072    13666 14738  526.14  288.35  0  330     507  
-##  team_2_goals       0    14738 14738    1.05    1.21  0    0       1  
+##      match_id       0    14740 14740 7370.5  4255.22  1 3685.75 7370.5
+##         month       0    14740 14740    6.73    3.15  1    4       7  
+##   team_1_fifa     901    13839 14740  538.03  288.93  0  339     517  
+##  team_1_goals       0    14740 14740    1.6     1.63  0    0       1  
+##   team_2_fifa     996    13744 14740  525.65  287.65  0  331     506  
+##  team_2_goals       0    14740 14740    1.05    1.21  0    0       1  
 ##       p75  p100     hist
-##  11053.75 14738 ▇▇▇▇▇▇▇▇
+##  11055.25 14740 ▇▇▇▇▇▇▇▇
 ##     10       12 ▅▅▃▇▂▇▆▅
-##    687     1887 ▃▇▇▃▁▁▁▁
+##    685     1887 ▃▇▇▃▁▁▁▁
 ##      2       31 ▇▁▁▁▁▁▁▁
-##    663     1920 ▃▇▇▃▁▁▁▁
+##    662     1920 ▃▇▇▃▁▁▁▁
 ##      2       15 ▇▂▁▁▁▁▁▁
 ## 
 ## Variable type: logical 
 ##        variable missing complete     n mean                        count
-##      is_neutral       0    14738 14738 0.19 FAL: 11944, TRU: 2794, NA: 0
-##  is_team_1_home       0    14738 14738 0.81 TRU: 11924, FAL: 2814, NA: 0
-##  is_team_2_home       0    14738 14738 0               FAL: 14738, NA: 0
+##      is_neutral       0    14740 14740 0.19 FAL: 11946, TRU: 2794, NA: 0
+##  is_team_1_home       0    14740 14740 0.81 TRU: 11926, FAL: 2814, NA: 0
+##  is_team_2_home       0    14740 14740 0               FAL: 14740, NA: 0
 ## 
 ## Variable type: numeric 
 ##             variable missing complete     n    mean    sd      p0     p25
-##    avg_odds_away_win    9728     5010 14738    6.19  7.85    1.01    2.21
-##        avg_odds_draw    9728     5010 14738    4.42  2.4     1.74    3.21
-##    avg_odds_home_win    9728     5010 14738    3.42  5.22    1.01    1.42
-##    draw_betfair_odds    5791     8947 14738    6.64 17.21    1.01    3.35
-##  team_1_betfair_odds    5791     8947 14738    5.89 26.61    1.01    1.46
-##  team_2_betfair_odds    5791     8947 14738   13.17 44.99    1.01    2.32
-##                 year       0    14738 14738 2007.96  5.5  1998    2003   
+##    avg_odds_away_win    9728     5012 14740    6.2   7.85    1.01    2.21
+##        avg_odds_draw    9728     5012 14740    4.42  2.4     1.74    3.21
+##    avg_odds_home_win    9728     5012 14740    3.42  5.22    1.01    1.42
+##    draw_betfair_odds    5791     8949 14740    6.64 17.21    1.01    3.35
+##  team_1_betfair_odds    5791     8949 14740    5.89 26.6     1.01    1.46
+##  team_2_betfair_odds    5791     8949 14740   13.17 44.99    1.01    2.32
+##                 year       0    14740 14740 2007.96  5.5  1998    2003   
 ##   median     p75    p100     hist
-##     3.53    7.17  103.02 ▇▁▁▁▁▁▁▁
+##     3.53    7.18  103.02 ▇▁▁▁▁▁▁▁
 ##     3.49    4.53   32.23 ▇▁▁▁▁▁▁▁
-##     2.04    3.16   60.69 ▇▁▁▁▁▁▁▁
+##     2.03    3.15   60.69 ▇▁▁▁▁▁▁▁
 ##     3.8     5.3   980    ▇▁▁▁▁▁▁▁
 ##     2.14    3.6   980    ▇▁▁▁▁▁▁▁
 ##     4.1     9    1000    ▇▁▁▁▁▁▁▁
@@ -248,53 +248,53 @@ dat &lt;- dat %&gt;%
   
 summary(dat)</code></pre>
 <pre><code>##       date               team_1             team_2         
-##  Min.   :1998-07-15   Length:14738       Length:14738      
+##  Min.   :1998-07-15   Length:14740       Length:14740      
 ##  1st Qu.:2003-10-12   Class :character   Class :character  
 ##  Median :2008-06-22   Mode  :character   Mode  :character  
-##  Mean   :2008-06-19                                        
+##  Mean   :2008-06-20                                        
 ##  3rd Qu.:2013-02-06                                        
 ##  Max.   :2017-11-15                                        
 ##                                                            
-##   team_1_goals     team_2_goals     tournament        is_team_1_home 
-##  Min.   : 0.000   Min.   : 0.000   Length:14738       Mode :logical  
-##  1st Qu.: 0.000   1st Qu.: 0.000   Class :character   FALSE:2814     
-##  Median : 1.000   Median : 1.000   Mode  :character   TRUE :11924    
-##  Mean   : 1.603   Mean   : 1.051                                     
-##  3rd Qu.: 2.000   3rd Qu.: 2.000                                     
-##  Max.   :31.000   Max.   :15.000                                     
-##                                                                      
+##   team_1_goals     team_2_goals    tournament        is_team_1_home 
+##  Min.   : 0.000   Min.   : 0.00   Length:14740       Mode :logical  
+##  1st Qu.: 0.000   1st Qu.: 0.00   Class :character   FALSE:2814     
+##  Median : 1.000   Median : 1.00   Mode  :character   TRUE :11926    
+##  Mean   : 1.603   Mean   : 1.05                                     
+##  3rd Qu.: 2.000   3rd Qu.: 2.00                                     
+##  Max.   :31.000   Max.   :15.00                                     
+##                                                                     
 ##  is_team_2_home  is_neutral      team_1_betfair_odds draw_betfair_odds
 ##  Mode :logical   Mode :logical   Min.   :  1.010     Min.   :  1.010  
-##  FALSE:14738     FALSE:11944     1st Qu.:  1.460     1st Qu.:  3.350  
+##  FALSE:14740     FALSE:11946     1st Qu.:  1.460     1st Qu.:  3.350  
 ##                  TRUE :2794      Median :  2.140     Median :  3.800  
-##                                  Mean   :  5.888     Mean   :  6.645  
+##                                  Mean   :  5.887     Mean   :  6.645  
 ##                                  3rd Qu.:  3.600     3rd Qu.:  5.300  
 ##                                  Max.   :980.000     Max.   :980.000  
 ##                                  NA&#39;s   :5791        NA&#39;s   :5791     
 ##  team_2_betfair_odds      year          month           match_id    
 ##  Min.   :   1.01     Min.   :1998   Min.   : 1.000   Min.   :    1  
-##  1st Qu.:   2.32     1st Qu.:2003   1st Qu.: 4.000   1st Qu.: 3685  
+##  1st Qu.:   2.32     1st Qu.:2003   1st Qu.: 4.000   1st Qu.: 3686  
 ##  Median :   4.10     Median :2008   Median : 7.000   Median : 7370  
-##  Mean   :  13.17     Mean   :2008   Mean   : 6.726   Mean   : 7370  
-##  3rd Qu.:   9.00     3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:11054  
-##  Max.   :1000.00     Max.   :2017   Max.   :12.000   Max.   :14738  
+##  Mean   :  13.17     Mean   :2008   Mean   : 6.725   Mean   : 7370  
+##  3rd Qu.:   9.00     3rd Qu.:2013   3rd Qu.:10.000   3rd Qu.:11055  
+##  Max.   :1000.00     Max.   :2017   Max.   :12.000   Max.   :14740  
 ##  NA&#39;s   :5791                                                       
-##   result                               tournament_cat  team_1_fifa    
-##  draw:3565   Friendly                         :6634   Min.   :   0.0  
-##  lose:4053   World Cup Qualifiers             :3987   1st Qu.: 340.0  
-##  win :7120   Euro Qualifiers                  :1258   Median : 520.0  
-##              African Cup of Nations Qualifiers: 895   Mean   : 540.9  
-##              Asian Cup Qualifiers             : 458   3rd Qu.: 692.0  
-##              African Cup of Nations           : 317   Max.   :1887.0  
-##              (Other)                          :1189   NA&#39;s   :377     
-##   team_2_fifa    
-##  Min.   :   0.0  
-##  1st Qu.: 332.0  
-##  Median : 511.0  
-##  Mean   : 528.5  
-##  3rd Qu.: 671.0  
-##  Max.   :1920.0  
-##  NA&#39;s   :411</code></pre>
+##   result                               tournament_cat  team_1_fifa  
+##  draw:3565   Friendly                         :6636   Min.   :   0  
+##  lose:4053   World Cup Qualifiers             :3987   1st Qu.: 341  
+##  win :7122   Euro Qualifiers                  :1258   Median : 519  
+##              African Cup of Nations Qualifiers: 895   Mean   : 540  
+##              Asian Cup Qualifiers             : 458   3rd Qu.: 689  
+##              African Cup of Nations           : 317   Max.   :1887  
+##              (Other)                          :1189   NA&#39;s   :237   
+##   team_2_fifa  
+##  Min.   :   0  
+##  1st Qu.: 333  
+##  Median : 510  
+##  Mean   : 528  
+##  3rd Qu.: 670  
+##  Max.   :1920  
+##  NA&#39;s   :329</code></pre>
 <p>So we’ve fixed up most of the fifa data.</p>
 <p>Onto the betfair data. It looked like the most missing data was coming from Oceania Nations Cup, Friendlies and African Cup of Nations.</p>
 <p>What about over time? We’d suspect older games to be less likely to have odds data.</p>
@@ -385,38 +385,38 @@ dat &lt;- dat %&gt;%
   filter(Team %in% world_cup$team_1) %&gt;%
   arrange(desc(elo))</code></pre>
 <pre><code>##              Team      elo
-## 1          Brazil 2076.692
-## 2         Germany 2074.395
-## 3           Spain 1989.556
-## 4        Portugal 1963.627
-## 5       Argentina 1956.556
-## 6          France 1942.805
-## 7        Colombia 1908.238
-## 8            Peru 1893.125
-## 9         Belgium 1886.284
-## 10        England 1881.405
-## 11           Iran 1864.564
-## 12         Mexico 1844.091
-## 13        Senegal 1831.558
-## 14        Uruguay 1827.805
-## 15          Japan 1826.381
-## 16        Croatia 1821.584
-## 17    Switzerland 1814.110
-## 18      Australia 1793.759
-## 19         Poland 1791.896
-## 20     Costa Rica 1783.080
-## 21        Iceland 1781.230
-## 22        Denmark 1772.941
-## 23          Egypt 1769.524
-## 24         Sweden 1765.550
-## 25 Korea Republic 1758.811
-## 26        Nigeria 1756.240
-## 27        Morocco 1752.210
-## 28         Panama 1725.075
-## 29         Serbia 1714.644
-## 30        Tunisia 1705.438
-## 31   Saudi Arabia 1700.681
-## 32         Russia 1684.373</code></pre>
+## 1          Brazil 2076.715
+## 2         Germany 2074.492
+## 3           Spain 1989.650
+## 4        Portugal 1963.858
+## 5       Argentina 1956.581
+## 6          France 1942.912
+## 7        Colombia 1908.234
+## 8            Peru 1893.122
+## 9         Belgium 1886.362
+## 10        England 1881.468
+## 11           Iran 1864.434
+## 12         Mexico 1844.136
+## 13        Senegal 1831.587
+## 14        Uruguay 1827.816
+## 15          Japan 1826.275
+## 16        Croatia 1821.667
+## 17    Switzerland 1814.201
+## 18      Australia 1793.659
+## 19         Poland 1791.995
+## 20     Costa Rica 1783.093
+## 21        Iceland 1781.308
+## 22        Denmark 1773.105
+## 23          Egypt 1769.544
+## 24         Sweden 1765.650
+## 25 Korea Republic 1758.689
+## 26        Nigeria 1756.263
+## 27        Morocco 1752.234
+## 28         Panama 1725.079
+## 29         Serbia 1714.713
+## 30        Tunisia 1705.453
+## 31   Saudi Arabia 1700.544
+## 32         Russia 1684.451</code></pre>
 </div>
 <div id="team-history" class="section level2">
 <h2>Team history</h2>
@@ -442,9 +442,9 @@ head(team_dat)</code></pre>
 ## 5 1998-07-22       5 Friendly       Senegal     1      1     0            
 ## 6 1998-07-24       6 Friendly       Burkina Fa… 1      1     0</code></pre>
 <pre class="r"><code>nrow(team_dat)</code></pre>
-<pre><code>## [1] 29476</code></pre>
+<pre><code>## [1] 29480</code></pre>
 <pre class="r"><code>nrow(dat) * 2</code></pre>
-<pre><code>## [1] 29476</code></pre>
+<pre><code>## [1] 29480</code></pre>
 <p>Ok - that was tricky. Oh well - we got it!</p>
 </div>
 <div id="values-for-last-10-games" class="section level2">
