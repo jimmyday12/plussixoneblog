@@ -46,7 +46,7 @@ dat <- dat %>%
 
 dat %>%
   ungroup() %>%
-  count(result) %>%
+  dplyr::count(result) %>%
   mutate(perc = n/sum(n))
 ```
 So - that is essentially my baseline model. For an game I can naively put in those percentages. If any other model can't beat that, it's not adding anything! 
@@ -328,7 +328,12 @@ world_cup <- world_cup %>%
   left_join(final_elo, by = c("team_1" = "Team")) %>%
   rename(team_1_elo = elo) %>%
   left_join(final_elo, by = c("team_2" = "Team")) %>%
-  rename(team_2_elo = elo)
+  rename(team_2_elo = elo) %>%
+  mutate(hga = ifelse(is_team_1_home, 100, 0),
+         team_1_elo_prob = elo.prob(team_1_elo, team_2_elo, adjust.A = hga),
+         tournament_cat = "World Cup",
+         k_val = find_k(tournament_cat))
+
   
 # Add the team history data - take last value
 team_dat_last <- team_dat %>%
