@@ -1,0 +1,49 @@
+date,match_id,team_1,team_2,prob_team_1_win,prob_team_1_draw,prob_team_1_lose
+2018-06-14,a_1,russia,saudi arabia,0.59,0.216,0.194
+2018-06-15,a_2,egypt,uruguay,0.392,0.326,0.282
+2018-06-15,b_1,morocco,iran,0.226,0.392,0.382
+2018-06-15,b_2,portugal,spain,0.278,0.254,0.468
+2018-06-16,c_1,france,australia,0.766,0.144,0.09
+2018-06-16,d_1,argentina,iceland,0.594,0.282,0.124
+2018-06-16,c_2,peru,denmark,0.242,0.256,0.502
+2018-06-16,d_2,croatia,nigeria,0.398,0.362,0.24
+2018-06-17,e_1,costa rica,serbia,0.196,0.338,0.466
+2018-06-17,f_1,germany,mexico,0.56,0.394,0.046
+2018-06-17,e_2,brazil,switzerland,0.42,0.384,0.196
+2018-06-18,f_2,sweden,korea republic,0.484,0.342,0.174
+2018-06-18,g_1,belgium,panama,0.864,0.104,0.032
+2018-06-18,g_2,tunisia,england,0.142,0.282,0.576
+2018-06-19,h_1,colombia,japan,0.53,0.29,0.18
+2018-06-19,h_2,poland,senegal,0.454,0.298,0.248
+2018-06-19,a_3,russia,egypt,0.214,0.418,0.368
+2018-06-20,b_3,portugal,morocco,0.61,0.272,0.118
+2018-06-20,a_4,uruguay,saudi arabia,0.528,0.206,0.266
+2018-06-20,b_4,iran,spain,0.144,0.212,0.644
+2018-06-21,c_3,denmark,australia,0.702,0.212,0.086
+2018-06-21,c_4,france,peru,0.6,0.256,0.144
+2018-06-21,d_3,argentina,croatia,0.446,0.338,0.216
+2018-06-22,e_3,brazil,costa rica,0.56,0.342,0.098
+2018-06-22,d_4,nigeria,iceland,0.458,0.338,0.204
+2018-06-22,e_4,serbia,switzerland,0.144,0.304,0.552
+2018-06-23,g_3,belgium,tunisia,0.826,0.098,0.076
+2018-06-23,f_3,korea republic,mexico,0.208,0.228,0.564
+2018-06-23,f_4,germany,sweden,0.562,0.356,0.082
+2018-06-24,g_4,england,panama,0.774,0.158,0.068
+2018-06-24,h_3,japan,senegal,0.19,0.25,0.56
+2018-06-24,h_4,poland,colombia,0.338,0.218,0.444
+2018-06-25,a_5,uruguay,russia,0.396,0.28,0.324
+2018-06-25,a_6,saudi arabia,egypt,0.164,0.32,0.516
+2018-06-25,b_5,iran,portugal,0.14,0.24,0.62
+2018-06-25,b_6,spain,morocco,0.632,0.244,0.124
+2018-06-26,c_5,denmark,france,0.366,0.276,0.358
+2018-06-26,c_6,australia,peru,0.19,0.284,0.526
+2018-06-26,d_5,nigeria,argentina,0.336,0.2,0.464
+2018-06-26,d_6,iceland,croatia,0.322,0.32,0.358
+2018-06-27,f_5,mexico,sweden,0.358,0.276,0.366
+2018-06-27,f_6,korea republic,germany,0.164,0.276,0.56
+2018-06-27,e_5,serbia,brazil,0.236,0.188,0.576
+2018-06-27,e_6,switzerland,costa rica,0.646,0.238,0.116
+2018-06-28,h_5,japan,poland,0.2,0.23,0.57
+2018-06-28,h_6,senegal,colombia,0.346,0.338,0.316
+2018-06-28,g_5,panama,tunisia,0.39,0.352,0.258
+2018-06-28,g_6,england,belgium,0.306,0.24,0.454
