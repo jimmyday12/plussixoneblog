@@ -259,7 +259,7 @@ First thing that jumps out is that the team's are in lower case. I'll need to fi
 world_cup <- world_cup %>%
   mutate(date = dmy(date)) %>%
   mutate_at(vars(team_1, team_2), tools::toTitleCase) %>%
-  select(date, team_1, team_2)
+  select(date, match_id, team_1, team_2)
 ```
 
 Now the other fields that we don't have are `tournament`, `is_team_1_home`, `is_team_2_home` and `is_neutral`. We can also hopefully get the `betfair` odds and the `fifa` points. 
