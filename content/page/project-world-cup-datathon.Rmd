@@ -34,10 +34,15 @@ files <- list.files(path)
 
 dat <- paste0(path, "/", files) %>%
   map(read_csv) %>%
-  map2_dfr(.y = files, ~ .x %>% mutate(model = str_remove(.y, "james_day_"),
-                                       model = str_remove(model, ".csv"),
-                                       group = str_extract(match_id, "[[a-z]]"),
-                                       group_match = as.integer(str_extract(match_id, "\\d+"))))
+  map2_dfr(.y = files, ~ .x %>% mutate(model = str_remove(.y, "james_day_")))
+
+
+dat <- dat %>%
+  mutate(model = str_remove(model, ".csv"),
+         group = str_extract(match_id, "[[a-z]]"),
+         group_match = as.integer(str_extract(match_id, "\\d+"))) %>%
+  mutate_at(vars(contains("prob")), round, 3) %>%
+  rename_at(vars(contains("prob")), function(x) str_remove(x, "prob_team_1_"))
 
 unique(dat$model)
 ```
@@ -49,14 +54,14 @@ nnet <- dat %>%
   formattable() %>%
   as.datatable(options = list(dom = 't', pageLength = 18))
 
-frameWidget(nnet, height = 700, width = '95%')
+frameWidget(nnet, height = 700)
 ```
 
 
 ### Multinomal
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 multi <- dat %>% 
-  filter(model == "PenalizedMultinomialRegressio") %>%
+  filter(model == "PenalizedMultinomialRegression") %>%
   formattable() %>%
   as.datatable(options = list(dom = 't', pageLength = 18))
 
