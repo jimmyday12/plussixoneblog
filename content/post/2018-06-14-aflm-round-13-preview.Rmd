@@ -1,0 +1,144 @@
+---
+title: AFLM - Round 13 preview
+author: James Day
+date: '2018-06-14'
+slug: aflm-round-13-preview
+categories:
+  - AFLM
+tags: []
+subtitle: ''
+---
+
+Those who have been following the blog for a while know that Thursday games always catch me out and this week is no exception! No update for me but you can see my tips, as always, at [this link](http://plussixoneblog.com/page/aflm-current-tips/) or on [Squiggle](squiggle.com.au). 
+
+I've also got my plots below, presented without comment. 
+
+As a separate note - I've decided to enter the World Cup Datathon. You can see my posts below More updates coming. 
+
+
+----
+[Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
+[Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
+[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)     
+Part 4 - Models (coming soon)   
+Part 5 - Review (coming soon)    
+
+----
+
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+elo <- dat_list$elo
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
+)
+
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
+  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
+  geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    x = "Team",
+    y = "ELO Rating",
+    title = "AFL Men's ELO Ratings",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre,
+         change = min_rank(desc(ELO_pre)) - min_rank(desc(ELO))) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, change, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+# Write to formattable with some formatting
+# Create a sign formatrer
+sign_formatter <- formatter("span", 
+                            style = x ~ style(color = case_when(
+                              x > 0 ~ "green", 
+                              x < 0 ~ "red",
+                              TRUE ~ "transparent")))
+# Create formattable/DT object
+dt_elo <- elo_table %>%
+  formattable(list(
+    change = sign_formatter,
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = sign_formatter,
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>% 
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = '95%')
+```
+
+```{r predict, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
+
+
