@@ -44,7 +44,7 @@ dat <- dat %>%
   mutate_at(vars(contains("prob")), round, 3) %>%
   rename_at(vars(contains("prob")), function(x) str_remove(x, "prob_team_1_"))
 
-unique(dat$model)
+unique(dat$model) 
 ```
 
 ### Neural Net
