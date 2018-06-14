@@ -7,13 +7,12 @@ categories:
   - World Cup Datathon
 tags: []
 subtitle: ''
-draft: true
 ---
 
 In [Part 1](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) and  
-[Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) of this series, I introduced the Betfair World Cup datathon and aquired some data. Now, let's spend a bit of time exploring that data and creating some features! 
+[Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) of this series, I introduced the Betfair World Cup datathon and acquired some data. Now, let's spend a bit of time exploring that data and creating some features! 
 
-Feature Engineering is where the art comes into our modelling process. Given I don't have a lot of domain knowledge here, I've done a bit of quick reading. Again - I'm not going to go into some advanced Soccer analystics like [Expected Goal (XG)](https://understat.com/) or any kind of network analysis - so I'll simply use the match results, FIFA rankings and betfair data. 
+Feature Engineering is where the art comes into our modelling process. Given I don't have a lot of domain knowledge here, I've done a bit of quick reading. Again - I'm not going to go into some advanced Soccer analytics like [Expected Goal (XG)](https://understat.com/) or any kind of network analysis - so I'll simply use the match results, FIFA rankings and betfair data. 
 
 First - let's load our combined data from [Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1).
 
@@ -31,7 +30,7 @@ world_cup <- read_csv(here::here("projects", "world-cup-2018", "world-cup.csv"))
 ```
 
 # Data Exploration
-Let's do a quick exploration of our `dat` dataframe. I did a little it of this in [Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) but we'll try get a bit more in depth.
+Let's do a quick exploration of our `dat` data frame. I did a little it of this in [Part 2](https://plussixoneblog.com/post/football-world-cup-datathon-part-1) but we'll try get a bit more in depth.
 
 Before we start, let's create our output variable and then look at it's distribution. 
 
@@ -57,7 +56,7 @@ What about getting an understanding of the rest of the data.
 glimpse(dat)
 ```
 
-The first thing that jumps out at me is the `tournament` column contains the tournament and the year in it. It would be nice to group say, all "Euro" tournements together. I also want to get a match_id that is just the game number in our datset. 
+The first thing that jumps out at me is the `tournament` column contains the tournament and the year in it. It would be nice to group say, all "Euro" tournaments together. I also want to get a match_id that is just the game number in our dataset. 
 
 ```{r data_exp2}
 dat <- dat %>%
@@ -68,7 +67,7 @@ dat <- dat %>%
 dat %>% distinct(tournament_cat)
 ```
 
-That's better. The other thing is that the `odds` data is being read as characters rather than numneric. That's pretty easy to fix. 
+That's better. The other thing is that the `odds` data is being read as characters rather than numeric. That's pretty easy to fix. 
 
 
 ```{r data_exp3}
@@ -84,14 +83,14 @@ skimr::skim(dat)
 
 
 
-First thing to note is that we have a large chunk of our odds data missing. There is a smaller group of fifa ratings missing and then after that, all our data is complete. We can also see from that plot that a lot of our numeric variables are skewed in their distribution. In particular, the betfair odds seem to have some really large outliers at the top end. 
+First thing to note is that we have a large chunk of our odds data missing. There is a smaller group of FIFA ratings missing and then after that, all our data is complete. We can also see from that plot that a lot of our numeric variables are skewed in their distribution. In particular, the betfair odds seem to have some really large outliers at the top end. 
 
 
 ```{r visdat}
 visdat::vis_dat(dat)
 ```
 
-This plot shows us where the missing data occurs. You can see that a lot of the missing betfair data is also missing from the other odds data. One suspects that these are probably either early games in our dataset or from pretty small competitions. The FIFA data doesn't seem to have that same relationship.
+This plot shows us where the missing data occurs. You can see that a lot of the missing betfair data is also missing from the other odds data. One suspects that these are probably either early games in our data set or from pretty small competitions. The FIFA data doesn't seem to have that same relationship.
 
 Firstly, let's just remove the `odds` columns - that's way too many missing variables unfortunately. 
 
@@ -100,7 +99,7 @@ dat <- dat %>%
   select(-avg_odds_draw, -avg_odds_away_win, -avg_odds_home_win)
 ```
 
-Let's see if we can find if the betfair or Fifa data that is missing has something common. 
+Let's see if we can find if the betfair or FIFA data that is missing has something common. 
 
 ```{r miss_fct}
 naniar::gg_miss_fct(dat, tournament_cat)
@@ -151,7 +150,7 @@ dat <- dat %>%
 summary(dat)
 ```
 
-So we've fixed up most of the fifa data.
+So we've fixed up most of the FIFA data.
 
 Onto the betfair data. It looked like the most missing data was coming from Oceania Nations Cup, Friendlies and African Cup of Nations. 
 
@@ -164,13 +163,13 @@ dat %>%
   theme_minimal()
 ```
 
-Yep! So - the Betfair data isn't just randomly missing. It is mostly likely to be missing for older data and most likely to be missing for certain less popular tournamnts and friendlies. I'll probably remove that data later but I need those games to do some feature engineering, like ELO, so I'll leave it for now.
+Yep! So - the Betfair data isn't just randomly missing. It is mostly likely to be missing for older data and most likely to be missing for certain less popular tournaments and friendlies. I'll probably remove that data later but I need those games to do some feature engineering, like ELO, so I'll leave it for now.
 
 # Feature Engineering
 ## ELO
 For my AFL ELO ratings, I've recently started using a fantastic R package called `elo`. You can find details of that package [here](https://github.com/eheinzen/elo) and my weekly R code [here](https://github.com/jimmyday12/plussixoneblog/blob/master/scripts/weekly_data_process.R). Again - not knowing how to best implement an ELO model in Football specifically, I've left it pretty simple. I'm following loosely the method employed at [eloratings.net](http://www.eloratings.net/about).
 
-Firstly, I need to clasify the tournaments into groupings so that I can assign different k values for them. Namely,
+Firstly, I need to classify the tournaments into groupings so that I can assign different k values for them. Namely,
 
     60 for World Cup finals;
     50 for continental championship finals and major intercontinental tournaments;
@@ -260,7 +259,7 @@ final.elos(elo.data) %>%
 ```
 
 ## Team history
-For these next few features, I actually need to make my dataset 'long'. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.
+For these next few features, I actually need to make my data set 'long'. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.
 
 ```{r team_long, message=FALSE, warning=FALSE}
 team_dat <- dat %>%
@@ -277,7 +276,7 @@ head(team_dat)
 nrow(team_dat)
 nrow(dat) * 2
 ```
-Ok - that was tricky. Oh well - we got it! 
+OK - that was tricky. Oh well - we got it! 
 
 ## Values for Last 10 games
 One thing that I've seen in a few prediction models is looking at the results and scores for a team over their last n games. In theory, some of this should be reflected in our ELO rating. But nonetheless, our ELO rating isn't a very sophisticated one (it looks at just results rather than scores), so I can add this in. Since I'm going to put it into some machine learning models, we can trim these out if they aren't very useful.

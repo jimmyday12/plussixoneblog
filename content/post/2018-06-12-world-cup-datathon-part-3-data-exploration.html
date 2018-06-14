@@ -7,14 +7,13 @@ categories:
   - World Cup Datathon
 tags: []
 subtitle: ''
-draft: true
 ---
 
 
 
 <p>In <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 1</a> and<br />
-<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a> of this series, I introduced the Betfair World Cup datathon and aquired some data. Now, let’s spend a bit of time exploring that data and creating some features!</p>
-<p>Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analystics like <a href="https://understat.com/">Expected Goal (XG)</a> or any kind of network analysis - so I’ll simply use the match results, FIFA rankings and betfair data.</p>
+<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a> of this series, I introduced the Betfair World Cup datathon and acquired some data. Now, let’s spend a bit of time exploring that data and creating some features!</p>
+<p>Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analytics like <a href="https://understat.com/">Expected Goal (XG)</a> or any kind of network analysis - so I’ll simply use the match results, FIFA rankings and betfair data.</p>
 <p>First - let’s load our combined data from <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a>.</p>
 <pre class="r"><code># Load libraries
 library(pacman)
@@ -24,7 +23,7 @@ dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, 
 world_cup &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup.csv&quot;))</code></pre>
 <div id="data-exploration" class="section level1">
 <h1>Data Exploration</h1>
-<p>Let’s do a quick exploration of our <code>dat</code> dataframe. I did a little it of this in <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a> but we’ll try get a bit more in depth.</p>
+<p>Let’s do a quick exploration of our <code>dat</code> data frame. I did a little it of this in <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 2</a> but we’ll try get a bit more in depth.</p>
 <p>Before we start, let’s create our output variable and then look at it’s distribution.</p>
 <pre class="r"><code>dat &lt;- dat %&gt;%
   mutate(
@@ -36,7 +35,7 @@ world_cup &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&q
 
 dat %&gt;%
   ungroup() %&gt;%
-  count(result) %&gt;%
+  dplyr::count(result) %&gt;%
   mutate(perc = n/sum(n))</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   result     n  perc
@@ -70,7 +69,7 @@ dat %&gt;%
 ## $ avg_odds_draw       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
 ## $ avg_odds_away_win   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
 ## $ result              &lt;fct&gt; win, win, win, lose, draw, win, draw, lose...</code></pre>
-<p>The first thing that jumps out at me is the <code>tournament</code> column contains the tournament and the year in it. It would be nice to group say, all “Euro” tournements together. I also want to get a match_id that is just the game number in our datset.</p>
+<p>The first thing that jumps out at me is the <code>tournament</code> column contains the tournament and the year in it. It would be nice to group say, all “Euro” tournaments together. I also want to get a match_id that is just the game number in our dataset.</p>
 <pre class="r"><code>dat &lt;- dat %&gt;%
   arrange(date) %&gt;%
   mutate(tournament_cat = as.factor(str_remove(tournament, &quot;[[:digit:]]+&quot;) %&gt;% str_squish()),
@@ -93,7 +92,7 @@ dat %&gt;% distinct(tournament_cat)</code></pre>
 ## 11 Euro                             
 ## 12 Asian Cup                        
 ## 13 World Cup</code></pre>
-<p>That’s better. The other thing is that the <code>odds</code> data is being read as characters rather than numneric. That’s pretty easy to fix.</p>
+<p>That’s better. The other thing is that the <code>odds</code> data is being read as characters rather than numeric. That’s pretty easy to fix.</p>
 <pre class="r"><code>dat &lt;- dat %&gt;%
   mutate_at(vars(contains(&quot;odds&quot;)), as.numeric)</code></pre>
 <p>Now we can use <code>skim</code> to look at how each column is distributed or structured.</p>
@@ -159,14 +158,14 @@ dat %&gt;% distinct(tournament_cat)</code></pre>
 ##     2.14    3.6   980    ▇▁▁▁▁▁▁▁
 ##     4.1     9    1000    ▇▁▁▁▁▁▁▁
 ##  2008    2013    2017    ▅▅▇▅▅▇▅▇</code></pre>
-<p>First thing to note is that we have a large chunk of our odds data missing. There is a smaller group of fifa ratings missing and then after that, all our data is complete. We can also see from that plot that a lot of our numeric variables are skewed in their distribution. In particular, the betfair odds seem to have some really large outliers at the top end.</p>
+<p>First thing to note is that we have a large chunk of our odds data missing. There is a smaller group of FIFA ratings missing and then after that, all our data is complete. We can also see from that plot that a lot of our numeric variables are skewed in their distribution. In particular, the betfair odds seem to have some really large outliers at the top end.</p>
 <pre class="r"><code>visdat::vis_dat(dat)</code></pre>
 <p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/visdat-1.png" width="672" /></p>
-<p>This plot shows us where the missing data occurs. You can see that a lot of the missing betfair data is also missing from the other odds data. One suspects that these are probably either early games in our dataset or from pretty small competitions. The FIFA data doesn’t seem to have that same relationship.</p>
+<p>This plot shows us where the missing data occurs. You can see that a lot of the missing betfair data is also missing from the other odds data. One suspects that these are probably either early games in our data set or from pretty small competitions. The FIFA data doesn’t seem to have that same relationship.</p>
 <p>Firstly, let’s just remove the <code>odds</code> columns - that’s way too many missing variables unfortunately.</p>
 <pre class="r"><code>dat &lt;- dat %&gt;%
   select(-avg_odds_draw, -avg_odds_away_win, -avg_odds_home_win)</code></pre>
-<p>Let’s see if we can find if the betfair or Fifa data that is missing has something common.</p>
+<p>Let’s see if we can find if the betfair or FIFA data that is missing has something common.</p>
 <pre class="r"><code>naniar::gg_miss_fct(dat, tournament_cat)</code></pre>
 <p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/miss_fct-1.png" width="672" /> So our <code>fifa</code> data is mostly missing for World Cups. I suspect that this has something to do with when those ratings are done - typically out of season. Maybe the FIFA ratings aren’t updated as often enough.</p>
 <pre class="r"><code>dat %&gt;%
@@ -295,7 +294,7 @@ summary(dat)</code></pre>
 ##  3rd Qu.: 670  
 ##  Max.   :1920  
 ##  NA&#39;s   :329</code></pre>
-<p>So we’ve fixed up most of the fifa data.</p>
+<p>So we’ve fixed up most of the FIFA data.</p>
 <p>Onto the betfair data. It looked like the most missing data was coming from Oceania Nations Cup, Friendlies and African Cup of Nations.</p>
 <p>What about over time? We’d suspect older games to be less likely to have odds data.</p>
 <pre class="r"><code>dat %&gt;%
@@ -303,14 +302,14 @@ summary(dat)</code></pre>
   geom_histogram(binwidth = 30) + 
   theme_minimal()</code></pre>
 <p><img src="/post/2018-06-12-world-cup-datathon-part-3-data-exploration_files/figure-html/missing_1-1.png" width="672" /></p>
-<p>Yep! So - the Betfair data isn’t just randomly missing. It is mostly likely to be missing for older data and most likely to be missing for certain less popular tournamnts and friendlies. I’ll probably remove that data later but I need those games to do some feature engineering, like ELO, so I’ll leave it for now.</p>
+<p>Yep! So - the Betfair data isn’t just randomly missing. It is mostly likely to be missing for older data and most likely to be missing for certain less popular tournaments and friendlies. I’ll probably remove that data later but I need those games to do some feature engineering, like ELO, so I’ll leave it for now.</p>
 </div>
 <div id="feature-engineering" class="section level1">
 <h1>Feature Engineering</h1>
 <div id="elo" class="section level2">
 <h2>ELO</h2>
 <p>For my AFL ELO ratings, I’ve recently started using a fantastic R package called <code>elo</code>. You can find details of that package <a href="https://github.com/eheinzen/elo">here</a> and my weekly R code <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/scripts/weekly_data_process.R">here</a>. Again - not knowing how to best implement an ELO model in Football specifically, I’ve left it pretty simple. I’m following loosely the method employed at <a href="http://www.eloratings.net/about">eloratings.net</a>.</p>
-<p>Firstly, I need to clasify the tournaments into groupings so that I can assign different k values for them. Namely,</p>
+<p>Firstly, I need to classify the tournaments into groupings so that I can assign different k values for them. Namely,</p>
 <pre><code>60 for World Cup finals;
 50 for continental championship finals and major intercontinental tournaments;
 40 for World Cup and continental qualifiers and major tournaments;
@@ -420,7 +419,7 @@ dat &lt;- dat %&gt;%
 </div>
 <div id="team-history" class="section level2">
 <h2>Team history</h2>
-<p>For these next few features, I actually need to make my dataset ‘long’. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.</p>
+<p>For these next few features, I actually need to make my data set ‘long’. This allows me to calculate some historical information such as the number of games or wins over a period of team, if they won a cup or other features that might be interesting.</p>
 <pre class="r"><code>team_dat &lt;- dat %&gt;%
   ungroup() %&gt;%
   select(date, game_id, tournament_cat, contains(&quot;team&quot;)) %&gt;%
@@ -445,7 +444,7 @@ head(team_dat)</code></pre>
 <pre><code>## [1] 29480</code></pre>
 <pre class="r"><code>nrow(dat) * 2</code></pre>
 <pre><code>## [1] 29480</code></pre>
-<p>Ok - that was tricky. Oh well - we got it!</p>
+<p>OK - that was tricky. Oh well - we got it!</p>
 </div>
 <div id="values-for-last-10-games" class="section level2">
 <h2>Values for Last 10 games</h2>
@@ -489,7 +488,12 @@ world_cup &lt;- world_cup %&gt;%
   left_join(final_elo, by = c(&quot;team_1&quot; = &quot;Team&quot;)) %&gt;%
   rename(team_1_elo = elo) %&gt;%
   left_join(final_elo, by = c(&quot;team_2&quot; = &quot;Team&quot;)) %&gt;%
-  rename(team_2_elo = elo)
+  rename(team_2_elo = elo) %&gt;%
+  mutate(hga = ifelse(is_team_1_home, 100, 0),
+         team_1_elo_prob = elo.prob(team_1_elo, team_2_elo, adjust.A = hga),
+         tournament_cat = &quot;World Cup&quot;,
+         k_val = find_k(tournament_cat))
+
   
 # Add the team history data - take last value
 team_dat_last &lt;- team_dat %&gt;%

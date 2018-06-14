@@ -37,7 +37,7 @@ So - it looks like each row is a game that contains the final score, the tournam
 
 
 ### Kaggle Odds dataset
-I found this dataset on [Kaggle](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data) that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other datasets.  
+I found this data set on [Kaggle](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data) that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other data sets.  
 
 ```{r load_kaggle, message=FALSE, warning=FALSE}
 # Load odds data
@@ -48,10 +48,10 @@ glimpse(odds_dat)
 summary(odds_dat)
 ```
 
-So this dataset has different odds but has it for way more data and nothing missing. One problem I might have is that I'm not sure I can get these specific odds (bookies) easily for the upcoming World Cup games. If I want to include it in a model that will be an issue. I'll need to see what I can get. 
+So this data set has different odds but has it for way more data and nothing missing. One problem I might have is that I'm not sure I can get these specific odds (bookies) easily for the upcoming World Cup games. If I want to include it in a model that will be an issue. I'll need to see what I can get. 
 
 ### FIFA
-Logically, if we wanted to try and assess team ratings we could look towards the official [FIFA World rankings](https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html). These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally [critisied for being too simplistic](https://en.wikipedia.org/wiki/FIFA_World_Rankings) and most people prefer ELO rating systems. Nonetheless, it is a dataset I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model. 
+Logically, if we wanted to try and assess team ratings we could look towards the official [FIFA World rankings](https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html). These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally [critisied for being too simplistic](https://en.wikipedia.org/wiki/FIFA_World_Rankings) and most people prefer ELO rating systems. Nonetheless, it is a data set I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model. 
 
 #### Scraping data
 The code to get this information has been adapted from a [Github respository](https://github.com/rboberg/rross/blob/master/Soccer/2014/WorldCup/Scrape%20Fifa%20World%20Rankings.R) I found from Github user [Ross Boberg](https://github.com/rboberg). 
@@ -76,7 +76,7 @@ get_ranking_table_URL <- function(rank, confederation, gender = "m", page = 1){
 }
 ```
 
-Now, let's generate a bunch of URL's. Based on Ross's code, I know the rough start and end points for `rank` and I also know the id's of the `confedirations`. 
+Now, let's generate a bunch of URLs. Based on Ross's code, I know the rough start and end points for `rank` and I also know the id's of the `confedirations`. 
 
 ```{r generate_urls, message=FALSE, warning=FALSE}
 # Specify parameters
@@ -93,7 +93,7 @@ urls <- rank %>%
 length(urls)
 ```
 
-Now we've got a list of URL's to search through - I can pass them to `read_html` and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I've actually just done the first 10 of 1380 for this blog post so comment that out if needed.
+Now we've got a list of URLs to search through - I can pass them to `read_html` and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I've actually just done the first 10 of 1380 for this blog post so comment that out if needed.
 
 ```{r read_htmls, message=FALSE, warning=FALSE}
 # Uncomment 1st line and comment out 2nd line to do all data. I've just done 1st 10 for illustration purposes
@@ -131,7 +131,7 @@ fifa_dat <- tables %>%
 
 head(fifa_dat)
 ```
-For the purposes of joining my datsets, I need the full set of data (the above code is just for the last 10 ratings). [Here's some I prepared earlier!](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv).
+For the purposes of joining my Data sets, I need the full set of data (the above code is just for the last 10 ratings). [Here's some I prepared earlier!](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv).
 
 ```{r load_fifa_full, message=FALSE, warning=FALSE}
 fifa_dat <- read_csv(here::here("projects", "world-cup-2018", "fifa_rank_history.csv"))
@@ -145,9 +145,9 @@ I had looked at some other sources but found it either too tricky or they didn't
 Another option that would be cool would be to use the EA Sports FIFA player ratings as a bit of a proxy for the talent in each team. I did find some promising websites but they were ultimately going to take too much time to scrape. 
 
 # Combining dataset
-Now that we have acquired our data, we need to combine it in some way to make one big datafile. Again, I want this to be one row per match and it's going to be fairly wide. 
+Now that we have acquired our data, we need to combine it in some way to make one big data file. Again, I want this to be one row per match and it's going to be fairly wide. 
 
-Now, what we want is to add the fifa data to our betfair odds. This isn't going to a simple join I don't think - we want to match the home team name and the date of the match to the closest date and team in our fifa file and return the rating. I'm pretty sure that the FIFA ratings get updated once per month so we may be able to join on `year`, `month` and `team`
+Now, what we want is to add the FIFA data to our betfair odds. This isn't going to a simple join I don't think - we want to match the home team name and the date of the match to the closest date and team in our FIFA file and return the rating. I'm pretty sure that the FIFA ratings get updated once per month so we may be able to join on `year`, `month` and `team`
 
 ```{r combine, message=FALSE, warning=FALSE}
 # Add in a date/month to fifa and betfair data
@@ -192,7 +192,7 @@ matched %>%
 
 ```
 
-So - there are only 30 countries that don't match at all. Most of those are really small countries, or countries that have changed names. China is a weird one to be missing. Let's see what we can find in the Fifa dataset.
+So - there are only 30 countries that don't match at all. Most of those are really small countries, or countries that have changed names. China is a weird one to be missing. Let's see what we can find in the FIFA data set.
 
 ```{r match-check, message=FALSE, warning=FALSE}
 fifa_dat %>%
@@ -208,7 +208,7 @@ betfair_dat %>%
   filter(str_detect(team_1, "Ireland"))
 ```
 
-Hmmm - so it didn't join because the FIFA data using "China PR". Also, it didn't match Northern Ireland or Republic of Ireland. I'm guessing that is the case for the rest of these 172 countires as well. I really should explore doing some fuzzy matching but it's only a small group and most of those teams aren't featuring in many matches so I'm just going to do it for the top 5. I manually worked out what these differences were. 
+Hmm - so it didn't join because the FIFA data using "China PR". Also, it didn't match Northern Ireland or Republic of Ireland. I'm guessing that is the case for the rest of these 172 countries as well. I really should explore doing some fuzzy matching but it's only a small group and most of those teams aren't featuring in many matches so I'm just going to do it for the top 5. I manually worked out what these differences were. 
 
 ```{r fix-teams, message=FALSE, warning=FALSE}
 fix_teams <- function(team){
@@ -227,7 +227,7 @@ fifa_dat <- fifa_dat %>%
 
 ```
 
-Ok - that should at least pick the top 5. Those smaller teams I'll just have to not have any FIFA data. I suspect, given those level of teams aren't appearing in World Cups, that we won't have a big issue. The other missing data, since we matched the name properly at least once, are likely due to some kind of missing month/year combination, which I can deal with later. 
+OK - that should at least pick the top 5. Those smaller teams I'll just have to not have any FIFA data. I suspect, given those level of teams aren't appearing in World Cups, that we won't have a big issue. The other missing data, since we matched the name properly at least once, are likely due to some kind of missing month/year combination, which I can deal with later. 
 
 ```{r join2, message=FALSE, warning=FALSE}
 # Join data together
@@ -292,7 +292,7 @@ world_cup <- world_cup %>%
 
 I've also used the betfair API to get the betfair data. I haven't included the code for that as it uses login details, but you can see my script [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/betfair_api.R) or just load the data from [here](https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/world_cup_2018_betfair.csv).
 
-Let's load that in and join it to our existing world cup dataframe. 
+Let's load that in and join it to our existing world cup data frame. 
 
 ```{r world_cup_betfair, message=FALSE, warning=FALSE}
 betfair_wc <- read_csv(here::here("projects", "world-cup-2018", "world_cup_2018_betfair.csv"))
@@ -303,7 +303,7 @@ glimpse(world_cup)
 ```
 
 # Finishing up
-Anyway, enough for now. Let's save it and we'll revist in Part 3! 
+Anyway, enough for now. Let's save it and we'll revisit in Part 3! 
 
 ```{r save, message=FALSE, warning=FALSE}
 write_csv(dat, here::here("projects", "world-cup-2018", "combined-data.csv"))

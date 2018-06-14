@@ -77,7 +77,7 @@ glimpse(betfair_dat)</code></pre>
 </div>
 <div id="kaggle-odds-dataset" class="section level3">
 <h3>Kaggle Odds dataset</h3>
-<p>I found this dataset on <a href="https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data">Kaggle</a> that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other datasets.</p>
+<p>I found this data set on <a href="https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/data">Kaggle</a> that has the odds for almost 500k matches! Most of those are league games but we should be able to get rid of those when we join it to our other data sets.</p>
 <pre class="r"><code># Load odds data
 odds_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;closing_odds.csv&quot;))
 
@@ -147,17 +147,17 @@ glimpse(odds_dat)</code></pre>
 ##  Mean   :16.45  
 ##  3rd Qu.:25.00  
 ##  Max.   :29.00</code></pre>
-<p>So this dataset has different odds but has it for way more data and nothing missing. One problem I might have is that I’m not sure I can get these specific odds (bookies) easily for the upcoming World Cup games. If I want to include it in a model that will be an issue. I’ll need to see what I can get.</p>
+<p>So this data set has different odds but has it for way more data and nothing missing. One problem I might have is that I’m not sure I can get these specific odds (bookies) easily for the upcoming World Cup games. If I want to include it in a model that will be an issue. I’ll need to see what I can get.</p>
 </div>
 <div id="fifa" class="section level3">
 <h3>FIFA</h3>
-<p>Logically, if we wanted to try and assess team ratings we could look towards the official <a href="https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html">FIFA World rankings</a>. These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally <a href="https://en.wikipedia.org/wiki/FIFA_World_Rankings">critisied for being too simplistic</a> and most people prefer ELO rating systems. Nonetheless, it is a dataset I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model.</p>
+<p>Logically, if we wanted to try and assess team ratings we could look towards the official <a href="https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html">FIFA World rankings</a>. These are used for primarily for seeding in tournaments, such as the World Cup. In researching for this project, I found that these are generally <a href="https://en.wikipedia.org/wiki/FIFA_World_Rankings">critisied for being too simplistic</a> and most people prefer ELO rating systems. Nonetheless, it is a data set I am able to get access to and, given it is used for seeding in the World Cup, there may be some value for including them in a model.</p>
 <div id="scraping-data" class="section level4">
 <h4>Scraping data</h4>
 <p>The code to get this information has been adapted from a <a href="https://github.com/rboberg/rross/blob/master/Soccer/2014/WorldCup/Scrape%20Fifa%20World%20Rankings.R">Github respository</a> I found from Github user <a href="https://github.com/rboberg">Ross Boberg</a>.</p>
 <p>If you would prefer to take a scripted version of my code below, you can find that <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/scrape_fifa.R">here</a>. You can also just grab the data directly from <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv">here</a>.</p>
 <p>Firstly, we have to create a function that builds us a URL. We can then use this to get all the combinations of URLS we need. Based on Ross’ work, we know that each URL contains a query for <code>rank</code>, <code>confediration</code>, <code>gender</code> and <code>page</code>. This function will dynamically generate the URL with the values for those queries.</p>
-<p>Now, let’s generate a bunch of URL’s. Based on Ross’s code, I know the rough start and end points for <code>rank</code> and I also know the id’s of the <code>confedirations</code>.</p>
+<p>Now, let’s generate a bunch of URLs. Based on Ross’s code, I know the rough start and end points for <code>rank</code> and I also know the id’s of the <code>confedirations</code>.</p>
 <pre class="r"><code># Specify parameters
 start_rank = 286 # the last update (as of Jun 5th, 2018)
 end_rank = 57 # corresponds to Jan99, when point method was revised
@@ -171,7 +171,7 @@ urls &lt;- rank %&gt;%
 
 length(urls)</code></pre>
 <pre><code>## [1] 1380</code></pre>
-<p>Now we’ve got a list of URL’s to search through - I can pass them to <code>read_html</code> and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I’ve actually just done the first 10 of 1380 for this blog post so comment that out if needed.</p>
+<p>Now we’ve got a list of URLs to search through - I can pass them to <code>read_html</code> and generate local HTML files for me to use. This is the most time consuming part of this process - this function took my laptop ~13 min to run so be mindful if you are following along! I’ve actually just done the first 10 of 1380 for this blog post so comment that out if needed.</p>
 <pre class="r"><code># Uncomment 1st line and comment out 2nd line to do all data. I&#39;ve just done 1st 10 for illustration purposes
 # ind &lt;- seq_along(urls)
 ind &lt;- 1:10 
@@ -208,7 +208,7 @@ head(fifa_dat)</code></pre>
 ## 4 2018-04-12      Peru 1106         23915
 ## 5 2018-04-12   Tunisia 1012         23913
 ## 6 2018-04-12    Mexico 1008         23914</code></pre>
-<p>For the purposes of joining my datsets, I need the full set of data (the above code is just for the last 10 ratings). <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv">Here’s some I prepared earlier!</a>.</p>
+<p>For the purposes of joining my Data sets, I need the full set of data (the above code is just for the last 10 ratings). <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/fifa_rank_history.csv">Here’s some I prepared earlier!</a>.</p>
 <pre class="r"><code>fifa_dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;fifa_rank_history.csv&quot;))
 glimpse(fifa_dat)</code></pre>
 <pre><code>## Observations: 47,104
@@ -235,8 +235,8 @@ glimpse(fifa_dat)</code></pre>
 </div>
 <div id="combining-dataset" class="section level1">
 <h1>Combining dataset</h1>
-<p>Now that we have acquired our data, we need to combine it in some way to make one big datafile. Again, I want this to be one row per match and it’s going to be fairly wide.</p>
-<p>Now, what we want is to add the fifa data to our betfair odds. This isn’t going to a simple join I don’t think - we want to match the home team name and the date of the match to the closest date and team in our fifa file and return the rating. I’m pretty sure that the FIFA ratings get updated once per month so we may be able to join on <code>year</code>, <code>month</code> and <code>team</code></p>
+<p>Now that we have acquired our data, we need to combine it in some way to make one big data file. Again, I want this to be one row per match and it’s going to be fairly wide.</p>
+<p>Now, what we want is to add the FIFA data to our betfair odds. This isn’t going to a simple join I don’t think - we want to match the home team name and the date of the match to the closest date and team in our FIFA file and return the rating. I’m pretty sure that the FIFA ratings get updated once per month so we may be able to join on <code>year</code>, <code>month</code> and <code>team</code></p>
 <pre class="r"><code># Add in a date/month to fifa and betfair data
 fifa_dat &lt;- fifa_dat %&gt;%
   mutate(year = year(Date),
@@ -370,7 +370,7 @@ matched %&gt;%
 ##  9 Martinique             0       22    0.
 ## 10 Guadeloupe             0       17    0.
 ## # ... with 20 more rows</code></pre>
-<p>So - there are only 30 countries that don’t match at all. Most of those are really small countries, or countries that have changed names. China is a weird one to be missing. Let’s see what we can find in the Fifa dataset.</p>
+<p>So - there are only 30 countries that don’t match at all. Most of those are really small countries, or countries that have changed names. China is a weird one to be missing. Let’s see what we can find in the FIFA data set.</p>
 <pre class="r"><code>fifa_dat %&gt;%
   filter(str_detect(Team, &quot;China&quot;))</code></pre>
 <pre><code>## # A tibble: 230 x 4
@@ -441,7 +441,7 @@ matched %&gt;%
 ## #   is_team_2_home &lt;lgl&gt;, is_neutral &lt;lgl&gt;, team_1_betfair_odds &lt;dbl&gt;,
 ## #   draw_betfair_odds &lt;dbl&gt;, team_2_betfair_odds &lt;dbl&gt;, year &lt;dbl&gt;,
 ## #   month &lt;dbl&gt;</code></pre>
-<p>Hmmm - so it didn’t join because the FIFA data using “China PR”. Also, it didn’t match Northern Ireland or Republic of Ireland. I’m guessing that is the case for the rest of these 172 countires as well. I really should explore doing some fuzzy matching but it’s only a small group and most of those teams aren’t featuring in many matches so I’m just going to do it for the top 5. I manually worked out what these differences were.</p>
+<p>Hmm - so it didn’t join because the FIFA data using “China PR”. Also, it didn’t match Northern Ireland or Republic of Ireland. I’m guessing that is the case for the rest of these 172 countries as well. I really should explore doing some fuzzy matching but it’s only a small group and most of those teams aren’t featuring in many matches so I’m just going to do it for the top 5. I manually worked out what these differences were.</p>
 <pre class="r"><code>fix_teams &lt;- function(team){
     case_when(
       team == &quot;China PR&quot; ~ &quot;China&quot;,
@@ -455,7 +455,7 @@ matched %&gt;%
 
 fifa_dat &lt;- fifa_dat %&gt;%
   mutate(Team = fix_teams(Team))</code></pre>
-<p>Ok - that should at least pick the top 5. Those smaller teams I’ll just have to not have any FIFA data. I suspect, given those level of teams aren’t appearing in World Cups, that we won’t have a big issue. The other missing data, since we matched the name properly at least once, are likely due to some kind of missing month/year combination, which I can deal with later.</p>
+<p>OK - that should at least pick the top 5. Those smaller teams I’ll just have to not have any FIFA data. I suspect, given those level of teams aren’t appearing in World Cups, that we won’t have a big issue. The other missing data, since we matched the name properly at least once, are likely due to some kind of missing month/year combination, which I can deal with later.</p>
 <pre class="r"><code># Join data together
 dat &lt;- betfair_dat %&gt;%
   left_join(fifa_dat, by = c(&quot;year&quot;, &quot;month&quot;, &quot;team_1&quot; = &quot;Team&quot;)) %&gt;%
@@ -571,7 +571,7 @@ glimpse(world_cup)</code></pre>
 <pre class="r"><code>world_cup &lt;- world_cup %&gt;%
   mutate(date = dmy(date)) %&gt;%
   mutate_at(vars(team_1, team_2), tools::toTitleCase) %&gt;%
-  select(date, team_1, team_2)</code></pre>
+  select(date, match_id, team_1, team_2)</code></pre>
 <p>Now the other fields that we don’t have are <code>tournament</code>, <code>is_team_1_home</code>, <code>is_team_2_home</code> and <code>is_neutral</code>. We can also hopefully get the <code>betfair</code> odds and the <code>fifa</code> points.</p>
 <pre class="r"><code># Add extra columns
 world_cup &lt;- world_cup %&gt;%
@@ -596,15 +596,16 @@ world_cup &lt;- world_cup %&gt;%
   left_join(fifa_dat_final, by = c(&quot;team_2&quot; = &quot;Team&quot;)) %&gt;%
   rename(team_2_fifa = Pts)</code></pre>
 <p>I’ve also used the betfair API to get the betfair data. I haven’t included the code for that as it uses login details, but you can see my script <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/betfair_api.R">here</a> or just load the data from <a href="https://github.com/jimmyday12/plussixoneblog/blob/master/projects/world-cup-2018/world_cup_2018_betfair.csv">here</a>.</p>
-<p>Let’s load that in and join it to our existing world cup dataframe.</p>
+<p>Let’s load that in and join it to our existing world cup data frame.</p>
 <pre class="r"><code>betfair_wc &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world_cup_2018_betfair.csv&quot;))
 
 world_cup &lt;- world_cup %&gt;%
   left_join(betfair_wc, by = c(&quot;date&quot;, &quot;team_1&quot;, &quot;team_2&quot;))
 glimpse(world_cup)</code></pre>
 <pre><code>## Observations: 48
-## Variables: 14
+## Variables: 15
 ## $ date                &lt;date&gt; 2018-06-14, 2018-06-15, 2018-06-15, 2018-...
+## $ match_id            &lt;chr&gt; &quot;a_1&quot;, &quot;a_2&quot;, &quot;b_1&quot;, &quot;b_2&quot;, &quot;c_1&quot;, &quot;d_1&quot;, ...
 ## $ team_1              &lt;chr&gt; &quot;Russia&quot;, &quot;Egypt&quot;, &quot;Morocco&quot;, &quot;Portugal&quot;, ...
 ## $ team_2              &lt;chr&gt; &quot;Saudi Arabia&quot;, &quot;Uruguay&quot;, &quot;Iran&quot;, &quot;Spain&quot;...
 ## $ tournament          &lt;chr&gt; &quot;World Cup 2018&quot;, &quot;World Cup 2018&quot;, &quot;World...
@@ -621,7 +622,7 @@ glimpse(world_cup)</code></pre>
 </div>
 <div id="finishing-up" class="section level1">
 <h1>Finishing up</h1>
-<p>Anyway, enough for now. Let’s save it and we’ll revist in Part 3!</p>
+<p>Anyway, enough for now. Let’s save it and we’ll revisit in Part 3!</p>
 <pre class="r"><code>write_csv(dat, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data.csv&quot;))
 write_csv(world_cup, here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup.csv&quot;))</code></pre>
 </div>
