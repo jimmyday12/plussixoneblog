@@ -75,7 +75,7 @@ gbm <- dat %>%
   formattable() %>%
   as.datatable(options = list(dom = 't', pageLength = 18))
 
-frameWidget(gbm, height = 700, width = '95%')
+frameWidget(gbm, height = 700, width = '95%') 
 ```
 
 ### Random Forest
