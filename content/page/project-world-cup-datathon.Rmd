@@ -11,7 +11,7 @@ subtitle: ''
 
 In celebration of the World Cup in Russia, I've decided to take on Betfair's World Cup Datathon. See below my series of posts outlining how I built my models.
 
----
+
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
    
 [Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
@@ -21,7 +21,6 @@ Part 4 - Models (coming soon)
 Part 5 - Review (coming soon)   
 [Project Page]()
 
----
 
 # Predictions
 The following are my actual predictions, based on each model. 

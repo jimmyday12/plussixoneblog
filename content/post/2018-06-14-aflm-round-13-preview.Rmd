@@ -16,14 +16,13 @@ I've also got my plots below, presented without comment.
 As a separate note - I've decided to enter the World Cup Datathon. You can see my posts below More updates coming. 
 
 
-----
+
+[Project Page](https://plussixoneblog.com/page/project-world-cup-datathon/)    
 [Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
 [Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
-[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)     
-Part 4 - Models (coming soon)   
+[Part 3 - Data Exploration and Feature Engineering](https://plussixoneblog.com/post/football-world-cup-datathon-part-3)     
+[Part 4 - Models (coming soon)](https://plussixoneblog.com/post/football-world-cup-datathon-part-4)    
 Part 5 - Review (coming soon)    
-
-----
 
 
 ```{r setup, echo = FALSE}
