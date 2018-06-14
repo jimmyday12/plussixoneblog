@@ -1,0 +1,48 @@
+---
+title: 'Project: World Cup Datathon '
+author: James Day
+date: '2018-06-14'
+slug: project-world-cup-datathon
+categories:
+  - World Cup Datathon
+tags: []
+subtitle: ''
+---
+
+In celebration of the World Cup in Russia, I've decided to take on Betfair's World Cup Datathon. See below my series of posts outlining how I built my models.
+
+---
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
+   
+[Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
+[Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
+[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)    
+Part 4 - Models (coming soon)   
+Part 5 - Review (coming soon)   
+[Project Page]()
+
+---
+
+# Predictions
+The following are my actual predictions, based on each model. 
+
+```{r predict, message=FALSE, warning=FALSE, include=FALSE}
+library(pacman)
+p_load(tidyverse)
+
+# Load files
+path <- here::here("projects", "world-cup-2018", "submissions")
+files <- list.files(path)
+
+dat <- paste0(path, "/", files) %>%
+  map(read_csv) %>%
+  map2_dfr(.y = files, ~ .x %>% mutate(model = str_remove(.y, "james_day_"),
+                                       model = str_remove(model, ".csv"),
+                                       group = str_extract(match_id, "[[a-z]]"),
+                                       group_match = as.integer(str_extract(match_id, "\\d+"))))
+
+
+dat
+```
+# Results
+I'll post these after the fact.
