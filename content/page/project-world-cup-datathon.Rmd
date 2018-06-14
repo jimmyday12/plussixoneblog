@@ -16,18 +16,17 @@ This is part of a series of posts on the World Cup Betfair datathon. See the lin
    
 [Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
 [Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
-[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)    
+[Part 3 - Data Exploration and Feature Engineering](https://plussixoneblog.com/post/football-world-cup-datathon-part-3)    
 Part 4 - Models (coming soon)   
 Part 5 - Review (coming soon)   
-[Project Page]()
 
 
 # Predictions
-The following are my actual predictions, based on each model. 
+The following are my actual predictions, based on each model. I'll play around with how to present them but you can see them below. 
 
-```{r predict, message=FALSE, warning=FALSE, include=FALSE}
+```{r predict, echo=FALSE, message=FALSE, warning=FALSE}
 library(pacman)
-p_load(tidyverse)
+p_load(tidyverse, formattable, widgetframe)
 
 # Load files
 path <- here::here("projects", "world-cup-2018", "submissions")
@@ -40,8 +39,59 @@ dat <- paste0(path, "/", files) %>%
                                        group = str_extract(match_id, "[[a-z]]"),
                                        group_match = as.integer(str_extract(match_id, "\\d+"))))
 
-
-dat
+unique(dat$model)
 ```
+
+### Neural Net
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+nnet <- dat %>% 
+  filter(model == "NeuralNetwork") %>%
+  formattable() %>%
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(nnet, height = 700, width = '95%')
+```
+
+
+### Multinomal
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+multi <- dat %>% 
+  filter(model == "PenalizedMultinomialRegressio") %>%
+  formattable() %>%
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(multi, height = 700, width = '95%')
+```
+
+### GBM
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+gbm <- dat %>% 
+  filter(model == "StochasticGradientBoosting") %>%
+  formattable() %>%
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(gbm, height = 700, width = '95%')
+```
+
+### Random Forest
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+rf <- dat %>% 
+  filter(model == "RandomForest") %>%
+  formattable() %>%
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(rf, height = 700, width = '95%')
+```
+
+### CART
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+cart <- dat %>% 
+  filter(model == "CART") %>%
+  formattable() %>%
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(cart, height = 700, width = '95%')
+```
+
 # Results
 I'll post these after the fact.
