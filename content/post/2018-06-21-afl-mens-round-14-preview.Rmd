@@ -1,0 +1,147 @@
+---
+title: AFL Mens - Round 14 Preview
+author: James Day
+date: '2018-06-21'
+slug: afl-mens-round-14-preview
+categories:
+  - AFLM
+  - Predictions
+tags: []
+subtitle: ''
+---
+
+
+So Thursday night again. Bye week again. Breif preview again! Check out my full tips at [this link](http://plussixoneblog.com/page/aflm-current-tips/) or on [Squiggle](squiggle.com.au). 
+
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+elo <- dat_list$elo
+```
+
+## Ratings
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
+)
+
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
+  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
+  geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    x = "Team",
+    y = "ELO Rating",
+    title = "AFL Men's ELO Ratings",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+The main thing that jumps out from our ratings is how two tiered it looks - from Hawthorn up, the ratings are pretty tight between teams and not much separates each team. Also - Geelong jumped up into our tp rank last week, joining Sydney, Richmond and West Coast as the teams to beat. 
+
+There is a big drop to Essendon and then a big more of a spread down from there. 
+
+I should also note that I made a slight adjustment to my K rating formula which basically says that we should react less as the season goes on (it's a function of round number). I want to play around with that a bit over the off-season and will get a decent post up but yeah - just so you know! 
+
+## Sims
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre,
+         change = min_rank(desc(ELO_pre)) - min_rank(desc(ELO))) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, change, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+# Write to formattable with some formatting
+# Create a sign formatrer
+sign_formatter <- formatter("span", 
+                            style = x ~ style(color = case_when(
+                              x > 0 ~ "green", 
+                              x < 0 ~ "red",
+                              TRUE ~ "transparent")))
+# Create formattable/DT object
+dt_elo <- elo_table %>%
+  formattable(list(
+    change = sign_formatter,
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = sign_formatter,
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>% 
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = '95%')
+```
+
+
+The first thing we notice is that our finals race seems to have dropped to 10! This is a common thread amongst the modellers out there.
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">and <a href="https://twitter.com/plusSixOneblog?ref_src=twsrc%5Etfw">@plusSixOneblog</a> makes three <a href="https://t.co/uZeGaxrbxL">pic.twitter.com/uZeGaxrbxL</a></p>&mdash; The Arc (@TheArcFooty) <a href="https://twitter.com/TheArcFooty/status/1008638807648886784?ref_src=twsrc%5Etfw">June 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Obviously 10 doesn't fit into 8. The biggest at risk teams seem to be Hawthorn, North and GWS at this stage. A lot of that depends on any "inter-contender" matchups, which unfortunately we don't have many of this week...
+
+## Predictions
+```{r predict, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
+
+Probably the best game of the round is Port and Melbourne - both in good form and knocking on the top tier of our rankings. Happy tipping! 
