@@ -72,7 +72,7 @@ set.seed(42)
 
 dat_mod <- dat_mod %>%
   dplyr::mutate(obs = as.factor(result)) %>%
-  dplyr::select(-result)
+  dplyr::select(-result) 
 
 # Create partition
 train_ind <- createDataPartition(dat_mod$obs, p = .75, list = FALSE)
@@ -93,8 +93,8 @@ model_recipe <- recipe(obs ~ ., data = training) %>%
   step_knnimpute(all_predictors()) %>%
   step_nzv(all_predictors()) %>%
   step_corr(all_numeric()) %>%
-  step_center(all_numeric())  %>%
-  step_scale(all_numeric()) 
+  step_center(contains("fifa")) %>%
+  step_scale(contains("fifa"))
 
 # Train recipe
 trained_recipe <- prep(model_recipe, data = training)
@@ -102,11 +102,17 @@ trained_recipe <- prep(model_recipe, data = training)
 # Pre-process my data
 train_data <- bake(trained_recipe, newdata = training) %>% 
   na.omit() %>% 
-  mutate_if(is.logical, as.numeric)
+  mutate_if(is.logical, as.numeric) %>%
+  mutate_at(vars(contains("betfair")), function(x) 1/x) %>%
+  mutate_at(vars(team_1_elo), ~ . -1500) %>%
+  mutate_at(vars(team_1_elo, team_2_elo), ~ . -1500)
 
 test_data  <- bake(trained_recipe, newdata = testing) %>% 
   na.omit() %>% 
-  mutate_if(is.logical, as.numeric)
+  mutate_if(is.logical, as.numeric) %>%
+  mutate_at(vars(contains("betfair")), function(x) 1/x) %>%
+  mutate_at(vars(team_1_elo), ~ . -1500) %>%
+  mutate_at(vars(team_1_elo, team_2_elo), ~ . -1500)
 ```
 
 # Modelling
@@ -197,7 +203,7 @@ We can also check variable importance.
 # Plot variable importance
 plot(varImp(rpart_model))
 ```
-XXXX
+
 
 So - let's test out our model We use the `predict.train` function on our testing data and again, calculated the logLoss. 
 
@@ -326,11 +332,10 @@ if(file.exists(path)){
   
   # Train
   set.seed(42)
-  nnet_model <- train(model_recipe, 
+  nnet_model <- train(trained_recipe, 
              data = train_data, 
              method = "nnet",
              metric = "logLoss",
-             tuneLength = 5,
              trControl = train_control)
   
   # Save model
@@ -425,7 +430,9 @@ world_cup <- world_cup %>%
   mutate_at(vars(tournament_cat), as.factor) 
 
 world_cup_data <- bake(trained_recipe, newdata = world_cup) %>% 
-  mutate_if(is.logical, as.numeric)
+  mutate_if(is.logical, as.numeric) %>%
+  mutate_at(vars(contains("betfair")), function(x) 1/x) %>%
+  mutate_at(vars(team_1_elo, team_2_elo), ~ . -1500)
 
 ```
 
@@ -452,15 +459,14 @@ models %>%
         select(date, match_id, team_1, team_2, prob_team_1_win, prob_team_1_draw, prob_team_1_lose)
       ) %>%
   walk2(models_csv, ~write_csv(.x, .y))
-  
+
 ```
----
 
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.   
    
+[Project Page](https://plussixoneblog.com/page/project-world-cup-datathon/)    
 [Part 1 - Intro](https://plussixoneblog.com/post/football-world-cup-datathon-part-1)    
 [Part 2 - Data Acquisition](https://plussixoneblog.com/post/football-world-cup-datathon-part-2)   
-[Part 3 - Data Exploration and Feature Engineering]((https://plussixoneblog.com/post/football-world-cup-datathon-part-3)   
-Part 4 - Models (coming soon) 
-Part 5 - Review (coming soon)
----
+[Part 3 - Data Exploration and Feature Engineering](https://plussixoneblog.com/post/football-world-cup-datathon-part-3)     
+[Part 4 - Models (coming soon)](https://plussixoneblog.com/post/football-world-cup-datathon-part-4)    
+Part 5 - Review (coming soon)    
