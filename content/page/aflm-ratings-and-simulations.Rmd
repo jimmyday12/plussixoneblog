@@ -19,14 +19,14 @@ knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE
 )
-Round <- 14
+Round <- 15
 ```
 
 ```{r get data, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
 # Load libraries
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, formattable, 
-               ggthemes, elo, here, lubridate, 
+               ggthemes, elo, here, lubridate, ggrepel, 
                widgetframe, ggridges, DT, scales)
 
 # Load data that has been run using 'weekly_data_process.R'
@@ -108,7 +108,37 @@ elo_round %>%
 ```
 
 # Simulations
-In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season 50 000 times. This has been optimised considerably this year (code to come) which is nice. The following plot shows a ridgegraph of the number of wins of each team in those simulations. 
+In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season 50 000 times. This has been optimised considerably this year (code to come) which is nice. 
+
+Firstly, we have each team's chance of making finals displayed across the season. 
+
+```{r sims-teams, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+sims <- sim_dat_list$sim_data_summary %>%
+  mutate(Top.8.label = ifelse(Round == max(Round), percent(Top.8), ""))
+
+subt <- paste(
+  "Percent chance of making finals by round for each team"
+)
+
+sims %>%
+  ggplot(aes(x = Round, y = Top.8, color = Team, label = Top.8.label)) +
+  geom_line() +
+  #geom_text(data = filter(sims, Round == max(Round)), position = position_dodge(width = 1),  size = 3) +
+  geom_text_repel(size = 3, label.padding = 10,  segment.color = 'transparent') +
+  facet_wrap(~Team) +
+  scale_y_continuous(labels = scales::percent) + 
+  theme_minimal() +
+  guides(color = FALSE) + 
+  labs(
+    title = "Finals Chances",
+    subtitle = "Each team's chance of making finals over the season, with their current probability displayed",
+    caption = "data sourced from afltables.com"
+  )
+```
+
+The following plot shows a ridgegraph of the number of wins of each team in those simulations. 
 
 ```{r sims-plot, echo=FALSE, message=FALSE, warning=FALSE}
 subt <- paste(
