@@ -104,13 +104,10 @@ eloOptim <- function(par, dat){
   
   elo.data <- elo.run(
     map_margin_to_outcome(Home.Points - Away.Points, b = b) ~
-      adjust(Home.Team, 
-             calculate_hga(Home.Venue.Exp, Home.Interstate, Home.Factor, e = e, d = d, h = h)) +
-      adjust(Away.Team, 
-             calculate_hga(Away.Venue.Exp, Away.Interstate, Away.Factor, e = e, d = d, h = h)) +
-      group(seas_rnd) +
-      regress(First.Game, 1500, carryOver) +
-      k(calculate_k(Home.Points - Away.Points, k_val)),
+      adjust(Home.Team, 35) +
+      Away.Team +
+      group(seas_rnd),
+      k = 50,
     data = results
   )
   

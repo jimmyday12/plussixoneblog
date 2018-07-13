@@ -1,0 +1,149 @@
+---
+title: AFL Mens Round 17 preview
+author: James Day
+date: '2018-07-13'
+slug: afl-mens-round-17-preview
+categories:
+  - AFLM
+tags: []
+subtitle: ''
+---
+
+
+Whoops. Missed Thursday again. Here is a quick preview for 8/9ths of Round 17! Check out my full tips at [this link](http://plussixoneblog.com/page/aflm-current-tips/) or on [Squiggle](squiggle.com.au). 
+
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate, widgetframe)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+elo <- dat_list$elo
+```
+
+## Ratings
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Create a subtitle for plot
+subt <- paste(
+  "Showing the ELO rating of each AFL Men's team at the end of Round",
+  dat_list$elo$Round.Number %>% last(), "",
+  dat_list$elo$Date %>% last() %>% year(),
+  "in green,\nwith the tail showing their previous rating"
+)
+
+# Do ggplot
+elo_round %>%
+  ggplot(aes(x = reorder(Team, ELO))) +
+  geom_hline(yintercept = 1500, alpha = 0.7, linetype = 3) +
+  geom_linerange(aes(ymin = ELO_pre, ymax = ELO), alpha = 0.3) +
+  geom_point(aes(y = ELO_pre), alpha = 0.1) +
+  geom_point(aes(y = ELO), colour = "#669999", size = 2) +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    x = "Team",
+    y = "ELO Rating",
+    title = "AFL Men's ELO Ratings",
+    subtitle = subt,
+    caption = "(data sourced from afltables.com)"
+  )
+```
+It's certainly bunching at the top. With my new algorithm that is going to happen naturally due the late season games adjusting less than early season games. Nonetheless, you can clearly see the big divide after Hawthorn. Also it's hard to seperate the top 3. It's obviously why the ladder is getting so tight! 
+
+## Sims
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre,
+         change = min_rank(desc(ELO_pre)) - min_rank(desc(ELO))) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, change, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+
+# Write to formattable with some formatting
+# Create a sign formatrer
+sign_formatter <- formatter("span", 
+                            style = x ~ style(color = case_when(
+                              x > 0 ~ "green", 
+                              x < 0 ~ "red",
+                              TRUE ~ "transparent")))
+# Create formattable/DT object
+dt_elo <- elo_table %>%
+  formattable(list(
+    change = sign_formatter,
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = sign_formatter,
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>% 
+  as.datatable(options = list(dom = 't', pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = '95%')
+```
+
+
+So Richmond has basically locked up top spot you'd think from here. Mind you, they were at a similar level earlier in the year and dropped back after 1 loss so anything could happen. The top 3 looks settled to Richmond, Port and West Coast but that 4th spot looks like a race between Collingwood, Sydney and Geelong (one suspects Geelong might struggle after last night!). 
+
+We still can't shake our 11 into 8 equation as well. Adelaide are still an unlikey but still realistic shot at 24% pre-round (they won last night, so we suspect that will go up pending other results). GWS and North are holding steady at around 50% chances but would need results to go their way. Melbourne and Hawthorn are vulnerable. Ultimately it's going to come down to some key matchups! 
+
+## Predictions
+```{r predict, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
+
+Some close games this weekend and some with som decent implications for the makup of the top 8! 
+
+Adelaide v Geelong was huge - a loss would have seen Adelaide basically drop out of the finals race. They keep in touch! 
+
+My model is on it's own over on Squiggle at tipping an upset win to GWS. They need to keep winning so this is a big test for them. 
+
+Collingwood v West Coast is probably the match of the round and has big implications for both of those teams top 4 aspirations. You'd think both are pretty safe for finals but it's basically an 8 point game for top 4.
+
+North are in a similar boat to GWS in that they have to win against much stronger opponnent. Again, my model is tipping the upset (just), which North fans would love to see! 
+
+Happy tipping

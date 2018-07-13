@@ -72,7 +72,8 @@ map_margin_to_outcome <- function(margin, B) {
 
 # Inverse of above, convert outcome to margin
 map_outcome_to_margin <- function(outcome, B) {
-  log((1 / outcome) - 1) / - B
+  #log((1 / outcome) - 1) / - B
+  (-log((1 - outcome)/outcome))/B
 }
 
 # Function to calculate k (how much weight we add to each result)
@@ -165,6 +166,7 @@ results <- results %>%
   mutate(Probability = round(predict(elo.data, newdata = results), 3),
          Prediction = ceiling(map_outcome_to_margin(Probability, B = B)))
 
+
 # Message
 print(proc.time() - ptm)
 message("ELO Run")
@@ -174,7 +176,7 @@ message("ELO Run")
 fixture <- game_dat %>%
   filter(Date > filt_date)
 
-predictions <- fixture %>%
+predictions_raw <- fixture %>%
   mutate(
     Day = format(Date, "%a, %d"),
     Time = format(Date, "%H:%M"),
@@ -185,11 +187,11 @@ predictions <- fixture %>%
       Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
       TRUE ~ "Draw"
     )
-  ) %>%
-  select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
+  ) 
 
+
+predictions <- predictions_raw %>% select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
 predictions
-
 # Simulation --------------------------------------------------------------
 sim_res <- results %>%
   filter(year(Date) == year(Sys.Date())) %>%
