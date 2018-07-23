@@ -154,6 +154,7 @@ sim_dat_list$sim_data_all %>%
   stat_density_ridges(geom = "density_ridges_gradient", 
                       scale = 2, 
                       rel_min_height = 0.05,
+                      bandwidth = 0.4,
                       calc_ecdf = TRUE) +
   scale_fill_viridis_c(name = "Tail probability", direction = -1) +
   theme_minimal() +
