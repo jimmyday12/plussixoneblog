@@ -1,0 +1,88 @@
+---
+title: fitzRoy - 0.1.5 release
+author: James Day
+date: '2018-08-15'
+slug: fitzroy-0-1-5-release
+categories:
+  - fitzroy
+  - R
+tags: []
+subtitle: ''
+---
+
+
+
+<p>For those of you who’ve been following me on Twitter, you’ll know that I’ve been working on an R package for AFL called <a href="jimmyday12.github.io/fitzRoy">fitzRoy</a> with Rob from <a href="jimmyday12.github.io/fitzRoy">Analysis of AFL</a>. Today we released a new version which has a much requested feature, so I’d figured a blog post was in order.</p>
+<p>You’ll have to reinstall fitzRoy to get the latest functions. We still aren’t on CRAN but you can use devtools to get it.</p>
+<pre class="r"><code># install.packages(&quot;devtools&quot;) # uncomment if you haven&#39;t installed devtools before
+devtools::install_github(&quot;jimmyday12/fitzRoy&quot;)</code></pre>
+<div id="afl-tables-player-stats" class="section level2">
+<h2>AFL Tables player stats</h2>
+<p>Our initial version of fitzRoy had some data included in it from a data dump we got from Paul at <a href="afltables.com">AFLtables</a>. This data was great as it had a all of the afltables stats on a player by player basis for all time. While this was ok for historical analysis, it stopped at round 3, 2017 and it was a one off dump meaning we couldn’t keep it up to date.</p>
+<p>As such, we’ve written a new function to replace this internal data. It’s called <code>get_afltables_stats</code>. It takes two arguments <code>start_date</code> and <code>end_date</code>. These are pretty self explanatory - the function will return stats from all matches between <code>start_date</code> and <code>end_date</code>. The format of these inputs needs to be either dmy or ymd.</p>
+<p>Both arguments are optional. <code>start_date</code> will default to the first AFL game <code>end_date</code> will default to the System Date.</p>
+<p>As an example, we could just grab data from this year.</p>
+<pre class="r"><code>library(fitzRoy)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
+## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>dat &lt;- get_afltables_stats(&quot;2018-01-01&quot;)</code></pre>
+<pre><code>## Returning data from 2018-01-01 to 2018-08-15</code></pre>
+<pre><code>## Downloading data</code></pre>
+<pre><code>## 
+## Finished downloading data. Processing XMLs</code></pre>
+<pre><code>## Finished getting afltables data</code></pre>
+<pre class="r"><code>tail(dat)</code></pre>
+<pre><code>## # A tibble: 6 x 58
+##   Season Round Date       Local.start.time Venue      Attendance Home.team
+##    &lt;int&gt; &lt;chr&gt; &lt;date&gt;                &lt;int&gt; &lt;chr&gt;           &lt;int&gt; &lt;chr&gt;    
+## 1   2018 21    2018-08-12             1440 &quot;Perth St…      40028 Fremantle
+## 2   2018 21    2018-08-12             1440 &quot;Perth St…      40028 Fremantle
+## 3   2018 21    2018-08-12             1440 &quot;Perth St…      40028 Fremantle
+## 4   2018 21    2018-08-12             1440 &quot;Perth St…      40028 Fremantle
+## 5   2018 21    2018-08-12             1440 &quot;Perth St…      40028 Fremantle
+## 6   2018 21    2018-08-12             1440 &quot;Perth St…      40028 Fremantle
+## # ... with 51 more variables: HQ1G &lt;int&gt;, HQ1B &lt;int&gt;, HQ2G &lt;int&gt;,
+## #   HQ2B &lt;int&gt;, HQ3G &lt;int&gt;, HQ3B &lt;int&gt;, HQ4G &lt;int&gt;, HQ4B &lt;int&gt;,
+## #   Home.score &lt;int&gt;, Away.team &lt;chr&gt;, AQ1G &lt;int&gt;, AQ1B &lt;int&gt;, AQ2G &lt;int&gt;,
+## #   AQ2B &lt;int&gt;, AQ3G &lt;int&gt;, AQ3B &lt;int&gt;, AQ4G &lt;int&gt;, AQ4B &lt;int&gt;,
+## #   Away.score &lt;int&gt;, First.name &lt;chr&gt;, Surname &lt;chr&gt;, ID &lt;dbl&gt;,
+## #   Jumper.No. &lt;int&gt;, Playing.for &lt;chr&gt;, Kicks &lt;dbl&gt;, Marks &lt;dbl&gt;,
+## #   Handballs &lt;dbl&gt;, Goals &lt;dbl&gt;, Behinds &lt;dbl&gt;, Hit.Outs &lt;dbl&gt;,
+## #   Tackles &lt;dbl&gt;, Rebounds &lt;dbl&gt;, Inside.50s &lt;dbl&gt;, Clearances &lt;dbl&gt;,
+## #   Clangers &lt;dbl&gt;, Frees.For &lt;dbl&gt;, Frees.Against &lt;dbl&gt;,
+## #   Brownlow.Votes &lt;dbl&gt;, Contested.Possessions &lt;dbl&gt;,
+## #   Uncontested.Possessions &lt;dbl&gt;, Contested.Marks &lt;dbl&gt;,
+## #   Marks.Inside.50 &lt;dbl&gt;, One.Percenters &lt;dbl&gt;, Bounces &lt;dbl&gt;,
+## #   Goal.Assists &lt;dbl&gt;, Time.on.Ground.. &lt;int&gt;, Substitute &lt;int&gt;,
+## #   Umpire.1 &lt;chr&gt;, Umpire.2 &lt;chr&gt;, Umpire.3 &lt;chr&gt;, Umpire.4 &lt;chr&gt;</code></pre>
+<p>Note that each row is a ‘player match’ so the first few columns are just repeated team level data. It is probably more intersting to look at specific columns relating to player stats.</p>
+<pre class="r"><code>dat %&gt;% 
+  select(Date, First.name, Surname, Playing.for, Contested.Possessions, 
+         Uncontested.Possessions, One.Percenters, Time.on.Ground.., 
+         Brownlow.Votes)</code></pre>
+<pre><code>## # A tibble: 7,656 x 9
+##    Date       First.name Surname  Playing.for Contested.Possessions
+##    &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;                       &lt;dbl&gt;
+##  1 2018-03-22 David      Astbury  Richmond                       9.
+##  2 2018-03-22 Shai       Bolton   Richmond                       3.
+##  3 2018-03-22 Dan        Butler   Richmond                       7.
+##  4 2018-03-22 Josh       Caddy    Richmond                      11.
+##  5 2018-03-22 Jason      Castagna Richmond                       7.
+##  6 2018-03-22 Reece      Conca    Richmond                       6.
+##  7 2018-03-22 Trent      Cotchin  Richmond                      13.
+##  8 2018-03-22 Shane      Edwards  Richmond                       9.
+##  9 2018-03-22 Brandon    Ellis    Richmond                       3.
+## 10 2018-03-22 Corey      Ellis    Richmond                       7.
+## # ... with 7,646 more rows, and 4 more variables:
+## #   Uncontested.Possessions &lt;dbl&gt;, One.Percenters &lt;dbl&gt;,
+## #   Time.on.Ground.. &lt;int&gt;, Brownlow.Votes &lt;dbl&gt;</code></pre>
+<p>That’s about it. The the rest of the changes are just bug fixes which you can see in the <a href="https://jimmyday12.github.io/fitzRoy/news/index.html">NEWS page of the packages website</a>.</p>
+<p>Hit us up on Twitter at <a href="https://twitter.com/plusSixOneblog">plusSixOneBlog</a> <a href="https://twitter.com/anoafl">anoafl</a> or over on <a href="https://github.com/jimmyday12/fitzRoy">Github</a> if you have any feedback or issues! Enjoy.</p>
+</div>

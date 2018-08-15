@@ -1,0 +1,48 @@
+---
+title: fitzRoy - 0.1.5 release
+author: James Day
+date: '2018-08-15'
+slug: fitzroy-0-1-5-release
+categories:
+  - fitzroy
+  - R
+tags: []
+subtitle: ''
+---
+
+For those of you who've been following me on Twitter, you'll know that I've been working on an R package for AFL called [fitzRoy](jimmyday12.github.io/fitzRoy) with Rob from [Analysis of AFL](jimmyday12.github.io/fitzRoy). Today we released a new version which has a much requested feature, so I'd figured a blog post was in order. 
+
+You'll have to reinstall fitzRoy to get the latest functions. We still aren't on CRAN but you can use devtools to get it. 
+
+```{r install, eval = FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+# install.packages("devtools") # uncomment if you haven't installed devtools before
+devtools::install_github("jimmyday12/fitzRoy")
+```
+
+## AFL Tables player stats
+Our initial version of fitzRoy had some data included in it from a data dump we got from Paul at [AFLtables](afltables.com). This data was great as it had a all of the afltables stats on a player by player basis for all time. While this was ok for historical analysis, it stopped at round 3, 2017 and it was a one off dump meaning we couldn't keep it up to date. 
+
+As such, we've written a new function to replace this internal data. It's called `get_afltables_stats`. It takes two arguments `start_date` and `end_date`. These are pretty self explanatory - the function will return stats from all matches between `start_date` and `end_date`. The format of these inputs needs to be either dmy or ymd. 
+
+Both arguments are optional. `start_date` will default to the first AFL game `end_date` will default to the System Date.
+
+As an example, we could just grab data from this year.
+```{r get_data, message=TRUE, warning=FALSE, paged.print=TRUE}
+library(fitzRoy)
+library(tidyverse)
+dat <- get_afltables_stats("2018-01-01")
+tail(dat)
+```
+
+Note that each row is a 'player match' so the first few columns are just repeated team level data. It is probably more intersting to look at specific columns relating to player stats.
+
+```{r player_cols, echo=TRUE, message=FALSE, warning=FALSE, paged.print=TRUE}
+dat %>% 
+  select(Date, First.name, Surname, Playing.for, Contested.Possessions, 
+         Uncontested.Possessions, One.Percenters, Time.on.Ground.., 
+         Brownlow.Votes)
+```
+
+That's about it. The the rest of the changes are just bug fixes which you can see in the [NEWS page of the packages website](https://jimmyday12.github.io/fitzRoy/news/index.html).
+
+Hit us up on Twitter at [plusSixOneBlog](https://twitter.com/plusSixOneblog) [anoafl](https://twitter.com/anoafl) or over on [Github](https://github.com/jimmyday12/fitzRoy) if you have any feedback or issues! Enjoy. 
