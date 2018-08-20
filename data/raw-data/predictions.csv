@@ -1,19 +1,10 @@
 Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-"Fri, 17",00:00,22,M.C.G.,Richmond,Essendon,19,0.673,Richmond by 19
-"Sat, 18",00:00,22,M.C.G.,Collingwood,Port Adelaide,8,0.573,Collingwood by 8
-"Sat, 18",00:00,22,Kardinia Park,Geelong,Fremantle,32,0.777,Geelong by 32
-"Sat, 18",00:00,22,Blacktown,GWS,Sydney,2,0.511,GWS by 2
-"Sat, 18",00:00,22,Carrara,Gold Coast,Brisbane Lions,-5,0.442,Brisbane Lions by 5
-"Sat, 18",00:00,22,Docklands,St Kilda,Hawthorn,-16,0.343,Hawthorn by 16
-"Sun, 19",00:00,22,Docklands,Carlton,Footscray,-9,0.402,Footscray by 9
-"Sun, 19",00:00,22,Perth Stadium,West Coast,Melbourne,10,0.59,West Coast by 10
-"Sun, 19",00:00,22,Adelaide Oval,Adelaide,North Melbourne,12,0.614,Adelaide by 12
-"Fri, 24",00:00,23,Adelaide Oval,Port Adelaide,Essendon,17,0.661,Port Adelaide by 17
-"Sat, 25",00:00,23,Kardinia Park,Geelong,Gold Coast,41,0.837,Geelong by 41
-"Sat, 25",00:00,23,M.C.G.,Richmond,Footscray,29,0.758,Richmond by 29
-"Sat, 25",00:00,23,Perth Stadium,Fremantle,Collingwood,-10,0.399,Collingwood by 10
-"Sat, 25",00:00,23,S.C.G.,Sydney,Hawthorn,12,0.614,Sydney by 12
-"Sat, 25",00:00,23,Docklands,Carlton,Adelaide,-21,0.297,Adelaide by 21
-"Sun, 26",00:00,23,Gabba,Brisbane Lions,West Coast,-14,0.359,West Coast by 14
-"Sun, 26",00:00,23,M.C.G.,Melbourne,GWS,10,0.597,Melbourne by 10
-"Sun, 26",00:00,23,Docklands,St Kilda,North Melbourne,-12,0.382,North Melbourne by 12
+"Fri, 24",00:00,23,Adelaide Oval,Port Adelaide,Essendon,16,0.652,Port Adelaide by 16
+"Sat, 25",00:00,23,Kardinia Park,Geelong,Gold Coast,42,0.842,Geelong by 42
+"Sat, 25",00:00,23,M.C.G.,Richmond,Footscray,29,0.754,Richmond by 29
+"Sat, 25",00:00,23,Perth Stadium,Fremantle,Collingwood,-12,0.381,Collingwood by 12
+"Sat, 25",00:00,23,Docklands,Carlton,Adelaide,-21,0.296,Adelaide by 21
+"Sat, 25",00:00,23,S.C.G.,Sydney,Hawthorn,13,0.623,Sydney by 13
+"Sun, 26",00:00,23,Gabba,Brisbane Lions,West Coast,-13,0.365,West Coast by 13
+"Sun, 26",00:00,23,M.C.G.,Melbourne,GWS,12,0.609,Melbourne by 12
+"Sun, 26",00:00,23,Docklands,St Kilda,North Melbourne,-11,0.384,North Melbourne by 11
