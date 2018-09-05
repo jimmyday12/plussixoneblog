@@ -23,6 +23,8 @@ fixture <- fitzRoy::get_fixture() %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
+
+
 # Get results
 results <- fitzRoy::get_match_results() %>%
   mutate(
