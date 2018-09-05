@@ -1,10 +1,5 @@
 Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-"Fri, 24",00:00,23,Adelaide Oval,Port Adelaide,Essendon,16,0.652,Port Adelaide by 16
-"Sat, 25",00:00,23,Kardinia Park,Geelong,Gold Coast,42,0.842,Geelong by 42
-"Sat, 25",00:00,23,M.C.G.,Richmond,Footscray,29,0.754,Richmond by 29
-"Sat, 25",00:00,23,Perth Stadium,Fremantle,Collingwood,-12,0.381,Collingwood by 12
-"Sat, 25",00:00,23,Docklands,Carlton,Adelaide,-21,0.296,Adelaide by 21
-"Sat, 25",00:00,23,S.C.G.,Sydney,Hawthorn,13,0.623,Sydney by 13
-"Sun, 26",00:00,23,Gabba,Brisbane Lions,West Coast,-13,0.365,West Coast by 13
-"Sun, 26",00:00,23,M.C.G.,Melbourne,GWS,12,0.609,Melbourne by 12
-"Sun, 26",00:00,23,Docklands,St Kilda,North Melbourne,-11,0.384,North Melbourne by 11
+"Thu, 06",00:00,25,M.C.G.,Richmond,Hawthorn,10,0.592,Richmond by 10
+"Fri, 07",00:00,25,M.C.G.,Melbourne,Geelong,1,0.507,Melbourne by 1
+"Sat, 08",00:00,25,S.C.G.,Sydney,GWS,7,0.563,Sydney by 7
+"Sat, 08",00:00,25,Perth Stadium,West Coast,Collingwood,11,0.605,West Coast by 11

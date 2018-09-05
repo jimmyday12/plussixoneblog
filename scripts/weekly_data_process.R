@@ -16,7 +16,7 @@ B <- 0.04
 sim_num <- 10000
 
 # Get Data ----------------------------------------------------------------
-filt_date <- Sys.Date() + 1
+filt_date <- Sys.Date() 
 # Get fixture data using FitzRoy
 fixture <- fitzRoy::get_fixture() %>%
   filter(Date > filt_date) %>%
