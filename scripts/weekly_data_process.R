@@ -5,6 +5,7 @@ ptm <- proc.time()
 # Load libraries
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
+fixture_bug <- TRUE
 
 # Set Parameters
 e <- 1.7
@@ -23,7 +24,7 @@ fixture <- fitzRoy::get_fixture() %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
-
+if(fixture_bug) fixture$Round.Number = fixture$Round.Number - 1
 
 # Get results
 results <- fitzRoy::get_match_results() %>%
