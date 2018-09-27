@@ -6,6 +6,7 @@ ptm <- proc.time()
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
 fixture_bug <- TRUE
+grand_final_bug <- TRUE
 
 # Set Parameters
 e <- 1.7
@@ -24,6 +25,19 @@ fixture <- fitzRoy::get_fixture() %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
+if (grand_final_bug){
+# temp
+fixture <- tibble(
+  Date = ymd("2018/09/29"),
+  Season = 2018,
+  Season.Game = 1,
+  Round = "28",
+  Round.Number = 28,
+  Home.Team = "West Coast",
+  Away.Team = "Collingwood",
+  Venue = "MCG"
+)
+}
 if(fixture_bug) fixture$Round.Number = fixture$Round.Number - 1
 
 # Get results
