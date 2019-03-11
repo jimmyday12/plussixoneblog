@@ -26,12 +26,16 @@ pacman::p_load(fitzRoy, tidyverse, formattable,
                ggthemes, elo, here, lubridate, 
                widgetframe, ggridges, DT)
 
+round_1 <- TRUE
+
 # Load data that has been run using 'weekly_data_process.R'
 dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
 
+round_num <- ifelse(round_1, 1, last(dat_list$elo$Round.Number + 1))
+
 # Get predictions for current round and present as table
 dat_list$predictions %>%
-  filter(Round.Number == last(dat_list$elo$Round.Number + 1)) %>%
+  filter(Round.Number == round_num) %>%
   select(-Time, -Round.Number) %>%
   mutate_at("Probability", formattable::percent, digits = 1) %>%
   formattable(list(

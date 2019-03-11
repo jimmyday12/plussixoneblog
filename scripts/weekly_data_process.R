@@ -5,8 +5,8 @@ ptm <- proc.time()
 # Load libraries
 library(pacman)
 pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
-fixture_bug <- TRUE
-grand_final_bug <- TRUE
+fixture_bug <- FALSE
+grand_final_bug <- FALSE
 
 # Set Parameters
 e <- 1.7
@@ -38,6 +38,7 @@ fixture <- tibble(
   Venue = "MCG"
 )
 }
+
 if(fixture_bug) fixture$Round.Number = fixture$Round.Number - 1
 
 # Get results
@@ -59,9 +60,11 @@ venue_fix <- function(x){
     x == "MCG" ~ "M.C.G.",
     x == "SCG" ~ "S.C.G.",
     x == "Etihad Stadium" ~ "Docklands",
+    x == "Marvel Stadium" ~ "Docklands",
     x == "Blundstone Arena" ~ "Bellerive Oval",
     x == "GMHBA Stadium" ~ "Kardinia Park",
     x == "Spotless Stadium" ~ "Blacktown",
+    x == "Showground Stadium" ~ "Blacktown",
     x == "UTAS Stadium" ~ "York Park",
     x == "Mars Stadium" ~ "Eureka Stadium",
     x == "Adelaide Arena at Jiangwan Stadium" ~ "Jiangwan Stadium",
