@@ -18,24 +18,7 @@ tags: []
 <p>Last updated: 2019-03-20.</p>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
-<p>Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model (insert explainer) and simulations (insert explainer).</p>
-<p>First, let’s get our data into a good format.</p>
-<p>Now we can pass that table onto <code>formattable</code> and create a slightly nicer table. I’ve also worked out that the <code>framewidget</code> package allows us to generate html widgets (which means interactive tables!)</p>
-<pre class="r"><code># Write to formattable with some formatting
-dt_elo &lt;- elo_table %&gt;%
-  formattable(list(
-    ELO = normalize_bar(&quot;#20B2AA80&quot;),
-    ELO.change = formatter(
-      &quot;span&quot;,
-      style = ~ style(color = ifelse(ELO.change &gt;= 0, &quot;green&quot;, &quot;red&quot;))
-    ),
-    Top.8 = color_tile(&quot;transparent&quot;, &quot;lightblue&quot;),
-    Top.4 = color_tile(&quot;transparent&quot;, &quot;lightblue&quot;),
-    Top.1 = color_tile(&quot;transparent&quot;, &quot;lightblue&quot;)
-  )) %&gt;%
-  as.datatable(options = list(dom = &quot;t&quot;, pageLength = 18))
-
-frameWidget(dt_elo, height = 700, width = &quot;95%&quot;)</code></pre>
+<p>Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</p>
 <div id="htmlwidget-1" style="width:95%;height:700px;" class="widgetframe html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/page/aflm-ratings-and-simulations_files/figure-html//widgets/widget_formattable.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p>And below you can see the change in ratings for each team.</p>

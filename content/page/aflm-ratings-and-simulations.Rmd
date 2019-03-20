@@ -36,9 +36,7 @@ sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 ```
 
 ## Summary
-Below are the updated AFL Men's ratings and simulations. These are based off our ELO model (insert explainer) and simulations (insert explainer). 
-
-First, let's get our data into a good format. 
+Below are the updated AFL Men's ratings and simulations. These are based off our ELO model and simulations. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Get the round data
@@ -60,8 +58,7 @@ elo_table <- elo_round %>%
   arrange(desc(Wins))
 ```
 
-Now we can pass that table onto `formattable` and create a slightly nicer table. I've also worked out that the `framewidget` package allows us to generate html widgets (which means interactive tables!)
-```{r formattable, echo=TRUE, message=FALSE, warning=FALSE}
+```{r formattable, echo=FALSE, message=FALSE, warning=FALSE}
 # Write to formattable with some formatting
 dt_elo <- elo_table %>%
   formattable(list(
