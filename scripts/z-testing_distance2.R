@@ -51,9 +51,10 @@ venue_states <- venues %>%
 # Step 4: Add new Stadiums
 venue_states <- venue_states %>%
   bind_rows(
-    data.frame(Venue = "Perth Stadium",
-               State = "Western Asutralia")
-  )
+    data.frame(Venue = c("Perth Stadium", "Canberra Oval", "Manuka Oval", "Riverway Stadium"),
+               State = c("Western Australia", "Australian Capital Territory", "Australian Capital Territory", "Queensland")
+               )
+    )
 
 
 # Step 5: Give team states

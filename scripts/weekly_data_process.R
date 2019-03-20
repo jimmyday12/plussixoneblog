@@ -72,6 +72,8 @@ venue_fix <- function(x){
     x == "Metricon Stadium" ~ "Carrara",
     x == "TIO Stadium" ~ "Marrara Oval",
     x == "Optus Stadium" ~ "Perth Stadium",
+    x == "Canberra Oval" ~ "Manuka Oval",
+    x == "UNSW Canberra Oval" ~ "Manuka Oval"
     TRUE ~ as.character(x)
   )
 }
@@ -226,7 +228,10 @@ remaining_fixture <-
 
 # Get ELOS and perturb them
 form <- elo:::clean_elo_formula(stats::terms(elo.data)) # needed for elo.prob
-perturb_elos <- function(x) final.elos(x) + rnorm(length(x$teams), mean = 0, sd = 65) # function to map over
+perturb_elos <- function(x) {
+  x <- final.elos(x) + rnorm(length(x$teams), mean = 0, sd = 65)
+  x + 1500 - mean(x)
+  } # function to map over
 
 # Do simulations
 sims <- 1:sim_num
