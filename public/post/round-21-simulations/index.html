@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Round 21 Ratings and Simulations - Hawks back to the pack</title>
+  <meta property="og:title" content="Round 21 Ratings and Simulations - Hawks back to the pack" />
+  <meta name="twitter:title" content="Round 21 Ratings and Simulations - Hawks back to the pack" />
+  <meta name="description" content="With a big upset loss on the weekend, the Hawks is the biggest loser from the weekend results. They have dropped back into the pack of clustered teams below our clear leaders and now face a possibility of losing top spot before the season is out.
+New ratings In fact - despite having a relatively good week for head to head tipping, our ELO model has shown some considerable adjustment to the rankings this week.">
+  <meta property="og:description" content="With a big upset loss on the weekend, the Hawks is the biggest loser from the weekend results. They have dropped back into the pack of clustered teams below our clear leaders and now face a possibility of losing top spot before the season is out.
+New ratings In fact - despite having a relatively good week for head to head tipping, our ELO model has shown some considerable adjustment to the rankings this week.">
+  <meta name="twitter:description" content="With a big upset loss on the weekend, the Hawks is the biggest loser from the weekend results. They have dropped back into the pack of clustered teams below our clear leaders and now face a …">
+  <meta name="author" content="James Day"/>
+  <link href='/img/favicon-new.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@plusSixOneblog" />
+  <meta name="twitter:creator" content="@plusSixOneblog" />
+  <meta property="og:url" content="/post/round-21-simulations/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="plusSixOne" />
+
+  <meta name="generator" content="Hugo 0.37" />
+  <link rel="canonical" href="/post/round-21-simulations/" />
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="/css/codeblock.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-light.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">plusSixOne</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Mens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflm-ratings-and-simulations">Ratings and Simulations</a>
+                
+                  <a href="/page/aflm-current-tips">Current Tips</a>
+                
+                  <a href="/page/aflm-model-results">Model Results</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Womens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflw-coming-soon/">Coming Soon</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Cool Links" href="/page/cool-links/">Cool Links</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="plusSixOne" href="/">
+            <img class="avatar-img" src="/img/avator-icon-new.png" alt="plusSixOne" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Round 21 Ratings and Simulations - Hawks back to the pack</h1>
+                
+                
+                  <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on August 10, 2016
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 3 minutes (624 words)
+  
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>With a big upset loss on the weekend, the Hawks is the biggest loser from the weekend results. They have dropped back into the pack of clustered teams below our clear leaders and now face a possibility of losing top spot before the season is out.</p>
+
+<h1 id="new-ratings">New ratings</h1>
+
+<p>In fact - despite having a relatively good week for head to head tipping, our <a href="http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/">ELO model</a> has shown some considerable adjustment to the rankings this week. This relates to some big upsets and misses in the margin, <a href="http://plussixoneblog.com/2016/05/12/simulating-the-season/">which we ultimately use to reassess our team ratings</a>. We&rsquo;ve seen 12 teams change places on our table (although only 5 of our top 8). The biggest changes come out of the Hawthorn/Melbourne and St Kilda/Carlton games.</p>
+
+<p>In our top 8 race, Sydney and Adelaide have consolidated their grip as the clearly the two best rated teams. They have both opened up their lead on the remainder of the top 9 ranked teams apart from West Coast. In fact, Sydney would now start favourite against any team other than Adelaide regardless of the home ground advantage (HGA) boost (<a href="http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/">nominally set at 35 rating points</a>). Adelaide is approaching that status, sitting 30 rating points above the next best side in Geelong.</p>
+<div class="highlight"><pre class="chroma">&lt;img src=&#34;http://plussixoneblog.com/img/2016/08/unnamed-chunk-1-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-1&#34; /&gt;</pre></div>
+<p>In the race for the worst team for the season, the Bombers have jumped above the Lions. The Lions have in fact edged close dropping below 1300 mark, which is almost 8 goals worse than an average team. In fact, only 12 teams in history have dropped below that ELO rating within a season. I promise I&rsquo;ll write a post before the season is out about these two teams and where they sit in historical seasons but depending on how we measure &lsquo;worst&rsquo; seasons by a team, they are on track to both finish within the worst 20.</p>
+
+<h1 id="simulations">Simulations</h1>
+
+<p>Onto our simulations, and I&rsquo;ve finally got around to adding in some finals sims!</p>
+
+<p>Firstly to our finals race, and we know have 5 teams that have clinched a finals spot. Two more teams (Bulldogs and WCE) will likely add to that list with a win this week, with only North Melbourne any realistic chance of dropping out. St Kilda improved their chances to jumping into the 8 to 17%, to be the most likely. They need to make up <a href="http://www.heraldsun.com.au/sport/afl/teams/st-kilda/st-kilda-clings-to-unlikely-afl-finals-dream/news-story/c02687a3f52d2cf5af9021b79e1c3e65">2 games and percentage from the remaining 3 games</a> to do that, but based on the relative strengths of the teams involved, we&rsquo;d expect it to occur almost 1 in 5 times, so the excitement continues!
+<img src="http://plussixoneblog.com/img/2016/08/simTableR21-2.png" alt="simTableR21" /><a href="http://plussixoneblog.com/img/2016/08/simTableR21.png">
+</a>The top 4 race remains likely to come from 5 teams. The Hawks unexpected loss on the weekend sees their chances drop considerably but still remain at around 3 in every 4 sims. We actually give Geelong and Sydney more chances of making it, despite sitting 1 game behind the Hawks.</p>
+
+<p>We see a similar distribution in top 2 chances, however interestingly  the Hawks are still our favourite to clinch the Minor Premiership, although their chances dropped from 67% down to 29% this week.</p>
+
+<h5 id="finals-sims">Finals Sims!</h5>
+
+<p>Our first set of finals simulations and we are again favouring the same 5 teams as our most likely premiers. Our predictions for the Prelim are very similar to our top 4 chances, with only GWS having less than a 64% chance of making it that far. In terms of the grand final, Sydney are our favourites to make it, reaching the final weekend in almost half of all simulations. They also win that match in about <sup>1</sup>&frasl;<sub>4</sub> of simulations, making them our premiership favourites.</p>
+
+<p>It will be interesting to see how these finals simulations progress - as Hawks showed last week, an unexpected loss could change the picture dramatically!</p>
+
+<p><img src="http://plussixoneblog.com/img/2016/08/unnamed-chunk-2-1-2.png" alt="plot of chunk unnamed-chunk-2" /></p>
+
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="/post/round-20-results/" data-toggle="tooltip" data-placement="top" title="Round 20 Results">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="/post/round-21-predictions-saints-wont-go-away/" data-toggle="tooltip" data-placement="top" title="Round 21 Predictions - Saints won&#39;t go away">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "plussixone" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:jamesthomasday@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/plussixoneblog" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jimmyday12" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/plusSixOneblog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/james-day-ab648321" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="plussixoneblog.com">James Day</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/">plusSixOne</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+  </body>
+</html>
+

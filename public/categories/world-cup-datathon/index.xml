@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>World Cup Datathon on plusSixOne</title>
+    <link>/categories/world-cup-datathon/</link>
+    <description>Recent content in World Cup Datathon on plusSixOne</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
+    <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
+    <lastBuildDate>Fri, 15 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/world-cup-datathon/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>World Cup Datathon: Part 4 - Modelling</title>
+      <link>/post/world-cup-datathon-part-4/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/world-cup-datathon-part-4/</guid>
+      <description>knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion journey and my feature engineering methods on previous posts. In this post - we build some models and submit them!
+First up, let’s load in our data and packages.
+library(pacman) p_load(tidyverse, caret, recipes) dat &amp;lt;- read_csv(here::here(&amp;quot;projects&amp;quot;, &amp;quot;world-cup-2018&amp;quot;, &amp;quot;combined-data-cleaned.csv&amp;quot;)) glimpse(dat) ## Observations: 14,740 ## Variables: 38 ## $ date &amp;lt;date&amp;gt; 1998-07-15, 1998-07-18, 1998-07-.</description>
+    </item>
+    
+    <item>
+      <title>Project: World Cup Datathon </title>
+      <link>/page/project-world-cup-datathon/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/page/project-world-cup-datathon/</guid>
+      <description>In celebration of the World Cup in Russia, I’ve decided to take on Betfair’s World Cup Datathon. See below my series of posts outlining how I built my models.
+This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.
+Part 1 - Intro
+Part 2 - Data Acquisition
+Part 3 - Data Exploration and Feature Engineering
+Part 4 - Models (coming soon)</description>
+    </item>
+    
+    <item>
+      <title>World Cup Datathon - Part 3: Feature Engineering</title>
+      <link>/post/world-cup-datathon-part-3/</link>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/world-cup-datathon-part-3/</guid>
+      <description>In Part 1 and
+Part 2 of this series, I introduced the Betfair World Cup datathon and acquired some data. Now, let’s spend a bit of time exploring that data and creating some features!
+Feature Engineering is where the art comes into our modelling process. Given I don’t have a lot of domain knowledge here, I’ve done a bit of quick reading. Again - I’m not going to go into some advanced Soccer analytics like Expected Goal (XG) or any kind of network analysis - so I’ll simply use the match results, FIFA rankings and betfair data.</description>
+    </item>
+    
+    <item>
+      <title>Football World Cup Datathon - Part 2: Data Aquisition</title>
+      <link>/post/football-world-cup-datathon-part-2/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/football-world-cup-datathon-part-2/</guid>
+      <description>I introduced the Betfair World Cup Datathon in Part 1 of this series of posts. In this second post, I’m going to focus on getting data. Given I don’t have a lot of domain knowledge, I can’t go into developing anything too advanced myself. As such, getting as much data as possible is going to be my best bet. This post shows all the data sources I’ve been able to easily access.</description>
+    </item>
+    
+    <item>
+      <title>Football World Cup Datathon - Part 1: Intro</title>
+      <link>/post/football-world-cup-datathon-part-1/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/football-world-cup-datathon-part-1/</guid>
+      <description>Introduction I’ve never been able to get into that round ball game we cheekily refer to as soccer in this country. I’ve got mates who are big watchers of the Premier League and it’s always something I wish I could learn to love but it has never clicked for me.
+The closest I get to being a football fan however is World Cup time, where I take on an out-of-character amount of patriotism in following the Socceroos.</description>
+    </item>
+    
+  </channel>
+</rss>

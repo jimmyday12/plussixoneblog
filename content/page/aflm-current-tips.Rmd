@@ -26,7 +26,7 @@ pacman::p_load(fitzRoy, tidyverse, formattable,
                ggthemes, elo, here, lubridate, 
                widgetframe, ggridges, DT)
 
-round_1 <- TRUE
+round_1 <- FALSE
 
 # Load data that has been run using 'weekly_data_process.R'
 dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))

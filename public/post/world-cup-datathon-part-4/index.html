@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>World Cup Datathon: Part 4 - Modelling</title>
+  <meta property="og:title" content="World Cup Datathon: Part 4 - Modelling" />
+  <meta name="twitter:title" content="World Cup Datathon: Part 4 - Modelling" />
+  <meta name="description" content="knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion journey and my feature engineering methods on previous posts. In this post - we build some models and submit them!
+First up, let’s load in our data and packages.
+library(pacman) p_load(tidyverse, caret, recipes) dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data-cleaned.csv&quot;)) glimpse(dat) ## Observations: 14,740 ## Variables: 38 ## $ date &lt;date&gt; 1998-07-15, 1998-07-18, 1998-07-.">
+  <meta property="og:description" content="knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion journey and my feature engineering methods on previous posts. In this post - we build some models and submit them!
+First up, let’s load in our data and packages.
+library(pacman) p_load(tidyverse, caret, recipes) dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data-cleaned.csv&quot;)) glimpse(dat) ## Observations: 14,740 ## Variables: 38 ## $ date &lt;date&gt; 1998-07-15, 1998-07-18, 1998-07-.">
+  <meta name="twitter:description" content="knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion …">
+  <meta name="author" content="James Day"/>
+  <link href='/img/favicon-new.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@plusSixOneblog" />
+  <meta name="twitter:creator" content="@plusSixOneblog" />
+  <meta property="og:url" content="/post/world-cup-datathon-part-4/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="plusSixOne" />
+
+  <meta name="generator" content="Hugo 0.37" />
+  <link rel="canonical" href="/post/world-cup-datathon-part-4/" />
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="/css/codeblock.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-light.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">plusSixOne</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Mens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflm-ratings-and-simulations">Ratings and Simulations</a>
+                
+                  <a href="/page/aflm-current-tips">Current Tips</a>
+                
+                  <a href="/page/aflm-model-results">Model Results</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Womens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflw-coming-soon/">Coming Soon</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Cool Links" href="/page/cool-links/">Cool Links</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="plusSixOne" href="/">
+            <img class="avatar-img" src="/img/avator-icon-new.png" alt="plusSixOne" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>World Cup Datathon: Part 4 - Modelling</h1>
+                
+                
+                  <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on June 15, 2018
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 17 minutes (3472 words)
+  
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <pre class="r"><code>knitr::opts_chunk$set(warning = FALSE, message = FALSE)</code></pre>
+<p>This is the interesting part of our journey. For those catching up - <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">I’m entering the Betfair World Cup Datathon</a>. You can see my <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-2">data aquisttion journey</a> and my <a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-3">feature engineering methods</a> on previous posts. In this post - we build some models and submit them!</p>
+<p>First up, let’s load in our data and packages.</p>
+<pre class="r"><code>library(pacman)
+p_load(tidyverse, caret, recipes)
+dat &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;combined-data-cleaned.csv&quot;))
+glimpse(dat)</code></pre>
+<pre><code>## Observations: 14,740
+## Variables: 38
+## $ date                         &lt;date&gt; 1998-07-15, 1998-07-18, 1998-07-...
+## $ team_1                       &lt;chr&gt; &quot;Ukraine&quot;, &quot;Malawi&quot;, &quot;Uganda&quot;, &quot;M...
+## $ team_2                       &lt;chr&gt; &quot;Poland&quot;, &quot;Zimbabwe&quot;, &quot;Kenya&quot;, &quot;Z...
+## $ team_1_goals                 &lt;int&gt; 1, 1, 3, 0, 1, 1, 0, 1, 3, 2, 3, ...
+## $ team_2_goals                 &lt;int&gt; 2, 0, 3, 0, 0, 0, 1, 0, 1, 1, 0, ...
+## $ tournament                   &lt;chr&gt; &quot;Friendly&quot;, &quot;Friendly&quot;, &quot;Friendly...
+## $ is_team_1_home               &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRU...
+## $ is_team_2_home               &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE...
+## $ is_neutral                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE...
+## $ team_1_betfair_odds          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ draw_betfair_odds            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ team_2_betfair_odds          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ year                         &lt;dbl&gt; 1998, 1998, 1998, 1998, 1998, 199...
+## $ month                        &lt;int&gt; 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, ...
+## $ match_id                     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11...
+## $ result                       &lt;chr&gt; &quot;lose&quot;, &quot;win&quot;, &quot;draw&quot;, &quot;draw&quot;, &quot;w...
+## $ tournament_cat               &lt;chr&gt; &quot;Friendly&quot;, &quot;Friendly&quot;, &quot;Friendly...
+## $ team_1_fifa                  &lt;int&gt; 565, 364, 342, 364, 401, 415, 200...
+## $ team_2_fifa                  &lt;int&gt; 586, 442, 366, 442, NA, 124, 547,...
+## $ game_id                      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11...
+## $ team_1_result                &lt;dbl&gt; 0.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.0...
+## $ team_2_result                &lt;dbl&gt; 1.0, 0.0, 0.5, 0.5, 0.0, 0.0, 1.0...
+## $ team_1_goals_against         &lt;int&gt; 2, 0, 3, 0, 0, 0, 1, 0, 1, 1, 0, ...
+## $ team_2_goals_against         &lt;int&gt; 1, 1, 3, 0, 1, 1, 0, 1, 3, 2, 3, ...
+## $ k_val                        &lt;int&gt; 20, 20, 20, 20, 20, 20, 20, 20, 2...
+## $ team_1_elo                   &lt;dbl&gt; 1500.000, 1500.000, 1500.000, 150...
+## $ team_2_elo                   &lt;dbl&gt; 1500.000, 1500.000, 1500.000, 149...
+## $ team_1_elo_prob              &lt;dbl&gt; 0.6400650, 0.6400650, 0.6400650, ...
+## $ last_10_result_team_1        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ last_10_goals_team_1         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ last_10_goals_against_team_1 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ world_cup_wins_team_1        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ world_cup_games_team_1       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ last_10_result_team_2        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ last_10_goals_team_2         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ last_10_goals_against_team_2 &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ world_cup_wins_team_2        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ world_cup_games_team_2       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</code></pre>
+<p>Firstly, reading that data in caused some issues with <code>betfair</code> columns. I’m guessing because there is missing data, it’s reading it as a character. We can fix that pretty easily.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  mutate_at(vars(contains(&quot;betfair&quot;)), as.numeric) %&gt;%
+  mutate_at(vars(tournament_cat, result), as.factor) </code></pre>
+<div id="pre-processing" class="section level1">
+<h1>Pre-Processing</h1>
+<p>Pre-processing is pretty important for our journey. Most of our models assume that there is no missing data or that all columns are numeric or factors. A lot of models also assume that our data is relatively normal meaning we often have to do some transformation to it.</p>
+<div id="imputation" class="section level2">
+<h2>Imputation</h2>
+<p>For our missing data, we could simply delete all of the rows that has missing data. That would get rid about about 30% of our data however. Another method is to inpute those missing values. This can be problematic as well by reducing variance in the data. I’m taking a bit of a mixed approach. First, I’ll remove early data from the set - most of it has missing <code>betfair</code> data and also, since our <code>elo</code> calculations start from the first game of a team, the early values take a while to ‘stabilize’. Then remove any data with missing values in <code>last_10_games</code> since we technically don’t have information about the <code>last_10_games</code> when a team has played less than 10! Whatever is left will be imputed during <code>preProcess</code> stage.</p>
+<pre class="r"><code>dat &lt;- dat %&gt;%
+  filter(!is.na(last_10_result_team_1)) %&gt;%
+  filter(!is.na(last_10_result_team_2)) %&gt;%
+  filter(year &gt; 2001) %&gt;%
+  filter(!is.na(team_1_fifa) | !is.na(team_2_fifa))</code></pre>
+<p>I also have some variables that I don’t want to include in my model - information about the goals in the game for instance aren’t known before the fact so including them as a predictor is redundant. Others such as the tournament name (which consists of tournament type and year), are unique for every tournament so don’t add value.</p>
+<pre class="r"><code>vars &lt;- c(&quot;date&quot;, &quot;team_1&quot;, &quot;team_2&quot;, &quot;team_1_goals&quot;, &quot;team_2_goals&quot;, &quot;tournament&quot;, 
+          &quot;team_1_goals_against&quot;, &quot;team_2_goals_against&quot;,
+          &quot;is_team_2_home&quot;, &quot;year&quot;, &quot;month&quot;, &quot;match_id&quot;, &quot;game_id&quot;, &quot;team_1_result&quot;, &quot;team_2_result&quot;)
+
+dat_mod &lt;- dat %&gt;%
+  dplyr::select(-one_of(vars)) %&gt;%
+  dplyr::select(-result, everything())
+
+glimpse(dat_mod)</code></pre>
+<pre><code>## Observations: 11,981
+## Variables: 23
+## $ is_team_1_home               &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, FAL...
+## $ is_neutral                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE...
+## $ team_1_betfair_odds          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ draw_betfair_odds            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ team_2_betfair_odds          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ tournament_cat               &lt;fct&gt; Friendly, Friendly, Friendly, Fri...
+## $ team_1_fifa                  &lt;int&gt; 601, 509, 509, 601, 506, 509, 497...
+## $ team_2_fifa                  &lt;int&gt; 549, 540, 550, 419, 614, 569, 540...
+## $ k_val                        &lt;int&gt; 20, 20, 20, 20, 20, 20, 20, 20, 2...
+## $ team_1_elo                   &lt;dbl&gt; 1640.422, 1589.451, 1494.090, 164...
+## $ team_2_elo                   &lt;dbl&gt; 1576.413, 1559.769, 1516.556, 153...
+## $ team_1_elo_prob              &lt;dbl&gt; 0.7199302, 0.6784178, 0.6097642, ...
+## $ last_10_result_team_1        &lt;dbl&gt; 0.50, 0.55, 0.20, 0.50, 0.30, 0.5...
+## $ last_10_goals_team_1         &lt;dbl&gt; 1.8, 1.1, 0.6, 1.8, 0.9, 1.0, 1.0...
+## $ last_10_goals_against_team_1 &lt;dbl&gt; 1.2, 0.7, 1.6, 1.2, 1.4, 0.7, 1.3...
+## $ world_cup_wins_team_1        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ world_cup_games_team_1       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ last_10_result_team_2        &lt;dbl&gt; 0.60, 0.60, 0.50, 0.55, 0.55, 0.4...
+## $ last_10_goals_team_2         &lt;dbl&gt; 1.1, 1.2, 1.5, 1.2, 1.0, 1.3, 1.2...
+## $ last_10_goals_against_team_2 &lt;dbl&gt; 1.0, 1.0, 1.6, 1.1, 0.9, 1.6, 0.9...
+## $ world_cup_wins_team_2        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ world_cup_games_team_2       &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+## $ result                       &lt;fct&gt; win, win, lose, lose, lose, draw,...</code></pre>
+</div>
+<div id="split" class="section level2">
+<h2>Split</h2>
+<p>The first thing we need to do is to split our data into training and testing partitions. Caret has a great tool built in which allows me to do this and also ensures that the partition maintains the relative amounts of our observation variable (win, lose, draw) in both our training and test data.</p>
+<p>I also want to ensure that our test includes at least one full world cup since that is what we are trying to predict ultimately.</p>
+<pre class="r"><code>set.seed(42)
+
+dat_mod &lt;- dat_mod %&gt;%
+  dplyr::mutate(obs = as.factor(result)) %&gt;%
+  dplyr::select(-result) 
+
+# Create partition
+train_ind &lt;- createDataPartition(dat_mod$obs, p = .75, list = FALSE)
+train_ind &lt;- c(train_ind, which(dat$tournament == &quot;World Cup 2014&quot;))
+
+training &lt;- dat_mod[train_ind, ]
+testing  &lt;- dat_mod[-train_ind, ]</code></pre>
+</div>
+<div id="recipe" class="section level2">
+<h2>Recipe</h2>
+<p>Another great part of the <code>caret</code> toolbox is <code>recipes</code>. This allows for repeated steps to be iteratively built that can then be applied to data as part of the pre-processing. Here, I do some imputation of missing data, remove any data with near zero variance, remove data with strong correlations and then center and scale it.</p>
+<p>I then train the model on my training data to estimate some parameters and then apply it to my test and training data.</p>
+<pre class="r"><code>model_recipe &lt;- recipe(obs ~ ., data = training) %&gt;%
+  step_knnimpute(all_predictors()) %&gt;%
+  step_nzv(all_predictors()) %&gt;%
+  step_corr(all_numeric()) %&gt;%
+  step_center(contains(&quot;fifa&quot;)) %&gt;%
+  step_scale(contains(&quot;fifa&quot;))
+
+# Train recipe
+trained_recipe &lt;- prep(model_recipe, data = training)
+ 
+# Pre-process my data
+train_data &lt;- bake(trained_recipe, newdata = training) %&gt;% 
+  na.omit() %&gt;% 
+  mutate_if(is.logical, as.numeric) %&gt;%
+  mutate_at(vars(contains(&quot;betfair&quot;)), function(x) 1/x) %&gt;%
+  mutate_at(vars(team_1_elo), ~ . -1500) %&gt;%
+  mutate_at(vars(team_1_elo, team_2_elo), ~ . -1500)
+
+test_data  &lt;- bake(trained_recipe, newdata = testing) %&gt;% 
+  na.omit() %&gt;% 
+  mutate_if(is.logical, as.numeric) %&gt;%
+  mutate_at(vars(contains(&quot;betfair&quot;)), function(x) 1/x) %&gt;%
+  mutate_at(vars(team_1_elo), ~ . -1500) %&gt;%
+  mutate_at(vars(team_1_elo, team_2_elo), ~ . -1500)</code></pre>
+</div>
+</div>
+<div id="modelling" class="section level1">
+<h1>Modelling</h1>
+<p>I’m using the <code>caret</code> package for this. The nice thing about <code>caret</code> is that you can use a very big range of machine learning models and they all use very simplir inputs, functions and outputs, which makes the code consistent. This also allows easy comparison between models.</p>
+<div id="base-model" class="section level2">
+<h2>Base Model</h2>
+<p>Firstly, we want a baseline model to compare our new models to. This is simply taken the number of times team 1 wins, draws and loses across our whole dataset and giving that the odds for each row.</p>
+<pre class="r"><code>base &lt;- train_data %&gt;%
+  dplyr::count(obs) %&gt;%
+  mutate(perc = n/sum(n))
+
+base_test &lt;- test_data %&gt;%
+  mutate(win = base$perc[base$obs == &quot;win&quot;],
+         draw = base$perc[base$obs == &quot;draw&quot;],
+         lose = base$perc[base$obs == &quot;lose&quot;])
+
+logLoss &lt;- mnLogLoss(base_test, lev = c(&quot;win&quot;, &quot;draw&quot;, &quot;lose&quot;))
+mod_results &lt;- data.frame(model = &quot;base&quot;, log_loss = logLoss)
+mod_results</code></pre>
+<pre><code>##         model log_loss
+## logLoss  base 1.185447</code></pre>
+</div>
+<div id="caret-models" class="section level2">
+<h2>Caret Models</h2>
+<p>The rest of my models are all done using Caret. I’ll build these sequentially and store the log loss. Please note that some of these took quite a while to run so be careful if you are following along! (note: I’m saving the models and loading them in my code below to stop them running each time I publish to <code>blogdown</code>)</p>
+<div id="create-control" class="section level3">
+<h3>Create Control</h3>
+<p>One of the things I need to do first is to create a <code>trainControl</code> object. This can be passed to each model to control some of the computational aspects of the <code>train</code> function. A lot of these have been taken from tutorials so I’m guessing a bit. I know that I need <code>classProbs = TRUE</code> and <code>summaryFunction = mnLogLoss</code> to do our logloss function later on.</p>
+<p>The <code>method</code> being equal to “repeatedcv” performs a repeated cross validation proceedure - essentially our training data gets split again into different partitions and then trained/tested on different combinations of those. This in theory helps to prevent overfitting.</p>
+<pre class="r"><code># Create a control function
+train_control &lt;- trainControl(method = &quot;repeatedcv&quot;, 
+                        number = 10,
+                        repeats = 3,
+                        classProbs = TRUE, 
+                        summaryFunction = mnLogLoss,
+                        verboseIter = TRUE)</code></pre>
+</div>
+<div id="single-tree" class="section level3">
+<h3>Single Tree</h3>
+<p>The first one I want to try is a simple classification and regression tree (CART). A lot of tutorials have reccomended these since they are pretty easy to interpret at the end. At the most basic level, these trees are making binary decisions on a data-point over and over again to end up with groups that are somewhat similar. There are various rules and parameters which control what those ‘split’ looks like.</p>
+<p>I’ll be using the <code>rpart</code> method for my CART model.</p>
+<p>Firslty, we can train our model. As I mentioned, the <code>caret</code> package is nice in that it allows a consistant format for applying machine learning algorithms. The training part is all done by the <code>train</code> function and we can pass it our recipe from above.</p>
+<pre class="r"><code># Set path of model
+path &lt;- here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;models&quot;, &quot;rpart.rds&quot;)
+
+# Check if file exists
+if(file.exists(path)){
+  # if so, load it
+  rpart_model &lt;- read_rds(path)
+} else{
+  
+  # Train
+  set.seed(42)
+  rpart_model &lt;- train(trained_recipe, 
+             data = train_data, 
+             method = &quot;rpart&quot;,
+             metric = &quot;logLoss&quot;,
+             trControl = train_control)
+  
+  # Save model
+  write_rds(rpart_model, path)
+}
+
+
+# Print Results
+print(rpart_model)</code></pre>
+<pre><code>## CART 
+## 
+## 8392 samples
+##   22 predictor
+##    3 classes: &#39;draw&#39;, &#39;lose&#39;, &#39;win&#39; 
+## 
+## Recipe steps: knnimpute, nzv, corr, center, scale 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 7553, 7553, 7552, 7552, 7552, 7554, ... 
+## Resampling results across tuning parameters:
+## 
+##   cp           logLoss  
+##   0.005026274  0.9003965
+##   0.012032595  0.9440110
+##   0.199680146  1.0130297
+## 
+## logLoss was used to select the optimal model using the smallest value.
+## The final value used for the model was cp = 0.005026274.</code></pre>
+<p>We can visualise our model below.</p>
+<pre class="r"><code># Plot final model
+rpart.plot::rpart.plot(rpart_model$finalModel)</code></pre>
+<p><img src="/post/2018-06-15-world-cup-datathon-part-4-modelling_files/figure-html/plot_rpart-1.png" width="672" /></p>
+<p>You can see from this ultimately how our model was built - at each step, it asks a binary question (is <code>team_2_betfair_odds &gt; -0.21</code>). If the answer is yes, we move one way and if the answer is no, we move another. Ultimately, each data point ends up in one final box and we then can use the ratio of points that end up in those boxes as our predicted probabilities. Nice and interpretable!</p>
+<p>We can also check variable importance.</p>
+<pre class="r"><code># Plot variable importance
+plot(varImp(rpart_model))</code></pre>
+<p><img src="/post/2018-06-15-world-cup-datathon-part-4-modelling_files/figure-html/varImp_rpart-1.png" width="672" /></p>
+<p>So - let’s test out our model We use the <code>predict.train</code> function on our testing data and again, calculated the logLoss.</p>
+<pre class="r"><code>predictions &lt;- predict.train(object = rpart_model,
+                             test_data,
+                             type = &quot;prob&quot;)
+
+# Add predictions to test set and rename outcome
+rpart_test_set &lt;- test_data %&gt;%
+  bind_cols(predictions) 
+
+
+log_loss &lt;- mnLogLoss(data = rpart_test_set, lev = levels(rpart_test_set$obs))
+mod_results &lt;- mod_results %&gt;%
+  add_row(model = &quot;rpart&quot;, log_loss = log_loss) 
+mod_results</code></pre>
+<pre><code>##   model  log_loss
+## 1  base 1.1854466
+## 2 rpart 0.9397565</code></pre>
+<p>So, an improvement on our base model!</p>
+</div>
+<div id="multinomal" class="section level3">
+<h3>Multinomal</h3>
+<pre class="r"><code># path
+path &lt;- here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;models&quot;, &quot;multinom.rds&quot;)
+
+if(file.exists(path)){
+  multinom_model &lt;- read_rds(path)
+} else{
+  
+  # Train
+  set.seed(42)
+  multinom_model &lt;- train(model_recipe, 
+             data = train_data, 
+             method = &quot;multinom&quot;,
+             metric = &quot;logLoss&quot;,
+             trControl = train_control)
+  
+  # Save model
+  write_rds(multinom_model, path)
+}</code></pre>
+<pre class="r"><code># Print Results
+print(multinom_model)</code></pre>
+<pre><code>## Penalized Multinomial Regression 
+## 
+## 8392 samples
+##   22 predictor
+##    3 classes: &#39;draw&#39;, &#39;lose&#39;, &#39;win&#39; 
+## 
+## Recipe steps: knnimpute, nzv, corr, center, scale 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 7552, 7554, 7552, 7553, 7553, 7553, ... 
+## Resampling results across tuning parameters:
+## 
+##   decay  logLoss  
+##   0e+00  0.7917946
+##   1e-04  0.7917947
+##   1e-01  0.7916624
+## 
+## logLoss was used to select the optimal model using the smallest value.
+## The final value used for the model was decay = 0.1.</code></pre>
+<pre class="r"><code># Plot results
+plot(multinom_model)</code></pre>
+<p><img src="/post/2018-06-15-world-cup-datathon-part-4-modelling_files/figure-html/plot_multinomal-1.png" width="672" /></p>
+<pre class="r"><code># Plot variable importance
+plot(varImp(multinom_model))</code></pre>
+<p><img src="/post/2018-06-15-world-cup-datathon-part-4-modelling_files/figure-html/plot_multinomal-2.png" width="672" /></p>
+<pre class="r"><code>predictions &lt;- predict.train(object = multinom_model,
+                             test_data,
+                             type = &quot;prob&quot;)
+
+# Add predictions to test set and rename outcome
+multinom_test_set &lt;- test_data %&gt;%
+  bind_cols(predictions) 
+
+
+log_loss &lt;- mnLogLoss(data = multinom_test_set, lev = levels(multinom_test_set$obs))
+mod_results &lt;- mod_results %&gt;%
+  add_row(model = &quot;multinom&quot;, log_loss = log_loss) 
+mod_results</code></pre>
+<pre><code>##      model  log_loss
+## 1     base 1.1854466
+## 2    rpart 0.9397565
+## 3 multinom 0.8017141</code></pre>
+</div>
+<div id="random-forest" class="section level3">
+<h3>Random Forest</h3>
+<pre class="r"><code># path
+path &lt;- here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;models&quot;, &quot;rf.rds&quot;)
+
+if(file.exists(path)){
+  rf_model &lt;- read_rds(path)
+} else{
+  
+  # Train
+  set.seed(42)
+  rf_model &lt;- train(model_recipe, 
+             data = train_data, 
+             method = &quot;rf&quot;,
+             metric = &quot;logLoss&quot;,
+             trControl = train_control)
+  
+  # Save model
+  write_rds(rf_model, path)
+}
+print(rf_model)</code></pre>
+<pre><code>## Random Forest 
+## 
+## 8392 samples
+##   22 predictor
+##    3 classes: &#39;draw&#39;, &#39;lose&#39;, &#39;win&#39; 
+## 
+## Recipe steps: knnimpute, nzv, corr, center, scale 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 7552, 7552, 7553, 7553, 7554, 7554, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  logLoss  
+##    2    0.8106982
+##   11    0.8150155
+##   21    0.8178020
+## 
+## logLoss was used to select the optimal model using the smallest value.
+## The final value used for the model was mtry = 2.</code></pre>
+<pre class="r"><code>plot(varImp(rf_model))</code></pre>
+<p><img src="/post/2018-06-15-world-cup-datathon-part-4-modelling_files/figure-html/plot_rf-1.png" width="672" /></p>
+<pre class="r"><code>predictions &lt;- predict.train(object = rf_model,
+                             test_data,
+                             type = &quot;prob&quot;)
+
+# Add predictions to test set and rename outcome
+rf_test_set &lt;- test_data %&gt;%
+  bind_cols(predictions) 
+
+
+log_loss &lt;- mnLogLoss(data = rf_test_set, lev = levels(rf_test_set$obs))
+mod_results &lt;- mod_results %&gt;%
+  add_row(model = &quot;rf&quot;, log_loss = log_loss) 
+mod_results</code></pre>
+<pre><code>##      model  log_loss
+## 1     base 1.1854466
+## 2    rpart 0.9397565
+## 3 multinom 0.8017141
+## 4       rf 0.9977316</code></pre>
+</div>
+<div id="nnet" class="section level3">
+<h3>NNet</h3>
+<pre class="r"><code># path
+path &lt;- here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;models&quot;, &quot;nnet.rds&quot;)
+
+if(file.exists(path)){
+  nnet_model &lt;- read_rds(path)
+} else{
+  
+  # Train
+  set.seed(42)
+  nnet_model &lt;- train(trained_recipe, 
+             data = train_data, 
+             method = &quot;nnet&quot;,
+             metric = &quot;logLoss&quot;,
+             trControl = train_control)
+  
+  # Save model
+  write_rds(nnet_model, path)
+}
+print(nnet_model)</code></pre>
+<pre><code>## Neural Network 
+## 
+## 8392 samples
+##   22 predictor
+##    3 classes: &#39;draw&#39;, &#39;lose&#39;, &#39;win&#39; 
+## 
+## Recipe steps: knnimpute, nzv, corr, center, scale 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 7552, 7552, 7553, 7553, 7554, 7554, ... 
+## Resampling results across tuning parameters:
+## 
+##   size  decay  logLoss  
+##   1     0e+00  1.0134965
+##   1     1e-04  1.0257583
+##   1     1e-01  0.9270230
+##   3     0e+00  1.0007332
+##   3     1e-04  1.0041392
+##   3     1e-01  0.8254596
+##   5     0e+00  0.9235276
+##   5     1e-04  0.9240406
+##   5     1e-01  0.8375559
+## 
+## logLoss was used to select the optimal model using the smallest value.
+## The final values used for the model were size = 3 and decay = 0.1.</code></pre>
+<pre class="r"><code>predictions &lt;- predict.train(object = nnet_model,
+                             test_data,
+                             type = &quot;prob&quot;)
+
+# Add predictions to test set and rename outcome
+nnet_test_set &lt;- test_data %&gt;%
+  bind_cols(predictions) 
+
+
+log_loss &lt;- mnLogLoss(data = nnet_test_set, lev = levels(nnet_test_set$obs))
+mod_results &lt;- mod_results %&gt;%
+  add_row(model = &quot;nnet&quot;, log_loss = log_loss) 
+mod_results</code></pre>
+<pre><code>##      model  log_loss
+## 1     base 1.1854466
+## 2    rpart 0.9397565
+## 3 multinom 0.8017141
+## 4       rf 0.9977316
+## 5     nnet 0.8227981</code></pre>
+</div>
+<div id="gbm" class="section level3">
+<h3>GBM</h3>
+<pre class="r"><code># path
+path &lt;- here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;models&quot;, &quot;gbm.rds&quot;)
+
+if(file.exists(path)){
+  gbm_model &lt;- read_rds(path)
+} else{
+  
+  # Train
+  set.seed(42)
+  gbm_model &lt;- train(model_recipe, 
+             data = train_data, 
+             method = &quot;gbm&quot;,
+             metric = &quot;logLoss&quot;,
+             trControl = train_control)
+  
+  # Save model
+  write_rds(gbm_model, path)
+}
+print(gbm_model)</code></pre>
+<pre><code>## Stochastic Gradient Boosting 
+## 
+## 8392 samples
+##   22 predictor
+##    3 classes: &#39;draw&#39;, &#39;lose&#39;, &#39;win&#39; 
+## 
+## Recipe steps: knnimpute, nzv, corr, center, scale 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 7552, 7553, 7554, 7552, 7552, 7554, ... 
+## Resampling results across tuning parameters:
+## 
+##   interaction.depth  n.trees  logLoss  
+##   1                   50      0.8272544
+##   1                  100      0.8158281
+##   1                  150      0.8117487
+##   2                   50      0.8166239
+##   2                  100      0.8104687
+##   2                  150      0.8099285
+##   3                   50      0.8138282
+##   3                  100      0.8107149
+##   3                  150      0.8135249
+## 
+## Tuning parameter &#39;shrinkage&#39; was held constant at a value of 0.1
+## 
+## Tuning parameter &#39;n.minobsinnode&#39; was held constant at a value of 10
+## logLoss was used to select the optimal model using the smallest value.
+## The final values used for the model were n.trees = 150,
+##  interaction.depth = 2, shrinkage = 0.1 and n.minobsinnode = 10.</code></pre>
+<pre class="r"><code>predictions &lt;- predict.train(object = gbm_model,
+                             test_data,
+                             type = &quot;prob&quot;)
+
+# Add predictions to test set and rename outcome
+gbm_test_set &lt;- test_data %&gt;%
+  bind_cols(predictions) 
+
+
+log_loss &lt;- mnLogLoss(data = gbm_test_set, lev = levels(gbm_test_set$obs))
+mod_results &lt;- mod_results %&gt;%
+  add_row(model = &quot;gbm&quot;, log_loss = log_loss) 
+mod_results</code></pre>
+<pre><code>##      model  log_loss
+## 1     base 1.1854466
+## 2    rpart 0.9397565
+## 3 multinom 0.8017141
+## 4       rf 0.9977316
+## 5     nnet 0.8227981
+## 6      gbm 0.8133952</code></pre>
+<pre class="r"><code>resamps &lt;- resamples(list(rpart = rpart_model,
+                          multinom = multinom_model,
+                          rf = rf_model,
+                          nnet = nnet_model,
+                          gbm = gbm_model))
+summary(resamps)</code></pre>
+<pre><code>## 
+## Call:
+## summary.resamples(object = resamps)
+## 
+## Models: rpart, multinom, rf, nnet, gbm 
+## Number of resamples: 30 
+## 
+## logLoss 
+##               Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NA&#39;s
+## rpart    0.8605094 0.8846441 0.8990964 0.9003965 0.9073154 0.9597021    0
+## multinom 0.7565740 0.7798456 0.7900454 0.7916624 0.8052182 0.8351845    0
+## rf       0.7819237 0.8000864 0.8095692 0.8106982 0.8230059 0.8365349    0
+## nnet     0.7777194 0.7986482 0.8181224 0.8254596 0.8305386 1.0518233    0
+## gbm      0.7730991 0.7963529 0.8100831 0.8099285 0.8204827 0.8604347    0</code></pre>
+<pre class="r"><code>dotplot(resamps, metric = &quot;logLoss&quot;)</code></pre>
+<p><img src="/post/2018-06-15-world-cup-datathon-part-4-modelling_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>So - the two neural nets perform the best of our models. After this, our gradient boosted machine and random forest. The single clasification tree was well behind those.</p>
+<p>Ideally, we’d now spend some time to properly tune our best model - there is a big section in the <code>caret</code> help docs <a href="https://topepo.github.io/caret/model-training-and-tuning.html">on this</a>.</p>
+<p>Unforunately I don’t have time (or expertise) to do this properly. Luckily, Betfair is letting us do 5 submissions so I’m just going to take my 4 best models and use those.</p>
+<p>Let’s load that in and pre-process our dataset using <code>bake</code> and our recipe from earlier.</p>
+<pre class="r"><code>world_cup &lt;- read_csv(here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;world-cup-cleaned.csv&quot;))
+
+world_cup &lt;- world_cup %&gt;%
+  mutate_at(vars(contains(&quot;betfair&quot;)), as.numeric) %&gt;%
+  mutate_at(vars(tournament_cat), as.factor) 
+
+world_cup_data &lt;- bake(trained_recipe, newdata = world_cup) %&gt;% 
+  mutate_if(is.logical, as.numeric) %&gt;%
+  mutate_at(vars(contains(&quot;betfair&quot;)), function(x) 1/x) %&gt;%
+  mutate_at(vars(team_1_elo, team_2_elo), ~ . -1500)</code></pre>
+<p>Now we can take each of models, do a prediction and write them out to CSV’s. Those have to have a really specific format so I’ll select and change a few column names.</p>
+<pre class="r"><code># List models
+models &lt;- list(rf_model, gbm_model, rpart_model, multinom_model, nnet_model)
+
+# Create CSV file names
+models_csv &lt;- models %&gt;%
+  map(~ str_replace_all(.$modelInfo$label, &quot; &quot;, &quot;&quot;)) %&gt;%
+  map(~ paste0(&quot;james_day_&quot;, ., &quot;.csv&quot;)) %&gt;%
+  map(~ here::here(&quot;projects&quot;, &quot;world-cup-2018&quot;, &quot;submissions&quot;, .))
+    
+
+# Take models, do predictions, tidy columns and write out csvs
+models %&gt;%
+  map(~ predict.train(object = ., world_cup_data, type = &quot;prob&quot;)) %&gt;%
+  map(bind_cols, world_cup) %&gt;%
+  map(. %&gt;%
+        rename_at(vars(c(win, lose, draw)), function(x) paste0(&quot;prob_team_1_&quot;, x)) %&gt;%
+        mutate_at(vars(c(team_1, team_2)), tolower) %&gt;%
+        select(date, match_id, team_1, team_2, prob_team_1_win, prob_team_1_draw, prob_team_1_lose)
+      ) %&gt;%
+  walk2(models_csv, ~write_csv(.x, .y))</code></pre>
+<p>This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.</p>
+<p><a href="https://plussixoneblog.com/page/project-world-cup-datathon/">Project Page</a><br />
+<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-1">Part 1 - Intro</a><br />
+<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-2">Part 2 - Data Acquisition</a><br />
+<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-3">Part 3 - Data Exploration and Feature Engineering</a><br />
+<a href="https://plussixoneblog.com/post/football-world-cup-datathon-part-4">Part 4 - Models (coming soon)</a><br />
+Part 5 - Review (coming soon)</p>
+</div>
+</div>
+</div>
+
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="/post/aflm-round-13-preview/" data-toggle="tooltip" data-placement="top" title="AFLM - Round 13 preview">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="/post/afl-mens-round-14-preview/" data-toggle="tooltip" data-placement="top" title="AFL Mens - Round 14 Preview">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "plussixone" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:jamesthomasday@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/plussixoneblog" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jimmyday12" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/plusSixOneblog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/james-day-ab648321" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="plussixoneblog.com">James Day</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/">plusSixOne</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+  </body>
+</html>
+

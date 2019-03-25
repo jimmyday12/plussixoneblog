@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aflw on plusSixOne</title>
+    <link>/categories/aflw/</link>
+    <description>Recent content in Aflw on plusSixOne</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
+    <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
+    <lastBuildDate>Tue, 27 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/aflw/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AFLW - Coming soon</title>
+      <link>/page/aflw-coming-soon/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/page/aflw-coming-soon/</guid>
+      <description>For those looking for AFLW content - hang tight! Unfortunately, due to the new nature of AFLW, data is hard to come by. I managed in the first season by manually adding data after each game but this is not feasible. I’m hoping, with help from anoafl, to add some data scraping into our newly released fitzRoy package. Details on that can be found here</description>
+    </item>
+    
+  </channel>
+</rss>

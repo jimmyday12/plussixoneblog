@@ -73,7 +73,7 @@ venue_fix <- function(x){
     x == "TIO Stadium" ~ "Marrara Oval",
     x == "Optus Stadium" ~ "Perth Stadium",
     x == "Canberra Oval" ~ "Manuka Oval",
-    x == "UNSW Canberra Oval" ~ "Manuka Oval"
+    x == "UNSW Canberra Oval" ~ "Manuka Oval",
     TRUE ~ as.character(x)
   )
 }
