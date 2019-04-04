@@ -7,6 +7,7 @@ library(pacman)
 pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
+season <- 2019
 
 # Set Parameters
 e <- 1.7
@@ -299,6 +300,7 @@ past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 
 # Bind with last entry
 sim_data_summary <- past_sims$sim_data_summary %>%
+  filter(Season == season) %>%
   filter(Round != last(results$Round.Number)) %>%
   bind_rows(sim_data_summary)
 

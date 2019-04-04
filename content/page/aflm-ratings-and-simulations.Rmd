@@ -111,8 +111,6 @@ In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season
 Firstly, we have each team's chance of making finals displayed across the season. 
 
 ```{r sims-teams, echo=FALSE, message=FALSE, warning=FALSE}
-
-
 sims <- sim_dat_list$sim_data_summary %>%
   mutate(Top.8.label = ifelse(Round == max(Round), percent(Top.8), ""))
 
