@@ -18,7 +18,7 @@ B <- 0.04
 sim_num <- 10000
 
 # Get Data ----------------------------------------------------------------
-filt_date <- Sys.Date() 
+filt_date <- Sys.Date() - 1
 # Get fixture data using FitzRoy
 fixture <- fitzRoy::get_fixture() %>%
   filter(Date > filt_date) %>%
@@ -203,16 +203,18 @@ predictions_raw <- fixture %>%
     Day = format(Date, "%a, %d"),
     Time = format(Date, "%H:%M"),
     Probability = round(predict(elo.data, newdata = fixture), 3),
-    Prediction = ceiling(map_outcome_to_margin(Probability, B = B)),
+    Prediction = round(map_outcome_to_margin(Probability, B = B), 1),
     Result = case_when(
-      Probability > 0.5 ~ paste(Home.Team, "by", Prediction),
-      Probability < 0.5 ~ paste(Away.Team, "by", -Prediction),
+      Probability > 0.5 ~ paste(Home.Team, "by", round(Prediction, 0)),
+      Probability < 0.5 ~ paste(Away.Team, "by", -round(Prediction, 0)),
       TRUE ~ "Draw"
     )
   ) 
 
 
-predictions <- predictions_raw %>% select(Day, Time, Round.Number, Venue, Home.Team, Away.Team, Prediction, Probability, Result)
+predictions <- predictions_raw %>% 
+  select(Day, Time, Round.Number, Venue, Home.Team, 
+         Away.Team, Prediction, Probability, Result)
 predictions
 # Simulation --------------------------------------------------------------
 sim_res <- results %>%
