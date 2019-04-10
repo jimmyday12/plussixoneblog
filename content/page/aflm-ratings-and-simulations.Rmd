@@ -114,12 +114,24 @@ Firstly, we have each team's chance of making finals displayed across the season
 sims <- sim_dat_list$sim_data_summary %>%
   mutate(Top.8.label = ifelse(Round == max(Round), percent(Top.8), ""))
 
+# Add blanks for next few rounds
+current_round <- max(sims$Round)
+teams <- unique(sims$Team)
+
+remaining_rounds <- tibble(
+  Team = rep(teams, each = 23 - current_round),
+  Round = rep((current_round + 1):23, length(teams))
+)
+
+sims <- bind_rows(sims, remaining_rounds)
+
 subt <- paste(
   "Percent chance of making finals by round for each team"
 )
 
 sims %>%
   ggplot(aes(x = Round, y = Top.8, color = Team, label = Top.8.label)) +
+  geom_point(size = 0.5) + 
   geom_line() +
   #geom_text(data = filter(sims, Round == max(Round)), position = position_dodge(width = 1),  size = 3) +
   geom_text_repel(size = 3, label.padding = 10,  segment.color = 'transparent') +
