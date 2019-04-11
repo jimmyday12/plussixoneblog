@@ -237,6 +237,7 @@ perturb_elos <- function(x) {
   } # function to map over
 
 # Do simulations
+#sims <- 1:5
 sims <- 1:sim_num
 
 res <- sims %>%
