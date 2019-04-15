@@ -4,7 +4,8 @@ ptm <- proc.time()
 # preamble ----------------------------------------------------------------
 # Load libraries
 library(pacman)
-pacman::p_load(fitzRoy, tidyverse, elo, here, lubridate, tibbletime)
+library(fitzRoy)
+pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2019
