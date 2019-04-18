@@ -9,7 +9,7 @@ categories:
 tags: []
 ---
 
-Welcome to our all new AFL Men's ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I'll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter! 
+Welcome to our all new AFL Men's ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I'll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 
 Last updated: `r Sys.Date()`.
 
@@ -41,6 +41,7 @@ Below are the updated AFL Men's ratings and simulations. These are based off our
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Get the round data
 elo_round <- dat_list$elo %>%
+  group_by(Team) %>%
   filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
 
 sim_round <- sim_dat_list$sim_data_summary %>%

@@ -1,6 +1,11 @@
 # Script to run weekly updating of data, ratings simulations and predictions. Data should be saved into github for us by blog.
 ptm <- proc.time()
 
+filt_date <- Sys.Date()
+
+fixture <- fitzRoy::get_fixture() %>%
+  filter(Date >= filt_date)
+
 # preamble ----------------------------------------------------------------
 # Load libraries
 library(pacman)
@@ -9,6 +14,7 @@ pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2019
+
 
 # Set Parameters
 e <- 1.7
@@ -20,10 +26,9 @@ B <- 0.04
 sim_num <- 10000
 
 # Get Data ----------------------------------------------------------------
-filt_date <- Sys.Date() - 1
+
 # Get fixture data using FitzRoy
-fixture <- fitzRoy::get_fixture() %>%
-  filter(Date > filt_date) %>%
+fixture <- fixture %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
@@ -103,7 +108,8 @@ map_outcome_to_margin <- function(outcome, B) {
 # Function to calculate k (how much weight we add to each result)
 calculate_k <- function(margin, k_val, round) {
   mult <- (log(abs(margin) + 1) - log(round))
-  k_val * ifelse(mult <= 0, 1, mult)
+  x <- k_val * ifelse(mult <= 0, 1, mult)
+  ifelse(x < k_val, k_val, x)
 }
 
 # Not using: function to calculate HGA adjust
@@ -198,7 +204,8 @@ message("ELO Run")
 # Predictions -------------------------------------------------------------
 # Do predictions
 fixture <- game_dat %>%
-  filter(Date > filt_date)
+  filter(Date >= filt_date)
+
 
 predictions_raw <- fixture %>%
   mutate(
