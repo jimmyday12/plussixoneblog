@@ -1,16 +1,19 @@
 # Script to run weekly updating of data, ratings simulations and predictions. Data should be saved into github for us by blog.
 ptm <- proc.time()
 
+
+# preamble ----------------------------------------------------------------
+# Load libraries
+library(fitzRoy)
+library(pacman)
+pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
+
+
 filt_date <- Sys.Date()
 
 fixture <- fitzRoy::get_fixture() %>%
   filter(Date >= filt_date)
 
-# preamble ----------------------------------------------------------------
-# Load libraries
-library(pacman)
-library(fitzRoy)
-pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2019
