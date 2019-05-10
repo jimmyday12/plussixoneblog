@@ -312,8 +312,9 @@ past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 
 # Bind with last entry
 sim_data_summary <- past_sims$sim_data_summary %>%
-  filter(Season == season) %>%
-  filter(Round != last(results$Round.Number)) %>%
+  #filter(Season == season) %>%
+  filter(Round != last(results$Round.Number)  & 
+           Season != last(results$Season)) %>%
   bind_rows(sim_data_summary)
 
 # Print to console
@@ -323,6 +324,51 @@ sim_data_summary %>%
 # MEssage
 print(proc.time() - ptm)
 ("Sims done")
+
+# Count finishing position probability ------------------------------------
+# Get Table of percentages
+simCount <-
+  sim_data_all %>%
+  ungroup() %>%
+  select(Team, Rank) %>%
+  table() %>%
+  as.data.frame() %>%
+  group_by(Team) %>%
+  mutate(Freq = Freq/sim_num * 100) 
+
+simCount$Freq[simCount$Freq == 0] <- NA
+
+## Reorder table by number of wins
+# Find order of wins
+simWins <- 
+  sim_data_summary %>%
+  filter(Round == max(Round)) %>%
+  arrange(Wins)
+
+# Refactor
+simCount$Team <- factor(simCount$Team, levels = simWins$Team)
+
+# Get rankings within team
+simCount <- simCount %>% 
+  group_by(Team) %>% 
+  mutate(order = dense_rank(desc(Freq)),
+         txt = case_when(
+           Freq < 1 ~ "<1", 
+           Freq > 1 ~ as.character(round(Freq, 0)), 
+           TRUE ~ "")) %>%
+  arrange(Team, order) 
+
+# Add current margin/year
+simCount <- simCount %>%
+  mutate(Season = last(sim_data_summary$Season),
+         Round = last(sim_data_summary$Round))
+
+# Combine with saved
+simCount <- past_sims$simCount %>%
+  #filter(Season == season) %>%
+  filter(Round != last(results$Round.Number)  & 
+           Season != last(results$Season)) %>%
+  bind_rows(simCount)
 
 # Save Data ---------------------------------------------------------------
 # Create list
@@ -334,7 +380,8 @@ aflm_data <- list(
 
 aflm_sims <- list(
   sim_data_summary = sim_data_summary,
-  sim_data_all = sim_data_all
+  sim_data_all = sim_data_all,
+  simCount = simCount
 )
 
 # Save
@@ -342,6 +389,7 @@ write_rds(aflm_data, path = here::here("data", "raw-data", "AFLM.rds"), compress
 write_rds(aflm_sims, path = here::here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
 write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
 write_csv(aflm_sims$sim_data_summary, path = here::here("data", "raw-data", "AFLM_sims_summary.csv"))
+write_csv(aflm_sims$simCount, path = here::here("data", "raw-data", "AFLM_sims_positions.csv"))
 
 # Message
 print(proc.time() - ptm)
