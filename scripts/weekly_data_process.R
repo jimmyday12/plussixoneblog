@@ -312,9 +312,8 @@ past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 
 # Bind with last entry
 sim_data_summary <- past_sims$sim_data_summary %>%
-  #filter(Season == season) %>%
-  filter(Round != last(results$Round.Number)  & 
-           Season != last(results$Season)) %>%
+  filter(!(Round == last(results$Round.Number)  & 
+             Season == last(results$Season))) %>%
   bind_rows(sim_data_summary)
 
 # Print to console
@@ -364,11 +363,13 @@ simCount <- simCount %>%
          Round = last(sim_data_summary$Round))
 
 # Combine with saved
+if ("simCount" %in% names(past_sims)) {
 simCount <- past_sims$simCount %>%
   #filter(Season == season) %>%
-  filter(Round != last(results$Round.Number)  & 
-           Season != last(results$Season)) %>%
+  filter(!(Round == last(results$Round.Number)  & 
+           Season == last(results$Season))) %>%
   bind_rows(simCount)
+}
 
 # Save Data ---------------------------------------------------------------
 # Create list

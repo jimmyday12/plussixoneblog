@@ -45,6 +45,7 @@ elo_round <- dat_list$elo %>%
   filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
 
 sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Season == max(Season)) %>%
   filter(Round == last(dat_list$elo$Round.Number))
 
 # Combine Simulation and ELO data
@@ -113,6 +114,7 @@ Firstly, we have each team's chance of making finals displayed across the season
 
 ```{r sims-teams, echo=FALSE, message=FALSE, warning=FALSE}
 sims <- sim_dat_list$sim_data_summary %>%
+  filter(Season == max(Season)) %>%
   mutate(Top.8.label = ifelse(Round == max(Round), percent(Top.8), ""))
 
 # Add blanks for next few rounds
@@ -181,21 +183,13 @@ And below we show the probability of each team finishing at each ladder position
 sims <- 10000
 
 # Get Table of percentages
-simCount <-
-  sim_dat_list$sim_data_all %>%
-  ungroup() %>%
-  select(Team, Rank) %>%
-  table() %>%
-  as.data.frame() %>%
-  group_by(Team) %>%
-  mutate(Freq = Freq/sims * 100) 
-
-simCount$Freq[simCount$Freq == 0] <- NA
+simCount <- sim_dat_list$simCount
 
 ## Reorder table by number of wins
 # Find order of wins
 simWins <- 
   sim_dat_list$sim_data_summary %>%
+  filter(Season == max(Season)) %>%
   filter(Round == max(Round)) %>%
   arrange(Wins)
 
