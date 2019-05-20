@@ -183,7 +183,9 @@ And below we show the probability of each team finishing at each ladder position
 sims <- 10000
 
 # Get Table of percentages
-simCount <- sim_dat_list$simCount
+simCount <- sim_dat_list$simCount %>%
+    filter(Season == max(Season)) %>%
+  filter(Round == max(Round))
 
 ## Reorder table by number of wins
 # Find order of wins
