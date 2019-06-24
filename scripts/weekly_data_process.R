@@ -395,3 +395,5 @@ write_csv(aflm_sims$simCount, path = here::here("data", "raw-data", "AFLM_sims_p
 # Message
 print(proc.time() - ptm)
 message("Data saved")
+
+blogdown:::serve_site()
