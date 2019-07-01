@@ -1,0 +1,169 @@
+---
+title: Round 16 AFLM Predictions
+author: James Day
+date: '2019-07-01'
+slug: round-16-aflm-predictions
+categories:
+  - AFLM
+tags: []
+subtitle: ''
+---
+
+Hi team,
+
+See the tips for *round 16* of the AFL Men's comp below, as well as some simulation results. 
+
+You can always receive my live, up to date tips [here](https://plussixoneblog.com/page/aflm-current-tips/) and my simulations  [here](https://plussixoneblog.com/page/aflm-ratings-and-simulations/) regardless of the timing or existance of this weekly post! 
+
+And reach out on [Twitter](https://twitter.com/plusSixOneblog) if you have any thoughts or questions.
+
+Enjoy and happy tipping :) 
+
+## Tips
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+round_1 <- FALSE
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+round_num <- ifelse(round_1, 1, last(dat_list$elo$Round.Number + 1))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == round_num) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
+
+## Ratings
+
+```{r get data, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, ggrepel, 
+               widgetframe, ggridges, DT, scales)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Season == max(Season)) %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+```
+
+```{r formattable, echo=FALSE, message=FALSE, warning=FALSE}
+# Write to formattable with some formatting
+dt_elo <- elo_table %>%
+  formattable(list(
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = formatter(
+      "span",
+      style = ~ style(color = ifelse(ELO.change >= 0, "green", "red"))
+    ),
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>%
+  as.datatable(options = list(dom = "t", pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = "95%")
+```
+
+## Simulations
+
+And below we show the probability of each team finishing at each ladder position in a heatmap. 
+```{r sim_code, message=FALSE, warning=FALSE, include=FALSE}
+sims <- 10000
+
+# Get Table of percentages
+simCount <- sim_dat_list$simCount %>%
+    filter(Season == max(Season)) %>%
+  filter(Round == max(Round))
+
+## Reorder table by number of wins
+# Find order of wins
+simWins <- 
+  sim_dat_list$sim_data_summary %>%
+  filter(Season == max(Season)) %>%
+  filter(Round == max(Round)) %>%
+  arrange(Wins)
+
+# Refactor
+simCount$Team <- factor(simCount$Team, levels = simWins$Team)
+
+# Get rankings within team
+simCount <- simCount %>% 
+  group_by(Team) %>% 
+  mutate(order = dense_rank(desc(Freq)),
+         txt = case_when(
+           Freq < 1 ~ "<1", 
+           Freq > 1 ~ as.character(round(Freq, 0)), 
+           TRUE ~ "")) %>%
+  arrange(Team, order)
+
+# Define Quantiles
+quant <- quantile(simCount$Freq, na.rm = T)
+
+```
+
+```{r sim_plotr, echo=FALSE, message=FALSE, warning=FALSE}
+# Plot
+ggplot(simCount, aes(x = Rank, y = Team)) +
+  geom_tile(aes(fill = Freq)) +
+  scale_fill_gradientn(colours = c("#ECECEC", "#ffffcc", "#bd0026"),
+                       values = rescale(c(quant["0%"], quant["25%"], quant["100%"])),
+                       na.value = "white") +
+  geom_text(aes(label = txt, alpha = 0.5)) +
+  scale_x_discrete(position = "top") +
+  theme_minimal() + 
+  guides(alpha = F, fill = F) + 
+  labs(title = "AFL Mens Finishing Position",
+       subtitle = "Probability of each team finishing in each ladder position",
+       caption = "data sourced from afltables.com")
+
+```
