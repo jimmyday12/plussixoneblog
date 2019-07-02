@@ -257,9 +257,11 @@ res <- sims %>%
 message("Simulating")
 
 # Now simulate
-sim_data <- sims %>%
+sim_elo_perterbed <- sims %>%
   rep_along(list(elo.data)) %>%
-  map(perturb_elos) %>%
+  map(perturb_elos) 
+
+sim_data <- sim_elo_perterbed %>%
   map(~elo.prob(form, data = remaining_fixture, elos = .x)) %>%
   map2_df(sims, ~mutate(
     remaining_fixture, Probability = .x,
@@ -370,6 +372,9 @@ simCount <- past_sims$simCount %>%
            Season == last(results$Season))) %>%
   bind_rows(simCount)
 }
+
+# Finals Sims -------------------------------------------------------------
+# source finals sims
 
 # Save Data ---------------------------------------------------------------
 # Create list
