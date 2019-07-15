@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Tue, 09 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Round 18 AFLM Predictions</title>
+      <link>/post/round-18-aflm-predictions/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-18-aflm-predictions/</guid>
+      <description>Hi team,
+See the tips for round 18 of the AFL Men’s comp below, as well as some simulation results.
+You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
+And reach out on Twitter if you have any thoughts or questions.
+Enjoy and happy tipping :)
+Tips   Day  Venue  Home.</description>
+    </item>
     
     <item>
       <title>Round 17 AFLM Predictions</title>
@@ -503,7 +517,7 @@ Footy Wire
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Fri, 12  Perth Stadium  West Coast   Collingwood   6.</description>
+  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Fri, 19  Adelaide Oval  Adelaide   Essendon   11.</description>
     </item>
     
     <item>
@@ -522,7 +536,7 @@ Footy Wire
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-ratings-and-simulations/</guid>
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-Last updated: 2019-07-09.
+Last updated: 2019-07-15.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
     </item>
     
