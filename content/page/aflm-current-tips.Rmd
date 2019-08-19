@@ -5,7 +5,7 @@ date: '2018-03-27'
 slug: aflm-current-tips
 categories:
   - AFLM
-  - Predictions
+  - Prediction
 tags: []
 ---
 

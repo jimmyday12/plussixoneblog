@@ -1,19 +1,10 @@
 Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-"Fri, 16",00:00,22,M.C.G.,Melbourne,Sydney,3.2,0.532,Melbourne by 3
-"Sat, 17",00:00,22,M.C.G.,Carlton,St Kilda,0.6,0.506,Carlton by 1
-"Sat, 17",00:00,22,Gabba,Brisbane Lions,Geelong,-10.8,0.394,Geelong by 11
-"Sat, 17",00:00,22,Adelaide Oval,Adelaide,Collingwood,3.9,0.539,Adelaide by 4
-"Sat, 17",00:00,22,Perth Stadium,Fremantle,Essendon,5.4,0.554,Fremantle by 5
-"Sat, 17",00:00,22,Docklands,North Melbourne,Port Adelaide,-0.6,0.494,Port Adelaide by 1
-"Sun, 18",00:00,22,M.C.G.,Richmond,West Coast,6.4,0.564,Richmond by 6
-"Sun, 18",00:00,22,Blacktown,GWS,Footscray,17.3,0.666,GWS by 17
-"Sun, 18",00:00,22,Docklands,Hawthorn,Gold Coast,33.7,0.794,Hawthorn by 34
-"Fri, 23",00:00,23,M.C.G.,Collingwood,Essendon,12.5,0.622,Collingwood by 12
-"Sat, 24",00:00,23,S.C.G.,Sydney,St Kilda,16.9,0.663,Sydney by 17
-"Sat, 24",00:00,23,Bellerive Oval,North Melbourne,Melbourne,7.4,0.573,North Melbourne by 7
-"Sat, 24",00:00,23,Kardinia Park,Geelong,Carlton,32.2,0.784,Geelong by 32
-"Sat, 24",00:00,23,Perth Stadium,West Coast,Hawthorn,13.1,0.628,West Coast by 13
-"Sat, 24",00:00,23,Carrara,Gold Coast,GWS,-22.6,0.288,GWS by 23
-"Sun, 25",00:00,23,Eureka Stadium,Footscray,Adelaide,2.3,0.523,Footscray by 2
-"Sun, 25",00:00,23,M.C.G.,Richmond,Brisbane Lions,8.9,0.588,Richmond by 9
-"Sun, 25",00:00,23,Adelaide Oval,Port Adelaide,Fremantle,18.2,0.674,Port Adelaide by 18
+"Fri, 23",00:00,23,M.C.G.,Collingwood,Essendon,13,0.627,Collingwood by 13
+"Sat, 24",00:00,23,S.C.G.,Sydney,St Kilda,18.4,0.676,Sydney by 18
+"Sat, 24",00:00,23,Bellerive Oval,North Melbourne,Melbourne,10.4,0.603,North Melbourne by 10
+"Sat, 24",00:00,23,Kardinia Park,Geelong,Carlton,31.6,0.78,Geelong by 32
+"Sat, 24",00:00,23,Perth Stadium,West Coast,Hawthorn,12.6,0.623,West Coast by 13
+"Sat, 24",00:00,23,Carrara,Gold Coast,GWS,-21.3,0.299,GWS by 21
+"Sun, 25",00:00,23,Eureka Stadium,Footscray,Adelaide,5.6,0.556,Footscray by 6
+"Sun, 25",00:00,23,M.C.G.,Richmond,Brisbane Lions,8.6,0.585,Richmond by 9
+"Sun, 25",00:00,23,Adelaide Oval,Port Adelaide,Fremantle,17.3,0.666,Port Adelaide by 17
