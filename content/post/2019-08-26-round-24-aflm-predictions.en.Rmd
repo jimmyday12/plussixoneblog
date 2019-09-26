@@ -1,0 +1,119 @@
+---
+title: 2019 Grand Final AFLM Predictions
+author: James Day
+date: '2019-09-26'
+slug: round-27-aflm-predictions
+categories:
+  - AFLM
+tags: []
+subtitle: ''
+---
+
+Hi team,
+
+Apologies for my lack of tipping during finals - I've been away honeymooning without a computer! See the tips for *the Grand Final* of the AFL Men's comp below, as well as some simulation results. 
+
+You can always receive my live, up to date tips [here](https://plussixoneblog.com/page/aflm-current-tips/) and my simulations  [here](https://plussixoneblog.com/page/aflm-ratings-and-simulations/) regardless of the timing or existance of this weekly post! 
+
+And reach out on [Twitter](https://twitter.com/plusSixOneblog) if you have any thoughts or questions.
+
+Enjoy and happy tipping :) 
+
+## Tips
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, 
+               widgetframe, ggridges, DT)
+
+round_1 <- FALSE
+finals <- TRUE
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+
+round_num <- case_when(round_1 ~ 1,
+          finals ~ last(dat_list$elo$Round.Number + 1) + 1,
+          TRUE ~ last(dat_list$elo$Round.Number + 1))
+
+# Get predictions for current round and present as table
+dat_list$predictions %>%
+  filter(Round.Number == round_num) %>%
+  select(-Time, -Round.Number) %>%
+  mutate_at("Probability", formattable::percent, digits = 1) %>%
+  formattable(list(
+    Home.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability >= 0.501, "bold", NA))
+    ),
+    Away.Team = formatter(
+      "span", style =
+        ~ style("font-weight" = ifelse(Probability <= 0.499, "bold", NA))
+    )
+  ))
+```
+
+## Ratings
+
+```{r get data, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+# Load libraries
+library(pacman)
+pacman::p_load(fitzRoy, tidyverse, formattable, 
+               ggthemes, elo, here, lubridate, ggrepel, 
+               widgetframe, ggridges, DT, scales)
+
+# Load data that has been run using 'weekly_data_process.R'
+dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
+sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Get the round data
+elo_round <- dat_list$elo %>%
+  filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
+
+sim_round <- sim_dat_list$sim_data_summary %>%
+  filter(Season == max(Season)) %>%
+  filter(Round == last(dat_list$elo$Round.Number))
+
+# Combine Simulation and ELO data
+elo_table <- elo_round %>%
+  left_join(sim_round, by = "Team") %>%
+  ungroup() %>%
+  mutate(ELO.change = ELO - ELO_pre) %>%
+  mutate_at(c("Top.8", "Top.4", "Top.1"), formattable::percent, digits = 1) %>%
+  mutate_at(c("ELO", "ELO.change"), as.integer) %>%
+  mutate_at("Wins", round, 1) %>%
+  select(Team, ELO, ELO.change, Wins, Top.8, Top.4, Top.1) %>%
+  arrange(desc(Wins))
+```
+
+```{r formattable, echo=FALSE, message=FALSE, warning=FALSE}
+# Write to formattable with some formatting
+dt_elo <- elo_table %>%
+  formattable(list(
+    ELO = normalize_bar("#20B2AA80"),
+    ELO.change = formatter(
+      "span",
+      style = ~ style(color = ifelse(ELO.change >= 0, "green", "red"))
+    ),
+    Top.8 = color_tile("transparent", "lightblue"),
+    Top.4 = color_tile("transparent", "lightblue"),
+    Top.1 = color_tile("transparent", "lightblue")
+  )) %>%
+  as.datatable(options = list(dom = "t", pageLength = 18))
+
+frameWidget(dt_elo, height = 700, width = "95%")
+```
+

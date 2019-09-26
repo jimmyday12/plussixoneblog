@@ -33,6 +33,7 @@ pacman::p_load(fitzRoy, tidyverse, formattable,
 # Load data that has been run using 'weekly_data_process.R'
 dat_list <- read_rds(here::here("data", "raw-data", "AFLM.rds"))
 sim_dat_list <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
+finals <- TRUE
 ```
 
 ## Summary
@@ -113,6 +114,9 @@ In order to get our Top 8, Top 4 and Top 1 probabilities, we simulate the season
 Firstly, we have each team's chance of making finals displayed across the season. 
 
 ```{r sims-teams, echo=FALSE, message=FALSE, warning=FALSE}
+if (!finals) {
+  
+
 sims <- sim_dat_list$sim_data_summary %>%
   filter(Season == max(Season)) %>%
   mutate(Top.8.label = ifelse(Round == max(Round), percent(Top.8), ""))
@@ -147,6 +151,7 @@ sims %>%
     subtitle = "Each team's chance of making finals over the season, with their current probability displayed",
     caption = "data sourced from afltables.com"
   )
+}
 ```
 
 The following plot shows a ridgegraph of the number of wins of each team in those simulations. 

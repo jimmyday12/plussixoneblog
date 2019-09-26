@@ -8,8 +8,13 @@ sim_ladder <- sim_data_all %>%
   select(Sim, Team, Rank) %>%
   group_split()
 
+# Week 1 -----------------------------------------------------------------------
+# For each simmed season - get latest ELO and rolling stats
+# 
+
+# Step - get fixture then get simmed results then get actual results
 # Fixture - week 1
-finals <- tibble(
+finals_fixture <- tibble(
   Season = last(game_dat$Season),
   Finals_week = 1,
   Game = (last(game_dat$Game)+1):(last(game_dat$Game)+4),
@@ -18,6 +23,24 @@ finals <- tibble(
   Away.Team = sim_ladder[[1]]$Team[c(4,3,8,6)],
   Venue = ""
 )
+
+# simmed results
+simmed_results <- sim_data %>%
+  split(sim_data$Sim)
+
+# actual results 
+actual_results <- results
+
+# bind
+season_results <- simmed_results %>%
+  purrr::map(~bind_rows(actual_results, .x))
+
+
+finals_game_dat <- bind_rows(results, finals) %>%
+  mutate(Game = row_number()) %>%
+  ungroup() %>%
+  mutate(Venue = venue_fix(Venue)) %>%
+  mutate(Round = Round.Number)
 
 
 game_dat_long <- game_dat %>%
