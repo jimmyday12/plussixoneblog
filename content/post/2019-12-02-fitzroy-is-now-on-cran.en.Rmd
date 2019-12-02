@@ -1,0 +1,14 @@
+---
+title: fitzRoy is now on CRAN!
+author: James Day
+date: '2019-12-02'
+slug: fitzroy-is-now-on-cran
+categories: []
+tags: []
+subtitle: ''
+---
+
+Just a quick note to confirm that fitzRoy is now on CRAN! You can see it [here](https://cran.r-project.org/web/packages/fitzRoy/index.html). Release notes for this v0.2.0 can be seen [here](https://jimmyday12.github.io/fitzRoy/news/index.html). 
+
+Make sure you read the [getting started guide](https://jimmyday12.github.io/fitzRoy/articles/mens-stats.html) and reach out on github if you have any feedback! 
+

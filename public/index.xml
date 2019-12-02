@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Thu, 26 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fitzRoy is now on CRAN!</title>
+      <link>/post/fitzroy-is-now-on-cran/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/fitzroy-is-now-on-cran/</guid>
+      <description>Just a quick note to confirm that fitzRoy is now on CRAN! You can see it here. Release notes for this v0.2.0 can be seen here.
+Make sure you read the getting started guide and reach out on github if you have any feedback!</description>
+    </item>
     
     <item>
       <title>2019 Grand Final AFLM Predictions</title>
