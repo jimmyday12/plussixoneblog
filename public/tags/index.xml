@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on plusSixOne</title>
@@ -7,31 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Mar 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>example</title>
-      <link>/tags/example/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/tags/example/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>photoswipe</title>
-      <link>/tags/photoswipe/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/tags/photoswipe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bigimg</title>
+      <title>Bigimg</title>
       <link>/tags/bigimg/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
@@ -40,11 +22,29 @@
     </item>
     
     <item>
-      <title>math</title>
+      <title>Example</title>
+      <link>/tags/example/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/tags/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
       <link>/tags/math/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photoswipe</title>
+      <link>/tags/photoswipe/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/tags/photoswipe/</guid>
       <description></description>
     </item>
     

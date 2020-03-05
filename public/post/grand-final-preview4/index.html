@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.30" />
   <link rel="canonical" href="/post/grand-final-preview4/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,16 +82,12 @@
     </div>
 </div>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-77406420-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -233,45 +229,53 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>So we enter our final round of the year with a tantalising matchup between the long-suffering Bulldogs and the über consistent Swans. It is fair to say that the two teams have had very different paths to the finals - the Swans finishing minor premiers and being high up in our rankings all year. The Dogs never really climbed much higher than 6th in our rankings all year and have battle both injury and variable form.</p>
-<!-- raw HTML omitted -->
+        
+
+<p>So we enter our final round of the year with a tantalising matchup between the long-suffering Bulldogs and the über consistent Swans. It is fair to say that the two teams have had very different paths to the finals - the Swans finishing minor premiers and being high up in our rankings all year. The Dogs never really climbed much higher than 6th in our rankings all year and have battle both injury and variable form.</p>
+
+<!-- more -->
+
 <h2 id="the-path-to-glory">The path to glory</h2>
+
 <p>How different were these paths? Below, I&rsquo;ve plotted both teams ELO rating throughout the season. We can clearly see that the Swans have built from about halfway through the year to emerge as the team our ELO model is most impressed with. On the contrary, the Bulldogs 2nd half to the season has been one of constant decline, losing ELO points nearly every week up until finals. What I find interesting is that the two teams were basically even at Round 12, with only 4 rating points separating them!</p>
+
 <p>Also interesting is the sharp uptick for the Bulldogs in September. This clearly shows their performance in finals has been extraordinary and above expectation. It also perhaps suggests that they are hitting form at the right time of year (although our prior expectation is still that they are not as strong as Sydney)[ref]as a side note, I&rsquo;ve decided to include my <code>R code</code> for those following along. It isn&rsquo;t &lsquo;reproducible&rsquo; as such as I&rsquo;ve got a few custom functions that I&rsquo;m calling but I&rsquo;m hoping to get to that point by creating an AFL package that I can share![/ref]</p>
 <div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Create tag for the two GF teams</span>
-<span class="n">dat</span> <span class="o">&lt;-</span> <span class="n">dat</span> <span class="o">%&gt;%</span>
-        <span class="nf">mutate</span><span class="p">(</span><span class="n">gf</span> <span class="o">=</span> <span class="n">Team</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;</span><span class="s">Sydney&#34;</span><span class="p">,</span> <span class="s">&#34;</span><span class="s">WB&#34;</span><span class="p">)</span><span class="p">)</span>
+dat <span class="o">&lt;-</span> dat <span class="o">%&gt;%</span>
+        mutate<span class="p">(</span>gf <span class="o">=</span> Team <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#34;Sydney&#34;</span><span class="p">,</span> <span class="s">&#34;WB&#34;</span><span class="p">))</span>
 
 <span class="c1"># Create ggplot</span>
-<span class="n">gg</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">filter</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="o">!</span><span class="n">gf</span> <span class="o">&amp;</span> <span class="n">Season</span> <span class="o">==</span> <span class="m">2016</span><span class="p">)</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Date</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ELO_post</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">Team</span><span class="p">)</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">geom_step</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">grey&#34;</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">geom_step</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">filter</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">gf</span> <span class="o">&amp;</span> <span class="n">Season</span> <span class="o">==</span> <span class="m">2016</span><span class="p">)</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">Team</span><span class="p">)</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">theme_fivethirtyeight</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">Diverging seasons&#34;</span><span class="p">,</span>
-             <span class="n">subtitle</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">ELO rating of Bulldogs and Swans throughout the season&#34;</span><span class="p">)</span>
+gg<span class="o">&lt;-</span>ggplot<span class="p">(</span>filter<span class="p">(</span>dat<span class="p">,</span> <span class="o">!</span>gf <span class="o">&amp;</span> Season <span class="o">==</span> <span class="m">2016</span><span class="p">),</span> aes<span class="p">(</span>x <span class="o">=</span> Date<span class="p">,</span> y <span class="o">=</span> ELO_post<span class="p">,</span> group <span class="o">=</span> Team<span class="p">))</span> <span class="o">+</span>
+        geom_step<span class="p">(</span>alpha <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&#34;grey&#34;</span><span class="p">)</span> <span class="o">+</span>
+        geom_step<span class="p">(</span>data <span class="o">=</span> filter<span class="p">(</span>dat<span class="p">,</span> gf <span class="o">&amp;</span> Season <span class="o">==</span> <span class="m">2016</span><span class="p">),</span> alpha <span class="o">=</span> <span class="m">1</span><span class="p">,</span> aes<span class="p">(</span>color <span class="o">=</span> Team<span class="p">))</span> <span class="o">+</span>
+        theme_fivethirtyeight<span class="p">()</span> <span class="o">+</span>
+        labs<span class="p">(</span>title <span class="o">=</span> <span class="s">&#34;Diverging seasons&#34;</span><span class="p">,</span>
+             subtitle <span class="o">=</span> <span class="s">&#34;ELO rating of Bulldogs and Swans throughout the season&#34;</span><span class="p">)</span>
 
 <span class="c1"># Add plussixonebanner</span>
-<span class="n">gg</span><span class="o">&lt;-</span><span class="nf">addBanner</span><span class="p">(</span><span class="n">gg</span><span class="p">)</span>
-</code></pre></div><p><img src="http://plussixoneblog.com/img/2016/09/paths1-1-2.png" alt="plot of chunk paths1"></p>
+gg<span class="o">&lt;-</span>addBanner<span class="p">(</span>gg<span class="p">)</span></code></pre></div>
+<p><img src="http://plussixoneblog.com/img/2016/09/paths1-1-2.png" alt="plot of chunk paths1" /></p>
+
 <p>We can extend these out a bit to try to look at where these teams have come from over the last few years. Clearly the storyline of the Bulldogs is one that they have risen rapidly up the ranks. What is less apparent is that the Bulldogs (at least according to our ELO model), actually had that rapid rise last year. They in fact started this year more highly rated than they finished it!</p>
 <div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Create ggplot</span>
-<span class="n">gg</span><span class="o">&lt;-</span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">filter</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="o">!</span><span class="n">gf</span> <span class="o">&amp;</span> <span class="n">Season</span> <span class="o">&gt;</span> <span class="m">2013</span><span class="p">)</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Date</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ELO_post</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">Team</span><span class="p">)</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">geom_step</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">grey&#34;</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">geom_step</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">filter</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">gf</span> <span class="o">&amp;</span> <span class="n">Season</span> <span class="o">&gt;</span> <span class="m">2013</span><span class="p">)</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">Team</span><span class="p">)</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">Season</span><span class="p">,</span> <span class="n">scales</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">free_x&#34;</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">theme_fivethirtyeight</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">The path to glory&#34;</span><span class="p">,</span>
-             <span class="n">subtitle</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">ELO rating of Bulldogs and Swans throughout the last 3 seasons&#34;</span><span class="p">)</span>
+gg<span class="o">&lt;-</span>ggplot<span class="p">(</span>filter<span class="p">(</span>dat<span class="p">,</span> <span class="o">!</span>gf <span class="o">&amp;</span> Season <span class="o">&gt;</span> <span class="m">2013</span><span class="p">),</span> aes<span class="p">(</span>x <span class="o">=</span> Date<span class="p">,</span> y <span class="o">=</span> ELO_post<span class="p">,</span> group <span class="o">=</span> Team<span class="p">))</span> <span class="o">+</span>
+        geom_step<span class="p">(</span>alpha <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&#34;grey&#34;</span><span class="p">)</span> <span class="o">+</span>
+        geom_step<span class="p">(</span>data <span class="o">=</span> filter<span class="p">(</span>dat<span class="p">,</span> gf <span class="o">&amp;</span> Season <span class="o">&gt;</span> <span class="m">2013</span><span class="p">),</span> alpha <span class="o">=</span> <span class="m">1</span><span class="p">,</span> aes<span class="p">(</span>color <span class="o">=</span> Team<span class="p">))</span> <span class="o">+</span>
+        facet_wrap<span class="p">(</span><span class="o">~</span>Season<span class="p">,</span> scales <span class="o">=</span> <span class="s">&#34;free_x&#34;</span><span class="p">)</span> <span class="o">+</span>
+        theme_fivethirtyeight<span class="p">()</span> <span class="o">+</span>
+        labs<span class="p">(</span>title <span class="o">=</span> <span class="s">&#34;The path to glory&#34;</span><span class="p">,</span>
+             subtitle <span class="o">=</span> <span class="s">&#34;ELO rating of Bulldogs and Swans throughout the last 3 seasons&#34;</span><span class="p">)</span>
 
 <span class="c1"># Add plussixonebanner</span>
-<span class="n">gg</span><span class="o">&lt;-</span><span class="nf">addBanner</span><span class="p">(</span><span class="n">gg</span><span class="p">)</span>
-</code></pre></div><p><img src="http://plussixoneblog.com/img/2016/09/paths2-1-2.png" alt="plot of chunk paths2"></p>
+gg<span class="o">&lt;-</span>addBanner<span class="p">(</span>gg<span class="p">)</span></code></pre></div>
+<p><img src="http://plussixoneblog.com/img/2016/09/paths2-1-2.png" alt="plot of chunk paths2" /></p>
+
 <p>Sydney&rsquo;s form over those years shows just how strong they have been for such a long time.  Apart from a dip towards the end of last year, which coincided with a slew of injuries and Buddy&rsquo;s well publicised time away from football, they have consistently hovered near the heights of traditional premiers. Their current rating is their highest in the last 3 years, while they haven&rsquo;t dropped below average (1500 points) in a long time - more than 6 years to be exact.</p>
-<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="n">dat</span> <span class="o">%&gt;%</span>
-        <span class="nf">filter</span><span class="p">(</span><span class="n">Team</span> <span class="o">==</span> <span class="s">&#34;</span><span class="s">Sydney&#34;</span> <span class="o">&amp;</span> <span class="n">ELO_post</span> <span class="o">&lt;=</span> <span class="m">1500</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">Game</span><span class="p">)</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        <span class="nf">select</span><span class="p">(</span><span class="n">Season</span><span class="p">,</span> <span class="n">Round</span><span class="p">,</span> <span class="n">Team</span><span class="p">,</span> <span class="n">ELO_post</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        <span class="nf">head</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">dat <span class="o">%&gt;%</span>
+        filter<span class="p">(</span>Team <span class="o">==</span> <span class="s">&#34;Sydney&#34;</span> <span class="o">&amp;</span> ELO_post <span class="o">&lt;=</span> <span class="m">1500</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        arrange<span class="p">(</span>desc<span class="p">(</span>Game<span class="p">))</span> <span class="o">%&gt;%</span>
+        select<span class="p">(</span>Season<span class="p">,</span> Round<span class="p">,</span> Team<span class="p">,</span> ELO_post<span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="kp">head</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
 
 <span class="c1">## # A tibble: 5 × 4</span>
 <span class="c1">##   Season  Round   Team ELO_post</span>
@@ -280,25 +284,31 @@ if (!doNotTrack) {
 <span class="c1">## 2   2010    R17 Sydney     1494</span>
 <span class="c1">## 3   2010     R1 Sydney     1498</span>
 <span class="c1">## 4   2009    R22 Sydney     1490</span>
-<span class="c1">## 5   2009    R21 Sydney     1492</span>
-</code></pre></div><p>So, where are we now with these two teams? Clearly, Sydney is the higher rated team and is going to be a clear favourite in our system. Below is our rating system as it stands after the prelim, with the Bulldogs still sitting down in 7th spot!</p>
-<p><img src="http://plussixoneblog.com/img/2016/09/ratings-1-2.png" alt="plot of chunk ratings"></p>
+<span class="c1">## 5   2009    R21 Sydney     1492</span></code></pre></div>
+<p>So, where are we now with these two teams? Clearly, Sydney is the higher rated team and is going to be a clear favourite in our system. Below is our rating system as it stands after the prelim, with the Bulldogs still sitting down in 7th spot!</p>
+
+<p><img src="http://plussixoneblog.com/img/2016/09/ratings-1-2.png" alt="plot of chunk ratings" /></p>
+
 <p>Onto this weekend - before predicting this game, I wondered if Grand Finals were different beasts to normal games? My model is &lsquo;optimised&rsquo; just across all games, with no changes for grand final matches. I haven&rsquo;t looked out historical Grand Final performance before. How do we go at predicting them specifically?</p>
 <div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Only interested in the home team margin</span>
-<span class="n">dat_home</span> <span class="o">&lt;-</span> <span class="n">dat</span> <span class="o">%&gt;%</span>
-        <span class="nf">filter</span><span class="p">(</span><span class="n">TeamStatus</span> <span class="o">==</span> <span class="s">&#34;</span><span class="s">Home&#34;</span><span class="p">)</span>
+dat_home <span class="o">&lt;-</span> dat <span class="o">%&gt;%</span>
+        filter<span class="p">(</span>TeamStatus <span class="o">==</span> <span class="s">&#34;Home&#34;</span><span class="p">)</span>
 
-<span class="n">gg</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="nf">filter</span><span class="p">(</span><span class="n">dat_home</span><span class="p">,</span> <span class="n">Round</span> <span class="o">!=</span> <span class="s">&#34;</span><span class="s">GF&#34;</span><span class="p">)</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">PredMarg</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Margin</span><span class="p">)</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">grey&#34;</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">geom_point</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">filter</span><span class="p">(</span><span class="n">dat_home</span><span class="p">,</span> <span class="n">Round</span> <span class="o">==</span> <span class="s">&#34;</span><span class="s">GF&#34;</span><span class="p">)</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.9</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&#34;</span><span class="s">#66999A&#34;</span><span class="p">)</span> <span class="o">+</span>
-        <span class="nf">theme_fivethirtyeight</span><span class="p">(</span><span class="p">)</span>
+gg <span class="o">&lt;-</span> ggplot<span class="p">(</span>filter<span class="p">(</span>dat_home<span class="p">,</span> Round <span class="o">!=</span> <span class="s">&#34;GF&#34;</span><span class="p">),</span> aes<span class="p">(</span>x <span class="o">=</span> PredMarg<span class="p">,</span> y <span class="o">=</span> Margin<span class="p">))</span> <span class="o">+</span>
+        geom_point<span class="p">(</span>alpha <span class="o">=</span> <span class="m">0.6</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&#34;grey&#34;</span><span class="p">)</span> <span class="o">+</span>
+        geom_point<span class="p">(</span>data <span class="o">=</span> filter<span class="p">(</span>dat_home<span class="p">,</span> Round <span class="o">==</span> <span class="s">&#34;GF&#34;</span><span class="p">),</span> alpha <span class="o">=</span> <span class="m">0.9</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&#34;#66999A&#34;</span><span class="p">)</span> <span class="o">+</span>
+        theme_fivethirtyeight<span class="p">()</span>
 
-<span class="n">gg</span> <span class="o">&lt;-</span> <span class="nf">addBanner</span><span class="p">(</span><span class="n">gg</span><span class="p">)</span>
-</code></pre></div><p><img src="http://plussixoneblog.com/img/2016/09/gf-1-2.png" alt="plot of chunk gf"></p>
+gg <span class="o">&lt;-</span> addBanner<span class="p">(</span>gg<span class="p">)</span></code></pre></div>
+<p><img src="http://plussixoneblog.com/img/2016/09/gf-1-2.png" alt="plot of chunk gf" /></p>
+
 <p>Pretty good actually! We have correctly tipped more than 85% of Grand Finals, which is above our long-term average of 69%. We have a mean absolute prediction error (MAPE) of 22.6, which again is much better than our long-term MAPE of 26.8. We also clearly have less &lsquo;blowout&rsquo; games in Grand Finals, likely due to the fact that we are more likely to have two &lsquo;relatively&rsquo; event matched teams than in a normal game.</p>
+
 <h2 id="prediction">Prediction</h2>
+
 <p>Finally - onto our all important prediction. How do we rate the chances for the weekend? Based on these ELO ratings, a team with that big a lead and a nominal home ground advantage[ref]I should really call this home team advantage[/ref], we expect Sydney to comfortably get up. Considering we have a pretty good record in tipping Grand Finals, I&rsquo;d like to be pretty confident in that tip. But the Bulldogs are, if nothing else, a pretty tantalising story to follow. My head says follow the model, my heart barks like a Dog!</p>
-<p><img src="http://plussixoneblog.com/img/2016/09/round27-1.png" alt="round27"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/09/round27-1.png" alt="round27" /></p>
 
       </article>
 
@@ -322,7 +332,7 @@ if (!doNotTrack) {
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     
@@ -426,7 +436,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.30</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

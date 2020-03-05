@@ -7,10 +7,10 @@ categories:
   - AFLM
   - Simulation
 tags: []
-output: 
-  html_document:
-    keep_md: TRUE
-    self_contained: TRUE
+#output: 
+#  html_document:
+#    keep_md: TRUE
+#    self_contained: TRUE
 
 ---
 
@@ -24,9 +24,9 @@ knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE
 )
-knitr::opts_chunk$set(widgetframe_widgetsdir = 'widgets')
-knitr::opts_chunk$set(widgetframe_self_contained = FALSE) # default = FALSE
-knitr::opts_chunk$set(widgetframe_isolate_widgets = TRUE) # default = TRUE
+#knitr::opts_chunk$set(widgetframe_widgetsdir = 'widgets')
+#knitr::opts_chunk$set(widgetframe_self_contained = FALSE) # default = FALSE
+#knitr::opts_chunk$set(widgetframe_isolate_widgets = TRUE) # default = TRUE
 
 ```
 

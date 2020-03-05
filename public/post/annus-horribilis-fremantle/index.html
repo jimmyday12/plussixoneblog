@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.30" />
   <link rel="canonical" href="/post/annus-horribilis-fremantle/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,16 +82,12 @@
     </div>
 </div>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-77406420-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -234,18 +230,31 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>By his own words, Ross Lyons team have are having an Annus Horribilis[ref]much to my dismay, that word doesn&rsquo;t have the low brow meaning I had hoped - instead it means <a href="https://en.wikipedia.org/wiki/Annus_horribilis">&ldquo;horrible year&rdquo;</a>)[/ref]. It doesn&rsquo;t take a whole lot of in depth data to know that starting the year with 0 wins and 5 losses is bad, and there is no shortage of stories describing just how bad that is.</p>
+
 <p><a href="https://thearcfooty.com/">The Arc</a> shared a great visualisation looking at the <a href="https://thearcfooty.com/2016/04/26/the-worst-seasons-ever-by-reigning-minor-premiers/">progression of wins by minor premiers in the year following their minor premiership</a>. Only Richmond in 1983 has started 0-5 from minor premiers, while the worst final season record is the Kangaroos in 1984, who won 5 games all year.</p>
+
 <p>Where do we think Freo might get to? I thought I&rsquo;d further explore the Dockers poor start by comparing to some other historical distributions to see just how bad it is. Below I&rsquo;ve plotted the distribution of games won after 5 rounds, where we see, as we expect, a relatively normal distribution across those 5 games. Approximately 7.9% of teams, regardless of quality, begin a season at 0-5 in the history of the AFL (this drops to around 6% if we just look at 1990 to 2015).</p>
-<p><img src="http://plussixoneblog.com/img/2016/04/1DistStart.gif" alt="1DistStart"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/04/1DistStart.gif" alt="1DistStart" /></p>
+
 <p>Looking at how these groups of teams finished the season, we can see that early wins (i.e. games won after 5 rounds) seems pretty predictive of absolute final wins by season end. Of course, within those final wins is included the early wins, but removing them and showing &lsquo;relative&rsquo; final wins (i.e. the record after round 5) shows a similar pattern.</p>
-<p><img src="http://plussixoneblog.com/img/2016/04/RelAndMost.gif" alt="RelAndMost"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/04/RelAndMost.gif" alt="RelAndMost" /></p>
+
 <p>Focussing just on the top graph, where we have our 0-5 teams, it becomes apparent that very few teams who start 0-5 end up turning their season around. Below, I&rsquo;ve picked out the best performing teams, in terms of final wins, after starting 0-5 [ref]In reviewing this graph, it revealed a slight error in my methodology as some teams such as North Melbourne in 2011 didn&rsquo;t start at 0-5 but in fact had 0 wins after round 5, with a bye. I may try and fix this later on but I suspect it won&rsquo;t change things a whole lot[/ref]</p>
-<p><img src="http://plussixoneblog.com/img/2016/04/05starters.gif" alt="05starters"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/04/05starters.gif" alt="05starters" /></p>
+
 <p>The data show that only two teams have won 12 games,<a href="https://www.bigfooty.com/forum/threads/how-many-wins-to-make-the-finals.936317/">often discussed as the finals cutoff</a>[ref]I sense a good blog post coming![/ref] after starting 0-5 - Richmond in 1924, who happened to <a href="https://en.wikipedia.org/wiki/1924_VFL_season#cite_ref-2">win the final game of the Finals that year but didn&rsquo;t win the premiership</a> and Collingwood in 1959, interestingly the premiers from the year before.</p>
+
 <p>So, against historical data, Freo has a pretty huge task ahead of them to make finals. This does however fail to take into account many factors. Maybe other teams who start 0-5 are just really really bad teams and Freo isn&rsquo;t? Perhaps Freo has had a really tough start to the season in terms of opponents (<a href="http://www.matterofstats.com/mafl-stats-journal/2015/12/7/the-2016-afl-draw-difficulty-and-distortion?rq=draw">they don&rsquo;t appear to across the season</a>) compared to the general 0-5 team?</p>
+
 <p>Luckily, we can try to account for such things by using a rating system, such as my ELO ratings, which allows us to simulate expected results based upon the inherit skill and form of a particular team. Below, I&rsquo;ve simulated a season 10000 times for the 1st 5 rounds and the rest of the season. The 1st 5 rounds are based on our <a href="http://plussixoneblog.com/2016/04/28/start-of-2016-season-afl-elo-ratings/">pre-season rankings</a> for Fremantle (we had them 9th) and their draw. We saw them start 0-5 around 3.7% of the time, below the historical average discussed above, and had them on average finishing with 2.7 wins on average.</p>
-<p><img src="http://plussixoneblog.com/img/2016/04/FreoSim.gif" alt="FreoSim"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/04/FreoSim.gif" alt="FreoSim" /></p>
+
 <p>From here on in (i.e. simulating their season from R6 onwards), we can see that, like historical teams that start 0-5, we don&rsquo;t give Freo much chance of moving up the ladder. They do seem to fare slightly better than the average 0-5 time however and they do get at least 12 wins 8.7% of the time, which is higher than our historical 0-5 teams. Either our model has been too slow to adjust to Freo&rsquo;s lack of ability or they aren&rsquo;t your typical 0-5 team!</p>
+
 <p>A lot of this assumes that Freo will continue to try and win as many games as possible, which may not be the case. Nonetheless, if anyone can turn a team around, and provide them with an <a href="https://en.wikipedia.org/wiki/Annus_mirabilis">Annus Mirabilis</a> one might expect a coach like Ross Lyon, known for getting every inch out of his list, might be able to do it. At least our current rating of Freo (as the 10th best team) gives them a small chance. That is if Ross doesn&rsquo;t jump ship early!</p>
 
       </article>
@@ -270,7 +279,7 @@ if (!doNotTrack) {
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     
@@ -374,7 +383,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.30</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

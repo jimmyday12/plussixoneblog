@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.30" />
   <link rel="canonical" href="/post/round-20-elo-simulations/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,16 +82,12 @@
     </div>
 </div>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-77406420-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -233,15 +229,25 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="elo-ratings">ELO Ratings</h1>
+        
+
+<h1 id="elo-ratings">ELO Ratings</h1>
+
 <p>After seeing Hawthorn take back top stop in our <a href="http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/">ELO ratings</a>, they&rsquo;ve quickly lost that due to a relatively poor result against Carlton. The loss of 10 rating points, combined with Sydney&rsquo;s much larger than expected win, sees those two teams sway places. Combined with Adelaide, these three teams have emerged ahead of the pack. In a distant second tier we see GWS and Geelong, who also swapped places this week. Remarkably, Port Adelaide has climbed to 6th spot in our rankings despite almost being out of finals contention. Following Port, our remaining &lsquo;above average&rsquo; teams are all struggling for various reasons in West Coast, North Melbourne and the Bulldogs.</p>
-<p><img src="http://plussixoneblog.com/img/2016/08/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/08/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
+
 <p>In our bottom 9 &lsquo;below average&rsquo; sides, we don&rsquo;t see too much movement as our order late in the season seems to have stabilised. Perhaps the biggest point of interest is just how bad the Brisbane Lions and Essendon are, with the relative gap between themselves and the 3rd worst team in Carlton widening after the weekend. I&rsquo;ll likely write a post after the season comparing how bad these two teams are to historical ones, but to put it in perspective, the relative difference between the Lions and the _<strong>3rd worst</strong> (!) _team is worth 6 goals (106 rating points). That is larger than the gap between the best team in Sydney and any other team in the top 9!</p>
+
 <h1 id="simulations">Simulations</h1>
+
 <p>We discussed last week in our <a href="http://plussixoneblog.com/2016/07/29/round-prediction/">round preview</a> about how important the week was for both Port Adelaide and St Kilda to win to improve their chances of making the 8. Unfortunately for the interest in the race for the final 8, they both lost. Running our <a href="http://plussixoneblog.com/2016/05/12/simulating-the-season/">AFL Simulations</a> for the final 4 rounds of the season and show that the Saints top 8 chances have dropped to 7.8% while Port is sitting at 11%. We&rsquo;ve also seen three more teams mathematically ruled out of contention[ref]at least in our 10k simulations[/ref] in Carlton, Richmond and Gold Coast. Melbourne and Collingwood still have a glimmer of hope, although they only make finals in &lt;1% of our simulations.</p>
-<p><img src="http://plussixoneblog.com/img/2016/08/simTableR20.png" alt="simTableR20"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/08/simTableR20.png" alt="simTableR20" /></p>
+
 <p>At the other end of the table, Hawthorn and Geelong both appear to have locked up top 4 spots after wins on the weekend. They are both the two most likely to claim the vital top 2 positions, with the Hawks still a 2 in 3 chance to win the minor premiership. The last 2 spots in our top 4 race is narrowing down to 3 teams in Adelaide, Sydney and GWS. While the race for the top 8 might be all but over, the tightness within the top 8 is sure to lead to some <a href="http://plussixoneblog.com/2016/06/16/beyond-the-8-point-game-estimating-match-importance-in-the-afl/">important</a> games!</p>
-<p><img src="http://plussixoneblog.com/img/2016/08/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/08/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" /></p>
 
       </article>
 
@@ -265,7 +271,7 @@ if (!doNotTrack) {
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     
@@ -369,7 +375,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.30</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.63.2" />
+  <meta name="generator" content="Hugo 0.30" />
   <link rel="canonical" href="/post/final-2016-season-results/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,16 +82,12 @@
     </div>
 </div>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-77406420-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -233,14 +229,23 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>With the home and away season over, and the controversial bye weekend, it gives us a nice chance to review the season performance for the inaugural plusSixOne season. Our <a href="http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/">ELO model</a> managed to get through the last round relatively unscathed, with a total of 6 out of 9 tips. We missed on Adelaide&rsquo;s terribly timed loss to West Coast, the Bombers running over the top of Carlton and Freo getting up against a tired Bulldogs. With a few blowout games on the weekend, our mean absolute prediction error (MAPE) was a pretty season 2nd worst of 37.9, suggesting that perhaps paying less attention to the end of season games may be an improvement I could make to the ELO model in future iterations.</p>
-<!-- raw HTML omitted -->
+        
+
+<p>With the home and away season over, and the controversial bye weekend, it gives us a nice chance to review the season performance for the inaugural plusSixOne season. Our <a href="http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/">ELO model</a> managed to get through the last round relatively unscathed, with a total of 6 out of 9 tips. We missed on Adelaide&rsquo;s terribly timed loss to West Coast, the Bombers running over the top of Carlton and Freo getting up against a tired Bulldogs. With a few blowout games on the weekend, our mean absolute prediction error (MAPE) was a pretty season 2nd worst of 37.9, suggesting that perhaps paying less attention to the end of season games may be an improvement I could make to the ELO model in future iterations.</p>
+
+<!-- more -->
+
 <p>The brings to end the season with a total of 142 out of 198 (71.7%) and a MAPE of 29.3. That has allowed me to scrape within both of the goals I&rsquo;d set at the start of the season (actually - I started this in round 6) of &gt;70% tipping and &lt;30 MAPE. While I&rsquo;m happy with those results, there are some pretty obvious things I&rsquo;ll look to improve in the off season. I&rsquo;ll write another in-depth post about that later on but a big example is the parameterisation of the home ground advantage, which is currently constant across all games. More to come on that topic!</p>
-<p><img src="http://plussixoneblog.com/img/2016/09/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"><img src="http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-2.png" alt="plot of chunk unnamed-chunk-2"><img src="http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-3.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+<p><img src="http://plussixoneblog.com/img/2016/09/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /><img src="http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-2.png" alt="plot of chunk unnamed-chunk-2" /><img src="http://plussixoneblog.com/wp-content/uploads/2016/09/unnamed-chunk-2-3.png" alt="plot of chunk unnamed-chunk-2" /></p>
+
 <h1 id="new-ratings">New ratings</h1>
+
 <p>Normally I release the readings and simulations together but since I probably won&rsquo;t do the simulations until next week, I&rsquo;ll put the ratings below for reference. We can see the big effect that Adelaide&rsquo;s poor performance has had on their ratings - dropping back to our pack of chasing teams. This leaves Sydney as our clear top rated team. The Hawks continue their tumble down the ratings ladder - potentially losing touch with that chasing pack, although well ahead of the rest.
-<img src="http://plussixoneblog.com/img/2016/09/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+<img src="http://plussixoneblog.com/img/2016/09/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
+
 <p>Melbourne&rsquo;s foray into &lsquo;above average&rsquo; team hasn&rsquo;t lasted long. <a href="http://plussixoneblog.com/2016/08/10/round-21-simulations/">We discussed how long it had been since that happened in a previous post</a>. Hopefully for Melbourne fans, that wait isn&rsquo;t that long to get back there again!</p>
+
 <p>I&rsquo;ve said it before but I promise in the coming weeks to review the Essendon/Lions seasons relative to the worst seasons of all time. Essendon has potentially ruined any records with their last couple of weeks but the Lions have been truely horrible. Watch this space.</p>
 
       </article>
@@ -265,7 +270,7 @@ if (!doNotTrack) {
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     
@@ -369,7 +374,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.30</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
