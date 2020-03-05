@@ -10,10 +10,10 @@
   <meta name="twitter:title" content="Simulating the 2017 AFL Mens season: Pre-season edition!" />
   <meta name="description" content="As I&rsquo;ve indicated previously, I&rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic The Arc blog, I&rsquo;ve got some very preliminary season simulations together.
 The competition proposed by The Arc is simple - put forward your probabilities of each team making the finals for 2017.
-   Think you can do a better job of predicting the finalists than our Elo model?">
+ Think you can do a better job of predicting the finalists than our Elo model? Go on then!">
   <meta property="og:description" content="As I&rsquo;ve indicated previously, I&rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic The Arc blog, I&rsquo;ve got some very preliminary season simulations together.
 The competition proposed by The Arc is simple - put forward your probabilities of each team making the finals for 2017.
-   Think you can do a better job of predicting the finalists than our Elo model?">
+ Think you can do a better job of predicting the finalists than our Elo model? Go on then!">
   <meta name="twitter:description" content="As I&rsquo;ve indicated previously, I&rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic The Arc blog, I&rsquo;ve got some very preliminary …">
   <meta name="author" content="James Day"/>
   <link href='/img/favicon-new.ico' rel='icon' type='image/x-icon'/>
@@ -26,7 +26,7 @@ The competition proposed by The Arc is simple - put forward your probabilities o
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.37" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="canonical" href="/post/simulating-2017-afl-mens-season-pre-season-edition/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -86,12 +86,16 @@ The competition proposed by The Arc is simple - put forward your probabilities o
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-77406420-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -233,73 +237,51 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<p>As I&rsquo;ve indicated previously, I&rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic <a href="http://thearcfooty.com">The Arc</a> blog, I&rsquo;ve got some very preliminary season simulations together.</p>
-
-<!-- more -->
-
+        <p>As I&rsquo;ve indicated previously, I&rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic <a href="http://thearcfooty.com">The Arc</a> blog, I&rsquo;ve got some very preliminary season simulations together.</p>
+<!-- raw HTML omitted -->
 <p>The competition proposed by <a href="http://thearcfooty.com">The Arc</a> is simple - put forward your probabilities of each team making the finals for 2017.</p>
-
+<!-- raw HTML omitted -->
 <blockquote>
-
->
-> Think you can do a better job of predicting the finalists than our Elo model? Go on then! <https://t.co/YA3qAhwpPB>
->
->
-— The Arc (@TheArcFooty) [January 21, 2017](https://twitter.com/TheArcFooty/status/822735709731573761)</blockquote>
-
+<p>Think you can do a better job of predicting the finalists than our Elo model? Go on then! <a href="https://t.co/YA3qAhwpPB">https://t.co/YA3qAhwpPB</a></p>
+</blockquote>
+<p>— The Arc (@TheArcFooty) <a href="https://twitter.com/TheArcFooty/status/822735709731573761">January 21, 2017</a><!-- raw HTML omitted --></p>
 <p>While this is not uncommon in <a href="http://www.afl.com.au/news/2016-03-24/crystal-ball-predictions-for-2016">footy punditry</a>, attaching probabilities to those predications is. Compared to a dichotomous Finals/No Finals answer, probabilistic forecasting gives an <a href="http://www.nssl.noaa.gov/users/brooks/public_html/prob/Probability.html">estimate of how confident we are in the outcome.</a></p>
-
 <h3 id="pre-season-ratings">Pre-Season ratings</h3>
-
 <p>For those who are new to the site, last year we introduced our ELO rating system. As per last year, I&rsquo;ll be using our ELO ratings to post weekly predictions of each match. I&rsquo;ll also simulate the remainder of the season as the year goes on to estimate probabilities of certain finishing positions. Please read the links below to understand this process</p>
-
 <p><a href="http://plussixoneblog.com/elo-rating-system/">ELO Rating system</a> | <a href="http://plussixoneblog.com/2016/05/12/simulating-the-season/">Simulating the season</a></p>
-
 <p>Let&rsquo;s look at our current ratings of each team heading into 2017. As a reminder, we regress each teams rating back towards the mean at the end of the year. Accordingly, these ratings are slightly different to the <a href="http://plussixoneblog.com/2016/09/29/grand-final-preview4/">end of season ratings</a> in that they are more &lsquo;condense&rsquo;.</p>
-
-<p><img src="http://plussixoneblog.com/img/2017/02/Ratings-1-6.png" alt="plot of chunk Ratings" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2017/02/Ratings-1-6.png" alt="plot of chunk Ratings"></p>
 <p>To summarise some trends that we can see (and what we saw towards the end of last year).</p>
-
 <ul>
-<li><p>Sydney remain as the lone ratings &ldquo;leader&rdquo;, slightly ahead of GWS, Adelaide and Geelong</p></li>
-
-<li><p>A pack of followers is clumped after this group in Hawthorn, the Eagles and reigning premiers The Bulldogs</p></li>
-
-<li><p>After this a relatively large drop-off occurs to our &lsquo;average&rsquo; teams (North, Port, Collingwood, Melbourne and Saints)</p></li>
-
-<li><p>A gradual decline followed through the remainder of the bottom 8</p></li>
-
-<li><p>The bottom 2 in Brisbane and Essendon remain pretty bad</p></li>
+<li>
+<p>Sydney remain as the lone ratings &ldquo;leader&rdquo;, slightly ahead of GWS, Adelaide and Geelong</p>
+</li>
+<li>
+<p>A pack of followers is clumped after this group in Hawthorn, the Eagles and reigning premiers The Bulldogs</p>
+</li>
+<li>
+<p>After this a relatively large drop-off occurs to our &lsquo;average&rsquo; teams (North, Port, Collingwood, Melbourne and Saints)</p>
+</li>
+<li>
+<p>A gradual decline followed through the remainder of the bottom 8</p>
+</li>
+<li>
+<p>The bottom 2 in Brisbane and Essendon remain pretty bad</p>
+</li>
 </ul>
-
 <p>Of course, one thing to note about our ELO ratings at the start of the year is that they are very naive. Regressing to the mean attempts to somewhat account for player movement, the draft, free agency and general player development which <em>should</em> lead to equalisation[ref]I&rsquo;ve got a loose idea of how I might look at this. In the pipeline![/ref].</p>
-
 <p>My model however doesn&rsquo;t understand some of the nuances in these factors. ELO is ignorant, for example to the fact that Hawthorn lost <a href="http://indaily.com.au/sport/football/2016/10/19/clarko-defends-tough-decisions-as-hawks-look-to-the-future/">571 games of experience</a>. Or that the Bombers will welcome back <a href="http://www.heraldsun.com.au/sport/afl/teams/essendon/banned-essendon-players-allowed-to-return-to-the-club-in-training-capacity/news-story/bdc48dc745079415d2836e9551efe7bc">9 suspended players</a>. Nonetheless, given many <a href="http://www.espn.com.au/chalk/story/_/id/11863567/betting-five-biggest-cognitive-biases-impair-sports-bettors-most">well-known human biases in predicting outcomes</a>, perhaps ignorance is bliss?</p>
-
 <h3 id="simulations">Simulations</h3>
-
 <p>We could simply take our ratings and assume that this would be the order of our predicted ladder at the end of the year. However, we wouldn&rsquo;t be taking into account the <a href="http://footymaths.blogspot.com.au/p/we-have-posted-before-on-this-blog.html">AFL&rsquo;s uneven fixture</a>. The AFL attempts to give harder teams a more difficult draw and easier teams a harder draw. I&rsquo;ll review the fixture in detail in a later post before the season starts.</p>
-
 <p>As per our methodology, we can take this years fixture and simulate each result based on the respective ELO ratings of each team. Repeat that 10 000 times and we get some estimates for various finishing positions!</p>
-
-<p><img src="http://plussixoneblog.com/img/2017/02/Simulation-1-6.png" alt="plot of chunk Simulation" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2017/02/Simulation-1-6.png" alt="plot of chunk Simulation"></p>
 <p>An obvious take-away from the heat map is the massive spread of each team&rsquo;s finishing position. With the exception of Sydney at the top and the Lions and Bombers at the bottom, no team finishes in a single position in more than 13% of simulations. In fact, the only position where a team doesn&rsquo;t finish at least once is the Lions finishing 1st. Every other team finishes in each position in at least 1 simulation!</p>
-
 <p>Nonetheless, we can also see that the &lsquo;better&rsquo; teams, at least according to our ELO model, tend to finish towards the top and the &lsquo;worse&rsquo; teams towards the bottom, which is what we&rsquo;d expect. This large spread, with a general trend, is also apparent in the density plots for each team. It&rsquo;s a little hard to fit all teams on one graph but you can see the spread of finishing positions for each team, peaking around their median result.</p>
-
-<p><img src="http://plussixoneblog.com/img/2017/02/distribution-1-6.png" alt="plot of chunk distribution" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2017/02/distribution-1-6.png" alt="plot of chunk distribution"></p>
 <h3 id="finals-probabilities">Finals Probabilities</h3>
-
 <p>Lastly, we can use our probabilities of finishing positions to also estimate large groupings. This finally gives us, among other things, an answer to <a href="http://thearcfooty.com">The Arc</a> original question. Sydney remains the favourite, while perhaps the most surprising is the reigning premiers only making finals in 54% of simulations!</p>
-
 <p>I&rsquo;ve submitted these to <a href="http://thearcfooty.com">The Arc</a> - wish me luck!</p>
-
-<p><img src="http://plussixoneblog.com/img/2017/02/roundPred.png" alt="prob table" /></p>
+<p><img src="http://plussixoneblog.com/img/2017/02/roundPred.png" alt="prob table"></p>
 
       </article>
 
@@ -323,7 +305,7 @@ ga('send', 'pageview');
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -427,7 +409,7 @@ ga('send', 'pageview');
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.37" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="canonical" href="/post/" />
   <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -79,12 +79,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-77406420-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -202,6 +206,27 @@ ga('send', 'pageview');
         <div class="posts-list">
           
             <article class="post-preview">
+              <a href="/post/round-results/">
+                <h2 class="post-title">Round 19 - AFL ELO Results</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on August 1, 2016
+              </p>
+              <div class="post-entry">
+                
+                  I&rsquo;ve now got around to doing a bit more analyses of my results each week and so have decided to split the AFL ELO model results and updated simulations into seperate posts. The simulation post will be out shortly! Round 19 saw our ELO model do very well, as we expected from our preview, with all teams favoured by our ELO model favoured by a significant margin. The only incorrect tip was the the upset win by Collingwood over West Coast, which our model attached a 41% probability to.
+                  <a href="/post/round-results/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
               <a href="/post/round-20-elo-simulations/">
                 <h2 class="post-title">Round 20 ELO Simulations - almost set</h2>
 
@@ -298,7 +323,7 @@ In 4 matches last week, our had difficulty separating teams after the Home Groun
               </p>
               <div class="post-entry">
                 
-                  Collingwood v North Melbourne, Fri 7:50pm Etihad Stadium        We&rsquo;ve talked for a while about how tight the top 8 is, meaning every game the top 8 play in is important. Interestingly this round, we actually only see two top 8 teams play each other - our likely match of the round in Geelong v Adelaide.
+                  We&rsquo;ve talked for a while about how tight the top 8 is, meaning every game the top 8 play in is important. Interestingly this round, we actually only see two top 8 teams play each other - our likely match of the round in Geelong v Adelaide. Given that Adelaide are our top rated team  according to our ELO model and that match has some big implications as measured by our match importance rating, it is setup to be a cracker.
                   <a href="/post/round-18-predictions/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -385,29 +410,9 @@ Those two upset losses saw the biggest change in ELO ratings for the round with 
               </p>
               <div class="post-entry">
                 
-                  Port Adelaide v Hawthorn, Thurs 7:20pm Adelaide Oval Geelong v Sydney, Fri 7:50pm Skilled Stadium WCE v NM, Sun 1:20pm Domain Stadium        As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&rsquo;ve ever had at this stage of the year.
+                  As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&rsquo;ve ever had at this stage of the year. Considering that, anytime two top 8 teams play each other, its going to be important.
+[ ](http://plussixoneblog.com/img/2016/07/importance_R15-1.png) We&rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.
                   <a href="/post/round-16-predictions/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="/post/313/">
-                <h2 class="post-title">Round 15 Results</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on July 4, 2016
-              </p>
-              <div class="post-entry">
-                
-                  My ELO model  has completed a clean sweep of 4 out 6 tips for the bye rounds on the weekend, incorrectly tipping against Gold Coast and the Western Bulldogs. It was far and away the best round of the year for margin tipping, with an MAE of 16.5! That gives us a season total of 92 tips from 120 games (73%) and an MAE that has tipped under 30, sitting at 29.
-                  <a href="/post/313/" class="post-read-more">[Read More]</a>
                 
               </div>
 
@@ -510,7 +515,7 @@ Those two upset losses saw the biggest change in ELO ratings for the round with 
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

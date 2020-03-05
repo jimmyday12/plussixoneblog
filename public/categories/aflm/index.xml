@@ -1,16 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aflm on plusSixOne</title>
+    <title>AFLM on plusSixOne</title>
     <link>/categories/aflm/</link>
-    <description>Recent content in Aflm on plusSixOne</description>
+    <description>Recent content in AFLM on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Thu, 26 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/aflm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Predictions Table Test</title>
+      <link>/post/predictions-table-test/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/predictions-table-test/</guid>
+      <description>Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.
+format_pct &amp;lt;- function(value) { if (value == 0) &amp;quot; \u2013 &amp;quot; # en dash else if (value == 1) &amp;quot;\u2713&amp;quot; # checkmark else if (value &amp;lt; 0.01) &amp;quot; &amp;lt;1%&amp;quot; else if (value &amp;gt; 0.99) &amp;quot;&amp;gt;99%&amp;quot; else formatC(paste0(round(value * 100), &amp;quot;%&amp;quot;), width = 4) } make_color_pal &amp;lt;- function(colors, bias = 1) { get_color &amp;lt;- colorRamp(colors, bias = bias) function(x) rgb(get_color(x), maxColorValue = 255) } off_rating_color &amp;lt;- make_color_pal(c(&amp;quot;#ff2700&amp;quot;, &amp;quot;#f8fcf8&amp;quot;, &amp;quot;#44ab43&amp;quot;), bias = 1.</description>
+    </item>
     
     <item>
       <title>2019 Grand Final AFLM Predictions</title>
@@ -337,7 +347,7 @@ You can always receive my live, up to date tips here and my simulations here reg
       <guid>/post/season-2019-aflm-preview-of-sorts/</guid>
       <description>Hello world!
 For those of you looking for an in-depth preview of the 2019 AFL Men’s season, please look elsewhere (anyone in these cool links will do!).
-This year is going to be a quiet one from me on the blogging front. The usual suspects of work, living in a new city and my focus on improving the fitzRoy package will take up most of my time. Rest assured you’ll still get my weekly tips (always hosted here) and my simulations (likewise, always here).</description>
+This year is going to be a quiet one from me on the blogging front. The usual suspects of work, living in a new city and my focus on improving the fitzRoy package will take up most of my time.</description>
     </item>
     
     <item>
@@ -357,7 +367,7 @@ Ratings It’s certainly bunching at the top. With my new algorithm that is goin
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/afl-mens-round-16-preview/</guid>
       <description>Here we are for another damn Thursday night game. I actually quite like them except that I never have time to write my preview! Check out my full tips at this link or on Squiggle.
-Ratings After my recent update to the ratings system where my k-value (how much ELO ratings change after a game) is reducing as the season goes by, our ratings are somewhat stable. We still have a big gap between our top 11 and bottom 6, with Essendon sitting somewhere in between.</description>
+Ratings After my recent update to the ratings system where my k-value (how much ELO ratings change after a game) is reducing as the season goes by, our ratings are somewhat stable.</description>
     </item>
     
     <item>
@@ -459,9 +469,14 @@ Ratings It’s been a couple weeks since we’ve looked in depth at the ratings.
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-5-afl-men-s-ratings-updates-and-preview/</guid>
-      <description>After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!
- Also a quick reminder that you always find full ratings and current tips updated each Monday.
-Ratings and Simulations The big loser here was clearly Adelaide, after a shock, heavy loss to Collingwood. They dropped from pretty clear top rated team down to 4th.</description>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -470,8 +485,13 @@ Ratings and Simulations The big loser here was clearly Adelaide, after a shock, 
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-4-afl-men-s-ratings/</guid>
-      <description>With round 3 done and dusted, are the top teams beginning to emerge?  You can see the full ratings, results and tips here but see our current ratings and simulations below.
-Not a whole lot of movement at the top, with Adelaide, Sydney, GWS, Richmond and Port remaining in the top tier of teams. These teams are all projected around 16 wins and ~80% chance of finals at this early stage, with Adelaide poking it’s nose out in front.</description>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;With round 3 done and dusted, are the top teams beginning to emerge? </description>
     </item>
     
     <item>
@@ -491,7 +511,7 @@ A quick reminder that you can always find my Tips and Current Ratings and Simula
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Sat, 28  M.C.G.  Richmond  GWS  8.</description>
+  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Thu, 19  M.C.G.  Richmond   Carlton   26.</description>
     </item>
     
     <item>
@@ -510,8 +530,19 @@ A quick reminder that you can always find my Tips and Current Ratings and Simula
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-ratings-and-simulations/</guid>
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-Last updated: 2019-09-26.
+Last updated: 2020-03-05.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
+    </item>
+    
+    <item>
+      <title>Ratings and Simulations</title>
+      <link>/page/aflm-ratings-and-simulations/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/page/aflm-ratings-and-simulations/</guid>
+      <description>Welcome to our all new AFL Men&amp;rsquo;s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I&amp;rsquo;ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
+Last updated: 2020-03-05.
+Summary Below are the updated AFL Men&amp;rsquo;s ratings and simulations. These are based off our ELO model and simulations.</description>
     </item>
     
     <item>

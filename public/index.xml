@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>plusSixOne</title>
@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Predictions Table Test</title>
+      <link>/post/predictions-table-test/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/predictions-table-test/</guid>
+      <description>Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.
+format_pct &amp;lt;- function(value) { if (value == 0) &amp;quot; \u2013 &amp;quot; # en dash else if (value == 1) &amp;quot;\u2713&amp;quot; # checkmark else if (value &amp;lt; 0.01) &amp;quot; &amp;lt;1%&amp;quot; else if (value &amp;gt; 0.99) &amp;quot;&amp;gt;99%&amp;quot; else formatC(paste0(round(value * 100), &amp;quot;%&amp;quot;), width = 4) } make_color_pal &amp;lt;- function(colors, bias = 1) { get_color &amp;lt;- colorRamp(colors, bias = bias) function(x) rgb(get_color(x), maxColorValue = 255) } off_rating_color &amp;lt;- make_color_pal(c(&amp;quot;#ff2700&amp;quot;, &amp;quot;#f8fcf8&amp;quot;, &amp;quot;#44ab43&amp;quot;), bias = 1.</description>
+    </item>
     
     <item>
       <title>fitzRoy is now on CRAN!</title>
@@ -347,7 +357,7 @@ You can always receive my live, up to date tips here and my simulations here reg
       <guid>/post/season-2019-aflm-preview-of-sorts/</guid>
       <description>Hello world!
 For those of you looking for an in-depth preview of the 2019 AFL Men’s season, please look elsewhere (anyone in these cool links will do!).
-This year is going to be a quiet one from me on the blogging front. The usual suspects of work, living in a new city and my focus on improving the fitzRoy package will take up most of my time. Rest assured you’ll still get my weekly tips (always hosted here) and my simulations (likewise, always here).</description>
+This year is going to be a quiet one from me on the blogging front. The usual suspects of work, living in a new city and my focus on improving the fitzRoy package will take up most of my time.</description>
     </item>
     
     <item>
@@ -377,7 +387,7 @@ Ratings It’s certainly bunching at the top. With my new algorithm that is goin
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/afl-mens-round-16-preview/</guid>
       <description>Here we are for another damn Thursday night game. I actually quite like them except that I never have time to write my preview! Check out my full tips at this link or on Squiggle.
-Ratings After my recent update to the ratings system where my k-value (how much ELO ratings change after a game) is reducing as the season goes by, our ratings are somewhat stable. We still have a big gap between our top 11 and bottom 6, with Essendon sitting somewhere in between.</description>
+Ratings After my recent update to the ratings system where my k-value (how much ELO ratings change after a game) is reducing as the season goes by, our ratings are somewhat stable.</description>
     </item>
     
     <item>
@@ -398,7 +408,7 @@ Ratings The main thing that jumps out from our ratings is how two tiered it look
       <guid>/post/world-cup-datathon-part-4/</guid>
       <description>knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion journey and my feature engineering methods on previous posts. In this post - we build some models and submit them!
 First up, let’s load in our data and packages.
-library(pacman) p_load(tidyverse, caret, recipes) dat &amp;lt;- read_csv(here::here(&amp;quot;projects&amp;quot;, &amp;quot;world-cup-2018&amp;quot;, &amp;quot;combined-data-cleaned.csv&amp;quot;)) glimpse(dat) ## Observations: 14,740 ## Variables: 38 ## $ date &amp;lt;date&amp;gt; 1998-07-15, 1998-07-18, 1998-07-.</description>
+library(pacman) p_load(tidyverse, caret, recipes) dat &amp;lt;- read_csv(here::here(&amp;quot;projects&amp;quot;, &amp;quot;world-cup-2018&amp;quot;, &amp;quot;combined-data-cleaned.</description>
     </item>
     
     <item>
@@ -422,8 +432,7 @@ As a separate note - I’ve decided to enter the World Cup Datathon. You can see
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.
 Part 1 - Intro
 Part 2 - Data Acquisition
-Part 3 - Data Exploration and Feature Engineering
-Part 4 - Models (coming soon)</description>
+Part 3 - Data Exploration and Feature Engineering</description>
     </item>
     
     <item>
@@ -555,9 +564,14 @@ library(fitzRoy) library(tidyverse) ## ── Attaching packages ─────
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-5-afl-men-s-ratings-updates-and-preview/</guid>
-      <description>After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!
- Also a quick reminder that you always find full ratings and current tips updated each Monday.
-Ratings and Simulations The big loser here was clearly Adelaide, after a shock, heavy loss to Collingwood. They dropped from pretty clear top rated team down to 4th.</description>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -566,8 +580,13 @@ Ratings and Simulations The big loser here was clearly Adelaide, after a shock, 
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-4-afl-men-s-ratings/</guid>
-      <description>With round 3 done and dusted, are the top teams beginning to emerge?  You can see the full ratings, results and tips here but see our current ratings and simulations below.
-Not a whole lot of movement at the top, with Adelaide, Sydney, GWS, Richmond and Port remaining in the top tier of teams. These teams are all projected around 16 wins and ~80% chance of finals at this early stage, with Adelaide poking it’s nose out in front.</description>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;With round 3 done and dusted, are the top teams beginning to emerge? </description>
     </item>
     
     <item>
@@ -609,7 +628,7 @@ Footy Wire
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Sat, 28  M.C.G.  Richmond  GWS  8.</description>
+  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Thu, 19  M.C.G.  Richmond   Carlton   26.</description>
     </item>
     
     <item>
@@ -628,8 +647,19 @@ Footy Wire
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-ratings-and-simulations/</guid>
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-Last updated: 2019-09-26.
+Last updated: 2020-03-05.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
+    </item>
+    
+    <item>
+      <title>Ratings and Simulations</title>
+      <link>/page/aflm-ratings-and-simulations/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/page/aflm-ratings-and-simulations/</guid>
+      <description>Welcome to our all new AFL Men&amp;rsquo;s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I&amp;rsquo;ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
+Last updated: 2020-03-05.
+Summary Below are the updated AFL Men&amp;rsquo;s ratings and simulations. These are based off our ELO model and simulations.</description>
     </item>
     
     <item>
@@ -666,7 +696,8 @@ Blog migration As you may have noticed, my blog is looking a little funky.</desc
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/grand-final-time/</guid>
-      <description>Onto our last game of the season and what a pretty awesome matchup! The craziness that is the Tiger train marched on while the Crows, most peoples &amp;lsquo;best team all year&amp;rsquo; tries to spoil the Richmondy army. Last year I wrote a little preview that showed the path to the grand final of each time - I&amp;rsquo;ve dug up that old code and shown the same below. Happy reading!</description>
+      <description>Onto our last game of the season and what a pretty awesome matchup! The craziness that is the Tiger train marched on while the Crows, most peoples &amp;lsquo;best team all year&amp;rsquo; tries to spoil the Richmondy army. Last year I wrote a little preview that showed the path to the grand final of each time - I&amp;rsquo;ve dug up that old code and shown the same below. Happy reading!
+The path to glory We can see below that both teams have taken different paths this year.</description>
     </item>
     
     <item>
@@ -724,7 +755,7 @@ For those who rely on this blog post, here are the predictions for the week! Hap
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-21-bring-back-match-importance/</guid>
       <description>Getting to the business end of the season. There are still quite a few spots open for finals so this shapes as a pretty important round. I&amp;rsquo;ve included some match importance ratings this week so read on to find out which games matter!
-Match Importance I posted our simulations earlier in the week - find them here - but it&amp;rsquo;s safe to say there are some important matchups this week.</description>
+Match Importance I posted our simulations earlier in the week - find them here - but it&amp;rsquo;s safe to say there are some important matchups this week. Last year, I introduce the idea of match importance and I&amp;rsquo;ll bring it back this week.</description>
     </item>
     
     <item>
@@ -875,7 +906,8 @@ Ratings update Adelaide returns to the top of our ladder after a thumping of Ric
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/1043/</guid>
       <description>Another week down and some more surprising results in a super interesting season! The Hawks managed to hold their slide for now and peak back above &amp;lsquo;average&amp;rsquo; while the other two sliding giants in North and Sydney continued to fall. Speaking of the Giants, they&amp;rsquo;ve managed to climb to the top of our ELO ratings! Check out this weeks ratings and tips below.
-Current Tips and Predictions | Squiggle</description>
+Current Tips and Predictions | Squiggle
+Ratings update As I mentioned, we now have a new leader in our Ratings, with the Giants leapfrogging Geelong into top spot after their big win over Sydney.</description>
     </item>
     
     <item>
@@ -940,7 +972,6 @@ This year, I&amp;rsquo;ll be changing things a little to have a central place fo
       <description>&lt;p&gt;Beautiful Hugo adds a few custom shortcodes created by &lt;a href=&#34;https://www.liwen.id.au/heg/&#34;&gt;Li-Wen Yip&lt;/a&gt; and &lt;a href=&#34;https://github.com/GjjvdBurg/HugoPhotoSwipe&#34;&gt;Gert-Jan van den Berg&lt;/a&gt; for making galleries with &lt;a href=&#34;http://photoswipe.com&#34;&gt;PhotoSwipe&lt;/a&gt; .&lt;/p&gt;
 
 
-
 &lt;div class=&#34;gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
 	  
   
@@ -980,9 +1011,7 @@ This year, I&amp;rsquo;ll be changing things a little to have a central place fo
   &lt;/figure&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/div&gt;</description>
     </item>
     
     <item>
@@ -991,9 +1020,7 @@ This year, I&amp;rsquo;ll be changing things a little to have a central place fo
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/2017-03-07-bigimg-sample/</guid>
-      <description>&lt;p&gt;The image banners at the top of the page are refered to as &amp;ldquo;bigimg&amp;rdquo; in this theme. They are optional, and one more more can be specified. If more than one is specified, the images rotate every 10 seconds. In the front matter, bigimgs are specified using an array of hashes.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;The image banners at the top of the page are refered to as &amp;ldquo;bigimg&amp;rdquo; in this theme. They are optional, and one more more can be specified. If more than one is specified, the images rotate every 10 seconds. In the front matter, bigimgs are specified using an array of hashes.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1003,13 +1030,10 @@ This year, I&amp;rsquo;ll be changing things a little to have a central place fo
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/2017-03-05-math-sample/</guid>
       <description>&lt;p&gt;KaTeX can be used to generate complex math formulas server-side.&lt;/p&gt;
-
 &lt;p&gt;$$
 \phi = \frac{(1+\sqrt{5})}{2} = 1.6180339887\cdots
 $$&lt;/p&gt;
-
-&lt;p&gt;Additional details can be found on &lt;a href=&#34;https://github.com/Khan/KaTeX&#34;&gt;GitHub&lt;/a&gt; or on the &lt;a href=&#34;http://tiddlywiki.com/plugins/tiddlywiki/katex/&#34;&gt;Wiki&lt;/a&gt;.
-&lt;/p&gt;</description>
+&lt;p&gt;Additional details can be found on &lt;a href=&#34;https://github.com/Khan/KaTeX&#34;&gt;GitHub&lt;/a&gt; or on the &lt;a href=&#34;http://tiddlywiki.com/plugins/tiddlywiki/katex/&#34;&gt;Wiki&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1029,7 +1053,7 @@ $$&lt;/p&gt;
       <guid>/post/simulating-2017-afl-mens-season-pre-season-edition/</guid>
       <description>As I&amp;rsquo;ve indicated previously, I&amp;rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic The Arc blog, I&amp;rsquo;ve got some very preliminary season simulations together.
 The competition proposed by The Arc is simple - put forward your probabilities of each team making the finals for 2017.
-   Think you can do a better job of predicting the finalists than our Elo model?</description>
+ Think you can do a better job of predicting the finalists than our Elo model? Go on then!</description>
     </item>
     
     <item>
@@ -1067,8 +1091,7 @@ I&amp;rsquo;d been putting off getting back into things for a while but a recent
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/pre-prelim-ratings/</guid>
-      <description>#
-Unfortunately I didn&amp;rsquo;t get a chance to review the round last week (or post predictions). I&amp;rsquo;m putting this here as a placeholder for brevity so that I have the ratings showing for anyone interested.
+      <description>Unfortunately I didn&amp;rsquo;t get a chance to review the round last week (or post predictions). I&amp;rsquo;m putting this here as a placeholder for brevity so that I have the ratings showing for anyone interested.
 For the record, based on these ratings my system tipped Sydney by 2 points (51% chance of winning) and the Giants by 25 points (64% chance of winning).</description>
     </item>
     
@@ -1133,7 +1156,8 @@ As we wrote about earlier in the year - typically after around round 7 we genera
       <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-22-results/</guid>
-      <description>As we enter the final round of the year, our ELO model had a pretty good round. Last week we tipped 7 out of 9 with a mean absolute prediction error (MAPE) of 20.4, which was our best MAPE outside of the bye rounds for the year. Our two misses were Richmond losing out to St Kilda and Melbourne missing against Carlton. That gives us a season total of 136 out of 189 (72%) which means that we only need to tip 3 wins this weekend to beat our season goal of 70%.</description>
+      <description>As we enter the final round of the year, our ELO model had a pretty good round. Last week we tipped 7 out of 9 with a mean absolute prediction error (MAPE) of 20.4, which was our best MAPE outside of the bye rounds for the year. Our two misses were Richmond losing out to St Kilda and Melbourne missing against Carlton.
+That gives us a season total of 136 out of 189 (72%) which means that we only need to tip 3 wins this weekend to beat our season goal of 70%.</description>
     </item>
     
     <item>
@@ -1142,7 +1166,7 @@ As we wrote about earlier in the year - typically after around round 7 we genera
       <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-prediction-2/</guid>
-      <description>After having a rough start to the week (I busted my ankle playing local Aussie Rules in Brisbane), I&amp;rsquo;ve had a monumentous end, resubmitting my PhD thesis to the UQ Graduate School after responding to the examiners comments. Fingers crossed that gets ticked off soon! The downside of this is I&amp;rsquo;ve run out of time to get a decent preview up unfortunately.
+      <description>[ ](http://plussixoneblog.com/img/2016/08/round22.png)After having a rough start to the week (I busted my ankle playing local Aussie Rules in Brisbane), I&amp;rsquo;ve had a monumentous end, resubmitting my PhD thesis to the UQ Graduate School after responding to the examiners comments. Fingers crossed that gets ticked off soon! The downside of this is I&amp;rsquo;ve run out of time to get a decent preview up unfortunately.
 My predictions are below however I won&amp;rsquo;t include a writeup this week.</description>
     </item>
     
@@ -1162,7 +1186,8 @@ New Ratings The big wins by Sydney and Adelaide saw them extend their lead a the
       <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-21-results/</guid>
-      <description>I must admit to not catching a lot of footy over the weekend due to having Olympics fever, which is probably good considering my ELO model had a tough round this week! With a few upsets, and 5 games decided by a goal or less, we struggled picking winners this week. The model managed to tip 5 out of 9 with a mean absolute prediction error (MAPE) of 27.7. As we touched upon in last weeks predictions, anecdotally it feels that this time of year is tricky to tip as many teams appear to have different agendas.</description>
+      <description>I must admit to not catching a lot of footy over the weekend due to having Olympics fever, which is probably good considering my ELO model had a tough round this week! With a few upsets, and 5 games decided by a goal or less, we struggled picking winners this week. The model managed to tip 5 out of 9 with a mean absolute prediction error (MAPE) of 27.7.
+As we touched upon in last weeks predictions, anecdotally it feels that this time of year is tricky to tip as many teams appear to have different agendas.</description>
     </item>
     
     <item>
@@ -1171,7 +1196,8 @@ New Ratings The big wins by Sydney and Adelaide saw them extend their lead a the
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-21-predictions-saints-wont-go-away/</guid>
-      <description>While I keep writing that our top 8 has been set for awhile, the chance of someone jumping into the finals hasn&amp;rsquo;t gone away. The Saints are still a 17% of making it and the order of our top 4 in particular is still very fluid meaning there is still plenty of important games! Round Predictions The ELO model is relatively confident in most matches this week. With our only top 8 matchups (Hawthron v Kangaroos and GWS v West Coast) coming between teams at the top of the rankings versus those near the bottom, we see a fairly big discrepancy in relative rankings this week.</description>
+      <description>While I keep writing that our top 8 has been set for awhile, the chance of someone jumping into the finals hasn&amp;rsquo;t gone away. The Saints are still a 17% of making it and the order of our top 4 in particular is still very fluid meaning there is still plenty of important games!
+Round Predictions The ELO model is relatively confident in most matches this week. With our only top 8 matchups (Hawthron v Kangaroos and GWS v West Coast) coming between teams at the top of the rankings versus those near the bottom, we see a fairly big discrepancy in relative rankings this week.</description>
     </item>
     
     <item>
@@ -1255,7 +1281,7 @@ In 4 matches last week, our had difficulty separating teams after the Home Groun
       <pubDate>Fri, 22 Jul 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-18-predictions/</guid>
-      <description>Collingwood v North Melbourne, Fri 7:50pm Etihad Stadium        We&amp;rsquo;ve talked for a while about how tight the top 8 is, meaning every game the top 8 play in is important. Interestingly this round, we actually only see two top 8 teams play each other - our likely match of the round in Geelong v Adelaide.</description>
+      <description>We&amp;rsquo;ve talked for a while about how tight the top 8 is, meaning every game the top 8 play in is important. Interestingly this round, we actually only see two top 8 teams play each other - our likely match of the round in Geelong v Adelaide. Given that Adelaide are our top rated team  according to our ELO model and that match has some big implications as measured by our match importance rating, it is setup to be a cracker.</description>
     </item>
     
     <item>
@@ -1294,7 +1320,8 @@ Those two upset losses saw the biggest change in ELO ratings for the round with 
       <pubDate>Thu, 07 Jul 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-16-predictions/</guid>
-      <description>Port Adelaide v Hawthorn, Thurs 7:20pm Adelaide Oval Geelong v Sydney, Fri 7:50pm Skilled Stadium WCE v NM, Sun 1:20pm Domain Stadium        As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&amp;rsquo;ve ever had at this stage of the year.</description>
+      <description>As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&amp;rsquo;ve ever had at this stage of the year. Considering that, anytime two top 8 teams play each other, its going to be important.
+[ ](http://plussixoneblog.com/img/2016/07/importance_R15-1.png) We&amp;rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.</description>
     </item>
     
     <item>
@@ -1333,7 +1360,8 @@ We didn&amp;rsquo;t see a whole lot of movement in our ratings this week in the 
       <pubDate>Wed, 22 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-14-predictions/</guid>
-      <description>Adelaide v North Melbourne, Thurs 7:20pm Adelaide Oval Collingwood v Fremantle, Fri 7:30pm MCG        Our next bye round, subjectively, doesn&amp;rsquo;t look great on paper. Only the Collingwood v Freo match is considered tight by our ELO model, however it is fairly insignificant as measured by our Match Importance metric. The remaining matches, despite having some significance on the relevant team finishing positions, look fairly one sided.</description>
+      <description>Our next bye round, subjectively, doesn&amp;rsquo;t look great on paper. Only the Collingwood v Freo match is considered tight by our ELO model, however it is fairly insignificant as measured by our Match Importance metric. The remaining matches, despite having some significance on the relevant team finishing positions, look fairly one sided.
+Adelaide v North Melbourne, Thurs 7:20pm Adelaide Oval Probably the most interesting match of the round, and certainly with the biggest Match Importance rating, we see the top rated Crows favoured pretty heavily over the 7th ranked Kangaroos, particularly with the Home Ground Advantage.</description>
     </item>
     
     <item>
@@ -1352,7 +1380,8 @@ The main mover in our ELO ratings were Geelong, after their dominating win over 
       <pubDate>Fri, 17 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-13-predictions/</guid>
-      <description>North Melbourne v Hawthorn, Fri 7:40pm Etihad Stadium Fremantle v Port Adelaide, Sat 3:35pm Domain Stadium Bulldogs v Geelong, Sat 7:25pm Edihad Stadium        The first bye round of the year presents us with two groups of games - coin flip&amp;rsquo;s in the North/Hawks, Freo/Port and Bulldogs/Geelong games, while the others the ELO model expects to be relative blowouts.</description>
+      <description>The first bye round of the year presents us with two groups of games - coin flip&amp;rsquo;s in the North/Hawks, Freo/Port and Bulldogs/Geelong games, while the others the ELO model expects to be relative blowouts. You&amp;rsquo;ll also notice that I&amp;rsquo;ve added &amp;lsquo;match importance&amp;rsquo; to the table below, which you can read about in my recent blog post. I&amp;rsquo;ll summarise some of the important games below.
+North Melbourne v Hawthorn, Fri 7:40pm Etihad Stadium My model, as I keep harping on about, is still unimpressed by North Melbourne, rating them as the 8th best team and having them finish 7th on a (tightly packed) simulated season ladder.</description>
     </item>
     
     <item>
@@ -1361,7 +1390,7 @@ The main mover in our ELO ratings were Geelong, after their dominating win over 
       <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/beyond-the-8-point-game-estimating-match-importance-in-the-afl/</guid>
-      <description>As I was watching an enthralling match between Western Bulldogs and Port Adelaide over the weekend, there was a lot of discussion about how important the match was - the Bulldogs needed to win to cement their spot in the top 8, while Port needed to win to have any chance of jumping up. It&amp;rsquo;s also not uncommon for commentators to discuss the notion of an &amp;ldquo;8 point game&amp;rdquo;, typically when two teams close on the ladder play each other.</description>
+      <description>As I was watching an enthralling match between Western Bulldogs and Port Adelaide over the weekend, there was a lot of discussion about how important the match was - the Bulldogs needed to win to cement their spot in the top 8, while Port needed to win to have any chance of jumping up. It&amp;rsquo;s also not uncommon for commentators to discuss the notion of an &amp;ldquo;8 point game&amp;quot;, typically when two teams close on the ladder play each other.</description>
     </item>
     
     <item>
@@ -1379,7 +1408,8 @@ The main mover in our ELO ratings were Geelong, after their dominating win over 
       <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/round-12-predictions/</guid>
-      <description>Port Adelaide v Western Bulldogs, Sat 1:30pm Adelaide Oval Geelong v North Melbourne, Sat 7:25pm Etihad Stadium West Coast v Adelaide, Sat 7:40pm Domain Stadium GWS v Sydney, Sun 4:40pm Spotless Stadium        Last week was a great week for our model, tipping all 9 games correctly! Onto this weeks set of games and it looks like a tough round to tip!</description>
+      <description>Last week was a great week for our model, tipping all 9 games correctly! Onto this weeks set of games and it looks like a tough round to tip! There are a bunch of games that are difficult to seperate by bookmakers and also by my ELO model.
+Port Adelaide v Western Bulldogs, Sat 1:30pm Adelaide Oval This game is setup to be super close - Port Adelaide have been surging in the last couple of weeks, bridging the originally wide chasm between 8th and 9th place.</description>
     </item>
     
     <item>
@@ -1427,7 +1457,8 @@ This upcoming weekend shows us a few close matches that are difficult to call. O
       <pubDate>Mon, 23 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/my-elo-rating-system-explained/</guid>
-      <description>Typical ELO Actual Result Predicted Result Special K Iterating the ratings Results!        I&amp;rsquo;ve been wanting to try my hand at building a rating system to predict AFL results for a while. I&amp;rsquo;ve decided to begin with a relatively simple ELO rating system. The ELO rating system was originally developed to rank chess players, but more recently has been used for a lot of sports, including AFL, to assess the relative strengths of teams within a competition.</description>
+      <description>I&amp;rsquo;ve been wanting to try my hand at building a rating system to predict AFL results for a while. I&amp;rsquo;ve decided to begin with a relatively simple ELO rating system. The ELO rating system was originally developed to rank chess players, but more recently has been used for a lot of sports, including AFL, to assess the relative strengths of teams within a competition.
+For a super good explainer on how to build an ELO rating system, I highly recommend the following readings</description>
     </item>
     
     <item>
@@ -1446,7 +1477,7 @@ Onto this weekend, it looks like there are two standout games in the Hawks v Swa
       <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/the-tackle-machine/</guid>
-      <description>Over the weekend, Tom Liberatore managed to equal the record for the most tackles laid in a game in the history of recording the measure (since 1986[ref]at least on afltables.com[/ref]) with 19. He could have absolutely smashed the record considering he was on 17 tackles at 3&amp;frasl;4 time. This is also the second time this year the record has been equalled, after Jack Zieballs 19 tackles in Round 3, with the original record set by Jude Bolton in Round 3, 2011.</description>
+      <description>Over the weekend, Tom Liberatore managed to equal the record for the most tackles laid in a game in the history of recording the measure (since 1986[ref]at least on afltables.com[/ref]) with 19. He could have absolutely smashed the record considering he was on 17 tackles at 3/4 time. This is also the second time this year the record has been equalled, after Jack Zieballs 19 tackles in Round 3, with the original record set by Jude Bolton in Round 3, 2011.</description>
     </item>
     
     <item>
@@ -1493,7 +1524,7 @@ Below, I&amp;rsquo;ve taken each teams current ELO rating, with their current re
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/post/the-round-7-rule/</guid>
       <description>In an article over the weekend, Rohan Connolly from The Age asked if the finals teams were already set by the end of round 7. He suggested that Round 7 appeared to be some kind of milestone.
-Call it the round seven rule if you like, but in a nutshell, if a team wasn&#39;t already in the top eight by then, it was almost certainly not going to be there when the finals began four months later.</description>
+I&amp;rsquo;ve often heard commentators discuss this and always wondered if the data support it. It makes sense that better teams are higher on the ladder at Round 7 and therefore across a season end up higher on the ladder as well, but as we know, teams havevarying difficulties in their draw across a whole season, let alone in the first 7 rounds.</description>
     </item>
     
     <item>

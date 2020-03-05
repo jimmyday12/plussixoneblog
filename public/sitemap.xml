@@ -1,6 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/aflm/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/predictions-table-test/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>/post/fitzroy-is-now-on-cran/</loc>
@@ -128,7 +154,17 @@
   </url>
   
   <url>
+    <loc>/categories/fitzroy/</loc>
+    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/fitzroy-0-1-5-release/</loc>
+    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
   </url>
   
@@ -148,12 +184,27 @@
   </url>
   
   <url>
+    <loc>/categories/predictions/</loc>
+    <lastmod>2018-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/world-cup-datathon/</loc>
+    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/world-cup-datathon-part-4/</loc>
     <lastmod>2018-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/aflm-round-13-preview/</loc>
+    <lastmod>2018-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/page/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -165,6 +216,11 @@
   <url>
     <loc>/post/world-cup-datathon-part-3/</loc>
     <lastmod>2018-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/football/</loc>
+    <lastmod>2018-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -208,8 +264,23 @@
   </url>
   
   <url>
+    <loc>/categories/squiggle/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/squiggle-disagreement/</loc>
     <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/afl/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/aflwednesdaywonk/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -238,6 +309,11 @@
   </url>
   
   <url>
+    <loc>/categories/aflw/</loc>
+    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/page/aflw-coming-soon/</loc>
     <lastmod>2018-03-27T00:00:00+00:00</lastmod>
   </url>
@@ -258,7 +334,22 @@
   </url>
   
   <url>
+    <loc>/categories/prediction/</loc>
+    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/page/aflm-ratings-and-simulations/</loc>
+    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/page/aflm-ratings-and-simulations/</loc>
+    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/simulation/</loc>
     <lastmod>2018-03-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -270,6 +361,11 @@
   <url>
     <loc>/post/simulating-the-2018-season/</loc>
     <lastmod>2018-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/afl-womens/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -413,13 +509,38 @@
   </url>
   
   <url>
+    <loc>/tags/example/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/photoswipe/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/2017-03-20-photoswipe-gallery-sample/</loc>
+    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/2017-03-07-bigimg-sample/</loc>
     <lastmod>2017-03-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bigimg/</loc>
+    <lastmod>2017-03-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/math/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -454,6 +575,11 @@
   
   <url>
     <loc>/post/pre-prelim-ratings/</loc>
+    <lastmod>2016-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/results/</loc>
     <lastmod>2016-09-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -653,6 +779,11 @@
   </url>
   
   <url>
+    <loc>/categories/stats/</loc>
+    <lastmod>2016-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/the-tackle-machine/</loc>
     <lastmod>2016-05-18T00:00:00+00:00</lastmod>
   </url>
@@ -705,149 +836,6 @@
   <url>
     <loc>/page/about/</loc>
     <lastmod>2016-04-26T00:09:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/afl/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/afl-womens/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/aflm/</loc>
-    <lastmod>2019-09-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/aflw/</loc>
-    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/aflwednesdaywonk/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/bigimg/</loc>
-    <lastmod>2017-03-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/example/</loc>
-    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/fitzroy/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/football/</loc>
-    <lastmod>2018-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/math/</loc>
-    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/page/</loc>
-    <lastmod>2018-06-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/photoswipe/</loc>
-    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/prediction/</loc>
-    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/predictions/</loc>
-    <lastmod>2018-06-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/results/</loc>
-    <lastmod>2016-09-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/simulation/</loc>
-    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/squiggle/</loc>
-    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/stats/</loc>
-    <lastmod>2016-05-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2017-03-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/world-cup-datathon/</loc>
-    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

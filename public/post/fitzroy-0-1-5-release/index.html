@@ -24,7 +24,7 @@ You’ll have to reinstall fitzRoy to get the latest functions. We still aren’
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.37" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="canonical" href="/post/fitzroy-0-1-5-release/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -84,12 +84,16 @@ You’ll have to reinstall fitzRoy to get the latest functions. We still aren’
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-77406420-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -231,7 +235,10 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>For those of you who’ve been following me on Twitter, you’ll know that I’ve been working on an R package for AFL called <a href="jimmyday12.github.io/fitzRoy">fitzRoy</a> with Rob from <a href="jimmyday12.github.io/fitzRoy">Analysis of AFL</a>. Today we released a new version which has a much requested feature, so I’d figured a blog post was in order.</p>
+        
+
+
+<p>For those of you who’ve been following me on Twitter, you’ll know that I’ve been working on an R package for AFL called <a href="jimmyday12.github.io/fitzRoy">fitzRoy</a> with Rob from <a href="jimmyday12.github.io/fitzRoy">Analysis of AFL</a>. Today we released a new version which has a much requested feature, so I’d figured a blog post was in order.</p>
 <p>You’ll have to reinstall fitzRoy to get the latest functions. We still aren’t on CRAN but you can use devtools to get it.</p>
 <pre class="r"><code># install.packages(&quot;devtools&quot;) # uncomment if you haven&#39;t installed devtools before
 devtools::install_github(&quot;jimmyday12/fitzRoy&quot;)</code></pre>
@@ -328,7 +335,7 @@ library(tidyverse)</code></pre>
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -432,7 +439,7 @@ library(tidyverse)</code></pre>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

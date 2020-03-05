@@ -16,7 +16,8 @@ fixture <- fitzRoy::get_fixture() %>%
 
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
-season <- 2019
+season <- 2020
+new_season <- TRUE
 
 
 # Set Parameters
@@ -230,7 +231,7 @@ predictions <- predictions_raw %>%
 predictions
 # Simulation --------------------------------------------------------------
 sim_res <- results %>%
-  filter(year(Date) == year(Sys.Date())) %>%
+  filter(year(Date) == min(fixture$Season)) %>%
   mutate(
     Season.Game = Game - min(Game) + 1,
     Round = Round.Number
@@ -295,12 +296,21 @@ sim_data_all <- sim_data %>%
   )
 
 
+if (new_season) {
+  season = last(results$Season) + 1
+  round = 0 
+  } else {
+    season = last(results$Season)
+    round = last(results$Round)
+  }
+
+
 # Summarise the simulations into percentages
 sim_data_summary <- sim_data_all %>%
   group_by(Team) %>%
   dplyr::summarise(
-    Season = last(results$Season),
-    Round = last(results$Round.Number),
+    Season = season,
+    Round = round,
     Margin = mean(Margin),
     Wins = mean(Wins),
     Top.8 = sum(Top.8) / max(sims),
@@ -314,13 +324,13 @@ past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds"))
 
 # Bind with last entry
 sim_data_summary <- past_sims$sim_data_summary %>%
-  filter(!(Round == last(results$Round.Number)  & 
-             Season == last(results$Season))) %>%
+  filter(!(Round == round  & 
+             Season == season)) %>%
   bind_rows(sim_data_summary)
 
 # Print to console
 sim_data_summary %>% 
-  filter(Round == last(results$Round.Number))
+  filter(Round == round)
 
 # MEssage
 print(proc.time() - ptm)
@@ -343,7 +353,8 @@ simCount$Freq[simCount$Freq == 0] <- NA
 # Find order of wins
 simWins <- 
   sim_data_summary %>%
-  filter(Round == max(Round)) %>%
+  filter(Season == season) %>%
+  filter(Round == round) %>%
   arrange(Wins)
 
 # Refactor
@@ -368,8 +379,8 @@ simCount <- simCount %>%
 if ("simCount" %in% names(past_sims)) {
 simCount <- past_sims$simCount %>%
   #filter(Season == season) %>%
-  filter(!(Round == last(results$Round.Number)  & 
-           Season == last(results$Season))) %>%
+  filter(!(Round == round  & 
+           Season == season)) %>%
   bind_rows(simCount)
 }
 

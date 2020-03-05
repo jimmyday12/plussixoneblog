@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.37" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="canonical" href="/post/finals-week-2/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,12 +82,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-77406420-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -229,41 +233,23 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<p>Following a cracking weekend of finals football, I haven&rsquo;t had the time I&rsquo;d like to get this weeks results and predictions up. I also did find out that my simulation of finals script, that I&rsquo;d hurriedly written back in about round 13 actually couldn&rsquo;t handle real finals data being thrown at it. Nonetheless, the simulations of the remainder of the finals series are in, and I&rsquo;ll combine it with my predictions later on in this post!</p>
-
-<!-- more -->
-
+        <p>Following a cracking weekend of finals football, I haven&rsquo;t had the time I&rsquo;d like to get this weeks results and predictions up. I also did find out that my simulation of finals script, that I&rsquo;d hurriedly written back in about round 13 actually couldn&rsquo;t handle real finals data being thrown at it. Nonetheless, the simulations of the remainder of the finals series are in, and I&rsquo;ll combine it with my predictions later on in this post!</p>
+<!-- raw HTML omitted -->
 <h1 id="new-ratings">New ratings</h1>
-
 <p>Firstly, we can see that the weekend was clearly kind to the Bulldogs and GWS, with their big wins certainly coming against expectations. Our <a href="http://plussixoneblog.com/2016/05/23/my-elo-rating-system-explained/">ELO model</a> had the Bulldogs as <a href="http://plussixoneblog.com/2016/09/08/finals-week-1-predictions/">33% outsiders to beat the Eagles</a>. Their big win gave them a nice bump in ranking points (one of the bigger ELO adjustments of the year), although they remain the weakest of the remaining teams by a decent amount.</p>
-
 <p>The GWS were similarly outsiders (at 38% chance of winning) against the ELO leading Swans team (who received, I should admit, a likely unwarranted Home Ground Advantage boost being the notional &lsquo;home team&rsquo;). Their big loss saw the Swans lose their large lead at the top of the ELO rating system. The Crows impressive win against North saw them move up in rating points but, perhaps unluckily, dropped a spot to GWS, such was the impressiveness of their win. The Hawks and Geelong game saw those two teams however around their current levels which, it must be said, is probably 1 tier behind those leading teams.</p>
-
-<p><img src="http://plussixoneblog.com/img/2016/09/ratingplot-1-1.png" alt="plot of chunk ratingplot" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2016/09/ratingplot-1-1.png" alt="plot of chunk ratingplot"></p>
 <h1 id="simulations">Simulations</h1>
-
 <p>Onto my (now much maligned!) finals simulations. Our two Prelim winning teams are now both big favourites to get into the Grand Final - they each make the GF in more than 50% of simulations, with that as high as 66% for GWS.</p>
-
 <p>As expected, both of those two teams are leading our premiership race, with Geelong actually slightly ahead of GWS in simulations despite being behind them on ELO ratings. I suspect this is because they get the nominal &lsquo;home ground advantage&rsquo; for the GF against all of the interstate teams, which overcomes the effect of being slightly lower rated.</p>
-
 <p>The news doesn&rsquo;t look good for the winner of Hawthorn and Western Bulldogs though - only lifting the cup in 7% and 4% of simulations respectively. That is largely due to running into a red hot GWS team at their home ground in the prelim.</p>
-
-<p><img src="http://plussixoneblog.com/img/2016/09/simTableR25.png" alt="simtabler25" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2016/09/simTableR25.png" alt="simtabler25"></p>
 <h1 id="predictions">Predictions</h1>
-
-<p><img src="http://plussixoneblog.com/img/2016/09/round25.png" alt="round25" /></p>
-
-<h5 id="hawthorn-v-bulldogs-friday-7-30pm-mcg">Hawthorn V Bulldogs, Friday 7:30pm, MCG</h5>
-
+<p><img src="http://plussixoneblog.com/img/2016/09/round25.png" alt="round25"></p>
+<h5 id="hawthorn-v-bulldogs-friday-730pm-mcg">Hawthorn V Bulldogs, Friday 7:30pm, MCG</h5>
 <p>Our week predictions see both home teams as the favourites going into this weekends matches. As discussed, the Bulldogs are actually rated a fair way below the remaining teams and so, being away and against a stronger Hawks team, gives them a pretty low chance of saluting this week. <em><strong>Hawks (61%) by 18 points.</strong></em></p>
-
-<h5 id="sydney-v-adelaide-sat-7-30pm-mcg">Sydney V Adelaide, Sat 7:30pm, MCG</h5>
-
-<p>This is actually a really interesting matchup - pitting our 1st ranked team against the team that has been on top of ELO ratings for most of the latter half of the season (they are currently 3rd). The Home Ground Advantage gives the Swans the edge here but it is close on the ratings. Nonetheless, the Swans are our favourites here.  <em><strong>Swans</strong>** (58%) by 12 points.**</em></p>
+<h5 id="sydney-v-adelaide-sat-730pm-mcg">Sydney V Adelaide, Sat 7:30pm, MCG</h5>
+<p>This is actually a really interesting matchup - pitting our 1st ranked team against the team that has been on top of ELO ratings for most of the latter half of the season (they are currently 3rd). The Home Ground Advantage gives the Swans the edge here but it is close on the ratings. Nonetheless, the Swans are our favourites here.  _<strong>Swans</strong>** (58%) by 12 points.**_</p>
 
       </article>
 
@@ -287,7 +273,7 @@ ga('send', 'pageview');
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -391,7 +377,7 @@ ga('send', 'pageview');
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

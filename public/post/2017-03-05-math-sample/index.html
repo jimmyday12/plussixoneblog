@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.37" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="canonical" href="/post/2017-03-05-math-sample/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,12 +82,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-77406420-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -234,38 +238,31 @@ ga('send', 'pageview');
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>KaTeX can be used to generate complex math formulas server-side.</p>
-
 <p>$$
 \phi = \frac{(1+\sqrt{5})}{2} = 1.6180339887\cdots
 $$</p>
-
-<p>Additional details can be found on <a href="https://github.com/Khan/KaTeX">GitHub</a> or on the <a href="http://tiddlywiki.com/plugins/tiddlywiki/katex/">Wiki</a>.
-</p>
-
+<p>Additional details can be found on <a href="https://github.com/Khan/KaTeX">GitHub</a> or on the <a href="http://tiddlywiki.com/plugins/tiddlywiki/katex/">Wiki</a>.</p>
 <h3 id="example-1">Example 1</h3>
-
 <p>If the text between $$ contains newlines it will rendered in display mode:</p>
-<div class="highlight"><pre class="chroma">$$
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$$
 f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
-$$</pre></div>
-<p>$$
-f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+$$
+</code></pre></div><p>$$
+f(x) = \int_{-\infty}^\infty\hat f(\xi),e^{2 \pi i \xi x},d\xi
 $$</p>
-
 <h3 id="example-2">Example 2</h3>
-<div class="highlight"><pre class="chroma">$$
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$$
 \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
-$$</pre></div>
-<p>​​$$
+$$
+</code></pre></div><p>​​$$
 \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
 $$
 ​​</p>
-
 <h3 id="example-3">Example 3</h3>
-<div class="highlight"><pre class="chroma">$$
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$$
 1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots = \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}, \quad\quad \text{for }\lvert q\rvert&lt;1.
-$$</pre></div>
-<p>$$
+$$
+</code></pre></div><p>$$
 1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots = \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}, \quad\quad \text{for }\lvert q\rvert&lt;1.
 $$</p>
       </article>
@@ -290,7 +287,7 @@ $$</p>
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -394,7 +391,7 @@ $$</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

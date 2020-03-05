@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.37" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="canonical" href="/post/the-deledio-effect/" />
   <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -82,12 +82,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-77406420-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -209,7 +213,7 @@ ga('send', 'pageview');
   
   
   &nbsp;|&nbsp;
-  <i class="fa fa-clock-o"></i> 6 minutes (1260 words)
+  <i class="fa fa-clock-o"></i> 6 minutes (1259 words)
   
   
 </span>
@@ -229,68 +233,40 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<p>After the weekend, in which Richmond lost handsomely to (a very good) Hawthorn side, the narrative trotted out by the football media again seemed to surround the idea that Brett Deledio didn&rsquo;t play. Every time he doesn&rsquo;t play and Richmond lose, we generally get given some cherry picked data about how many games Richmond has lost while he hasn&rsquo;t played. While it may be the case that he is super important to Richmond, simply stating their win/loss record without him doesn&rsquo;t show this. I thought I&rsquo;d use this opportunity to explore the issue slightly more in depth!</p>
-
+        <p>After the weekend, in which Richmond lost handsomely to (a very good) Hawthorn side, the narrative trotted out by the football media again seemed to surround the idea that Brett Deledio didn&rsquo;t play. Every time he doesn&rsquo;t play and Richmond lose, we generally get given some cherry picked data about how many games Richmond has lost while he hasn&rsquo;t played. While it may be the case that he is super important to Richmond, simply stating their win/loss record without him doesn&rsquo;t show this. I thought I&rsquo;d use this opportunity to explore the issue slightly more in depth!</p>
+<!-- raw HTML omitted -->
 <blockquote>
-
->
-> DELEDIO EFFECT [@Richmond_FC](https://twitter.com/Richmond_FC) have lost 15 of the 18 games [@BrettDeledio03](https://twitter.com/BrettDeledio03) has missed in his career [#AFLHawksTigers](https://twitter.com/hashtag/AFLHawksTigers?src=hash) [pic.twitter.com/KykOBShIWV](https://t.co/KykOBShIWV)
->
->
-— AFL on 7 (@7AFL)
-
-[July 24, 2016](https://twitter.com/7AFL/status/757114999319830528)</blockquote>
-
+<p>DELEDIO EFFECT <a href="https://twitter.com/Richmond_FC">@Richmond_FC</a> have lost 15 of the 18 games <a href="https://twitter.com/BrettDeledio03">@BrettDeledio03</a> has missed in his career <a href="https://twitter.com/hashtag/AFLHawksTigers?src=hash">#AFLHawksTigers</a> <a href="https://t.co/KykOBShIWV">pic.twitter.com/KykOBShIWV</a></p>
+</blockquote>
+<p>— AFL on 7 (@7AFL)</p>
+<p><a href="https://twitter.com/7AFL/status/757114999319830528">July 24, 2016</a><!-- raw HTML omitted --></p>
 <p>My general belief is that while the make up of a team is important (as we can clearly see from Essendon this year, after losing half of their list), the marginal gains that one player may provide are quite small compared to our overall beleif about a teams gross ability. My <a href="http://wp.me/p7soFv-3G">ELO model</a>, which is ignorant to team make up, can do a pretty good job of predicting match outcomes. Nonetheless, data from overseas has begun to explore the idea of using Network Analysis to understand team makup. In fact, in AFL, Sargent and Bedford published research using <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3761758/">Interactive Network Simulation Geelong&rsquo;s 2011 season</a> to understand the impact an individual player inclusing or exclusing from a lineup had on a team.</p>
-
-<p><img src="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3761758/bin/jssm-12-116-g004.jpg" alt="" /> <strong>Interactive Network Simulation of the effect of Bartel on the Margin</strong>. Figure taken from <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3761758/">Sargent and Bedford</a>. <em>J Sports Sci Med</em>. 2013; 12(1): 116-121</p>
-
+<p><img src="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3761758/bin/jssm-12-116-g004.jpg" alt=""> <strong>Interactive Network Simulation of the effect of Bartel on the Margin</strong>. Figure taken from <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3761758/">Sargent and Bedford</a>. <em>J Sports Sci Med</em>. 2013; 12(1): 116-121</p>
 <p>While I don&rsquo;t have the time or expertise to implement their Network analyses (yet), I can use my ELO model to gain a better understanding of the specific effect of having Deledio has on our <em>expected</em> outcome, rather than simply expecting them to win every game he plays in. Since I&rsquo;ve got a model that does a pretty good job over a season of applying a probability to a particular matchup based on the relative rating assigned to a team (independant of the players involved), Ive got a nice tool to compare how Richmonds winning rate compares to what we would expect from a team of Richmonds level compared to how they have actually performed without Deledio.</p>
-
 <p>The first thing we need to know is which games have Richmond played in during Deledios career where he did and didn&rsquo;t play. I&rsquo;ve used data <a href="www.afltables.com">afltables</a>, to come up with all Deledio-less games. Knowing this, we can now take a look at Richmonds record in the time since Deledio&rsquo;s debut in Round 1, 2005. In the <strong>262</strong> games that Richmond has played in since his debut, he has missed <strong>19</strong>, with Richmond only winning <strong>3</strong> of them, a rate of <strong>15.79%</strong>. This is on contrast to his career winning percentage of <strong>45.27%</strong> over <strong>243</strong> games. It is this descrepancy that is often terrmed the <em>Deledio Effect</em>.</p>
-
-<p><img src="http://plussixoneblog.com/img/2016/07/winsPlot-1-3.png" alt="plot of chunk winsPlot" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2016/07/winsPlot-1-3.png" alt="plot of chunk winsPlot"></p>
 <p>The first thing we note here is how small our sample size is for games in which Deledio missed, compared to those in which he won. We could probably just stop our analyses here and make a statement about how we need more information to better understand the true impact of having Deledio has on the Tigers. But as promised, I&rsquo;ve got my <a href="http://wp.me/p7soFv-3G">ELO model</a> that can at least give us a slightly deeper understanding about how anomalous this result is.</p>
-
 <p>Below, I&rsquo;ve taken the expected margin computed from the difference in ELO rating (plus a home ground advantage boost) for those games in which Deledio missed and plotted those expected Margins against the actual margins.</p>
-
-<p><img src="http://plussixoneblog.com/img/2016/07/marginPlot-1-3.png" alt="plot of chunk marginPlot" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2016/07/marginPlot-1-3.png" alt="plot of chunk marginPlot"></p>
 <p>This plot again shows that there is really a very small dataset to work with for the missing data. It also shows that when he does play, our model does a pretty good job at predicting the margin on average, with an MAE of <strong>31.3</strong> for when he does play. Tentatively, this value is slightly higher when he doesn&rsquo;t play (<strong>36.2</strong>), although, n = small.</p>
-
 <p>In those games where he does miss, we can see that there is a <em>relatively</em> big proportion of games in the quadrant where we predicted a win but saw a loss (highlighted as blue), suggesting that these are the games where the Tigers underperformed against our models expectations.</p>
-
 <p>To attempt to further explore this data, I&rsquo;ve performed some simulations (you can read about the methodology <a href="http://wp.me/p7soFv-3G">here</a>) on the Tigers games during Deledio&rsquo;s career. Breifly, I use the difference in ELO ratings between the two teams to estimate a predicted margin. I then draw an actual simulated Margin from a normal distribution with a mean of that expected margin and some noise. I&rsquo;ve then repeated this 10000 times for each game during the Deledio era. You can see the distribution of wins for each category (Missed v Played) below.</p>
-
-<p><img src="http://plussixoneblog.com/img/2016/07/distributionPlot-1-3.png" alt="plot of chunk distributionPlot" /></p>
-
+<p><img src="http://plussixoneblog.com/img/2016/07/distributionPlot-1-3.png" alt="plot of chunk distributionPlot"></p>
 <p>We can see that our distribution of wins for the Missed games centers around 10 (a percentage of <strong>52.63%</strong>), well above our actual wins of <strong>3</strong>. In fact, we only saw 3 wins or less in <strong>0.05%</strong> of our simulations! In games where he played, this rises to a <strong>76.87%</strong> in games where he does play, suggesting that Richmond actually outperform expectations in those games.</p>
-
 <h3 id="conclusion">Conclusion</h3>
-
 <p>So what can we conclude? I started off convinced I could debunk the Deledio myth but our data hasn&rsquo;t helped. There is a lack of data points where Deledio doesn&rsquo;t play, so making definitive inferences is probably not valid. We can conclude however that in games where Deledio doesn&rsquo;t play, Richmond perform well below where we&rsquo;d expect them. In games where he does play, Richmond perform well above where we&rsquo;d expect them. My speculation for possible explanations are</p>
-
 <ul>
 <li><strong>Unexplained variance</strong></li>
 </ul>
-
-<p>This whole analyses is based upon my <a href="http://wp.me/p7soFv-3G">ELO model</a>, which does a pretty good job of predicting outcomes (~70% of games tipped correctly, better than chance) and margins (a long term Mean Absolute Error of 30 points). However, at least in the Margins, it still only explains about 27.48 of the variance in the final margin. That leaves more than <sup>2</sup>&frasl;<sub>3</sub> of the variability unexplained (slightly worse than what <a href="http://www.matterofstats.com/mafl-stats-journal/2014/1/14/the-ten-most-surprising-things-ive-learned-about-afl-so-far">Matter of Stats has shown</a>, but in the same ballpark). Some of that variability may come from Deledio missing, but more likely (especially with our small dataset) is that a combinatino of lots of factors is bringing that variability</p>
-
+<p>This whole analyses is based upon my <a href="http://wp.me/p7soFv-3G">ELO model</a>, which does a pretty good job of predicting outcomes (~70% of games tipped correctly, better than chance) and margins (a long term Mean Absolute Error of 30 points). However, at least in the Margins, it still only explains about 27.48 of the variance in the final margin. That leaves more than 2/3 of the variability unexplained (slightly worse than what <a href="http://www.matterofstats.com/mafl-stats-journal/2014/1/14/the-ten-most-surprising-things-ive-learned-about-afl-so-far">Matter of Stats has shown</a>, but in the same ballpark). Some of that variability may come from Deledio missing, but more likely (especially with our small dataset) is that a combinatino of lots of factors is bringing that variability</p>
 <ul>
 <li><strong>Randomness</strong></li>
 </ul>
-
 <p>Related somewhat to the above point, but sometimes events that we attach small probabilities to actually occur. In fact, given enough time, we fully expect that they will occur, we just don&rsquo;t know when. So even though we&rsquo;d only expect the Tigers to win 3 games or less based on our <a href="http://wp.me/p7soFv-3G">ELO model</a> &lt;1% of the time, it still did happen. Maybe we&rsquo;ve just seen an extreme run of abnormal results.</p>
-
 <ul>
 <li><strong>Deledio is super important!</strong></li>
 </ul>
-
 <p>The final take away may be that Deledio is actually important. In the Sargent and Bedford paper I referenced earlier, they used an example of taking Jimmy Bartel out of the Geelong team and replacing him with Shannon Byrnes. This showed a net effect on the mean margin of a game to be 15 points to the score, highlighting how important Bartel was to that Geelong side. Maybe Deledio is actually that important compared to the player who does come into him.</p>
-
 <p>Hopefully with some more knowledge, and data, I can further explore this idea using a similar methodolgy. For now, lets just say that Richmond underperform from what we expect when Deledio doesn&rsquo;t play and leave it there.</p>
 
       </article>
@@ -315,7 +291,7 @@ ga('send', 'pageview');
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -419,7 +395,7 @@ ga('send', 'pageview');
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.63.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
