@@ -402,14 +402,18 @@ aflm_sims <- list(
 )
 
 # Save
-write_rds(aflm_data, path = here::here("data", "raw-data", "AFLM.rds"), compress = "bz")
-write_rds(aflm_sims, path = here::here("data", "raw-data", "AFLM_sims.rds"), compress = "bz")
-write_csv(predictions, path = here::here("data", "raw-data", "predictions.csv"))
-write_csv(aflm_sims$sim_data_summary, path = here::here("data", "raw-data", "AFLM_sims_summary.csv"))
-write_csv(aflm_sims$simCount, path = here::here("data", "raw-data", "AFLM_sims_positions.csv"))
+write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
+write_rds(aflm_sims, path = here::here("data_files", "raw-data", "AFLM_sims.rds"), compress = "bz")
+write_csv(predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
+write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
+write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
+write_csv(aflm_data$elo, path = here::here("data_files", "raw-data","AFLM_elo.csv"))
 
 # Message
 print(proc.time() - ptm)
 message("Data saved")
 
-blogdown:::serve_site()
+
+blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
+blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
+blogdown:::build_site()
