@@ -61,7 +61,7 @@ results <- fitzRoy::get_match_results() %>%
 
 
 # Get states data - this comes from another script I run when a new venue or team occurs
-states <- read_rds(here::here("data", "raw-data", "states.rds"))
+states <- read_rds(here::here("data_files", "raw-data", "states.rds"))
 message("Data loaded")
 
 # Data Cleaning -----------------------------------------------------------
@@ -320,7 +320,7 @@ sim_data_summary <- sim_data_all %>%
 
 # Combine these simulations with previous ones for plotting
 # Load old sims
-past_sims <- read_rds(here::here("data", "raw-data", "AFLM_sims.rds")) 
+past_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds")) 
 
 # Bind with last entry
 sim_data_summary <- past_sims$sim_data_summary %>%
