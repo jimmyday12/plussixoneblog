@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on plusSixOne</title>
@@ -7,31 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Afl</title>
+      <title>AFL</title>
       <link>/categories/afl/</link>
-      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/categories/afl/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Afl Womens</title>
-      <link>/categories/afl-womens/</link>
-      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/afl-womens/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aflm</title>
+      <title>AFLM</title>
       <link>/categories/aflm/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
@@ -40,25 +31,7 @@
     </item>
     
     <item>
-      <title>Aflw</title>
-      <link>/categories/aflw/</link>
-      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/aflw/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aflwednesdaywonk</title>
-      <link>/categories/aflwednesdaywonk/</link>
-      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/aflwednesdaywonk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fitzroy</title>
+      <title>fitzroy</title>
       <link>/categories/fitzroy/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
@@ -67,18 +40,18 @@
     </item>
     
     <item>
-      <title>Football</title>
-      <link>/categories/football/</link>
-      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/football/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Prediction</title>
       <link>/categories/prediction/</link>
-      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/categories/prediction/</guid>
       <description></description>
@@ -94,29 +67,20 @@
     </item>
     
     <item>
-      <title>R</title>
-      <link>/categories/r/</link>
-      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      <title>World Cup Datathon</title>
+      <link>/categories/world-cup-datathon/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/r/</guid>
+      <guid>/categories/world-cup-datathon/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Results</title>
-      <link>/categories/results/</link>
-      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      <title>Football</title>
+      <link>/categories/football/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/results/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simulation</title>
-      <link>/categories/simulation/</link>
-      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/simulation/</guid>
+      <guid>/categories/football/</guid>
       <description></description>
     </item>
     
@@ -130,20 +94,56 @@
     </item>
     
     <item>
+      <title>AFLW</title>
+      <link>/categories/aflw/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/aflw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AFLWednesdayWonk</title>
+      <link>/categories/aflwednesdaywonk/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/aflwednesdaywonk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simulation</title>
+      <link>/categories/simulation/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/simulation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AFL Womens</title>
+      <link>/categories/afl-womens/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/afl-womens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Results</title>
+      <link>/categories/results/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/results/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Stats</title>
       <link>/categories/stats/</link>
       <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/categories/stats/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>World Cup Datathon</title>
-      <link>/categories/world-cup-datathon/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/world-cup-datathon/</guid>
       <description></description>
     </item>
     

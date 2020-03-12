@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on plusSixOne</title>
@@ -22,8 +22,7 @@
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.
 Part 1 - Intro
 Part 2 - Data Acquisition
-Part 3 - Data Exploration and Feature Engineering
-Part 4 - Models (coming soon)</description>
+Part 3 - Data Exploration and Feature Engineering</description>
     </item>
     
     <item>
