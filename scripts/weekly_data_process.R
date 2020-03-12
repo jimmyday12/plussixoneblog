@@ -416,4 +416,4 @@ message("Data saved")
 
 blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
 blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
-blogdown:::build_site()
+blogdown:::serve_site()
