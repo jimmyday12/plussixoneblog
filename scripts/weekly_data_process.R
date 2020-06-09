@@ -17,7 +17,7 @@ fixture <- fitzRoy::get_fixture() %>%
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2020
-new_season <- TRUE
+new_season <- FALSE
 
 
 # Set Parameters
@@ -184,8 +184,8 @@ elo <- results %>%
     Away.ELO = elo.B
   ) %>%
   mutate(
-    Home.ELO_pre = Home.ELO - update,
-    Away.ELO_pre = Away.ELO + update
+    Home.ELO_pre = Home.ELO - update.A,
+    Away.ELO_pre = Away.ELO - update.B
   ) %>%
   select(Date, Game, Round, Round.Number, Home.Team, Away.Team, Home.ELO:Away.ELO_pre) %>%
   gather(variable, value, Home.Team:Away.ELO_pre) %>%
