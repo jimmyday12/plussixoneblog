@@ -17,7 +17,7 @@ draft: true
 library(purrr)
 library(tidyverse)
 library(fitzRoy)
-library(plussixelo)
+
 ```
 
 ```{r get_data, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
