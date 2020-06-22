@@ -32,7 +32,7 @@ library(pacman)
 pacman::p_load(fitzRoy, tidyverse, formattable, ggthemes, elo, here, lubridate)
 
 # Load data that has been run using 'weekly_data_process.R'
-path <- here::here("data", "raw-data", "AFLM.rds")
+path <- here::here("data_files", "raw-data", "AFLM.rds")
 dat_list <- read_rds(path)
 ```
 
@@ -40,7 +40,7 @@ dat_list <- read_rds(path)
 ## Projected wins
 My first set of simulations are hot off the press and we can see below our summary table. For reference, the ELO score and 1-week change are presented, as are the probabilities of finishing top 8, top 4 and minor premier. 
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Get the round data
 elo_round <- dat_list$elo %>%
   filter(Game == last(Game) & !Team %in% c("Fitzroy", "University"))
@@ -84,7 +84,7 @@ Another interesting game is tonight's grand final rematch. Adelaide just gets th
 Possibly the match-up of the round is Sydney v Port. Again, HGA and a slightly higher rating gets Sydney over the line but these are two highly rated teams in our model and looked in good form in Round 1. Good one to watch in the post Easter egg hunt coma! 
 
 
-```{r Predictions, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Predictions, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Filter round and pass onto formattable
 dat_list$predictions %>%
   filter(Round == 2) %>%

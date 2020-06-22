@@ -25,7 +25,7 @@ library(fitzRoy)
 library(tidyverse)
 library(formattable)
 library(ggthemes)
-library(plussixelo)
+library(here)
 ```
 
 ```{r get data, message=FALSE, warning=FALSE}
@@ -33,7 +33,7 @@ library(plussixelo)
 fixture <- get_fixture()
 
 # Get processed ELO data
-load("~/Documents/R_scripts/Fusion/AFLELO/Data/AFL_ELO_Hist.rda")
+load(here::here("data_files", "raw-data", "AFL_ELO_Hist.rda"))
 results <- datNew %>%
   mutate(Team = replace_teams(Team))
 
@@ -67,7 +67,7 @@ ggplot(data = elo, aes(x = reorder(Team, ELO_post))) +
 
 
 ## Predictions
-```{r}
+```{r eval=FALSE, include=FALSE}
 round <-  1
 HGA = 30
 

@@ -40,7 +40,8 @@ pacman::p_load(fitzRoy, tidyverse, formattable,
 # Load data that has been run using 'weekly_data_process.R'
 finals <- FALSE
 Season <- 2020
-new_season <- TRUE
+seas <- Season
+new_season <- FALSE
 dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 sim_dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
 fixture <- fitzRoy::get_fixture(Season)
@@ -59,8 +60,8 @@ last_elo <- dat_list$elo %>%
   select(Team, ELO, ELO_pre)
 
 sim_round <- sim_dat_list$sim_data_summary %>%
-  filter(Season == Season) %>%
-  filter(Round == last(sim_dat_list$sim_data_summary$Round))
+  dplyr::filter(Season == seas) %>%
+  dplyr::filter(Round == last(sim_dat_list$sim_data_summary$Round))
 
 # Combine Simulation and ELO data
 elo_table <- sim_round %>%
