@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
       - name: Install packages
-        run: Rscript -e 'install.packages(c("fitzRoy", "tidyverse", "pacman", "here", "fst"))'
+        run: Rscript -e 'install.packages(c("fitzRoy", "tidyverse", "pacman", "here", "fst", "blogdown"))'
       - name: Get data
         run: Rscript -e 'source(here::here("scripts", "weekly_data_process.R"), echo = TRUE)'
       - name: Commit
