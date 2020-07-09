@@ -3,6 +3,9 @@ name: Get new data and rebuild site
 on:
   schedule:
     - cron: "0 13 * * 1"
+  push:
+    branches:
+      - master
 
 jobs:
   scrape-and-commit:
@@ -10,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-pandoc@v1
       - name: Install packages
         run: Rscript -e 'install.packages(c("fitzRoy", "tidyverse", "pacman", "here", "fst", "blogdown"))'
       - name: Get data
