@@ -16,6 +16,8 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install packages
         run: Rscript -e 'install.packages(c("fitzRoy", "tidyverse", "pacman", "here", "fst", "blogdown"))'
+      - name: Install Hugo
+        run: Rscript -e 'blogdown::install_hugo(extended = TRUE, version = "0.66.0")'
       - name: Get data
         run: Rscript -e 'source(here::here("scripts", "weekly_data_process.R"), echo = TRUE)'
       - name: Commit
