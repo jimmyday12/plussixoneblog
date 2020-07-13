@@ -243,11 +243,11 @@ if(covid_seas){
   fixture <- fixture %>%
     bind_rows(covid_fixture) %>%
     mutate(Round.Number = Round,
-           Home.Factor = 1,
+           Home.Factor = ifelse(is.na(Home.Factor), 0, Home.Factor),
            Away.Factor = 0,
            Season = 2020,
-           Home.Interstate = ifelse(is.na(Home.Interstate), TRUE, Home.Interstate),
-           Away.Interstate = ifelse(is.na(Away.Interstate), TRUE, Away.Interstate),
+           Home.Interstate = ifelse(is.na(Home.Interstate), FALSE, Home.Interstate),
+           Away.Interstate = ifelse(is.na(Away.Interstate), FALSE, Away.Interstate),
            Home.Venue.Exp = ifelse(is.na(Home.Venue.Exp), 1, Home.Venue.Exp),
            Away.Venue.Exp = ifelse(is.na(Away.Venue.Exp), 1, Away.Venue.Exp)) 
 }
@@ -457,6 +457,6 @@ message("Data saved")
 
 blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
 blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
-#blogdown:::serve_site()
+blogdown:::serve_site()
 #blogdown::hugo_build()
 #blogdown::build_site()

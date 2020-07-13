@@ -50,6 +50,17 @@ fixture <- fitzRoy::get_fixture(Season)
 ## Summary
 Below are the updated AFL Men's ratings and simulations. These are based off our ELO model and simulations. 
 
+***
+**NOTE**
+
+The simulations for the 2020 season are a little tricky given we don't know the fixture. We are making the following assumptions
+
+* All teams will play eachother once
+* For games that have been fixtured - we use the relevent information for HGA (interstate, home team advtanage, ground experience)
+* For games that have been mocked, HGA is considered neutral (no interstate or home team advantage and group experience is equal).
+
+***
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Get the round data
 last_elo <- dat_list$elo %>%
