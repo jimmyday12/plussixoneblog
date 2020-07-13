@@ -205,11 +205,54 @@ results <- results %>%
 print(proc.time() - ptm)
 message("ELO Run")
 
-# Predictions -------------------------------------------------------------
-# Do predictions
+# Get Fixture -------------------------------------------------------------
 fixture <- game_dat %>%
   filter(Date >= filt_date)
 
+covid_seas <- last(fixture$Round) < 23
+
+if(covid_seas){
+  covid_fixture <- readr::read_csv(here::here("data_files", "raw-data", "afl_fixture_mock_2020.csv"))
+  
+  covid_fixture <- covid_fixture %>%
+    rename(Home.Team = Home,
+           Away.Team = Away) %>%
+    mutate(Date = lubridate::dmy(Date)) %>%
+    filter(Round > last(fixture$Round))
+  
+  # fix team names
+  fix_teams <- function(teams){
+    teams %>%
+        stringr::str_replace("W Bulldogs", "Footscray") %>%
+        stringr::str_replace("Brisbane", "Brisbane Lions") %>%
+        stringr::str_replace("North Melb", "North Melbourne") %>%
+        stringr::str_replace("Port Adel", "Port Adelaide")
+  }
+  
+  covid_fixture <- covid_fixture %>%
+    mutate_at(c("Home.Team", "Away.Team"), fix_teams)
+  
+  last_game_id <- last(fixture$Game)
+  covid_fixture$Game <- (last_game_id + 1):(last_game_id + nrow(covid_fixture))
+  # Merge with Fixture
+  fixture %>%
+    bind_rows(covid_fixture) %>%
+    select(Game, Date, Round, Home.Team, Away.Team, Venue, Season, Round.Type, Round.Number, seas_rnd, First.Game, Season.Game, Home.Venue.Exp, Away.Venue.Exp, Home.Interstate, Away.Interstate, Home.Factor, Away.Factor) %>%
+    View()
+
+  fixture <- fixture %>%
+    bind_rows(covid_fixture) %>%
+    mutate(Round.Number = Round,
+           Home.Factor = 1,
+           Away.Factor = 0,
+           Season = 2020,
+           Home.Interstate = ifelse(is.na(Home.Interstate), TRUE, Home.Interstate),
+           Away.Interstate = ifelse(is.na(Away.Interstate), TRUE, Away.Interstate),
+           Home.Venue.Exp = ifelse(is.na(Home.Venue.Exp), 1, Home.Venue.Exp),
+           Away.Venue.Exp = ifelse(is.na(Away.Venue.Exp), 1, Away.Venue.Exp)) 
+}
+# Predictions -------------------------------------------------------------
+# Do predictions
 
 predictions_raw <- fixture %>%
   mutate(
@@ -237,9 +280,7 @@ sim_res <- results %>%
     Round = Round.Number
   )
 
-remaining_fixture <- 
-  game_dat %>%
-  filter(Date >= filt_date)
+remaining_fixture <- fixture
 
 # Get ELOS and perturb them
 form <- elo:::clean_elo_formula(stats::terms(elo.data)) # needed for elo.prob
