@@ -209,6 +209,8 @@ message("ELO Run")
 fixture <- game_dat %>%
   filter(Date >= filt_date)
 
+# COVID Fix
+
 covid_seas <- last(fixture$Round) < 23
 
 if(covid_seas){
@@ -234,23 +236,44 @@ if(covid_seas){
   
   last_game_id <- last(fixture$Game)
   covid_fixture$Game <- (last_game_id + 1):(last_game_id + nrow(covid_fixture))
-  # Merge with Fixture
-  fixture %>%
-    bind_rows(covid_fixture) %>%
-    select(Game, Date, Round, Home.Team, Away.Team, Venue, Season, Round.Type, Round.Number, seas_rnd, First.Game, Season.Game, Home.Venue.Exp, Away.Venue.Exp, Home.Interstate, Away.Interstate, Home.Factor, Away.Factor) %>%
-    View()
+
 
   fixture <- fixture %>%
     bind_rows(covid_fixture) %>%
+    select(Game, Date, Round, Home.Team, Away.Team, Venue, Season, Round.Type, Round.Number, seas_rnd, First.Game, Season.Game, Home.Venue.Exp, Away.Venue.Exp, Home.Interstate, Away.Interstate, Home.Factor, Away.Factor) %>%
     mutate(Round.Number = Round,
            Home.Factor = ifelse(is.na(Home.Factor), 0, Home.Factor),
            Away.Factor = 0,
            Season = 2020,
-           Home.Interstate = ifelse(is.na(Home.Interstate), FALSE, Home.Interstate),
-           Away.Interstate = ifelse(is.na(Away.Interstate), FALSE, Away.Interstate),
+           Home.Interstate = ifelse(is.na(Home.Interstate), TRUE, Home.Interstate),
+           Away.Interstate = ifelse(is.na(Away.Interstate), TRUE, Away.Interstate),
            Home.Venue.Exp = ifelse(is.na(Home.Venue.Exp), 1, Home.Venue.Exp),
            Away.Venue.Exp = ifelse(is.na(Away.Venue.Exp), 1, Away.Venue.Exp)) 
 }
+
+
+
+# Added once hubs announced
+assign_interstate_hubs <- function(team, venue, current){
+  stay_at_home_teams <- c("Gold Coast", "West Coast", "Fremantle", "Brisbane Lions")
+  case_when(!is.na(venue) ~ current,
+            team %in% stay_at_home_teams ~ FALSE,
+            TRUE ~ TRUE)
+}
+
+assign_home_factor <- function(team, venue, current){
+  stay_at_home_teams <- c("Gold Coast", "West Coast", "Fremantle", "Brisbane Lions")
+  case_when(!is.na(venue) ~ current,
+            team %in% stay_at_home_teams ~ 1,
+            TRUE ~ 0)
+}
+
+fixture <- fixture %>%
+  mutate(Home.Interstate = assign_interstate_hubs(Home.Team, Venue, Home.Interstate),
+         Away.Interstate = assign_interstate_hubs(Away.Team, Venue, Away.Interstate),
+         Home.Factor = assign_home_factor(Home.Team, Venue, Home.Factor))
+
+
 # Predictions -------------------------------------------------------------
 # Do predictions
 
