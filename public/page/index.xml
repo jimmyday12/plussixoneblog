@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on plusSixOne</title>
-    <link>/page/</link>
+    <link>https://plussixoneblog.com/page/</link>
     <description>Recent content in Pages on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
     <lastBuildDate>Thu, 14 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://plussixoneblog.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Project: World Cup Datathon </title>
-      <link>/page/project-world-cup-datathon/</link>
+      <link>https://plussixoneblog.com/page/project-world-cup-datathon/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/project-world-cup-datathon/</guid>
+      <guid>https://plussixoneblog.com/page/project-world-cup-datathon/</guid>
       <description>In celebration of the World Cup in Russia, I’ve decided to take on Betfair’s World Cup Datathon. See below my series of posts outlining how I built my models.
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.
 Part 1 - Intro
@@ -27,19 +27,19 @@ Part 3 - Data Exploration and Feature Engineering</description>
     
     <item>
       <title>AFLW - Coming soon</title>
-      <link>/page/aflw-coming-soon/</link>
+      <link>https://plussixoneblog.com/page/aflw-coming-soon/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflw-coming-soon/</guid>
+      <guid>https://plussixoneblog.com/page/aflw-coming-soon/</guid>
       <description>For those looking for AFLW content - hang tight! Unfortunately, due to the new nature of AFLW, data is hard to come by. I managed in the first season by manually adding data after each game but this is not feasible. I’m hoping, with help from anoafl, to add some data scraping into our newly released fitzRoy package. Details on that can be found here</description>
     </item>
     
     <item>
       <title>Cool Links</title>
-      <link>/page/cool-links/</link>
+      <link>https://plussixoneblog.com/page/cool-links/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/cool-links/</guid>
+      <guid>https://plussixoneblog.com/page/cool-links/</guid>
       <description>The AFL Analytics community is wonderfully inclusive and supportive. If you are looking for discussions about AFL Analytics, I highly reccomend Twitter. There is a very active commnity there.
 AFL Data Most of the data I use comes from the following two websites
 AFL Tables
@@ -49,40 +49,40 @@ Footy Wire
     
     <item>
       <title>Current Tips</title>
-      <link>/page/aflm-current-tips/</link>
+      <link>https://plussixoneblog.com/page/aflm-current-tips/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-current-tips/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
   Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Thu, 16  Perth Stadium  Geelong   Collingwood   4.</description>
     </item>
     
     <item>
       <title>Model Results</title>
-      <link>/page/aflm-model-results/</link>
+      <link>https://plussixoneblog.com/page/aflm-model-results/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-model-results/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-model-results/</guid>
       <description>Coming soon…</description>
     </item>
     
     <item>
       <title>Ratings and Simulations</title>
-      <link>/page/aflm-ratings-and-simulations/</link>
+      <link>https://plussixoneblog.com/page/aflm-ratings-and-simulations/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-ratings-and-simulations/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-ratings-and-simulations/</guid>
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-Last updated: 2020-07-15.
+Last updated: 2020-07-21.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>/page/about/</link>
+      <link>https://plussixoneblog.com/page/about/</link>
       <pubDate>Tue, 26 Apr 2016 00:09:36 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/about/</guid>
+      <guid>https://plussixoneblog.com/page/about/</guid>
       <description>This site is very much under construction.
 I am a data loving Biomechanist by trade. I graduated from my PhD in 2016 form the University of Queensland. I&amp;rsquo;m currently currently working in Sports Science Research and Development at a Brisbane based sports technology company, Fusion Sport.
 I&amp;rsquo;m using this blog mostly to develop better skills in data science, in particular using R, developing visualisations and understanding various machine learning techniques. I am also obsessed with AFL.</description>

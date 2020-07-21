@@ -1,0 +1,107 @@
+---
+title: Recruits
+author: James Day
+date: '2020-07-20'
+slug: recruits
+categories:
+  - AFLM
+tags:
+  - AFLM
+subtitle: ''
+draft: true
+#disable_codefolding: false
+#codefolding_show: hide
+#codefolding_nobutton: true
+---
+
+Welcome to my first actual analysis post in a long time (I'm too scared to find out how long it actually has been). 
+
+I was inspired by a Twitter post this week that caused some typically strong responses. It was a poingnet visual representation of the contrast in recruiting strategies between two sides. 
+
+As a general rule Hawthorn appears to have been more focused on bringing in talent from elsewhere rather than through the top end of the draft (a possible side effect of being at the top for multiple years in a row) while Melbourne has been focused more on the draft and specifically on the top end. 
+
+```{r tweet, echo=FALSE}
+blogdown::shortcode('tweet', '1284731565205975041')
+```
+
+Ignoring the horribly emotional and biased replies in the thread, I felt that it was an interesting question to explore. Can we represent these heuristically different strategies with actual data? And what about other teams? 
+
+## Getting the data
+First, let's use `fitzRoy` to get our data and calculate if a player is a recruit. To do this, we basically just look at the players Debut club and, for each round, work out if they are playing for this club. 
+
+```{r}
+library(tidyverse)
+library(fitzRoy)
+
+# Get data
+player_stats <- get_afltables_stats()
+
+# Fix to add round number
+
+# Calculate if a player is a recruit
+player_stats <- player_stats %>%
+  group_by(ID) %>%
+  mutate(Opponent = ifelse(Playing.for == Home.team, Away.team, Home.team),
+         Debut_club = first(Playing.for),
+         Recruit = Debut_club != Playing.for) %>%
+  select(Season, Round, Date, ID, First.name, Surname, Playing.for, Opponent, Debut_club, Recruit) 
+
+```
+
+Let's take a quick look at recent recruits
+```{r}
+player_stats %>%
+  arrange(desc(Date)) %>%
+  filter(Recruit)
+```
+We now need to summarise this to show the totals for each team, each round. Note - I discovered that Drawn Grand Finals caused issues here and decided to just exclude them. 
+
+```{r}
+team_recruits <- player_stats %>%
+  group_by(Date, Season, Round, Playing.for, Opponent) %>%
+  summarise(Recruits = sum(Recruit)) %>%
+  arrange(desc(Date)) 
+
+# filter out drawn Grand Finals
+team_recruits <- team_recruits %>%
+  filter(!(Season == 2010 & Round == "GF")) %>%
+  filter(!(Season == 1977 & Round == "GF"))
+
+head(team_recruits)
+```
+
+Seems to be working! Let's do some exploring! 
+
+## Trends over time
+First, let's look at the trends of recruits over time
+
+```{r}
+team_recruits %>%
+  group_by(Season, Round) %>%
+  summarise(Recruits = mean(Recruits)) %>%
+  mutate(Season_Round = paste(Season, Round, sep = "-"),
+         decade = Season - Season %% 10)  %>%
+  ggplot(aes(x = Season, y = Recruits, fill = as.factor(decade), colour = as.factor(decade))) +
+  geom_point() +
+  scale_color_discrete() + 
+  ggthemes::theme_fivethirtyeight()
+```
+
+## Records
+
+
+## Relationship to performance
+
+## Current Year
+
+## Strategies
+
+
+
+
+
+
+
+
+
+

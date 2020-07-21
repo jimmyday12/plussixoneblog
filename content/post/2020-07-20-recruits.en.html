@@ -1,0 +1,123 @@
+---
+title: Recruits
+author: James Day
+date: '2020-07-20'
+slug: recruits
+categories:
+  - AFLM
+tags:
+  - AFLM
+subtitle: ''
+draft: true
+#disable_codefolding: false
+#codefolding_show: hide
+#codefolding_nobutton: true
+---
+
+
+
+<p>Welcome to my first actual analysis post in a long time (I’m too scared to find out how long it actually has been).</p>
+<p>I was inspired by a Twitter post this week that caused some typically strong responses. It was a poingnet visual representation of the contrast in recruiting strategies between two sides.</p>
+<p>As a general rule Hawthorn appears to have been more focused on bringing in talent from elsewhere rather than through the top end of the draft (a possible side effect of being at the top for multiple years in a row) while Melbourne has been focused more on the draft and specifically on the top end.</p>
+{{% tweet "1284731565205975041" %}}
+<p>Ignoring the horribly emotional and biased replies in the thread, I felt that it was an interesting question to explore. Can we represent these heuristically different strategies with actual data? And what about other teams?</p>
+<div id="getting-the-data" class="section level2">
+<h2>Getting the data</h2>
+<p>First, let’s use <code>fitzRoy</code> to get our data and calculate if a player is a recruit. To do this, we basically just look at the players Debut club and, for each round, work out if they are playing for this club.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.0     ✓ purrr   0.3.4
+## ✓ tibble  3.0.1     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.3     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(fitzRoy)
+
+# Get data
+player_stats &lt;- get_afltables_stats()</code></pre>
+<pre><code>## Returning data from 1897-01-01 to 2020-07-21</code></pre>
+<pre><code>## Downloading data</code></pre>
+<pre><code>## 
+## Finished downloading data. Processing XMLs</code></pre>
+<pre><code>## Finished getting afltables data</code></pre>
+<pre class="r"><code># Fix to add round number
+
+# Calculate if a player is a recruit
+player_stats &lt;- player_stats %&gt;%
+  group_by(ID) %&gt;%
+  mutate(Opponent = ifelse(Playing.for == Home.team, Away.team, Home.team),
+         Debut_club = first(Playing.for),
+         Recruit = Debut_club != Playing.for) %&gt;%
+  select(Season, Round, Date, ID, First.name, Surname, Playing.for, Opponent, Debut_club, Recruit) </code></pre>
+<p>Let’s take a quick look at recent recruits</p>
+<pre class="r"><code>player_stats %&gt;%
+  arrange(desc(Date)) %&gt;%
+  filter(Recruit)</code></pre>
+<pre><code>## # A tibble: 90,971 x 10
+## # Groups:   ID [2,722]
+##    Season Round Date          ID First.name Surname Playing.for Opponent
+##     &lt;dbl&gt; &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   
+##  1   2020 6     2020-07-12 12477 Ryan       Burton  Port Adela… Greater…
+##  2   2020 6     2020-07-12 11914 Charlie    Dixon   Port Adela… Greater…
+##  3   2020 6     2020-07-12 11639 Brad       Ebert   Port Adela… Greater…
+##  4   2020 6     2020-07-12 11994 Scott      Lycett  Port Adela… Greater…
+##  5   2020 6     2020-07-12 11912 Trent      McKenz… Port Adela… Greater…
+##  6   2020 6     2020-07-12 11818 Steven     Motlop  Port Adela… Greater…
+##  7   2020 6     2020-07-12 12104 Cameron    Sutcli… Port Adela… Greater…
+##  8   2020 6     2020-07-12 11825 Phil       Davis   Greater We… Port Ad…
+##  9   2020 6     2020-07-12 11746 Matthew    de Boer Greater We… Port Ad…
+## 10   2020 6     2020-07-12 11991 Lachlan    Keeffe  Greater We… Port Ad…
+## # … with 90,961 more rows, and 2 more variables: Debut_club &lt;chr&gt;,
+## #   Recruit &lt;lgl&gt;</code></pre>
+<p>We now need to summarise this to show the totals for each team, each round. Note - I discovered that Drawn Grand Finals caused issues here and decided to just exclude them.</p>
+<pre class="r"><code>team_recruits &lt;- player_stats %&gt;%
+  group_by(Date, Season, Round, Playing.for, Opponent) %&gt;%
+  summarise(Recruits = sum(Recruit)) %&gt;%
+  arrange(desc(Date)) 
+
+# filter out drawn Grand Finals
+team_recruits &lt;- team_recruits %&gt;%
+  filter(!(Season == 2010 &amp; Round == &quot;GF&quot;)) %&gt;%
+  filter(!(Season == 1977 &amp; Round == &quot;GF&quot;))
+
+head(team_recruits)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+## # Groups:   Date, Season, Round, Playing.for [6]
+##   Date       Season Round Playing.for            Opponent               Recruits
+##   &lt;date&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt;                     &lt;int&gt;
+## 1 2020-07-12   2020 6     Carlton                Western Bulldogs              8
+## 2 2020-07-12   2020 6     Greater Western Sydney Port Adelaide                 6
+## 3 2020-07-12   2020 6     Port Adelaide          Greater Western Sydney        7
+## 4 2020-07-12   2020 6     Richmond               Sydney                        2
+## 5 2020-07-12   2020 6     Sydney                 Richmond                      3
+## 6 2020-07-12   2020 6     Western Bulldogs       Carlton                       3</code></pre>
+<p>Seems to be working! Let’s do some exploring!</p>
+</div>
+<div id="trends-over-time" class="section level2">
+<h2>Trends over time</h2>
+<p>First, let’s look at the trends of recruits over time</p>
+<pre class="r"><code>team_recruits %&gt;%
+  group_by(Season, Round) %&gt;%
+  summarise(Recruits = mean(Recruits)) %&gt;%
+  mutate(Season_Round = paste(Season, Round, sep = &quot;-&quot;),
+         decade = Season - Season %% 10)  %&gt;%
+  ggplot(aes(x = Season, y = Recruits, fill = as.factor(decade), colour = as.factor(decade))) +
+  geom_point() +
+  scale_color_discrete() + 
+  ggthemes::theme_fivethirtyeight()</code></pre>
+<p><img src="/post/2020-07-20-recruits.en_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="records" class="section level2">
+<h2>Records</h2>
+</div>
+<div id="relationship-to-performance" class="section level2">
+<h2>Relationship to performance</h2>
+</div>
+<div id="current-year" class="section level2">
+<h2>Current Year</h2>
+</div>
+<div id="strategies" class="section level2">
+<h2>Strategies</h2>
+</div>
