@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prediction on plusSixOne</title>
-    <link>https://plussixoneblog.com/categories/prediction/</link>
+    <link>/categories/prediction/</link>
     <description>Recent content in Prediction on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
     <lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://plussixoneblog.com/categories/prediction/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/prediction/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Current Tips</title>
-      <link>https://plussixoneblog.com/page/aflm-current-tips/</link>
+      <link>/page/aflm-current-tips/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/page/aflm-current-tips/</guid>
+      <guid>/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Thu, 16  Perth Stadium  Geelong   Collingwood   4.</description>
+  Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Thu, 23  Carrara  Gold Coast   Footscray   0.</description>
     </item>
     
   </channel>

@@ -2,49 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on plusSixOne</title>
-    <link>https://plussixoneblog.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://plussixoneblog.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>AFLM</title>
+      <link>/tags/aflm/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/tags/aflm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>example</title>
-      <link>https://plussixoneblog.com/tags/example/</link>
+      <link>/tags/example/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/tags/example/</guid>
+      <guid>/tags/example/</guid>
       <description></description>
     </item>
     
     <item>
       <title>photoswipe</title>
-      <link>https://plussixoneblog.com/tags/photoswipe/</link>
+      <link>/tags/photoswipe/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/tags/photoswipe/</guid>
+      <guid>/tags/photoswipe/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bigimg</title>
-      <link>https://plussixoneblog.com/tags/bigimg/</link>
+      <link>/tags/bigimg/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/tags/bigimg/</guid>
+      <guid>/tags/bigimg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>https://plussixoneblog.com/tags/math/</link>
+      <link>/tags/math/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/tags/math/</guid>
+      <guid>/tags/math/</guid>
       <description></description>
     </item>
     
