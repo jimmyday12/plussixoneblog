@@ -11,6 +11,8 @@ tags: []
 
 Welcome to our all new AFL Men's tips page! Here you will the tips for the upcoming rounds. I'll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 
+Last updated `r Sys.time`.
+
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
 	echo = FALSE,
