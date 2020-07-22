@@ -1,104 +1,86 @@
 ﻿Round,Date,Home,Away
-8,23/7/20,Gold Coast,W Bulldogs
-8,24/7/20,GWS,Richmond
-8,25/7/20,North Melb,Carlton
-8,25/7/20,Sydney,Hawthorn
-8,25/7/20,Port Adel,St Kilda
-8,26/7/20,Adelaide,Essendon
-8,26/7/20,West Coast,Collingwood
-8,26/7/20,Melbourne,Brisbane
-8,27/7/20,Fremantle,Geelong
+9,29/7/20,W Bulldogs,Richmond
+9,30/7/20,Carlton,Hawthorn
+9,30/7/20,Melbourne,Port Adel
+9,31/7/20,Essendon,Brisbane
+9,1/8/20,North Melb,Adelaide
+9,1/8/20,St Kilda,Sydney
 9,1/8/20,West Coast,Geelong
-9,1/8/20,Fremantle,Collingwood
-9,1/8/20,Hawthorn,Carlton
-9,1/8/20,Adelaide,North Melb
-9,1/8/20,W Bulldogs,Richmond
-9,1/8/20,Port Adel,Essendon
-9,1/8/20,Melbourne,St Kilda
-9,1/8/20,Brisbane,Gold Coast
-9,1/8/20,Sydney,GWS
-10,8/8/20,Fremantle,Carlton
-10,8/8/20,West Coast,Hawthorn
-10,8/8/20,Collingwood,Port Adel
-10,8/8/20,St Kilda,Essendon
-10,8/8/20,Sydney,Geelong
-10,8/8/20,Brisbane,North Melb
-10,8/8/20,Richmond,Gold Coast
-10,8/8/20,GWS,Adelaide
-10,8/8/20,W Bulldogs,Melbourne
-11,15/8/20,West Coast,Carlton
-11,15/8/20,Fremantle,Hawthorn
-11,15/8/20,North Melb,Collingwood
-11,15/8/20,Essendon,Geelong
-11,15/8/20,Adelaide,Richmond
-11,15/8/20,GWS,Melbourne
-11,15/8/20,Port Adel,W Bulldogs
-11,15/8/20,St Kilda,Gold Coast
-11,15/8/20,Brisbane,Sydney
-12,22/8/20,Fremantle,GWS
-12,22/8/20,St Kilda,Sydney
-12,22/8/20,Essendon,Richmond
-12,22/8/20,Adelaide,Melbourne
-12,22/8/20,North Melb,Geelong
-12,22/8/20,Hawthorn,Port Adel
-12,22/8/20,W Bulldogs,West Coast
-12,22/8/20,Collingwood,Brisbane
-12,22/8/20,Gold Coast,Carlton
-13,29/8/20,North Melb,Fremantle
-13,29/8/20,Hawthorn,Gold Coast
-13,29/8/20,GWS,St Kilda
-13,29/8/20,Collingwood,Sydney
-13,29/8/20,Port Adel,Melbourne
-13,29/8/20,W Bulldogs,Brisbane
-13,29/8/20,West Coast,Essendon
-13,29/8/20,Carlton,Adelaide
-13,29/8/20,Geelong,Richmond
-14,5/9/20,Geelong,W Bulldogs
-14,5/9/20,Melbourne,Fremantle
-14,5/9/20,North Melb,West Coast
-14,5/9/20,Richmond,Port Adel
-14,5/9/20,Sydney,Carlton
-14,5/9/20,Adelaide,Hawthorn
-14,5/9/20,Essendon,GWS
-14,5/9/20,Collingwood,Gold Coast
-14,5/9/20,Brisbane,St Kilda
-15,12/9/20,West Coast,GWS
-15,12/9/20,Richmond,Fremantle
-15,12/9/20,St Kilda,Geelong
-15,12/9/20,Melbourne,Sydney
-15,12/9/20,Essendon,Gold Coast
-15,12/9/20,Collingwood,Adelaide
-15,12/9/20,North Melb,Port Adel
-15,12/9/20,Carlton,Brisbane
-15,12/9/20,Hawthorn,W Bulldogs
-16,19/9/20,Port Adel,Geelong
-16,19/9/20,Richmond,Brisbane
-16,19/9/20,St Kilda,West Coast
-16,19/9/20,North Melb,Melbourne
-16,19/9/20,Sydney,Fremantle
-16,19/9/20,W Bulldogs,Adelaide
-16,19/9/20,Carlton,Collingwood
-16,19/9/20,Gold Coast,GWS
-16,19/9/20,Hawthorn,Essendon
-17,26/9/20,Port Adel,Sydney
-17,26/9/20,Melbourne,Collingwood
-17,26/9/20,Carlton,GWS
-17,26/9/20,Fremantle,W Bulldogs
-17,26/9/20,Gold Coast,North Melb
-17,26/9/20,Brisbane,Essendon
-17,26/9/20,Richmond,West Coast
-17,26/9/20,Geelong,Adelaide
-17,26/9/20,St Kilda,Hawthorn
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
+9,2/8/20,Gold Coast,GWS
+9,2/8/20,Fremantle,Collingwood
+10,3/8/20,Port Adel,W Bulldogs
+10,4/8/20,Richmond,Brisbane
+10,5/8/20,Geelong,North Melb
+10,5/8/20,Adelaide,Melbourne
+10,6/8/20,Collingwood,Sydney
+10,6/8/20,Gold Coast,St Kilda
+10,7/8/20,Essendon,GWS
+11,8/8/20,Port Adel,Richmond
+11,8/8/20,Brisbane,W Bulldogs
+11,9/8/20,West Coast,Carlton
+11,9/8/20,North Melb,Melbourne
+11,10/8/20,Geelong,St Kilda
+11,10/8/20,Fremantle,Hawthorn
+11,11/8/20,Adelaide,Collingwood
+11,12/8/20,Gold Coast,Essendon
+12,13/8/20,Sydney,GWS
+12,14/8/20,Geelong,Port Adel
+12,15/8/20,North Melb,Brisbane
+12,15/8/20,Melbourne,Collingwood
+12,15/8/20,Fremantle,Carlton
+12,16/8/20,W Bulldogs,Adelaide
+12,16/8/20,St Kilda,Essendon
+12,16/8/20,West Coast,Hawthorn
+12,17/8/20,Richmond,Gold Coast
+13,20/8/20,Brisbane,Collingwood
+13,21/8/20,Sydney,Carlton
+13,22/8/20,GWS,Fremantle
+13,22/8/20,West Coast,W Bulldogs
+13,22/8/20,St Kilda,Melbourne
+13,22/8/20,Hawthorn,Port Adel
+13,23/8/20,Richmond,Essendon
+13,23/8/20,North Melb,Gold Coast
+13,24/8/20,Adelaide,Geelong
+14,25/8/20,Brisbane,Carlton
+14,26/8/20,St Kilda,West Coast
+14,26/8/20,Port Adel,Sydney
+14,27/8/20,GWS,Melbourne
+14,28/8/20,W Bulldogs,Fremantle
+14,28/8/20,Hawthorn,Essendon
+14,29/8/20,Collingwood,Gold Coast
+15,30/8/20,North Melb,West Coast
+15,31/8/20,Sydney,Melbourne
+15,31/8/20,GWS,Adelaide
+15,1/9/20,Fremantle,Richmond
+15,2/9/20,Hawthorn,St Kilda
+15,2/9/20,Essendon,Geelong
+15,3/9/20,Carlton,Collingwood
+16,4/9/20,Brisbane,Gold Coast
+16,5/9/20,Adelaide,Richmond
+16,5/9/20,Port Adel,North Melb
+16,5/9/20,Melbourne,Fremantle
+16,6/9/20,Essendon,West Coast
+16,6/9/20,W Bulldogs,Hawthorn
+16,6/9/20,Sydney,Geelong
+16,7/9/20,Carlton,GWS
+17,10/9/20,St Kilda,Brisbane
+17,11/9/20,Collingwood,North Melb
+17,12/9/20,Melbourne,W Bulldogs
+17,12/9/20,Sydney,Fremantle
+17,12/9/20,Geelong,Richmond
+17,12/9/20,Port Adel,Essendon
+17,13/9/20,West Coast,GWS
+17,13/9/20,Hawthorn,Gold Coast
+17,14/9/20,Carlton,Adelaide
+18,17/9/20,Brisbane,Sydney
+18,18/9/20,Fremantle,North Melb
+18,19/9/20,Richmond,West Coast
+18,19/9/20,W Bulldogs,Geelong
+18,19/9/20,St Kilda,GWS
+18,19/9/20,Collingwood,Port Adel
+18,20/9/20,Melbourne,Essendon
+18,20/9/20,Hawthorn,Adelaide
+18,20/9/20,Gold Coast,Carlton
 ,,,
 ,,,
 ,,,
