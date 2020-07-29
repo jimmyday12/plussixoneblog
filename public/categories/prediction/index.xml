@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/prediction/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Monash Tips Package</title>
+      <link>/post/monash-tips-package/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/monash-tips-package/</guid>
+      <description>Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!
+I’m working on a few things in fitzRoy that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my Monash Probabilistic Tipping Comp tips from R when I updated my models.</description>
+    </item>
     
     <item>
       <title>Current Tips</title>
