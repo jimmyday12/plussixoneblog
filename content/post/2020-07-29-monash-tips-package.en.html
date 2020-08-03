@@ -74,9 +74,8 @@ library(tidyverse)</code></pre>
 ## 10 Mon,… 00&#39;00&quot;            9 Adel… Port Ade… Footscray       16.1       0.656
 ## # … with 81 more rows, and 1 more variable: Result &lt;chr&gt;</code></pre>
 </div>
-</div>
-<div id="step-3---get-this-weeks-games" class="section level2">
-<h2>Step 3 - get this weeks games</h2>
+<div id="step-3---get-this-weeks-games" class="section level4">
+<h4>Step 3 - get this weeks games</h4>
 <p>The first function in <code>monashtipr</code> that is useful is <code>get_games</code>. This returns a dataframe of the weeks games based on the round you supply. If you don’t supply a round, it will return the earliest available round for tipping.</p>
 <p>Note you can supply your username and password as plain text but I’m storing then in my <code>.Renviron</code> file. Read more about that here.</p>
 <p>The comp needs to be one of “normal”, “gauss” or “info” (info is the probability comp).</p>
@@ -97,8 +96,8 @@ monash_games &lt;- get_games(user, pass, comp = &quot;normal&quot;)</code></pre>
 ## 8    8 Metricon Stadium Gold_Coast  G_W_Sydney     NA
 ## 9    9    Optus Stadium  Fremantle Collingwood     NA</code></pre>
 </div>
-<div id="step-4---join-predictions-to-monash-games" class="section level2">
-<h2>Step 4 - Join predictions to monash games</h2>
+<div id="step-4---join-predictions-to-monash-games" class="section level4">
+<h4>Step 4 - Join predictions to monash games</h4>
 <p>I now need to add my predictions to the data frame of monash tips. Because my teams don’t really match up, I’ve written a quick and dirty function to replace these.</p>
 <pre class="r"><code># Function to replace team names
 map_names_to_monash &lt;- function(names) {
@@ -140,8 +139,8 @@ predictions_joined</code></pre>
 ## 8    8 Metricon Stadium Gold_Coast  G_W_Sydney     -3        40       0.470
 ## 9    9    Optus Stadium  Fremantle Collingwood     -6        40       0.439</code></pre>
 </div>
-<div id="step-5---submit-tips" class="section level2">
-<h2>Step 5 - Submit tips!</h2>
+<div id="step-5---submit-tips" class="section level4">
+<h4>Step 5 - Submit tips!</h4>
 <p>Now we’ve done that, we can submit our tips using <code>submit_tips</code>. This function expects a data frame in the same format as the one returned by <code>get_games</code> which is why I did the steps of renaming teams and joining my tips to that data frame.</p>
 <pre class="r"><code># Submit - normal
 predictions_joined %&gt;%
@@ -149,48 +148,49 @@ predictions_joined %&gt;%
   monashtipr::submit_tips(user = user, pass = pass, comp = &quot;normal&quot;)</code></pre>
 <pre><code>## Login succesfull!</code></pre>
 <pre><code>## Submitting with &#39;.submit&#39;</code></pre>
-<pre><code>##   Game        Team Margin   Status
-## 1    1    Richmond      2 Updated.
-## 2    2  P_Adelaide      4 Updated.
-## 3    3    Hawthorn      1 Updated.
-## 4    4    Brisbane     10 Updated.
-## 5    5   Kangaroos      9 Updated.
-## 6    6    St_Kilda     11 Updated.
-## 7    7     W_Coast      1 Updated.
-## 8    8  G_W_Sydney      3 Updated.
-## 9    9 Collingwood      6 Updated.</code></pre>
+<pre><code>##   Game        Team Margin              Status
+## 1    1    Richmond      2 Too late! (skipped)
+## 2    2  P_Adelaide      4            Updated.
+## 3    3    Hawthorn      1            Updated.
+## 4    4    Brisbane     10            Updated.
+## 5    5   Kangaroos      9            Updated.
+## 6    6    St_Kilda     11            Updated.
+## 7    7     W_Coast      1            Updated.
+## 8    8  G_W_Sydney      3            Updated.
+## 9    9 Collingwood      6            Updated.</code></pre>
 <pre class="r"><code># Submit - gauss
 predictions_joined %&gt;%
   select(-Probability) %&gt;%
   monashtipr::submit_tips(user = user, pass = pass, comp = &quot;gauss&quot;)</code></pre>
 <pre><code>## Login succesfull!
 ## Submitting with &#39;.submit&#39;</code></pre>
-<pre><code>##   Game        Team Margin Std.Dev.   Status
-## 1    1    Richmond      2       40 Updated.
-## 2    2  P_Adelaide      4       40 Updated.
-## 3    3    Hawthorn      1       40 Updated.
-## 4    4    Brisbane     10       40 Updated.
-## 5    5   Kangaroos      9       40 Updated.
-## 6    6    St_Kilda     11       40 Updated.
-## 7    7     W_Coast      1       40 Updated.
-## 8    8  G_W_Sydney      3       40 Updated.
-## 9    9 Collingwood      6       40 Updated.</code></pre>
+<pre><code>##   Game        Team Margin Std.Dev.              Status
+## 1    1    Richmond      2       40 Too late! (skipped)
+## 2    2  P_Adelaide      4       40            Updated.
+## 3    3    Hawthorn      1       40            Updated.
+## 4    4    Brisbane     10       40            Updated.
+## 5    5   Kangaroos      9       40            Updated.
+## 6    6    St_Kilda     11       40            Updated.
+## 7    7     W_Coast      1       40            Updated.
+## 8    8  G_W_Sydney      3       40            Updated.
+## 9    9 Collingwood      6       40            Updated.</code></pre>
 <pre class="r"><code># Submit - prob
 predictions_joined %&gt;%
   select(-`Std. Dev.`, -Margin) %&gt;%
   monashtipr::submit_tips(user = user, pass = pass, comp = &quot;info&quot;)</code></pre>
 <pre><code>## Login succesfull!
 ## Submitting with &#39;.submit&#39;</code></pre>
-<pre><code>##   Game       Team Probability Bestcasescore Worstcasescore   Status
-## 1    1 W_Bulldogs       0.481          0.05          -0.06 Updated.
-## 2    2  Melbourne       0.460          0.11          -0.12 Updated.
-## 3    3    Carlton       0.491          0.03          -0.03 Updated.
-## 4    4   Essendon       0.405          0.25          -0.30 Updated.
-## 5    5  Kangaroos       0.592          0.24          -0.29 Updated.
-## 6    6   St_Kilda       0.609          0.28          -0.35 Updated.
-## 7    7    W_Coast       0.509          0.03          -0.03 Updated.
-## 8    8 Gold_Coast       0.470          0.08          -0.09 Updated.
-## 9    9  Fremantle       0.439          0.17          -0.19 Updated.</code></pre>
+<pre><code>##   Game       Team Probability Bestcasescore Worstcasescore              Status
+## 1    1 W_Bulldogs       0.481          0.05          -0.06 Too late! (skipped)
+## 2    2  Melbourne       0.460          0.11          -0.12            Updated.
+## 3    3    Carlton       0.491          0.03          -0.03            Updated.
+## 4    4   Essendon       0.405          0.25          -0.30            Updated.
+## 5    5  Kangaroos       0.592          0.24          -0.29            Updated.
+## 6    6   St_Kilda       0.609          0.28          -0.35            Updated.
+## 7    7    W_Coast       0.509          0.03          -0.03            Updated.
+## 8    8 Gold_Coast       0.470          0.08          -0.09            Updated.
+## 9    9  Fremantle       0.439          0.17          -0.19            Updated.</code></pre>
 <p>That’s about it. Hopefully some people get some use out it. Let me know if it works or you run into issues.</p>
+</div>
 </div>
 </div>

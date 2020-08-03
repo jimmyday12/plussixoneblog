@@ -13,6 +13,12 @@ Welcome to our all new AFL Men's tips page! Here you will the tips for the upcom
 
 Last updated `r Sys.time()`.
 
+***
+
+*Note* - I'm showing the next 18 games because the current fixture is messing with my `round` value.
+
+***
+
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
 	echo = FALSE,
@@ -41,7 +47,8 @@ round_num <- case_when(round_1 ~ 1,
 
 # Get predictions for current round and present as table
 dat_list$predictions %>%
-  filter(Round.Number == round_num) %>%
+  #filter(Round.Number == round_num) %>%
+  filter(row_number() < 19) %>%
   select(-Time, -Round.Number) %>%
   mutate_at("Probability", formattable::percent, digits = 1) %>%
   formattable(list(

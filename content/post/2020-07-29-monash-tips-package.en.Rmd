@@ -54,7 +54,7 @@ predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv"))
 predictions
 ```
 
-## Step 3 - get this weeks games
+#### Step 3 - get this weeks games
 The first function in `monashtipr` that is useful is `get_games`. This returns a dataframe of the weeks games based on the round you supply. If you don't supply a round, it will return the earliest available round for tipping. 
 
 Note you can supply your username and password as plain text but I'm storing then in my `.Renviron` file. Read more about that here. 
@@ -68,7 +68,7 @@ monash_games <- get_games(user, pass, comp = "normal")
 monash_games
 ```
 
-## Step 4 - Join predictions to monash games
+#### Step 4 - Join predictions to monash games
 I now need to add my predictions to the data frame of monash tips. Because my teams don't really match up, I've written a quick and dirty function to replace these. 
 
 ```{r join}
@@ -103,7 +103,7 @@ predictions_joined <- monash_games %>%
 predictions_joined
 ```
 
-## Step 5 - Submit tips! 
+#### Step 5 - Submit tips! 
 Now we've done that, we can submit our tips using `submit_tips`. This function expects a data frame in the same format as the one returned by `get_games` which is why I did the steps of renaming teams and joining my tips to that data frame. 
 
 ```{r submit}
