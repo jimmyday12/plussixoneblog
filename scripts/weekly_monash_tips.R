@@ -25,7 +25,6 @@ map_names_to_monash <- function(names) {
 
 # Read in predictions and update names and fields
 predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv")) %>%
-  filter(Round.Number == min(Round.Number)) %>%
   mutate_at(c("Home.Team", "Away.Team"), map_names_to_monash) %>%
   mutate(Margin = round(Prediction),
          `Std. Dev.` = 40) %>%
