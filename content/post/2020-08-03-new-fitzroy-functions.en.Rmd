@@ -1,0 +1,63 @@
+---
+title: New fitzRoy functions
+author: James Day
+date: '2020-08-03'
+slug: new-fitzroy-functions
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+The new AFL season, with it's condensed fixture, is proving challenging for the old little R package `fitzRoy`. Luckily I've added a couple new functions to help! 
+
+You'll need the development version of the package. 
+
+```{r message=FALSE, warning=FALSE}
+devtools::install_github("jimmyday12/fitzRoy")
+library(fitzRoy)
+library(dplyr)
+```
+
+## Fixture
+I recently noticed that the `get_fixture` function was broken. There is unfortunately not a lot I can do with that one. The Footywire website doesn't provide `round` in it's outputs and so I've always just calculated this assuming that rounds begin on Thursday/Friday and finish on Sunday/Monday. That obviously doesn't work this year! 
+
+For example, see below. The games on the 2nd August are Round 9, the games on the 3rd of Augst should be Round 10. The games on the 8th of August should be Round 11! 
+
+```{r warning=FALSE, message=FALSE}
+fixture <- get_fixture(season = 2020)
+fixture %>% filter(Date >= lubridate::dmy("02/08/2020") & Date <= lubridate::dmy("08/08/2020"))
+
+```
+
+I'm going to try and get it working but in the meantime, I've added a new function to return the fixture from the AFL.com.au website. OBviously this is not going to be the same as the normal `get_fixture` function and might need some tidying of names etc, but at least it works! 
+
+The function ask you to provide a `season` and an optional `round` as arguements. 
+
+```{r}
+fixture <- get_afl_fixture(season = 2020)
+fixture %>% filter(date >= lubridate::dmy("02/08/2020") & date <= lubridate::dmy("08/08/2020")) %>%
+  select(date, round_name, home_name, away_name, venue_name)
+
+```
+
+Looks a lot better! 
+
+## Results
+The other issue I've found is that the AFL Tables website can sometimes take time to update after a around is over. Generally - all results come through 1-2 days after a round finishes. 
+
+```{r}
+get_match_results() %>%
+  tail()
+```
+
+This might be an issue moving forward if there are any delays in match results. To help here, I've added a new function to return results from footywire.com.
+
+Again - you can provide a `season` input. Optionally - you can specify the `last_n_games`. This is a bit clunky but again, without having `round` as part of the website, it's a tricky one to scrape. For now - returning the most recent n number of matches is the easiest approach. 
+
+
+```{r}
+get_footywire_match_results(2020, last_n_matches = 10)
+```
+
+That's about it - let me know how you go! 

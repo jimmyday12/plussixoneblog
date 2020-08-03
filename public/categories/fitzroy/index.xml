@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/fitzroy/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New fitzRoy functions</title>
+      <link>/post/new-fitzroy-functions/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/new-fitzroy-functions/</guid>
+      <description>The new AFL season, with it’s condensed fixture, is proving challenging for the old little R package fitzRoy. Luckily I’ve added a couple new functions to help!
+You’ll need the development version of the package.
+devtools::install_github(&amp;quot;jimmyday12/fitzRoy&amp;quot;) library(fitzRoy) library(dplyr) Fixture I recently noticed that the get_fixture function was broken. There is unfortunately not a lot I can do with that one. The Footywire website doesn’t provide round in it’s outputs and so I’ve always just calculated this assuming that rounds begin on Thursday/Friday and finish on Sunday/Monday.</description>
+    </item>
     
     <item>
       <title>fitzRoy - 0.1.5 release</title>
