@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>AFL</title>
+      <link>/categories/afl/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/afl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>AFLM</title>
       <link>/categories/aflm/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
@@ -85,11 +94,11 @@
     </item>
     
     <item>
-      <title>AFL</title>
-      <link>/categories/afl/</link>
+      <title>AFLW</title>
+      <link>/categories/aflw/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/afl/</guid>
+      <guid>/categories/aflw/</guid>
       <description></description>
     </item>
     
@@ -99,15 +108,6 @@
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/categories/aflwednesdaywonk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AFLW</title>
-      <link>/categories/aflw/</link>
-      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/aflw/</guid>
       <description></description>
     </item>
     
