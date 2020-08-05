@@ -1,6 +1,4 @@
 Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-"Mon, 03",00:00,9,Adelaide Oval,Port Adelaide,Footscray,19.3,0.684,Port Adelaide by 19
-"Tue, 04",00:00,9,Carrara,Richmond,Brisbane Lions,-3.7,0.463,Brisbane Lions by 4
 "Wed, 05",00:00,10,Gabba,Geelong,North Melbourne,15.7,0.652,Geelong by 16
 "Wed, 05",00:00,10,Adelaide Oval,Adelaide,Melbourne,0.4,0.504,Adelaide by 0
 "Thu, 06",00:00,10,Gabba,Collingwood,Sydney,21.1,0.699,Collingwood by 21

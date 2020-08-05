@@ -356,6 +356,7 @@ sim_data_all <- sim_data %>%
     Rank = row_number(desc(Wins)),
     Top.8 = Rank < 9,
     Top.4 = Rank < 5,
+    Top.2 = Rank < 3,
     Top.1 = Rank == 1
   )
 
@@ -379,6 +380,7 @@ sim_data_summary <- sim_data_all %>%
     Wins = mean(Wins),
     Top.8 = sum(Top.8) / max(sims),
     Top.4 = sum(Top.4) / max(sims),
+    Top.2 = sum(Top.2) / max(sims),
     Top.1 = sum(Top.1) / max(sims)
   )
 
@@ -394,7 +396,8 @@ sim_data_summary <- past_sims$sim_data_summary %>%
 
 # Print to console
 sim_data_summary %>% 
-  filter(Round == round)
+  filter(Round == round) %>%
+  tail()
 
 # MEssage
 print(proc.time() - ptm)
@@ -465,9 +468,19 @@ aflm_sims <- list(
   simCount = simCount
 )
 
+aflm_finals_data <- list(
+  game_dat = game_dat,
+  sim_elo_perterbed = sim_elo_perterbed,
+  sim_num = sim_num,
+  sim_data = sim_data,
+  last_round = last(fixture$Round.Number),
+  results = results
+)
+
 # Save
 write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here::here("data_files", "raw-data", "AFLM_sims.rds"), compress = "bz")
+write_rds(aflm_finals_data, path = here::here("data_files", "raw-data", "AFLM_finals_prep.rds"), compress = "bz")
 write_csv(predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
 write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
 write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))

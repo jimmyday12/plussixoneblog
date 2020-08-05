@@ -61,8 +61,8 @@ googleAnalytics = "UA-77406420-1"
 
 [[menu.main]]
     parent = "aflm"
-    name = "Ratings and Simulations"
-    url = "page/aflm-ratings-and-simulations"
+    name = "Predictions"
+    url = "page/aflm-predictions"
     weight = 1
     
 [[menu.main]]
