@@ -332,13 +332,14 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
 # /* rmarkdown html documents */
 .container[role="main"] {
   min-width: 100% !important;
-  max-width: 1054px !important;
+  max-width: 1054 !important;
+  width: 100%;
 }
 
 .container {
   min-width: 100% !important;
   max-width: 1054px !important;
-  width: 1054px;
+  width: 100%;
 }
 
  #h1.title {
