@@ -195,6 +195,7 @@ tbl <- reactable(
 ```{r table_display, echo = FALSE}
 rnd <- aflm_finals_sims$sims_combined$Round %>% max()
 seas <- aflm_finals_sims$sims_combined$Season %>% max()
+
 div(
   class = "standings",
   div(
@@ -262,7 +263,7 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
   box-shadow: inset 0 -2px 0 #555;
 }
 .team {
-  display: ruby;
+  display: inline-flex;
   align-items: baseline;
   align-content: left;
 }
@@ -330,24 +331,24 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
 ```{css form-css, echo=FALSE}
 # /* rmarkdown html documents */
 .container[role="main"] {
-  min-width: 80% !important;
-  max-width: 1054px !important
-  #max-width: 1540px !important;
+  min-width: 100% !important;
+  max-width: 1054px !important;
 }
 
 .container {
-  min-width: 80% !important;
-  max-width: 1054px !important
+  min-width: 100% !important;
+  max-width: 1054px !important;
   width: 1054px;
 }
- h1.title {
-   display: none;
- }
+
+ #h1.title {
+ #  display: none;
+ #}
 # /* pkgdown articles */
 # .contents {
 #   width: 1054px;
 # }
- .page-header {
-   display: none;
-}
+# .page-header {
+#   display: none;
+#}
 ```
