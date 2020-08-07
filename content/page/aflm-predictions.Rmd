@@ -120,7 +120,9 @@ tbl <- reactable(
       align = "center",
       format = colFormat(digits = 0),
       cell = function(value) {
-        status <- ifelse(value > 0, "up", "down")
+        status <- case_when(value >= 1 ~ "up", 
+                            value <= -1 ~ "down",
+                            TRUE ~ "no-change")
         value_text <- ifelse(value > 0,
           paste0("+", round(value)),
           round(value)

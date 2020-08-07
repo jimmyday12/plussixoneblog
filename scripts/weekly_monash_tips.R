@@ -7,6 +7,8 @@ library(tidyverse)
 # Get user/password
 user <- Sys.getenv("MONASH_REAL_USER")
 pass =  Sys.getenv("MONASH_REAL_PASS")
+pass <- "NdZN79C77bzf_Zp+"
+user <- "plusSixOne"
 
 # Function to map my predictions names to monash names
 map_names_to_monash <- function(names) {
@@ -24,7 +26,9 @@ map_names_to_monash <- function(names) {
 }
 
 # Read in predictions and update names and fields
-predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv")) %>%
+predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv")) 
+round <- min(predictions$Round.Number)
+predictions <- predictions %>%
   mutate_at(c("Home.Team", "Away.Team"), map_names_to_monash) %>%
   mutate(Margin = round(Prediction),
          `Std. Dev.` = 40) %>%
@@ -34,7 +38,7 @@ predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv"))
 
 
 # Join to tips
-monash_games <- get_games(user, pass, comp = "normal")
+monash_games <- get_games(user, pass, comp = "normal", round = round)
 
 pred_games <- monash_games %>%
   select(-Margin) %>%
@@ -45,14 +49,14 @@ pred_games
 # Submit - normal
 pred_games %>%
   select(-`Std. Dev.`, -Probability) %>%
-  monashtipr::submit_tips(user = user, pass = pass, comp = "normal")
+  monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "normal")
 
 # Submit - gauss
 pred_games %>%
   select(-Probability) %>%
-  monashtipr::submit_tips(user = user, pass = pass, comp = "gauss")
+  monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "gauss")
 
 # Submit - prob
 pred_games %>%
   select(-`Std. Dev.`, -Margin) %>%
-  monashtipr::submit_tips(user = user, pass = pass, comp = "info")
+  monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "info")

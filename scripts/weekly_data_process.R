@@ -59,6 +59,30 @@ results <- fitzRoy::get_match_results() %>%
     First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
   )
 
+# Check for new results
+results_new <- get_footywire_match_results(2020, last_n_matches = 10)
+
+convert_results <- function(df) {
+  df <- df %>%
+    mutate(Season = Date[1] %>% format("%Y") %>% as.numeric(),
+           Home.Team = ifelse(Home.Team == "Western Bulldogs", "Footscray", Home.Team),
+           Home.Team = ifelse(Home.Team == "Brisbane", "Brisbane Lions", Home.Team),
+           Away.Team = ifelse(Away.Team == "Western Bulldogs", "Footscray", Away.Team),
+           Away.Team = ifelse(Away.Team == "Brisbane", "Brisbane Lions", Away.Team),
+           Margin = Home.Points - Away.Points,
+           Round.Number = stringr::str_extract(Round, "[0-9]+") %>% as.numeric(),
+           First.Game = Round.Number == 1,
+           Round.Type = ifelse(stringr::str_detect(Round, "Round"), "Regular", "Finals"),
+           seas_rnd = paste0(Season, ".", Round.Number)) %>%
+    select(-Time)
+}
+
+results_new <- convert_results(results_new)
+
+results <- bind_rows(results, results_new) %>%
+  group_by(Date, Home.Team, Away.Team) %>% 
+  filter(!(row_number() == 2 & is.na(Game))) %>%
+  ungroup()
 
 # Get states data - this comes from another script I run when a new venue or team occurs
 states <- read_rds(here::here("data_files", "raw-data", "states.rds"))
@@ -81,6 +105,7 @@ venue_fix <- function(x){
     x == "Adelaide Arena at Jiangwan Stadium" ~ "Jiangwan Stadium",
     x == "TIO Traegar Park" ~ "Traeger Park",
     x == "Metricon Stadium" ~ "Carrara",
+    x == " Metricon Stadium" ~ "Carrara",
     x == "TIO Stadium" ~ "Marrara Oval",
     x == "Optus Stadium" ~ "Perth Stadium",
     x == "Canberra Oval" ~ "Manuka Oval",
@@ -93,7 +118,7 @@ venue_fix <- function(x){
 game_dat <- bind_rows(results, fixture) %>%
   mutate(Game = row_number()) %>%
   ungroup() %>%
-  mutate(Venue = venue_fix(Venue)) %>%
+  mutate(Venue = stringr::str_trim(Venue) %>% venue_fix()) %>%
   mutate(Round = Round.Number)
 
 # ELO Preparation --------------------------------------------------------
@@ -161,7 +186,7 @@ game_dat <- game_dat %>%
 # Run ELO calculation -----------------------------------------------------
 # Get results
 results <- game_dat %>%
-  filter(Date < filt_date)
+  filter(!is.na(Home.Points))
 
 # Run ELO
 elo.data <- elo.run(
@@ -207,7 +232,7 @@ message("ELO Run")
 
 # Get Fixture -------------------------------------------------------------
 fixture <- game_dat %>%
-  filter(Date >= filt_date)
+  filter(is.na(Home.Points))
 
 # COVID Fix
 
@@ -297,6 +322,7 @@ predictions <- predictions_raw %>%
   
 predictions
 # Simulation --------------------------------------------------------------
+message("Simulating")
 sim_res <- results %>%
   filter(year(Date) == min(fixture$Season)) %>%
   mutate(
@@ -320,7 +346,7 @@ sims <- 1:sim_num
 res <- sims %>%
   map_df(~mutate(sim_res, Sim = .x))
 
-message("Simulating")
+
 
 # Now simulate
 sim_elo_perterbed <- sims %>%
@@ -481,11 +507,18 @@ aflm_finals_data <- list(
 # Save
 write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here::here("data_files", "raw-data", "AFLM_sims.rds"), compress = "bz")
-write_rds(aflm_finals_data, path = here::here("data_files", "raw-data", "AFLM_finals_prep.rds"), compress = "bz")
+#write_rds(aflm_finals_data, path = here::here("data_files", "raw-data", "AFLM_finals_prep.rds"), compress = "bz")
 write_csv(predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
 write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
 write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
 write_csv(aflm_data$elo, path = here::here("data_files", "raw-data","AFLM_elo.csv"))
+
+
+rm(sim_data)
+rm(res)
+rm(sim_elo_perturbed)
+rm(aflm_sims)
+rm(aflm_data)
 
 # Message
 print(proc.time() - ptm)
@@ -495,7 +528,11 @@ message("Data saved")
 blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
 blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
 blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
-blogdown:::serve_site()
+blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
+
+
+
+#blogdown:::serve_site()
 #blogdown::hugo_build()
 #blogdown::build_site()
 #

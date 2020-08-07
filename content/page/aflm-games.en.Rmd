@@ -20,6 +20,10 @@ dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 
 # Get predictions for current round and present as table
 predictions <- dat_list$predictions
+results <- dat_list$results %>%
+  filter(Season == max(predictions$Season) & Round.Number == min(predictions$Round.Number))
+
+predictions <- bind_rows(results, predictions)
 
 predictions <- predictions %>%
   mutate(Date = format(Date,  "%a, %b %d")) %>%
@@ -36,7 +40,7 @@ predictions <- predictions %>%
 
 match_cols <- c("Date", "Time", "Round.Number", "Venue")
 team_cols <- c("Home.Team", "Away.Team")
-outcome_cols <- c("Prediction", "Probability")
+outcome_cols <- c("Prediction", "Probability", "Margin")
 predictions <- predictions[, c(
   "Game", "Season",
   match_cols,
