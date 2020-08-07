@@ -1,0 +1,337 @@
+---
+title: "Aflm Games"
+date: 2020-08-07T11:41:36+10:00
+subtitle: ""
+tags: []
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r prep, include=FALSE}
+library(reactable)
+library(htmltools)
+library(tidyverse)
+
+dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
+
+# Get predictions for current round and present as table
+predictions <- dat_list$predictions
+
+predictions <- predictions %>%
+  mutate(Date = format(Date,  "%a, %b %d")) %>%
+  mutate(Home.Prob = Probability,
+         Away.Prob = 1 - Probability,
+         Home.Marg = ifelse(Prediction > 0, Prediction, ""),
+         Away.Marg = ifelse(Prediction < 0, -Prediction, ""))
+
+
+#predictions_long <- predictions %>%
+#  pivot_longer(cols = c(Home.Team, Away.Team), names_to = "Status", values_to = "Team") %>%
+#  mutate(Prediction = ifelse(Status == "Home.Team", Prediction, Prediction*-1),
+#         Probability = ifelse(Status == "Home.Team", Probability, 1-Probability))
+
+match_cols <- c("Date", "Time", "Round.Number", "Venue")
+team_cols <- c("Home.Team", "Away.Team")
+outcome_cols <- c("Prediction", "Probability")
+predictions <- predictions[, c(
+  "Game", "Season",
+  match_cols,
+  team_cols,
+  outcome_cols
+)]
+
+
+
+#predictions_long <- predictions_long %>%
+#  select(Game, Season, Date, Round.Number, Venue, Team, Prediction, Probability, Result, Status)
+```
+
+```{r functions, include=FALSE}
+rating_column <- function(maxWidth = 55, class = NULL, ...) {
+  colDef(maxWidth = maxWidth, align = "center", class = paste("cell number", class), ...)
+}
+
+group_column <- function(class = NULL, ...) {
+  colDef(cell = format_pct, maxWidth = 70, align = "center", class = paste("cell number", class), ...)
+}
+
+knockout_column <- function(maxWidth = 70, class = NULL, ...) {
+  colDef(
+    cell = format_pct,
+    maxWidth = maxWidth,
+    class = paste("cell number", class),
+    style = function(value) {
+      # Lighter color for <1%
+      if (value < 0.01) {
+        list(color = "#aaa")
+      } else {
+        list(color = "#111", background = knockout_pct_color(value))
+      }
+    },
+    ...
+  )
+}
+
+team_column <- function(minWidth = 200, 
+                        headerStyle = list(fontWeight = 700), 
+                        align = "left", ...) {
+  colDef(
+      defaultSortOrder = "asc",
+      minWidth = minWidth,
+      headerStyle = headerStyle,
+      align = align,
+      cell = function(value) {
+        div(
+          class = "team",
+          img(class = "flag", alt = paste(value, "flag"), src = paste0("/images/", value, ".svg")),
+          div(class = "team-name", value)
+        )
+      },
+      ...
+      
+    )
+}
+
+format_pct <- function(value) {
+  if (value == 0) {
+    "  \u2013 "
+  } # en dash for 0%
+  else if (value == 1) {
+    "\u2713"
+  } # checkmark for 100%
+  else if (value < 0.01) {
+    " <1%"
+  } else if (value > 0.99) {
+    ">99%"
+  } else {
+    formatC(paste0(round(value * 100), "%"), width = 4)
+  }
+}
+
+make_color_pal <- function(colors, bias = 1) {
+  get_color <- colorRamp(colors, bias = bias)
+  function(x) rgb(get_color(x), maxColorValue = 255)
+}
+off_rating_color <- make_color_pal(c("#ff2700", "#f8fcf8", "#44ab43"), bias = 1.3)
+def_rating_color <- make_color_pal(c("#ff2700", "#f8fcf8", "#44ab43"), bias = 1)
+knockout_pct_color <- make_color_pal(c("#f1c40f", "#f2fbd2", "#c9ecb4", "#93d3ab", "#35b0ab"), bias = 1)
+knockout_pct_color <- def_rating_color
+```
+
+```{r table, include=FALSE}
+tbl <- reactable(
+  predictions,
+  pagination = FALSE,
+  width = "100%",
+  defaultSorted = "Game",
+  defaultSortOrder = "asc",
+  defaultColGroup = colGroup(headerClass = "group-header"),
+  columnGroups = list(
+    colGroup(name = "Home Team Prediction", columns = outcome_cols)
+  #  colGroup(name = "Home and Away Season", columns = group_cols),
+  #  colGroup(name = "Finals Chances", columns = knockout_cols)
+  ),
+  defaultColDef = colDef(class = "cell", headerClass = "header"),
+  columns = list(
+    Season = colDef(show = FALSE, maxWidth = 70),
+    Game = colDef(show = FALSE),
+    Day = colDef(show = FALSE),
+    Time = colDef(show = FALSE),
+    Date = colDef(show = TRUE, maxWidth = 90),
+    Round.Number = colDef(show = TRUE, name = "Round", maxWidth = 60),
+    Venue = colDef(show = TRUE, maxWidth = 100),
+    Home.Team = team_column(name = "Home", maxWidth = 185),
+    Away.Team = team_column(name = "Away", maxWidth = 185),
+    Prediction = colDef(show = TRUE, name = "Margin", maxWidth = 70),
+    Probability = knockout_column(name = "Prob.", show = TRUE),
+    Result = colDef(show = TRUE)
+  ),
+  # Emphasize borders between groups when sorting by group
+  rowClass = JS("
+    function(rowInfo, state) {
+      const firstSorted = state.sorted[0]
+      if (firstSorted && firstSorted.id === 'group') {
+        const nextRow = state.pageRows[rowInfo.viewIndex + 1]
+        if (nextRow && rowInfo.row.group !== nextRow.group) {
+          return 'group-last'
+        }
+      }
+    }"),
+  showSortIcon = FALSE,
+  borderless = TRUE,
+  class = "standings-table"
+)
+```
+
+```{r table_display, echo = FALSE}
+#rnd <- aflm_finals_sims$sims_combined$Round %>% max()
+#seas <- aflm_finals_sims$sims_combined$Season %>% max()
+
+#div(
+#  class = "standings",
+#  div(
+#    class = "title",
+#    h2(paste0("AFLM Premiership ", seas, " Season Predictions")),
+#    "ELO ratings and chances of making various finals for every team in the AFLM competition"
+#  ),
+#  paste0("Last updated ", Sys.Date(), " with data up to Round ", rnd),
+# tbl
+#)
+#
+div(
+  class = "standings",
+  tbl
+)
+
+```
+
+```{r ref.label="table", echo=FALSE}
+```
+
+
+```{r, echo=FALSE}
+tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mono&display=fallback", rel = "stylesheet")
+```
+
+
+```{css, echo =FALSE}
+.standings {
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.title {
+  margin: 18px 0;
+  font-size: 16px;
+}
+.title h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.standings-table {
+  margin-bottom: 20px;
+}
+/* Align header text to the bottom */
+.header,
+.group-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.header {
+  border-bottom-color: #555;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+/* Highlight headers when sorting */
+.header:hover,
+.header[aria-sort="ascending"],
+.header[aria-sort="descending"] {
+  background-color: #eee;
+}
+.border-left {
+  border-left: 2px solid #555;
+}
+/* Use box-shadow to create row borders that appear behind vertical borders */
+.cell {
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+.group-last .cell {
+  box-shadow: inset 0 -2px 0 #555;
+}
+.team {
+  display: inline-flex;
+  align-items: baseline;
+  align-content: left;
+}
+.record {
+  margin-left: 5px;
+  color: #999;
+  font-size: 13px;
+}
+.team-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+.flag {
+  margin-right: 8px;
+  height: 21px;
+  border: 0px solid #f0f0f0;
+  align-content: left;
+}
+.group {
+  font-size: 19px;
+}
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 16px;
+  line-height: 30px;
+  white-space: pre;
+}
+.spi-rating {
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 50%;
+  color: #000;
+  font-size: 13px;
+  letter-spacing: -2px;
+  
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 12px;
+  vertical-align: bottom;
+}
+
+.status-up {
+  background: rgba(68,171,67,.5);
+  color: hsl(116, 30%, 25%);
+}
+
+.status-no-change {
+  background: hsl(230, 70%, 90%);
+  color: hsl(230, 45%, 30%);
+}
+
+.status-down {
+  background: rgba(255,39,0,.5);
+  color: hsl(350, 45%, 30%);
+}
+```
+
+
+```{css form-css, echo=FALSE}
+# /* rmarkdown html documents */
+.container[role="main"] {
+  min-width: 100% !important;
+  max-width: 1054 !important;
+  width: 100%;
+}
+
+.container {
+  min-width: 100% !important;
+  max-width: 1054px !important;
+  width: 100%;
+}
+
+ #h1.title {
+ #  display: none;
+ #}
+# /* pkgdown articles */
+# .contents {
+#   width: 1054px;
+# }
+# .page-header {
+#   display: none;
+#}
+```
+

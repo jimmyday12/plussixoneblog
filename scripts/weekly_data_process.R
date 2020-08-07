@@ -292,8 +292,9 @@ predictions_raw <- fixture %>%
 
 
 predictions <- predictions_raw %>% 
-  select(Day, Time, Round.Number, Venue, Home.Team, 
-         Away.Team, Prediction, Probability, Result)
+  select(Season, Game, Date, Day, Time, Round.Number, Venue, Home.Team, 
+         Away.Team, Prediction, Probability, Result) 
+  
 predictions
 # Simulation --------------------------------------------------------------
 sim_res <- results %>%
