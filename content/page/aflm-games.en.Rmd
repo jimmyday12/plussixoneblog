@@ -150,9 +150,9 @@ tbl <- reactable(
     Venue = colDef(show = TRUE, maxWidth = 100),
     Home.Team = team_column(name = "Home", maxWidth = 185),
     Away.Team = team_column(name = "Away", maxWidth = 185),
-    Prediction = colDef(show = TRUE, name = "Margin", maxWidth = 70),
+    Prediction = colDef(show = TRUE, name = "Pred. Margin", maxWidth = 70),
     Probability = knockout_column(name = "Prob.", show = TRUE),
-    Result = colDef(show = TRUE)
+    Margin = colDef(name = "Actual Margin", show = TRUE, maxWidth = 70)
   ),
   # Emphasize borders between groups when sorting by group
   rowClass = JS("
@@ -172,22 +172,17 @@ tbl <- reactable(
 ```
 
 ```{r table_display, echo = FALSE}
-#rnd <- aflm_finals_sims$sims_combined$Round %>% max()
-#seas <- aflm_finals_sims$sims_combined$Season %>% max()
+#rnd <- predictions$Round %>% min()
+seas <- predictions$Season %>% max()
 
-#div(
-#  class = "standings",
-#  div(
-#    class = "title",
-#    h2(paste0("AFLM Premiership ", seas, " Season Predictions")),
-#    "ELO ratings and chances of making various finals for every team in the AFLM competition"
-#  ),
-#  paste0("Last updated ", Sys.Date(), " with data up to Round ", rnd),
-# tbl
-#)
-#
 div(
   class = "standings",
+  div(
+    class = "title",
+    h2(paste0("AFLM Premiership ", seas, " Match Predictions")),
+    "Predicted results based on ELO ratings for upcoming Men's AFL games"
+  ),
+  paste0("Last updated ", Sys.Date()),
   tbl
 )
 

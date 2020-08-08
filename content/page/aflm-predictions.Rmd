@@ -120,13 +120,12 @@ tbl <- reactable(
       align = "center",
       format = colFormat(digits = 0),
       cell = function(value) {
-        status <- case_when(value >= 1 ~ "up", 
-                            value <= -1 ~ "down",
+        status <- case_when(round(value) > 0 ~ "up", 
+                            round(value) < 0 ~ "down",
                             TRUE ~ "no-change")
-        value_text <- ifelse(value > 0,
-          paste0("+", round(value)),
-          round(value)
-        )
+        value_text <- case_when(round(value) > 0 ~ paste0("+", round(value)), 
+                            round(value) < 0 ~ paste0(round(value)),
+                            TRUE ~ "-")
         class <- paste0("tag status-", tolower(status))
         htmltools::div(class = class, value_text)
       }
@@ -320,7 +319,7 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
 
 .status-no-change {
   background: hsl(230, 70%, 90%);
-  color: hsl(230, 45%, 30%);
+  color: "#ecf0f1";
 }
 
 .status-down {

@@ -68,7 +68,7 @@ googleAnalytics = "UA-77406420-1"
 [[menu.main]]
     parent = "aflm"
     name = "Current Tips"
-    url = "page/aflm-current-tips"
+    url = "page/aflm-games"
     weight = 2
     
 [[menu.main]]
