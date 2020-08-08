@@ -169,7 +169,7 @@ tbl <- reactable(
     Form = colDef(show = FALSE),
     Top.4 = group_column(name = "Top 4"),
     Top.2 = group_column(name = "Top 2"),
-    Top.1 = group_column(name = "Minor Premier"),
+    Top.1 = group_column(name = "1st"),
     make_finals = knockout_column(name = "Make Finals"),
     make_semis = knockout_column(name = "Make Semis", maxWidth = 90, class = "border-left"),
     make_prelim = knockout_column(name = "Make Prelim"),
@@ -319,7 +319,7 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
 
 .status-no-change {
   background: hsl(230, 70%, 90%);
-  color: "#ecf0f1";
+  color: hsl(230, 45%, 30%);
 }
 
 .status-down {
