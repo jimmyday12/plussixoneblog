@@ -1,6 +1,5 @@
 ---
 title: About me
-subtitle: Why you'd want to go on a date with me
 comments: false
 author: James Day
 date: 2016-04-26 00:09:36+00:00
