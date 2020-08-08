@@ -15,7 +15,10 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install packages
-        run: Rscript -e 'install.packages(c("fitzRoy", "tidyverse", "pacman", "here", "fst", "blogdown"))'
+        run: |
+          install.packages(c("devtools", "tidyverse", "pacman", "here", "fst", "blogdown"))
+          devtools::install_github("jimmyday12/fitzRoy", force = TRUE)
+        shell: Rscript {0}
       - name: Install Hugo
         run: Rscript -e 'blogdown::install_hugo(extended = TRUE, version = "0.66.0")'
       - name: Get data
