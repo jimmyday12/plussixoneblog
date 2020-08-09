@@ -180,7 +180,7 @@ div(
   div(
     class = "title",
     h2(paste0("AFLM Premiership ", seas, " Match Predictions")),
-    "Predicted results based on ELO ratings for upcoming Men's AFL games"
+    "Predicted results based on ELO ratings for upcoming Men's AFL games."
   ),
   paste0("Last updated ", Sys.Date(), " at ", Sys.time()),
   tbl
