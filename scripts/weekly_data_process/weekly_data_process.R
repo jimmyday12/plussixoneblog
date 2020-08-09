@@ -47,7 +47,7 @@ if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
 }
 
 # Manual override
-new_data <- TRUE
+#new_data <- TRUE
 if (new_data) {
   dat <- get_data(season,
     filt_date,
