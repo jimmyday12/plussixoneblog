@@ -49,6 +49,13 @@ dat$game_dat <- bind_rows(dat$results, dat$fixture) %>%
   mutate(Venue = stringr::str_trim(Venue) %>% venue_fix()) %>%
   mutate(Round = Round.Number)
 
+# ELO Prep
+last_n_games <- 100
+dat$game_dat <- elo_prep_calculations(dat$game_dat, 
+                                      states = dat$states, 
+                                      last_n_games = last_n_games)
+
+
 # Get results
 dat$results <- dat$game_dat %>%
   filter(!is.na(Home.Points))
@@ -58,21 +65,12 @@ dat$fixture <- dat$game_dat %>%
   filter(is.na(Home.Points))
 
 # COVID Fix 
-covid_seas <- last(fixture$Round) < 23
+covid_seas <- last(dat$fixture$Round) < 23
 
 if(covid_seas) dat$fixture <- fix_covid_season(dat$fixture)
 
 print(proc.time() - ptm)
 message("Data Cleaned")
-
-# ELO Preparation --------------------------------------------------------
-last_n_games <- 100
-dat$game_dat <- elo_prep_calculations(dat$game_dat, 
-                                      states = dat$states, 
-                                      last_n_games = last_n_games)
-
-print(proc.time() - ptm)
-message("ELO Prep")
 
 # Run ELO calculation -----------------------------------------------------
 elo_dat <- run_elo(dat$results, carryOver = carryOver,
@@ -156,7 +154,7 @@ finals_dat <- combine_finals_sims(final_game = finals_dat$final_game,
                     elo.data = elo_dat$elo.data)
 
 print(proc.time() - ptm)
-message("Sims done")
+message("Finals Sims done")
 
 # Save Data ---------------------------------------------------------------
 message("Saving data")
@@ -176,17 +174,19 @@ aflm_sims <- list(
 rm(sim_dat)
 rm(dat)
 
-
-predictions_csv <- dat$predictions %>%
-  select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
-
 # Save
 write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
 write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
 write_rds(aflm_sims, path = here::here("data_files", "raw-data", "AFLM_sims.rds"), compress = "bz")
 
-write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions.csv"))
+# Predictions
+predictions_csv <- aflm_data$predictions %>%
+  select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
 
+write_csv(aflm_data$predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
+write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions_new.csv"))
+
+# Writing csv
 write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
 write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
 write_csv(aflm_data$elo, path = here::here("data_files", "raw-data","AFLM_elo.csv"))
