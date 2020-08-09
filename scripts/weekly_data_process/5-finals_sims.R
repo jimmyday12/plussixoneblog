@@ -1,12 +1,4 @@
 # # Finals Sims
-# 
-# 
-# # get data
-# aflm_data <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
-# aflm_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
-# aflm_finals_data <- aflm_finals_data
-# 
-# sim_num <- aflm_finals_data$sim_num
 
 # Helper functions ---------------
 create_finals_fixture <- function(week = 1, season, last_game_num, last_round) {

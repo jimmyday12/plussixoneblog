@@ -59,12 +59,17 @@ if (new_data) {
 
   # Data Cleaning -----------------------------------------------------------
   # Bind together and fix stadiums
-  dat$game_dat <- bind_rows(dat$results, dat$fixture) %>%
+  dat$game_dat <- bind_rows(dat$results, dat$fixture)
+  
+  dup_games <- dat$game_dat %>% select(Date, Home.Team, Away.Team) %>% duplicated()
+  dat$game_dat <- dat$game_dat[!dup_games,]
+  
+  dat$game_dat <- dat$game_dat %>%
     mutate(Game = row_number()) %>%
     ungroup() %>%
     mutate(Venue = stringr::str_trim(Venue) %>% venue_fix()) %>%
-    mutate(Round = Round.Number)
-
+    mutate(Round = Round.Number) 
+  
   # ELO Prep
   last_n_games <- 100
   dat$game_dat <- elo_prep_calculations(dat$game_dat,
