@@ -1,8 +1,8 @@
-name: Get new data
+name: Get new data and rebuild site
 
 on:
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "0 9,13,18 * * *"
   push:
     branches:
       - master
@@ -23,10 +23,12 @@ jobs:
         run: Rscript -e 'blogdown::install_hugo(extended = TRUE, version = "0.66.0")'
       - name: Get data
         run: Rscript -e 'source(here::here("scripts", "weekly_data_process", "weekly_data_process.R"), echo = TRUE)'
+      - name: Build site
+        run: Rscript -e 'blogdown:::build_site(TRUE)'
       - name: Commit
         run: |
           git config --global user.name 'James Day'
           git config --global user.email '17557361+jimmyday12@users.noreply.github.com'
           git add .
-          git commit -m 'refreshing data' || echo "No changes to commit"
+          git commit -m 'refreshing data and rebuilding site' || echo "No changes to commit"
           git push || echo "No changes to commit"
