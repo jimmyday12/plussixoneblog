@@ -14,7 +14,7 @@ subtitle: ''
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Testing build....
+Testing workflow...
 
 ```{r prep, include=FALSE}
 library(reactable)
