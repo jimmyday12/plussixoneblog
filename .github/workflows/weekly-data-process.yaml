@@ -20,8 +20,14 @@ jobs:
         run: Rscript -e 'blogdown::install_hugo(extended = TRUE, version = "0.66.0")'
       - name: Get data
         run: Rscript -e 'source(here::here("scripts", "weekly_data_process", "weekly_data_process.R"), echo = TRUE)'
-      #- name: Build site
-      #  run: Rscript -e 'blogdown:::build_site(TRUE)'
+      - name: Build site
+        run: |
+          blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
+          blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
+          blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
+          blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
+          blogdown:::build_site(TRUE)
+        shell: Rscript {0}  
       - name: Commit
         run: |
           git config --global user.name 'James Day'
