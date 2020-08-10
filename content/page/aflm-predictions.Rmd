@@ -204,7 +204,7 @@ div(
     h2(paste0("AFLM Premiership ", seas, " Season Predictions")),
     "ELO ratings and chances of making various finals for every team in the AFLM competition"
   ),
-  paste0("Last updated ", format(Sys.Date(), "%b %d"), " at ", format(Sys.time(), "%H:%M%p")),
+  paste0("Last updated ", format(Sys.Date(), "%b %d"), " at ", format(Sys.time(), "%I:%M%p")),
   tbl
 )
 ```

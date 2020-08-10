@@ -182,10 +182,10 @@ div(
     h2(paste0("AFLM Premiership ", seas, " Match Predictions")),
     "Predicted results based on ELO ratings for upcoming Men's AFL games."
   ),
-  paste0("Last updated ", format(Sys.Date(), "%b %d"), " at ", format(Sys.time(), "%H:%M%p")),
+  paste0("Last updated ", format(Sys.Date(), "%b %d"), " at ", format(Sys.time(), "%I:%M%p")),
   tbl
 )
-
+ 
 ```
 
 ```{r ref.label="table", echo=FALSE}
