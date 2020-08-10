@@ -11,8 +11,6 @@ tags: []
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Testing workflow...
-
 ```{r prep, include=FALSE}
 library(reactable)
 library(htmltools)
@@ -176,7 +174,10 @@ tbl <- reactable(
 ```{r table_display, echo = FALSE}
 #rnd <- predictions$Round %>% min()
 seas <- predictions$Season %>% max()
-
+time <- lubridate::with_tz(Sys.time(), tzone = "Australia/Melbourne") %>%
+  format("%I:%M%p")
+date <- lubridate::with_tz(Sys.Date(), tzone = "Australia/Melbourne") %>% 
+  format( "%b %d")
 div(
   class = "standings",
   div(
@@ -184,7 +185,7 @@ div(
     h2(paste0("AFLM Premiership ", seas, " Match Predictions")),
     "Predicted results based on ELO ratings for upcoming Men's AFL games."
   ),
-  paste0("Last updated ", format(Sys.Date(), "%b %d"), " at ", format(Sys.time(), "%I:%M%p")),
+  paste0("Last updated ", date, " at ", time),
   tbl
 )
  
