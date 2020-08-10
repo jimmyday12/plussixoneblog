@@ -3,9 +3,6 @@ name: Get new data and rebuild site
 on:
   schedule:
     - cron: "0 9,13,18 * * *"
-  push:
-    branches:
-      - master
 
 jobs:
   scrape-and-commit:
