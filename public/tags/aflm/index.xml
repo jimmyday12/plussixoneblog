@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AFLM on plusSixOne</title>
+    <link>/tags/aflm/</link>
+    <description>Recent content in AFLM on plusSixOne</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
+    <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
+    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/aflm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Recruits</title>
+      <link>/post/recruits/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/recruits/</guid>
+      <description>Welcome to my first actual analysis post in a long time (I’m too scared to find out how long it actually has been).
+I was inspired by a Twitter post this week that caused some typically strong responses. It was a poingnet visual representation of the contrast in recruiting strategies between two sides.
+As a general rule Hawthorn appears to have been more focused on bringing in talent from elsewhere rather than through the top end of the draft (a possible side effect of being at the top for multiple years in a row) while Melbourne has been focused more on the draft and specifically on the top end.</description>
+    </item>
+    
+  </channel>
+</rss>

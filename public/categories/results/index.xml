@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Results on plusSixOne</title>
+    <link>/categories/results/</link>
+    <description>Recent content in Results on plusSixOne</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
+    <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
+    <lastBuildDate>Mon, 26 Sep 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/results/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pre prelim ratings</title>
+      <link>/post/pre-prelim-ratings/</link>
+      <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/pre-prelim-ratings/</guid>
+      <description>Unfortunately I didn&amp;rsquo;t get a chance to review the round last week (or post predictions). I&amp;rsquo;m putting this here as a placeholder for brevity so that I have the ratings showing for anyone interested.
+For the record, based on these ratings my system tipped Sydney by 2 points (51% chance of winning) and the Giants by 25 points (64% chance of winning).</description>
+    </item>
+    
+    <item>
+      <title>Finals Week 2</title>
+      <link>/post/finals-week-2/</link>
+      <pubDate>Thu, 15 Sep 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/finals-week-2/</guid>
+      <description>Following a cracking weekend of finals football, I haven&amp;rsquo;t had the time I&amp;rsquo;d like to get this weeks results and predictions up. I also did find out that my simulation of finals script, that I&amp;rsquo;d hurriedly written back in about round 13 actually couldn&amp;rsquo;t handle real finals data being thrown at it. Nonetheless, the simulations of the remainder of the finals series are in, and I&amp;rsquo;ll combine it with my predictions later on in this post!</description>
+    </item>
+    
+    <item>
+      <title>Final 2016 Season results</title>
+      <link>/post/final-2016-season-results/</link>
+      <pubDate>Thu, 01 Sep 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/final-2016-season-results/</guid>
+      <description>With the home and away season over, and the controversial bye weekend, it gives us a nice chance to review the season performance for the inaugural plusSixOne season. Our ELO model managed to get through the last round relatively unscathed, with a total of 6 out of 9 tips. We missed on Adelaide&amp;rsquo;s terribly timed loss to West Coast, the Bombers running over the top of Carlton and Freo getting up against a tired Bulldogs.</description>
+    </item>
+    
+    <item>
+      <title>Round 22 Results</title>
+      <link>/post/round-22-results/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-22-results/</guid>
+      <description>As we enter the final round of the year, our ELO model had a pretty good round. Last week we tipped 7 out of 9 with a mean absolute prediction error (MAPE) of 20.4, which was our best MAPE outside of the bye rounds for the year. Our two misses were Richmond losing out to St Kilda and Melbourne missing against Carlton.
+That gives us a season total of 136 out of 189 (72%) which means that we only need to tip 3 wins this weekend to beat our season goal of 70%.</description>
+    </item>
+    
+    <item>
+      <title>Round 21 Results</title>
+      <link>/post/round-21-results/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-21-results/</guid>
+      <description>I must admit to not catching a lot of footy over the weekend due to having Olympics fever, which is probably good considering my ELO model had a tough round this week! With a few upsets, and 5 games decided by a goal or less, we struggled picking winners this week. The model managed to tip 5 out of 9 with a mean absolute prediction error (MAPE) of 27.7.
+As we touched upon in last weeks predictions, anecdotally it feels that this time of year is tricky to tip as many teams appear to have different agendas.</description>
+    </item>
+    
+    <item>
+      <title>Round 20 Results</title>
+      <link>/post/round-20-results/</link>
+      <pubDate>Tue, 09 Aug 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-20-results/</guid>
+      <description>For the second weekend in a row, the ELO model has done well with its predictions albeit without being very accurate. Round 20 saw the ELO model tip a total of 7 out of 9 with a mean absolute prediction error (MAPE) of 34.7.
+The two main misses for tipping were considered upset wins. The first one was the Friday night clash between Richmond and Collingwood. Our model gave the Pies the slight edge at 52% however Richmond were able to overcome the Deledio effect, winning against expectation without the star.</description>
+    </item>
+    
+    <item>
+      <title>Round 19 - AFL ELO Results</title>
+      <link>/post/round-results/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-results/</guid>
+      <description>I&amp;rsquo;ve now got around to doing a bit more analyses of my results each week and so have decided to split the AFL ELO model results and updated simulations into seperate posts. The simulation post will be out shortly! Round 19 saw our ELO model do very well, as we expected from our preview, with all teams favoured by our ELO model favoured by a significant margin. The only incorrect tip was the the upset win by Collingwood over West Coast, which our model attached a 41% probability to.</description>
+    </item>
+    
+    <item>
+      <title>Round 18 Results</title>
+      <link>/post/round-18-results/</link>
+      <pubDate>Mon, 25 Jul 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-18-results/</guid>
+      <description>Last weekend saw our ELO model have its worst week for the season, tipping at less than 50% to record 4 correct tips out on 9. It was also the 2nd worst round of the year for the Margin component of the predictions, with a mean absolute error (MAE) of 36.9 points.
+In 4 matches last week, our had difficulty separating teams after the Home Ground Advantage was taken into account, giving the tipped winners less than a 55% chance of getting over the line.</description>
+    </item>
+    
+    <item>
+      <title>Round 17 Results</title>
+      <link>/post/round-17-results/</link>
+      <pubDate>Mon, 18 Jul 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-17-results/</guid>
+      <description>As the season starts to heat up, we are getting some interesting games in the context of the season, as noted last week by the super important Sydney v Hawthorn game. In combination with a really tight top 8, whenever two top 8 teams are matched up, my ELO model  has difficulty separating them. Nonetheless, we continued on with an OK 6 out of 9 games tipped correctly, with a respectable MAE of 22.</description>
+    </item>
+    
+    <item>
+      <title>Round 16 Results</title>
+      <link>/post/round-16-results/</link>
+      <pubDate>Tue, 12 Jul 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-16-results/</guid>
+      <description>For our first week out of the bye rounds and back to a full 9 games, my ELO model  had a pretty good week, tipping 7 out 9 with an MAE of 24. The incorrect tips were GWS losing to Collingwood (a 29% chance)e and Geelong losing to Sydney (a 23% chance). The seas total is up to 99 tips from 135 games (73%) and an MAE 29.0.
+Those two upset losses saw the biggest change in ELO ratings for the round with Geelong losing 21 ratings points (giving them to Sydney) and GWS losing 26 rating points (giving them to Collingwood).</description>
+    </item>
+    
+    <item>
+      <title>Round 15 Results</title>
+      <link>/post/313/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/313/</guid>
+      <description>My ELO model  has completed a clean sweep of 4 out 6 tips for the bye rounds on the weekend, incorrectly tipping against Gold Coast and the Western Bulldogs. It was far and away the best round of the year for margin tipping, with an MAE of 16.5! That gives us a season total of 92 tips from 120 games (73%) and an MAE that has tipped under 30, sitting at 29.</description>
+    </item>
+    
+    <item>
+      <title>Round 14 Results</title>
+      <link>/post/round-14-results/</link>
+      <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-14-results/</guid>
+      <description>Continuing through the bye rounds, this week saw my ELO model  managed to another 4 of the 6 games tipped correctly, with an MAE of 24.8. The two games we got wrong were the Friday night clash between Collingwood and Freo (we gave Freo a slight edge at 53%), and the enthralling upset win of St Kilda over Geelong.
+We didn&amp;rsquo;t see a whole lot of movement in our ratings this week in the top 8 teams, apart from Adelaide extending their lead at the top of the ratings system.</description>
+    </item>
+    
+    <item>
+      <title>Round 13 Results</title>
+      <link>/post/round-13-results/</link>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-13-results/</guid>
+      <description>The first bye round of the year saw my ELO model  managed to tiptoe through the horror round 12 correctly tip 4 of the 6 games with an MAE of 25.5. Like last week - the model struggled to separate the teams in both matches that it got wrong (Bulldogs v Geelong and Freo v Port Adelaide).
+The main mover in our ELO ratings were Geelong, after their dominating win over the Bulldogs, lifting them by 28 rating points and jumping into a clear 3rd spot on the ELO ladder.</description>
+    </item>
+    
+    <item>
+      <title>Round 12 Results</title>
+      <link>/post/round-12-results/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-12-results/</guid>
+      <description>My ELO model  managed to tiptoe through the horror round 12 with a respectable 7 out of 9 tips and an MAE of 31.2. The two games it incorrectly tipped (Port v Bulldogs and WCE v Adelaide) were both within the margin of HGA in terms of tightness, so not unexpected results. The season total percentage is now creeping up with 80 correct tips (74.1%) and an MAE of 30.</description>
+    </item>
+    
+    <item>
+      <title>Round 11 Results</title>
+      <link>/post/round-11-results/</link>
+      <pubDate>Mon, 06 Jun 2016 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/round-11-results/</guid>
+      <description>After a few weeks struggling to juggle and balance various commitments, I think I&amp;rsquo;ve finally got into enough of a routine and automated enough of my R scripts that I can release my ELO ratings update early in the week and put my predictions out later in the week! I&amp;rsquo;ll also hope to write a bit more interesting post mid-week such as my one on the Tackle Machine, or the Round 7 rule.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>My ELO rating system explained</title>
+  <meta property="og:title" content="My ELO rating system explained" />
+  <meta name="twitter:title" content="My ELO rating system explained" />
+  <meta name="description" content="I&rsquo;ve been wanting to try my hand at building a rating system to predict AFL results for a while. I&rsquo;ve decided to begin with a relatively simple ELO rating system. The ELO rating system was originally developed to rank chess players, but more recently has been used for a lot of sports, including AFL, to assess the relative strengths of teams within a competition.
+For a super good explainer on how to build an ELO rating system, I highly recommend the following readings">
+  <meta property="og:description" content="I&rsquo;ve been wanting to try my hand at building a rating system to predict AFL results for a while. I&rsquo;ve decided to begin with a relatively simple ELO rating system. The ELO rating system was originally developed to rank chess players, but more recently has been used for a lot of sports, including AFL, to assess the relative strengths of teams within a competition.
+For a super good explainer on how to build an ELO rating system, I highly recommend the following readings">
+  <meta name="twitter:description" content="I&rsquo;ve been wanting to try my hand at building a rating system to predict AFL results for a while. I&rsquo;ve decided to begin with a relatively simple ELO rating system. The ELO rating system was …">
+  <meta name="author" content="James Day"/>
+  <link href='/img/favicon-new.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@plusSixOneblog" />
+  <meta name="twitter:creator" content="@plusSixOneblog" />
+  <meta property="og:url" content="/post/my-elo-rating-system-explained/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="plusSixOne" />
+
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="canonical" href="/post/my-elo-rating-system-explained/" />
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="/css/codeblock.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-light.min.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">plusSixOne</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Mens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflm-predictions">Predictions</a>
+                
+                  <a href="/page/aflm-games">Current Tips</a>
+                
+                  <a href="/page/aflm-model-results">Model Results</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Womens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflw-coming-soon/">Coming Soon</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Cool Links" href="/page/cool-links/">Cool Links</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="plusSixOne" href="/">
+            <img class="avatar-img" src="/img/avator-icon-new.png" alt="plusSixOne" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>My ELO rating system explained</h1>
+                
+                
+                  <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on May 23, 2016
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 9 minutes (1746 words)
+  
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>I&rsquo;ve been wanting to try my hand at building a rating system to predict AFL results for a while. I&rsquo;ve decided to begin with a relatively simple ELO rating system. The <a href="https://en.wikipedia.org/wiki/Elo_rating_system">ELO rating system</a> was originally developed to rank chess players, but more recently has been used for a lot of sports, <a href="http://www.matterofstats.com">including AFL</a>, to assess the relative strengths of teams within a competition.</p>
+<p>For a super good explainer on how to build an ELO rating system, I highly recommend the following readings</p>
+<ul>
+<li>
+<p><a href="http://www.matterofstats.com/mafl-stats-journal/2013/11/25/a-very-simple-team-ratings-system.html?rq=elo">Building your own rating system</a> by Matter of Stats</p>
+</li>
+<li>
+<p><a href="http://www.matterofstats.com/mafl-stats-journal/2013/11/25/a-very-simple-team-ratings-system.html?rq=elo">A very simple team rating system</a> by Matter of Stats</p>
+</li>
+<li>
+<p><a href="http://figuringfooty.com/2015/10/09/the-simpelo-team-ratings/">SimpElo Team Ratings</a> by FiguringFooty</p>
+</li>
+</ul>
+<p>Also anything by FiveThirtyEight where they discuss their ELO ratings for NFL, Baseball and Basketball is useful reading. I&rsquo;ll attempt to explain my system below but cannot recommend those readings enough!</p>
+<h6 id="typical-elo">Typical ELO</h6>
+<p>The nice thing about ELO rating systems is their simplicity. Essentially, our only inputs are the rating of the home team, the rating of the away team and the result. From here, we can assess how the result panned out relative to what we would expect given the relative strengths of each side, and then adjust our rating for each team accordingly. If a team wins by more than expected, we give them a bump in ratings. The system is very objective in this sense and doesn&rsquo;t take into account things like the players within a team, weather, emotional responses to recent events and the myriad of subjective factors that a typical punter might inherently use.</p>
+<p>The typical ELO rating system uses the following formula[ref]One aspect of my rating system that does slightly differ from FiveThirtyEight is that teams don&rsquo;t always gain points for a win. Their model uses the simple 1, 0.5 and 0 point system for actual results and so a team that wins can never lose points. In my system, a team needs to win by a greater margin than we expect to gain points. An issue with FiveThirtyEight&rsquo;s system that they discuss is autocorrelation, which means that x. They account for this using a Margin of Victory (MOV) multiplier, which essentially scales the k value based upon the margin of victory, so that it is reduced for blowout wins/losses.</p>
+<p>In my haste to develop my system, I thought this would be cool to have in my model and so implemented it. While writing this up, I&rsquo;ve realised that it probably isn&rsquo;t needed since my calculation for mapping Margin onto a scale of 0 to 1 already &ldquo;squashes&rdquo; bigger results. Interestingly however, including it in there does slightly improve my historical performance of predicting results (68.6% correct tips, MAE of 26.8) versus taking it out (67.0% correct tips, MAE of 27.6) over the entire history of the AFL. For continuity, given I&rsquo;ve included it in my predictions so far this season, I&rsquo;ll leave it in but I&rsquo;ll likely revisit it after the season. The equation for including the MOV is below.</p>
+<p>$latex MOV = \log (abs(Margin) +1) \times \frac{2.2}{0.001\times eloDiff + 2.2} &amp;bg=f0f0f0$</p>
+<p>[/ref]</p>
+<p>$latex ELO_{new} = ELO_{old} + k(Result_{actual} - Result_{predicted})&amp;bg=f0f0f0$</p>
+<p>The mechanics of this equation are basically, take the teams ELO rating before the match, assess if the result was better or worse than predicted, and then add the scaled difference in the predicted and actual result. My main design decisions now are a) how to define the predicted result, b) how to define the actual result and c) what to set scaling parameter <em>k</em> to.</p>
+<h6 id="actual-result">Actual Result</h6>
+<p>In chess, the actual result is typically a 0 for a loss, 0.5 for a draw and 1 for a win, while the predicted result is the probability of winning, based on the difference in ELO ratings between two opponents. This means that if someone wins in an upset (i.e. against an opponent with a higher rating than them), they get a bigger boost in ratings than someone who wins when they are expected to win. Ratings are also zero sum, so the change in ratings for the winner is the same as the negative change in ratings for the loser.</p>
+<p>For an AFL system, we could use a similar simple system like the Chess example above, where we assign a 1 for a win and a 0 for a loss, but I&rsquo;ve decided to use the Margin of the match as the indicator of performance. To do this, we need to convert the Margin to a comparable scale to our predicted result (i.e. between 0 and 1). For a good example of how this can be done, I refer you once again to MAFL.</p>
+<p>In order to get our Actual Result on a scale of 0 to 1, I need to scale it in some way I could use a simple rescaling along the range of all results in the AFL, however I&rsquo;ve decided to get a little more complex by using the following equation. It is essentially the <a href="https://en.wikipedia.org/wiki/Generalised_logistic_function">Generalised Logistic function</a>, with most parameters set to 0 or 1 [ref] For clarity, A = Lower asymptote = 0, K = Upper asmpytote = 1, B = Growth Rate = 0.05, v = 1, Q = 1, C = 1 [/ref]</p>
+<p>$latex Result_{actual} = \frac{1}{1 + e(-0.05 * Margin)} &amp;bg=f0f0f0$</p>
+<p>The mapping of those results is below. Essentially, my model rewards winning by bigger margins, but with diminishing returns. The difference between a 70 and 80 point win is less than the difference between a 5 and a 15 point win. Again, this isn&rsquo;t based on anything other than some creative license on my behalf based on the shape of the curve and by some sage advice in the previously mentioned Matter of Stats post.</p>
+<p><img src="http://plussixoneblog.com/img/2016/04/eloAct.gif" alt="eloAct"></p>
+<h6 id="predicted-result">Predicted Result</h6>
+<p>My predicted rating system is below. This is taken from <a href="http://fivethirtyeight.com/datalab/introducing-nfl-elo-ratings/">FiveThirtyEight&rsquo;s NFL model</a>, which is similar to <a href="http://www.eloratings.net/system.html">traditional ELO models</a> used in chess. It essentially takes the ELO difference, calculated as the Home team ELO, plus the Home Ground Advantage, minus the Away team ELO, and converts it to a value between 0 and 1. Positive differences in ELO ratings (i.e. for the higher rated team) give us a Expected result of greater than 0.5.</p>
+<p>$latex Result_{predicted} = \frac{1}{1 + 10^(\frac{-eloDiff}{M})} &amp;bg=f0f0f0$</p>
+<p>$latex eloDiff = ELO_{home} - ELO_{away} + HGA &amp;bg=f0f0f0$</p>
+<p>The two main parameters we can set are M and HGA. M is a constant that scales the eloDiff and its influence on expected outcomes. I&rsquo;ve used a constant of 400, again borrowing from FivethirtyEight. HGA (Home ground advantage) gives the home team&rsquo;s chances a bump. For my initial ELO rating system, I&rsquo;m setting this to a constant of of 35, which equates to about 8 points in terms of Margin, which is the long term average for home team outcomes. I hope to eventually update this to be parameterised by updating based on recent experience at a ground or perhaps travel distance, but thats it for now.</p>
+<p>You can see, for a range of rating differences (including HGA), the expected outcome. This expected outcome is also what I currently use as my probability[ref] I&rsquo;m looking to change this for next year, likely to actually model historical ELO rating differences on probability of winning [/ref], so an expected outcome of 0.75 equates to a 75% chance of winning.</p>
+<p><img src="http://plussixoneblog.com/img/2016/04/expOutcome.gif" alt="expOutcome"></p>
+<h6 id="special-k">Special K</h6>
+<p>Now that I have mapped Expected and Actual results to values between 0 and 1, I just have to decide on k. The k value allows me to scale how much my ratings are effected by new results. Large values of k are really impressed by new information, while low values of k tend to require more information to move the ratings a lot. It is hard to know what to pick for k without performing some kind of optimisation of this parameter[ref]which I plan to do for my next implementation[/ref]. For now, I tested a few different values and found that 20 gave me the best results - around the same as FiveThityEight&rsquo;s NFL and NBA models.</p>
+<h6 id="iterating-the-ratings">Iterating the ratings</h6>
+<p>The only other issue to solve is what to do a) when a new team is introduced and b) at the start of a new season. For the first issue, I simply start any new team at 1500 points in their first season. Because ELO ratings are zero-sum after each match, this means that my league average is always 1500. For continuity, I treat Sydney as the same team as South Melbourne and the Brisbane Lions as the same team as the Brisbane Bears.</p>
+<p>After each season, I regress each teams ELO rating towards the league average of 1500. This helps to account for things that are inherently built into the AFL such as equalisation, whereby good teams aren&rsquo;t meant to stay good for too long and bad teams aren&rsquo;t meant to stay bad for too long [ref] as far as I know, not empirically tested?[/ref], as well as the myriad of other things that happen during an AFL offseason. I do this at a rate of 60% in that a team will move 60% of the distance between its current rating and 1500. If a team was rated as 1600, they would regress to 1540, while a team on 1400 would regress to 1460. This seems high but I tried a few different values and this seemed to work the best. I plan to optimise this in the next implementation.</p>
+<p>$latex ELO_{New Seas} = (0.6\times ELO_{Old Seas}) + ((1-0.6)\times 1500) &amp;bg=f0f0f0$</p>
+<h6 id="results">Results!</h6>
+<p>Now that I&rsquo;ve got that out of the way, I can go through each match in the period of the VFL/AFL and get ELO ratings for each team! Below I&rsquo;ve plotted each teams ratings over their history. There will be a few posts later on (and, one day, an interactive page) to explore these ratings, but this gives a bit of an idea. I&rsquo;ve added a line at 1500 to show where a team is rated compared to the league average.</p>
+<p><img src="http://plussixoneblog.com/img/2016/04/teams.gif" alt="teams"></p>
+<p>I also can use the ELO difference before each game to predict the binary outcome (win/loss), the margin and also a probability. I plan to write another piece on that, but for now, I can report that across the entire history of VFL/AFL, the model has tipped 68.6% of games correctly, with a Mean Absolute Error in the Margin of 26.8 points. We can see that the performance is in general getting worse over time - possibly due to expansion of the league (i.e. more games to get wrong).</p>
+<p><img src="http://plussixoneblog.com/img/2016/04/mapeandtips.gif" alt="mapeandtips"></p>
+
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="/post/round-9-predictions/" data-toggle="tooltip" data-placement="top" title="Round 9 predictions">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="/post/round-10-predictions/" data-toggle="tooltip" data-placement="top" title="Round 10 Predictions">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "plussixone" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:jamesthomasday@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/plussixoneblog" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jimmyday12" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/plusSixOneblog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/james-day-ab648321" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="plussixoneblog.com">James Day</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2020
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/">plusSixOne</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+  </body>
+</html>
+
