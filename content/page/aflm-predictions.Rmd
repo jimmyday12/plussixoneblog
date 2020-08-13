@@ -124,13 +124,15 @@ tbl <- reactable(
       align = "center",
       format = colFormat(digits = 0),
       cell = function(value) {
-        status <- case_when(round(value) > 0 ~ "up", 
-                            round(value) < 0 ~ "down",
+        status <- case_when(value > 0 ~ "up", 
+                            value < 0 ~ "down",
                             is.na(value) ~ "missing",
                             TRUE ~ "no-change")
-        value_text <- case_when(round(value) > 0 ~ paste0("+", round(value)), 
+        value_text <- case_when(round(value) > 0 ~ paste0("+", round(value)),
+                                value > 0 ~ paste0("+", round(value, 1)),
                                 round(value) < 0 ~ paste0(round(value)),
-                                TRUE ~ "0")
+                                value < 0 ~ paste0(round(value, 1)),
+                                TRUE ~ "-")
         class <- paste0("tag status-", tolower(status))
         htmltools::div(class = class, value_text)
       }
