@@ -32,6 +32,8 @@ predictions <- predictions %>%
          Home.Marg = ifelse(Prediction > 0, Prediction, ""),
          Away.Marg = ifelse(Prediction < 0, -Prediction, ""))
 
+predictions <- predictions %>%
+  filter(Round.Number <= min(Round.Number))
 
 #predictions_long <- predictions %>%
 #  pivot_longer(cols = c(Home.Team, Away.Team), names_to = "Status", values_to = "Team") %>%

@@ -32,6 +32,9 @@ forecasts2 <- aflm_finals_sims$sims_combined %>%
     global_d = elo
   )
 
+forecasts2 <- forecasts2 %>%
+  mutate(elo.change = ifelse(elo.change == 0, NA, elo.change))
+
 rating_cols <- c("spi", "global_o", "global_d")
 group_cols <- c("Wins", "Top.1", "Top.4", "make_finals")
 knockout_cols <- c("make_semis", "make_prelim", "make_gf", "win_league")
@@ -123,10 +126,11 @@ tbl <- reactable(
       cell = function(value) {
         status <- case_when(round(value) > 0 ~ "up", 
                             round(value) < 0 ~ "down",
+                            is.na(value) ~ "missing",
                             TRUE ~ "no-change")
         value_text <- case_when(round(value) > 0 ~ paste0("+", round(value)), 
-                            round(value) < 0 ~ paste0(round(value)),
-                            TRUE ~ "-")
+                                round(value) < 0 ~ paste0(round(value)),
+                                TRUE ~ "0")
         class <- paste0("tag status-", tolower(status))
         htmltools::div(class = class, value_text)
       }
@@ -323,8 +327,12 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
 }
 
 .status-no-change {
-  background: hsl(230, 70%, 90%);
-  color: hsl(230, 45%, 30%);
+  background: hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 50%);
+}
+
+.status-missing {
+  display: none;
 }
 
 .status-down {
