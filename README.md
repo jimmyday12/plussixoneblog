@@ -1,5 +1,5 @@
 # plussixoneblog
-My blog written in Hugo using bookdown
+My blog written in Hugo using bookdown.
 
 ![Get new data and rebuild site](https://github.com/jimmyday12/plussixoneblog/workflows/Get%20new%20data%20and%20rebuild%20site/badge.svg)
 ![Rebuild Site](https://github.com/jimmyday12/plussixoneblog/workflows/Rebuild%20Site/badge.svg)
