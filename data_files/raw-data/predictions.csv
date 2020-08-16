@@ -1,70 +1,68 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2020,15715,2020-08-16,"Sun, 16",00:00,12,Carrara,Footscray,Adelaide,15.9,0.654,Footscray by 16
-2020,15716,2020-08-16,"Sun, 16",00:00,12,Gabba,St Kilda,Essendon,5.3,0.553,St Kilda by 5
 2020,15717,2020-08-16,"Sun, 16",00:00,12,Perth Stadium,West Coast,Hawthorn,12.8,0.625,West Coast by 13
 2020,15718,2020-08-17,"Mon, 17",00:00,12,Gabba,Richmond,Gold Coast,23.9,0.722,Richmond by 24
 2020,15719,2020-08-21,"Fri, 21",00:00,13,Marrara Oval,Gold Coast,Carlton,-0.6,0.494,Carlton by 1
-2020,15720,2020-08-22,"Sat, 22",00:00,13,Carrara,Footscray,Melbourne,0.5,0.505,Footscray by 0
+2020,15720,2020-08-22,"Sat, 22",00:00,13,Carrara,Footscray,Melbourne,1.7,0.517,Footscray by 2
 2020,15721,2020-08-22,"Sat, 22",00:00,13,Adelaide Oval,Port Adelaide,Hawthorn,17,0.664,Port Adelaide by 17
 2020,15722,2020-08-22,"Sat, 22",00:00,13,Perth Stadium,Fremantle,Sydney,7,0.57,Fremantle by 7
-2020,15723,2020-08-22,"Sat, 22",00:00,13,Marrara Oval,Essendon,Richmond,-8,0.421,Richmond by 8
-2020,15724,2020-08-23,"Sun, 23",00:00,13,Adelaide Oval,Adelaide,Geelong,-21.1,0.301,Geelong by 21
-2020,15725,2020-08-23,"Sun, 23",00:00,13,Gabba,Brisbane Lions,St Kilda,6.5,0.565,Brisbane Lions by 6
+2020,15723,2020-08-22,"Sat, 22",00:00,13,Marrara Oval,Essendon,Richmond,-8.8,0.413,Richmond by 9
+2020,15724,2020-08-23,"Sun, 23",00:00,13,Adelaide Oval,Adelaide,Geelong,-22.3,0.291,Geelong by 22
+2020,15725,2020-08-23,"Sun, 23",00:00,13,Gabba,Brisbane Lions,St Kilda,5.8,0.558,Brisbane Lions by 6
 2020,15726,2020-08-23,"Sun, 23",00:00,13,Perth Stadium,West Coast,GWS,10,0.599,West Coast by 10
 2020,15727,2020-08-24,"Mon, 24",00:00,13,Gabba,Collingwood,North Melbourne,12.5,0.622,Collingwood by 12
-2020,15728,2020-08-27,"Thu, 27",00:00,13,Adelaide Oval,Hawthorn,Essendon,5.8,0.558,Hawthorn by 6
+2020,15728,2020-08-27,"Thu, 27",00:00,13,Adelaide Oval,Hawthorn,Essendon,6.6,0.566,Hawthorn by 7
 2020,15729,2020-08-27,"Thu, 27",00:00,13,Carrara,Richmond,West Coast,6.1,0.561,Richmond by 6
-2020,15730,2020-08-28,"Fri, 28",00:00,13,Carrara,Footscray,Geelong,-13,0.373,Geelong by 13
+2020,15730,2020-08-28,"Fri, 28",00:00,13,Carrara,Footscray,Geelong,-11.8,0.384,Geelong by 12
 2020,15731,2020-08-29,"Sat, 29",00:00,13,Adelaide Oval,Port Adelaide,Sydney,21.2,0.7,Port Adelaide by 21
 2020,15732,2020-08-29,"Sat, 29",00:00,13,Perth Stadium,Fremantle,GWS,0.2,0.502,Fremantle by 0
-2020,15733,2020-08-29,"Sat, 29",00:00,13,Traeger Park,Melbourne,St Kilda,5,0.55,Melbourne by 5
+2020,15733,2020-08-29,"Sat, 29",00:00,13,Traeger Park,Melbourne,St Kilda,4.2,0.542,Melbourne by 4
 2020,15734,2020-08-30,"Sun, 30",00:00,13,Gabba,Carlton,Collingwood,-8,0.421,Collingwood by 8
 2020,15735,2020-08-30,"Sun, 30",00:00,13,Carrara,Gold Coast,North Melbourne,3.2,0.532,Gold Coast by 3
-2020,15736,2020-09-01,"Tue, 01",00:00,13,Adelaide Oval,Hawthorn,Adelaide,12,0.618,Hawthorn by 12
-2020,15737,2020-09-01,"Tue, 01",00:00,13,Gabba,West Coast,Essendon,6.1,0.561,West Coast by 6
+2020,15736,2020-09-01,"Tue, 01",00:00,13,Adelaide Oval,Hawthorn,Adelaide,13.2,0.629,Hawthorn by 13
+2020,15737,2020-09-01,"Tue, 01",00:00,13,Gabba,West Coast,Essendon,6.9,0.569,West Coast by 7
 2020,15738,2020-09-02,"Wed, 02",00:00,14,Carrara,Richmond,Fremantle,15.9,0.654,Richmond by 16
 2020,15739,2020-09-03,"Thu, 03",00:00,14,Cazaly's Stadium,Sydney,Melbourne,-2.4,0.476,Melbourne by 2
 2020,15740,2020-09-03,"Thu, 03",00:00,14,Carrara,GWS,Carlton,10.7,0.605,GWS by 11
 2020,15741,2020-09-04,"Fri, 04",00:00,14,Gabba,Brisbane Lions,Collingwood,0.2,0.502,Brisbane Lions by 0
 2020,15742,2020-09-05,"Sat, 05",00:00,14,Carrara,North Melbourne,Port Adelaide,-9.8,0.403,Port Adelaide by 10
-2020,15743,2020-09-06,"Sun, 06",00:00,14,Carrara,St Kilda,Hawthorn,2.6,0.526,St Kilda by 3
-2020,15744,2020-09-06,"Sun, 06",00:00,14,Gabba,Geelong,Essendon,20.7,0.696,Geelong by 21
-2020,15745,2020-09-06,"Sun, 06",00:00,14,Carrara,Footscray,West Coast,-3,0.47,West Coast by 3
+2020,15743,2020-09-06,"Sun, 06",00:00,14,Carrara,St Kilda,Hawthorn,3.4,0.534,St Kilda by 3
+2020,15744,2020-09-06,"Sun, 06",00:00,14,Gabba,Geelong,Essendon,21.5,0.703,Geelong by 22
+2020,15745,2020-09-06,"Sun, 06",00:00,14,Carrara,Footscray,West Coast,-1.9,0.481,West Coast by 2
 2020,15746,2020-09-07,"Mon, 07",00:00,14,Cazaly's Stadium,Melbourne,Fremantle,9.3,0.592,Melbourne by 9
-2020,15747,2020-09-08,"Tue, 08",00:00,14,Adelaide Oval,Adelaide,GWS,-9,0.411,GWS by 9
+2020,15747,2020-09-08,"Tue, 08",00:00,14,Adelaide Oval,Adelaide,GWS,-10.1,0.4,GWS by 10
 2020,15748,2020-09-08,"Tue, 08",00:00,14,Carrara,Carlton,Sydney,2.1,0.521,Carlton by 2
 2020,15749,2020-09-09,"Wed, 09",00:00,15,Gabba,Brisbane Lions,Gold Coast,19.1,0.682,Brisbane Lions by 19
-2020,15750,2020-09-10,"Thu, 10",00:00,15,Gabba,St Kilda,West Coast,2.1,0.521,St Kilda by 2
+2020,15750,2020-09-10,"Thu, 10",00:00,15,Gabba,St Kilda,West Coast,2.9,0.529,St Kilda by 3
 2020,15751,2020-09-11,"Fri, 11",00:00,15,Carrara,Geelong,Richmond,9.6,0.595,Geelong by 10
 2020,15752,2020-09-12,"Sat, 12",00:00,15,Carrara,North Melbourne,Fremantle,4.1,0.541,North Melbourne by 4
-2020,15753,2020-09-12,"Sat, 12",00:00,15,Adelaide Oval,Port Adelaide,Essendon,19.9,0.689,Port Adelaide by 20
+2020,15753,2020-09-12,"Sat, 12",00:00,15,Adelaide Oval,Port Adelaide,Essendon,20.7,0.696,Port Adelaide by 21
 2020,15754,2020-09-12,"Sat, 12",00:00,15,Gabba,GWS,Melbourne,-0.3,0.497,Melbourne by 0
-2020,15755,2020-09-13,"Sun, 13",00:00,15,Carrara,Carlton,Adelaide,12.1,0.619,Carlton by 12
-2020,15756,2020-09-13,"Sun, 13",00:00,15,Adelaide Oval,Hawthorn,Footscray,4.1,0.541,Hawthorn by 4
+2020,15755,2020-09-13,"Sun, 13",00:00,15,Carrara,Carlton,Adelaide,13.3,0.63,Carlton by 13
+2020,15756,2020-09-13,"Sun, 13",00:00,15,Adelaide Oval,Hawthorn,Footscray,3,0.53,Hawthorn by 3
 2020,15757,2020-09-13,"Sun, 13",00:00,15,Cazaly's Stadium,Sydney,Brisbane Lions,-12.9,0.374,Brisbane Lions by 13
 2020,15758,2020-09-14,"Mon, 14",00:00,15,Gabba,Collingwood,Gold Coast,21.8,0.705,Collingwood by 22
 2020,15759,2020-09-05,"Sat, 05",00:00,16,NA,GWS,Melbourne,1.5,0.515,GWS by 2
 2020,15760,2020-09-05,"Sat, 05",00:00,16,NA,Sydney,Geelong,-18.8,0.32,Geelong by 19
-2020,15761,2020-09-05,"Sat, 05",00:00,16,NA,Hawthorn,St Kilda,0.5,0.505,Hawthorn by 0
+2020,15761,2020-09-05,"Sat, 05",00:00,16,NA,Hawthorn,St Kilda,-0.3,0.497,St Kilda by 0
 2020,15762,2020-09-06,"Sun, 06",00:00,16,NA,Richmond,West Coast,-1.5,0.485,West Coast by 2
-2020,15763,2020-09-06,"Sun, 06",00:00,16,NA,Adelaide,Carlton,-9.2,0.409,Carlton by 9
-2020,15764,2020-09-06,"Sun, 06",00:00,16,NA,Port Adelaide,Essendon,11.9,0.617,Port Adelaide by 12
-2020,15765,2020-09-07,"Mon, 07",00:00,16,NA,Footscray,Fremantle,-0.8,0.492,Fremantle by 1
+2020,15763,2020-09-06,"Sun, 06",00:00,16,NA,Adelaide,Carlton,-10.3,0.398,Carlton by 10
+2020,15764,2020-09-06,"Sun, 06",00:00,16,NA,Port Adelaide,Essendon,12.8,0.625,Port Adelaide by 13
+2020,15765,2020-09-07,"Mon, 07",00:00,16,NA,Footscray,Fremantle,0.4,0.504,Footscray by 0
 2020,15766,2020-09-10,"Thu, 10",00:00,17,NA,Brisbane Lions,Collingwood,8.9,0.588,Brisbane Lions by 9
-2020,15767,2020-09-11,"Fri, 11",00:00,17,NA,Melbourne,St Kilda,1.7,0.517,Melbourne by 2
+2020,15767,2020-09-11,"Fri, 11",00:00,17,NA,Melbourne,St Kilda,0.9,0.509,Melbourne by 1
 2020,15768,2020-09-12,"Sat, 12",00:00,17,NA,Hawthorn,Gold Coast,3.9,0.539,Hawthorn by 4
 2020,15769,2020-09-12,"Sat, 12",00:00,17,NA,Carlton,Sydney,-1,0.49,Sydney by 1
 2020,15770,2020-09-12,"Sat, 12",00:00,17,NA,North Melbourne,Port Adelaide,-12.8,0.375,Port Adelaide by 13
-2020,15771,2020-09-12,"Sat, 12",00:00,17,NA,Geelong,Essendon,17.8,0.671,Geelong by 18
-2020,15772,2020-09-13,"Sun, 13",00:00,17,NA,Adelaide,GWS,-17,0.336,GWS by 17
+2020,15771,2020-09-12,"Sat, 12",00:00,17,NA,Geelong,Essendon,18.6,0.678,Geelong by 19
+2020,15772,2020-09-13,"Sun, 13",00:00,17,NA,Adelaide,GWS,-18.2,0.326,GWS by 18
 2020,15773,2020-09-13,"Sun, 13",00:00,17,NA,Richmond,Fremantle,8.4,0.583,Richmond by 8
-2020,15774,2020-09-13,"Sun, 13",00:00,17,NA,West Coast,Footscray,13.5,0.632,West Coast by 14
+2020,15774,2020-09-13,"Sun, 13",00:00,17,NA,West Coast,Footscray,12.3,0.621,West Coast by 12
 2020,15775,2020-09-17,"Thu, 17",00:00,18,NA,Brisbane Lions,Sydney,18.7,0.679,Brisbane Lions by 19
 2020,15776,2020-09-18,"Fri, 18",00:00,18,NA,Collingwood,Port Adelaide,-3.2,0.468,Port Adelaide by 3
-2020,15777,2020-09-19,"Sat, 19",00:00,18,NA,St Kilda,West Coast,-9.9,0.402,West Coast by 10
-2020,15778,2020-09-19,"Sat, 19",00:00,18,NA,Footscray,Geelong,-16,0.345,Geelong by 16
-2020,15779,2020-09-19,"Sat, 19",00:00,18,NA,Hawthorn,Essendon,3,0.53,Hawthorn by 3
-2020,15780,2020-09-19,"Sat, 19",00:00,18,NA,Richmond,Adelaide,22.3,0.709,Richmond by 22
+2020,15777,2020-09-19,"Sat, 19",00:00,18,NA,St Kilda,West Coast,-9.1,0.41,West Coast by 9
+2020,15778,2020-09-19,"Sat, 19",00:00,18,NA,Footscray,Geelong,-14.8,0.356,Geelong by 15
+2020,15779,2020-09-19,"Sat, 19",00:00,18,NA,Hawthorn,Essendon,3.7,0.537,Hawthorn by 4
+2020,15780,2020-09-19,"Sat, 19",00:00,18,NA,Richmond,Adelaide,23.4,0.718,Richmond by 23
 2020,15781,2020-09-20,"Sun, 20",00:00,18,NA,Carlton,GWS,-7.8,0.423,GWS by 8
 2020,15782,2020-09-20,"Sun, 20",00:00,18,NA,Fremantle,Melbourne,1.2,0.512,Fremantle by 1
 2020,15783,2020-09-20,"Sun, 20",00:00,18,NA,North Melbourne,Gold Coast,0.1,0.501,North Melbourne by 0
