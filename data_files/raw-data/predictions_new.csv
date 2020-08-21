@@ -1,50 +1,49 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2020,2020-08-21,Gold Coast,Carlton,0.495,-0.5
 2020,2020-08-22,Footscray,Melbourne,0.517,1.7
-2020,2020-08-22,Port Adelaide,Hawthorn,0.668,17.5
+2020,2020-08-22,Port Adelaide,Hawthorn,0.666,17.3
 2020,2020-08-22,Fremantle,Sydney,0.57,7
 2020,2020-08-22,Essendon,Richmond,0.414,-8.7
-2020,2020-08-23,Adelaide,Geelong,0.291,-22.3
-2020,2020-08-23,Brisbane Lions,St Kilda,0.558,5.8
+2020,2020-08-23,Adelaide,Geelong,0.289,-22.5
+2020,2020-08-23,Brisbane Lions,St Kilda,0.556,5.6
 2020,2020-08-23,West Coast,GWS,0.604,10.6
-2020,2020-08-24,Collingwood,North Melbourne,0.622,12.5
+2020,2020-08-24,Collingwood,North Melbourne,0.62,12.2
 2020,2020-08-27,Hawthorn,Essendon,0.561,6.1
 2020,2020-08-27,Richmond,West Coast,0.556,5.6
-2020,2020-08-28,Footscray,Geelong,0.384,-11.8
-2020,2020-08-29,Port Adelaide,Sydney,0.7,21.2
+2020,2020-08-28,Footscray,Geelong,0.381,-12.1
+2020,2020-08-29,Port Adelaide,Sydney,0.698,20.9
 2020,2020-08-29,Fremantle,GWS,0.502,0.2
 2020,2020-08-29,Melbourne,St Kilda,0.542,4.2
-2020,2020-08-30,Carlton,Collingwood,0.421,-8
-2020,2020-08-30,Gold Coast,North Melbourne,0.533,3.3
+2020,2020-08-30,Carlton,Collingwood,0.429,-7.1
+2020,2020-08-30,Gold Coast,North Melbourne,0.523,2.3
 2020,2020-09-01,Hawthorn,Adelaide,0.625,12.8
 2020,2020-09-01,West Coast,Essendon,0.573,7.4
 2020,2020-09-02,Richmond,Fremantle,0.653,15.8
 2020,2020-09-03,Sydney,Melbourne,0.476,-2.4
-2020,2020-09-03,GWS,Carlton,0.605,10.7
-2020,2020-09-04,Brisbane Lions,Collingwood,0.502,0.2
-2020,2020-09-05,North Melbourne,Port Adelaide,0.403,-9.8
+2020,2020-09-03,GWS,Carlton,0.597,9.8
+2020,2020-09-04,Brisbane Lions,Collingwood,0.5,-0
+2020,2020-09-05,North Melbourne,Port Adelaide,0.407,-9.4
 2020,2020-09-06,St Kilda,Hawthorn,0.538,3.8
-2020,2020-09-06,Geelong,Essendon,0.703,21.5
+2020,2020-09-06,Geelong,Essendon,0.704,21.7
 2020,2020-09-06,Footscray,West Coast,0.476,-2.4
 2020,2020-09-07,Melbourne,Fremantle,0.592,9.3
 2020,2020-09-08,Adelaide,GWS,0.4,-10.1
-2020,2020-09-08,Carlton,Sydney,0.521,2.1
-2020,2020-09-09,Brisbane Lions,Gold Coast,0.681,19
+2020,2020-09-08,Carlton,Sydney,0.529,2.9
+2020,2020-09-09,Brisbane Lions,Gold Coast,0.687,19.7
 2020,2020-09-10,St Kilda,West Coast,0.525,2.5
-2020,2020-09-11,Geelong,Richmond,0.596,9.7
-2020,2020-09-12,North Melbourne,Fremantle,0.541,4.1
-2020,2020-09-12,Port Adelaide,Essendon,0.696,20.7
+2020,2020-09-11,Geelong,Richmond,0.598,9.9
+2020,2020-09-12,North Melbourne,Fremantle,0.543,4.3
+2020,2020-09-12,Port Adelaide,Essendon,0.694,20.5
 2020,2020-09-12,GWS,Melbourne,0.497,-0.3
-2020,2020-09-13,Carlton,Adelaide,0.63,13.3
+2020,2020-09-13,Carlton,Adelaide,0.637,14.1
 2020,2020-09-13,Hawthorn,Footscray,0.525,2.5
-2020,2020-09-13,Sydney,Brisbane Lions,0.374,-12.9
-2020,2020-09-14,Collingwood,Gold Coast,0.705,21.8
-2020,2020-09-17,Brisbane Lions,Sydney,0.679,18.7
-2020,2020-09-18,Collingwood,Port Adelaide,0.468,-3.2
+2020,2020-09-13,Sydney,Brisbane Lions,0.376,-12.7
+2020,2020-09-14,Collingwood,Gold Coast,0.711,22.5
+2020,2020-09-17,Brisbane Lions,Sydney,0.678,18.6
+2020,2020-09-18,Collingwood,Port Adelaide,0.47,-3
 2020,2020-09-19,St Kilda,West Coast,0.406,-9.5
-2020,2020-09-19,Footscray,Geelong,0.356,-14.8
+2020,2020-09-19,Footscray,Geelong,0.354,-15
 2020,2020-09-19,Hawthorn,Essendon,0.533,3.3
 2020,2020-09-19,Richmond,Adelaide,0.717,23.2
-2020,2020-09-20,Carlton,GWS,0.423,-7.8
+2020,2020-09-20,Carlton,GWS,0.431,-6.9
 2020,2020-09-20,Fremantle,Melbourne,0.512,1.2
-2020,2020-09-20,North Melbourne,Gold Coast,0.501,0.1
+2020,2020-09-20,North Melbourne,Gold Coast,0.51,1
