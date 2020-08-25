@@ -7,8 +7,6 @@ library(tidyverse)
 # Get user/password
 user <- Sys.getenv("MONASH_REAL_USER")
 pass =  Sys.getenv("MONASH_REAL_PASS")
-pass <- "NdZN79C77bzf_Zp+"
-user <- "plusSixOne"
 
 # Function to map my predictions names to monash names
 map_names_to_monash <- function(names) {
@@ -29,6 +27,7 @@ map_names_to_monash <- function(names) {
 predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv")) 
 round <- min(predictions$Round.Number)
 predictions <- predictions %>%
+  filter(Round.Number == min(Round.Number)) %>%
   mutate_at(c("Home.Team", "Away.Team"), map_names_to_monash) %>%
   mutate(Margin = round(Prediction),
          `Std. Dev.` = 40) %>%
@@ -42,7 +41,7 @@ monash_games <- get_games(user, pass, comp = "normal", round = round)
 
 pred_games <- monash_games %>%
   select(-Margin) %>%
-  left_join(predictions, by = c("Home", "Away"))
+  left_join(predictions, by = c("Home" = "Home", "Away" = "Away"))
 
 pred_games
 
