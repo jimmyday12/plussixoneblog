@@ -1,11 +1,10 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2020,15733,2020-08-29,"Sat, 29",00:00,14,Traeger Park,Melbourne,St Kilda,3.4,0.534,Melbourne by 3
 2020,15734,2020-08-30,"Sun, 30",00:00,14,Gabba,Carlton,Collingwood,-7.6,0.425,Collingwood by 8
 2020,15735,2020-08-30,"Sun, 30",00:00,14,Carrara,Gold Coast,North Melbourne,2.7,0.527,Gold Coast by 3
 2020,15736,2020-09-01,"Tue, 01",00:00,15,Adelaide Oval,Hawthorn,Adelaide,12.5,0.622,Hawthorn by 12
 2020,15737,2020-09-01,"Tue, 01",00:00,15,Gabba,West Coast,Essendon,6.3,0.563,West Coast by 6
 2020,15738,2020-09-02,"Wed, 02",00:00,15,Carrara,Richmond,Fremantle,16.8,0.662,Richmond by 17
-2020,15739,2020-09-03,"Thu, 03",00:00,15,Cazaly's Stadium,Sydney,Melbourne,-2.5,0.475,Melbourne by 2
+2020,15739,2020-09-03,"Thu, 03",00:00,15,Cazaly's Stadium,Sydney,Melbourne,-2.4,0.476,Melbourne by 2
 2020,15740,2020-09-03,"Thu, 03",00:00,15,Carrara,GWS,Carlton,10.8,0.606,GWS by 11
 2020,15741,2020-09-04,"Fri, 04",00:00,15,Gabba,Brisbane Lions,Collingwood,-0.5,0.495,Collingwood by 0
 2020,15742,2020-09-05,"Sat, 05",00:00,16,Carrara,North Melbourne,Port Adelaide,-9.7,0.404,Port Adelaide by 10
