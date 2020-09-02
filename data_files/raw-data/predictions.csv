@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2020,15738,2020-09-02,"Wed, 02",00:00,15,Carrara,Richmond,Fremantle,16.8,0.662,Richmond by 17
 2020,15739,2020-09-03,"Thu, 03",00:00,15,Cazaly's Stadium,Sydney,Melbourne,-2.4,0.476,Melbourne by 2
 2020,15740,2020-09-03,"Thu, 03",00:00,15,Carrara,GWS,Carlton,11.2,0.61,GWS by 11
 2020,15741,2020-09-04,"Fri, 04",00:00,15,Gabba,Brisbane Lions,Collingwood,-0.9,0.491,Collingwood by 1
@@ -7,13 +6,13 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2020,15743,2020-09-06,"Sun, 06",00:00,16,Carrara,St Kilda,Hawthorn,5.6,0.556,St Kilda by 6
 2020,15744,2020-09-06,"Sun, 06",00:00,16,Gabba,Geelong,Essendon,21.5,0.703,Geelong by 22
 2020,15745,2020-09-06,"Sun, 06",00:00,16,Carrara,Footscray,West Coast,-1.4,0.486,West Coast by 1
-2020,15746,2020-09-07,"Mon, 07",00:00,16,Cazaly's Stadium,Melbourne,Fremantle,9,0.589,Melbourne by 9
+2020,15746,2020-09-07,"Mon, 07",00:00,16,Cazaly's Stadium,Melbourne,Fremantle,9.2,0.591,Melbourne by 9
 2020,15747,2020-09-08,"Tue, 08",00:00,16,Adelaide Oval,Adelaide,GWS,-10,0.401,GWS by 10
 2020,15748,2020-09-08,"Tue, 08",00:00,16,Carrara,Carlton,Sydney,3.2,0.532,Carlton by 3
 2020,15749,2020-09-09,"Wed, 09",00:00,16,Gabba,Brisbane Lions,Gold Coast,17.8,0.671,Brisbane Lions by 18
 2020,15750,2020-09-10,"Thu, 10",00:00,17,Gabba,St Kilda,West Coast,2.8,0.528,St Kilda by 3
-2020,15751,2020-09-11,"Fri, 11",00:00,17,Carrara,Geelong,Richmond,9.4,0.593,Geelong by 9
-2020,15752,2020-09-12,"Sat, 12",00:00,17,Carrara,North Melbourne,Fremantle,2.5,0.525,North Melbourne by 2
+2020,15751,2020-09-11,"Fri, 11",00:00,17,Carrara,Geelong,Richmond,9.2,0.591,Geelong by 9
+2020,15752,2020-09-12,"Sat, 12",00:00,17,Carrara,North Melbourne,Fremantle,2.8,0.528,North Melbourne by 3
 2020,15753,2020-09-12,"Sat, 12",00:00,17,Adelaide Oval,Port Adelaide,Essendon,20.1,0.691,Port Adelaide by 20
 2020,15754,2020-09-12,"Sat, 12",00:00,17,Gabba,GWS,Melbourne,1.3,0.513,GWS by 1
 2020,15755,2020-09-13,"Sun, 13",00:00,17,Carrara,Carlton,Adelaide,12.6,0.623,Carlton by 13
@@ -25,7 +24,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2020,15761,2020-09-19,"Sat, 19",00:00,18,NA,St Kilda,West Coast,-9.2,0.409,West Coast by 9
 2020,15762,2020-09-19,"Sat, 19",00:00,18,NA,Footscray,Geelong,-14.5,0.359,Geelong by 14
 2020,15763,2020-09-19,"Sat, 19",00:00,18,NA,Hawthorn,Essendon,1.3,0.513,Hawthorn by 1
-2020,15764,2020-09-19,"Sat, 19",00:00,18,NA,Richmond,Adelaide,22.9,0.714,Richmond by 23
+2020,15764,2020-09-19,"Sat, 19",00:00,18,NA,Richmond,Adelaide,23.1,0.716,Richmond by 23
 2020,15765,2020-09-20,"Sun, 20",00:00,18,NA,Carlton,GWS,-8.3,0.418,GWS by 8
-2020,15766,2020-09-20,"Sun, 20",00:00,18,NA,Fremantle,Melbourne,1.5,0.515,Fremantle by 2
+2020,15766,2020-09-20,"Sun, 20",00:00,18,NA,Fremantle,Melbourne,1.3,0.513,Fremantle by 1
 2020,15767,2020-09-20,"Sun, 20",00:00,18,NA,North Melbourne,Gold Coast,-2.9,0.471,Gold Coast by 3
