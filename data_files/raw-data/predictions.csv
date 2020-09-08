@@ -11,12 +11,12 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2020,15756,2020-09-13,"Sun, 13",00:00,17,Adelaide Oval,Hawthorn,Footscray,-0.2,0.498,Footscray by 0
 2020,15757,2020-09-13,"Sun, 13",00:00,17,Cazaly's Stadium,Sydney,Brisbane Lions,-12.9,0.374,Brisbane Lions by 13
 2020,15758,2020-09-14,"Mon, 14",00:00,17,Gabba,Collingwood,Gold Coast,21.4,0.702,Collingwood by 21
-2020,15759,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Adelaide,Richmond,-20.2,0.308,Richmond by 20
-2020,15760,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Brisbane Lions,Carlton,14.7,0.643,Brisbane Lions by 15
-2020,15761,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Collingwood,Port Adelaide,-0,0.5,Draw
-2020,15762,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Essendon,Melbourne,-0.8,0.492,Melbourne by 1
-2020,15763,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Fremantle,Footscray,-2.9,0.471,Footscray by 3
-2020,15764,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Hawthorn,Gold Coast,8.1,0.58,Hawthorn by 8
-2020,15765,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,North Melbourne,West Coast,-8.4,0.417,West Coast by 8
-2020,15766,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,St Kilda,GWS,-0.1,0.499,GWS by 0
-2020,15767,2020-09-18,"Fri, 18",00:00,18,To Be Confirmed,Sydney,Geelong,-17.4,0.333,Geelong by 17
+2020,15759,2020-09-17,"Thu, 17",00:00,18,Carrara,North Melbourne,West Coast,-8.3,0.418,West Coast by 8
+2020,15760,2020-09-18,"Fri, 18",00:00,18,Gabba,St Kilda,GWS,4.6,0.546,St Kilda by 5
+2020,15761,2020-09-19,"Sat, 19",00:00,18,Carrara,Essendon,Melbourne,-0.6,0.494,Melbourne by 1
+2020,15762,2020-09-19,"Sat, 19",00:00,18,Adelaide Oval,Adelaide,Richmond,-15.1,0.353,Richmond by 15
+2020,15763,2020-09-19,"Sat, 19",00:00,18,Gabba,Brisbane Lions,Carlton,10.6,0.604,Brisbane Lions by 11
+2020,15764,2020-09-20,"Sun, 20",00:00,18,Adelaide Oval,Hawthorn,Gold Coast,8.2,0.581,Hawthorn by 8
+2020,15765,2020-09-20,"Sun, 20",00:00,18,Carrara,Sydney,Geelong,-17.6,0.331,Geelong by 18
+2020,15766,2020-09-20,"Sun, 20",00:00,18,Cazaly's Stadium,Fremantle,Footscray,-3,0.47,Footscray by 3
+2020,15767,2020-09-21,"Mon, 21",00:00,18,Gabba,Collingwood,Port Adelaide,4.7,0.547,Collingwood by 5
