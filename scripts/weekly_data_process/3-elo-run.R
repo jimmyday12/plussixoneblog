@@ -74,6 +74,7 @@ run_elo <- function(results, carryOver, B, e, d, h) {
 
 do_elo_predictions <- function(fixture, elo.data){
   # Do predictions
+
   predictions_raw <- fixture %>%
     mutate(
       Day = format(Date, "%a, %d"),

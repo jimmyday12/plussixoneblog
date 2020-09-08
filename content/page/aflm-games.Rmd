@@ -128,8 +128,9 @@ knockout_pct_color <- make_color_pal(c("#f1c40f", "#f2fbd2", "#c9ecb4", "#93d3ab
 knockout_pct_color <- def_rating_color
 ```
 
-```{r table, include=FALSE}
-tbl <- reactable(
+```{r table_function, include=FALSE}
+create_table <- function(predictions, outcome_cols){
+  tbl <- reactable(
   predictions,
   pagination = FALSE,
   width = "100%",
@@ -171,6 +172,14 @@ tbl <- reactable(
   borderless = TRUE,
   class = "standings-table"
 )
+  return(tbl)
+  
+}
+
+
+```
+```{r create_tables, include=FALSE}
+tbl <- create_table(predictions, outcome_cols)
 ```
 
 ```{r table_display, echo = FALSE}
@@ -180,6 +189,7 @@ time <- lubridate::with_tz(Sys.time(), tzone = "Australia/Melbourne") %>%
   format("%I:%M%p")
 date <- lubridate::with_tz(Sys.Date(), tzone = "Australia/Melbourne") %>% 
   format( "%b %d")
+
 div(
   class = "standings",
   div(

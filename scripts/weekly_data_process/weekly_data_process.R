@@ -47,7 +47,8 @@ if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
 }
 
 # Manual override
-#new_data <- TRUE
+new_data <- TRUE
+
 if (new_data) {
   dat <- get_data(season,
     filt_date,
@@ -61,6 +62,9 @@ if (new_data) {
 
   # Data Cleaning -----------------------------------------------------------
   # Bind together and fix stadiums
+  # Fixture is broken, lets see if removing round helps
+  #dat$fixture$Round = NA
+  
   dat$game_dat <- bind_rows(dat$results, dat$fixture)
   
   dup_games <- dat$game_dat %>% select(Date, Home.Team, Away.Team) %>% duplicated()
@@ -78,7 +82,10 @@ if (new_data) {
     states = dat$states,
     last_n_games = last_n_games
   )
-
+  
+  dat$game_dat <- dat$game_dat %>%
+    mutate(Home.Interstate = ifelse(is.na(Home.Interstate), FALSE, Home.Interstate),
+           Away.Interstate = ifelse(is.na(Away.Interstate), FALSE, Away.Interstate))
 
   # Get results
   dat$results <- dat$game_dat %>%
@@ -89,7 +96,7 @@ if (new_data) {
     filter(is.na(Home.Points))
 
   # COVID Fix
-  covid_seas <- last(dat$fixture$Round) < 23
+  covid_seas <- last(dat$fixture$Round) < 18
 
   if (covid_seas) dat$fixture <- fix_covid_season(dat$fixture)
 
@@ -172,8 +179,10 @@ if (new_data) {
   # Finals Sims -------------------------------------------------------------
   # source finals sims
   message("Doing Finals Sims")
+  
   last_round <- last(dat$fixture$Round.Number)
-  finals_dat <- do_finals_sims(
+  
+  finals_sims <- do_finals_sims(
     sim_data_all = sim_dat$sim_data_all,
     game_dat = dat$game_dat,
     sim_num = sim_num,
@@ -183,7 +192,7 @@ if (new_data) {
   )
 
   finals_dat <- combine_finals_sims(
-    final_game = finals_dat$final_game,
+    final_game = finals_sims$final_game,
     sim_data_summary = sim_dat$sim_data_summary,
     results = dat$results,
     elo.data = elo_dat$elo.data

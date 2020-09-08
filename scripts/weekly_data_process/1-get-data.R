@@ -1,3 +1,15 @@
+convert_teams_afl <- function(team){
+  case_when(
+    team == "Western Bulldogs" ~ "Footscray",
+    team == "Adelaide Crows" ~ "Adelaide",
+    team == "GWS Giants" ~ "GWS",
+    team == "Gold Coast Suns" ~ "Gold Coast",
+    team == "West Coast Eagles" ~ "West Coast",
+    team == "Sydney Swans" ~ "Sydney",
+    team == "Geelong Cats" ~ "Geelong",
+    TRUE ~ team)
+}
+
 
 convert_results <- function(df) {
   df <- df %>%
@@ -21,7 +33,25 @@ get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = F
 fixture <- fitzRoy::get_fixture() %>%
   filter(Date >= filt_date)
 
-fixture <- fixture %>%
+# get afl fixture
+fixture_afl <- fitzRoy::get_afl_fixture(season)
+
+fixture_afl <- fixture_afl %>%
+  mutate(Game = NA,
+         Date = date,
+         Round = round_roundNumber,
+         Home.Team = home_name,
+         Away.Team = away_name,
+         Venue = venue_name,
+         Season = season
+         ) %>%
+  select(Game, Date, Round, Home.Team, Away.Team, Venue, Season)
+
+fixture_afl <- fixture_afl %>%
+  mutate(Home.Team = convert_teams_afl(Home.Team),
+         Away.Team = convert_teams_afl(Away.Team))
+
+fixture <- fixture_afl %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
