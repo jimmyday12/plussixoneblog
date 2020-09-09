@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2020,15749,2020-09-09,"Wed, 09",00:00,16,Gabba,Brisbane Lions,Gold Coast,18,0.673,Brisbane Lions by 18
 2020,15750,2020-09-10,"Thu, 10",00:00,17,Gabba,St Kilda,West Coast,3.2,0.532,St Kilda by 3
 2020,15751,2020-09-11,"Fri, 11",00:00,17,Carrara,Geelong,Richmond,10.1,0.6,Geelong by 10
 2020,15752,2020-09-12,"Sat, 12",00:00,17,Carrara,North Melbourne,Fremantle,1.6,0.516,North Melbourne by 2
@@ -7,14 +6,14 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2020,15754,2020-09-12,"Sat, 12",00:00,17,Gabba,GWS,Melbourne,1.9,0.519,GWS by 2
 2020,15755,2020-09-13,"Sun, 13",00:00,17,Carrara,Carlton,Adelaide,12,0.618,Carlton by 12
 2020,15756,2020-09-13,"Sun, 13",00:00,17,Adelaide Oval,Hawthorn,Footscray,-0.2,0.498,Footscray by 0
-2020,15757,2020-09-13,"Sun, 13",00:00,17,Cazaly's Stadium,Sydney,Brisbane Lions,-13,0.373,Brisbane Lions by 13
-2020,15758,2020-09-14,"Mon, 14",00:00,17,Gabba,Collingwood,Gold Coast,21.4,0.702,Collingwood by 21
+2020,15757,2020-09-13,"Sun, 13",00:00,17,Cazaly's Stadium,Sydney,Brisbane Lions,-13.5,0.368,Brisbane Lions by 14
+2020,15758,2020-09-14,"Mon, 14",00:00,17,Gabba,Collingwood,Gold Coast,22,0.707,Collingwood by 22
 2020,15759,2020-09-17,"Thu, 17",00:00,18,Carrara,North Melbourne,West Coast,-8.3,0.418,West Coast by 8
 2020,15760,2020-09-18,"Fri, 18",00:00,18,Gabba,St Kilda,GWS,5.2,0.552,St Kilda by 5
 2020,15761,2020-09-19,"Sat, 19",00:00,18,Carrara,Essendon,Melbourne,-0.6,0.494,Melbourne by 1
 2020,15762,2020-09-19,"Sat, 19",00:00,18,Adelaide Oval,Adelaide,Richmond,-14.5,0.359,Richmond by 14
-2020,15763,2020-09-19,"Sat, 19",00:00,18,Gabba,Brisbane Lions,Carlton,10.4,0.603,Brisbane Lions by 10
-2020,15764,2020-09-20,"Sun, 20",00:00,18,Adelaide Oval,Hawthorn,Gold Coast,8.2,0.581,Hawthorn by 8
+2020,15763,2020-09-19,"Sat, 19",00:00,18,Gabba,Brisbane Lions,Carlton,11.1,0.609,Brisbane Lions by 11
+2020,15764,2020-09-20,"Sun, 20",00:00,18,Adelaide Oval,Hawthorn,Gold Coast,8.8,0.587,Hawthorn by 9
 2020,15765,2020-09-20,"Sun, 20",00:00,18,Carrara,Sydney,Geelong,-17.6,0.331,Geelong by 18
 2020,15766,2020-09-20,"Sun, 20",00:00,18,Cazaly's Stadium,Fremantle,Footscray,-3,0.47,Footscray by 3
 2020,15767,2020-09-21,"Mon, 21",00:00,18,Gabba,Collingwood,Port Adelaide,4.7,0.547,Collingwood by 5
