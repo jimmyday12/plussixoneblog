@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2020,2020-09-11,Geelong,Richmond,0.6,10.1
 2020,2020-09-12,North Melbourne,Fremantle,0.516,1.6
 2020,2020-09-12,Port Adelaide,Essendon,0.704,21.7
 2020,2020-09-12,GWS,Melbourne,0.519,1.9
@@ -10,9 +9,9 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2020,2020-09-17,North Melbourne,West Coast,0.413,-8.8
 2020,2020-09-18,St Kilda,GWS,0.547,4.7
 2020,2020-09-19,Essendon,Melbourne,0.494,-0.6
-2020,2020-09-19,Adelaide,Richmond,0.359,-14.5
+2020,2020-09-19,Adelaide,Richmond,0.35,-15.5
 2020,2020-09-19,Brisbane Lions,Carlton,0.609,11.1
 2020,2020-09-20,Hawthorn,Gold Coast,0.587,8.8
-2020,2020-09-20,Sydney,Geelong,0.331,-17.6
+2020,2020-09-20,Sydney,Geelong,0.339,-16.7
 2020,2020-09-20,Fremantle,Footscray,0.47,-3
 2020,2020-09-21,Collingwood,Port Adelaide,0.547,4.7
