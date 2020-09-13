@@ -2591,8 +2591,8 @@ Brisbane Lions,15,NA,NA,,2020,16
 Brisbane Lions,16,NA,NA,,2020,16
 Brisbane Lions,17,NA,NA,,2020,16
 Brisbane Lions,18,NA,NA,,2020,16
-Adelaide,18,88.28,1,88,2020,17
-Adelaide,17,11.72,2,12,2020,17
+Adelaide,18,88.32,1,88,2020,17
+Adelaide,17,11.68,2,12,2020,17
 Adelaide,1,NA,NA,,2020,17
 Adelaide,2,NA,NA,,2020,17
 Adelaide,3,NA,NA,,2020,17
@@ -2609,8 +2609,8 @@ Adelaide,13,NA,NA,,2020,17
 Adelaide,14,NA,NA,,2020,17
 Adelaide,15,NA,NA,,2020,17
 Adelaide,16,NA,NA,,2020,17
-North Melbourne,17,88.28,1,88,2020,17
-North Melbourne,18,11.72,2,12,2020,17
+North Melbourne,17,88.32,1,88,2020,17
+North Melbourne,18,11.68,2,12,2020,17
 North Melbourne,1,NA,NA,,2020,17
 North Melbourne,2,NA,NA,,2020,17
 North Melbourne,3,NA,NA,,2020,17
@@ -2627,8 +2627,8 @@ North Melbourne,13,NA,NA,,2020,17
 North Melbourne,14,NA,NA,,2020,17
 North Melbourne,15,NA,NA,,2020,17
 North Melbourne,16,NA,NA,,2020,17
-Hawthorn,16,98.15,1,98,2020,17
-Hawthorn,15,1.8499999999999999,2,2,2020,17
+Hawthorn,16,96.46000000000001,1,96,2020,17
+Hawthorn,15,3.54,2,4,2020,17
 Hawthorn,1,NA,NA,,2020,17
 Hawthorn,2,NA,NA,,2020,17
 Hawthorn,3,NA,NA,,2020,17
@@ -2645,10 +2645,9 @@ Hawthorn,13,NA,NA,,2020,17
 Hawthorn,14,NA,NA,,2020,17
 Hawthorn,17,NA,NA,,2020,17
 Hawthorn,18,NA,NA,,2020,17
-Sydney,15,81.69999999999999,1,82,2020,17
-Sydney,14,13.86,2,14,2020,17
-Sydney,13,2.59,3,3,2020,17
-Sydney,16,1.8499999999999999,4,2,2020,17
+Sydney,15,89.91,1,90,2020,17
+Sydney,14,6.550000000000001,2,7,2020,17
+Sydney,16,3.54,3,4,2020,17
 Sydney,1,NA,NA,,2020,17
 Sydney,2,NA,NA,,2020,17
 Sydney,3,NA,NA,,2020,17
@@ -2661,13 +2660,14 @@ Sydney,9,NA,NA,,2020,17
 Sydney,10,NA,NA,,2020,17
 Sydney,11,NA,NA,,2020,17
 Sydney,12,NA,NA,,2020,17
+Sydney,13,NA,NA,,2020,17
 Sydney,17,NA,NA,,2020,17
 Sydney,18,NA,NA,,2020,17
-Gold Coast,14,69.32000000000001,1,69,2020,17
-Gold Coast,15,15.82,2,16,2020,17
-Gold Coast,13,11.85,3,12,2020,17
-Gold Coast,11,1.63,4,2,2020,17
-Gold Coast,12,1.38,5,1,2020,17
+Gold Coast,14,77.98,1,78,2020,17
+Gold Coast,13,12.72,2,13,2020,17
+Gold Coast,15,6.550000000000001,3,7,2020,17
+Gold Coast,12,1.52,4,2,2020,17
+Gold Coast,11,1.23,5,1,2020,17
 Gold Coast,1,NA,NA,,2020,17
 Gold Coast,2,NA,NA,,2020,17
 Gold Coast,3,NA,NA,,2020,17
@@ -2681,11 +2681,10 @@ Gold Coast,10,NA,NA,,2020,17
 Gold Coast,16,NA,NA,,2020,17
 Gold Coast,17,NA,NA,,2020,17
 Gold Coast,18,NA,NA,,2020,17
-Essendon,13,42.36,1,42,2020,17
-Essendon,12,22.62,2,23,2020,17
-Essendon,11,19.1,3,19,2020,17
-Essendon,14,15.290000000000001,4,15,2020,17
-Essendon,15,0.63,5,<1,2020,17
+Essendon,13,44.879999999999995,1,45,2020,17
+Essendon,12,21.67,2,22,2020,17
+Essendon,11,19.32,3,19,2020,17
+Essendon,14,14.13,4,14,2020,17
 Essendon,1,NA,NA,,2020,17
 Essendon,2,NA,NA,,2020,17
 Essendon,3,NA,NA,,2020,17
@@ -2696,14 +2695,15 @@ Essendon,7,NA,NA,,2020,17
 Essendon,8,NA,NA,,2020,17
 Essendon,9,NA,NA,,2020,17
 Essendon,10,NA,NA,,2020,17
+Essendon,15,NA,NA,,2020,17
 Essendon,16,NA,NA,,2020,17
 Essendon,17,NA,NA,,2020,17
 Essendon,18,NA,NA,,2020,17
-Carlton,12,50.3,1,50,2020,17
-Carlton,13,36.7,2,37,2020,17
-Carlton,11,11.61,3,12,2020,17
-Carlton,14,1.35,4,1,2020,17
-Carlton,10,0.04,5,<1,2020,17
+Carlton,12,50.82,1,51,2020,17
+Carlton,13,36.14,2,36,2020,17
+Carlton,11,11.77,3,12,2020,17
+Carlton,14,1.17,4,1,2020,17
+Carlton,10,0.1,5,<1,2020,17
 Carlton,1,NA,NA,,2020,17
 Carlton,2,NA,NA,,2020,17
 Carlton,3,NA,NA,,2020,17
@@ -2717,11 +2717,11 @@ Carlton,15,NA,NA,,2020,17
 Carlton,16,NA,NA,,2020,17
 Carlton,17,NA,NA,,2020,17
 Carlton,18,NA,NA,,2020,17
-Fremantle,11,62.74999999999999,1,63,2020,17
-Fremantle,12,25.69,2,26,2020,17
-Fremantle,13,6.5,3,6,2020,17
-Fremantle,10,4.88,4,5,2020,17
-Fremantle,14,0.18,5,<1,2020,17
+Fremantle,11,62.33,1,62,2020,17
+Fremantle,12,25.919999999999998,2,26,2020,17
+Fremantle,13,6.260000000000001,3,6,2020,17
+Fremantle,10,5.319999999999999,4,5,2020,17
+Fremantle,14,0.16999999999999998,5,<1,2020,17
 Fremantle,1,NA,NA,,2020,17
 Fremantle,2,NA,NA,,2020,17
 Fremantle,3,NA,NA,,2020,17
@@ -2735,12 +2735,12 @@ Fremantle,15,NA,NA,,2020,17
 Fremantle,16,NA,NA,,2020,17
 Fremantle,17,NA,NA,,2020,17
 Fremantle,18,NA,NA,,2020,17
-GWS,10,76.3,1,76,2020,17
-GWS,9,17.25,2,17,2020,17
-GWS,11,4.91,3,5,2020,17
-GWS,8,1.52,4,2,2020,17
-GWS,7,0.01,5,<1,2020,17
-GWS,12,0.01,5,<1,2020,17
+GWS,10,75.17,1,75,2020,17
+GWS,9,18.27,2,18,2020,17
+GWS,11,5.35,3,5,2020,17
+GWS,8,1.11,4,1,2020,17
+GWS,12,0.06999999999999999,5,<1,2020,17
+GWS,7,0.03,6,<1,2020,17
 GWS,1,NA,NA,,2020,17
 GWS,2,NA,NA,,2020,17
 GWS,3,NA,NA,,2020,17
@@ -2753,10 +2753,10 @@ GWS,15,NA,NA,,2020,17
 GWS,16,NA,NA,,2020,17
 GWS,17,NA,NA,,2020,17
 GWS,18,NA,NA,,2020,17
-Melbourne,9,59.85,1,60,2020,17
-Melbourne,8,21.709999999999997,2,22,2020,17
-Melbourne,10,17.68,3,18,2020,17
-Melbourne,7,0.76,4,<1,2020,17
+Melbourne,9,58.589999999999996,1,59,2020,17
+Melbourne,8,22.5,2,22,2020,17
+Melbourne,10,18,3,18,2020,17
+Melbourne,7,0.91,4,<1,2020,17
 Melbourne,1,NA,NA,,2020,17
 Melbourne,2,NA,NA,,2020,17
 Melbourne,3,NA,NA,,2020,17
@@ -2771,11 +2771,11 @@ Melbourne,15,NA,NA,,2020,17
 Melbourne,16,NA,NA,,2020,17
 Melbourne,17,NA,NA,,2020,17
 Melbourne,18,NA,NA,,2020,17
-Footscray,8,45.21,1,45,2020,17
-Footscray,7,26.419999999999998,2,26,2020,17
-Footscray,9,21.05,3,21,2020,17
-Footscray,6,6.76,4,7,2020,17
-Footscray,10,0.5599999999999999,5,<1,2020,17
+Footscray,8,44.769999999999996,1,45,2020,17
+Footscray,7,25.97,2,26,2020,17
+Footscray,9,21.7,3,22,2020,17
+Footscray,6,6.75,4,7,2020,17
+Footscray,10,0.8099999999999999,5,<1,2020,17
 Footscray,1,NA,NA,,2020,17
 Footscray,2,NA,NA,,2020,17
 Footscray,3,NA,NA,,2020,17
@@ -2789,10 +2789,10 @@ Footscray,15,NA,NA,,2020,17
 Footscray,16,NA,NA,,2020,17
 Footscray,17,NA,NA,,2020,17
 Footscray,18,NA,NA,,2020,17
-St Kilda,7,55.04,1,55,2020,17
-St Kilda,6,26.41,2,26,2020,17
-St Kilda,8,18.45,3,18,2020,17
-St Kilda,9,0.1,4,<1,2020,17
+St Kilda,7,55.900000000000006,1,56,2020,17
+St Kilda,6,25.240000000000002,2,25,2020,17
+St Kilda,8,18.83,3,19,2020,17
+St Kilda,9,0.03,4,<1,2020,17
 St Kilda,1,NA,NA,,2020,17
 St Kilda,2,NA,NA,,2020,17
 St Kilda,3,NA,NA,,2020,17
@@ -2807,11 +2807,11 @@ St Kilda,15,NA,NA,,2020,17
 St Kilda,16,NA,NA,,2020,17
 St Kilda,17,NA,NA,,2020,17
 St Kilda,18,NA,NA,,2020,17
-Collingwood,6,66.83,1,67,2020,17
-Collingwood,7,17.77,2,18,2020,17
-Collingwood,8,13.11,3,13,2020,17
-Collingwood,9,1.7500000000000002,4,2,2020,17
-Collingwood,10,0.54,5,<1,2020,17
+Collingwood,6,68.01,1,68,2020,17
+Collingwood,7,17.19,2,17,2020,17
+Collingwood,8,12.790000000000001,3,13,2020,17
+Collingwood,9,1.41,4,1,2020,17
+Collingwood,10,0.6,5,<1,2020,17
 Collingwood,1,NA,NA,,2020,17
 Collingwood,2,NA,NA,,2020,17
 Collingwood,3,NA,NA,,2020,17
@@ -2825,11 +2825,11 @@ Collingwood,15,NA,NA,,2020,17
 Collingwood,16,NA,NA,,2020,17
 Collingwood,17,NA,NA,,2020,17
 Collingwood,18,NA,NA,,2020,17
-West Coast,5,81.15,1,81,2020,17
-West Coast,4,17.19,2,17,2020,17
-West Coast,3,1.59,3,2,2020,17
-West Coast,2,0.06999999999999999,4,<1,2020,17
+West Coast,5,82.45,1,82,2020,17
+West Coast,4,16.580000000000002,2,17,2020,17
+West Coast,3,0.97,3,<1,2020,17
 West Coast,1,NA,NA,,2020,17
+West Coast,2,NA,NA,,2020,17
 West Coast,6,NA,NA,,2020,17
 West Coast,7,NA,NA,,2020,17
 West Coast,8,NA,NA,,2020,17
@@ -2843,11 +2843,11 @@ West Coast,15,NA,NA,,2020,17
 West Coast,16,NA,NA,,2020,17
 West Coast,17,NA,NA,,2020,17
 West Coast,18,NA,NA,,2020,17
-Geelong,4,74.16,1,74,2020,17
-Geelong,3,15.840000000000002,2,16,2020,17
-Geelong,5,9.21,3,9,2020,17
-Geelong,2,0.79,4,<1,2020,17
+Geelong,4,78.36,1,78,2020,17
+Geelong,3,13.420000000000002,2,13,2020,17
+Geelong,5,8.219999999999999,3,8,2020,17
 Geelong,1,NA,NA,,2020,17
+Geelong,2,NA,NA,,2020,17
 Geelong,6,NA,NA,,2020,17
 Geelong,7,NA,NA,,2020,17
 Geelong,8,NA,NA,,2020,17
@@ -2861,11 +2861,11 @@ Geelong,15,NA,NA,,2020,17
 Geelong,16,NA,NA,,2020,17
 Geelong,17,NA,NA,,2020,17
 Geelong,18,NA,NA,,2020,17
-Richmond,3,79.77,1,80,2020,17
-Richmond,5,9.09,2,9,2020,17
-Richmond,2,6.1899999999999995,3,6,2020,17
-Richmond,4,4.95,4,5,2020,17
+Richmond,3,85.61,1,86,2020,17
+Richmond,5,9.33,2,9,2020,17
+Richmond,4,5.06,3,5,2020,17
 Richmond,1,NA,NA,,2020,17
+Richmond,2,NA,NA,,2020,17
 Richmond,6,NA,NA,,2020,17
 Richmond,7,NA,NA,,2020,17
 Richmond,8,NA,NA,,2020,17
@@ -2879,8 +2879,8 @@ Richmond,15,NA,NA,,2020,17
 Richmond,16,NA,NA,,2020,17
 Richmond,17,NA,NA,,2020,17
 Richmond,18,NA,NA,,2020,17
-Port Adelaide,1,51.2,1,51,2020,17
-Port Adelaide,2,48.8,2,49,2020,17
+Port Adelaide,2,54.66,1,55,2020,17
+Port Adelaide,1,45.34,2,45,2020,17
 Port Adelaide,3,NA,NA,,2020,17
 Port Adelaide,4,NA,NA,,2020,17
 Port Adelaide,5,NA,NA,,2020,17
@@ -2897,11 +2897,11 @@ Port Adelaide,15,NA,NA,,2020,17
 Port Adelaide,16,NA,NA,,2020,17
 Port Adelaide,17,NA,NA,,2020,17
 Port Adelaide,18,NA,NA,,2020,17
-Brisbane Lions,1,48.8,1,49,2020,17
-Brisbane Lions,2,44.15,2,44,2020,17
-Brisbane Lions,4,3.6999999999999997,3,4,2020,17
-Brisbane Lions,3,2.8000000000000003,4,3,2020,17
-Brisbane Lions,5,0.5499999999999999,5,<1,2020,17
+Brisbane Lions,1,54.66,1,55,2020,17
+Brisbane Lions,2,45.34,2,45,2020,17
+Brisbane Lions,3,NA,NA,,2020,17
+Brisbane Lions,4,NA,NA,,2020,17
+Brisbane Lions,5,NA,NA,,2020,17
 Brisbane Lions,6,NA,NA,,2020,17
 Brisbane Lions,7,NA,NA,,2020,17
 Brisbane Lions,8,NA,NA,,2020,17
