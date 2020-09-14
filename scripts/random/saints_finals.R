@@ -43,5 +43,17 @@ dat_stk %>%
   mutate(perc = n/9096*100) %>%
   select(-n)
 
+dat$sim_data_all %>%
+  filter(Team == "Melbourne" | Team == "St Kilda") %>%
+  filter(Wins %% 1 == 0) %>%
+  mutate(Wins = ifelse(Team == "Melbourne", Wins - 7, Wins - 9)) %>%
+  group_by(Team, Wins) %>%
+  summarise(Occurances = n(),
+            Top.8 = sum(Top.8)) %>%
+  mutate(Top.8 = Top.8/Occurances*100,
+         Occurances = Occurances/10000*100) %>%
+  group_by(Team) 
+  #mutate(Top.8 = cumsum(Top.8))
+  
 
   

@@ -47,7 +47,7 @@ if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
 }
 
 # Manual override
-#new_data <- TRUE
+new_data <- TRUE
 
 if (new_data) {
   dat <- get_data(season,
@@ -134,7 +134,8 @@ if (new_data) {
   )
 
   # combine
-  sim_dat$sim_data_all <- combine_sim_dat(sim_dat$sim_dat)
+  res <- dat$results %>% filter(Season == season)
+  sim_dat$sim_data_all <- combine_sim_dat(sim_dat$sim_data, res)
 
   if (new_season) {
     season <- last(dat$results$Season) + 1

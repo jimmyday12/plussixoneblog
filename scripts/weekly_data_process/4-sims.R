@@ -49,9 +49,9 @@ do_sims <- function(sim_num, results, fixture, elo.data){
 # Summarise simulated data
 win_calc <- function(x) case_when(x == 0 ~ 0.5, x > 0 ~ 1, TRUE ~ 0)
 
-combine_sim_dat <- function(sim_data) {
+combine_sim_dat <- function(sim_data, results = NULL) {
 sim_data_all <- sim_data %>%
-  gather(Status, Team, Home.Team:Away.Team) %>%
+  gather(Status, Team, c(Home.Team, Away.Team)) %>%
   filter(str_detect(Status, "Team")) %>%
   mutate(
     Margin = ifelse(Status == "Home.Team", Margin, -Margin),
@@ -60,17 +60,23 @@ sim_data_all <- sim_data %>%
   group_by(Sim, Team) %>%
   summarise(
     Wins = sum(Win),
-    Margin = sum(Margin)
-  ) %>%
+    Margin = sum(Margin),
+    Games = n()
+  )
+
+sim_data_all <- calculate_perc(results, sim_data_all)
+
+sim_data_all %>%
   group_by(Sim) %>%
-  arrange(desc(Margin)) %>%
+  arrange(desc(Perc)) %>%
   mutate(
     Rank = row_number(desc(Wins)),
     Top.8 = Rank < 9,
     Top.4 = Rank < 5,
     Top.2 = Rank < 3,
     Top.1 = Rank == 1
-  )
+  ) %>%
+  arrange(Rank)
 
 }
 
@@ -85,6 +91,7 @@ sim_data_summary <- sim_dat_all %>%
     Round = round,
     Margin = mean(Margin),
     Wins = mean(Wins),
+    Perc = mean(Perc),
     Top.8 = sum(Top.8) / sim_num,
     Top.4 = sum(Top.4) / sim_num,
     Top.2 = sum(Top.2) / sim_num,
@@ -155,4 +162,71 @@ if ("simCount" %in% names(past_sims)) {
                Season == season)) %>%
     bind_rows(simCount)
 }
+}
+
+
+predict_perc <- function(games, pf, pa, pf_sd, pa_sd, games_left, elo_marg){
+  
+  pf_avg <- pf/games
+  pa_avg <- pa/games
+  act_marg <- pf - pa
+  if (is.na(pf_sd)) pf_sd <- 20
+  if (is.na(pa_sd)) pa_sd <- 20
+  
+  # Get predicted for and against using their existing avg and sd
+  pred_rem_f <- sum(rnorm(games_left, pf_avg, pf_sd))
+  pred_rem_a <- sum(rnorm(games_left, pa_avg, pa_sd))
+  
+  # Work out the difference in predicted marget using this model from the margin using elo model
+  elo_rem_marg <- elo_marg - act_marg
+  pred_rem_marg <- pred_rem_f - pred_rem_a
+  diff <- elo_rem_marg - pred_rem_marg
+  
+  # Now - adjust the predicted for/against to make it match the elo model
+  #adj_rem_f <- pred_rem_f + (diff * pf/(pf + pa))
+  adj_rem_f <- pred_rem_f 
+  adj_rem_a <- adj_rem_f - elo_rem_marg
+  
+  adj_score_f <- pf + adj_rem_f
+  adj_score_a <- pa + adj_rem_a
+  
+  adj_perc <- adj_score_f/adj_score_a*100
+  return(adj_perc)
+  
+}
+
+calculate_perc <- function(results, sim_data_all){
+  results_ladder <- results %>%
+    gather(Status, Team, c(Home.Team, Away.Team)) %>%
+    filter(str_detect(Status, "Team")) %>%
+    mutate(
+      Margin = ifelse(Status == "Home.Team", Margin, -Margin),
+      Points_for = ifelse(Status == "Home.Team", Home.Points, Away.Points),
+      Points_against = ifelse(Status == "Home.Team", Away.Points, Home.Points),
+      Win = win_calc(Margin)
+    ) %>%
+    filter(!is.na(Points_for)) %>%
+    group_by(Team) %>%
+    summarise(games_sum = n(),
+              margin_sum = sum(Margin),
+              pf_sum = sum(Points_for),
+              pf_sd = sd(Points_for, na.rm = TRUE),
+              pa_sum = sum(Points_against),
+              pa_sd = sd(Points_against, na.rm = TRUE)) %>%
+    left_join(sim_data_all %>% ungroup() %>% select(Sim, Team, Margin, Games)) %>%
+    group_by(Team, Sim)
+  
+  results_marg <- results_ladder %>%
+    mutate(Perc = predict_perc(games_sum, 
+                               pf = pf_sum, 
+                               pa = pa_sum, 
+                               pf_sd = pf_sd,
+                               pa_sd = pa_sd,
+                               games_left = Games - games_sum, 
+                               elo_marg = Margin
+    )) %>%
+    select(Sim, Team, Margin, Perc)
+  
+  sim_data_all %>%
+    left_join(results_marg)
 }
