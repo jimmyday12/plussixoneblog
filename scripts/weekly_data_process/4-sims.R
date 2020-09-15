@@ -1,6 +1,6 @@
 
 perturb_elos <- function(x) {
-  x <- final.elos(x) + rnorm(length(x$teams), mean = 0, sd = 65)
+  x <- final.elos(x) + rnorm(length(x$teams), mean = 0, sd = 85)
   x + 1500 - mean(x)
 } # function to map over
 
