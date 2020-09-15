@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="/categories/aflwednesdaywonk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/aflwednesdaywonk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Wednesday Wonk - v1</title>
       <link>/post/wednesday-wonk-v1/</link>

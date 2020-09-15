@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/prediction/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/prediction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Monash Tips Package</title>
       <link>/post/monash-tips-package/</link>
@@ -25,9 +29,9 @@ I’m working on a few things in fitzRoy that might help but thought I’d share
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
-Last updated 2020-09-14 13:44:15.
+Last updated 2020-09-15 14:52:47.
 Note - I’m showing the next 18 games because the current fixture is messing with my round value.
-## ## The downloaded binary packages are in ## /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpA4ynbv/downloaded_packages ## ## The downloaded binary packages are in ## /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpA4ynbv/downloaded_packages ## ## The downloaded binary packages are in ## /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpA4ynbv/downloaded_packages ## ## The downloaded binary packages are in ## /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpA4ynbv/downloaded_packages   Season  Game  Date  Day  Venue  Home.</description>
+  Season  Game  Date  Day  Venue  Home.</description>
     </item>
     
   </channel>
