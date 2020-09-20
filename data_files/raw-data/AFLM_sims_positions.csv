@@ -3023,8 +3023,7 @@ Essendon,15,NA,NA,,2020,18
 Essendon,16,NA,NA,,2020,18
 Essendon,17,NA,NA,,2020,18
 Essendon,18,NA,NA,,2020,18
-Carlton,12,90.42999999999999,1,90,2020,18
-Carlton,11,9.569999999999999,2,10,2020,18
+Carlton,11,100,1,100,2020,18
 Carlton,1,NA,NA,,2020,18
 Carlton,2,NA,NA,,2020,18
 Carlton,3,NA,NA,,2020,18
@@ -3035,15 +3034,14 @@ Carlton,7,NA,NA,,2020,18
 Carlton,8,NA,NA,,2020,18
 Carlton,9,NA,NA,,2020,18
 Carlton,10,NA,NA,,2020,18
+Carlton,12,NA,NA,,2020,18
 Carlton,13,NA,NA,,2020,18
 Carlton,14,NA,NA,,2020,18
 Carlton,15,NA,NA,,2020,18
 Carlton,16,NA,NA,,2020,18
 Carlton,17,NA,NA,,2020,18
 Carlton,18,NA,NA,,2020,18
-Fremantle,11,45.49,1,45,2020,18
-Fremantle,10,44.940000000000005,2,45,2020,18
-Fremantle,12,9.569999999999999,3,10,2020,18
+Fremantle,12,100,1,100,2020,18
 Fremantle,1,NA,NA,,2020,18
 Fremantle,2,NA,NA,,2020,18
 Fremantle,3,NA,NA,,2020,18
@@ -3053,14 +3051,15 @@ Fremantle,6,NA,NA,,2020,18
 Fremantle,7,NA,NA,,2020,18
 Fremantle,8,NA,NA,,2020,18
 Fremantle,9,NA,NA,,2020,18
+Fremantle,10,NA,NA,,2020,18
+Fremantle,11,NA,NA,,2020,18
 Fremantle,13,NA,NA,,2020,18
 Fremantle,14,NA,NA,,2020,18
 Fremantle,15,NA,NA,,2020,18
 Fremantle,16,NA,NA,,2020,18
 Fremantle,17,NA,NA,,2020,18
 Fremantle,18,NA,NA,,2020,18
-GWS,10,55.059999999999995,1,55,2020,18
-GWS,11,44.940000000000005,2,45,2020,18
+GWS,10,100,1,100,2020,18
 GWS,1,NA,NA,,2020,18
 GWS,2,NA,NA,,2020,18
 GWS,3,NA,NA,,2020,18
@@ -3070,6 +3069,7 @@ GWS,6,NA,NA,,2020,18
 GWS,7,NA,NA,,2020,18
 GWS,8,NA,NA,,2020,18
 GWS,9,NA,NA,,2020,18
+GWS,11,NA,NA,,2020,18
 GWS,12,NA,NA,,2020,18
 GWS,13,NA,NA,,2020,18
 GWS,14,NA,NA,,2020,18
@@ -3077,8 +3077,7 @@ GWS,15,NA,NA,,2020,18
 GWS,16,NA,NA,,2020,18
 GWS,17,NA,NA,,2020,18
 GWS,18,NA,NA,,2020,18
-Melbourne,9,55.059999999999995,1,55,2020,18
-Melbourne,8,44.940000000000005,2,45,2020,18
+Melbourne,9,100,1,100,2020,18
 Melbourne,1,NA,NA,,2020,18
 Melbourne,2,NA,NA,,2020,18
 Melbourne,3,NA,NA,,2020,18
@@ -3086,6 +3085,7 @@ Melbourne,4,NA,NA,,2020,18
 Melbourne,5,NA,NA,,2020,18
 Melbourne,6,NA,NA,,2020,18
 Melbourne,7,NA,NA,,2020,18
+Melbourne,8,NA,NA,,2020,18
 Melbourne,10,NA,NA,,2020,18
 Melbourne,11,NA,NA,,2020,18
 Melbourne,12,NA,NA,,2020,18
@@ -3095,15 +3095,15 @@ Melbourne,15,NA,NA,,2020,18
 Melbourne,16,NA,NA,,2020,18
 Melbourne,17,NA,NA,,2020,18
 Melbourne,18,NA,NA,,2020,18
-Footscray,9,44.940000000000005,1,45,2020,18
-Footscray,8,34.839999999999996,2,35,2020,18
-Footscray,7,20.22,3,20,2020,18
+Footscray,8,62.78,1,63,2020,18
+Footscray,7,37.22,2,37,2020,18
 Footscray,1,NA,NA,,2020,18
 Footscray,2,NA,NA,,2020,18
 Footscray,3,NA,NA,,2020,18
 Footscray,4,NA,NA,,2020,18
 Footscray,5,NA,NA,,2020,18
 Footscray,6,NA,NA,,2020,18
+Footscray,9,NA,NA,,2020,18
 Footscray,10,NA,NA,,2020,18
 Footscray,11,NA,NA,,2020,18
 Footscray,12,NA,NA,,2020,18
@@ -3113,8 +3113,8 @@ Footscray,15,NA,NA,,2020,18
 Footscray,16,NA,NA,,2020,18
 Footscray,17,NA,NA,,2020,18
 Footscray,18,NA,NA,,2020,18
-St Kilda,7,59.3,1,59,2020,18
-St Kilda,6,40.699999999999996,2,41,2020,18
+St Kilda,7,60.34,1,60,2020,18
+St Kilda,6,39.660000000000004,2,40,2020,18
 St Kilda,1,NA,NA,,2020,18
 St Kilda,2,NA,NA,,2020,18
 St Kilda,3,NA,NA,,2020,18
@@ -3131,9 +3131,9 @@ St Kilda,15,NA,NA,,2020,18
 St Kilda,16,NA,NA,,2020,18
 St Kilda,17,NA,NA,,2020,18
 St Kilda,18,NA,NA,,2020,18
-Collingwood,6,59.3,1,59,2020,18
-Collingwood,7,20.48,2,20,2020,18
-Collingwood,8,20.22,3,20,2020,18
+Collingwood,6,60.34,1,60,2020,18
+Collingwood,8,37.22,2,37,2020,18
+Collingwood,7,2.44,3,2,2020,18
 Collingwood,1,NA,NA,,2020,18
 Collingwood,2,NA,NA,,2020,18
 Collingwood,3,NA,NA,,2020,18
@@ -3203,8 +3203,8 @@ Richmond,15,NA,NA,,2020,18
 Richmond,16,NA,NA,,2020,18
 Richmond,17,NA,NA,,2020,18
 Richmond,18,NA,NA,,2020,18
-Port Adelaide,2,61.62,1,62,2020,18
-Port Adelaide,1,38.379999999999995,2,38,2020,18
+Port Adelaide,2,62.78,1,63,2020,18
+Port Adelaide,1,37.22,2,37,2020,18
 Port Adelaide,3,NA,NA,,2020,18
 Port Adelaide,4,NA,NA,,2020,18
 Port Adelaide,5,NA,NA,,2020,18
@@ -3221,8 +3221,8 @@ Port Adelaide,15,NA,NA,,2020,18
 Port Adelaide,16,NA,NA,,2020,18
 Port Adelaide,17,NA,NA,,2020,18
 Port Adelaide,18,NA,NA,,2020,18
-Brisbane Lions,1,61.62,1,62,2020,18
-Brisbane Lions,2,38.379999999999995,2,38,2020,18
+Brisbane Lions,1,62.78,1,63,2020,18
+Brisbane Lions,2,37.22,2,37,2020,18
 Brisbane Lions,3,NA,NA,,2020,18
 Brisbane Lions,4,NA,NA,,2020,18
 Brisbane Lions,5,NA,NA,,2020,18
