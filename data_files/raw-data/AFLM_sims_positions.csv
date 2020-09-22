@@ -3095,50 +3095,14 @@ Melbourne,15,NA,NA,,2020,18
 Melbourne,16,NA,NA,,2020,18
 Melbourne,17,NA,NA,,2020,18
 Melbourne,18,NA,NA,,2020,18
-Footscray,8,62.78,1,63,2020,18
-Footscray,7,37.22,2,37,2020,18
-Footscray,1,NA,NA,,2020,18
-Footscray,2,NA,NA,,2020,18
-Footscray,3,NA,NA,,2020,18
-Footscray,4,NA,NA,,2020,18
-Footscray,5,NA,NA,,2020,18
-Footscray,6,NA,NA,,2020,18
-Footscray,9,NA,NA,,2020,18
-Footscray,10,NA,NA,,2020,18
-Footscray,11,NA,NA,,2020,18
-Footscray,12,NA,NA,,2020,18
-Footscray,13,NA,NA,,2020,18
-Footscray,14,NA,NA,,2020,18
-Footscray,15,NA,NA,,2020,18
-Footscray,16,NA,NA,,2020,18
-Footscray,17,NA,NA,,2020,18
-Footscray,18,NA,NA,,2020,18
-St Kilda,7,60.34,1,60,2020,18
-St Kilda,6,39.660000000000004,2,40,2020,18
-St Kilda,1,NA,NA,,2020,18
-St Kilda,2,NA,NA,,2020,18
-St Kilda,3,NA,NA,,2020,18
-St Kilda,4,NA,NA,,2020,18
-St Kilda,5,NA,NA,,2020,18
-St Kilda,8,NA,NA,,2020,18
-St Kilda,9,NA,NA,,2020,18
-St Kilda,10,NA,NA,,2020,18
-St Kilda,11,NA,NA,,2020,18
-St Kilda,12,NA,NA,,2020,18
-St Kilda,13,NA,NA,,2020,18
-St Kilda,14,NA,NA,,2020,18
-St Kilda,15,NA,NA,,2020,18
-St Kilda,16,NA,NA,,2020,18
-St Kilda,17,NA,NA,,2020,18
-St Kilda,18,NA,NA,,2020,18
-Collingwood,6,60.34,1,60,2020,18
-Collingwood,8,37.22,2,37,2020,18
-Collingwood,7,2.44,3,2,2020,18
+Collingwood,8,68.30000000000001,1,68,2020,18
+Collingwood,7,31.7,2,32,2020,18
 Collingwood,1,NA,NA,,2020,18
 Collingwood,2,NA,NA,,2020,18
 Collingwood,3,NA,NA,,2020,18
 Collingwood,4,NA,NA,,2020,18
 Collingwood,5,NA,NA,,2020,18
+Collingwood,6,NA,NA,,2020,18
 Collingwood,9,NA,NA,,2020,18
 Collingwood,10,NA,NA,,2020,18
 Collingwood,11,NA,NA,,2020,18
@@ -3149,11 +3113,47 @@ Collingwood,15,NA,NA,,2020,18
 Collingwood,16,NA,NA,,2020,18
 Collingwood,17,NA,NA,,2020,18
 Collingwood,18,NA,NA,,2020,18
-Geelong,4,100,1,100,2020,18
+Footscray,6,43.46,1,43,2020,18
+Footscray,7,37.99,2,38,2020,18
+Footscray,8,18.55,3,19,2020,18
+Footscray,1,NA,NA,,2020,18
+Footscray,2,NA,NA,,2020,18
+Footscray,3,NA,NA,,2020,18
+Footscray,4,NA,NA,,2020,18
+Footscray,5,NA,NA,,2020,18
+Footscray,9,NA,NA,,2020,18
+Footscray,10,NA,NA,,2020,18
+Footscray,11,NA,NA,,2020,18
+Footscray,12,NA,NA,,2020,18
+Footscray,13,NA,NA,,2020,18
+Footscray,14,NA,NA,,2020,18
+Footscray,15,NA,NA,,2020,18
+Footscray,16,NA,NA,,2020,18
+Footscray,17,NA,NA,,2020,18
+Footscray,18,NA,NA,,2020,18
+St Kilda,6,56.54,1,57,2020,18
+St Kilda,7,30.31,2,30,2020,18
+St Kilda,8,13.15,3,13,2020,18
+St Kilda,1,NA,NA,,2020,18
+St Kilda,2,NA,NA,,2020,18
+St Kilda,3,NA,NA,,2020,18
+St Kilda,4,NA,NA,,2020,18
+St Kilda,5,NA,NA,,2020,18
+St Kilda,9,NA,NA,,2020,18
+St Kilda,10,NA,NA,,2020,18
+St Kilda,11,NA,NA,,2020,18
+St Kilda,12,NA,NA,,2020,18
+St Kilda,13,NA,NA,,2020,18
+St Kilda,14,NA,NA,,2020,18
+St Kilda,15,NA,NA,,2020,18
+St Kilda,16,NA,NA,,2020,18
+St Kilda,17,NA,NA,,2020,18
+St Kilda,18,NA,NA,,2020,18
+Geelong,5,42.02,1,42,2020,18
+Geelong,4,40.050000000000004,2,40,2020,18
+Geelong,3,17.93,3,18,2020,18
 Geelong,1,NA,NA,,2020,18
 Geelong,2,NA,NA,,2020,18
-Geelong,3,NA,NA,,2020,18
-Geelong,5,NA,NA,,2020,18
 Geelong,6,NA,NA,,2020,18
 Geelong,7,NA,NA,,2020,18
 Geelong,8,NA,NA,,2020,18
@@ -3167,11 +3167,11 @@ Geelong,15,NA,NA,,2020,18
 Geelong,16,NA,NA,,2020,18
 Geelong,17,NA,NA,,2020,18
 Geelong,18,NA,NA,,2020,18
-West Coast,5,100,1,100,2020,18
+West Coast,5,45.93,1,46,2020,18
+West Coast,4,36.15,2,36,2020,18
+West Coast,3,17.919999999999998,3,18,2020,18
 West Coast,1,NA,NA,,2020,18
 West Coast,2,NA,NA,,2020,18
-West Coast,3,NA,NA,,2020,18
-West Coast,4,NA,NA,,2020,18
 West Coast,6,NA,NA,,2020,18
 West Coast,7,NA,NA,,2020,18
 West Coast,8,NA,NA,,2020,18
@@ -3185,11 +3185,11 @@ West Coast,15,NA,NA,,2020,18
 West Coast,16,NA,NA,,2020,18
 West Coast,17,NA,NA,,2020,18
 West Coast,18,NA,NA,,2020,18
-Richmond,3,100,1,100,2020,18
+Richmond,3,64.14999999999999,1,64,2020,18
+Richmond,4,23.799999999999997,2,24,2020,18
+Richmond,5,12.049999999999999,3,12,2020,18
 Richmond,1,NA,NA,,2020,18
 Richmond,2,NA,NA,,2020,18
-Richmond,4,NA,NA,,2020,18
-Richmond,5,NA,NA,,2020,18
 Richmond,6,NA,NA,,2020,18
 Richmond,7,NA,NA,,2020,18
 Richmond,8,NA,NA,,2020,18
@@ -3203,26 +3203,8 @@ Richmond,15,NA,NA,,2020,18
 Richmond,16,NA,NA,,2020,18
 Richmond,17,NA,NA,,2020,18
 Richmond,18,NA,NA,,2020,18
-Port Adelaide,2,62.78,1,63,2020,18
-Port Adelaide,1,37.22,2,37,2020,18
-Port Adelaide,3,NA,NA,,2020,18
-Port Adelaide,4,NA,NA,,2020,18
-Port Adelaide,5,NA,NA,,2020,18
-Port Adelaide,6,NA,NA,,2020,18
-Port Adelaide,7,NA,NA,,2020,18
-Port Adelaide,8,NA,NA,,2020,18
-Port Adelaide,9,NA,NA,,2020,18
-Port Adelaide,10,NA,NA,,2020,18
-Port Adelaide,11,NA,NA,,2020,18
-Port Adelaide,12,NA,NA,,2020,18
-Port Adelaide,13,NA,NA,,2020,18
-Port Adelaide,14,NA,NA,,2020,18
-Port Adelaide,15,NA,NA,,2020,18
-Port Adelaide,16,NA,NA,,2020,18
-Port Adelaide,17,NA,NA,,2020,18
-Port Adelaide,18,NA,NA,,2020,18
-Brisbane Lions,1,62.78,1,63,2020,18
-Brisbane Lions,2,37.22,2,37,2020,18
+Brisbane Lions,2,81.39,1,81,2020,18
+Brisbane Lions,1,18.61,2,19,2020,18
 Brisbane Lions,3,NA,NA,,2020,18
 Brisbane Lions,4,NA,NA,,2020,18
 Brisbane Lions,5,NA,NA,,2020,18
@@ -3239,3 +3221,21 @@ Brisbane Lions,15,NA,NA,,2020,18
 Brisbane Lions,16,NA,NA,,2020,18
 Brisbane Lions,17,NA,NA,,2020,18
 Brisbane Lions,18,NA,NA,,2020,18
+Port Adelaide,1,81.39,1,81,2020,18
+Port Adelaide,2,18.61,2,19,2020,18
+Port Adelaide,3,NA,NA,,2020,18
+Port Adelaide,4,NA,NA,,2020,18
+Port Adelaide,5,NA,NA,,2020,18
+Port Adelaide,6,NA,NA,,2020,18
+Port Adelaide,7,NA,NA,,2020,18
+Port Adelaide,8,NA,NA,,2020,18
+Port Adelaide,9,NA,NA,,2020,18
+Port Adelaide,10,NA,NA,,2020,18
+Port Adelaide,11,NA,NA,,2020,18
+Port Adelaide,12,NA,NA,,2020,18
+Port Adelaide,13,NA,NA,,2020,18
+Port Adelaide,14,NA,NA,,2020,18
+Port Adelaide,15,NA,NA,,2020,18
+Port Adelaide,16,NA,NA,,2020,18
+Port Adelaide,17,NA,NA,,2020,18
+Port Adelaide,18,NA,NA,,2020,18
