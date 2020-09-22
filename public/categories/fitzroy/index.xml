@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fitzroy on plusSixOne</title>
+    <link>/categories/fitzroy/</link>
+    <description>Recent content in fitzroy on plusSixOne</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
+    <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/fitzroy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New fitzRoy functions</title>
+      <link>/post/new-fitzroy-functions/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/new-fitzroy-functions/</guid>
+      <description>The new AFL season, with it’s condensed fixture, is proving challenging for the old little R package fitzRoy. Luckily I’ve added a couple new functions to help!
+You’ll need the development version of the package.
+devtools::install_github(&amp;quot;jimmyday12/fitzRoy&amp;quot;) library(fitzRoy) library(dplyr) Fixture I recently noticed that the get_fixture function was broken. There is unfortunately not a lot I can do with that one. The Footywire website doesn’t provide round in it’s outputs and so I’ve always just calculated this assuming that rounds begin on Thursday/Friday and finish on Sunday/Monday.</description>
+    </item>
+    
+    <item>
+      <title>fitzRoy - 0.1.5 release</title>
+      <link>/post/fitzroy-0-1-5-release/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/fitzroy-0-1-5-release/</guid>
+      <description>For those of you who’ve been following me on Twitter, you’ll know that I’ve been working on an R package for AFL called fitzRoy with Rob from Analysis of AFL. Today we released a new version which has a much requested feature, so I’d figured a blog post was in order.
+You’ll have to reinstall fitzRoy to get the latest functions. We still aren’t on CRAN but you can use devtools to get it.</description>
+    </item>
+    
+  </channel>
+</rss>

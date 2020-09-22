@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Monash Tips Package</title>
+  <meta property="og:title" content="Monash Tips Package" />
+  <meta name="twitter:title" content="Monash Tips Package" />
+  <meta name="description" content="Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!
+I’m working on a few things in fitzRoy that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my Monash Probabilistic Tipping Comp tips from R when I updated my models.">
+  <meta property="og:description" content="Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!
+I’m working on a few things in fitzRoy that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my Monash Probabilistic Tipping Comp tips from R when I updated my models.">
+  <meta name="twitter:description" content="Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that …">
+  <meta name="author" content="James Day"/>
+  <link href='/img/favicon-new.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@plusSixOneblog" />
+  <meta name="twitter:creator" content="@plusSixOneblog" />
+  <meta property="og:url" content="/post/monash-tips-package/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="plusSixOne" />
+
+  <meta name="generator" content="Hugo 0.75.1" />
+  <link rel="canonical" href="/post/monash-tips-package/" />
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="plusSixOne">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="/css/codeblock.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-light.min.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">plusSixOne</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Mens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflm-predictions">Predictions</a>
+                
+                  <a href="/page/aflm-games">Current Tips</a>
+                
+                  <a href="/page/aflm-model-results">Model Results</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Womens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflw-coming-soon/">Coming Soon</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Cool Links" href="/page/cool-links/">Cool Links</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="plusSixOne" href="/">
+            <img class="avatar-img" src="/img/avator-icon-new.png" alt="plusSixOne" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Monash Tips Package</h1>
+                
+                
+                  <span class="post-meta">
+  
+  
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on July 29, 2020
+  
+  
+  &nbsp;|&nbsp;
+  <i class="fa fa-clock-o"></i> 7 minutes (1362 words)
+  
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+
+<p>Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!</p>
+<p>I’m working on a few things in <code>fitzRoy</code> that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my <a href="http://probabilistic-footy.monash.edu/~footy/index.shtml">Monash Probabilistic Tipping Comp</a> tips from R when I updated my models.</p>
+<p>I figured that it could be useful for others in that comp. I understand that the venn diagram of people who enter tips into that comp AND use R AND want to save 5 minutes of manual clicking is very small. But I like playing around with R. So here we are!</p>
+<p>I’ve created the <code>monashtipr</code> package. It is a simple package that provides an API for submitting your tips through R! You can view the <a href="https://jimmyday12.github.io/monash_tipr/">pkgdown site</a> for all the info but thought I’d walk through submitting my tips for the week.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>There are basically two main functions. <code>get_games</code> will return a data frame of the games for a particular round and <code>submit_tips</code> will let you submit tips for a particular round and competition!</p>
+<div id="submitting-tips" class="section level2">
+<h2>Submitting tips</h2>
+<p>See the steps below for how to use it in real life (this is from my own tips for Round 9).</p>
+<hr />
+<p><strong>NOTE</strong></p>
+<p>Please be carefull with this. While I’ve tried to test it, there is the chance to screw with your tips. I reccomend checking things manually while this is still new and not stable.</p>
+<hr />
+<div id="step-1---install-the-package" class="section level4">
+<h4>Step 1 - install the package!</h4>
+<p>You can get it from github. You’ll need <code>devtools</code> if you don’t already have it.</p>
+<pre class="r"><code># install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;jimmyday12/monash_tipr&quot;)</code></pre>
+<pre class="r"><code>library(monashtipr)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.0     ✓ purrr   0.3.4
+## ✓ tibble  3.0.1     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.3     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div id="step-2---do-your-predictions" class="section level4">
+<h4>Step 2 - do your predictions</h4>
+<p>I’m not going to step through how I do these but ultimately I end up with something like below.</p>
+<pre class="r"><code>predictions &lt;- read_csv(here::here(&quot;data_files&quot;, &quot;raw-data&quot;, &quot;predictions.csv&quot;))</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Day = col_character(),
+##   Time = col_time(format = &quot;&quot;),
+##   Round.Number = col_double(),
+##   Venue = col_character(),
+##   Home.Team = col_character(),
+##   Away.Team = col_character(),
+##   Prediction = col_double(),
+##   Probability = col_double(),
+##   Result = col_character()
+## )</code></pre>
+<pre class="r"><code>predictions</code></pre>
+<pre><code>## # A tibble: 91 x 9
+##    Day   Time   Round.Number Venue Home.Team Away.Team Prediction Probability
+##    &lt;chr&gt; &lt;time&gt;        &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Wed,… 00&#39;00&quot;            9 Carr… Footscray Richmond        -1.9       0.481
+##  2 Thu,… 00&#39;00&quot;            9 Pert… Carlton   Hawthorn        -0.9       0.491
+##  3 Thu,… 00&#39;00&quot;            9 Gabba Melbourne Port Ade…       -4         0.46 
+##  4 Fri,… 00&#39;00&quot;            9 Carr… Essendon  Brisbane…       -9.6       0.405
+##  5 Sat,… 00&#39;00&quot;            9 Carr… North Me… Adelaide         9.3       0.592
+##  6 Sat,… 00&#39;00&quot;            9 Gabba St Kilda  Sydney          11.1       0.609
+##  7 Sat,… 00&#39;00&quot;            9 Pert… West Coa… Geelong          0.9       0.509
+##  8 Sun,… 00&#39;00&quot;            9 Carr… Gold Coa… GWS             -3         0.47 
+##  9 Sun,… 00&#39;00&quot;            9 Pert… Fremantle Collingw…       -6.1       0.439
+## 10 Mon,… 00&#39;00&quot;            9 Adel… Port Ade… Footscray       16.1       0.656
+## # … with 81 more rows, and 1 more variable: Result &lt;chr&gt;</code></pre>
+</div>
+<div id="step-3---get-this-weeks-games" class="section level4">
+<h4>Step 3 - get this weeks games</h4>
+<p>The first function in <code>monashtipr</code> that is useful is <code>get_games</code>. This returns a dataframe of the weeks games based on the round you supply. If you don’t supply a round, it will return the earliest available round for tipping.</p>
+<p>Note you can supply your username and password as plain text but I’m storing then in my <code>.Renviron</code> file. Read more about that here.</p>
+<p>The comp needs to be one of “normal”, “gauss” or “info” (info is the probability comp).</p>
+<pre class="r"><code>user &lt;- Sys.getenv(&quot;MONASH_USER&quot;)
+pass =  Sys.getenv(&quot;MONASH_PASS&quot;)
+monash_games &lt;- get_games(user, pass, comp = &quot;normal&quot;)</code></pre>
+<pre><code>## Login succesfull!</code></pre>
+<pre><code>## Returning current rounds games below...</code></pre>
+<pre class="r"><code>monash_games</code></pre>
+<pre><code>##   Game           Ground       Home        Away Margin
+## 1    1 Metricon Stadium W_Bulldogs    Richmond     NA
+## 2    2            Gabba  Melbourne  P_Adelaide     NA
+## 3    3    Optus Stadium    Carlton    Hawthorn     NA
+## 4    4 Metricon Stadium   Essendon    Brisbane     NA
+## 5    5 Metricon Stadium  Kangaroos    Adelaide     NA
+## 6    6            Gabba   St_Kilda      Sydney     NA
+## 7    7    Optus Stadium    W_Coast     Geelong     NA
+## 8    8 Metricon Stadium Gold_Coast  G_W_Sydney     NA
+## 9    9    Optus Stadium  Fremantle Collingwood     NA</code></pre>
+</div>
+<div id="step-4---join-predictions-to-monash-games" class="section level4">
+<h4>Step 4 - Join predictions to monash games</h4>
+<p>I now need to add my predictions to the data frame of monash tips. Because my teams don’t really match up, I’ve written a quick and dirty function to replace these.</p>
+<pre class="r"><code># Function to replace team names
+map_names_to_monash &lt;- function(names) {
+  dplyr::case_when(
+    names == &quot;Footscray&quot; ~ &quot;W_Bulldogs&quot;,
+    names == &quot;North Melbourne&quot; ~ &quot;Kangaroos&quot;,
+    names == &quot;St Kilda&quot; ~ &quot;St_Kilda&quot;,
+    names == &quot;West Coast&quot; ~ &quot;W_Coast&quot;,
+    names == &quot;Gold Coast&quot; ~ &quot;Gold_Coast&quot;,
+    names == &quot;Port Adelaide&quot; ~ &quot;P_Adelaide&quot;,
+    names == &quot;Brisbane Lions&quot; ~ &quot;Brisbane&quot;,
+    names == &quot;GWS&quot; ~ &quot;G_W_Sydney&quot;, 
+    TRUE ~ names
+  )
+}
+
+predictions &lt;- predictions %&gt;%
+  filter(Round.Number == min(Round.Number)) %&gt;%
+  mutate_at(c(&quot;Home.Team&quot;, &quot;Away.Team&quot;), map_names_to_monash) %&gt;%
+  mutate(Margin = round(Prediction),
+         `Std. Dev.` = 40) %&gt;%
+  rename(Home = Home.Team, 
+         Away = Away.Team) %&gt;%
+  select(Home, Away, Margin, `Std. Dev.`, Probability)
+
+predictions_joined &lt;- monash_games %&gt;%
+  select(-Margin) %&gt;%
+  left_join(predictions, by = c(&quot;Home&quot;, &quot;Away&quot;))
+
+predictions_joined</code></pre>
+<pre><code>##   Game           Ground       Home        Away Margin Std. Dev. Probability
+## 1    1 Metricon Stadium W_Bulldogs    Richmond     -2        40       0.481
+## 2    2            Gabba  Melbourne  P_Adelaide     -4        40       0.460
+## 3    3    Optus Stadium    Carlton    Hawthorn     -1        40       0.491
+## 4    4 Metricon Stadium   Essendon    Brisbane    -10        40       0.405
+## 5    5 Metricon Stadium  Kangaroos    Adelaide      9        40       0.592
+## 6    6            Gabba   St_Kilda      Sydney     11        40       0.609
+## 7    7    Optus Stadium    W_Coast     Geelong      1        40       0.509
+## 8    8 Metricon Stadium Gold_Coast  G_W_Sydney     -3        40       0.470
+## 9    9    Optus Stadium  Fremantle Collingwood     -6        40       0.439</code></pre>
+</div>
+<div id="step-5---submit-tips" class="section level4">
+<h4>Step 5 - Submit tips!</h4>
+<p>Now we’ve done that, we can submit our tips using <code>submit_tips</code>. This function expects a data frame in the same format as the one returned by <code>get_games</code> which is why I did the steps of renaming teams and joining my tips to that data frame.</p>
+<pre class="r"><code># Submit - normal
+predictions_joined %&gt;%
+  select(-`Std. Dev.`, -Probability) %&gt;%
+  monashtipr::submit_tips(user = user, pass = pass, comp = &quot;normal&quot;)</code></pre>
+<pre><code>## Login succesfull!</code></pre>
+<pre><code>## Submitting with &#39;.submit&#39;</code></pre>
+<pre><code>##   Game        Team Margin              Status
+## 1    1    Richmond      2 Too late! (skipped)
+## 2    2  P_Adelaide      4            Updated.
+## 3    3    Hawthorn      1            Updated.
+## 4    4    Brisbane     10            Updated.
+## 5    5   Kangaroos      9            Updated.
+## 6    6    St_Kilda     11            Updated.
+## 7    7     W_Coast      1            Updated.
+## 8    8  G_W_Sydney      3            Updated.
+## 9    9 Collingwood      6            Updated.</code></pre>
+<pre class="r"><code># Submit - gauss
+predictions_joined %&gt;%
+  select(-Probability) %&gt;%
+  monashtipr::submit_tips(user = user, pass = pass, comp = &quot;gauss&quot;)</code></pre>
+<pre><code>## Login succesfull!
+## Submitting with &#39;.submit&#39;</code></pre>
+<pre><code>##   Game        Team Margin Std.Dev.              Status
+## 1    1    Richmond      2       40 Too late! (skipped)
+## 2    2  P_Adelaide      4       40            Updated.
+## 3    3    Hawthorn      1       40            Updated.
+## 4    4    Brisbane     10       40            Updated.
+## 5    5   Kangaroos      9       40            Updated.
+## 6    6    St_Kilda     11       40            Updated.
+## 7    7     W_Coast      1       40            Updated.
+## 8    8  G_W_Sydney      3       40            Updated.
+## 9    9 Collingwood      6       40            Updated.</code></pre>
+<pre class="r"><code># Submit - prob
+predictions_joined %&gt;%
+  select(-`Std. Dev.`, -Margin) %&gt;%
+  monashtipr::submit_tips(user = user, pass = pass, comp = &quot;info&quot;)</code></pre>
+<pre><code>## Login succesfull!
+## Submitting with &#39;.submit&#39;</code></pre>
+<pre><code>##   Game       Team Probability Bestcasescore Worstcasescore              Status
+## 1    1 W_Bulldogs       0.481          0.05          -0.06 Too late! (skipped)
+## 2    2  Melbourne       0.460          0.11          -0.12            Updated.
+## 3    3    Carlton       0.491          0.03          -0.03            Updated.
+## 4    4   Essendon       0.405          0.25          -0.30            Updated.
+## 5    5  Kangaroos       0.592          0.24          -0.29            Updated.
+## 6    6   St_Kilda       0.609          0.28          -0.35            Updated.
+## 7    7    W_Coast       0.509          0.03          -0.03            Updated.
+## 8    8 Gold_Coast       0.470          0.08          -0.09            Updated.
+## 9    9  Fremantle       0.439          0.17          -0.19            Updated.</code></pre>
+<p>That’s about it. Hopefully some people get some use out it. Let me know if it works or you run into issues.</p>
+</div>
+</div>
+</div>
+
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="/post/recruits/" data-toggle="tooltip" data-placement="top" title="Recruits">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="/post/new-fitzroy-functions/" data-toggle="tooltip" data-placement="top" title="New fitzRoy functions">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "plussixone" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:jamesthomasday@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/plussixoneblog" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jimmyday12" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/plusSixOneblog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/james-day-ab648321" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="plussixoneblog.com">James Day</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2020
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/">plusSixOne</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.75.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+  </body>
+</html>
+

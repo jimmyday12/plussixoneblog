@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AFL Womens on plusSixOne</title>
+    <link>/categories/afl-womens/</link>
+    <description>Recent content in AFL Womens on plusSixOne</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
+    <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
+    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="/categories/afl-womens/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome Back</title>
+      <link>/post/welcome-back/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/welcome-back/</guid>
+      <description>Hello! It’s been quite a while since there was any content on the site - my last post was before the grand final. However, I have been doing a bit of work behind the scenes as you may notice. I thought I would give a quick update on a few things about the blog and what you can look forward to this year.
+Blog migration As you may have noticed, my blog is looking a little funky.</description>
+    </item>
+    
+    <item>
+      <title>Introducing the AFL womens rankings</title>
+      <link>/post/introducing-afl-womens-rankings/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/post/introducing-afl-womens-rankings/</guid>
+      <description>Unless you&amp;rsquo;ve been too distracted by US politics, you should know that tonight marks the start of a pretty big step forwards in women&amp;rsquo;s sport in this country. The AFL women&amp;rsquo;s competition has finally arrived!
+When it first got announced, I decided that I&amp;rsquo;d like to try to include it in my blog. There is plenty of content around celebrating the amazing stories around some of these athletes and I encourage you to read as much as you can.</description>
+    </item>
+    
+  </channel>
+</rss>

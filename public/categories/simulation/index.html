@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Simulation</title>
+  <meta property="og:title" content="Simulation" />
+  <meta name="twitter:title" content="Simulation" />
+  <meta name="author" content="James Day"/>
+  <link href='/img/favicon-new.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:image" content="/img/avator-icon-new.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@plusSixOneblog" />
+  <meta name="twitter:creator" content="@plusSixOneblog" />
+  <meta property="og:url" content="/categories/simulation/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="plusSixOne" />
+
+  <meta name="generator" content="Hugo 0.75.1" />
+  <link rel="canonical" href="/categories/simulation/" />
+  <link rel="alternate" href="/categories/simulation/index.xml" type="application/rss+xml" title="plusSixOne">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="/css/codeblock.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-light.min.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-77406420-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">plusSixOne</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Mens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflm-predictions">Predictions</a>
+                
+                  <a href="/page/aflm-games">Current Tips</a>
+                
+                  <a href="/page/aflm-model-results">Model Results</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" href="javascript:void(0)">AFL Womens</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aflw-coming-soon/">Coming Soon</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Cool Links" href="/page/cool-links/">Cool Links</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="plusSixOne" href="/">
+            <img class="avatar-img" src="/img/avator-icon-new.png" alt="plusSixOne" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h1>#Simulation</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="/page/aflm-ratings-and-simulations/">
+                <h2 class="post-title">Ratings and Simulations</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 27, 2018
+              </p>
+              <div class="post-entry">
+                
+                  Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
+Last updated: 2020-09-22.
+## ## The downloaded binary packages are in ## /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//Rtmp4Jbqoa/downloaded_packages  97941ddcaba28883aa89630e52eecb20745c5fa2 Summary Below are the updated AFL Men’s ratings and simulations.
+                  <a href="/page/aflm-ratings-and-simulations/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/simulating-the-2018-season/">
+                <h2 class="post-title">Simulating the 2018 Season</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 12, 2018
+              </p>
+              <div class="post-entry">
+                
+                  
+
+
+<p>“Training the house down” is definately not an addage that has applied to me this off-season. Despite the best intentions, I’ve left it to the final moment to start getting some content for the new season. In fairness, a lot of work behind the scenes has been happening…</p>
+
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/finals-week-1-natural-order/">
+                <h2 class="post-title">Finals Week 1 - a natural order</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on September 7, 2017
+              </p>
+              <div class="post-entry">
+                
+                  We are finally around to the first week of finals, in what is talked about as a fairly open finals race. Read on to find out what we are predicting this week and for the rest of the finals series!
+Ratings Firstly to our final ratings for the regular season interestingly, our top 8 rated teams all made finals! Sydney surged ahead after Adelaide&rsquo;s dead rubber loss to WCE. Those two teams were clear of a pretty well ordered top 8 - the only teams whose finishing position on the ladder didn&rsquo;t match their rating position is Richmond and Sydney.
+                  <a href="/post/finals-week-1-natural-order/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/post-round-20-simulations/">
+                <h2 class="post-title">Post round 20 simulations</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on August 7, 2017
+              </p>
+              <div class="post-entry">
+                
+                  I haven&rsquo;t had the time to regularly post stand alone simulation posts this year but given the tightness in the season, I thought I would start for these final few weeks. Read on to see where your team falls in our finals simulations!
+Ratings I&rsquo;ll start firstly with our current ratings. We can see that Adelaide and Sydney are clearly the big leaders here - opening up a considerable gap to 3rd.
+                  <a href="/post/post-round-20-simulations/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/simulating-2017-afl-mens-season-pre-season-edition/">
+                <h2 class="post-title">Simulating the 2017 AFL Mens season: Pre-season edition!</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on February 15, 2017
+              </p>
+              <div class="post-entry">
+                
+                  As I&rsquo;ve indicated previously, I&rsquo;ve finally cleared some time to get back into blogging! Sparked largely by a tweet from the fantastic The Arc blog, I&rsquo;ve got some very preliminary season simulations together.
+The competition proposed by The Arc is simple - put forward your probabilities of each team making the finals for 2017.
+ Think you can do a better job of predicting the finalists than our Elo model? Go on then!
+                  <a href="/post/simulating-2017-afl-mens-season-pre-season-edition/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/finals-week-2/">
+                <h2 class="post-title">Finals Week 2</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on September 15, 2016
+              </p>
+              <div class="post-entry">
+                
+                  Following a cracking weekend of finals football, I haven&rsquo;t had the time I&rsquo;d like to get this weeks results and predictions up. I also did find out that my simulation of finals script, that I&rsquo;d hurriedly written back in about round 13 actually couldn&rsquo;t handle real finals data being thrown at it. Nonetheless, the simulations of the remainder of the finals series are in, and I&rsquo;ll combine it with my predictions later on in this post!
+                  <a href="/post/finals-week-2/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/round-21-simulations/">
+                <h2 class="post-title">Round 21 Ratings and Simulations - Hawks back to the pack</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on August 10, 2016
+              </p>
+              <div class="post-entry">
+                
+                  With a big upset loss on the weekend, the Hawks is the biggest loser from the weekend results. They have dropped back into the pack of clustered teams below our clear leaders and now face a possibility of losing top spot before the season is out.
+New ratings In fact - despite having a relatively good week for head to head tipping, our ELO model has shown some considerable adjustment to the rankings this week.
+                  <a href="/post/round-21-simulations/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/round-20-elo-simulations/">
+                <h2 class="post-title">Round 20 ELO Simulations - almost set</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on August 1, 2016
+              </p>
+              <div class="post-entry">
+                
+                  ELO Ratings After seeing Hawthorn take back top stop in our ELO ratings, they&rsquo;ve quickly lost that due to a relatively poor result against Carlton. The loss of 10 rating points, combined with Sydney&rsquo;s much larger than expected win, sees those two teams sway places. Combined with Adelaide, these three teams have emerged ahead of the pack. In a distant second tier we see GWS and Geelong, who also swapped places this week.
+                  <a href="/post/round-20-elo-simulations/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/beyond-the-8-point-game-estimating-match-importance-in-the-afl/">
+                <h2 class="post-title">Beyond the 8 point game - estimating match importance in the AFL</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on June 16, 2016
+              </p>
+              <div class="post-entry">
+                
+                  As I was watching an enthralling match between Western Bulldogs and Port Adelaide over the weekend, there was a lot of discussion about how important the match was - the Bulldogs needed to win to cement their spot in the top 8, while Port needed to win to have any chance of jumping up. It&rsquo;s also not uncommon for commentators to discuss the notion of an &ldquo;8 point game&rdquo;, typically when two teams close on the ladder play each other.
+                  <a href="/post/beyond-the-8-point-game-estimating-match-importance-in-the-afl/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="/post/leaping-kangaroos/">
+                <h2 class="post-title">Leaping Kangaroos</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on May 13, 2016
+              </p>
+              <div class="post-entry">
+                
+                  The Kangaroos, often considered &lsquo;un-sexy&rsquo;, are putting together a pretty nice season. I&rsquo;ve discussed previously that early wins in a season is strongly related to wins by seasons end and, although my current ELO rating for North Melbourne only ranks them as the 8th best team[ref] I suspect this is largely due to winning games by less than expected[/ref], their current bank of 7 wins gives them a good base to work off for the rest of the year.
+                  <a href="/post/leaping-kangaroos/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="/categories/simulation/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:jamesthomasday@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/plussixoneblog" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jimmyday12" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/plusSixOneblog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/james-day-ab648321" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="/categories/simulation/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="plussixoneblog.com">James Day</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;
+          2020
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/">plusSixOne</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.75.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+  </body>
+</html>
+
