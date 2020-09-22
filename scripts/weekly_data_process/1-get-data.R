@@ -43,9 +43,10 @@ fixture_afl <- fixture_afl %>%
          Home.Team = home_name,
          Away.Team = away_name,
          Venue = venue_name,
-         Season = season
+         Season = season,
+         Finals = ifelse(str_detect(round_name, "Round"), FALSE, TRUE) 
          ) %>%
-  select(Game, Date, Round, Home.Team, Away.Team, Venue, Season)
+  select(Game, Date, Round, round_name, Home.Team, Away.Team, Venue, Season, Finals, status)
 
 fixture_afl <- fixture_afl %>%
   mutate(Home.Team = convert_teams_afl(Home.Team),

@@ -1,2 +1,5 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2020,15767,2020-09-21,"Mon, 21",00:00,18,Gabba,Collingwood,Port Adelaide,4.1,0.541,Collingwood by 4
+2020,15768,2020-10-01,"Thu, 01",00:00,19,Adelaide Oval,Port Adelaide,Geelong,3.5,0.535,Port Adelaide by 4
+2020,15769,2020-10-02,"Fri, 02",00:00,19,Gabba,Brisbane Lions,Richmond,-3.2,0.468,Richmond by 3
+2020,15770,2020-10-03,"Sat, 03",00:00,19,Gabba,St Kilda,Footscray,1.9,0.519,St Kilda by 2
+2020,15771,2020-10-03,"Sat, 03",00:00,19,Perth Stadium,West Coast,Collingwood,7.6,0.575,West Coast by 8

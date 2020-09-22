@@ -64,7 +64,7 @@ if (new_data) {
   # Bind together and fix stadiums
   # Fixture is broken, lets see if removing round helps
   #dat$fixture$Round = NA
-  
+  dat$fixture <- dat$fixture %>% filter(status != "CONCLUDED")
   dat$game_dat <- bind_rows(dat$results, dat$fixture)
   
   dup_games <- dat$game_dat %>% select(Date, Home.Team, Away.Team) %>% duplicated()
@@ -115,7 +115,9 @@ if (new_data) {
   print(proc.time() - ptm)
   message("ELO Run")
 
-  # Predictions -------------------------------------------------------------
+  # Predictions ------------------------------------------------------------
+    
+  
   # Do predictions
   dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data)
 
