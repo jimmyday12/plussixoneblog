@@ -3095,8 +3095,13 @@ Melbourne,15,NA,NA,,2020,18
 Melbourne,16,NA,NA,,2020,18
 Melbourne,17,NA,NA,,2020,18
 Melbourne,18,NA,NA,,2020,18
+<<<<<<< HEAD
 Collingwood,8,67.81,1,68,2020,18
 Collingwood,7,32.190000000000005,2,32,2020,18
+=======
+Collingwood,8,68.30000000000001,1,68,2020,18
+Collingwood,7,31.7,2,32,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 Collingwood,1,NA,NA,,2020,18
 Collingwood,2,NA,NA,,2020,18
 Collingwood,3,NA,NA,,2020,18
@@ -3113,9 +3118,15 @@ Collingwood,15,NA,NA,,2020,18
 Collingwood,16,NA,NA,,2020,18
 Collingwood,17,NA,NA,,2020,18
 Collingwood,18,NA,NA,,2020,18
+<<<<<<< HEAD
 Footscray,6,43.44,1,43,2020,18
 Footscray,7,37.79,2,38,2020,18
 Footscray,8,18.77,3,19,2020,18
+=======
+Footscray,6,43.46,1,43,2020,18
+Footscray,7,37.99,2,38,2020,18
+Footscray,8,18.55,3,19,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 Footscray,1,NA,NA,,2020,18
 Footscray,2,NA,NA,,2020,18
 Footscray,3,NA,NA,,2020,18
@@ -3131,9 +3142,15 @@ Footscray,15,NA,NA,,2020,18
 Footscray,16,NA,NA,,2020,18
 Footscray,17,NA,NA,,2020,18
 Footscray,18,NA,NA,,2020,18
+<<<<<<< HEAD
 St Kilda,6,56.56,1,57,2020,18
 St Kilda,7,30.020000000000003,2,30,2020,18
 St Kilda,8,13.420000000000002,3,13,2020,18
+=======
+St Kilda,6,56.54,1,57,2020,18
+St Kilda,7,30.31,2,30,2020,18
+St Kilda,8,13.15,3,13,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 St Kilda,1,NA,NA,,2020,18
 St Kilda,2,NA,NA,,2020,18
 St Kilda,3,NA,NA,,2020,18
@@ -3149,9 +3166,15 @@ St Kilda,15,NA,NA,,2020,18
 St Kilda,16,NA,NA,,2020,18
 St Kilda,17,NA,NA,,2020,18
 St Kilda,18,NA,NA,,2020,18
+<<<<<<< HEAD
 Geelong,4,41.56,1,42,2020,18
 Geelong,5,40.48,2,40,2020,18
 Geelong,3,17.96,3,18,2020,18
+=======
+Geelong,5,42.02,1,42,2020,18
+Geelong,4,40.050000000000004,2,40,2020,18
+Geelong,3,17.93,3,18,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 Geelong,1,NA,NA,,2020,18
 Geelong,2,NA,NA,,2020,18
 Geelong,6,NA,NA,,2020,18
@@ -3167,9 +3190,15 @@ Geelong,15,NA,NA,,2020,18
 Geelong,16,NA,NA,,2020,18
 Geelong,17,NA,NA,,2020,18
 Geelong,18,NA,NA,,2020,18
+<<<<<<< HEAD
 West Coast,5,47.64,1,48,2020,18
 West Coast,4,34.93,2,35,2020,18
 West Coast,3,17.43,3,17,2020,18
+=======
+West Coast,5,45.93,1,46,2020,18
+West Coast,4,36.15,2,36,2020,18
+West Coast,3,17.919999999999998,3,18,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 West Coast,1,NA,NA,,2020,18
 West Coast,2,NA,NA,,2020,18
 West Coast,6,NA,NA,,2020,18
@@ -3185,9 +3214,15 @@ West Coast,15,NA,NA,,2020,18
 West Coast,16,NA,NA,,2020,18
 West Coast,17,NA,NA,,2020,18
 West Coast,18,NA,NA,,2020,18
+<<<<<<< HEAD
 Richmond,3,64.61,1,65,2020,18
 Richmond,4,23.51,2,24,2020,18
 Richmond,5,11.88,3,12,2020,18
+=======
+Richmond,3,64.14999999999999,1,64,2020,18
+Richmond,4,23.799999999999997,2,24,2020,18
+Richmond,5,12.049999999999999,3,12,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 Richmond,1,NA,NA,,2020,18
 Richmond,2,NA,NA,,2020,18
 Richmond,6,NA,NA,,2020,18
@@ -3203,8 +3238,13 @@ Richmond,15,NA,NA,,2020,18
 Richmond,16,NA,NA,,2020,18
 Richmond,17,NA,NA,,2020,18
 Richmond,18,NA,NA,,2020,18
+<<<<<<< HEAD
 Brisbane Lions,2,81.34,1,81,2020,18
 Brisbane Lions,1,18.66,2,19,2020,18
+=======
+Brisbane Lions,2,81.39,1,81,2020,18
+Brisbane Lions,1,18.61,2,19,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 Brisbane Lions,3,NA,NA,,2020,18
 Brisbane Lions,4,NA,NA,,2020,18
 Brisbane Lions,5,NA,NA,,2020,18
@@ -3221,8 +3261,13 @@ Brisbane Lions,15,NA,NA,,2020,18
 Brisbane Lions,16,NA,NA,,2020,18
 Brisbane Lions,17,NA,NA,,2020,18
 Brisbane Lions,18,NA,NA,,2020,18
+<<<<<<< HEAD
 Port Adelaide,1,81.34,1,81,2020,18
 Port Adelaide,2,18.66,2,19,2020,18
+=======
+Port Adelaide,1,81.39,1,81,2020,18
+Port Adelaide,2,18.61,2,19,2020,18
+>>>>>>> 97941ddcaba28883aa89630e52eecb20745c5fa2
 Port Adelaide,3,NA,NA,,2020,18
 Port Adelaide,4,NA,NA,,2020,18
 Port Adelaide,5,NA,NA,,2020,18
