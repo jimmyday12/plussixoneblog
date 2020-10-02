@@ -19,11 +19,17 @@ convert_results <- function(df) {
          Away.Team = ifelse(Away.Team == "Western Bulldogs", "Footscray", Away.Team),
          Away.Team = ifelse(Away.Team == "Brisbane", "Brisbane Lions", Away.Team),
          Margin = Home.Points - Away.Points,
-         Round.Number = stringr::str_extract(Round, "[0-9]+") %>% as.numeric(),
-         First.Game = Round.Number == 1,
          Round.Type = ifelse(stringr::str_detect(Round, "Round"), "Regular", "Finals"),
-         seas_rnd = paste0(Season, ".", Round.Number)) %>%
-  select(-Time)
+         Round.Number = stringr::str_extract(Round, "[0-9]+") %>% as.numeric())
+  
+  df <- df %>%
+    mutate(
+      Round.Number = ifelse(Round.Type == "Finals", max(df$Round.Number, na.rm = TRUE) + 1, Round.Number),
+      First.Game = Round.Number == 1,
+      seas_rnd = paste0(Season, ".", Round.Number)) 
+         
+  df %>%
+    select(-Time)
 }
 
 

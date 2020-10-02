@@ -229,31 +229,40 @@ if (new_data) {
     predictions = dat$predictions
   )
   
+  # Save data
+
+  write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
+  
+  # Save Predictions
+  predictions_csv <- aflm_data$predictions %>%
+    select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
+  write_csv(aflm_data$predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
+  write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions_new.csv"))
+  
+  # Save elo
+  write_csv(aflm_data$elo, path = here::here("data_files", "raw-data", "AFLM_elo.csv"))
+
+  
+  # Save sims
+  if (home_away_ongoing) {
   aflm_sims <- list(
     sim_data_summary = sim_dat$sim_data_summary,
     sim_data_all = sim_dat$sim_data_all,
     simCount = sim_dat$simCount
   )
+
   
-  rm(sim_dat)
-  rm(dat)
-  
-  # Save
-  write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
-  write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
+  # Save data
   write_rds(aflm_sims, path = here::here("data_files", "raw-data", "AFLM_sims.rds"), compress = "bz")
-  
-  # Predictions
-  predictions_csv <- aflm_data$predictions %>%
-    select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
-  
-  write_csv(aflm_data$predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
-  write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions_new.csv"))
   
   # Writing csv
   write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
   write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
-  write_csv(aflm_data$elo, path = here::here("data_files", "raw-data", "AFLM_elo.csv"))
+  
+  # Save finals
+  write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
+  
+  }
   
   # Message
   print(proc.time() - ptm)
@@ -268,6 +277,8 @@ if (new_data) {
 
 print(proc.time() - ptm)
 message("Finished!")
+rm(sim_dat)
+rm(dat)
 # blogdown:::serve_site()
 # blogdown::hugo_build()
 # blogdown::build_site()
