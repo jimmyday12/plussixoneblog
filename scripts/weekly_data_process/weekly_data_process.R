@@ -206,12 +206,16 @@ if (new_data) {
     final_game = finals_sims$final_game,
     sim_data_summary = sim_dat$sim_data_summary,
     results = dat$results,
-    elo.data = elo_dat$elo.data
+    elo.data = elo_dat$elo.data,
+    sim_num = sim_num
   )
+  
+  finals_dat$home_away_ongoing <- home_away_ongoing
   }
   
   if (finals_scheduled | finals_started) {
     message("Doing Finals Sims In Finals")
+    final_sim_num <- 1000
     sim_dat <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
     finals_results <- dat$results %>% 
       filter(Season == season & Round.Type == "Finals")
@@ -220,7 +224,7 @@ if (new_data) {
     
     finals_sims <- do_finals_sims(sim_data_all = sim_dat$sim_data_all, 
                    game_dat = dat$game_dat, 
-                   sim_num = 1000,
+                   sim_num = final_sim_num,
                    elo.data = elo_dat$elo.data,
                    sim_elo_perterbed = NULL,
                    last_round = last_round,
@@ -234,9 +238,12 @@ if (new_data) {
       sim_data_summary = sim_dat$sim_data_summary,
       results = dat$results,
       elo.data = elo_dat$elo.data,
+      sim_num = final_sim_num,
       ladder = dat$ladder,
       home_and_away_complete = TRUE
     )
+    
+    finals_dat$home_away_ongoing <- home_away_ongoing
     
   }
   
