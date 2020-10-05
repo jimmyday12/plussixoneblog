@@ -96,10 +96,20 @@ results <- bind_rows(results, results_new) %>%
   filter(!(row_number() == 2 & is.na(Game))) %>%
   ungroup()
 
+# Ladder 
+df <- results %>% 
+  filter(Season == 2020 & Round.Type == "Regular" & !is.na(Margin))
+
+ladder <- fitzRoy::fetch_afl_ladder(season, round_number = max(df$Round.Number), comp = "AFLM")
+
+ladder <- ladder %>%
+  mutate(team.name = convert_teams_afl(team.name))
+
 # Get states data - this comes from another script I run when a new venue or team occurs
 states <- read_rds(here::here("data_files", "raw-data", "states.rds"))
 message("Data loaded")
 dat <- list(fixture = fixture,
             results = results,
+            ladder = ladder,
             states = states)
 }

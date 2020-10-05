@@ -30,7 +30,7 @@ h <- 20
 k_val <- 20
 carryOver <- 0.05
 B <- 0.04
-sim_num <-  2
+sim_num <-  10000
 
 # Get Data ----------------------------------------------------------------
 # First check if new games exist
@@ -170,11 +170,6 @@ if (new_data) {
     past_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
     combine_past_sims(sim_dat$sim_data_summary, round, season, past_sims)
     
-    # Print to console
-    sim_dat$sim_data_summary %>%
-      filter(Round == round) %>%
-      tail()
-    
     sim_dat$simCount <- count_sims(
       sim_dat$sim_data_all,
       sim_dat$sim_data_summary,
@@ -195,8 +190,7 @@ if (new_data) {
   # source finals sims
   
   if (home_away_ongoing) {
-  message("Doing Finals Sims")
-  
+    message("Doing Finals Sims H&A")
   last_round <- last(dat$fixture$Round.Number)
   
   finals_sims <- do_finals_sims(
@@ -214,11 +208,41 @@ if (new_data) {
     results = dat$results,
     elo.data = elo_dat$elo.data
   )
+  }
+  
+  if (finals_scheduled | finals_started) {
+    message("Doing Finals Sims In Finals")
+    sim_dat <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
+    finals_results <- dat$results %>% 
+      filter(Season == season & Round.Type == "Finals")
+    
+    finals_weeks_completed <- length(unique(finals_results$Round))
+    
+    finals_sims <- do_finals_sims(sim_data_all = sim_dat$sim_data_all, 
+                   game_dat = dat$game_dat, 
+                   sim_num = 1000,
+                   elo.data = elo_dat$elo.data,
+                   sim_elo_perterbed = NULL,
+                   last_round = last_round,
+                   ladder = dat$ladder,
+                   finals_started = finals_started,
+                   finals_week = finals_weeks_completed,
+                   finals_results = finals_results)
+    
+    finals_dat <- combine_finals_sims(
+      final_game = finals_sims$final_game,
+      sim_data_summary = sim_dat$sim_data_summary,
+      results = dat$results,
+      elo.data = elo_dat$elo.data,
+      ladder = dat$ladder,
+      home_and_away_complete = TRUE
+    )
+    
+  }
+  
   
   print(proc.time() - ptm)
   message("Finals Sims done")
-  }
-  
   # Save Data ---------------------------------------------------------------
   message("Saving data")
   # Create list

@@ -58,22 +58,63 @@ add_formula_variables <- function(fixture) {
            Away.Factor = 0)
 }
 
+get_wk1_names <- function(ladder_pos) {
+  case_when(
+    ladder_pos == 1 ~ "QF1",
+    ladder_pos == 2 ~ "QF2",
+    ladder_pos == 5 ~ "EF1",
+    ladder_pos == 6 ~ "EF2",
+    TRUE ~ "")
+}
+
+get_wk2_names <- function(ladder_pos) {
+  case_when(
+    ladder_pos == 1 ~ "SF1",
+    ladder_pos == 4 ~ "SF1",
+    ladder_pos == 2 ~ "SF2",
+    ladder_pos == 3 ~ "SF2",
+    TRUE ~ "")
+}
+
+get_wk3_names <- function(ladder_pos) {
+  case_when(
+    ladder_pos == 1 ~ "PF1",
+    ladder_pos == 4 ~ "PF1",
+    ladder_pos == 2 ~ "PF2",
+    ladder_pos == 3 ~ "PF2",
+    TRUE ~ "")
+}
 
 # Add elo
-
-
 do_finals_sims <- function(sim_data_all, 
                            game_dat, 
                            sim_num, 
                            elo.data,
                            sim_elo_perterbed,
-                           last_round){
+                           last_round,
+                           ladder = NULL,
+                           finals_started = FALSE,
+                           finals_week = NULL,
+                           finals_results = NULL){
   
   form <- elo:::clean_elo_formula(stats::terms(elo.data))
+  
+  sim_elo_perterbed <- 1:sim_num %>%
+    rep_along(list(elo.data)) %>%
+    map(perturb_elos) 
+  
   finals_elos <- sim_elo_perterbed[1:sim_num]
   
+  finals_results <- finals_results %>%
+    mutate(Finals_week = Round - min(Round) + 1,
+           Win = as.numeric(Margin > 0)) %>%
+    left_join(sim_ladder[[1]], by = c("Home.Team" = "Team"))
+  
+  if (is.null(finals_week)) finals_week <- 0
   # Week 1 -----------------------------------------------------------------------
   # Step 1 - get top 8
+  if (is.null(ladder) | !finals_started){
+
   sim_ladder <- sim_data_all %>%
     filter(Top.8) %>%
     arrange(Sim, Rank) %>%
@@ -81,9 +122,18 @@ do_finals_sims <- function(sim_data_all,
     select(Sim, Team, Rank) %>%
     group_split() %>%
     .[1:sim_num]
+  } else {
+    sim_ladder <- ladder %>%
+      rename(Team = team.name, Rank = position) %>%
+      select(Team, Rank) %>%
+      filter(Rank < 9)
+    
+    sim_ladder <- 1:sim_num %>%
+      map(~mutate(sim_ladder, Sim = .x))
+  }
   
   #game_dat <-  game_dat
-  
+  if (finals_week < 1){
   # Step 2 - create fixture
   wk1_fixture <- create_finals_fixture(week = 1, 
                                        season = last(game_dat$Season),
@@ -102,8 +152,18 @@ do_finals_sims <- function(sim_data_all,
   
   # Step 5 - simulate results
   wk1_results <- simulate_finals(form, wk1_fixture, finals_elos, sim_num)
+  } else {
+    wk1_results <- finals_results %>%
+      filter(Finals_week == 1) %>%
+      mutate(Game_Name = get_wk1_names(Rank)) 
+    
+    wk1_results <- 1:sim_num %>%
+      map(~mutate(wk1_results, Sim = .x))
+  }
   
   # Week 2 -----------------------------------------------------------------------
+  if (finals_week < 2) {
+    
   # Step 1 - get week 2 teams
   wk2_teams <- wk1_results %>%
     map(~mutate(.x,
@@ -131,9 +191,19 @@ do_finals_sims <- function(sim_data_all,
   
   # Step 5 - simulate results
   wk2_results <- simulate_finals(form, wk2_fixture, finals_elos, sim_num)
+  } else {
+    wk2_results <- finals_results %>%
+      filter(Finals_week == 2) %>%
+      mutate(Game_Name = get_wk2_names(Rank))
+      
+    wk2_results <- 1:sim_num %>%
+      map(~mutate(wk2_results, Sim = .x))
+  }
   
   # Week 3 -----------------------------------------------------------------------
   # Step 1 - get week 2 teams
+  if (finals_week < 3) {
+  
   wk3_teams <- wk2_results %>%
     map2(.y = wk2_teams, 
          ~mutate(.x,
@@ -162,11 +232,20 @@ do_finals_sims <- function(sim_data_all,
   
   # Step 5 - simulate results
   wk3_results <- simulate_finals(form, wk3_fixture, finals_elos, sim_num)
-  
+  } else {
+    wk3_results <- finals_results %>%
+      filter(Finals_week == 3) %>%
+      mutate(Game_Name = get_wk3_names(Rank)) 
+      
+      wk3_results <- 1:sim_num %>%
+        map(~mutate(wk3_results, Sim = .x))
+  }
   
   
   # Week 4 -----------------------------------------------------------------------
+  if (finals_week < 4) {
   # Step 1 - get week 2 teams
+  
   wk4_teams <- wk3_results %>%
     map2(.y = wk3_teams, 
          ~mutate(.x,
@@ -195,7 +274,14 @@ do_finals_sims <- function(sim_data_all,
   
   # Step 5 - simulate results
   wk4_results <- simulate_finals(form, wk4_fixture, finals_elos, sim_num)
-  
+  } else{
+    wk4_results <- finals_results %>%
+      filter(Finals_week == 4) %>%
+      mutate(Game_Name = "GF") 
+      
+      wk4_results <- 1:sim_num %>%
+        map(~mutate(wk4_results, Sim = .x))
+  }
   # Combine and sunmmarise -------------------------------------------------------
   final_teams <- wk4_results %>%
     map2(.y = wk4_teams, 
@@ -229,7 +315,10 @@ do_finals_sims <- function(sim_data_all,
 combine_finals_sims <- function(final_game,
                                 sim_data_summary, 
                                 results, 
-                                elo.data) {
+                                elo.data,
+                                sim_num = 1,
+                                ladder = NULL,
+                                home_and_away_complete = FALSE) {
   
   final_summary_long <- bind_rows(final_game)
   final_summary_wide <- final_summary_long %>%
@@ -244,13 +333,29 @@ combine_finals_sims <- function(final_game,
     mutate_if(is.numeric, ~./sim_num) %>%
     mutate_all(replace_na, 0)
   
-  season_sims <- sim_data_summary %>%
-    filter(Season == max(final_summary_wide$Season)) %>%
-    filter(Round == max(Round))
+  if(home_and_away_complete) {
+    final_ladder <- ladder %>%
+      mutate(Margin = pointsFor - pointsAgainst) %>%
+      rename(Rank = position,
+             Team = team.name,
+             Season = season,
+             Round = round_number,
+             Wins = thisSeasonRecord.winLossRecord.wins,
+             Perc = thisSeasonRecord.percentage) %>%
+      select(Rank, Team, Season, Round, Margin, Wins, Perc) %>%
+      mutate(Top.8 = as.numeric(Rank <= 8),
+             Top.4 = as.numeric(Rank <= 4),
+             Top.2 = as.numeric(Rank <= 2),
+             Top.1 = as.numeric(Rank == 1))
+
+  } else {
+    final_ladder <- sim_data_summary %>%
+      filter(Season == max(final_summary_wide$Season)) %>%
+      filter(Round == max(Round))
+  }
   
-  sims_combined <- season_sims %>%
+  sims_combined <- final_ladder %>%
     left_join(final_summary_wide, by = c("Team", "Season"))
-  
   
   # Add elo
   elos <- elo.data %>% 
@@ -278,35 +383,46 @@ combine_finals_sims <- function(final_game,
     mutate_all(replace_na, 0)
   
   
-  # Get current results
-  res <- results
-  res <- res %>% 
-    filter(Season == max(sims_combined$Season)) %>%
-    select(Season, Home.Team, Away.Team, Home.Points, Away.Points, Round) %>%
-    mutate(Margin = Home.Points - Away.Points,
-           Home.Result = case_when(Margin > 0 ~ 1,
-                                   Margin < 0 ~ 0,
-                                   TRUE ~ 0.5))
+  # # Get current results
+  # res <- results
+  # res <- res %>% 
+  #   filter(Season == max(sims_combined$Season)) %>%
+  #   select(Season, Home.Team, Away.Team, Home.Points, Away.Points, Round) %>%
+  #   mutate(Margin = Home.Points - Away.Points,
+  #          Home.Result = case_when(Margin > 0 ~ 1,
+  #                                  Margin < 0 ~ 0,
+  #                                  TRUE ~ 0.5))
+  # 
+  # win_loss <- res %>%
+  #   pivot_longer(cols = c("Home.Team", "Away.Team"),
+  #                names_to = "Status", 
+  #                values_to = "Team") %>%
+  #   mutate(Result = ifelse(Status == "Home.Team", Home.Result, 1-Home.Result)) %>%
+  #   select(Season, Team, Round, Result) %>%
+  #   group_by(Team, Season) %>%
+  #   mutate(Wins = ifelse(Result == 1, 1, 0),
+  #          Losses = ifelse(Result == 0, 1, 0),
+  #          Draws = ifelse(Result == 0.5, 1, 0)) %>%
+  #   summarise(Wins = sum(Wins),
+  #             Losses = sum(Losses),
+  #             Draws = sum(Draws)) %>%
+  #   mutate(Form = ifelse(Draws > 0, 
+  #                        paste0(Wins, "-", Losses, "-", Draws),
+  #                        paste0(Wins, "-", Losses)))
   
-  win_loss <- res %>%
-    pivot_longer(cols = c("Home.Team", "Away.Team"),
-                 names_to = "Status", 
-                 values_to = "Team") %>%
-    mutate(Result = ifelse(Status == "Home.Team", Home.Result, 1-Home.Result)) %>%
-    select(Season, Team, Round, Result) %>%
-    group_by(Team, Season) %>%
-    mutate(Wins = ifelse(Result == 1, 1, 0),
-           Losses = ifelse(Result == 0, 1, 0),
-           Draws = ifelse(Result == 0.5, 1, 0)) %>%
-    summarise(Wins = sum(Wins),
-              Losses = sum(Losses),
-              Draws = sum(Draws)) %>%
+  win_loss <- ladder %>% 
+    rename(Team = team.name,
+           Season = season,
+           Wins = thisSeasonRecord.winLossRecord.wins,
+           Losses = thisSeasonRecord.winLossRecord.losses,
+           Draws = thisSeasonRecord.winLossRecord.draws) %>%
     mutate(Form = ifelse(Draws > 0, 
                          paste0(Wins, "-", Losses, "-", Draws),
-                         paste0(Wins, "-", Losses)))
+                         paste0(Wins, "-", Losses))) %>%
+    select(Team, Season, Form)
   
   sims_combined <- sims_combined %>%
-    left_join(select(win_loss, Team, Season, Form), by = c("Team", "Season"))
+    left_join(win_loss, by = c("Team", "Season"))
   
   aflm_finals_sims <- list(sims_combined = sims_combined,
                            win_loss = win_loss)

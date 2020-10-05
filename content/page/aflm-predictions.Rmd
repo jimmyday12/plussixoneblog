@@ -31,6 +31,8 @@ forecasts2 <- aflm_finals_sims$sims_combined %>%
     global_o = elo,
     global_d = elo
   )
+home_away_ongoing <- aflm_finals_sims$home_away_ongoing
+
 
 forecasts2 <- forecasts2 %>%
   mutate(elo.change = ifelse(elo.change == 0, NA, elo.change))
@@ -44,6 +46,12 @@ forecasts2 <- forecasts2[, c(
   group_cols,
   knockout_cols
 )]
+
+if(home_away_ongoing) {
+  sort_col <- list(Wins = "desc", win_league = "desc")
+} else {
+  sort_col <- list(win_league = "desc", Wins = "desc")
+}
 ```
 
 ```{r functions, include=FALSE}
@@ -102,8 +110,8 @@ tbl <- reactable(
   forecasts2,
   pagination = FALSE,
   width = "100%",
-  defaultSorted = "Wins",
-  defaultSortOrder = "desc",
+  defaultSorted = sort_col,
+  #defaultSortOrder = "desc",
   defaultColGroup = colGroup(headerClass = "group-header"),
   columnGroups = list(
     colGroup(name = "Team Rating", columns = rating_cols),
