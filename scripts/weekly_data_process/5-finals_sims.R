@@ -99,6 +99,7 @@ do_finals_sims <- function(sim_data_all,
   
   form <- elo:::clean_elo_formula(stats::terms(elo.data))
   
+  # This is inefficient
   sim_elo_perterbed <- 1:sim_num %>%
     rep_along(list(elo.data)) %>%
     map(perturb_elos) 
@@ -107,8 +108,10 @@ do_finals_sims <- function(sim_data_all,
   
   finals_results <- finals_results %>%
     mutate(Finals_week = Round - min(Round) + 1,
-           Win = as.numeric(Margin > 0)) %>%
-    left_join(sim_ladder[[1]], by = c("Home.Team" = "Team"))
+           Win = as.numeric(Margin > 0))
+    
+  #finals_results <- finals_results %>%
+  #  left_join(sim_ladder[1], by = c("Home.Team" = "Team"))
   
   if (is.null(finals_week)) finals_week <- 0
   # Week 1 -----------------------------------------------------------------------
@@ -130,6 +133,10 @@ do_finals_sims <- function(sim_data_all,
     
     sim_ladder <- 1:sim_num %>%
       map(~mutate(sim_ladder, Sim = .x))
+    
+    finals_results <- finals_results %>%
+      left_join(sim_ladder[[1]], by = c("Home.Team" = "Team"))
+
   }
   
   #game_dat <-  game_dat
@@ -159,6 +166,13 @@ do_finals_sims <- function(sim_data_all,
     
     wk1_results <- 1:sim_num %>%
       map(~mutate(wk1_results, Sim = .x))
+    
+    wk2_teams <- wk1_results %>%
+      map(~mutate(.x,
+                  Winner = ifelse(Win == 1, Home.Team, Away.Team),
+                  Loser = ifelse(Win == 0, Home.Team, Away.Team)) %>%
+            select(Season, Finals_week, Game_Name, Winner, Loser, Sim))
+
   }
   
   # Week 2 -----------------------------------------------------------------------
@@ -198,6 +212,12 @@ do_finals_sims <- function(sim_data_all,
       
     wk2_results <- 1:sim_num %>%
       map(~mutate(wk2_results, Sim = .x))
+    
+    wk3_teams <- wk2_results %>%
+      map(~mutate(.x,
+                  Winner = ifelse(Win == 1, Home.Team, Away.Team),
+                  Loser = ifelse(Win == 0, Home.Team, Away.Team)) %>%
+            select(Season, Finals_week, Game_Name, Winner, Loser, Sim))
   }
   
   # Week 3 -----------------------------------------------------------------------
@@ -210,7 +230,8 @@ do_finals_sims <- function(sim_data_all,
                  Winner = ifelse(Win == 1, Home.Team, Away.Team),
                  Loser = ifelse(Win == 0, Home.Team, Away.Team)) %>%
            select(Season, Finals_week, Game_Name, Winner, Loser, Sim) %>%
-           bind_rows(.y))
+           bind_rows(.y) %>%
+           distinct())
   
   # Step 2 - create fixture
   wk3_fixture <- create_finals_fixture(week = 3, 
@@ -239,6 +260,12 @@ do_finals_sims <- function(sim_data_all,
       
       wk3_results <- 1:sim_num %>%
         map(~mutate(wk3_results, Sim = .x))
+      
+      wk4_teams <- wk3_results %>%
+        map(~mutate(.x,
+                    Winner = ifelse(Win == 1, Home.Team, Away.Team),
+                    Loser = ifelse(Win == 0, Home.Team, Away.Team)) %>%
+              select(Season, Finals_week, Game_Name, Winner, Loser, Sim))
   }
   
   

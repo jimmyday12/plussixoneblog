@@ -221,6 +221,7 @@ if (new_data) {
       filter(Season == season & Round.Type == "Finals")
     
     finals_weeks_completed <- length(unique(finals_results$Round))
+    last_round <- last(dat$fixture$Round.Number)
     
     finals_sims <- do_finals_sims(sim_data_all = sim_dat$sim_data_all, 
                    game_dat = dat$game_dat, 
@@ -289,6 +290,7 @@ if (new_data) {
   # Writing csv
   write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
   write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
+  
   
   # Save finals
   write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
