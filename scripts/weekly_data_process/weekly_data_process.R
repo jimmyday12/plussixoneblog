@@ -276,7 +276,7 @@ if (new_data) {
 
   
   # Save sims
-  if (home_away_ongoing) {
+  if (home_away_ongoing | finals_scheduled | finals_started) {
   aflm_sims <- list(
     sim_data_summary = sim_dat$sim_data_summary,
     sim_data_all = sim_dat$sim_data_all,

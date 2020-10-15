@@ -50,7 +50,12 @@ forecasts2 <- forecasts2[, c(
 if(home_away_ongoing) {
   sort_col <- list(Wins = "desc", win_league = "desc")
 } else {
-  sort_col <- list(win_league = "desc", Wins = "desc")
+  sort_col <- list(win_league = "desc", 
+                   make_gf = "desc", 
+                   make_prelim = "desc", 
+                   make_semis = "desc",
+                   Wins = "desc", 
+                   elo = "desc")
 }
 ```
 
