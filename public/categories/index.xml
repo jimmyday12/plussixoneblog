@@ -7,13 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>fitzroy</title>
       <link>/categories/fitzroy/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/categories/fitzroy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AFL</title>
+      <link>/categories/afl/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/afl/</guid>
       <description></description>
     </item>
     
@@ -81,11 +94,11 @@
     </item>
     
     <item>
-      <title>AFL</title>
-      <link>/categories/afl/</link>
+      <title>AFLW</title>
+      <link>/categories/aflw/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/afl/</guid>
+      <guid>/categories/aflw/</guid>
       <description></description>
     </item>
     
@@ -95,15 +108,6 @@
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>/categories/aflwednesdaywonk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AFLW</title>
-      <link>/categories/aflw/</link>
-      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/categories/aflw/</guid>
       <description></description>
     </item>
     
