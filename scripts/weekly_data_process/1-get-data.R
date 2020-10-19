@@ -96,6 +96,11 @@ results <- bind_rows(results, results_new) %>%
   filter(!(row_number() == 2 & is.na(Game))) %>%
   ungroup()
 
+rnd <- max(results$Round.Number[results$Season == season])
+
+results <- results %>%
+  mutate(Round.Number = ifelse(Round.Number < max(Round.Number) & is.na(Game),rnd + 1, Round.Number))
+
 # Ladder 
 df <- results %>% 
   filter(Season == 2020 & Round.Type == "Regular" & !is.na(Margin))
