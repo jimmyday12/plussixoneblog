@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on plusSixOne</title>
-    <link>/page/</link>
+    <link>https://plussixoneblog.com/page/</link>
     <description>Recent content in Pages on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
     <lastBuildDate>Fri, 07 Aug 2020 11:41:36 +1000</lastBuildDate>
     
-	<atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://plussixoneblog.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Aflm Games</title>
-      <link>/page/aflm-games/</link>
+      <link>https://plussixoneblog.com/page/aflm-games/</link>
       <pubDate>Fri, 07 Aug 2020 11:41:36 +1000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-games/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-games/</guid>
       <description>AFLM Premiership 2020 Match Predictions Predicted results based on ELO ratings for upcoming Men&#39;s AFL games.  Last updated Oct 19 at 02:59pm  {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;Game&#34;:[15776],&#34;Season&#34;:[2020],&#34;Date&#34;:[&#34;Sat, Oct 24&#34;],&#34;Time&#34;:[&#34;00:00&#34;],&#34;Round.Number&#34;:[22],&#34;Venue&#34;:[&#34;Gabba&#34;],&#34;Home.Team&#34;:[&#34;Richmond&#34;],&#34;Away.Team&#34;:[&#34;Geelong&#34;],&#34;Prediction&#34;:[-3.1],&#34;Probability&#34;:[0.469],&#34;Margin&#34;:[&#34;NA&#34;]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;Game&#34;,&#34;name&#34;:&#34;Game&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;show&#34;:false},{&#34;accessor&#34;:&#34;Season&#34;,&#34;name&#34;:&#34;Season&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;show&#34;:false,&#34;maxWidth&#34;:70},{&#34;accessor&#34;:&#34;Date&#34;,&#34;name&#34;:&#34;Date&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;maxWidth&#34;:90},{&#34;accessor&#34;:&#34;Time&#34;,&#34;name&#34;:&#34;Time&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;show&#34;:false},{&#34;accessor&#34;:&#34;Round.Number&#34;,&#34;name&#34;:&#34;Round&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;maxWidth&#34;:60},{&#34;accessor&#34;:&#34;Venue&#34;,&#34;name&#34;:&#34;Venue&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;maxWidth&#34;:100},{&#34;accessor&#34;:&#34;Home.Team&#34;,&#34;name&#34;:&#34;Home&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;defaultSortDesc&#34;:false,&#34;cell&#34;:[{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Richmond flag&#34;,&#34;src&#34;:&#34;/images/Richmond.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Richmond&#34;]}]}],&#34;minWidth&#34;:200,&#34;maxWidth&#34;:185,&#34;align&#34;:&#34;left&#34;,&#34;headerStyle&#34;:{&#34;fontWeight&#34;:700}},{&#34;accessor&#34;:&#34;Away.Team&#34;,&#34;name&#34;:&#34;Away&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;defaultSortDesc&#34;:false,&#34;cell&#34;:[{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Geelong flag&#34;,&#34;src&#34;:&#34;/images/Geelong.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Geelong&#34;]}]}],&#34;minWidth&#34;:200,&#34;maxWidth&#34;:185,&#34;align&#34;:&#34;left&#34;,&#34;headerStyle&#34;:{&#34;fontWeight&#34;:700}},{&#34;accessor&#34;:&#34;Prediction&#34;,&#34;name&#34;:&#34;Pred. Margin&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;maxWidth&#34;:70},{&#34;accessor&#34;:&#34;Probability&#34;,&#34;name&#34;:&#34;Prob.&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;className&#34;:&#34;cell number &#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;cell&#34;:[&#34; 47%&#34;],&#34;maxWidth&#34;:70,&#34;style&#34;:[{&#34;color&#34;:&#34;#111&#34;,&#34;background&#34;:&#34;#F8EEE8&#34;}]},{&#34;accessor&#34;:&#34;Margin&#34;,&#34;name&#34;:&#34;Actual Margin&#34;,&#34;type&#34;:&#34;numeric&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;maxWidth&#34;:70}],&#34;columnGroups&#34;:[{&#34;headerClassName&#34;:&#34;group-header&#34;,&#34;name&#34;:&#34;Home Team Prediction&#34;,&#34;columns&#34;:[&#34;Prediction&#34;,&#34;Probability&#34;,&#34;Margin&#34;]}],&#34;defaultSorted&#34;:[{&#34;id&#34;:&#34;Game&#34;,&#34;desc&#34;:false}],&#34;defaultPageSize&#34;:1,&#34;paginationType&#34;:&#34;numbers&#34;,&#34;showPageInfo&#34;:true,&#34;minRows&#34;:1,&#34;borderless&#34;:true,&#34;showSortIcon&#34;:false,&#34;className&#34;:&#34;standings-table&#34;,&#34;rowClassName&#34;:&#34;\n function(rowInfo, state) {\n const firstSorted = state.sorted[0]\n if (firstSorted &amp;&amp; firstSorted.id === &#39;group&#39;) {\n const nextRow = state.pageRows[rowInfo.viewIndex + 1]\n if (nextRow &amp;&amp; rowInfo.row.group !== nextRow.group) {\n return &#39;group-last&#39;\n }\n }\n }&#34;</description>
     </item>
     
     <item>
       <title>Project: World Cup Datathon </title>
-      <link>/page/project-world-cup-datathon/</link>
+      <link>https://plussixoneblog.com/page/project-world-cup-datathon/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/project-world-cup-datathon/</guid>
+      <guid>https://plussixoneblog.com/page/project-world-cup-datathon/</guid>
       <description>In celebration of the World Cup in Russia, I’ve decided to take on Betfair’s World Cup Datathon. See below my series of posts outlining how I built my models.
 This is part of a series of posts on the World Cup Betfair datathon. See the links to others below.
 Part 1 - Intro
@@ -36,19 +36,19 @@ Part 3 - Data Exploration and Feature Engineering</description>
     
     <item>
       <title>AFLW - Coming soon</title>
-      <link>/page/aflw-coming-soon/</link>
+      <link>https://plussixoneblog.com/page/aflw-coming-soon/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflw-coming-soon/</guid>
+      <guid>https://plussixoneblog.com/page/aflw-coming-soon/</guid>
       <description>For those looking for AFLW content - hang tight! Unfortunately, due to the new nature of AFLW, data is hard to come by. I managed in the first season by manually adding data after each game but this is not feasible. I’m hoping, with help from anoafl, to add some data scraping into our newly released fitzRoy package. Details on that can be found here</description>
     </item>
     
     <item>
       <title>Cool Links</title>
-      <link>/page/cool-links/</link>
+      <link>https://plussixoneblog.com/page/cool-links/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/cool-links/</guid>
+      <guid>https://plussixoneblog.com/page/cool-links/</guid>
       <description>The AFL Analytics community is wonderfully inclusive and supportive. If you are looking for discussions about AFL Analytics, I highly reccomend Twitter. There is a very active commnity there.
 AFL Data Most of the data I use comes from the following two websites
 AFL Tables
@@ -58,10 +58,10 @@ Footy Wire
     
     <item>
       <title>Current Tips</title>
-      <link>/page/aflm-current-tips/</link>
+      <link>https://plussixoneblog.com/page/aflm-current-tips/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-current-tips/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 Last updated 2020-10-19 14:59:44.
 Note - I’m showing the next 18 games because the current fixture is messing with my round value.
@@ -70,19 +70,19 @@ Note - I’m showing the next 18 games because the current fixture is messing wi
     
     <item>
       <title>Model Results</title>
-      <link>/page/aflm-model-results/</link>
+      <link>https://plussixoneblog.com/page/aflm-model-results/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-model-results/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-model-results/</guid>
       <description>Coming soon…</description>
     </item>
     
     <item>
       <title>Ratings and Simulations</title>
-      <link>/page/aflm-ratings-and-simulations/</link>
+      <link>https://plussixoneblog.com/page/aflm-ratings-and-simulations/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-ratings-and-simulations/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-ratings-and-simulations/</guid>
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 Last updated: 2020-10-19.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
@@ -90,10 +90,10 @@ Summary Below are the updated AFL Men’s ratings and simulations. These are bas
     
     <item>
       <title>About me</title>
-      <link>/page/about/</link>
+      <link>https://plussixoneblog.com/page/about/</link>
       <pubDate>Tue, 26 Apr 2016 00:09:36 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/about/</guid>
+      <guid>https://plussixoneblog.com/page/about/</guid>
       <description>This site is very much under construction.
 I am a data loving Biomechanist by trade. I graduated from my PhD in 2016 form the University of Queensland. I&amp;rsquo;m currently currently working in Sports Science Research and Development at a Brisbane based sports technology company, Fusion Sport.
 I&amp;rsquo;m using this blog mostly to develop better skills in data science, in particular using R, developing visualisations and understanding various machine learning techniques. I am also obsessed with AFL.</description>
@@ -101,10 +101,10 @@ I&amp;rsquo;m using this blog mostly to develop better skills in data science, i
     
     <item>
       <title>AFLM Predictions</title>
-      <link>/page/aflm-predictions/</link>
+      <link>https://plussixoneblog.com/page/aflm-predictions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-predictions/</guid>
       <description>AFLM Premiership 2020 Season Predictions ELO ratings and chances of making various finals for every team in the AFLM competition  Last updated Oct 19 at 02:59pm  {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;team&#34;:[&#34;Port Adelaide&#34;,&#34;Brisbane Lions&#34;,&#34;Richmond&#34;,&#34;Geelong&#34;,&#34;West Coast&#34;,&#34;St Kilda&#34;,&#34;Footscray&#34;,&#34;Collingwood&#34;,&#34;Melbourne&#34;,&#34;GWS&#34;,&#34;Carlton&#34;,&#34;Fremantle&#34;,&#34;Essendon&#34;,&#34;Gold Coast&#34;,&#34;Hawthorn&#34;,&#34;Sydney&#34;,&#34;North Melbourne&#34;,&#34;Adelaide&#34;],&#34;elo&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;elo.change&#34;:[-2.84711992575376,-6.81012047845093,2.84711992575376,6.81012047845093,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;],&#34;Form&#34;:[&#34;14-3&#34;,&#34;14-3&#34;,&#34;12-4-1&#34;,&#34;12-5&#34;,&#34;12-5&#34;,&#34;10-7&#34;,&#34;10-7&#34;,&#34;9-7-1&#34;,&#34;9-8&#34;,&#34;8-9&#34;,&#34;7-10&#34;,&#34;7-10&#34;,&#34;6-10-1&#34;,&#34;5-11-1&#34;,&#34;5-12&#34;,&#34;5-12&#34;,&#34;3-14&#34;,&#34;3-14&#34;],&#34;spi&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;global_o&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;global_d&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;Wins&#34;:[14,14,12,12,12,10,10,9,9,8,7,7,6,5,5,5,3,3],&#34;Top.1&#34;:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;Top.4&#34;:[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;make_finals&#34;:[1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0],&#34;make_semis&#34;:[1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0],&#34;make_prelim&#34;:[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;make_gf&#34;:[0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;win_league&#34;:[0,0,0.485,0.515,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;team&#34;,&#34;name&#34;:&#34;team&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;defaultSortDesc&#34;:false,&#34;cell&#34;:[{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Port Adelaide flag&#34;,&#34;src&#34;:&#34;/images/Port Adelaide.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Port Adelaide&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;14-3&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Brisbane Lions flag&#34;,&#34;src&#34;:&#34;/images/Brisbane Lions.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Brisbane Lions&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;14-3&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Richmond flag&#34;,&#34;src&#34;:&#34;/images/Richmond.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Richmond&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;12-4-1&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Geelong flag&#34;,&#34;src&#34;:&#34;/images/Geelong.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Geelong&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;12-5&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;West Coast flag&#34;,&#34;src&#34;:&#34;/images/West Coast.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;West Coast&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;12-5&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;St Kilda flag&#34;,&#34;src&#34;:&#34;/images/St Kilda.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;St Kilda&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;10-7&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Footscray flag&#34;,&#34;src&#34;:&#34;/images/Footscray.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Footscray&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;10-7&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Collingwood flag&#34;,&#34;src&#34;:&#34;/images/Collingwood.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Collingwood&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;9-7-1&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Melbourne flag&#34;,&#34;src&#34;:&#34;/images/Melbourne.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Melbourne&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;9-8&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;GWS flag&#34;,&#34;src&#34;:&#34;/images/GWS.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;GWS&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;8-9&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Carlton flag&#34;,&#34;src&#34;:&#34;/images/Carlton.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Carlton&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;7-10&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Fremantle flag&#34;,&#34;src&#34;:&#34;/images/Fremantle.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Fremantle&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;7-10&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Essendon flag&#34;,&#34;src&#34;:&#34;/images/Essendon.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Essendon&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;6-10-1&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Gold Coast flag&#34;,&#34;src&#34;:&#34;/images/Gold Coast.</description>
     </item>
     

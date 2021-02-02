@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AFLM on plusSixOne</title>
-    <link>/categories/aflm/</link>
+    <link>https://plussixoneblog.com/categories/aflm/</link>
     <description>Recent content in AFLM on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
     <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/aflm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://plussixoneblog.com/categories/aflm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Monash Tips Package</title>
-      <link>/post/monash-tips-package/</link>
+      <link>https://plussixoneblog.com/post/monash-tips-package/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/monash-tips-package/</guid>
+      <guid>https://plussixoneblog.com/post/monash-tips-package/</guid>
       <description>Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!
 I’m working on a few things in fitzRoy that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my Monash Probabilistic Tipping Comp tips from R when I updated my models.</description>
     </item>
     
     <item>
       <title>Recruits</title>
-      <link>/post/recruits/</link>
+      <link>https://plussixoneblog.com/post/recruits/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/recruits/</guid>
+      <guid>https://plussixoneblog.com/post/recruits/</guid>
       <description>Welcome to my first actual analysis post in a long time (I’m too scared to find out how long it actually has been).
 I was inspired by a Twitter post this week that caused some typically strong responses. It was a poingnet visual representation of the contrast in recruiting strategies between two sides.
 As a general rule Hawthorn appears to have been more focused on bringing in talent from elsewhere rather than through the top end of the draft (a possible side effect of being at the top for multiple years in a row) while Melbourne has been focused more on the draft and specifically on the top end.</description>
@@ -35,10 +35,10 @@ As a general rule Hawthorn appears to have been more focused on bringing in tale
     
     <item>
       <title>2019 Grand Final AFLM Predictions</title>
-      <link>/post/round-27-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-27-aflm-predictions/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-27-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-27-aflm-predictions/</guid>
       <description>Hi team,
 Apologies for my lack of tipping during finals - I’ve been away honeymooning without a computer! See the tips for the Grand Final of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -47,10 +47,10 @@ And reach out on Twitter if you have any thoughts or questions.</description>
     
     <item>
       <title>Round 23 AFLM Predictions</title>
-      <link>/post/round-23-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-23-aflm-predictions/</link>
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-23-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-23-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 23 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -61,10 +61,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 22 AFLM Predictions</title>
-      <link>/post/round-22-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-22-aflm-predictions/</link>
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-22-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-22-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 22 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -75,10 +75,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 21 AFLM Predictions</title>
-      <link>/post/round-21-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-21-aflm-predictions/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-21-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-21-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 21 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -89,10 +89,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 20 AFLM Predictions</title>
-      <link>/post/round-20-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-20-aflm-predictions/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-20-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-20-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 20 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -103,10 +103,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 19 AFLM Predictions</title>
-      <link>/post/round-19-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-19-aflm-predictions/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-19-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-19-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 19 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -117,10 +117,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 18 AFLM Predictions</title>
-      <link>/post/round-18-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-18-aflm-predictions/</link>
       <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-18-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-18-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 18 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -131,10 +131,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 17 AFLM Predictions</title>
-      <link>/post/round-17-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-17-aflm-predictions/</link>
       <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-17-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-17-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 17 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -145,10 +145,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 16 AFLM Predictions</title>
-      <link>/post/round-16-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-16-aflm-predictions/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-16-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-16-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 16 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -159,10 +159,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 15 AFLM Predictions</title>
-      <link>/post/round-15-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-15-aflm-predictions/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-15-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-15-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 15 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -173,10 +173,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 14 AFLM Predictions</title>
-      <link>/post/round-14-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-14-aflm-predictions/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-14-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-14-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 14 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -187,10 +187,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 13 AFLM Predictions</title>
-      <link>/post/round-13-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-13-aflm-predictions/</link>
       <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-13-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-13-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 13 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -201,10 +201,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 12 AFLM Predictions</title>
-      <link>/post/round-12-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-12-aflm-predictions/</link>
       <pubDate>Mon, 03 Jun 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-12-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-12-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 12 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -215,10 +215,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 11 AFLM Predictions</title>
-      <link>/post/round-11-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-11-aflm-predictions/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-11-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-11-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 11 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -229,10 +229,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 10 AFLM Predictions</title>
-      <link>/post/round-10-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-10-aflm-predictions/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-10-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-10-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 10 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -243,10 +243,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 9 AFLM Predictions</title>
-      <link>/post/round-9-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-9-aflm-predictions/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-9-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-9-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 9 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -257,10 +257,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 8 AFLM Predictions</title>
-      <link>/post/round-8-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-8-aflm-predictions/</link>
       <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-8-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-8-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 8 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -271,10 +271,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 7 AFLM Predictions</title>
-      <link>/post/round-7-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-7-aflm-predictions/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-7-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-7-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 7 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -285,10 +285,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 6 AFLM Predictions</title>
-      <link>/post/round-6-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-6-aflm-predictions/</link>
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-6-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-6-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 6 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -299,10 +299,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 5 AFLM Predictions</title>
-      <link>/post/round-5-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-5-aflm-predictions/</link>
       <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-5-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-5-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 5 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -313,10 +313,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 4 AFLM Predictions</title>
-      <link>/post/round-4-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-4-aflm-predictions/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-4-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-4-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 4 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -327,10 +327,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>Round 3 AFLM Predictions</title>
-      <link>/post/round-3-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-3-aflm-predictions/</link>
       <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-3-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-3-aflm-predictions/</guid>
       <description>Hi team,
 See the tips for round 3 of the AFL Men’s comp below, as well as some simulation results.
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!
@@ -341,10 +341,10 @@ Tips   Day  Venue  Home.</description>
     
     <item>
       <title>2019 Round 2 - AFLM predictions</title>
-      <link>/post/2019-round-2-aflm-predictions/</link>
+      <link>https://plussixoneblog.com/post/2019-round-2-aflm-predictions/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/2019-round-2-aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/2019-round-2-aflm-predictions/</guid>
       <description>Hi team.
 As I mentioned last week, I won’t be doing many posts other than updating my tips over the first part of the season. I still would like a post to go out so I’ll be scheduling these in for Friday afternoons (sorry Thursday games).
 You can always receive my live, up to date tips here and my simulations here regardless of the timing or existance of this weekly post!</description>
@@ -352,10 +352,10 @@ You can always receive my live, up to date tips here and my simulations here reg
     
     <item>
       <title>Season 2019 - AFLM preview of sorts</title>
-      <link>/post/season-2019-aflm-preview-of-sorts/</link>
+      <link>https://plussixoneblog.com/post/season-2019-aflm-preview-of-sorts/</link>
       <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/season-2019-aflm-preview-of-sorts/</guid>
+      <guid>https://plussixoneblog.com/post/season-2019-aflm-preview-of-sorts/</guid>
       <description>Hello world!
 For those of you looking for an in-depth preview of the 2019 AFL Men’s season, please look elsewhere (anyone in these cool links will do!).
 This year is going to be a quiet one from me on the blogging front. The usual suspects of work, living in a new city and my focus on improving the fitzRoy package will take up most of my time.</description>
@@ -363,40 +363,40 @@ This year is going to be a quiet one from me on the blogging front. The usual su
     
     <item>
       <title>AFL Mens Round 17 preview</title>
-      <link>/post/afl-mens-round-17-preview/</link>
+      <link>https://plussixoneblog.com/post/afl-mens-round-17-preview/</link>
       <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/afl-mens-round-17-preview/</guid>
+      <guid>https://plussixoneblog.com/post/afl-mens-round-17-preview/</guid>
       <description>Whoops. Missed Thursday again. Here is a quick preview for 8/9ths of Round 17! Check out my full tips at this link or on Squiggle.
 Ratings It’s certainly bunching at the top. With my new algorithm that is going to happen naturally due the late season games adjusting less than early season games. Nonetheless, you can clearly see the big divide after Hawthorn. Also it’s hard to seperate the top 3.</description>
     </item>
     
     <item>
       <title>AFL Mens Round 16 preview</title>
-      <link>/post/afl-mens-round-16-preview/</link>
+      <link>https://plussixoneblog.com/post/afl-mens-round-16-preview/</link>
       <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/afl-mens-round-16-preview/</guid>
+      <guid>https://plussixoneblog.com/post/afl-mens-round-16-preview/</guid>
       <description>Here we are for another damn Thursday night game. I actually quite like them except that I never have time to write my preview! Check out my full tips at this link or on Squiggle.
 Ratings After my recent update to the ratings system where my k-value (how much ELO ratings change after a game) is reducing as the season goes by, our ratings are somewhat stable.</description>
     </item>
     
     <item>
       <title>AFL Mens - Round 14 Preview</title>
-      <link>/post/afl-mens-round-14-preview/</link>
+      <link>https://plussixoneblog.com/post/afl-mens-round-14-preview/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/afl-mens-round-14-preview/</guid>
+      <guid>https://plussixoneblog.com/post/afl-mens-round-14-preview/</guid>
       <description>So Thursday night again. Bye week again. Breif preview again! Check out my full tips at this link or on Squiggle.
 Ratings The main thing that jumps out from our ratings is how two tiered it looks - from Hawthorn up, the ratings are pretty tight between teams and not much separates each team. Also - Geelong jumped up into our tp rank last week, joining Sydney, Richmond and West Coast as the teams to beat.</description>
     </item>
     
     <item>
       <title>AFLM - Round 13 preview</title>
-      <link>/post/aflm-round-13-preview/</link>
+      <link>https://plussixoneblog.com/post/aflm-round-13-preview/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/aflm-round-13-preview/</guid>
+      <guid>https://plussixoneblog.com/post/aflm-round-13-preview/</guid>
       <description>Those who have been following the blog for a while know that Thursday games always catch me out and this week is no exception! No update for me but you can see my tips, as always, at this link or on Squiggle.
 I’ve also got my plots below, presented without comment.
 As a separate note - I’ve decided to enter the World Cup Datathon. You can see my posts below More updates coming.</description>
@@ -404,10 +404,10 @@ As a separate note - I’ve decided to enter the World Cup Datathon. You can see
     
     <item>
       <title>Round 12 - AFL Mens Preview</title>
-      <link>/post/round-12-afl-mens-preview/</link>
+      <link>https://plussixoneblog.com/post/round-12-afl-mens-preview/</link>
       <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-12-afl-mens-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-12-afl-mens-preview/</guid>
       <description>Super quick update this week sorry guys. You can see my tips, as always, at this link or on Squiggle.
 Ratings Richmond take top spot back off Melbourne this week. The Dees do keep a handy gap to 3rd spot though, where we find it tough to split West Coast, Sydney and Geelong.
  Simulations Richmond have firmed back ahead of West Coast as our favourite for the minor premiership.</description>
@@ -415,10 +415,10 @@ Ratings Richmond take top spot back off Melbourne this week. The Dees do keep a 
     
     <item>
       <title>Round 11 AFL Mens Preview</title>
-      <link>/post/round-11-afl-mens-preview/</link>
+      <link>https://plussixoneblog.com/post/round-11-afl-mens-preview/</link>
       <pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-11-afl-mens-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-11-afl-mens-preview/</guid>
       <description>Round 11 is on us - read on for an overview of the weekend ahead. You can see my tips, as always, at this link or on Squiggle.
 Ratings Don’t look now but we have a new ELO leader! The Demons, on the back of three huge weeks have jumped the competition to be in top spot.
 Given this, I wondered when was the last time they reached these heights?</description>
@@ -426,64 +426,64 @@ Given this, I wondered when was the last time they reached these heights?</descr
     
     <item>
       <title>Round 10 AFLM Preview</title>
-      <link>/post/round-10-aflm-preview/</link>
+      <link>https://plussixoneblog.com/post/round-10-aflm-preview/</link>
       <pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-10-aflm-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-10-aflm-preview/</guid>
       <description>A pretty brief preview this week - I’m at the airport on my way to Melbourne for the weekend. You can see my tips, as always, at this link or on Squiggle.
 Ratings Again, Richmond are the big talking points of the week. However, with their big loss to WCE, it’s not for the same reasons as the last few. That loss brings them back to the chasing pack and parachutes the Eagles up to 2nd spot!</description>
     </item>
     
     <item>
       <title>Round 9 - AFL Mens Predictions</title>
-      <link>/post/round-9-afl-mens-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-9-afl-mens-predictions/</link>
       <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-9-afl-mens-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-9-afl-mens-predictions/</guid>
       <description>On-wards and upwards to round 9! Read on to see my round preview. You can see my tips, as always, at this link or on Squiggle.
 Ratings Not a whole lot of movement at the pointy end of the ratings - Richmond remain clear favorites, followed by a close group of Geelong, Sydney and Adelaide. Those three are now joined by West Coast, who’s big win last week propelled them up into that chasing pack.</description>
     </item>
     
     <item>
       <title>Round 8 - AFL Mens Predictions</title>
-      <link>/post/round-8-afl-mens-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-8-afl-mens-predictions/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-8-afl-mens-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-8-afl-mens-predictions/</guid>
       <description>As is the norm, here is a last minute update late on Friday afternoon! You can see my tips, as always, at this link or on Squiggle.
 Ratings Richmond extends their dominance at the top of the ratings. They now sit 40 rating points clear of 2nd place Geelong, which equates to about 8 points. While that may not seem huge, it is about the same as the long term average margin of home teams in the AFL.</description>
     </item>
     
     <item>
       <title>Round 7 - AFL Mens Preview</title>
-      <link>/post/round-7-afl-mens-preview/</link>
+      <link>https://plussixoneblog.com/post/round-7-afl-mens-preview/</link>
       <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-7-afl-mens-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-7-afl-mens-preview/</guid>
       <description>On the road again this weekend but I’ll do my best to give a quick update! You can see my tips, as always, at this link or on Squiggle.
 Ratings It’s been a couple weeks since we’ve looked in depth at the ratings. In that time, as has widely been reported, Richmond have jumped out into clear air in the lead. They are clearly the strongest team in the competition at this point of the year.</description>
     </item>
     
     <item>
       <title>Round 6 Preview</title>
-      <link>/post/round-6-preview/</link>
+      <link>https://plussixoneblog.com/post/round-6-preview/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-6-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-6-preview/</guid>
       <description>Unfortunately no big preview this week as I’m travelling. You can see my tips, as always, at this link or on Squiggle.
   Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Fri, 27  Docklands  Footscray   Carlton   13  59.6%  Footscray by 13    Sat, 28  Kardinia Park  Geelong   Sydney   12  58.</description>
     </item>
     
     <item>
       <title>Round 5 - AFL Men’s ratings updates and preview</title>
-      <link>/post/round-5-afl-men-s-ratings-updates-and-preview/</link>
+      <link>https://plussixoneblog.com/post/round-5-afl-men-s-ratings-updates-and-preview/</link>
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-5-afl-men-s-ratings-updates-and-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-5-afl-men-s-ratings-updates-and-preview/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!&lt;/p&gt;
@@ -492,14 +492,14 @@ Ratings It’s been a couple weeks since we’ve looked in depth at the ratings.
     
     <item>
       <title>Round 4 AFL Men&#39;s ratings </title>
-      <link>/post/round-4-afl-men-s-ratings/</link>
+      <link>https://plussixoneblog.com/post/round-4-afl-men-s-ratings/</link>
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-4-afl-men-s-ratings/</guid>
+      <guid>https://plussixoneblog.com/post/round-4-afl-men-s-ratings/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;With round 3 done and dusted, are the top teams beginning to emerge? </description>
@@ -507,20 +507,20 @@ Ratings It’s been a couple weeks since we’ve looked in depth at the ratings.
     
     <item>
       <title>Kangawhos? AFL Men’s Round 2 Preview</title>
-      <link>/post/kangawhos-afl-men-s-round-2-preview/</link>
+      <link>https://plussixoneblog.com/post/kangawhos-afl-men-s-round-2-preview/</link>
       <pubDate>Thu, 29 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/kangawhos-afl-men-s-round-2-preview/</guid>
+      <guid>https://plussixoneblog.com/post/kangawhos-afl-men-s-round-2-preview/</guid>
       <description>The annual super long weekend of football that I always miss because I’m camping is upon us! After a few creaks and a bit of encouragement, I’ve managed to get the ELO model up and running for the new season, including my first set of simulations!
 A quick reminder that you can always find my Tips and Current Ratings and Simulations on these pages. I’ll aim to update these every Monday following a round if you need to see them before I blog!</description>
     </item>
     
     <item>
       <title>Current Tips</title>
-      <link>/page/aflm-current-tips/</link>
+      <link>https://plussixoneblog.com/page/aflm-current-tips/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-current-tips/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-current-tips/</guid>
       <description>Welcome to our all new AFL Men’s tips page! Here you will the tips for the upcoming rounds. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 Last updated 2020-10-19 14:59:44.
 Note - I’m showing the next 18 games because the current fixture is messing with my round value.
@@ -529,19 +529,19 @@ Note - I’m showing the next 18 games because the current fixture is messing wi
     
     <item>
       <title>Model Results</title>
-      <link>/page/aflm-model-results/</link>
+      <link>https://plussixoneblog.com/page/aflm-model-results/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-model-results/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-model-results/</guid>
       <description>Coming soon…</description>
     </item>
     
     <item>
       <title>Ratings and Simulations</title>
-      <link>/page/aflm-ratings-and-simulations/</link>
+      <link>https://plussixoneblog.com/page/aflm-ratings-and-simulations/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-ratings-and-simulations/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-ratings-and-simulations/</guid>
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 Last updated: 2020-10-19.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
@@ -549,19 +549,19 @@ Summary Below are the updated AFL Men’s ratings and simulations. These are bas
     
     <item>
       <title>Round 1 AFLM Preview</title>
-      <link>/post/round-1-aflm-preview/</link>
+      <link>https://plussixoneblog.com/post/round-1-aflm-preview/</link>
       <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-1-aflm-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-1-aflm-preview/</guid>
       <description>Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I’ve had a busy offseason moving this blog over to blogdown. This has meant I’ve had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning R and so it wasn’t my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I’m getting there.</description>
     </item>
     
     <item>
       <title>AFLM Predictions</title>
-      <link>/page/aflm-predictions/</link>
+      <link>https://plussixoneblog.com/page/aflm-predictions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/page/aflm-predictions/</guid>
+      <guid>https://plussixoneblog.com/page/aflm-predictions/</guid>
       <description>AFLM Premiership 2020 Season Predictions ELO ratings and chances of making various finals for every team in the AFLM competition  Last updated Oct 19 at 02:59pm  {&#34;x&#34;:{&#34;tag&#34;:{&#34;name&#34;:&#34;Reactable&#34;,&#34;attribs&#34;:{&#34;data&#34;:{&#34;team&#34;:[&#34;Port Adelaide&#34;,&#34;Brisbane Lions&#34;,&#34;Richmond&#34;,&#34;Geelong&#34;,&#34;West Coast&#34;,&#34;St Kilda&#34;,&#34;Footscray&#34;,&#34;Collingwood&#34;,&#34;Melbourne&#34;,&#34;GWS&#34;,&#34;Carlton&#34;,&#34;Fremantle&#34;,&#34;Essendon&#34;,&#34;Gold Coast&#34;,&#34;Hawthorn&#34;,&#34;Sydney&#34;,&#34;North Melbourne&#34;,&#34;Adelaide&#34;],&#34;elo&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;elo.change&#34;:[-2.84711992575376,-6.81012047845093,2.84711992575376,6.81012047845093,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;,&#34;NA&#34;],&#34;Form&#34;:[&#34;14-3&#34;,&#34;14-3&#34;,&#34;12-4-1&#34;,&#34;12-5&#34;,&#34;12-5&#34;,&#34;10-7&#34;,&#34;10-7&#34;,&#34;9-7-1&#34;,&#34;9-8&#34;,&#34;8-9&#34;,&#34;7-10&#34;,&#34;7-10&#34;,&#34;6-10-1&#34;,&#34;5-11-1&#34;,&#34;5-12&#34;,&#34;5-12&#34;,&#34;3-14&#34;,&#34;3-14&#34;],&#34;spi&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;global_o&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;global_d&#34;:[1568.42186414658,1551.42031160299,1571.17285249602,1612.32052065949,1533.46777265226,1502.16120387671,1512.84200695685,1530.84669631376,1496.49416573681,1508.73408214229,1459.13928065679,1469.00876271345,1459.06581066309,1434.26575577624,1480.99046779953,1466.7301465976,1440.06367334334,1402.86312990488],&#34;Wins&#34;:[14,14,12,12,12,10,10,9,9,8,7,7,6,5,5,5,3,3],&#34;Top.1&#34;:[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;Top.4&#34;:[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;make_finals&#34;:[1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0],&#34;make_semis&#34;:[1,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0],&#34;make_prelim&#34;:[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;make_gf&#34;:[0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],&#34;win_league&#34;:[0,0,0.485,0.515,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},&#34;columns&#34;:[{&#34;accessor&#34;:&#34;team&#34;,&#34;name&#34;:&#34;team&#34;,&#34;type&#34;:&#34;character&#34;,&#34;className&#34;:&#34;cell&#34;,&#34;headerClassName&#34;:&#34;header&#34;,&#34;defaultSortDesc&#34;:false,&#34;cell&#34;:[{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Port Adelaide flag&#34;,&#34;src&#34;:&#34;/images/Port Adelaide.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Port Adelaide&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;14-3&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Brisbane Lions flag&#34;,&#34;src&#34;:&#34;/images/Brisbane Lions.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Brisbane Lions&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;14-3&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Richmond flag&#34;,&#34;src&#34;:&#34;/images/Richmond.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Richmond&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;12-4-1&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Geelong flag&#34;,&#34;src&#34;:&#34;/images/Geelong.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Geelong&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;12-5&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;West Coast flag&#34;,&#34;src&#34;:&#34;/images/West Coast.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;West Coast&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;12-5&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;St Kilda flag&#34;,&#34;src&#34;:&#34;/images/St Kilda.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;St Kilda&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;10-7&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Footscray flag&#34;,&#34;src&#34;:&#34;/images/Footscray.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Footscray&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;10-7&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Collingwood flag&#34;,&#34;src&#34;:&#34;/images/Collingwood.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Collingwood&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;9-7-1&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Melbourne flag&#34;,&#34;src&#34;:&#34;/images/Melbourne.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Melbourne&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;9-8&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;GWS flag&#34;,&#34;src&#34;:&#34;/images/GWS.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;GWS&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;8-9&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Carlton flag&#34;,&#34;src&#34;:&#34;/images/Carlton.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Carlton&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;7-10&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Fremantle flag&#34;,&#34;src&#34;:&#34;/images/Fremantle.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Fremantle&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;7-10&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Essendon flag&#34;,&#34;src&#34;:&#34;/images/Essendon.svg&#34;,&#34;className&#34;:&#34;flag&#34;},&#34;children&#34;:[]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team-name&#34;},&#34;children&#34;:[&#34;Essendon&#34;]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;record&#34;},&#34;children&#34;:[&#34;6-10-1&#34;]}]},{&#34;name&#34;:&#34;div&#34;,&#34;attribs&#34;:{&#34;className&#34;:&#34;team&#34;},&#34;children&#34;:[{&#34;name&#34;:&#34;img&#34;,&#34;attribs&#34;:{&#34;alt&#34;:&#34;Gold Coast flag&#34;,&#34;src&#34;:&#34;/images/Gold Coast.</description>
     </item>
     
