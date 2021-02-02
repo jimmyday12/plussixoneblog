@@ -20,7 +20,7 @@ source(here::here("scripts", "weekly_data_process", "5-finals_sims.R"))
 filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
-season <- 2020
+season <- 2021
 new_season <- FALSE
 
 # Set ELO Parameters
@@ -34,7 +34,7 @@ sim_num <-  10000
 
 # Get Data ----------------------------------------------------------------
 # First check if new games exist
-new_results <- get_footywire_match_results(2020, 1) %>% convert_results()
+new_results <- fetch_results_footywire(2020, NULL, 1) %>% convert_results()
 old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
     last(old_results$results$Away.Team) == last(new_results$Away.Team) &
@@ -148,6 +148,7 @@ if (new_data) {
     
     # combine
     res <- dat$results %>% filter(Season == season)
+    if (nrow(res) == 0) res <- NULL
     sim_dat$sim_data_all <- combine_sim_dat(sim_dat$sim_data, res)
     
     if (new_season) {

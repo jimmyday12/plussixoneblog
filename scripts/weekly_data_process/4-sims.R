@@ -64,11 +64,16 @@ sim_data_all <- sim_data %>%
     Games = n()
   )
 
-sim_data_all <- calculate_perc(results, sim_data_all)
+if (!is.null(results)) {
+  sim_data_all <- calculate_perc(results, sim_data_all)
+} else {
+  sim_data_all$Perc = 100
+}
+
 
 sim_data_all %>%
   group_by(Sim) %>%
-  arrange(desc(Perc)) %>%
+  arrange(desc(Perc), desc(Margin)) %>%
   mutate(
     Rank = row_number(desc(Wins)),
     Top.8 = Rank < 9,

@@ -106,9 +106,12 @@ do_finals_sims <- function(sim_data_all,
   
   finals_elos <- sim_elo_perterbed[1:sim_num]
   
-  finals_results <- finals_results %>%
-    mutate(Finals_week = Round - min(Round) + 1,
-           Win = as.numeric(Margin > 0))
+  if (!is.null(finals_results)){
+    finals_results <- finals_results %>%
+      mutate(Finals_week = Round - min(Round) + 1,
+             Win = as.numeric(Margin > 0))
+    
+  }
     
   #finals_results <- finals_results %>%
   #  left_join(sim_ladder[1], by = c("Home.Team" = "Team"))
@@ -437,7 +440,8 @@ combine_finals_sims <- function(final_game,
   #                        paste0(Wins, "-", Losses, "-", Draws),
   #                        paste0(Wins, "-", Losses)))
   
-  win_loss <- ladder %>% 
+  if (!is.null(ladder)) {
+    win_loss <- ladder %>% 
     rename(Team = team.name,
            Season = season,
            Wins = thisSeasonRecord.winLossRecord.wins,
@@ -447,6 +451,11 @@ combine_finals_sims <- function(final_game,
                          paste0(Wins, "-", Losses, "-", Draws),
                          paste0(Wins, "-", Losses))) %>%
     select(Team, Season, Form)
+  } else {
+    win_loss <- sims_combined %>%
+      select(Team, Season) %>%
+      mutate(Form = "-")
+  }
   
   sims_combined <- sims_combined %>%
     left_join(win_loss, by = c("Team", "Season"))

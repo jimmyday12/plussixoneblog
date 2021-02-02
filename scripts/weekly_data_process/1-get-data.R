@@ -36,23 +36,24 @@ convert_results <- function(df) {
 get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = FALSE) {
   
 # Get fixture data using FitzRoy
-fixture <- fitzRoy::get_fixture() %>%
+fixture <- fitzRoy::fetch_fixture_footywire(season) %>%
   filter(Date >= filt_date)
 
 # get afl fixture
-fixture_afl <- fitzRoy::get_afl_fixture(season)
+fixture_afl <- fitzRoy::fetch_fixture_afl(season)
 
 fixture_afl <- fixture_afl %>%
   mutate(Game = NA,
-         Date = date,
-         Round = round_roundNumber,
-         Home.Team = home_name,
-         Away.Team = away_name,
-         Venue = venue_name,
-         Season = season,
-         Finals = ifelse(str_detect(round_name, "Round"), FALSE, TRUE) 
+         Date = lubridate::ymd_hms(fixture_afl$utcStartTime) %>% as.Date(),
+         Time = lubridate::ymd_hms(fixture_afl$utcStartTime) %>% as_datetime(),
+         Round = round.roundNumber,
+         Home.Team = home.team.name,
+         Away.Team = away.team.name,
+         Venue = venue.name,
+         Season = lubridate::ymd_hms(fixture_afl$utcStartTime) %>% format("%Y") %>% as.numeric(),
+         Finals = ifelse(str_detect(round.name, "Round"), FALSE, TRUE) 
          ) %>%
-  select(Game, Date, Round, round_name, Home.Team, Away.Team, Venue, Season, Finals, status)
+  select(Game, Date, Round, round.name, Home.Team, Away.Team, Venue, Season, Finals, status)
 
 fixture_afl <- fixture_afl %>%
   mutate(Home.Team = convert_teams_afl(Home.Team),
@@ -79,14 +80,19 @@ if (grand_final_bug){
 if(fixture_bug) fixture$Round.Number = fixture$Round.Number - 1
 
 # Get results
-results <- fitzRoy::get_match_results() %>%
+
+seasons <- 1897:season
+
+results <- fetch_results_afltables(seasons, NULL)
+
+results <- results %>%
   mutate(
     seas_rnd = paste0(Season, ".", Round.Number),
     First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
   )
 
 # Check for new results
-results_new <- get_footywire_match_results(season, last_n_matches = 10)
+results_new <- fetch_results_footywire(season, last_n_matches = 10)
 
 
 results_new <- convert_results(results_new)
@@ -96,22 +102,36 @@ results <- bind_rows(results, results_new) %>%
   filter(!(row_number() == 2 & is.na(Game))) %>%
   ungroup()
 
-rnd <- max(results$Round.Number[results$Season == season])
+season_rounds <- results$Round.Number[results$Season == season]
+
+if (length(season_rounds) == 0){
+  rnd <- 1
+} else {
+  rnd <- max(results$Round.Number[results$Season == season], na.rm = TRUE)
+}
+
 
 results <- results %>%
   mutate(Round.Number = ifelse(Round.Number < max(Round.Number) & is.na(Game),rnd + 1, Round.Number))
 
 # Ladder 
 df <- results %>% 
-  filter(Season == 2020 & Round.Type == "Regular" & !is.na(Margin))
+  filter(Season == season & Round.Type == "Regular" & !is.na(Margin))
 
-ladder <- fitzRoy::fetch_afl_ladder(season, round_number = max(df$Round.Number), comp = "AFLM")
+if (nrow(df) == 0){
+  ladder <- NULL
+} else {
+  ladder <- fitzRoy::fetch_ladder_afl(season, round_number = max(df$Round.Number), comp = "AFLM")
+  
+  ladder <- ladder %>%
+    mutate(team.name = convert_teams_afl(team.name))
+}
 
-ladder <- ladder %>%
-  mutate(team.name = convert_teams_afl(team.name))
 
 # Get states data - this comes from another script I run when a new venue or team occurs
 states <- read_rds(here::here("data_files", "raw-data", "states.rds"))
+states$venue <- states$venue %>% ungroup()
+write_rds(states, here::here("data_files", "raw-data", "states.rds"))
 message("Data loaded")
 dat <- list(fixture = fixture,
             results = results,
