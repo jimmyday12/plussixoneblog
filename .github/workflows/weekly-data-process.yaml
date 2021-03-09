@@ -5,7 +5,7 @@ on:
     - cron: "0 9,13,18 * * *"
   push:
     branches:
-      - master
+      - main
       
 jobs:
   get-data-and-rebuild:
