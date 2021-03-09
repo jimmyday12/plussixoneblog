@@ -34,7 +34,7 @@ pacman::p_load(fitzRoy, tidyverse, formattable,
                ggthemes, elo, here, lubridate, 
                widgetframe, ggridges, DT)
 
-round_1 <- FALSE
+round_1 <- TRUE
 finals <- FALSE
 
 # Load data that has been run using 'weekly_data_process.R'
