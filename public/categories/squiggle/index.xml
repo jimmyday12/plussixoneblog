@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Squiggle on plusSixOne</title>
-    <link>/categories/squiggle/</link>
+    <link>https://plussixoneblog.com/categories/squiggle/</link>
     <description>Recent content in Squiggle on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
     <lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/squiggle/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://plussixoneblog.com/categories/squiggle/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Squiggle Disagreement</title>
-      <link>/post/squiggle-disagreement/</link>
+      <link>https://plussixoneblog.com/post/squiggle-disagreement/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/squiggle-disagreement/</guid>
+      <guid>https://plussixoneblog.com/post/squiggle-disagreement/</guid>
       <description>For those who follow me, I’m sure you are well aware of The Squiggle run by Max Barry. In recent years, Max has done some amazing work at combining a bunch of different Footy models in one place. He recently created an API and Rob and I have now integrated it into the latest version of fitzRoy.
 There is a lot of value at having this information available. I’m hoping to delve into that throughout the year.</description>
     </item>

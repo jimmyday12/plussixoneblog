@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Predictions on plusSixOne</title>
-    <link>/categories/predictions/</link>
+    <link>https://plussixoneblog.com/categories/predictions/</link>
     <description>Recent content in Predictions on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
     <lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/predictions/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://plussixoneblog.com/categories/predictions/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AFL Mens - Round 14 Preview</title>
-      <link>/post/afl-mens-round-14-preview/</link>
+      <link>https://plussixoneblog.com/post/afl-mens-round-14-preview/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/afl-mens-round-14-preview/</guid>
+      <guid>https://plussixoneblog.com/post/afl-mens-round-14-preview/</guid>
       <description>So Thursday night again. Bye week again. Breif preview again! Check out my full tips at this link or on Squiggle.
 Ratings The main thing that jumps out from our ratings is how two tiered it looks - from Hawthorn up, the ratings are pretty tight between teams and not much separates each team. Also - Geelong jumped up into our tp rank last week, joining Sydney, Richmond and West Coast as the teams to beat.</description>
     </item>
     
     <item>
       <title>Round 9 - AFL Mens Predictions</title>
-      <link>/post/round-9-afl-mens-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-9-afl-mens-predictions/</link>
       <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-9-afl-mens-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-9-afl-mens-predictions/</guid>
       <description>On-wards and upwards to round 9! Read on to see my round preview. You can see my tips, as always, at this link or on Squiggle.
 Ratings Not a whole lot of movement at the pointy end of the ratings - Richmond remain clear favorites, followed by a close group of Geelong, Sydney and Adelaide. Those three are now joined by West Coast, who’s big win last week propelled them up into that chasing pack.</description>
     </item>
     
     <item>
       <title>Round 8 - AFL Mens Predictions</title>
-      <link>/post/round-8-afl-mens-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-8-afl-mens-predictions/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-8-afl-mens-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-8-afl-mens-predictions/</guid>
       <description>As is the norm, here is a last minute update late on Friday afternoon! You can see my tips, as always, at this link or on Squiggle.
 Ratings Richmond extends their dominance at the top of the ratings. They now sit 40 rating points clear of 2nd place Geelong, which equates to about 8 points. While that may not seem huge, it is about the same as the long term average margin of home teams in the AFL.</description>
     </item>
     
     <item>
       <title>Round 6 Preview</title>
-      <link>/post/round-6-preview/</link>
+      <link>https://plussixoneblog.com/post/round-6-preview/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-6-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-6-preview/</guid>
       <description>Unfortunately no big preview this week as I’m travelling. You can see my tips, as always, at this link or on Squiggle.
   Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Fri, 27  Docklands  Footscray   Carlton   13  59.6%  Footscray by 13    Sat, 28  Kardinia Park  Geelong   Sydney   12  58.</description>
     </item>
     
     <item>
       <title>Round 5 - AFL Men’s ratings updates and preview</title>
-      <link>/post/round-5-afl-men-s-ratings-updates-and-preview/</link>
+      <link>https://plussixoneblog.com/post/round-5-afl-men-s-ratings-updates-and-preview/</link>
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-5-afl-men-s-ratings-updates-and-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-5-afl-men-s-ratings-updates-and-preview/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://plussixoneblog.com/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!&lt;/p&gt;
@@ -70,116 +70,116 @@ Ratings Richmond extends their dominance at the top of the ratings. They now sit
     
     <item>
       <title>Round 1 AFLM Preview</title>
-      <link>/post/round-1-aflm-preview/</link>
+      <link>https://plussixoneblog.com/post/round-1-aflm-preview/</link>
       <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-1-aflm-preview/</guid>
+      <guid>https://plussixoneblog.com/post/round-1-aflm-preview/</guid>
       <description>Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I’ve had a busy offseason moving this blog over to blogdown. This has meant I’ve had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning R and so it wasn’t my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I’m getting there.</description>
     </item>
     
     <item>
       <title>Finals Week 1 - a natural order</title>
-      <link>/post/finals-week-1-natural-order/</link>
+      <link>https://plussixoneblog.com/post/finals-week-1-natural-order/</link>
       <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/finals-week-1-natural-order/</guid>
+      <guid>https://plussixoneblog.com/post/finals-week-1-natural-order/</guid>
       <description>We are finally around to the first week of finals, in what is talked about as a fairly open finals race. Read on to find out what we are predicting this week and for the rest of the finals series!
 Ratings Firstly to our final ratings for the regular season interestingly, our top 8 rated teams all made finals! Sydney surged ahead after Adelaide&amp;rsquo;s dead rubber loss to WCE. Those two teams were clear of a pretty well ordered top 8 - the only teams whose finishing position on the ladder didn&amp;rsquo;t match their rating position is Richmond and Sydney.</description>
     </item>
     
     <item>
       <title>Round 23 - falling into place</title>
-      <link>/post/round-23-falling-place/</link>
+      <link>https://plussixoneblog.com/post/round-23-falling-place/</link>
       <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-23-falling-place/</guid>
+      <guid>https://plussixoneblog.com/post/round-23-falling-place/</guid>
       <description>Unfortunately I wasn&amp;rsquo;t able to publish a preview post this week. Hopefully anyone needing my tips or projections found them over here (they are updated each Monday).
 For those who rely on this blog post, here are the predictions for the week! Happy final round!</description>
     </item>
     
     <item>
       <title>Round 19 - finals simulations are hot out the oven!</title>
-      <link>/post/round-19-finals-simulations-hot-oven/</link>
+      <link>https://plussixoneblog.com/post/round-19-finals-simulations-hot-oven/</link>
       <pubDate>Fri, 28 Jul 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-19-finals-simulations-hot-oven/</guid>
+      <guid>https://plussixoneblog.com/post/round-19-finals-simulations-hot-oven/</guid>
       <description>The Crows have emerged as big flag favourites in our model&amp;rsquo;s eyes. Have a read below for our first set of finals simulations for the season!
 Ratings After chopping and changing a fair bit over the season, Adelaide finally holds onto top stop with a good (yet expected) win against fellow top 4 rated team, Geelong. Sydney continues to impress while GWS and Geelong are rapidly falling back to a relatively weak pack.</description>
     </item>
     
     <item>
       <title>Round 17 - top of the table</title>
-      <link>/post/round-17-top-table/</link>
+      <link>https://plussixoneblog.com/post/round-17-top-table/</link>
       <pubDate>Fri, 14 Jul 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-17-top-table/</guid>
+      <guid>https://plussixoneblog.com/post/round-17-top-table/</guid>
       <description>For those following along - I&amp;rsquo;m out of Hospital! Following my neck injury, I&amp;rsquo;m back home and now working again which is good. Have to be in a neck brace for another 5 weeks and follow up with some potential surgery but it&amp;rsquo;s good to be past the worst of it.
 I haven&amp;rsquo;t had a whole lot of time for the blog this week but read on for a bit of a preview!</description>
     </item>
     
     <item>
       <title>Round 14 - Are the Demons rising from hell?</title>
-      <link>/post/round-14-demons-rising-hell/</link>
+      <link>https://plussixoneblog.com/post/round-14-demons-rising-hell/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-14-demons-rising-hell/</guid>
+      <guid>https://plussixoneblog.com/post/round-14-demons-rising-hell/</guid>
       <description>I&amp;rsquo;m going to stop commenting on how annoying Thursday football is for my blog (I actually quite like it in general). This week throws up some interesting games - read on to see our preview!
 Ratings Adelaide and GWS, with their byes, remain on top of our rankings[ref]My chart is showing teams last result rather than last round which is a bit misleading. It was a bit too much for me to fix for the bye rounds, which are now over anyway.</description>
     </item>
     
     <item>
       <title>Round 11 - I made Thursday night!</title>
-      <link>/post/round-11-made-thursday-night/</link>
+      <link>https://plussixoneblog.com/post/round-11-made-thursday-night/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-11-made-thursday-night/</guid>
+      <guid>https://plussixoneblog.com/post/round-11-made-thursday-night/</guid>
       <description>After a solid week (that reminds me, I&amp;rsquo;ve got to get a &amp;lsquo;results&amp;rsquo; page up!), we didn&amp;rsquo;t see a whole lot of movement in our team ratings. Check out our weekly preview below!
 Ratings After some big movements last week, we didn&amp;rsquo;t see a whole lot of adjustment this week (which means our model is doing pretty well!). A little bit of shuffling down the bottom of the ladder as those teams (Hawthorn, Essendon, Gold Coast and Freo) remain inconsistent.</description>
     </item>
     
     <item>
       <title>Round 10 - can Port continue their climb?</title>
-      <link>/post/round-10-can-port-continue-climb/</link>
+      <link>https://plussixoneblog.com/post/round-10-can-port-continue-climb/</link>
       <pubDate>Thu, 25 May 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-10-can-port-continue-climb/</guid>
+      <guid>https://plussixoneblog.com/post/round-10-can-port-continue-climb/</guid>
       <description>We are back this week after an unexpected week off last week! Check out our preview for round 10.
 Ratings Firstly, lets look at our ratings after an interesting round 9. We can see some serious movement for a few teams. Port continues on their merry ways with a big win over a (potentially unprepared?) Gold Coast in China. Essendon&amp;rsquo;s big win over WCE meant that they jumped up 4 spots to move within striking distance of breaking through &amp;lsquo;average&amp;rsquo; team barrier of 1500 ratings points.</description>
     </item>
     
     <item>
       <title>Finals Week 2</title>
-      <link>/post/finals-week-2/</link>
+      <link>https://plussixoneblog.com/post/finals-week-2/</link>
       <pubDate>Thu, 15 Sep 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/finals-week-2/</guid>
+      <guid>https://plussixoneblog.com/post/finals-week-2/</guid>
       <description>Following a cracking weekend of finals football, I haven&amp;rsquo;t had the time I&amp;rsquo;d like to get this weeks results and predictions up. I also did find out that my simulation of finals script, that I&amp;rsquo;d hurriedly written back in about round 13 actually couldn&amp;rsquo;t handle real finals data being thrown at it. Nonetheless, the simulations of the remainder of the finals series are in, and I&amp;rsquo;ll combine it with my predictions later on in this post!</description>
     </item>
     
     <item>
       <title>Round 20 Prediction - shuffling the pieces</title>
-      <link>/post/round-20-prediction-shuffling-pieces/</link>
+      <link>https://plussixoneblog.com/post/round-20-prediction-shuffling-pieces/</link>
       <pubDate>Thu, 04 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-20-prediction-shuffling-pieces/</guid>
+      <guid>https://plussixoneblog.com/post/round-20-prediction-shuffling-pieces/</guid>
       <description>Leading into the final month of the season, match simulations suggesting that the top 8 is basically set. In fact, the top 8 hasn&amp;rsquo;t changed since before Round 7. As we wrote about at the time, that isn&amp;rsquo;t all that surprising. Given that - we&amp;rsquo;d perhaps expect that the remaining games aren&amp;rsquo;t all that important, as measured by our match importance metric. However, since very little separates teams in our top 8, matches involving those teams are particular important this week!</description>
     </item>
     
     <item>
       <title>Round 18 Predictions</title>
-      <link>/post/round-18-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-18-predictions/</link>
       <pubDate>Fri, 22 Jul 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-18-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-18-predictions/</guid>
       <description>We&amp;rsquo;ve talked for a while about how tight the top 8 is, meaning every game the top 8 play in is important. Interestingly this round, we actually only see two top 8 teams play each other - our likely match of the round in Geelong v Adelaide. Given that Adelaide are our top rated team  according to our ELO model and that match has some big implications as measured by our match importance rating, it is setup to be a cracker.</description>
     </item>
     
     <item>
       <title>Round 17 Predictions</title>
-      <link>/post/round-17-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-17-predictions/</link>
       <pubDate>Thu, 14 Jul 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-17-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-17-predictions/</guid>
       <description>Stupid Thursday game caught me out again. Will update when I get a chance.
 UPDATE I&amp;rsquo;ve now added in the match importance ratings for each game. By far the most important game was the Thursday night epic between Hawthorn and Sydney. I&amp;rsquo;ll write a bit more about that in the review but that match had approximately a 40 percentage point change in top 4 chances for each team.
 The next most important involves Port Adelaide and North Melbourne, the two sides sitting in 8th and 9th.</description>
@@ -187,20 +187,20 @@ The next most important involves Port Adelaide and North Melbourne, the two side
     
     <item>
       <title>Round 16 Predictions</title>
-      <link>/post/round-16-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-16-predictions/</link>
       <pubDate>Thu, 07 Jul 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-16-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-16-predictions/</guid>
       <description>As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&amp;rsquo;ve ever had at this stage of the year. Considering that, anytime two top 8 teams play each other, its going to be important.
 [ ](http://plussixoneblog.com/img/2016/07/importance_R15-1.png) We&amp;rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.</description>
     </item>
     
     <item>
       <title>Round 15 Predictions</title>
-      <link>/post/round-15-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-15-predictions/</link>
       <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-15-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-15-predictions/</guid>
       <description>I&amp;rsquo;ve been caught out by the Thursday game so I won&amp;rsquo;t have a chance to write a preview until tomorrow. Here are the predictions anyway!
 UPDATE: So I&amp;rsquo;ve got around to taking a bit of a closer look at this rounds matches.
 Finally we reach our last bye round - I know I&amp;rsquo;m looking forward to getting to a full round of matches. There are a few tight matches according to our ELO model, however the tight matches all appear pretty meaningless according to our Match Importance metric.</description>
@@ -208,49 +208,49 @@ Finally we reach our last bye round - I know I&amp;rsquo;m looking forward to ge
     
     <item>
       <title>Round 14 Predictions</title>
-      <link>/post/round-14-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-14-predictions/</link>
       <pubDate>Wed, 22 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-14-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-14-predictions/</guid>
       <description>Our next bye round, subjectively, doesn&amp;rsquo;t look great on paper. Only the Collingwood v Freo match is considered tight by our ELO model, however it is fairly insignificant as measured by our Match Importance metric. The remaining matches, despite having some significance on the relevant team finishing positions, look fairly one sided.
 Adelaide v North Melbourne, Thurs 7:20pm Adelaide Oval Probably the most interesting match of the round, and certainly with the biggest Match Importance rating, we see the top rated Crows favoured pretty heavily over the 7th ranked Kangaroos, particularly with the Home Ground Advantage.</description>
     </item>
     
     <item>
       <title>Round 13 Predictions</title>
-      <link>/post/round-13-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-13-predictions/</link>
       <pubDate>Fri, 17 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-13-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-13-predictions/</guid>
       <description>The first bye round of the year presents us with two groups of games - coin flip&amp;rsquo;s in the North/Hawks, Freo/Port and Bulldogs/Geelong games, while the others the ELO model expects to be relative blowouts. You&amp;rsquo;ll also notice that I&amp;rsquo;ve added &amp;lsquo;match importance&amp;rsquo; to the table below, which you can read about in my recent blog post. I&amp;rsquo;ll summarise some of the important games below.
 North Melbourne v Hawthorn, Fri 7:40pm Etihad Stadium My model, as I keep harping on about, is still unimpressed by North Melbourne, rating them as the 8th best team and having them finish 7th on a (tightly packed) simulated season ladder.</description>
     </item>
     
     <item>
       <title>Round 12 Predictions</title>
-      <link>/post/round-12-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-12-predictions/</link>
       <pubDate>Fri, 10 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-12-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-12-predictions/</guid>
       <description>Last week was a great week for our model, tipping all 9 games correctly! Onto this weeks set of games and it looks like a tough round to tip! There are a bunch of games that are difficult to seperate by bookmakers and also by my ELO model.
 Port Adelaide v Western Bulldogs, Sat 1:30pm Adelaide Oval This game is setup to be super close - Port Adelaide have been surging in the last couple of weeks, bridging the originally wide chasm between 8th and 9th place.</description>
     </item>
     
     <item>
       <title>Pre Round 11 Ratings</title>
-      <link>/post/pre-round-11-ratings/</link>
+      <link>https://plussixoneblog.com/post/pre-round-11-ratings/</link>
       <pubDate>Fri, 03 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/pre-round-11-ratings/</guid>
+      <guid>https://plussixoneblog.com/post/pre-round-11-ratings/</guid>
       <description>The congestion at the top of our ELO rankings still remains, although &amp;lsquo;the challengers&amp;rsquo; to the top 4 may be slightly sorting themselves out. Only 9 rating points separate the top team (Hawthorn, still!) and our 4th team (tied between WCE and Adelaide) which is within the Home Ground Advantage we apply to the home team of 30 rankings points. After that, Geelong is in a bit of freefall, losing 45 ratings points (roughly the equivalent of a margin of 10 points) and 6 spots in our ranking system in the last 2 weeks!</description>
     </item>
     
     <item>
       <title>Round 11 Predictions</title>
-      <link>/post/round-11-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-11-predictions/</link>
       <pubDate>Fri, 03 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-11-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-11-predictions/</guid>
       <description>I&amp;rsquo;ve separated out the simulations and ratings update into another post and I&amp;rsquo;ll just focus on this weeks games here.
 Last week gave my ELO model a 4-peat of 6 out 9 tipping weeks. There were quite a few close tips this week, with an MAE of 23, bringing our season total to 64 (71%) with an MAE of 30.6.
 To this weeks games, we see some tight matchups. Concretely, Geelong v GWS gives Geelong a slight edge with Home Ground Advantage.</description>
@@ -258,48 +258,48 @@ To this weeks games, we see some tight matchups. Concretely, Geelong v GWS gives
     
     <item>
       <title>Round 10 Predictions</title>
-      <link>/post/round-10-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-10-predictions/</link>
       <pubDate>Fri, 27 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-10-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-10-predictions/</guid>
       <description>For the third week in a row, my ELO model managed 6 correct tips, with an MAE of 29, bringing our season total to 58 (72%) with an MAE of 31.5.
 This upcoming weekend shows us a few close matches that are difficult to call. Our current ELO rankings show us that there is more congestion at the top of the ladder, with a clump of 6 teams forming, with the Bulldogs and North (still!</description>
     </item>
     
     <item>
       <title>Round 9 predictions</title>
-      <link>/post/round-9-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-9-predictions/</link>
       <pubDate>Fri, 20 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-9-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-9-predictions/</guid>
       <description>Last weekend we again managed 6 correct tips, with an MAE of 33.9, bringing our season total to 52 (72%) with an MAE of 31.8. I&amp;rsquo;m hoping from here on in, we can maintain greater than 70% tipping and get the MAE under the 30 point mark [ref] I already have some thoughts on improvements of the ELO rating system[/ref]
 Onto this weekend, it looks like there are two standout games in the Hawks v Swans and the GWS v WB matchup.</description>
     </item>
     
     <item>
       <title>Round 8 Predictions</title>
-      <link>/post/round-8-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-8-predictions/</link>
       <pubDate>Fri, 13 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-8-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-8-predictions/</guid>
       <description>Last weekend I managed to tip 6 out of 9, with an MAE of 31.2. A bit better than the first week but also not as well as my models historical performance[ref] In reviewing the data this week, I found a small bug in my &amp;ldquo;Upcoming Round Prediction script&amp;rdquo; whereby I was giving the HGA to the away team, thus overestimating the performance of the Away Team by roughly 16 points.</description>
     </item>
     
     <item>
       <title>Round 7 predictions</title>
-      <link>/post/round-7-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-7-predictions/</link>
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-7-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-7-predictions/</guid>
       <description>After putting tips out for the first time last week, I actually didn&amp;rsquo;t get to watch a single game due to being on holiday for the (at least in Queensland) long weekend without phone, internet or TV reception! After a nervous wait, I came back to see my model had a tough weekend - tipping 5 out of 9 with a mean absolute error in the margin of a hefty 50 points.</description>
     </item>
     
     <item>
       <title>Round 6 Predictions</title>
-      <link>/post/round-6-predictions/</link>
+      <link>https://plussixoneblog.com/post/round-6-predictions/</link>
       <pubDate>Fri, 29 Apr 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>/post/round-6-predictions/</guid>
+      <guid>https://plussixoneblog.com/post/round-6-predictions/</guid>
       <description>While I was hoping to have this site up and running before the season started, my PhD thesis and then full time work got in the way.
 Nonetheless, its not too late to start posting predictions! I plan to maybe go back and revisit a priori how my model would have performed in the early rounds but that&amp;rsquo;s for a later time. You can at least check in on my pre-season rankings.</description>
     </item>
