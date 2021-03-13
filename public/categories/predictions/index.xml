@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://plussixoneblog.com/categories/predictions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://plussixoneblog.com/categories/predictions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>AFL Mens - Round 14 Preview</title>
       <link>https://plussixoneblog.com/post/afl-mens-round-14-preview/</link>
@@ -62,6 +66,15 @@ Ratings Richmond extends their dominance at the top of the ratings. They now sit
 
 &lt;p&gt;After a pretty brutal Round 4, we saw some big movements in our ratings. That leads to some interesting matchups this week. Read on to see who our model is tipping!&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Round 1 AFLM Preview</title>
+      <link>https://plussixoneblog.com/post/round-1-aflm-preview/</link>
+      <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>https://plussixoneblog.com/post/round-1-aflm-preview/</guid>
+      <description>Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I’ve had a busy offseason moving this blog over to blogdown. This has meant I’ve had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning R and so it wasn’t my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I’m getting there.</description>
     </item>
     
     <item>
@@ -179,7 +192,7 @@ The next most important involves Port Adelaide and North Melbourne, the two side
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/round-16-predictions/</guid>
       <description>As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&amp;rsquo;ve ever had at this stage of the year. Considering that, anytime two top 8 teams play each other, its going to be important.
- We&amp;rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.</description>
+[ ](http://plussixoneblog.com/img/2016/07/importance_R15-1.png) We&amp;rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.</description>
     </item>
     
     <item>

@@ -39,6 +39,11 @@
   </url>
   
   <url>
+    <loc>https://plussixoneblog.com/categories/afl/</loc>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://plussixoneblog.com/categories/aflm/</loc>
     <lastmod>2020-07-29T00:00:00+00:00</lastmod>
   </url>
@@ -51,6 +56,21 @@
   <url>
     <loc>https://plussixoneblog.com/categories/prediction/</loc>
     <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/tags/aflm/</loc>
+    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/post/recruits/</loc>
+    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/tags/</loc>
+    <lastmod>2020-07-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -209,17 +229,22 @@
   </url>
   
   <url>
+    <loc>https://plussixoneblog.com/categories/world-cup-datathon/</loc>
+    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/post/world-cup-datathon-part-4/</loc>
+    <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://plussixoneblog.com/post/aflm-round-13-preview/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://plussixoneblog.com/page/project-world-cup-datathon/</loc>
-    <lastmod>2018-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://plussixoneblog.com/categories/world-cup-datathon/</loc>
     <lastmod>2018-06-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -274,7 +299,32 @@
   </url>
   
   <url>
+    <loc>https://plussixoneblog.com/categories/squiggle/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/post/squiggle-disagreement/</loc>
+    <lastmod>2018-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/categories/aflw/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/categories/aflwednesdaywonk/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://plussixoneblog.com/post/round-6-preview/</loc>
+    <lastmod>2018-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/post/wednesday-wonk-v1/</loc>
     <lastmod>2018-04-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -291,11 +341,6 @@
   <url>
     <loc>https://plussixoneblog.com/post/kangawhos-afl-men-s-round-2-preview/</loc>
     <lastmod>2018-03-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://plussixoneblog.com/categories/aflw/</loc>
-    <lastmod>2018-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -329,8 +374,13 @@
   </url>
   
   <url>
-    <loc>https://plussixoneblog.com/categories/afl/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <loc>https://plussixoneblog.com/post/round-1-aflm-preview/</loc>
+    <lastmod>2018-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://plussixoneblog.com/post/simulating-the-2018-season/</loc>
+    <lastmod>2018-03-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -490,11 +540,6 @@
   
   <url>
     <loc>https://plussixoneblog.com/post/2017-03-20-photoswipe-gallery-sample/</loc>
-    <lastmod>2017-03-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://plussixoneblog.com/tags/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url>
   
