@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://plussixoneblog.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://plussixoneblog.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New fitzRoy functions</title>
       <link>https://plussixoneblog.com/post/new-fitzroy-functions/</link>
@@ -31,17 +27,6 @@ devtools::install_github(&amp;quot;jimmyday12/fitzRoy&amp;quot;) library(fitzRoy
       <guid>https://plussixoneblog.com/post/monash-tips-package/</guid>
       <description>Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!
 I’m working on a few things in fitzRoy that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my Monash Probabilistic Tipping Comp tips from R when I updated my models.</description>
-    </item>
-    
-    <item>
-      <title>Recruits</title>
-      <link>https://plussixoneblog.com/post/recruits/</link>
-      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/recruits/</guid>
-      <description>Welcome to my first actual analysis post in a long time (I’m too scared to find out how long it actually has been).
-I was inspired by a Twitter post this week that caused some typically strong responses. It was a poingnet visual representation of the contrast in recruiting strategies between two sides.
-As a general rule Hawthorn appears to have been more focused on bringing in talent from elsewhere rather than through the top end of the draft (a possible side effect of being at the top for multiple years in a row) while Melbourne has been focused more on the draft and specifically on the top end.</description>
     </item>
     
     <item>
@@ -423,17 +408,6 @@ Ratings The main thing that jumps out from our ratings is how two tiered it look
     </item>
     
     <item>
-      <title>World Cup Datathon: Part 4 - Modelling</title>
-      <link>https://plussixoneblog.com/post/world-cup-datathon-part-4/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/world-cup-datathon-part-4/</guid>
-      <description>knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion journey and my feature engineering methods on previous posts. In this post - we build some models and submit them!
-First up, let’s load in our data and packages.
-library(pacman) p_load(tidyverse, caret, recipes) dat &amp;lt;- read_csv(here::here(&amp;quot;projects&amp;quot;, &amp;quot;world-cup-2018&amp;quot;, &amp;quot;combined-data-cleaned.</description>
-    </item>
-    
-    <item>
       <title>AFLM - Round 13 preview</title>
       <link>https://plussixoneblog.com/post/aflm-round-13-preview/</link>
       <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
@@ -537,16 +511,6 @@ Ratings It’s been a couple weeks since we’ve looked in depth at the ratings.
     </item>
     
     <item>
-      <title>Squiggle Disagreement</title>
-      <link>https://plussixoneblog.com/post/squiggle-disagreement/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/squiggle-disagreement/</guid>
-      <description>For those who follow me, I’m sure you are well aware of The Squiggle run by Max Barry. In recent years, Max has done some amazing work at combining a bunch of different Footy models in one place. He recently created an API and Rob and I have now integrated it into the latest version of fitzRoy.
-There is a lot of value at having this information available. I’m hoping to delve into that throughout the year.</description>
-    </item>
-    
-    <item>
       <title>Round 6 Preview</title>
       <link>https://plussixoneblog.com/post/round-6-preview/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
@@ -554,17 +518,6 @@ There is a lot of value at having this information available. I’m hoping to de
       <guid>https://plussixoneblog.com/post/round-6-preview/</guid>
       <description>Unfortunately no big preview this week as I’m travelling. You can see my tips, as always, at this link or on Squiggle.
   Day  Venue  Home.Team  Away.Team  Prediction  Probability  Result      Fri, 27  Docklands  Footscray   Carlton   13  59.6%  Footscray by 13    Sat, 28  Kardinia Park  Geelong   Sydney   12  58.</description>
-    </item>
-    
-    <item>
-      <title>Wednesday Wonk - v1</title>
-      <link>https://plussixoneblog.com/post/wednesday-wonk-v1/</link>
-      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/wednesday-wonk-v1/</guid>
-      <description>For those who are part….
-First, let’s grab the results using fitzRoy.
-library(fitzRoy) library(tidyverse) ## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.4 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.4 ## ✔ tidyr 0.8.0 ✔ stringr 1.3.0 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() results &amp;lt;- get_match_results() glimpse(results) ## Observations: 15,272 ## Variables: 16 ## $ Game &amp;lt;dbl&amp;gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15.</description>
     </item>
     
     <item>
@@ -606,24 +559,6 @@ library(fitzRoy) library(tidyverse) ## ── Attaching packages ─────
       <guid>https://plussixoneblog.com/post/kangawhos-afl-men-s-round-2-preview/</guid>
       <description>The annual super long weekend of football that I always miss because I’m camping is upon us! After a few creaks and a bit of encouragement, I’ve managed to get the ELO model up and running for the new season, including my first set of simulations!
 A quick reminder that you can always find my Tips and Current Ratings and Simulations on these pages. I’ll aim to update these every Monday following a round if you need to see them before I blog!</description>
-    </item>
-    
-    <item>
-      <title>Round 1 AFLM Preview</title>
-      <link>https://plussixoneblog.com/post/round-1-aflm-preview/</link>
-      <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/round-1-aflm-preview/</guid>
-      <description>Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I’ve had a busy offseason moving this blog over to blogdown. This has meant I’ve had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning R and so it wasn’t my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I’m getting there.</description>
-    </item>
-    
-    <item>
-      <title>Simulating the 2018 Season</title>
-      <link>https://plussixoneblog.com/post/simulating-the-2018-season/</link>
-      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/simulating-the-2018-season/</guid>
-      <description>“Training the house down” is definately not an addage that has applied to me this off-season. Despite the best intentions, I’ve left it to the final moment to start getting some content for the new season. In fairness, a lot of work behind the scenes has been happening…</description>
     </item>
     
     <item>
@@ -1112,7 +1047,7 @@ That gives us a season total of 136 out of 189 (72%) which means that we only ne
       <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/round-prediction-2/</guid>
-      <description>[ ](http://plussixoneblog.com/img/2016/08/round22.png)After having a rough start to the week (I busted my ankle playing local Aussie Rules in Brisbane), I&amp;rsquo;ve had a monumentous end, resubmitting my PhD thesis to the UQ Graduate School after responding to the examiners comments. Fingers crossed that gets ticked off soon! The downside of this is I&amp;rsquo;ve run out of time to get a decent preview up unfortunately.
+      <description>After having a rough start to the week (I busted my ankle playing local Aussie Rules in Brisbane), I&amp;rsquo;ve had a monumentous end, resubmitting my PhD thesis to the UQ Graduate School after responding to the examiners comments. Fingers crossed that gets ticked off soon! The downside of this is I&amp;rsquo;ve run out of time to get a decent preview up unfortunately.
 My predictions are below however I won&amp;rsquo;t include a writeup this week.</description>
     </item>
     
@@ -1267,7 +1202,7 @@ Those two upset losses saw the biggest change in ELO ratings for the round with 
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/round-16-predictions/</guid>
       <description>As our ELO model suggests, the top 8 is super tight. In fact, our simulations have a really tough time separating out clear favourites in our top 8 race. Data from The Arc, suggests that this is the tightest race we&amp;rsquo;ve ever had at this stage of the year. Considering that, anytime two top 8 teams play each other, its going to be important.
-[ ](http://plussixoneblog.com/img/2016/07/importance_R15-1.png) We&amp;rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.</description>
+ We&amp;rsquo;ve got 2 top 8 clashes this week in Sydney v Geelong and WCE v North, which have big implications for the respective finishing positions of those teams.</description>
     </item>
     
     <item>
@@ -1336,7 +1271,7 @@ North Melbourne v Hawthorn, Fri 7:40pm Etihad Stadium My model, as I keep harpin
       <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/beyond-the-8-point-game-estimating-match-importance-in-the-afl/</guid>
-      <description>As I was watching an enthralling match between Western Bulldogs and Port Adelaide over the weekend, there was a lot of discussion about how important the match was - the Bulldogs needed to win to cement their spot in the top 8, while Port needed to win to have any chance of jumping up. It&amp;rsquo;s also not uncommon for commentators to discuss the notion of an &amp;ldquo;8 point game&amp;quot;, typically when two teams close on the ladder play each other.</description>
+      <description>As I was watching an enthralling match between Western Bulldogs and Port Adelaide over the weekend, there was a lot of discussion about how important the match was - the Bulldogs needed to win to cement their spot in the top 8, while Port needed to win to have any chance of jumping up. It&amp;rsquo;s also not uncommon for commentators to discuss the notion of an &amp;ldquo;8 point game&amp;rdquo;, typically when two teams close on the ladder play each other.</description>
     </item>
     
     <item>

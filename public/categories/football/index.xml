@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Mon, 11 Jun 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://plussixoneblog.com/categories/football/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 11 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://plussixoneblog.com/categories/football/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Football World Cup Datathon - Part 2: Data Aquisition</title>
       <link>https://plussixoneblog.com/post/football-world-cup-datathon-part-2/</link>

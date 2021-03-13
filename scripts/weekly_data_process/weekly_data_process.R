@@ -21,7 +21,7 @@ filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2021
-new_season <- FALSE
+new_season <- TRUE
 
 # Set ELO Parameters
 e <- 1.7
@@ -34,17 +34,32 @@ sim_num <-  10000
 
 # Get Data ----------------------------------------------------------------
 # First check if new games exist
-new_results <- fetch_results_footywire(2020, NULL, 1) %>% convert_results()
+new_results <- fetch_results_footywire(season, 
+                                       round_number = NULL, 
+                                       last_n_matches = 1) 
+
 old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
-if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
-    last(old_results$results$Away.Team) == last(new_results$Away.Team) &
-    last(old_results$results$Date) == last(new_results$Date)) {
+
+if(nrow(new_results) > 0){
+  new_results <- new_results %>% convert_results()
+  if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
+      last(old_results$results$Away.Team) == last(new_results$Away.Team) &
+      last(old_results$results$Date) == last(new_results$Date)) {
+    new_data <- FALSE
+    message("No New Data Found")
+  } else {
+    new_data <- TRUE
+    message("New Data Found")
+  }
+} else {
   new_data <- FALSE
   message("No New Data Found")
-} else {
-  new_data <- TRUE
-  message("New Data Found")
 }
+
+#new_results <- safe_results(season, comp = "AFLM")
+
+
+
 
 # Manual override
 #new_data <- TRUE
@@ -286,11 +301,15 @@ if (new_data) {
 
   
   # Save data
-  write_rds(aflm_sims, path = here::here("data_files", "raw-data", "AFLM_sims.rds"), compress = "bz")
+  write_rds(aflm_sims, path = 
+              here::here("data_files", "raw-data", "AFLM_sims.rds"), 
+            compress = "bz")
   
   # Writing csv
-  write_csv(aflm_sims$sim_data_summary, path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
-  write_csv(aflm_sims$simCount, path = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
+  write_csv(aflm_sims$sim_data_summary, 
+            path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
+  write_csv(aflm_sims$simCount, path = 
+              here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
   
   
   # Save finals
