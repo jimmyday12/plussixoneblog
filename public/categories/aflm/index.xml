@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://plussixoneblog.com/categories/aflm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://plussixoneblog.com/categories/aflm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Monash Tips Package</title>
       <link>https://plussixoneblog.com/post/monash-tips-package/</link>
@@ -16,6 +20,17 @@
       <guid>https://plussixoneblog.com/post/monash-tips-package/</guid>
       <description>Hey team! With the amazingness that is the ‘festival of footy’ and 20 days straight of games - spare a thought for us poor modellers as we scramble to update our tips and blogs between rounds that have no distinct gap!
 I’m working on a few things in fitzRoy that might help but thought I’d share something that I’ve been working on. Orginally it was just going to be some internal code that allowed me to submit my Monash Probabilistic Tipping Comp tips from R when I updated my models.</description>
+    </item>
+    
+    <item>
+      <title>Recruits</title>
+      <link>https://plussixoneblog.com/post/recruits/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>https://plussixoneblog.com/post/recruits/</guid>
+      <description>Welcome to my first actual analysis post in a long time (I’m too scared to find out how long it actually has been).
+I was inspired by a Twitter post this week that caused some typically strong responses. It was a poingnet visual representation of the contrast in recruiting strategies between two sides.
+As a general rule Hawthorn appears to have been more focused on bringing in talent from elsewhere rather than through the top end of the draft (a possible side effect of being at the top for multiple years in a row) while Melbourne has been focused more on the draft and specifically on the top end.</description>
     </item>
     
     <item>
@@ -530,6 +545,15 @@ Note - I’m showing the next 18 games because the current fixture is messing wi
       <description>Welcome to our all new AFL Men’s ratings and tips page! Here you will the latest ratings, tips for the upcoming rounds and any simulations that have been done. I’ll usually aim to update these early in the week to give you time to digest Any questions, let me know on Twitter!
 Last updated: 2020-10-19.
 Summary Below are the updated AFL Men’s ratings and simulations. These are based off our ELO model and simulations.</description>
+    </item>
+    
+    <item>
+      <title>Round 1 AFLM Preview</title>
+      <link>https://plussixoneblog.com/post/round-1-aflm-preview/</link>
+      <pubDate>Wed, 21 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>https://plussixoneblog.com/post/round-1-aflm-preview/</guid>
+      <description>Well here we are, another year, another frantic scramble to get my ratings up. As some of you may know, I’ve had a busy offseason moving this blog over to blogdown. This has meant I’ve had to rewrite all of my old code which was incredibly messy. It was also written while I was still learning R and so it wasn’t my best work. That whole re-write is still a work in progress (hence no pre-season simulations) but I’m getting there.</description>
     </item>
     
     <item>

@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Wed, 18 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://plussixoneblog.com/categories/stats/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://plussixoneblog.com/categories/stats/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>The tackle machine</title>
       <link>https://plussixoneblog.com/post/the-tackle-machine/</link>

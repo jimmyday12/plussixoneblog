@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Thu, 14 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://plussixoneblog.com/categories/world-cup-datathon/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://plussixoneblog.com/categories/world-cup-datathon/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>World Cup Datathon: Part 4 - Modelling</title>
+      <link>https://plussixoneblog.com/post/world-cup-datathon-part-4/</link>
+      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>https://plussixoneblog.com/post/world-cup-datathon-part-4/</guid>
+      <description>knitr::opts_chunk$set(warning = FALSE, message = FALSE) This is the interesting part of our journey. For those catching up - I’m entering the Betfair World Cup Datathon. You can see my data aquisttion journey and my feature engineering methods on previous posts. In this post - we build some models and submit them!
+First up, let’s load in our data and packages.
+library(pacman) p_load(tidyverse, caret, recipes) dat &amp;lt;- read_csv(here::here(&amp;quot;projects&amp;quot;, &amp;quot;world-cup-2018&amp;quot;, &amp;quot;combined-data-cleaned.</description>
+    </item>
+    
     <item>
       <title>Project: World Cup Datathon </title>
       <link>https://plussixoneblog.com/page/project-world-cup-datathon/</link>
