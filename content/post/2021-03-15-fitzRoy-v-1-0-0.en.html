@@ -1,0 +1,133 @@
+---
+title: fitzRoy v1.0.0
+author: James Day
+date: '2021-03-17'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+
+
+<p>I’m excited to announce the official v1.0.0 release of fitzRoy has landed on CRAN!</p>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>It’s been over 3 years since the first commit of the package and it’s great to finally feel like it’s stable enough for a v1 release. The initial idea was to provide a set of functions that made scraping data (at the time, the only way to get access to historical AFL results possible) easy so that modellers and analysts could spend more time doing modelling and analysing.</p>
+<p>In the subsequent years, I’ve added a bunch of patches, learned a lot about writing better code, optimised a bunch of functions and even restructured the package a few times. While this has been great, the code and package itself was only just held together by a lot of spaghetti code.</p>
+<p>This came to a head last year where, like in most walks of life, COVID threw a spanner in the works. The various logic that the package used was thrown out the window by things like rolling fixtures, weird round structures and various other quircks of the season that was 2020. I spent much of last year just fixing bugs and trying to keep the package functional and it was quite apparent it needed fixing.</p>
+<p>An additional motivation has been AFLW. When I started the package, it didn’t sit great with me that we weren’t able to provide basic AFLW data but, in the early seasons of AFLW, that data generally didn’t exist. While that data is still hard to find, it is now more readily available and so I really wanted to make sure it got treated the same as the AFLM data.</p>
+<p>As such - over the last few months I’ve been completely overhauling the package and restructured everything. I think it’s now much simpler, easy to use and includes both a wider range of data and importantly, a solid amount of AFLW data!</p>
+<p>The main changes are below. For further details have aread through the <a href="https://jimmyday12.github.io/fitzRoy/">pkgdown site</a>.</p>
+</div>
+<div id="highlights" class="section level2">
+<h2>Highlights</h2>
+<div id="new-family-of-fetch_-functions" class="section level3">
+<h3>New family of <code>fetch_*</code> functions</h3>
+<p>This new family of functions provides a simple and consistent API to the common types of AFL data. It also allows you to use the same interface to access data from any data source, meaning that it should require much less effort to switch between data sources or start a new analysis.</p>
+<p>The basic structure of the <code>fetch_*</code> functions is that you specify the <code>season</code>, <code>round_number</code>, <code>source</code> and <code>comp</code>. Some examples are below but read through the extensive <a href="https://jimmyday12.github.io/fitzRoy/articles/main-fetch-functions.html">Main Fetch Functions vignette</a> for a detailed run through.</p>
+<p>An example with the fixture dataset.</p>
+<pre class="r"><code>fetch_fixture(season = 2021, source = &quot;AFL&quot;, comp = &quot;AFLM&quot;)</code></pre>
+<pre><code>## # A tibble: 198 x 47
+##       id providerId   utcStartTime       status  compSeason.id compSeason.provi…
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;chr&gt;           &lt;int&gt; &lt;chr&gt;            
+##  1  2991 CD_M2021014… 2021-03-18T08:25:… SCHEDU…            34 CD_S2021014      
+##  2  2986 CD_M2021014… 2021-03-19T08:50:… SCHEDU…            34 CD_S2021014      
+##  3  2992 CD_M2021014… 2021-03-20T02:45:… SCHEDU…            34 CD_S2021014      
+##  4  2993 CD_M2021014… 2021-03-20T05:35:… SCHEDU…            34 CD_S2021014      
+##  5  2994 CD_M2021014… 2021-03-20T08:25:… SCHEDU…            34 CD_S2021014      
+##  6  2987 CD_M2021014… 2021-03-20T08:45:… SCHEDU…            34 CD_S2021014      
+##  7  2990 CD_M2021014… 2021-03-21T02:10:… SCHEDU…            34 CD_S2021014      
+##  8  2989 CD_M2021014… 2021-03-21T04:20:… SCHEDU…            34 CD_S2021014      
+##  9  2988 CD_M2021014… 2021-03-21T07:10:… SCHEDU…            34 CD_S2021014      
+## 10  2999 CD_M2021014… 2021-03-25T08:20:… SCHEDU…            34 CD_S2021014      
+## # … with 188 more rows, and 41 more variables: compSeason.name &lt;chr&gt;,
+## #   compSeason.shortName &lt;chr&gt;, compSeason.currentRoundNumber &lt;int&gt;,
+## #   round.id &lt;int&gt;, round.providerId &lt;chr&gt;, round.abbreviation &lt;chr&gt;,
+## #   round.name &lt;chr&gt;, round.roundNumber &lt;int&gt;, round.byes &lt;list&gt;,
+## #   home.team.id &lt;int&gt;, home.team.providerId &lt;chr&gt;, home.team.name &lt;chr&gt;,
+## #   home.team.abbreviation &lt;chr&gt;, home.team.nickname &lt;chr&gt;,
+## #   home.team.teamType &lt;chr&gt;, home.team.club.id &lt;int&gt;,
+## #   home.team.club.providerId &lt;chr&gt;, home.team.club.name &lt;chr&gt;,
+## #   home.team.club.abbreviation &lt;chr&gt;, home.team.club.nickname &lt;chr&gt;,
+## #   away.team.id &lt;int&gt;, away.team.providerId &lt;chr&gt;, away.team.name &lt;chr&gt;,
+## #   away.team.abbreviation &lt;chr&gt;, away.team.nickname &lt;chr&gt;,
+## #   away.team.teamType &lt;chr&gt;, away.team.club.id &lt;int&gt;,
+## #   away.team.club.providerId &lt;chr&gt;, away.team.club.name &lt;chr&gt;,
+## #   away.team.club.abbreviation &lt;chr&gt;, away.team.club.nickname &lt;chr&gt;,
+## #   venue.id &lt;int&gt;, venue.providerId &lt;chr&gt;, venue.name &lt;chr&gt;,
+## #   venue.abbreviation &lt;chr&gt;, venue.location &lt;chr&gt;, venue.state &lt;chr&gt;,
+## #   venue.timezone &lt;chr&gt;, metadata.travel_link &lt;chr&gt;,
+## #   metadata.ticket_link &lt;chr&gt;, compSeason.year &lt;dbl&gt;</code></pre>
+<p>The other functions are below.</p>
+<pre class="r"><code>lineup &lt;- fetch_lineup(season = 2021, round_number = 7, comp = &quot;AFLW&quot;)
+results &lt;- fetch_results(season = 2020, source = &quot;afltables&quot;, comp = &quot;AFLW&quot;)
+ladder &lt;- fetch_ladder(season = 2020, source = &quot;squiggle&quot;)
+stats &lt;- fetch_player_stats(season = 2020, source = &quot;fryzigg&quot;)</code></pre>
+</div>
+<div id="new-data-source" class="section level3">
+<h3>New data source</h3>
+<p>The official AFL website has been added as a new data source for fitzRoy. This provides access to official statistics and generally includes a lot more data than other sources. It is the default <code>source</code> in any of the <code>fetch_*</code> family of functions.</p>
+<p>Some good examples are shown in the new <a href="https://jimmyday12.github.io/fitzRoy/articles/fitzRoy.html">Getting started vignette</a></p>
+<pre class="r"><code># The following will return the same. 
+fetch_results(season = 2021, round_number = 1, source = &quot;AFL&quot;, comp = &quot;AFLM&quot;)
+fetch_results_afl(season = 2021, round_number = 1, comp = &quot;AFLM&quot;)</code></pre>
+</div>
+<div id="aflw-data" class="section level3">
+<h3>AFLW data</h3>
+<p>All data from the source “AFL” will also contain AFLW data for the first time. This includes fixtures, results, ladders, lineups and player stats. It is as simple as changing the <code>comp</code> argument to “AFLW” when using any of the <code>fetch_*</code> family of functions.</p>
+<pre class="r"><code>fetch_player_stats(season = 2021, round_number = 1, source = &quot;AFL&quot;, comp = &quot;AFLW&quot;)</code></pre>
+<pre><code>## # A tibble: 294 x 67
+##    providerId  utcStartTime  status compSeason.shor… round.name round.roundNumb…
+##    &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;                 &lt;int&gt;
+##  1 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  2 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  3 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  4 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  5 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  6 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  7 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  8 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+##  9 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+## 10 CD_M202126… 2021-01-28T0… CONCL… 2021 AFL Womens  Round 1                   1
+## # … with 284 more rows, and 61 more variables: venue.name &lt;chr&gt;,
+## #   home.team.club.name &lt;chr&gt;, away.team.club.name &lt;chr&gt;,
+## #   player.jumperNumber &lt;int&gt;, player.photoURL &lt;chr&gt;,
+## #   player.player.position &lt;chr&gt;, player.player.player.playerId &lt;chr&gt;,
+## #   player.player.player.captain &lt;lgl&gt;,
+## #   player.player.player.playerJumperNumber &lt;int&gt;,
+## #   player.player.player.givenName &lt;chr&gt;, player.player.player.surname &lt;chr&gt;,
+## #   teamId &lt;chr&gt;, gamesPlayed &lt;lgl&gt;, timeOnGroundPercentage &lt;dbl&gt;, goals &lt;dbl&gt;,
+## #   behinds &lt;dbl&gt;, superGoals &lt;lgl&gt;, kicks &lt;dbl&gt;, handballs &lt;dbl&gt;,
+## #   disposals &lt;dbl&gt;, marks &lt;dbl&gt;, bounces &lt;dbl&gt;, tackles &lt;dbl&gt;,
+## #   contestedPossessions &lt;dbl&gt;, uncontestedPossessions &lt;dbl&gt;,
+## #   totalPossessions &lt;dbl&gt;, inside50s &lt;dbl&gt;, marksInside50 &lt;dbl&gt;,
+## #   contestedMarks &lt;dbl&gt;, hitouts &lt;dbl&gt;, onePercenters &lt;dbl&gt;,
+## #   disposalEfficiency &lt;dbl&gt;, clangers &lt;dbl&gt;, freesFor &lt;dbl&gt;,
+## #   freesAgainst &lt;dbl&gt;, dreamTeamPoints &lt;dbl&gt;, rebound50s &lt;dbl&gt;,
+## #   goalAssists &lt;dbl&gt;, goalAccuracy &lt;dbl&gt;, ratingPoints &lt;lgl&gt;, ranking &lt;lgl&gt;,
+## #   lastUpdated &lt;chr&gt;, turnovers &lt;dbl&gt;, intercepts &lt;dbl&gt;,
+## #   tacklesInside50 &lt;dbl&gt;, shotsAtGoal &lt;dbl&gt;, goalEfficiency &lt;lgl&gt;,
+## #   shotEfficiency &lt;lgl&gt;, interchangeCounts &lt;lgl&gt;, scoreInvolvements &lt;dbl&gt;,
+## #   metresGained &lt;dbl&gt;, clearances.centreClearances &lt;dbl&gt;,
+## #   clearances.stoppageClearances &lt;dbl&gt;, clearances.totalClearances &lt;dbl&gt;,
+## #   player.playerId &lt;chr&gt;, player.captain &lt;lgl&gt;,
+## #   player.playerJumperNumber &lt;int&gt;, player.givenName &lt;chr&gt;,
+## #   player.surname &lt;chr&gt;, teamStatus &lt;chr&gt;, team.name &lt;chr&gt;</code></pre>
+</div>
+<div id="deprecating-functions" class="section level3">
+<h3>Deprecating functions</h3>
+<p>Many functions have been deprecated in favour of the new <code>fetch_*</code> family of functions. These are soft deprecations in that they will still work, but internally just call the newly named <code>fetch_*</code> function. You will get a warning message. In the future, most of these functions will get removed. A full list can be seen on the <a href="https://jimmyday12.github.io/fitzRoy/news/index.html#deprecated-functions">Changelog</a> but the most used ones will be</p>
+<ul>
+<li><code>get_fixture</code></li>
+<li><code>get_match_results</code></li>
+<li><code>update_footywire_stats</code></li>
+<li><code>return_ladder</code></li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level3">
+<h3>Bug fixes</h3>
+<p>There are a few small bug fixes as well. Probably the bigger impacts will be over on the <a href="https://github.com/jimmyday12/fitzRoy_data/">data repository</a> where we’ve re-scraped a bunch of historical data. This mostly affects AFL Tables and Footywire data.</p>
+</div>
+</div>

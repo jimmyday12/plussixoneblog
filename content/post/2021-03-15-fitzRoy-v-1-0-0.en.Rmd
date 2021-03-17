@@ -1,0 +1,81 @@
+---
+title: fitzRoy v1.0.0
+author: James Day
+date: '2021-03-17'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+I'm excited to announce the official v1.0.0 release of fitzRoy has landed on CRAN!
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(fitzRoy)
+```
+## Motivation
+It's been over 3 years since the first commit of the package and it's great to finally feel like it's stable enough for a v1 release. The initial idea was to provide a set of functions that made scraping data (at the time, the only way to get access to historical AFL results possible) easy so that modellers and analysts could spend more time doing modelling and analysing. 
+
+In the subsequent years, I've added a bunch of patches, learned a lot about writing better code, optimised a bunch of functions and even restructured the package a few times. While this has been great, the code and package itself was only just held together by a lot of spaghetti code.
+
+This came to a head last year where, like in most walks of life, COVID threw a spanner in the works. The various logic that the package used was thrown out the window by things like rolling fixtures, weird round structures and various other quircks of the season that was 2020. I spent much of last year just fixing bugs and trying to keep the package functional and it was quite apparent it needed fixing.
+
+An additional motivation has been AFLW. When I started the package, it didn't sit great with me that we weren't able to provide basic AFLW data but, in the early seasons of AFLW, that data generally didn't exist. While that data is still hard to find, it is now more readily available and so I really wanted to make sure it got treated the same as the AFLM data. 
+
+As such - over the last few months I've been completely overhauling the package and restructured everything. I think it's now much simpler, easy to use and includes both a wider range of data and importantly, a solid amount of AFLW data! 
+
+The main changes are below. For further details have aread through the [pkgdown site](https://jimmyday12.github.io/fitzRoy/).
+
+## Highlights
+
+### New family of `fetch_*` functions
+This new family of functions provides a simple and consistent API to the common types of AFL data. It also allows you to use the same interface to access data from any data source, meaning that it should require much less effort to switch between data sources or start a new analysis. 
+
+The basic structure of the `fetch_*` functions is that you specify the `season`, `round_number`, `source` and `comp`. Some examples are below but read through the extensive [Main Fetch Functions vignette](https://jimmyday12.github.io/fitzRoy/articles/main-fetch-functions.html) for a detailed run through.
+
+An example with the fixture dataset. 
+
+```{r}
+fetch_fixture(season = 2021, source = "AFL", comp = "AFLM")
+```
+
+The other functions are below. 
+
+```{r message=FALSE, warning=FALSE, eval = FALSE}
+lineup <- fetch_lineup(season = 2021, round_number = 7, comp = "AFLW")
+results <- fetch_results(season = 2020, source = "afltables", comp = "AFLW")
+ladder <- fetch_ladder(season = 2020, source = "squiggle")
+stats <- fetch_player_stats(season = 2020, source = "fryzigg")
+```
+
+### New data source
+The official AFL website has been added as a new data source for fitzRoy. This provides access to official statistics and generally includes a lot more data than other sources. It is the default `source` in any of the `fetch_*` family of functions. 
+
+Some good examples are shown in the new [Getting started vignette](https://jimmyday12.github.io/fitzRoy/articles/fitzRoy.html)
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+# The following will return the same. 
+fetch_results(season = 2021, round_number = 1, source = "AFL", comp = "AFLM")
+fetch_results_afl(season = 2021, round_number = 1, comp = "AFLM")
+```
+
+### AFLW data
+All data from the source "AFL" will also contain AFLW data for the first time. This includes fixtures, results, ladders, lineups and player stats. It is as simple as changing the `comp` argument to "AFLW" when using any of the `fetch_*` family of functions.
+
+```{r, message=FALSE, warning=FALSE}
+fetch_player_stats(season = 2021, round_number = 1, source = "AFL", comp = "AFLW")
+```
+
+### Deprecating functions
+Many functions have been deprecated in favour of the new `fetch_*` family of functions. These are soft deprecations in that they will still work, but internally just call the newly named `fetch_*` function. You will get a warning message. In the future, most of these functions will get removed. A full list can be seen on the [Changelog](https://jimmyday12.github.io/fitzRoy/news/index.html#deprecated-functions) but the most used ones will be
+
+* `get_fixture`
+* `get_match_results`
+* `update_footywire_stats`
+* `return_ladder`
+
+### Bug fixes
+There are a few small bug fixes as well. Probably the bigger impacts will be over on the [data repository](https://github.com/jimmyday12/fitzRoy_data/) where we've re-scraped a bunch of historical data. This mostly affects AFL Tables and Footywire data. 
+
