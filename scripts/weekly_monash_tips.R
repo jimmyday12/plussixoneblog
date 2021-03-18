@@ -25,11 +25,25 @@ map_names_to_monash <- function(names) {
 
 # Read in predictions and update names and fields
 predictions <- read_csv(here::here("data_files", "raw-data", "predictions.csv")) 
+
 round <- min(predictions$Round.Number)
+
+round_fnc <- function(x) {
+  if(abs(x) > 1) {
+    return(round(x)) 
+  } else if(x < 0) {
+      return(floor(x))
+  } else {
+      return(ceiling(x))
+    }
+}
+  
+  
 predictions <- predictions %>%
   filter(Round.Number == min(Round.Number)) %>%
   mutate_at(c("Home.Team", "Away.Team"), map_names_to_monash) %>%
-  mutate(Margin = round(Prediction),
+  group_by(Home.Team, Away.Team) %>%
+  mutate(Margin = round_fnc(Prediction),
          `Std. Dev.` = 40) %>%
   rename(Home = Home.Team, 
          Away = Away.Team) %>%
@@ -49,6 +63,10 @@ pred_games
 pred_games %>%
   select(-`Std. Dev.`, -Probability) %>%
   monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "normal")
+
+#pred_games %>%
+#  select(-`Std. Dev.`, -Probability) %>%
+#  write_csv("/Users/jamesday/R/monashtipr/test.csv")
 
 # Submit - gauss
 pred_games %>%
