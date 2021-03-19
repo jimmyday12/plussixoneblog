@@ -21,7 +21,8 @@ filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2021
-new_season <- TRUE
+new_season <- FALSE
+save_data <- TRUE
 
 # Set ELO Parameters
 e <- 1.7
@@ -40,7 +41,7 @@ new_results <- fetch_results_footywire(season,
 
 old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 
-if(nrow(new_results) > 0){
+if(!is.null(new_results)){
   new_results <- new_results %>% convert_results()
   if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
       last(old_results$results$Away.Team) == last(new_results$Away.Team) &
@@ -57,9 +58,6 @@ if(nrow(new_results) > 0){
 }
 
 #new_results <- safe_results(season, comp = "AFLM")
-
-
-
 
 # Manual override
 #new_data <- TRUE
@@ -151,7 +149,7 @@ if (new_data) {
   # Simulation --------------------------------------------------------------
   # Skip if home_away has finished
   if (home_away_ongoing) {
-  
+    
     message("Doing In Season Simulations...")
     sim_dat <- list()
     
@@ -195,7 +193,10 @@ if (new_data) {
       past_sims
     )
     
-    rm(past_sims)
+    simWins <- 
+      sim_dat$sim_data_summary %>%
+      arrange(Wins)
+    #rm(past_sims)
     
     # MEssage
     print(proc.time() - ptm)
@@ -207,26 +208,26 @@ if (new_data) {
   
   if (home_away_ongoing) {
     message("Doing Finals Sims H&A")
-  last_round <- last(dat$fixture$Round.Number)
-  
-  finals_sims <- do_finals_sims(
-    sim_data_all = sim_dat$sim_data_all,
-    game_dat = dat$game_dat,
-    sim_num = sim_num,
-    elo.data = elo_dat$elo.data,
-    sim_elo_perterbed = sim_dat$sim_elo_perterbed,
-    last_round = last_round
-  )
-  
-  finals_dat <- combine_finals_sims(
-    final_game = finals_sims$final_game,
-    sim_data_summary = sim_dat$sim_data_summary,
-    results = dat$results,
-    elo.data = elo_dat$elo.data,
-    sim_num = sim_num
-  )
-  
-  finals_dat$home_away_ongoing <- home_away_ongoing
+    last_round <- last(dat$fixture$Round.Number)
+    
+    finals_sims <- do_finals_sims(
+      sim_data_all = sim_dat$sim_data_all,
+      game_dat = dat$game_dat,
+      sim_num = sim_num,
+      elo.data = elo_dat$elo.data,
+      sim_elo_perterbed = sim_dat$sim_elo_perterbed,
+      last_round = last_round
+    )
+    
+    finals_dat <- combine_finals_sims(
+      final_game = finals_sims$final_game,
+      sim_data_summary = sim_dat$sim_data_summary,
+      results = dat$results,
+      elo.data = elo_dat$elo.data,
+      sim_num = sim_num
+    )
+    
+    finals_dat$home_away_ongoing <- home_away_ongoing
   }
   
   if (finals_scheduled | finals_started) {
@@ -240,15 +241,15 @@ if (new_data) {
     last_round <- last(dat$fixture$Round.Number)
     
     finals_sims <- do_finals_sims(sim_data_all = sim_dat$sim_data_all, 
-                   game_dat = dat$game_dat, 
-                   sim_num = final_sim_num,
-                   elo.data = elo_dat$elo.data,
-                   sim_elo_perterbed = NULL,
-                   last_round = last_round,
-                   ladder = dat$ladder,
-                   finals_started = finals_started,
-                   finals_week = finals_weeks_completed,
-                   finals_results = finals_results)
+                                  game_dat = dat$game_dat, 
+                                  sim_num = final_sim_num,
+                                  elo.data = elo_dat$elo.data,
+                                  sim_elo_perterbed = NULL,
+                                  last_round = last_round,
+                                  ladder = dat$ladder,
+                                  finals_started = finals_started,
+                                  finals_week = finals_weeks_completed,
+                                  finals_results = finals_results)
     
     finals_dat <- combine_finals_sims(
       final_game = finals_sims$final_game,
@@ -268,58 +269,63 @@ if (new_data) {
   print(proc.time() - ptm)
   message("Finals Sims done")
   # Save Data ---------------------------------------------------------------
-  message("Saving data")
-  # Create list
-  aflm_data <- list(
-    results = dat$results,
-    elo.data = elo_dat$elo.data,
-    elo = elo_dat$elo,
-    predictions = dat$predictions
-  )
   
-  # Save data
-
-  write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
-  
-  # Save Predictions
-  predictions_csv <- aflm_data$predictions %>%
-    select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
-  write_csv(aflm_data$predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
-  write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions_new.csv"))
-  
-  # Save elo
-  write_csv(aflm_data$elo, path = here::here("data_files", "raw-data", "AFLM_elo.csv"))
-
-  
-  # Save sims
-  if (home_away_ongoing | finals_scheduled | finals_started) {
-  aflm_sims <- list(
-    sim_data_summary = sim_dat$sim_data_summary,
-    sim_data_all = sim_dat$sim_data_all,
-    simCount = sim_dat$simCount
-  )
-
-  
-  # Save data
-  write_rds(aflm_sims, path = 
-              here::here("data_files", "raw-data", "AFLM_sims.rds"), 
-            compress = "bz")
-  
-  # Writing csv
-  write_csv(aflm_sims$sim_data_summary, 
-            path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
-  write_csv(aflm_sims$simCount, path = 
-              here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
-  
-  
-  # Save finals
-  write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
-  
+  if(save_data) {
+    
+    
+    message("Saving data")
+    # Create list
+    aflm_data <- list(
+      results = dat$results,
+      elo.data = elo_dat$elo.data,
+      elo = elo_dat$elo,
+      predictions = dat$predictions
+    )
+    
+    # Save data
+    
+    write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
+    
+    # Save Predictions
+    predictions_csv <- aflm_data$predictions %>%
+      select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
+    write_csv(aflm_data$predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
+    write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions_new.csv"))
+    
+    # Save elo
+    write_csv(aflm_data$elo, path = here::here("data_files", "raw-data", "AFLM_elo.csv"))
+    
+    
+    # Save sims
+    if (home_away_ongoing | finals_scheduled | finals_started) {
+      aflm_sims <- list(
+        sim_data_summary = sim_dat$sim_data_summary,
+        sim_data_all = sim_dat$sim_data_all,
+        simCount = sim_dat$simCount
+      )
+      
+      
+      # Save data
+      write_rds(aflm_sims, path = 
+                  here::here("data_files", "raw-data", "AFLM_sims.rds"), 
+                compress = "bz")
+      
+      # Writing csv
+      write_csv(aflm_sims$sim_data_summary, 
+                path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
+      write_csv(aflm_sims$simCount, path = 
+                  here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
+      
+      
+      # Save finals
+      write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
+      
+    }
+    
+    # Message
+    print(proc.time() - ptm)
+    message("Data saved")
   }
-  
-  # Message
-  print(proc.time() - ptm)
-  message("Data saved")
   
   # Touch files ------------------------------------------------------------------
   blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
@@ -330,8 +336,8 @@ if (new_data) {
 
 print(proc.time() - ptm)
 message("Finished!")
-rm(sim_dat)
-rm(dat)
+#rm(sim_dat)
+#rm(dat)
 # blogdown:::serve_site()
 # blogdown::hugo_build()
 # blogdown::build_site()

@@ -32,6 +32,46 @@ convert_results <- function(df) {
     select(-Time)
 }
 
+convert_results_afl <- function(df) {
+  df <- df %>%
+    rename(Round = round.abbreviation,
+           Round.Number = round.roundNumber, 
+           Home.Team = match.homeTeam.name,
+           Home.Goals = homeTeamScore.matchScore.goals,
+           Home.Behinds = homeTeamScore.matchScore.behinds,
+           Home.Points = homeTeamScore.matchScore.totalScore,
+           Away.Team = match.awayTeam.name,
+           Away.Goals = awayTeamScore.matchScore.goals,
+           Away.Behinds = awayTeamScore.matchScore.behinds,
+           Away.Points = awayTeamScore.matchScore.totalScore,
+           Venue = venue.name) %>%
+    mutate(Game = as.numeric(NA),
+           Season = as.numeric(round.year),
+           Date = lubridate::as_date(match.date, tz = "GMT"),
+           Round.Type = ifelse(stringr::str_detect(round.name, "Round"), "Regular", "Finals"),
+           Margin = Home.Points - Away.Points) %>%
+    select(Game, Date, Season, Date, Round, Round.Number, Round.Type,Venue,
+           Home.Team, Home.Goals, Home.Behinds, Home.Points,
+           Away.Team, Away.Goals, Away.Behinds, Away.Points,
+           Margin)
+  
+  fix_names <- data.frame(
+    old_name = c("Western Bulldogs", "Adelaide Crows", "GWS Giants", "Gold Coast Suns", 
+                 "West Coast Eagles", "Geelong Cats", "Sydney Swans"),
+    new_name = c("Footscray", "Adelaide", "GWS", "Gold Coast", 
+                 "West Coast", "Geelong", "Sydney")
+  )
+  
+  df %>%
+    left_join(fix_names, by = c("Home.Team" = "old_name")) %>%
+    mutate(Home.Team = ifelse(is.na(new_name), Home.Team, new_name)) %>%
+    select(-new_name) %>%
+    left_join(fix_names, by = c("Away.Team" = "old_name")) %>%
+    mutate(Away.Team = ifelse(is.na(new_name), Away.Team, new_name)) %>%
+    select(-new_name)
+  
+}
+
 
 get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = FALSE) {
   
@@ -85,22 +125,23 @@ seasons <- 1897:season
 
 results <- fetch_results_afltables(seasons, NULL)
 
+# Check for new results
+#results_new <- fetch_results_footywire(season, last_n_matches = 10)
+#results_new <- convert_results(results_new)
+results_new <- fetch_results(season, comp = "AFLM")
+results_new <- convert_results_afl(results_new)
+
+results <- bind_rows(results, results_new) %>%
+  group_by(Date, Home.Team, Away.Team) %>% 
+  filter(!(row_number() == 2 & is.na(Game))) %>%
+  ungroup() %>%
+  mutate(Game = ifelse(is.na(Game), row_number(), Game))
+
 results <- results %>%
   mutate(
     seas_rnd = paste0(Season, ".", Round.Number),
     First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
   )
-
-# Check for new results
-results_new <- fetch_results_footywire(season, last_n_matches = 10)
-
-
-results_new <- convert_results(results_new)
-
-results <- bind_rows(results, results_new) %>%
-  group_by(Date, Home.Team, Away.Team) %>% 
-  filter(!(row_number() == 2 & is.na(Game))) %>%
-  ungroup()
 
 season_rounds <- results$Round.Number[results$Season == season]
 
