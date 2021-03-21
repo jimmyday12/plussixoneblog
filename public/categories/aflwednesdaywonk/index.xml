@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AFLWednesdayWonk on plusSixOne</title>
-    <link>https://plussixoneblog.com/categories/aflwednesdaywonk/</link>
+    <link>/categories/aflwednesdaywonk/</link>
     <description>Recent content in AFLWednesdayWonk on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://plussixoneblog.com/categories/aflwednesdaywonk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="/categories/aflwednesdaywonk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wednesday Wonk - v1</title>
-      <link>https://plussixoneblog.com/post/wednesday-wonk-v1/</link>
+      <link>/post/wednesday-wonk-v1/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/post/wednesday-wonk-v1/</guid>
+      <guid>/post/wednesday-wonk-v1/</guid>
       <description>For those who are part….
 First, let’s grab the results using fitzRoy.
 library(fitzRoy) library(tidyverse) ## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ── ## ✔ ggplot2 2.2.1.9000 ✔ purrr 0.2.4 ## ✔ tibble 1.4.2 ✔ dplyr 0.7.4 ## ✔ tidyr 0.8.0 ✔ stringr 1.3.0 ## ✔ readr 1.1.1 ✔ forcats 0.3.0 ## ── Conflicts ────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ── ## ✖ dplyr::filter() masks stats::filter() ## ✖ dplyr::lag() masks stats::lag() results &amp;lt;- get_match_results() glimpse(results) ## Observations: 15,272 ## Variables: 16 ## $ Game &amp;lt;dbl&amp;gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15.</description>

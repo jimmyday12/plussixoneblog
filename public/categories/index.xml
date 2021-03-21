@@ -2,148 +2,144 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on plusSixOne</title>
-    <link>https://plussixoneblog.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on plusSixOne</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>jamesthomasday@gmail.com (James Day)</managingEditor>
     <webMaster>jamesthomasday@gmail.com (James Day)</webMaster>
-    <lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://plussixoneblog.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fitzroy</title>
-      <link>https://plussixoneblog.com/categories/fitzroy/</link>
+      <link>/categories/fitzroy/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/fitzroy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AFL</title>
-      <link>https://plussixoneblog.com/categories/afl/</link>
-      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/afl/</guid>
+      <guid>/categories/fitzroy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AFLM</title>
-      <link>https://plussixoneblog.com/categories/aflm/</link>
+      <link>/categories/aflm/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/aflm/</guid>
+      <guid>/categories/aflm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Prediction</title>
-      <link>https://plussixoneblog.com/categories/prediction/</link>
+      <link>/categories/prediction/</link>
       <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/prediction/</guid>
+      <guid>/categories/prediction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://plussixoneblog.com/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Predictions</title>
-      <link>https://plussixoneblog.com/categories/predictions/</link>
+      <link>/categories/predictions/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/predictions/</guid>
+      <guid>/categories/predictions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>World Cup Datathon</title>
-      <link>https://plussixoneblog.com/categories/world-cup-datathon/</link>
+      <link>/categories/world-cup-datathon/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/world-cup-datathon/</guid>
+      <guid>/categories/world-cup-datathon/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Football</title>
-      <link>https://plussixoneblog.com/categories/football/</link>
+      <link>/categories/football/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/football/</guid>
+      <guid>/categories/football/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Squiggle</title>
-      <link>https://plussixoneblog.com/categories/squiggle/</link>
+      <link>/categories/squiggle/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/squiggle/</guid>
+      <guid>/categories/squiggle/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>AFLW</title>
-      <link>https://plussixoneblog.com/categories/aflw/</link>
+      <title>AFL</title>
+      <link>/categories/afl/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/aflw/</guid>
+      <guid>/categories/afl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AFLWednesdayWonk</title>
-      <link>https://plussixoneblog.com/categories/aflwednesdaywonk/</link>
+      <link>/categories/aflwednesdaywonk/</link>
       <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/aflwednesdaywonk/</guid>
+      <guid>/categories/aflwednesdaywonk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AFLW</title>
+      <link>/categories/aflw/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>/categories/aflw/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Simulation</title>
-      <link>https://plussixoneblog.com/categories/simulation/</link>
-      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      <link>/categories/simulation/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/simulation/</guid>
+      <guid>/categories/simulation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AFL Womens</title>
-      <link>https://plussixoneblog.com/categories/afl-womens/</link>
+      <link>/categories/afl-womens/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/afl-womens/</guid>
+      <guid>/categories/afl-womens/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Results</title>
-      <link>https://plussixoneblog.com/categories/results/</link>
+      <link>/categories/results/</link>
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/results/</guid>
+      <guid>/categories/results/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stats</title>
-      <link>https://plussixoneblog.com/categories/stats/</link>
+      <link>/categories/stats/</link>
       <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/categories/stats/</guid>
+      <guid>/categories/stats/</guid>
       <description></description>
     </item>
     
