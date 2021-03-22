@@ -1,5 +1,5 @@
 # Load packages
-#devtools::install_github("jimmyday12/monash_tipr")
+devtools::install_github("jimmyday12/monash_tipr")
 library(monashtipr)
 library(fitzRoy)
 library(tidyverse)
