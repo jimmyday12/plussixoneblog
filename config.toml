@@ -96,3 +96,8 @@ googleAnalytics = "UA-77406420-1"
     
 
 
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
