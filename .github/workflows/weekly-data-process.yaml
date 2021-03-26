@@ -27,7 +27,7 @@ jobs:
         run: |
           blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
           blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
-          blogdown:::build_site(TRUE)
+          blogdown:::build_site(TRUE, build_rmd = 'timestamp')
         shell: Rscript {0}  
       - name: Commit
         run: |

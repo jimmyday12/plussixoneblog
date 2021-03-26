@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Results on plusSixOne</title>
@@ -18,7 +18,8 @@
       <pubDate>Mon, 26 Sep 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/pre-prelim-ratings/</guid>
-      <description>Unfortunately I didn&amp;rsquo;t get a chance to review the round last week (or post predictions). I&amp;rsquo;m putting this here as a placeholder for brevity so that I have the ratings showing for anyone interested.
+      <description>#
+Unfortunately I didn&amp;rsquo;t get a chance to review the round last week (or post predictions). I&amp;rsquo;m putting this here as a placeholder for brevity so that I have the ratings showing for anyone interested.
 For the record, based on these ratings my system tipped Sydney by 2 points (51% chance of winning) and the Giants by 25 points (64% chance of winning).</description>
     </item>
     
@@ -46,8 +47,7 @@ For the record, based on these ratings my system tipped Sydney by 2 points (51% 
       <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/round-22-results/</guid>
-      <description>As we enter the final round of the year, our ELO model had a pretty good round. Last week we tipped 7 out of 9 with a mean absolute prediction error (MAPE) of 20.4, which was our best MAPE outside of the bye rounds for the year. Our two misses were Richmond losing out to St Kilda and Melbourne missing against Carlton.
-That gives us a season total of 136 out of 189 (72%) which means that we only need to tip 3 wins this weekend to beat our season goal of 70%.</description>
+      <description>As we enter the final round of the year, our ELO model had a pretty good round. Last week we tipped 7 out of 9 with a mean absolute prediction error (MAPE) of 20.4, which was our best MAPE outside of the bye rounds for the year. Our two misses were Richmond losing out to St Kilda and Melbourne missing against Carlton. That gives us a season total of 136 out of 189 (72%) which means that we only need to tip 3 wins this weekend to beat our season goal of 70%.</description>
     </item>
     
     <item>
@@ -56,8 +56,7 @@ That gives us a season total of 136 out of 189 (72%) which means that we only ne
       <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/post/round-21-results/</guid>
-      <description>I must admit to not catching a lot of footy over the weekend due to having Olympics fever, which is probably good considering my ELO model had a tough round this week! With a few upsets, and 5 games decided by a goal or less, we struggled picking winners this week. The model managed to tip 5 out of 9 with a mean absolute prediction error (MAPE) of 27.7.
-As we touched upon in last weeks predictions, anecdotally it feels that this time of year is tricky to tip as many teams appear to have different agendas.</description>
+      <description>I must admit to not catching a lot of footy over the weekend due to having Olympics fever, which is probably good considering my ELO model had a tough round this week! With a few upsets, and 5 games decided by a goal or less, we struggled picking winners this week. The model managed to tip 5 out of 9 with a mean absolute prediction error (MAPE) of 27.7. As we touched upon in last weeks predictions, anecdotally it feels that this time of year is tricky to tip as many teams appear to have different agendas.</description>
     </item>
     
     <item>

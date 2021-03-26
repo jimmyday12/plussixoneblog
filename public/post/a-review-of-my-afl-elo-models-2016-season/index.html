@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="plusSixOne" />
 
-  <meta name="generator" content="Hugo 0.66.0" />
+  <meta name="generator" content="Hugo 0.37" />
   <link rel="canonical" href="https://plussixoneblog.com/post/a-review-of-my-afl-elo-models-2016-season/" />
   <link rel="alternate" href="https://plussixoneblog.com/index.xml" type="application/rss+xml" title="plusSixOne">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -83,16 +83,12 @@
     </div>
 </div>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-77406420-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-77406420-1', 'auto');
+ga('send', 'pageview');
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
 
 
 </head>
@@ -234,22 +230,40 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>I introduced my <a href="http://plussixoneblog.com/elo-rating-system/">ELO ratings</a> last year slightly after the start of the season. While my main motivation was to implement a system that allowed for more objective team ratingsthat allows for some interesting comparisons and analyses of team performance[Ref]More to come on this![/ref], it is worth doing a review of the predictive performance of the system before we start this season. My model started the season with a somewhat arbitrary goal of tipping above 70% and keeping our mean absolute prediction error (MAPE) below 30.</p>
+        
+
+<p>I introduced my <a href="http://plussixoneblog.com/elo-rating-system/">ELO ratings</a> last year slightly after the start of the season. While my main motivation was to implement a system that allowed for more objective team ratingsthat allows for some interesting comparisons and analyses of team performance[Ref]More to come on this![/ref], it is worth doing a review of the predictive performance of the system before we start this season. My model started the season with a somewhat arbitrary goal of tipping above 70% and keeping our mean absolute prediction error (MAPE) below 30.</p>
+
 <p>So how did our model go?</p>
+
 <!-- more -->
+
 <h3 id="tipping-performance">Tipping performance</h3>
+
 <p>In terms of raw tipping, we acheived a total of 146 out of 207 (70.5%). I did attempt to look up the results from some public footy tipping sites but none of them seem to make their historical results available[Ref]Anyone with any ideas feel free to let me know on Twitter[/ref].</p>
-<p><img src="http://plussixoneblog.com/img/2017/02/results-1-14.png" alt="plot of chunk results"></p>
+
+<p><img src="http://plussixoneblog.com/img/2017/02/results-1-14.png" alt="plot of chunk results" /></p>
+
 <h3 id="margin-results">Margin results</h3>
+
 <p>While tipping is generally considered more fun, one of the cooler aspects on my model is the ability to objectively predict margins and probabilities. These are certainly what I get more interested in week in week out. As mentioned, I set my model an arbitrary target of getting a MAPE under 30 points for the year, which my model managed just with 29.3. As the chart below shows, this measure varied widely throughout the season.</p>
+
 <p>It is interesting to note that (excluding the grand final), my model tipped at least 6 winners in 4 out of its 5 worst performing MAPE rounds! This shows relative harshness of a team performing wildly different to my model in terms of MAPE. While it only loses 1 correct tip by a team outperforming their rating, it can be punished with a high margin error.</p>
-<p><img src="http://plussixoneblog.com/img/2017/02/MAE-1-14.png" alt="plot of chunk MAE"></p>
+
+<p><img src="http://plussixoneblog.com/img/2017/02/MAE-1-14.png" alt="plot of chunk MAE" /></p>
+
 <p>Another way to look at the margin prediction is to assess how the actual margin compared to our prediction margin. The plot below shows this.  The general trend is that higher predicted margins are associated with higher actual margins.</p>
-<p><img src="http://plussixoneblog.com/img/2017/02/Predictions-1-14.png" alt="plot of chunk Predictions"></p>
+
+<p><img src="http://plussixoneblog.com/img/2017/02/Predictions-1-14.png" alt="plot of chunk Predictions" /></p>
+
 <h3 id="probability-of-winning">Probability of winning</h3>
+
 <p>Finally, we can assess the performance of our Probability predictions. If our probability predictions were good, then we would expect, on average, that when we assign a probability of say 50% to a team winning, then that team would win roughly 50% of the time. While seemingly intuitive, this is something that most sport fans, and <a href="https://arstechnica.com/science/2011/06/risk-probability-and-how-our-brains-are-easily-misled/">people in general</a>, are really bad at understanding. <a href="https://thearcfooty.com/2017/02/07/win-probability-estimates-what-are-they-good-for/">The Arc</a> and <a href="http://www.matterofstats.com/mafl-stats-journal/2017/2/8/in-running-models-their-uses">Matter of Stats</a> both wrote great pieces discussing this recently, which I encourage you to read.</p>
+
 <p>To make this assessment, I&rsquo;ve split up each match into 25 equal size bins, each representing a mean probability assigned to the home team by my model for games within that bin. I&rsquo;ve then worked out the actual probability of games won by teams within each of those bins. A perfectly calibrated model has a 45 degree line from 0 to 100%. While we don&rsquo;t quite have that, we again see a pretty good trend. Teams who our model has assigned a small probability too tend to win at a much lower rate than those who we assign a high probability to.</p>
-<p><img src="http://plussixoneblog.com/img/2017/02/Calib-1-14.png" alt="plot of chunk Calib"></p>
+
+<p><img src="http://plussixoneblog.com/img/2017/02/Calib-1-14.png" alt="plot of chunk Calib" /></p>
+
 <p>I won&rsquo;t be changing anything in the model this year (although I do have plans to start to tweak things) so we will see how this goes moving forward into 2017. I&rsquo;ll likely keep a similar analysis of the tipping performance as the season progresses so you can check in during the year to see how we are going.</p>
 
       </article>
@@ -274,7 +288,7 @@ if (!doNotTrack) {
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     var disqus_config = function () {
     
     
@@ -378,7 +392,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.66.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.37</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

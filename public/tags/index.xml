@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on plusSixOne</title>
@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>AFLM</title>
+      <title>Aflm</title>
       <link>https://plussixoneblog.com/tags/aflm/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
@@ -22,25 +22,7 @@
     </item>
     
     <item>
-      <title>example</title>
-      <link>https://plussixoneblog.com/tags/example/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/tags/example/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>photoswipe</title>
-      <link>https://plussixoneblog.com/tags/photoswipe/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>jamesthomasday@gmail.com (James Day)</author>
-      <guid>https://plussixoneblog.com/tags/photoswipe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bigimg</title>
+      <title>Bigimg</title>
       <link>https://plussixoneblog.com/tags/bigimg/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
@@ -49,11 +31,29 @@
     </item>
     
     <item>
-      <title>math</title>
+      <title>Example</title>
+      <link>https://plussixoneblog.com/tags/example/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>https://plussixoneblog.com/tags/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
       <link>https://plussixoneblog.com/tags/math/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       <author>jamesthomasday@gmail.com (James Day)</author>
       <guid>https://plussixoneblog.com/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photoswipe</title>
+      <link>https://plussixoneblog.com/tags/photoswipe/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>jamesthomasday@gmail.com (James Day)</author>
+      <guid>https://plussixoneblog.com/tags/photoswipe/</guid>
       <description></description>
     </item>
     
