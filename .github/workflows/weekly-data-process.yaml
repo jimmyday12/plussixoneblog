@@ -1,6 +1,7 @@
 name: Get new data and rebuild site
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 5-14 * * 4-7"
   push:
