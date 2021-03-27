@@ -224,7 +224,8 @@ if (new_data) {
       sim_data_summary = sim_dat$sim_data_summary,
       results = dat$results,
       elo.data = elo_dat$elo.data,
-      sim_num = sim_num
+      sim_num = sim_num,
+      ladder = dat$ladder
     )
     
     finals_dat$home_away_ongoing <- home_away_ongoing
