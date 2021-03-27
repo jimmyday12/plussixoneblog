@@ -284,16 +284,16 @@ if (new_data) {
     
     # Save data
     
-    write_rds(aflm_data, path = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
+    write_rds(aflm_data, file = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
     
     # Save Predictions
     predictions_csv <- aflm_data$predictions %>%
       select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
-    write_csv(aflm_data$predictions, path = here::here("data_files", "raw-data", "predictions.csv"))
-    write_csv(predictions_csv, path = here::here("data_files", "raw-data", "predictions_new.csv"))
+    write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
+    write_csv(predictions_csv, file = here::here("data_files", "raw-data", "predictions_new.csv"))
     
     # Save elo
-    write_csv(aflm_data$elo, path = here::here("data_files", "raw-data", "AFLM_elo.csv"))
+    write_csv(aflm_data$elo, file = here::here("data_files", "raw-data", "AFLM_elo.csv"))
     
     
     # Save sims
@@ -306,19 +306,22 @@ if (new_data) {
       
       
       # Save data
-      write_rds(aflm_sims, path = 
+      write_rds(aflm_sims, 
+                file = 
                   here::here("data_files", "raw-data", "AFLM_sims.rds"), 
                 compress = "bz")
       
       # Writing csv
       write_csv(aflm_sims$sim_data_summary, 
-                path = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
-      write_csv(aflm_sims$simCount, path = 
+                file = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
+      write_csv(aflm_sims$simCount, 
+                file = 
                   here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
       
       
       # Save finals
-      write_rds(finals_dat, path = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
+      write_rds(finals_dat, 
+                file = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
       
     }
     
