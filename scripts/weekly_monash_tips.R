@@ -57,6 +57,11 @@ pred_games <- monash_games %>%
   select(-Margin) %>%
   left_join(predictions, by = c("Home" = "Home", "Away" = "Away"))
 
+# Custom fix for Lions v Collingwood R3 2021
+pred_games$Margin[1] <- -predictions$Margin[1]
+pred_games$`Std. Dev.`[1] <- predictions$`Std. Dev.`[1]
+pred_games$Probability[1] <- 1-predictions$Probability[1]
+
 pred_games
 
 # Submit - normal
