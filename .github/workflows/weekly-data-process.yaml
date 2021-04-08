@@ -3,7 +3,7 @@ name: Get new data and rebuild site
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 5-14 * * *"
+    - cron: "0 5,8,11,14 * * 4,5,6,0,1"
   push:
     branches:
       - main
