@@ -26,24 +26,24 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-04-25,Hawthorn,Adelaide,0.58,8.1
 2021,2021-04-25,Collingwood,Essendon,0.567,6.7
 2021,2021-04-25,Port Adelaide,St Kilda,0.705,21.8
-2021,2021-05-01,Brisbane Lions,Port Adelaide,0.465,-3.5
+2021,2021-04-30,Richmond,Footscray,0.516,1.6
 2021,2021-05-01,Collingwood,Gold Coast,0.639,14.3
-2021,2021-05-01,Essendon,Carlton,0.543,4.3
-2021,2021-05-01,North Melbourne,Melbourne,0.341,-16.5
-2021,2021-05-01,Richmond,Footscray,0.516,1.6
-2021,2021-05-01,St Kilda,Hawthorn,0.515,1.5
-2021,2021-05-01,Sydney,Geelong,0.561,6.1
 2021,2021-05-01,Adelaide,GWS,0.539,3.9
-2021,2021-05-01,West Coast,Fremantle,0.625,12.8
-2021,2021-05-08,Gold Coast,St Kilda,0.589,9
+2021,2021-05-01,St Kilda,Hawthorn,0.515,1.5
+2021,2021-05-01,Brisbane Lions,Port Adelaide,0.465,-3.5
+2021,2021-05-01,Sydney,Geelong,0.561,6.1
+2021,2021-05-02,North Melbourne,Melbourne,0.341,-16.5
+2021,2021-05-02,Essendon,Carlton,0.543,4.3
+2021,2021-05-02,West Coast,Fremantle,0.625,12.8
+2021,2021-05-07,Richmond,Geelong,0.505,0.5
 2021,2021-05-08,GWS,Essendon,0.5,-0
-2021,2021-05-08,Hawthorn,West Coast,0.49,-1
-2021,2021-05-08,Melbourne,Sydney,0.561,6.1
+2021,2021-05-08,Gold Coast,St Kilda,0.589,9
 2021,2021-05-08,North Melbourne,Collingwood,0.352,-15.3
-2021,2021-05-08,Richmond,Geelong,0.505,0.5
-2021,2021-05-08,Footscray,Carlton,0.619,12.1
+2021,2021-05-08,Melbourne,Sydney,0.561,6.1
 2021,2021-05-08,Port Adelaide,Adelaide,0.691,20.1
-2021,2021-05-08,Fremantle,Brisbane Lions,0.518,1.8
+2021,2021-05-09,Hawthorn,West Coast,0.49,-1
+2021,2021-05-09,Footscray,Carlton,0.619,12.1
+2021,2021-05-09,Fremantle,Brisbane Lions,0.518,1.8
 2021,2021-05-15,Essendon,Fremantle,0.605,10.7
 2021,2021-05-15,Gold Coast,Brisbane Lions,0.474,-2.6
 2021,2021-05-15,Hawthorn,North Melbourne,0.654,15.9
