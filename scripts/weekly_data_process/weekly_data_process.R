@@ -1,5 +1,6 @@
 # Script to run weekly updating of data, ratings simulations and predictions. Data should be saved into github for us by blog.
 ptm <- proc.time()
+set.seed(42)
 message("Starting Script")
 # Preamble ----------------------------------------------------------------
 # Load libraries
