@@ -61,7 +61,7 @@ if(!is.null(new_results)){
 #new_results <- safe_results(season, comp = "AFLM")
 
 # Manual override
-#new_data <- TRUE
+new_data <- TRUE
 
 if (new_data) {
   dat <- get_data(season,
