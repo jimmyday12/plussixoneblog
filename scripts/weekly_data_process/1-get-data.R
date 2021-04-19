@@ -171,8 +171,26 @@ if (nrow(df) == 0){
 
 # Get states data - this comes from another script I run when a new venue or team occurs
 states <- read_rds(here::here("data_files", "raw-data", "states.rds"))
-states$venue <- states$venue %>% ungroup()
+
+states$venue <- states$venue %>%
+  mutate(Ground = ifelse(Venue == "M.C.G.", "MCG", Ground),
+         Ground = ifelse(Venue == "S.C.G.", "SCG", Ground),
+         Ground = ifelse(Venue == "Gabba.", "Gabba", Ground),
+         State = ifelse(Venue == "Gabba", "Queensland", State),
+         Ground = ifelse(Venue == "Wellington", "Wellington Regional Stadium", Ground),
+         Ground = ifelse(Venue == "Olympic Park", "Olympic Park", Ground),
+         State = ifelse(Venue == "Manuka Oval", "Australian Capital Territory", State),
+         Ground = ifelse(Venue == "Perth Stadium", "Perth Stadium", Ground),
+         Ground = ifelse(Venue == "Canberra Oval", "Canberra Oval", Ground),
+         Ground = ifelse(Venue == "Manuka Oval", "Manuka Oval", Ground),
+         Ground = ifelse(Venue == "Riverway Stadium", "Riverway Stadium", Ground))
+
+states$venue <- states$venue %>%
+  select(-starts_with("dist")) %>%
+  distinct()
+
 write_rds(states, here::here("data_files", "raw-data", "states.rds"))
+
 message("Data loaded")
 dat <- list(fixture = fixture,
             results = results,

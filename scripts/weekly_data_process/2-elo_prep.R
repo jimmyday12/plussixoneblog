@@ -1,3 +1,5 @@
+
+
 ## Add interstate
 get_state <- function(team, venue, all_teams, all_venues){
   all_teams$State[match(team, all_teams$Team)] != all_venues$State[match(venue, all_venues$Venue)]
