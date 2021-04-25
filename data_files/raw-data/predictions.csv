@@ -1,10 +1,9 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2021,15828,2021-04-25,"Sun, 25",00:00,6,University of Tasmania Stadium,Hawthorn,Adelaide,3.7,0.537,Hawthorn by 4
 2021,15829,2021-04-25,"Sun, 25",00:00,6,M.C.G.,Collingwood,Essendon,5.9,0.559,Collingwood by 6
 2021,15830,2021-04-25,"Sun, 25",00:00,6,Adelaide Oval,Port Adelaide,St Kilda,24.6,0.728,Port Adelaide by 25
 2021,15831,2021-04-30,"Fri, 30",00:00,7,M.C.G.,Richmond,Footscray,0.6,0.506,Richmond by 1
 2021,15832,2021-05-01,"Sat, 01",00:00,7,M.C.G.,Collingwood,Gold Coast,12.1,0.619,Collingwood by 12
-2021,15833,2021-05-01,"Sat, 01",00:00,7,Adelaide Oval,Adelaide,GWS,4.4,0.544,Adelaide by 4
+2021,15833,2021-05-01,"Sat, 01",00:00,7,Adelaide Oval,Adelaide,GWS,4.5,0.545,Adelaide by 4
 2021,15834,2021-05-01,"Sat, 01",00:00,7,Docklands,St Kilda,Hawthorn,1.9,0.519,St Kilda by 2
 2021,15835,2021-05-01,"Sat, 01",00:00,7,Gabba,Brisbane Lions,Port Adelaide,1.1,0.511,Brisbane Lions by 1
 2021,15836,2021-05-01,"Sat, 01",00:00,7,S.C.G.,Sydney,Geelong,1.4,0.514,Sydney by 1
@@ -50,7 +49,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2021,15876,2021-06-05,"Sat, 05",00:00,12,M.C.G.,Carlton,West Coast,1.8,0.518,Carlton by 2
 2021,15877,2021-06-05,"Sat, 05",00:00,12,M.C.G.,Essendon,Richmond,-7.7,0.424,Richmond by 8
 2021,15878,2021-06-05,"Sat, 05",00:00,12,Docklands,St Kilda,Sydney,-1.6,0.484,Sydney by 2
-2021,15879,2021-06-05,"Sat, 05",00:00,12,Adelaide Oval,Adelaide,Collingwood,1.9,0.519,Adelaide by 2
+2021,15879,2021-06-05,"Sat, 05",00:00,12,Adelaide Oval,Adelaide,Collingwood,2,0.52,Adelaide by 2
 2021,15880,2021-06-05,"Sat, 05",00:00,12,TIO Traeger Park,Melbourne,Brisbane Lions,8.7,0.586,Melbourne by 9
 2021,15881,2021-06-05,"Sat, 05",00:00,12,Perth Stadium,Fremantle,Footscray,-4.1,0.459,Footscray by 4
 2021,15882,2021-06-12,"Sat, 12",00:00,13,M.C.G.,Melbourne,Collingwood,11.8,0.616,Melbourne by 12
@@ -85,7 +84,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2021,15911,2021-07-03,"Sat, 03",00:00,16,Perth Stadium,Fremantle,Carlton,9.5,0.594,Fremantle by 10
 2021,15912,2021-07-10,"Sat, 10",00:00,17,Gabba,Brisbane Lions,St Kilda,17.7,0.67,Brisbane Lions by 18
 2021,15913,2021-07-10,"Sat, 10",00:00,17,M.C.G.,Carlton,Geelong,-10.1,0.4,Geelong by 10
-2021,15914,2021-07-10,"Sat, 10",00:00,17,Docklands,Essendon,Adelaide,11.1,0.609,Essendon by 11
+2021,15914,2021-07-10,"Sat, 10",00:00,17,Docklands,Essendon,Adelaide,11,0.608,Essendon by 11
 2021,15915,2021-07-10,"Sat, 10",00:00,17,GIANTS Stadium,GWS,Gold Coast,4.7,0.547,GWS by 5
 2021,15916,2021-07-10,"Sat, 10",00:00,17,University of Tasmania Stadium,Hawthorn,Fremantle,-0.2,0.498,Fremantle by 0
 2021,15917,2021-07-10,"Sat, 10",00:00,17,M.C.G.,Richmond,Collingwood,10.3,0.602,Richmond by 10
