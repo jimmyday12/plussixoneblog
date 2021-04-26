@@ -14,12 +14,12 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-05-08,North Melbourne,Collingwood,0.356,-14.8
 2021,2021-05-08,Melbourne,Sydney,0.636,14
 2021,2021-05-08,Port Adelaide,Adelaide,0.69,20
-2021,2021-05-09,Hawthorn,West Coast,0.501,0.1
+2021,2021-05-09,Hawthorn,West Coast,0.5,-0
 2021,2021-05-09,Footscray,Carlton,0.661,16.7
 2021,2021-05-09,Fremantle,Brisbane Lions,0.53,3
 2021,2021-05-14,St Kilda,Geelong,0.365,-13.8
 2021,2021-05-15,Sydney,Collingwood,0.619,12.1
-2021,2021-05-15,Hawthorn,North Melbourne,0.663,16.9
+2021,2021-05-15,Hawthorn,North Melbourne,0.661,16.7
 2021,2021-05-15,Gold Coast,Brisbane Lions,0.46,-4
 2021,2021-05-15,Richmond,GWS,0.67,17.7
 2021,2021-05-15,Port Adelaide,Footscray,0.588,8.9
@@ -78,13 +78,13 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-07-03,Melbourne,GWS,0.685,19.4
 2021,2021-07-03,Sydney,West Coast,0.585,8.6
 2021,2021-07-03,Footscray,North Melbourne,0.784,32.2
-2021,2021-07-03,Adelaide,Brisbane Lions,0.488,-1.2
+2021,2021-07-03,Adelaide,Brisbane Lions,0.489,-1.1
 2021,2021-07-03,Fremantle,Carlton,0.594,9.5
 2021,2021-07-10,Brisbane Lions,St Kilda,0.68,18.8
 2021,2021-07-10,Carlton,Geelong,0.4,-10.1
 2021,2021-07-10,Essendon,Adelaide,0.619,12.1
 2021,2021-07-10,GWS,Gold Coast,0.547,4.7
-2021,2021-07-10,Hawthorn,Fremantle,0.498,-0.2
+2021,2021-07-10,Hawthorn,Fremantle,0.497,-0.3
 2021,2021-07-10,Richmond,Collingwood,0.613,11.5
 2021,2021-07-10,Footscray,Sydney,0.647,15.1
 2021,2021-07-10,Port Adelaide,Melbourne,0.599,10
@@ -102,7 +102,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-07-24,Essendon,GWS,0.586,8.7
 2021,2021-07-24,Geelong,Richmond,0.548,4.8
 2021,2021-07-24,Gold Coast,Melbourne,0.45,-5
-2021,2021-07-24,Hawthorn,Brisbane Lions,0.494,-0.6
+2021,2021-07-24,Hawthorn,Brisbane Lions,0.493,-0.7
 2021,2021-07-24,Sydney,Fremantle,0.627,13
 2021,2021-07-24,Footscray,Adelaide,0.724,24.1
 2021,2021-07-24,Port Adelaide,Collingwood,0.692,20.2
@@ -129,7 +129,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-08-14,Geelong,St Kilda,0.696,20.7
 2021,2021-08-14,Gold Coast,Essendon,0.555,5.5
 2021,2021-08-14,GWS,Richmond,0.433,-6.7
-2021,2021-08-14,Hawthorn,Footscray,0.38,-12.2
+2021,2021-08-14,Hawthorn,Footscray,0.379,-12.3
 2021,2021-08-14,Melbourne,Adelaide,0.715,23
 2021,2021-08-14,North Melbourne,Sydney,0.361,-14.3
 2021,2021-08-14,Port Adelaide,Carlton,0.713,22.7
