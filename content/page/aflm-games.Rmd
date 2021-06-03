@@ -22,7 +22,7 @@ dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 predictions <- dat_list$predictions
 results <- dat_list$results %>%
   filter(Season == max(predictions$Season) & Round.Number == min(predictions$Round.Number))
-
+ 
 predictions <- bind_rows(results, predictions)
 
 predictions <- predictions %>%
