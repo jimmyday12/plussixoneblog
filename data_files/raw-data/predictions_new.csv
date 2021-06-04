@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2021,2021-06-04,Melbourne,Brisbane Lions,0.53,3
 2021,2021-06-05,Sydney,St Kilda,0.676,18.4
 2021,2021-06-05,Adelaide,Collingwood,0.505,0.5
 2021,2021-06-05,Essendon,Richmond,0.482,-1.8
@@ -10,7 +9,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-06-12,Fremantle,Gold Coast,0.582,8.3
 2021,2021-06-12,St Kilda,Adelaide,0.564,6.4
 2021,2021-06-13,North Melbourne,GWS,0.339,-16.7
-2021,2021-06-14,Melbourne,Collingwood,0.648,15.3
+2021,2021-06-14,Melbourne,Collingwood,0.647,15.1
 2021,2021-06-17,West Coast,Richmond,0.577,7.8
 2021,2021-06-18,Geelong,Footscray,0.544,4.4
 2021,2021-06-19,Gold Coast,Port Adelaide,0.431,-6.9
@@ -26,7 +25,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-06-27,GWS,Hawthorn,0.634,13.7
 2021,2021-06-27,West Coast,Footscray,0.512,1.2
 2021,2021-06-27,Carlton,Adelaide,0.645,14.9
-2021,2021-07-03,Collingwood,St Kilda,0.573,7.4
+2021,2021-07-03,Collingwood,St Kilda,0.572,7.3
 2021,2021-07-03,Geelong,Essendon,0.655,16
 2021,2021-07-03,Gold Coast,Richmond,0.476,-2.4
 2021,2021-07-03,Hawthorn,Port Adelaide,0.37,-13.3
