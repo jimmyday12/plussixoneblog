@@ -1,15 +1,14 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2021,2021-06-05,Adelaide,Collingwood,0.505,0.5
 2021,2021-06-05,Essendon,Richmond,0.482,-1.8
 2021,2021-06-06,Carlton,West Coast,0.452,-4.8
 2021,2021-06-06,Fremantle,Footscray,0.417,-8.4
 2021,2021-06-10,Port Adelaide,Geelong,0.551,5.1
 2021,2021-06-11,Sydney,Hawthorn,0.712,22.6
 2021,2021-06-12,Fremantle,Gold Coast,0.582,8.3
-2021,2021-06-12,St Kilda,Adelaide,0.567,6.7
+2021,2021-06-12,St Kilda,Adelaide,0.568,6.8
 2021,2021-06-13,North Melbourne,GWS,0.339,-16.7
 2021,2021-06-13,West Coast,Richmond,0.577,7.8
-2021,2021-06-14,Melbourne,Collingwood,0.652,15.7
+2021,2021-06-14,Melbourne,Collingwood,0.65,15.5
 2021,2021-06-17,West Coast,Richmond,0.576,7.7
 2021,2021-06-18,Geelong,Footscray,0.544,4.4
 2021,2021-06-19,Gold Coast,Port Adelaide,0.431,-6.9
@@ -19,38 +18,38 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-06-24,Brisbane Lions,Geelong,0.546,4.6
 2021,2021-06-25,Richmond,St Kilda,0.643,14.7
 2021,2021-06-26,North Melbourne,Gold Coast,0.384,-11.8
-2021,2021-06-26,Collingwood,Fremantle,0.596,9.7
+2021,2021-06-26,Collingwood,Fremantle,0.597,9.8
 2021,2021-06-26,Essendon,Melbourne,0.427,-7.4
 2021,2021-06-26,Port Adelaide,Sydney,0.64,14.4
 2021,2021-06-27,GWS,Hawthorn,0.634,13.7
 2021,2021-06-27,West Coast,Footscray,0.512,1.2
-2021,2021-06-27,Carlton,Adelaide,0.645,14.9
-2021,2021-07-03,Collingwood,St Kilda,0.57,7
+2021,2021-06-27,Carlton,Adelaide,0.646,15
+2021,2021-07-03,Collingwood,St Kilda,0.572,7.3
 2021,2021-07-03,Geelong,Essendon,0.655,16
 2021,2021-07-03,Gold Coast,Richmond,0.476,-2.4
 2021,2021-07-03,Hawthorn,Port Adelaide,0.37,-13.3
 2021,2021-07-03,Melbourne,GWS,0.679,18.7
 2021,2021-07-03,Sydney,West Coast,0.567,6.7
 2021,2021-07-03,Footscray,North Melbourne,0.802,35
-2021,2021-07-03,Adelaide,Brisbane Lions,0.389,-11.3
+2021,2021-07-03,Adelaide,Brisbane Lions,0.387,-11.5
 2021,2021-07-03,Fremantle,Carlton,0.562,6.2
 2021,2021-07-10,Brisbane Lions,St Kilda,0.72,23.6
 2021,2021-07-10,Carlton,Geelong,0.376,-12.7
-2021,2021-07-10,Essendon,Adelaide,0.674,18.2
+2021,2021-07-10,Essendon,Adelaide,0.676,18.4
 2021,2021-07-10,GWS,Gold Coast,0.577,7.8
 2021,2021-07-10,Hawthorn,Fremantle,0.464,-3.6
-2021,2021-07-10,Richmond,Collingwood,0.604,10.6
+2021,2021-07-10,Richmond,Collingwood,0.602,10.3
 2021,2021-07-10,Footscray,Sydney,0.655,16
 2021,2021-07-10,Port Adelaide,Melbourne,0.573,7.4
 2021,2021-07-10,West Coast,North Melbourne,0.791,33.3
-2021,2021-07-17,Collingwood,Carlton,0.535,3.5
+2021,2021-07-17,Collingwood,Carlton,0.536,3.6
 2021,2021-07-17,Gold Coast,Footscray,0.413,-8.8
 2021,2021-07-17,GWS,Sydney,0.493,-0.7
 2021,2021-07-17,Melbourne,Hawthorn,0.727,24.5
 2021,2021-07-17,North Melbourne,Essendon,0.33,-17.7
 2021,2021-07-17,Richmond,Brisbane Lions,0.538,3.8
 2021,2021-07-17,St Kilda,Port Adelaide,0.419,-8.2
-2021,2021-07-17,Adelaide,West Coast,0.432,-6.8
+2021,2021-07-17,Adelaide,West Coast,0.43,-7
 2021,2021-07-17,Fremantle,Geelong,0.408,-9.3
 2021,2021-07-24,Carlton,North Melbourne,0.691,20.1
 2021,2021-07-24,Essendon,GWS,0.585,8.6
@@ -58,42 +57,42 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-07-24,Gold Coast,Melbourne,0.426,-7.5
 2021,2021-07-24,Hawthorn,Brisbane Lions,0.377,-12.6
 2021,2021-07-24,Sydney,Fremantle,0.658,16.4
-2021,2021-07-24,Footscray,Adelaide,0.765,29.5
-2021,2021-07-24,Port Adelaide,Collingwood,0.693,20.4
+2021,2021-07-24,Footscray,Adelaide,0.766,29.6
+2021,2021-07-24,Port Adelaide,Collingwood,0.692,20.2
 2021,2021-07-24,West Coast,St Kilda,0.683,19.2
 2021,2021-07-31,Brisbane Lions,Gold Coast,0.67,17.7
-2021,2021-07-31,Collingwood,West Coast,0.506,0.6
+2021,2021-07-31,Collingwood,West Coast,0.507,0.7
 2021,2021-07-31,Essendon,Sydney,0.545,4.5
 2021,2021-07-31,GWS,Port Adelaide,0.432,-6.8
 2021,2021-07-31,Melbourne,Footscray,0.521,2.1
 2021,2021-07-31,North Melbourne,Geelong,0.235,-29.5
 2021,2021-07-31,St Kilda,Carlton,0.497,-0.3
-2021,2021-07-31,Adelaide,Hawthorn,0.589,9
+2021,2021-07-31,Adelaide,Hawthorn,0.587,8.8
 2021,2021-07-31,Fremantle,Richmond,0.481,-1.9
 2021,2021-08-07,Carlton,Gold Coast,0.596,9.7
 2021,2021-08-07,Geelong,GWS,0.699,21.1
-2021,2021-08-07,Hawthorn,Collingwood,0.442,-5.8
+2021,2021-08-07,Hawthorn,Collingwood,0.44,-6
 2021,2021-08-07,Richmond,North Melbourne,0.761,29
 2021,2021-08-07,Sydney,St Kilda,0.671,17.8
 2021,2021-08-07,Footscray,Essendon,0.639,14.3
-2021,2021-08-07,Adelaide,Port Adelaide,0.336,-17
+2021,2021-08-07,Adelaide,Port Adelaide,0.335,-17.1
 2021,2021-08-07,Fremantle,Brisbane Lions,0.441,-5.9
 2021,2021-08-07,West Coast,Melbourne,0.524,2.4
-2021,2021-08-14,Brisbane Lions,Collingwood,0.688,19.8
+2021,2021-08-14,Brisbane Lions,Collingwood,0.686,19.5
 2021,2021-08-14,Geelong,St Kilda,0.71,22.4
 2021,2021-08-14,Gold Coast,Essendon,0.525,2.5
 2021,2021-08-14,GWS,Richmond,0.477,-2.3
 2021,2021-08-14,Hawthorn,Footscray,0.312,-19.8
-2021,2021-08-14,Melbourne,Adelaide,0.758,28.5
+2021,2021-08-14,Melbourne,Adelaide,0.759,28.7
 2021,2021-08-14,North Melbourne,Sydney,0.344,-16.1
 2021,2021-08-14,Port Adelaide,Carlton,0.698,20.9
 2021,2021-08-14,Fremantle,West Coast,0.434,-6.6
 2021,2021-08-21,Brisbane Lions,West Coast,0.622,12.5
 2021,2021-08-21,Carlton,GWS,0.552,5.2
-2021,2021-08-21,Essendon,Collingwood,0.555,5.5
+2021,2021-08-21,Essendon,Collingwood,0.553,5.3
 2021,2021-08-21,Geelong,Melbourne,0.556,5.6
 2021,2021-08-21,Richmond,Hawthorn,0.683,19.2
 2021,2021-08-21,St Kilda,Fremantle,0.562,6.2
 2021,2021-08-21,Sydney,Gold Coast,0.659,16.5
 2021,2021-08-21,Footscray,Port Adelaide,0.596,9.7
-2021,2021-08-21,Adelaide,North Melbourne,0.676,18.4
+2021,2021-08-21,Adelaide,North Melbourne,0.674,18.2
