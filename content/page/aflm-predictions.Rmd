@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r prep, include=FALSE}
-library(reactable)  
+library(reactable)   
 library(htmltools)
 library(tidyverse)
  
