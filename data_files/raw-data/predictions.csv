@@ -1,9 +1,9 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 2021,15889,2021-06-18,"Fri, 18",00:00,14,Kardinia Park,Geelong,Footscray,4.6,0.546,Geelong by 5
 2021,15890,2021-06-19,"Sat, 19",00:00,14,Carrara,Gold Coast,Port Adelaide,-6.7,0.433,Port Adelaide by 7
-2021,15891,2021-06-19,"Sat, 19",00:00,14,Docklands,North Melbourne,Brisbane Lions,-21.4,0.298,Brisbane Lions by 21
+2021,15891,2021-06-19,"Sat, 19",00:00,14,Bellerive Oval,North Melbourne,Brisbane Lions,-25.8,0.263,Brisbane Lions by 26
 2021,15892,2021-06-19,"Sat, 19",00:00,14,GIANTS Stadium,GWS,Carlton,5.4,0.554,GWS by 5
-2021,15893,2021-06-20,"Sun, 20",00:00,14,M.C.G.,Hawthorn,Essendon,-5.7,0.443,Essendon by 6
+2021,15893,2021-06-20,"Sun, 20",00:00,14,University of Tasmania Stadium,Hawthorn,Essendon,-5.8,0.442,Essendon by 6
 2021,15894,2021-06-24,"Thu, 24",00:00,15,Gabba,Brisbane Lions,Geelong,3.9,0.539,Brisbane Lions by 4
 2021,15895,2021-06-25,"Fri, 25",00:00,15,M.C.G.,Richmond,St Kilda,16.2,0.657,Richmond by 16
 2021,15896,2021-06-26,"Sat, 26",00:00,15,Bellerive Oval,North Melbourne,Gold Coast,-10.9,0.393,Gold Coast by 11
@@ -26,7 +26,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2021,15913,2021-07-10,"Sat, 10",00:00,17,M.C.G.,Carlton,Geelong,-13.8,0.365,Geelong by 14
 2021,15914,2021-07-10,"Sat, 10",00:00,17,Docklands,Essendon,Adelaide,16.9,0.663,Essendon by 17
 2021,15915,2021-07-10,"Sat, 10",00:00,17,GIANTS Stadium,GWS,Gold Coast,7.8,0.577,GWS by 8
-2021,15916,2021-07-10,"Sat, 10",00:00,17,University of Tasmania Stadium,Hawthorn,Fremantle,-1.9,0.481,Fremantle by 2
+2021,15916,2021-07-10,"Sat, 10",00:00,17,University of Tasmania Stadium,Hawthorn,Fremantle,-1.7,0.483,Fremantle by 2
 2021,15917,2021-07-10,"Sat, 10",00:00,17,M.C.G.,Richmond,Collingwood,10.7,0.605,Richmond by 11
 2021,15918,2021-07-10,"Sat, 10",00:00,17,Docklands,Footscray,Sydney,18.2,0.674,Footscray by 18
 2021,15919,2021-07-10,"Sat, 10",00:00,17,Adelaide Oval,Port Adelaide,Melbourne,7.6,0.575,Port Adelaide by 8

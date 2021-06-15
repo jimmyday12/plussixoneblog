@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r prep, include=FALSE}
 library(reactable)
 library(htmltools)
-library(tidyverse)
+library(tidyverse) 
 
 dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 
@@ -31,7 +31,7 @@ predictions <- predictions %>%
          Away.Prob = 1 - Probability,
          Home.Marg = ifelse(Prediction > 0, Prediction, ""),
          Away.Marg = ifelse(Prediction < 0, -Prediction, ""))
-
+ 
 predictions <- predictions %>%
   filter(Round.Number <= min(Round.Number)) 
 

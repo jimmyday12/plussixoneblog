@@ -38,15 +38,27 @@ sim_num <-  10000
 # First check if new games exist
 new_results <- fetch_results_footywire(season, 
                                        round_number = NULL, 
-                                       last_n_matches = 1) 
+                                       last_n_matches = 9) 
 
 old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 
 if(!is.null(new_results)){
-  new_results <- new_results %>% convert_results()
-  if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
-      last(old_results$results$Away.Team) == last(new_results$Away.Team) &
-      last(old_results$results$Date) == last(new_results$Date)) {
+  new <- new_results %>% 
+    convert_results() %>%
+    select(Home.Team, Away.Team, Round, Date, Venue) %>%
+    filter(Round == last(Round)) %>%
+    mutate(Venue = trimws(Venue),
+           Venue = venue_fix(Venue)) %>%
+    select(-Round)
+  
+  n_results <- nrow(new)
+  
+  old <- old_results$results %>%
+    slice(tail(row_number(), 9)) %>%
+    filter(Round == last(Round)) %>%
+    select(Home.Team, Away.Team, Date, Venue) 
+  
+  if (isTRUE(dplyr::all_equal(new, old))) {
     new_data <- FALSE
     message("No New Data Found")
   } else {
