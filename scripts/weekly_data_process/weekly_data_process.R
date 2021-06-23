@@ -10,6 +10,7 @@ pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
 
 # source functions
 source(here::here("scripts", "weekly_data_process", "0-functions.R"))
+source(here::here("scripts", "weekly_data_process", "0a-check-data.R"))
 source(here::here("scripts", "weekly_data_process", "1-get-data.R"))
 source(here::here("scripts", "weekly_data_process", "2-elo_prep.R"))
 source(here::here("scripts", "weekly_data_process", "2a-covid_fix.R"))
@@ -34,47 +35,22 @@ carryOver <- 0.05
 B <- 0.04
 sim_num <-  10000
 
-# Get Data ----------------------------------------------------------------
-# First check if new games exist
-new_results <- fetch_results_footywire(season, 
-                                       round_number = NULL, 
-                                       last_n_matches = 9) 
+# Check Data ----------------------------------------------------------------
 
-old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
+# First check if new results exist
+new_results <- check_results()
+new_fixture <- check_fixture()
 
-if(!is.null(new_results)){
-  new <- new_results %>% 
-    convert_results() %>%
-    select(Home.Team, Away.Team, Round, Date, Venue) %>%
-    filter(Round == last(Round)) %>%
-    mutate(Venue = trimws(Venue),
-           Venue = venue_fix(Venue)) %>%
-    select(-Round)
-  
-  n_results <- nrow(new)
-  
-  old <- old_results$results %>%
-    slice(tail(row_number(), 9)) %>%
-    filter(Round == last(Round)) %>%
-    select(Home.Team, Away.Team, Date, Venue) 
-  
-  if (isTRUE(dplyr::all_equal(new, old))) {
-    new_data <- FALSE
-    message("No New Data Found")
-  } else {
-    new_data <- TRUE
-    message("New Data Found")
-  }
-} else {
-  new_data <- FALSE
-  message("No New Data Found")
+if(new_results | new_fixture) {
+  message("New data found")
+  new_data <- TRUE
 }
 
-#new_results <- safe_results(season, comp = "AFLM")
 
 # Manual override
 #new_data <- TRUE
 
+# Get Data ----------------------------------------------------------------
 if (new_data) {
   dat <- get_data(season,
                   filt_date,
