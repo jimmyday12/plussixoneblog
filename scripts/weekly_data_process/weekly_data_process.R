@@ -44,6 +44,8 @@ new_fixture <- check_fixture()
 if(new_results | new_fixture) {
   message("New data found")
   new_data <- TRUE
+} else{
+  new_data <- FALSE
 }
 
 
