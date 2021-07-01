@@ -45,6 +45,7 @@ if(new_results | new_fixture) {
   message("New data found")
   new_data <- TRUE
 } else{
+  message("No new data found")
   new_data <- FALSE
 }
 
