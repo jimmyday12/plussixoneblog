@@ -13,8 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r prep, include=FALSE}
 library(reactable)
-library(htmltools)
-library(tidyverse) 
+library(htmltools) 
+library(tidyverse)  
 
 dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 
