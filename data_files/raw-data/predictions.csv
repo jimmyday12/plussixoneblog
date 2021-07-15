@@ -1,13 +1,13 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
 2021,15921,2021-07-15,"Thu, 15",00:00,18,Perth Stadium,Fremantle,Geelong,-8.1,0.42,Geelong by 8
-2021,15922,2021-07-16,"Fri, 16",00:00,18,M.C.G.,Richmond,Brisbane Lions,1.7,0.517,Richmond by 2
-2021,15923,2021-07-17,"Sat, 17",00:00,18,Eureka Stadium,GWS,Sydney,-2.8,0.472,Sydney by 3
-2021,15924,2021-07-17,"Sat, 17",00:00,18,Carrara,Gold Coast,Footscray,-11,0.392,Footscray by 11
-2021,15925,2021-07-17,"Sat, 17",00:00,18,M.C.G.,Melbourne,Hawthorn,23.9,0.722,Melbourne by 24
-2021,15926,2021-07-17,"Sat, 17",00:00,18,Docklands,St Kilda,Port Adelaide,-5,0.45,Port Adelaide by 5
-2021,15927,2021-07-18,"Sun, 18",00:00,18,Docklands,North Melbourne,Essendon,-15,0.354,Essendon by 15
-2021,15928,2021-07-18,"Sun, 18",00:00,18,M.C.G.,Collingwood,Carlton,5.2,0.552,Collingwood by 5
-2021,15929,2021-07-18,"Sun, 18",00:00,18,Adelaide Oval,Adelaide,West Coast,-3.9,0.461,West Coast by 4
+2021,15922,2021-07-16,"Fri, 16",00:00,18,Carrara,Richmond,Brisbane Lions,-8,0.421,Brisbane Lions by 8
+2021,15923,2021-07-17,"Sat, 17",00:00,18,Carrara,Gold Coast,Footscray,-11,0.392,Footscray by 11
+2021,15924,2021-07-17,"Sat, 17",00:00,18,M.C.G.,Melbourne,Hawthorn,23.9,0.722,Melbourne by 24
+2021,15925,2021-07-17,"Sat, 17",00:00,18,Docklands,St Kilda,Port Adelaide,-5,0.45,Port Adelaide by 5
+2021,15926,2021-07-18,"Sun, 18",00:00,18,Carrara,North Melbourne,Essendon,-15,0.354,Essendon by 15
+2021,15927,2021-07-18,"Sun, 18",00:00,18,M.C.G.,Collingwood,Carlton,5.2,0.552,Collingwood by 5
+2021,15928,2021-07-18,"Sun, 18",00:00,18,Adelaide Oval,Adelaide,West Coast,-3.9,0.461,West Coast by 4
+2021,15929,2021-07-18,"Sun, 18",00:00,18,Carrara,GWS,Sydney,-2.9,0.471,Sydney by 3
 2021,15930,2021-07-23,"Fri, 23",00:00,19,Adelaide Oval,Port Adelaide,Collingwood,19.4,0.685,Port Adelaide by 19
 2021,15931,2021-07-24,"Sat, 24",00:00,19,Kardinia Park,Sydney,Fremantle,11.3,0.611,Sydney by 11
 2021,15932,2021-07-24,"Sat, 24",00:00,19,M.C.G.,Hawthorn,Brisbane Lions,-12.9,0.374,Brisbane Lions by 13
@@ -16,7 +16,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2021,15935,2021-07-24,"Sat, 24",00:00,19,Perth Stadium,West Coast,St Kilda,11.7,0.615,West Coast by 12
 2021,15936,2021-07-25,"Sun, 25",00:00,19,Eureka Stadium,Footscray,Adelaide,32.1,0.783,Footscray by 32
 2021,15937,2021-07-25,"Sun, 25",00:00,19,M.C.G.,Geelong,Richmond,12.3,0.621,Geelong by 12
-2021,15938,2021-07-25,"Sun, 25",00:00,19,Docklands,Carlton,North Melbourne,16.8,0.662,Carlton by 17
+2021,15938,2021-07-25,"Sun, 25",00:00,19,Docklands,Carlton,North Melbourne,16.9,0.663,Carlton by 17
 2021,15939,2021-07-30,"Fri, 30",00:00,20,Docklands,Essendon,Sydney,2.2,0.522,Essendon by 2
 2021,15940,2021-07-31,"Sat, 31",00:00,20,Bellerive Oval,North Melbourne,Geelong,-27.7,0.248,Geelong by 28
 2021,15941,2021-07-31,"Sat, 31",00:00,20,Gabba,Brisbane Lions,Gold Coast,19.3,0.684,Brisbane Lions by 19
