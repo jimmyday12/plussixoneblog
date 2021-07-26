@@ -1,10 +1,10 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-07-30,Essendon,Sydney,0.506,0.6
 2021,2021-07-31,North Melbourne,Geelong,0.243,-28.4
-2021,2021-07-31,Gold Coast,Melbourne,0.42,-8.1
+2021,2021-07-31,Gold Coast,Melbourne,0.375,-12.8
 2021,2021-07-31,St Kilda,Carlton,0.542,4.2
-2021,2021-07-31,Footscray,Adelaide,0.787,32.7
-2021,2021-07-31,Hawthorn,Brisbane Lions,0.331,-17.6
+2021,2021-07-31,Hawthorn,Brisbane Lions,0.33,-17.7
+2021,2021-07-31,Footscray,Adelaide,0.754,28
 2021,2021-08-01,GWS,Port Adelaide,0.421,-8
 2021,2021-08-01,Collingwood,West Coast,0.537,3.7
 2021,2021-08-01,Fremantle,Richmond,0.494,-0.6
