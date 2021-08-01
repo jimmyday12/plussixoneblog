@@ -1,32 +1,30 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2021,2021-08-01,Hawthorn,Brisbane Lions,0.33,-17.7
-2021,2021-08-01,Essendon,Sydney,0.506,0.6
 2021,2021-08-01,Fremantle,Richmond,0.494,-0.6
 2021,2021-08-01,GWS,Port Adelaide,0.42,-8.1
-2021,2021-08-06,Footscray,Essendon,0.663,16.9
+2021,2021-08-06,Footscray,Essendon,0.665,17.1
 2021,2021-08-07,Carlton,Gold Coast,0.621,12.3
 2021,2021-08-07,Geelong,GWS,0.72,23.6
 2021,2021-08-07,Richmond,North Melbourne,0.721,23.7
 2021,2021-08-07,Adelaide,Port Adelaide,0.314,-19.5
 2021,2021-08-07,West Coast,Melbourne,0.479,-2.1
-2021,2021-08-08,Hawthorn,Collingwood,0.443,-5.7
-2021,2021-08-08,St Kilda,Sydney,0.47,-3
-2021,2021-08-08,Fremantle,Brisbane Lions,0.437,-6.3
-2021,2021-08-14,Brisbane Lions,Collingwood,0.687,19.7
+2021,2021-08-08,Hawthorn,Collingwood,0.451,-4.9
+2021,2021-08-08,St Kilda,Sydney,0.467,-3.3
+2021,2021-08-08,Fremantle,Brisbane Lions,0.445,-5.5
+2021,2021-08-14,Brisbane Lions,Collingwood,0.68,18.8
 2021,2021-08-14,Geelong,St Kilda,0.713,22.7
-2021,2021-08-14,Gold Coast,Essendon,0.501,0.1
+2021,2021-08-14,Gold Coast,Essendon,0.503,0.3
 2021,2021-08-14,GWS,Richmond,0.485,-1.5
-2021,2021-08-14,Hawthorn,Footscray,0.299,-21.3
+2021,2021-08-14,Hawthorn,Footscray,0.306,-20.5
 2021,2021-08-14,Melbourne,Adelaide,0.771,30.3
-2021,2021-08-14,North Melbourne,Sydney,0.351,-15.4
+2021,2021-08-14,North Melbourne,Sydney,0.349,-15.6
 2021,2021-08-14,Port Adelaide,Carlton,0.707,22
 2021,2021-08-14,Fremantle,West Coast,0.478,-2.2
-2021,2021-08-21,Brisbane Lions,West Coast,0.668,17.5
+2021,2021-08-21,Brisbane Lions,West Coast,0.66,16.6
 2021,2021-08-21,Carlton,GWS,0.548,4.8
-2021,2021-08-21,Essendon,Collingwood,0.543,4.3
+2021,2021-08-21,Essendon,Collingwood,0.541,4.1
 2021,2021-08-21,Geelong,Melbourne,0.581,8.2
-2021,2021-08-21,Richmond,Hawthorn,0.67,17.7
+2021,2021-08-21,Richmond,Hawthorn,0.663,16.9
 2021,2021-08-21,St Kilda,Fremantle,0.583,8.4
-2021,2021-08-21,Sydney,Gold Coast,0.713,22.7
+2021,2021-08-21,Sydney,Gold Coast,0.715,23
 2021,2021-08-21,Footscray,Port Adelaide,0.608,11
 2021,2021-08-21,Adelaide,North Melbourne,0.622,12.5
