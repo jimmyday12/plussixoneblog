@@ -13,7 +13,7 @@ subtitle: ''
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE) 
 ```
-
+ 
 
 ```{r prep, include=FALSE}
 library(reactable) 
