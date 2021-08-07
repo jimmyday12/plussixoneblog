@@ -10,6 +10,7 @@ pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
 
 # source functions
 source(here::here("scripts", "weekly_data_process", "0-functions.R"))
+source(here::here("scripts", "weekly_data_process", "0a-check-data.R"))
 source(here::here("scripts", "weekly_data_process", "1-get-data.R"))
 source(here::here("scripts", "weekly_data_process", "2-elo_prep.R"))
 source(here::here("scripts", "weekly_data_process", "2a-covid_fix.R"))
@@ -34,35 +35,25 @@ carryOver <- 0.05
 B <- 0.04
 sim_num <-  10000
 
-# Get Data ----------------------------------------------------------------
-# First check if new games exist
-new_results <- fetch_results_footywire(season, 
-                                       round_number = NULL, 
-                                       last_n_matches = 1) 
+# Check Data ----------------------------------------------------------------
 
-old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
+# First check if new results exist
+new_results <- check_results()
+new_fixture <- check_fixture()
 
-if(!is.null(new_results)){
-  new_results <- new_results %>% convert_results()
-  if (last(old_results$results$Home.Team) == last(new_results$Home.Team) &
-      last(old_results$results$Away.Team) == last(new_results$Away.Team) &
-      last(old_results$results$Date) == last(new_results$Date)) {
-    new_data <- FALSE
-    message("No New Data Found")
-  } else {
-    new_data <- TRUE
-    message("New Data Found")
-  }
-} else {
+if(new_results | new_fixture) {
+  message("New data found")
+  new_data <- TRUE
+} else{
+  message("No new data found")
   new_data <- FALSE
-  message("No New Data Found")
 }
 
-#new_results <- safe_results(season, comp = "AFLM")
 
 # Manual override
 #new_data <- TRUE
 
+# Get Data ----------------------------------------------------------------
 if (new_data) {
   dat <- get_data(season,
                   filt_date,

@@ -1,9 +1,18 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
+<<<<<<< HEAD
+=======
+2021,15948,2021-08-06,"Fri, 06",00:00,21,Kardinia Park,Geelong,GWS,24,0.723,Geelong by 24
+2021,15949,2021-08-07,"Sat, 07",00:00,21,Docklands,Carlton,Gold Coast,12.3,0.621,Carlton by 12
+2021,15950,2021-08-07,"Sat, 07",00:00,21,M.C.G.,Richmond,North Melbourne,23.6,0.72,Richmond by 24
+2021,15951,2021-08-07,"Sat, 07",00:00,21,Adelaide Oval,Adelaide,Port Adelaide,-20,0.31,Port Adelaide by 20
+2021,15952,2021-08-07,"Sat, 07",00:00,21,Docklands,St Kilda,Sydney,-3.3,0.467,Sydney by 3
+>>>>>>> 50174573a550f5d93149124bc51540e2653df0fa
 2021,15953,2021-08-08,"Sun, 08",00:00,21,M.C.G.,Hawthorn,Collingwood,-5.2,0.448,Collingwood by 5
 2021,15954,2021-08-08,"Sun, 08",00:00,21,Docklands,Footscray,Essendon,17.1,0.665,Footscray by 17
 2021,15955,2021-08-08,"Sun, 08",00:00,21,Perth Stadium,Fremantle,Brisbane Lions,-5.4,0.446,Brisbane Lions by 5
 2021,15956,2021-08-09,"Mon, 09",00:00,21,Perth Stadium,West Coast,Melbourne,-2.1,0.479,Melbourne by 2
 2021,15957,2021-08-14,"Sat, 14",00:00,22,Gabba,Brisbane Lions,Collingwood,18.8,0.68,Brisbane Lions by 19
+<<<<<<< HEAD
 2021,15958,2021-08-14,"Sat, 14",00:00,22,Kardinia Park,Geelong,St Kilda,20.7,0.696,Geelong by 21
 2021,15959,2021-08-14,"Sat, 14",00:00,22,Carrara,Gold Coast,Essendon,1.2,0.512,Gold Coast by 1
 2021,15960,2021-08-14,"Sat, 14",00:00,22,GIANTS Stadium,GWS,Richmond,-0.9,0.491,Richmond by 1
@@ -21,3 +30,22 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2021,15972,2021-08-21,"Sat, 21",00:00,23,S.C.G.,Sydney,Gold Coast,21.3,0.701,Sydney by 21
 2021,15973,2021-08-21,"Sat, 21",00:00,23,Docklands,Footscray,Port Adelaide,11,0.608,Footscray by 11
 2021,15974,2021-08-21,"Sat, 21",00:00,23,Adelaide Oval,Adelaide,North Melbourne,13.1,0.628,Adelaide by 13
+=======
+2021,15958,2021-08-14,"Sat, 14",00:00,22,Kardinia Park,Geelong,St Kilda,22.7,0.713,Geelong by 23
+2021,15959,2021-08-14,"Sat, 14",00:00,22,Carrara,Gold Coast,Essendon,0.3,0.503,Gold Coast by 0
+2021,15960,2021-08-14,"Sat, 14",00:00,22,GIANTS Stadium,GWS,Richmond,-1.8,0.482,Richmond by 2
+2021,15961,2021-08-14,"Sat, 14",00:00,22,University of Tasmania Stadium,Hawthorn,Footscray,-20.7,0.304,Footscray by 21
+2021,15962,2021-08-14,"Sat, 14",00:00,22,M.C.G.,Melbourne,Adelaide,30.3,0.771,Melbourne by 30
+2021,15963,2021-08-14,"Sat, 14",00:00,22,Docklands,North Melbourne,Sydney,-15.6,0.349,Sydney by 16
+2021,15964,2021-08-14,"Sat, 14",00:00,22,Adelaide Oval,Port Adelaide,Carlton,22.5,0.711,Port Adelaide by 22
+2021,15965,2021-08-14,"Sat, 14",00:00,22,Perth Stadium,Fremantle,West Coast,-2,0.48,West Coast by 2
+2021,15966,2021-08-21,"Sat, 21",00:00,23,Gabba,Brisbane Lions,West Coast,16.6,0.66,Brisbane Lions by 17
+2021,15967,2021-08-21,"Sat, 21",00:00,23,Docklands,Carlton,GWS,5.3,0.553,Carlton by 5
+2021,15968,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Essendon,Collingwood,4.1,0.541,Essendon by 4
+2021,15969,2021-08-21,"Sat, 21",00:00,23,Kardinia Park,Geelong,Melbourne,8.2,0.581,Geelong by 8
+2021,15970,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Richmond,Hawthorn,16.7,0.661,Richmond by 17
+2021,15971,2021-08-21,"Sat, 21",00:00,23,Docklands,St Kilda,Fremantle,8.3,0.582,St Kilda by 8
+2021,15972,2021-08-21,"Sat, 21",00:00,23,S.C.G.,Sydney,Gold Coast,23,0.715,Sydney by 23
+2021,15973,2021-08-21,"Sat, 21",00:00,23,Docklands,Footscray,Port Adelaide,10.6,0.604,Footscray by 11
+2021,15974,2021-08-21,"Sat, 21",00:00,23,Adelaide Oval,Adelaide,North Melbourne,12.5,0.622,Adelaide by 12
+>>>>>>> 50174573a550f5d93149124bc51540e2653df0fa
