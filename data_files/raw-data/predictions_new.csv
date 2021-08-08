@@ -1,18 +1,9 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-<<<<<<< HEAD
-=======
-2021,2021-08-06,Geelong,GWS,0.723,24
-2021,2021-08-07,Carlton,Gold Coast,0.621,12.3
-2021,2021-08-07,Richmond,North Melbourne,0.72,23.6
-2021,2021-08-07,Adelaide,Port Adelaide,0.31,-20
-2021,2021-08-07,St Kilda,Sydney,0.467,-3.3
->>>>>>> 50174573a550f5d93149124bc51540e2653df0fa
 2021,2021-08-08,Hawthorn,Collingwood,0.448,-5.2
 2021,2021-08-08,Footscray,Essendon,0.665,17.1
 2021,2021-08-08,Fremantle,Brisbane Lions,0.446,-5.4
 2021,2021-08-09,West Coast,Melbourne,0.479,-2.1
 2021,2021-08-14,Brisbane Lions,Collingwood,0.68,18.8
-<<<<<<< HEAD
 2021,2021-08-14,Geelong,St Kilda,0.696,20.7
 2021,2021-08-14,Gold Coast,Essendon,0.512,1.2
 2021,2021-08-14,GWS,Richmond,0.491,-0.9
@@ -30,22 +21,3 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2021,2021-08-21,Sydney,Gold Coast,0.701,21.3
 2021,2021-08-21,Footscray,Port Adelaide,0.608,11
 2021,2021-08-21,Adelaide,North Melbourne,0.628,13.1
-=======
-2021,2021-08-14,Geelong,St Kilda,0.713,22.7
-2021,2021-08-14,Gold Coast,Essendon,0.503,0.3
-2021,2021-08-14,GWS,Richmond,0.482,-1.8
-2021,2021-08-14,Hawthorn,Footscray,0.304,-20.7
-2021,2021-08-14,Melbourne,Adelaide,0.771,30.3
-2021,2021-08-14,North Melbourne,Sydney,0.349,-15.6
-2021,2021-08-14,Port Adelaide,Carlton,0.711,22.5
-2021,2021-08-14,Fremantle,West Coast,0.48,-2
-2021,2021-08-21,Brisbane Lions,West Coast,0.66,16.6
-2021,2021-08-21,Carlton,GWS,0.553,5.3
-2021,2021-08-21,Essendon,Collingwood,0.541,4.1
-2021,2021-08-21,Geelong,Melbourne,0.581,8.2
-2021,2021-08-21,Richmond,Hawthorn,0.661,16.7
-2021,2021-08-21,St Kilda,Fremantle,0.582,8.3
-2021,2021-08-21,Sydney,Gold Coast,0.715,23
-2021,2021-08-21,Footscray,Port Adelaide,0.604,10.6
-2021,2021-08-21,Adelaide,North Melbourne,0.622,12.5
->>>>>>> 50174573a550f5d93149124bc51540e2653df0fa
