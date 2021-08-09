@@ -1,5 +1,5 @@
 # Load packages
-devtools::install_github("jimmyday12/monash_tipr", force = TRUE)
+#devtools::install_github("jimmyday12/monash_tipr", force = TRUE)
 library(monashtipr)
 #devtools::load_all("/Users/jamesday/R/monashtipr")
 library(fitzRoy)
@@ -58,10 +58,14 @@ pred_games <- monash_games %>%
   select(-Margin) %>%
   left_join(predictions, by = c("Home" = "Home", "Away" = "Away"))
 
-# Custom fix for Saints v Sydney R10 2021
-#pred_games$Margin[3] <- -predictions$Margin[2]
-#pred_games$`Std. Dev.`[3] <- predictions$`Std. Dev.`[2]
-#pred_games$Probability[3] <- 1-predictions$Probability[2]
+## Custom fix for Saints v Sydney R10 2021
+#pred_games$Margin[1] <- -predictions$Margin[8]
+#pred_games$`Std. Dev.`[1] <- predictions$`Std. Dev.`[8]
+#pred_games$Probability[1] <- 1-predictions$Probability[8]
+
+#pred_games$Margin[6] <- -predictions$Margin[5]
+#pred_games$`Std. Dev.`[6] <- predictions$`Std. Dev.`[5]
+#pred_games$Probability[6] <- 1-predictions$Probability[5]
 
 pred_games
 
