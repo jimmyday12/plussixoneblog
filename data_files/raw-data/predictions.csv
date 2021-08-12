@@ -1,13 +1,13 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2021,15957,2021-08-14,"Sat, 14",00:00,22,Gabba,Brisbane Lions,Collingwood,20.7,0.696,Brisbane Lions by 21
-2021,15958,2021-08-14,"Sat, 14",00:00,22,Kardinia Park,Geelong,St Kilda,20.7,0.696,Geelong by 21
-2021,15959,2021-08-14,"Sat, 14",00:00,22,Carrara,Gold Coast,Essendon,0.3,0.503,Gold Coast by 0
-2021,15960,2021-08-14,"Sat, 14",00:00,22,GIANTS Stadium,GWS,Richmond,-0.9,0.491,Richmond by 1
-2021,15961,2021-08-14,"Sat, 14",00:00,22,University of Tasmania Stadium,Hawthorn,Footscray,-19.2,0.317,Footscray by 19
-2021,15962,2021-08-14,"Sat, 14",00:00,22,M.C.G.,Melbourne,Adelaide,30.2,0.77,Melbourne by 30
-2021,15963,2021-08-14,"Sat, 14",00:00,22,Docklands,North Melbourne,Sydney,-14.9,0.355,Sydney by 15
-2021,15964,2021-08-14,"Sat, 14",00:00,22,Adelaide Oval,Port Adelaide,Carlton,22.9,0.714,Port Adelaide by 23
-2021,15965,2021-08-14,"Sat, 14",00:00,22,Perth Stadium,Fremantle,West Coast,-3,0.47,West Coast by 3
+2021,15957,2021-08-13,"Fri, 13",00:00,22,Docklands,GWS,Richmond,-5.6,0.444,Richmond by 6
+2021,15958,2021-08-14,"Sat, 14",00:00,22,University of Tasmania Stadium,Hawthorn,Footscray,-19.2,0.317,Footscray by 19
+2021,15959,2021-08-14,"Sat, 14",00:00,22,Kardinia Park,Geelong,St Kilda,20.7,0.696,Geelong by 21
+2021,15960,2021-08-14,"Sat, 14",00:00,22,Adelaide Oval,Port Adelaide,Carlton,22.9,0.714,Port Adelaide by 23
+2021,15961,2021-08-14,"Sat, 14",00:00,22,Gabba,Brisbane Lions,Collingwood,20.7,0.696,Brisbane Lions by 21
+2021,15962,2021-08-14,"Sat, 14",00:00,22,Docklands,North Melbourne,Sydney,-14.9,0.355,Sydney by 15
+2021,15963,2021-08-15,"Sun, 15",00:00,22,M.C.G.,Melbourne,Adelaide,30.2,0.77,Melbourne by 30
+2021,15964,2021-08-15,"Sun, 15",00:00,22,Kardinia Park,Gold Coast,Essendon,-9,0.411,Essendon by 9
+2021,15965,2021-08-15,"Sun, 15",00:00,22,Perth Stadium,Fremantle,West Coast,-3,0.47,West Coast by 3
 2021,15966,2021-08-21,"Sat, 21",00:00,23,Gabba,Brisbane Lions,West Coast,18,0.673,Brisbane Lions by 18
 2021,15967,2021-08-21,"Sat, 21",00:00,23,Docklands,Carlton,GWS,3.2,0.532,Carlton by 3
 2021,15968,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Essendon,Collingwood,5.6,0.556,Essendon by 6
