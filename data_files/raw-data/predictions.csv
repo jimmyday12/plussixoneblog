@@ -1,17 +1,15 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2021,15959,2021-08-14,"Sat, 14",00:00,22,Kardinia Park,Geelong,St Kilda,20.7,0.696,Geelong by 21
-2021,15960,2021-08-14,"Sat, 14",00:00,22,Adelaide Oval,Port Adelaide,Carlton,22.9,0.714,Port Adelaide by 23
 2021,15961,2021-08-14,"Sat, 14",00:00,22,Gabba,Brisbane Lions,Collingwood,20.7,0.696,Brisbane Lions by 21
 2021,15962,2021-08-14,"Sat, 14",00:00,22,Docklands,North Melbourne,Sydney,-14.9,0.355,Sydney by 15
 2021,15963,2021-08-15,"Sun, 15",00:00,22,M.C.G.,Melbourne,Adelaide,30.2,0.77,Melbourne by 30
 2021,15964,2021-08-15,"Sun, 15",00:00,22,Kardinia Park,Gold Coast,Essendon,-9,0.411,Essendon by 9
 2021,15965,2021-08-15,"Sun, 15",00:00,22,Perth Stadium,Fremantle,West Coast,-3,0.47,West Coast by 3
 2021,15966,2021-08-21,"Sat, 21",00:00,23,Gabba,Brisbane Lions,West Coast,18,0.673,Brisbane Lions by 18
-2021,15967,2021-08-21,"Sat, 21",00:00,23,Docklands,Carlton,GWS,2.1,0.521,Carlton by 2
+2021,15967,2021-08-21,"Sat, 21",00:00,23,Docklands,Carlton,GWS,1,0.51,Carlton by 1
 2021,15968,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Essendon,Collingwood,5.6,0.556,Essendon by 6
-2021,15969,2021-08-21,"Sat, 21",00:00,23,Kardinia Park,Geelong,Melbourne,6.8,0.568,Geelong by 7
+2021,15969,2021-08-21,"Sat, 21",00:00,23,Kardinia Park,Geelong,Melbourne,6.6,0.566,Geelong by 7
 2021,15970,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Richmond,Hawthorn,14,0.636,Richmond by 14
-2021,15971,2021-08-21,"Sat, 21",00:00,23,Docklands,St Kilda,Fremantle,10.3,0.602,St Kilda by 10
+2021,15971,2021-08-21,"Sat, 21",00:00,23,Docklands,St Kilda,Fremantle,10.4,0.603,St Kilda by 10
 2021,15972,2021-08-21,"Sat, 21",00:00,23,S.C.G.,Sydney,Gold Coast,21.3,0.701,Sydney by 21
-2021,15973,2021-08-21,"Sat, 21",00:00,23,Docklands,Footscray,Port Adelaide,8.9,0.588,Footscray by 9
+2021,15973,2021-08-21,"Sat, 21",00:00,23,Docklands,Footscray,Port Adelaide,7.8,0.577,Footscray by 8
 2021,15974,2021-08-21,"Sat, 21",00:00,23,Adelaide Oval,Adelaide,North Melbourne,13.1,0.628,Adelaide by 13
