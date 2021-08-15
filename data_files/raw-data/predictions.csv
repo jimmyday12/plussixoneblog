@@ -1,11 +1,10 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2021,15965,2021-08-15,"Sun, 15",00:00,22,Perth Stadium,Fremantle,West Coast,-3,0.47,West Coast by 3
-2021,15966,2021-08-21,"Sat, 21",00:00,23,Gabba,Brisbane Lions,West Coast,19.1,0.682,Brisbane Lions by 19
+2021,15966,2021-08-21,"Sat, 21",00:00,23,Gabba,Brisbane Lions,West Coast,19.7,0.687,Brisbane Lions by 20
 2021,15967,2021-08-21,"Sat, 21",00:00,23,Docklands,Carlton,GWS,1,0.51,Carlton by 1
 2021,15968,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Essendon,Collingwood,7.9,0.578,Essendon by 8
 2021,15969,2021-08-21,"Sat, 21",00:00,23,Kardinia Park,Geelong,Melbourne,6.4,0.564,Geelong by 6
 2021,15970,2021-08-21,"Sat, 21",00:00,23,M.C.G.,Richmond,Hawthorn,14,0.636,Richmond by 14
-2021,15971,2021-08-21,"Sat, 21",00:00,23,Docklands,St Kilda,Fremantle,10.4,0.603,St Kilda by 10
+2021,15971,2021-08-21,"Sat, 21",00:00,23,Docklands,St Kilda,Fremantle,10,0.599,St Kilda by 10
 2021,15972,2021-08-21,"Sat, 21",00:00,23,S.C.G.,Sydney,Gold Coast,22.4,0.71,Sydney by 22
 2021,15973,2021-08-21,"Sat, 21",00:00,23,Docklands,Footscray,Port Adelaide,7.8,0.577,Footscray by 8
 2021,15974,2021-08-21,"Sat, 21",00:00,23,Adelaide Oval,Adelaide,North Melbourne,12.9,0.626,Adelaide by 13
