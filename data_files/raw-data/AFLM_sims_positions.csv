@@ -7847,6 +7847,24 @@ Gold Coast,12,NA,NA,,2021,23
 Gold Coast,13,NA,NA,,2021,23
 Gold Coast,14,NA,NA,,2021,23
 Gold Coast,18,NA,NA,,2021,23
+Carlton,13,100,1,100,2021,23
+Carlton,1,NA,NA,,2021,23
+Carlton,2,NA,NA,,2021,23
+Carlton,3,NA,NA,,2021,23
+Carlton,4,NA,NA,,2021,23
+Carlton,5,NA,NA,,2021,23
+Carlton,6,NA,NA,,2021,23
+Carlton,7,NA,NA,,2021,23
+Carlton,8,NA,NA,,2021,23
+Carlton,9,NA,NA,,2021,23
+Carlton,10,NA,NA,,2021,23
+Carlton,11,NA,NA,,2021,23
+Carlton,12,NA,NA,,2021,23
+Carlton,14,NA,NA,,2021,23
+Carlton,15,NA,NA,,2021,23
+Carlton,16,NA,NA,,2021,23
+Carlton,17,NA,NA,,2021,23
+Carlton,18,NA,NA,,2021,23
 Hawthorn,14,100,1,100,2021,23
 Hawthorn,1,NA,NA,,2021,23
 Hawthorn,2,NA,NA,,2021,23
@@ -7865,24 +7883,6 @@ Hawthorn,15,NA,NA,,2021,23
 Hawthorn,16,NA,NA,,2021,23
 Hawthorn,17,NA,NA,,2021,23
 Hawthorn,18,NA,NA,,2021,23
-Carlton,13,81.08,1,81,2021,23
-Carlton,12,18.92,2,19,2021,23
-Carlton,1,NA,NA,,2021,23
-Carlton,2,NA,NA,,2021,23
-Carlton,3,NA,NA,,2021,23
-Carlton,4,NA,NA,,2021,23
-Carlton,5,NA,NA,,2021,23
-Carlton,6,NA,NA,,2021,23
-Carlton,7,NA,NA,,2021,23
-Carlton,8,NA,NA,,2021,23
-Carlton,9,NA,NA,,2021,23
-Carlton,10,NA,NA,,2021,23
-Carlton,11,NA,NA,,2021,23
-Carlton,14,NA,NA,,2021,23
-Carlton,15,NA,NA,,2021,23
-Carlton,16,NA,NA,,2021,23
-Carlton,17,NA,NA,,2021,23
-Carlton,18,NA,NA,,2021,23
 Richmond,12,61.9,1,62,2021,23
 Richmond,11,38.1,2,38,2021,23
 Richmond,1,NA,NA,,2021,23
@@ -7901,10 +7901,9 @@ Richmond,15,NA,NA,,2021,23
 Richmond,16,NA,NA,,2021,23
 Richmond,17,NA,NA,,2021,23
 Richmond,18,NA,NA,,2021,23
-St Kilda,10,40.050000000000004,1,40,2021,23
-St Kilda,11,21.85,2,22,2021,23
-St Kilda,12,19.18,3,19,2021,23
-St Kilda,13,18.92,4,19,2021,23
+St Kilda,10,40.08,1,40,2021,23
+St Kilda,12,38.1,2,38,2021,23
+St Kilda,11,21.82,3,22,2021,23
 St Kilda,1,NA,NA,,2021,23
 St Kilda,2,NA,NA,,2021,23
 St Kilda,3,NA,NA,,2021,23
@@ -7914,6 +7913,7 @@ St Kilda,6,NA,NA,,2021,23
 St Kilda,7,NA,NA,,2021,23
 St Kilda,8,NA,NA,,2021,23
 St Kilda,9,NA,NA,,2021,23
+St Kilda,13,NA,NA,,2021,23
 St Kilda,14,NA,NA,,2021,23
 St Kilda,15,NA,NA,,2021,23
 St Kilda,16,NA,NA,,2021,23
@@ -7937,17 +7937,17 @@ West Coast,15,NA,NA,,2021,23
 West Coast,16,NA,NA,,2021,23
 West Coast,17,NA,NA,,2021,23
 West Coast,18,NA,NA,,2021,23
-Fremantle,11,40.050000000000004,1,40,2021,23
-Fremantle,10,21.85,2,22,2021,23
-Fremantle,8,19.05,3,19,2021,23
-Fremantle,9,13.020000000000001,4,13,2021,23
-Fremantle,7,6.03,5,6,2021,23
+Fremantle,11,40.08,1,40,2021,23
+Fremantle,9,25.91,2,26,2021,23
+Fremantle,10,21.82,3,22,2021,23
+Fremantle,8,12.19,4,12,2021,23
 Fremantle,1,NA,NA,,2021,23
 Fremantle,2,NA,NA,,2021,23
 Fremantle,3,NA,NA,,2021,23
 Fremantle,4,NA,NA,,2021,23
 Fremantle,5,NA,NA,,2021,23
 Fremantle,6,NA,NA,,2021,23
+Fremantle,7,NA,NA,,2021,23
 Fremantle,12,NA,NA,,2021,23
 Fremantle,13,NA,NA,,2021,23
 Fremantle,14,NA,NA,,2021,23
@@ -7955,15 +7955,15 @@ Fremantle,15,NA,NA,,2021,23
 Fremantle,16,NA,NA,,2021,23
 Fremantle,17,NA,NA,,2021,23
 Fremantle,18,NA,NA,,2021,23
-Essendon,8,50.82,1,51,2021,23
-Essendon,7,37.419999999999995,2,37,2021,23
-Essendon,9,11.76,3,12,2021,23
+Essendon,8,87.81,1,88,2021,23
+Essendon,9,12.19,2,12,2021,23
 Essendon,1,NA,NA,,2021,23
 Essendon,2,NA,NA,,2021,23
 Essendon,3,NA,NA,,2021,23
 Essendon,4,NA,NA,,2021,23
 Essendon,5,NA,NA,,2021,23
 Essendon,6,NA,NA,,2021,23
+Essendon,7,NA,NA,,2021,23
 Essendon,10,NA,NA,,2021,23
 Essendon,11,NA,NA,,2021,23
 Essendon,12,NA,NA,,2021,23
@@ -7973,15 +7973,15 @@ Essendon,15,NA,NA,,2021,23
 Essendon,16,NA,NA,,2021,23
 Essendon,17,NA,NA,,2021,23
 Essendon,18,NA,NA,,2021,23
-GWS,7,56.55,1,57,2021,23
-GWS,8,30.130000000000003,2,30,2021,23
-GWS,9,13.320000000000002,3,13,2021,23
+GWS,7,100,1,100,2021,23
 GWS,1,NA,NA,,2021,23
 GWS,2,NA,NA,,2021,23
 GWS,3,NA,NA,,2021,23
 GWS,4,NA,NA,,2021,23
 GWS,5,NA,NA,,2021,23
 GWS,6,NA,NA,,2021,23
+GWS,8,NA,NA,,2021,23
+GWS,9,NA,NA,,2021,23
 GWS,10,NA,NA,,2021,23
 GWS,11,NA,NA,,2021,23
 GWS,12,NA,NA,,2021,23
@@ -8045,9 +8045,9 @@ Sydney,15,NA,NA,,2021,23
 Sydney,16,NA,NA,,2021,23
 Sydney,17,NA,NA,,2021,23
 Sydney,18,NA,NA,,2021,23
-Geelong,1,64.44,1,64,2021,23
-Geelong,3,35.480000000000004,2,35,2021,23
-Geelong,2,0.08,3,<1,2021,23
+Geelong,3,100,1,100,2021,23
+Geelong,1,NA,NA,,2021,23
+Geelong,2,NA,NA,,2021,23
 Geelong,4,NA,NA,,2021,23
 Geelong,5,NA,NA,,2021,23
 Geelong,6,NA,NA,,2021,23
@@ -8063,26 +8063,8 @@ Geelong,15,NA,NA,,2021,23
 Geelong,16,NA,NA,,2021,23
 Geelong,17,NA,NA,,2021,23
 Geelong,18,NA,NA,,2021,23
-Melbourne,3,64.52,1,65,2021,23
-Melbourne,1,35.480000000000004,2,35,2021,23
-Melbourne,2,NA,NA,,2021,23
-Melbourne,4,NA,NA,,2021,23
-Melbourne,5,NA,NA,,2021,23
-Melbourne,6,NA,NA,,2021,23
-Melbourne,7,NA,NA,,2021,23
-Melbourne,8,NA,NA,,2021,23
-Melbourne,9,NA,NA,,2021,23
-Melbourne,10,NA,NA,,2021,23
-Melbourne,11,NA,NA,,2021,23
-Melbourne,12,NA,NA,,2021,23
-Melbourne,13,NA,NA,,2021,23
-Melbourne,14,NA,NA,,2021,23
-Melbourne,15,NA,NA,,2021,23
-Melbourne,16,NA,NA,,2021,23
-Melbourne,17,NA,NA,,2021,23
-Melbourne,18,NA,NA,,2021,23
-Port Adelaide,2,99.92,1,100,2021,23
-Port Adelaide,1,0.08,2,<1,2021,23
+Port Adelaide,2,100,1,100,2021,23
+Port Adelaide,1,NA,NA,,2021,23
 Port Adelaide,3,NA,NA,,2021,23
 Port Adelaide,4,NA,NA,,2021,23
 Port Adelaide,5,NA,NA,,2021,23
@@ -8099,3 +8081,21 @@ Port Adelaide,15,NA,NA,,2021,23
 Port Adelaide,16,NA,NA,,2021,23
 Port Adelaide,17,NA,NA,,2021,23
 Port Adelaide,18,NA,NA,,2021,23
+Melbourne,1,100,1,100,2021,23
+Melbourne,2,NA,NA,,2021,23
+Melbourne,3,NA,NA,,2021,23
+Melbourne,4,NA,NA,,2021,23
+Melbourne,5,NA,NA,,2021,23
+Melbourne,6,NA,NA,,2021,23
+Melbourne,7,NA,NA,,2021,23
+Melbourne,8,NA,NA,,2021,23
+Melbourne,9,NA,NA,,2021,23
+Melbourne,10,NA,NA,,2021,23
+Melbourne,11,NA,NA,,2021,23
+Melbourne,12,NA,NA,,2021,23
+Melbourne,13,NA,NA,,2021,23
+Melbourne,14,NA,NA,,2021,23
+Melbourne,15,NA,NA,,2021,23
+Melbourne,16,NA,NA,,2021,23
+Melbourne,17,NA,NA,,2021,23
+Melbourne,18,NA,NA,,2021,23
