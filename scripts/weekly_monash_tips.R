@@ -59,9 +59,9 @@ pred_games <- monash_games %>%
   left_join(predictions, by = c("Home" = "Home", "Away" = "Away"))
 
 ## Custom fix for Saints v Sydney R10 2021
-#pred_games$Margin[1] <- -predictions$Margin[8]
-#pred_games$`Std. Dev.`[1] <- predictions$`Std. Dev.`[8]
-#pred_games$Probability[1] <- 1-predictions$Probability[8]
+#pred_games$Margin[1] <- -predictions$Margin[5]
+#pred_games$`Std. Dev.`[1] <- predictions$`Std. Dev.`[5]
+#pred_games$Probability[1] <- 1-predictions$Probability[5]
 
 #pred_games$Margin[6] <- -predictions$Margin[5]
 #pred_games$`Std. Dev.`[6] <- predictions$`Std. Dev.`[5]
@@ -87,3 +87,4 @@ pred_games %>%
 pred_games %>%
   select(-`Std. Dev.`, -Margin) %>%
   monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "info")
+

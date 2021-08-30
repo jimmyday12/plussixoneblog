@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
  
 
 ```{r prep, include=FALSE}
-library(reactable) 
+library(reactable)
 library(htmltools)
 library(tidyverse)
 aflm_finals_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_finals_sims.rds")) 
