@@ -33,6 +33,7 @@ check_results <- function() {
 check_fixture <- function() {
   old_dat <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
   
+  if(is_null(old_dat$predictions)) return(FALSE)
   old <-  old_dat$predictions %>%
     slice(head(row_number(), 9)) %>%
     filter(Round.Number == first(Round.Number)) %>%
