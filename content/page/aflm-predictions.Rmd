@@ -20,7 +20,10 @@ library(reactable)
 library(htmltools)
 library(tidyverse)
 aflm_finals_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_finals_sims.rds")) 
- 
+dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
+results <- dat_list$results %>% slice_tail()
+
+
 forecasts2 <- aflm_finals_sims$sims_combined %>%
   mutate(
     points = Wins,
@@ -31,6 +34,22 @@ forecasts2 <- aflm_finals_sims$sims_combined %>%
     global_d = elo
   )
 home_away_ongoing <- aflm_finals_sims$home_away_ongoing
+
+if (results$Round == 27) {
+  elo <- read_csv(here::here("data_files", "raw-data", "AFLM_elo.csv"))
+  elo <- elo %>% 
+    filter(Date == results$Date) %>%
+    select(Team, ELO, ELO_pre)
+  
+  premier <- ifelse(results$Margin > 0, results$Home.Team, results$Away.Team)
+  forecasts2 <- forecasts2 %>% 
+    mutate(win_league = ifelse(Team == premier, 1, 0)) %>%
+    left_join(elo, by = "Team") %>%
+    mutate(elo.old = ifelse(is.na(ELO_pre), elo.old, ELO_pre),
+           elo = ifelse(is.na(ELO), elo.old, ELO),
+           elo.change = elo - elo.old) %>%
+    select(-ELO, -ELO_pre)
+}
 
 
 forecasts2 <- forecasts2 %>%
