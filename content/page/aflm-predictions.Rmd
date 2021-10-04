@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
  
 
 ```{r prep, include=FALSE}
-library(reactable)
+library(reactable) 
 library(htmltools)
 library(tidyverse)
 aflm_finals_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_finals_sims.rds")) 
@@ -25,9 +25,9 @@ forecasts2 <- aflm_finals_sims$sims_combined %>%
   mutate(
     points = Wins,
     team = Team,
-    group = Season,
+    group = Season, 
     spi = elo,
-    global_o = elo,
+    global_o = elo, 
     global_d = elo
   )
 home_away_ongoing <- aflm_finals_sims$home_away_ongoing

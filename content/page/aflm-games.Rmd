@@ -11,17 +11,27 @@ tags: []
 knitr::opts_chunk$set(echo = TRUE) 
 ```
 
-```{r prep, include=FALSE}
+```{r prep, include=FALSE} 
 library(reactable)
 library(htmltools) 
-library(tidyverse)
+library(tidyverse) 
 
 dat_list <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
 
 # Get predictions for current round and present as table
 predictions <- dat_list$predictions
-results <- dat_list$results %>%
-  filter(Season == max(predictions$Season) & Round.Number == min(predictions$Round.Number))
+results <- dat_list$results
+
+if(!is.null(predictions)) {
+ max_seas <- max(predictions$Season)
+ min_round <- min(predictions$Round.Number)
+} else {
+  max_seas <- max(results$Season)
+  min_round <- last(results$Round.Number)
+}
+
+results <- results %>%
+  filter(Season == max_seas & Round.Number == min_round)
  
 predictions <- bind_rows(results, predictions)
 
@@ -34,6 +44,8 @@ predictions <- predictions %>%
  
 predictions <- predictions %>%
   filter(Round.Number <= min(Round.Number)) 
+
+if (!"Time" %in% names(predictions)) predictions$Time <- NA
 
 #predictions_long <- predictions %>%
 #  pivot_longer(cols = c(Home.Team, Away.Team), names_to = "Status", values_to = "Team") %>%
