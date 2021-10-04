@@ -105,11 +105,14 @@ if (new_data) {
     filter(is.na(Home.Points))
   
   
-  
+  season_complete <- nrow(dat$fixture) == 0 &  
+    last(dat$results$Round.Type == "Finals") &
+    last(dat$results$Round.Number > 26)
+    
   # COVID Fix
   covid_seas <- last(dat$fixture$Round) < 18
   
-  if (covid_seas) dat$fixture <- fix_covid_season(dat$fixture)
+  if (covid_seas & !season_complete) dat$fixture <- fix_covid_season(dat$fixture)
   
   print(proc.time() - ptm)
   message("Data Cleaned")
@@ -117,6 +120,7 @@ if (new_data) {
   
   
   # Run ELO calculation -----------------------------------------------------
+  
   elo_dat <- run_elo(dat$results,
                      carryOver = carryOver,
                      B = B, e = e, d = d, h = h
@@ -128,16 +132,21 @@ if (new_data) {
   print(proc.time() - ptm)
   message("ELO Run")
   
+  # In season stuff --------------------------------------------------------
+  if (!season_complete){
   # Predictions ------------------------------------------------------------
+
+    # Do predictions
+    
+    dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data)
+    
+    # Message
+    print(proc.time() - ptm)
+    message("Predictions Done")
+    
+  }
   
-  
-  # Do predictions
-  dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data)
-  
-  # Message
-  print(proc.time() - ptm)
-  message("Predictions Done")
-  
+
   # Simulation --------------------------------------------------------------
   # Skip if home_away has finished
   if (home_away_ongoing) {
@@ -197,6 +206,8 @@ if (new_data) {
   
   # Finals Sims -------------------------------------------------------------
   # source finals sims
+  if (!season_complete){
+    
   
   if (home_away_ongoing) {
     message("Doing Finals Sims H&A")
@@ -259,8 +270,10 @@ if (new_data) {
   }
   
   
+  
   print(proc.time() - ptm)
   message("Finals Sims done")
+  }
   # Save Data ---------------------------------------------------------------
   
   if(save_data) {
@@ -280,16 +293,23 @@ if (new_data) {
     write_rds(aflm_data, file = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
     
     # Save Predictions
+    if (!season_complete) {
+      
+    
     predictions_csv <- aflm_data$predictions %>%
       select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
     write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
     write_csv(predictions_csv, file = here::here("data_files", "raw-data", "predictions_new.csv"))
+    }
     
     # Save elo
     write_csv(aflm_data$elo, file = here::here("data_files", "raw-data", "AFLM_elo.csv"))
     
     
     # Save sims
+    if (!season_complete) {
+      
+    
     if (home_away_ongoing | finals_scheduled | finals_started) {
       aflm_sims <- list(
         sim_data_summary = sim_dat$sim_data_summary,
@@ -316,6 +336,7 @@ if (new_data) {
       write_rds(finals_dat, 
                 file = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
       
+    }
     }
     
     # Message
