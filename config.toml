@@ -1,7 +1,6 @@
 baseurl = "https://plussixoneblog.com/"
 DefaultContentLanguage = "en"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
-#DefaultContentLanguage = "ja"
 title = "plusSixOne"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
@@ -16,6 +15,7 @@ googleAnalytics = "UA-77406420-1"
 
 [Params]
   subtitle = "Data driven exploration of Australian Sport"
+  mainSections = ["post"]
   logo = "img/avator-icon-new.png"
   favicon = "img/favicon-new.ico"
   dateFormat = "January 2, 2006"
@@ -25,9 +25,6 @@ googleAnalytics = "UA-77406420-1"
   readingTime = true
   useHLJS = true
   
-#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
-
-
 
 [Author]
   name = "James Day"
@@ -40,13 +37,13 @@ googleAnalytics = "UA-77406420-1"
   linkedin = "james-day-ab648321"
 
 [[menu.main]]
-    name = "About"
-    url = "page/about/"
+    name = "Blog"
+    url = ""
     weight = 1
 
 [[menu.main]]
-    name = "Blog"
-    url = ""
+    name = "About"
+    url = "page/about/"
     weight = 2
     
 [[menu.main]]

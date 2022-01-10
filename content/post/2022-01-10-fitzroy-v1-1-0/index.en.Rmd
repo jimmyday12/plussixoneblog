@@ -1,0 +1,10 @@
+---
+title: 'fitzRoy v1.1.0 '
+author: R package build
+date: '2022-01-10'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
