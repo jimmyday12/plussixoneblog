@@ -1,0 +1,119 @@
+---
+title: fitzRoy v1.1.0
+author: James Day
+date: '2022-01-11'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+
+
+<p>I’m excited to announce the official v1.1.0 release of fitzRoy has landed on CRAN!</p>
+<p>This release includes a few new features and some improvements to bugs that had been reported. Read on to find out about them.</p>
+<div id="player-details" class="section level2">
+<h2>Player Details</h2>
+<p>Newly included are the <code>player_details</code> functions. These follow the same pattern as the main <code>fetch_</code> family of functions, with some slight differences.</p>
+<p>You can use <code>fetch_player_details</code> to return a list of player details for a given club and source. The source will determine exactly what details are returned. The default is the AFL.com.au website.</p>
+<p>The AFL website will return AFLW or AFLM data, while other sources only include AFLM data.</p>
+<pre class="r"><code>aflw_players &lt;- fetch_player_details(team = &quot;Western Bulldogs&quot;, current = TRUE, comp = &quot;AFLW&quot;, source = &quot;AFL&quot;)
+
+head(aflw_players)</code></pre>
+<pre><code>## # A tibble: 6 × 15
+##   firstName surname     id team       season jumperNumber position    providerId
+##   &lt;chr&gt;     &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     
+## 1 Hannah    Scott     1502 Western B…   2022           22 MEDIUM_DEF… CD_I10016…
+## 2 Ashleigh  Guest     1630 Western B…   2022           19 MEDIUM_DEF… CD_I10044…
+## 3 Brooke    Lochland  1447 Western B…   2022            1 MEDIUM_FOR… CD_I10044…
+## 4 Ellyse    Gamble    1445 Western B…   2022           14 RUCK        CD_I10053…
+## 5 Bailey    Hunt      1649 Western B…   2022           21 MEDIUM_DEF… CD_I10070…
+## 6 Kirsten   McLeod    1668 Western B…   2022            6 MEDIUM_FOR… CD_I10070…
+## # … with 7 more variables: dateOfBirth &lt;chr&gt;, heightInCm &lt;int&gt;,
+## #   weightInKg &lt;int&gt;, recruitedFrom &lt;chr&gt;, debutYear &lt;chr&gt;, draftType &lt;chr&gt;,
+## #   data_accessed &lt;date&gt;</code></pre>
+<p>The list of details for AFL.com.au website is below.</p>
+<pre class="r"><code>glimpse(aflw_players)</code></pre>
+<pre><code>## Rows: 31
+## Columns: 15
+## $ firstName     &lt;chr&gt; &quot;Hannah&quot;, &quot;Ashleigh&quot;, &quot;Brooke&quot;, &quot;Ellyse&quot;, &quot;Bailey&quot;, &quot;Kir…
+## $ surname       &lt;chr&gt; &quot;Scott&quot;, &quot;Guest&quot;, &quot;Lochland&quot;, &quot;Gamble&quot;, &quot;Hunt&quot;, &quot;McLeod&quot;…
+## $ id            &lt;int&gt; 1502, 1630, 1447, 1445, 1649, 1668, 2024, 2096, 2171, 21…
+## $ team          &lt;chr&gt; &quot;Western Bulldogs&quot;, &quot;Western Bulldogs&quot;, &quot;Western Bulldog…
+## $ season        &lt;dbl&gt; 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 2022, 20…
+## $ jumperNumber  &lt;int&gt; 22, 19, 1, 14, 21, 6, 9, 5, 25, 3, 11, 16, 8, 13, 33, 12…
+## $ position      &lt;chr&gt; &quot;MEDIUM_DEFENDER&quot;, &quot;MEDIUM_DEFENDER&quot;, &quot;MEDIUM_FORWARD&quot;, …
+## $ providerId    &lt;chr&gt; &quot;CD_I1001689&quot;, &quot;CD_I1004402&quot;, &quot;CD_I1004408&quot;, &quot;CD_I100537…
+## $ dateOfBirth   &lt;chr&gt; &quot;1990-03-10&quot;, &quot;1990-04-10&quot;, &quot;1991-05-03&quot;, &quot;1997-09-16&quot;, …
+## $ heightInCm    &lt;int&gt; 168, 169, 158, 180, 171, 161, 176, 175, 176, 175, 175, 1…
+## $ weightInKg    &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ recruitedFrom &lt;chr&gt; &quot;Eastern Devils (VFLW)&quot;, &quot;Western Spurs (VFLW)/GWS/Melbo…
+## $ debutYear     &lt;chr&gt; &quot;2017&quot;, &quot;2017&quot;, &quot;2017&quot;, &quot;2017&quot;, &quot;2017&quot;, &quot;2017&quot;, &quot;2019&quot;, …
+## $ draftType     &lt;chr&gt; &quot;other&quot;, &quot;other&quot;, &quot;other&quot;, &quot;other&quot;, &quot;other&quot;, &quot;other&quot;, &quot;o…
+## $ data_accessed &lt;date&gt; 2022-01-11, 2022-01-11, 2022-01-11, 2022-01-11, 2022-01…</code></pre>
+<p>The AFLTables.com source will return all players who have played for the specified team over time.</p>
+<pre class="r"><code>fetch_player_details(&quot;Hawthorn&quot;, source = &quot;afltables&quot;)</code></pre>
+<pre><code>## # A tibble: 948 × 15
+##    Player  Team     Cap `#`   HT    WT    Games  Wins Draws Losses Goals Seasons
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  
+##  1 Paddy … Hawth…     1 6     183cm &quot;82k…    31     6     1     24    13 1925-1…
+##  2 Dave E… Hawth…     2 23    175cm &quot;70k…     3     0     0      3     5 1925   
+##  3 Fred F… Hawth…     3 11    183cm &quot;84k…    37     6     1     30    10 1925-1…
+##  4 Jack G… Hawth…     4 14    171cm &quot;&quot;       40     7     0     33     9 1925-1…
+##  5 Gil He… Hawth…     5 17    185cm &quot;84k…    17     2     0     15     9 1925, …
+##  6 Jim Ja… Hawth…     6 1     174cm &quot;73k…    22     4     1     17     1 1925-1…
+##  7 Jim Mc… Hawth…     7 8     175cm &quot;73k…    46     6     1     39     7 1925-1…
+##  8 Stan M… Hawth…     8 3     173cm &quot;75k…    17     3     0     14    NA 1925   
+##  9 Cyril … Hawth…     9 2     180cm &quot;70k…    18     2     1     15     1 1925-1…
+## 10 Bert O… Hawth…    10 21    182cm &quot;80k…    12     2     0     10     6 1925   
+## # … with 938 more rows, and 3 more variables: Debut &lt;chr&gt;, Last &lt;chr&gt;,
+## #   date_accessed &lt;date&gt;</code></pre>
+<p>The Footywire.com source allows you to specify just the current list of players, which is fairly quick, or all players over time which can be a little slow.</p>
+<pre class="r"><code>fetch_player_details(&quot;Richmond&quot;, source = &quot;footywire&quot;, current = TRUE)</code></pre>
+<pre><code>## # A tibble: 43 × 11
+##    No    surname  first_name Games Age    `Date of Birth` Height Weight Origin  
+##    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;   
+##  1 16    Aarts    Jake       34    27yr … 8 Dec 1994      177cm  76kg   Richmon…
+##  2 7     Baker    Liam       64    23yr … 27 Jan 1998     173cm  72kg   Subiaco 
+##  3 21    Balta    Noah       44    22yr … 23 Oct 1999     194cm  102kg  Calder …
+##  4 41    Banks    Sam        0     18yr … 2 Apr 2003      186cm  71kg   Tasmani…
+##  5 29    Bolton   Shai       67    23yr … 8 Dec 1998      175cm  77kg   South F…
+##  6 35    Broad    Nathan     84    28yr … 15 Apr 1993     192cm  89kg   Swan Di…
+##  7 30    Brown    Tom        0     18yr … 30 Jul 2003     186cm  77kg   Murray …
+##  8 22    Caddy    Josh       171   29yr … 28 Sep 1992     186cm  87kg   Norther…
+##  9 11    Castagna Jason      117   25yr … 12 Jul 1996     182cm  82kg   Norther…
+## 10 42    Clarke   Judson     0     18yr … 17 Oct 2003     179cm  69kg   Dandeno…
+## # … with 33 more rows, and 2 more variables: Position_1 &lt;chr&gt;, Position_2 &lt;chr&gt;</code></pre>
+<p>One challenge is that each source accepts different values for the <code>team</code> argument. There is a helper function that will return an error if the wrong team is supplied and provide a list of acceptable values for that specific source.</p>
+<pre class="r"><code>fetch_player_details(&quot;Greater Western Sydney&quot;, source = &quot;afltables&quot;)</code></pre>
+<pre><code>## Error: Greater Western Sydney is not a valid input for afltables teams.
+## Should be one of Adelaide, Brisbane Lions, Brisbane Bears, Carlton, Collingwood, Essendon, Fitzroy, Fremantle, GWS, Geelong, Gold Coast, Hawthorn, Melbourne, North Melbourne, Kangaroos, Port Adelaide, Richmond, St Kilda, Sydney, South Melbourne, West Coast, University, Western Bulldogs, Footscray</code></pre>
+</div>
+<div id="coaches-votes" class="section level2">
+<h2>Coaches votes</h2>
+<p>A new set of functions will return coaches votes.</p>
+<pre class="r"><code>coaches &lt;- fetch_coaches_votes(season = 2021, round_number = 1, team = &quot;Hawthorn&quot;)
+coaches</code></pre>
+<pre><code>##      Season Round Home.Team Away.Team            Player.Name Coaches.Votes
+## 1.27   2021     1  Essendon  Hawthorn     Tom Mitchell (HAW)            10
+## 1.28   2021     1  Essendon  Hawthorn   Jaeger O&#39;Meara (HAW)             8
+## 1.29   2021     1  Essendon  Hawthorn     Zach Merrett (ESS)             5
+## 1.30   2021     1  Essendon  Hawthorn   Andrew McGrath (ESS)             4
+## 1.31   2021     1  Essendon  Hawthorn         Will Day (HAW)             2
+## 1.32   2021     1  Essendon  Hawthorn Changkuoth Jiath (HAW)             1</code></pre>
+<p>An associated function will also calculate possible ways in which the cochaes may have voted.</p>
+<pre class="r"><code>calculate_coaches_vote_possibilities(coaches, &quot;Coach View&quot;)</code></pre>
+<pre><code>## [[1]]
+##   Votes                   C1                     C2
+## 1     5   Tom Mitchell (HAW)     Tom Mitchell (HAW)
+## 2     4 Jaeger O&#39;Meara (HAW)   Jaeger O&#39;Meara (HAW)
+## 3     3   Zach Merrett (ESS)   Andrew McGrath (ESS)
+## 4     2       Will Day (HAW)     Zach Merrett (ESS)
+## 5     1 Andrew McGrath (ESS) Changkuoth Jiath (HAW)</code></pre>
+<p>You can read about these functions fully at the new <a href="https://jimmyday12.github.io/fitzRoy/articles/aflca-coaches-votes.html">Vignette</a></p>
+</div>
+<div id="other-changes" class="section level1">
+<h1>Other changes</h1>
+<p>You can read about the rest of the bugs in the <a href="https://jimmyday12.github.io/fitzRoy/news/index.html">changelog</a></p>
+</div>

@@ -1,0 +1,77 @@
+---
+title: fitzRoy v1.1.0
+author: James Day
+date: '2022-01-11'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+I'm excited to announce the official v1.1.0 release of fitzRoy has landed on CRAN!
+
+This release includes a few new features and some improvements to bugs that had been reported. Read on to find out about them. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(fitzRoy)
+library(tidyverse)
+```
+## Player Details
+Newly included are the `player_details` functions. These follow the same pattern as the main `fetch_` family of functions, with some slight differences.
+
+You can use `fetch_player_details` to return a list of player details for a given club and source. The source will determine exactly what details are returned. The default is the AFL.com.au website. 
+
+The AFL website will return AFLW or AFLM data, while other sources only include AFLM data. 
+
+```{r}
+aflw_players <- fetch_player_details(team = "Western Bulldogs", current = TRUE, comp = "AFLW", source = "AFL")
+
+head(aflw_players)
+```
+
+The list of details for AFL.com.au website is below. 
+
+```{r}
+glimpse(aflw_players)
+
+```
+
+The AFLTables.com source will return all players who have played for the specified team over time.
+
+```{r}
+fetch_player_details("Hawthorn", source = "afltables")
+```
+
+The Footywire.com source allows you to specify just the current list of players, which is fairly quick, or all players over time which can be a little slow. 
+
+```{r}
+fetch_player_details("Richmond", source = "footywire", current = TRUE)
+```
+
+One challenge is that each source accepts different values for the `team` argument. There is a helper function that will return an error if the wrong team is supplied and provide a list of acceptable values for that specific source.
+
+```{r, error=TRUE}
+fetch_player_details("Greater Western Sydney", source = "afltables")
+```
+
+## Coaches votes
+A new set of functions will return coaches votes. 
+
+```{r echo=TRUE}
+coaches <- fetch_coaches_votes(season = 2021, round_number = 1, team = "Hawthorn")
+coaches
+```
+
+An associated function will also calculate possible ways in which the cochaes may have voted. 
+
+
+```{r}
+calculate_coaches_vote_possibilities(coaches, "Coach View")
+
+```
+You can read about these functions fully at the new [Vignette](https://jimmyday12.github.io/fitzRoy/articles/aflca-coaches-votes.html)
+
+# Other changes
+You can read about the rest of the bugs in the [changelog](https://jimmyday12.github.io/fitzRoy/news/index.html)
