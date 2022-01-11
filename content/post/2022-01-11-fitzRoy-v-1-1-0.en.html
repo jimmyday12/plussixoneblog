@@ -86,6 +86,7 @@ head(aflw_players)</code></pre>
 ## 10 42    Clarke   Judson     0     18yr … 17 Oct 2003     179cm  69kg   Dandeno…
 ## # … with 33 more rows, and 2 more variables: Position_1 &lt;chr&gt;, Position_2 &lt;chr&gt;</code></pre>
 <p>One challenge is that each source accepts different values for the <code>team</code> argument. There is a helper function that will return an error if the wrong team is supplied and provide a list of acceptable values for that specific source.</p>
+<p>You can read full details on the <a href="https://jimmyday12.github.io/fitzRoy/articles/player-details.html">Player Details Vignette</a></p>
 <pre class="r"><code>fetch_player_details(&quot;Greater Western Sydney&quot;, source = &quot;afltables&quot;)</code></pre>
 <pre><code>## Error: Greater Western Sydney is not a valid input for afltables teams.
 ## Should be one of Adelaide, Brisbane Lions, Brisbane Bears, Carlton, Collingwood, Essendon, Fitzroy, Fremantle, GWS, Geelong, Gold Coast, Hawthorn, Melbourne, North Melbourne, Kangaroos, Port Adelaide, Richmond, St Kilda, Sydney, South Melbourne, West Coast, University, Western Bulldogs, Footscray</code></pre>
