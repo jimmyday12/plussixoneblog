@@ -52,6 +52,9 @@ fetch_player_details("Richmond", source = "footywire", current = TRUE)
 
 One challenge is that each source accepts different values for the `team` argument. There is a helper function that will return an error if the wrong team is supplied and provide a list of acceptable values for that specific source.
 
+You can read full details on the [Player Details Vignette](https://jimmyday12.github.io/fitzRoy/articles/player-details.html)
+
+
 ```{r, error=TRUE}
 fetch_player_details("Greater Western Sydney", source = "afltables")
 ```
