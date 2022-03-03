@@ -22,8 +22,8 @@ source(here::here("scripts", "weekly_data_process", "5-finals_sims.R"))
 filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
-season <- 2021
-new_season <- FALSE
+season <- 2022
+new_season <- TRUE
 save_data <- TRUE
 
 # Set ELO Parameters

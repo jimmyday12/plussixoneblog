@@ -33,7 +33,7 @@ run_elo <- function(results, carryOver, B, e, d, h) {
       adjust(Away.Team, 
              calculate_hga(Away.Venue.Exp, Away.Interstate, Away.Factor, e = e, d = d, h = h)) +
       group(seas_rnd) +
-      regress(First.Game, 1500, carryOver) +
+      regress(Season, 1500, carryOver) +
       k(calculate_k(Home.Points - Away.Points, k_val, Round.Number)),
     data = results
   )

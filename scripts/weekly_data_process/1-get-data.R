@@ -129,21 +129,26 @@ results <- fetch_results_afltables(seasons, NULL)
 #results_new <- fetch_results_footywire(season, last_n_matches = 10)
 #results_new <- convert_results(results_new)
 results_new <- fetch_results(season, comp = "AFLM")
-results_new <- convert_results_afl(results_new)
 
-results <- bind_rows(results, results_new) %>%
-  group_by(Date, Home.Team, Away.Team) %>% 
-  filter(!(row_number() == 2 & is.na(Game))) %>%
-  ungroup() %>%
-  mutate(Game = ifelse(is.na(Game), row_number(), Game))
+if (!is.null(results_new)) {
+  results_new <- convert_results_afl(results_new)
+  
+  results <- bind_rows(results, results_new) %>%
+    group_by(Date, Home.Team, Away.Team) %>% 
+    filter(!(row_number() == 2 & is.na(Game))) %>%
+    ungroup() %>%
+    mutate(Game = ifelse(is.na(Game), row_number(), Game))
+}
+
 
 results <- results %>%
-  mutate(
-    seas_rnd = paste0(Season, ".", Round.Number),
-    First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
-  )
-
+    mutate(
+      seas_rnd = paste0(Season, ".", Round.Number),
+      First.Game = ifelse(Round.Number == 1, TRUE, FALSE)
+    )
+  
 season_rounds <- results$Round.Number[results$Season == season]
+
 
 if (length(season_rounds) == 0){
   rnd <- 1
