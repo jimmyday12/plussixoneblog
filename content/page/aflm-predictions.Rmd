@@ -33,9 +33,11 @@ forecasts2 <- aflm_finals_sims$sims_combined %>%
     global_o = elo, 
     global_d = elo
   )
+
+new_season <- forecasts2$Round[1] == 0
 home_away_ongoing <- aflm_finals_sims$home_away_ongoing
 
-if (results$Round == 27) {
+if (results$Round == 27 & !new_season) {
   elo <- read_csv(here::here("data_files", "raw-data", "AFLM_elo.csv"))
   elo <- elo %>% 
     filter(Date == results$Date) %>%
