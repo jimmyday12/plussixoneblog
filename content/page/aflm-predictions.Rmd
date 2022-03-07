@@ -77,7 +77,7 @@ if(home_away_ongoing) {
                    Wins = "desc", 
                    elo = "desc")
 }
-```
+``` 
 
 ```{r functions, include=FALSE}
 rating_column <- function(maxWidth = 55, class = NULL, ...) {
