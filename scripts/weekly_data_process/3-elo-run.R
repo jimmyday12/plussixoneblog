@@ -72,8 +72,19 @@ run_elo <- function(results, carryOver, B, e, d, h) {
 }
 
 
-do_elo_predictions <- function(fixture, elo.data){
+do_elo_predictions <- function(fixture, elo.data, carryOver, new_season = FALSE){
   # Do predictions
+
+  if(new_season){
+    
+    x <- final.elos(elo.data)
+    regress_custom <- function(elo, to, by){
+      elo + (by * (to - elo)) 
+    }
+    
+    y <- regress_custom(x, 1500, carryOver)
+    
+  }
 
   predictions_raw <- fixture %>%
     mutate(

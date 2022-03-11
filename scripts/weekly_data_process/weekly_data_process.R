@@ -31,7 +31,7 @@ e <- 1.7
 d <- -32
 h <- 20
 k_val <- 20
-carryOver <- 0.05
+carryOver <- 0.5
 B <- 0.04
 sim_num <-  10000
 
@@ -51,7 +51,7 @@ if(new_results | new_fixture) {
 
 
 # Manual override
-#new_data <- TRUE
+new_data <- TRUE
 
 # Get Data ----------------------------------------------------------------
 if (new_data) {
@@ -138,7 +138,7 @@ if (new_data) {
 
     # Do predictions
     
-    dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data)
+    dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data, carryOver, new_season)
     
     # Message
     print(proc.time() - ptm)
