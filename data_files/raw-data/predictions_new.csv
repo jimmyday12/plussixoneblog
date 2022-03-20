@@ -1,199 +1,190 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2022,2022-03-16,Melbourne,Footscray,0.555,5.5
-2022,2022-03-17,Carlton,Richmond,0.448,-5.2
-2022,2022-03-18,St Kilda,Collingwood,0.562,6.2
-2022,2022-03-19,Geelong,Essendon,0.616,11.8
-2022,2022-03-19,GWS,Sydney,0.467,-3.3
-2022,2022-03-19,Brisbane Lions,Port Adelaide,0.57,7
-2022,2022-03-20,Hawthorn,North Melbourne,0.626,12.9
-2022,2022-03-20,Adelaide,Fremantle,0.538,3.8
-2022,2022-03-20,West Coast,Gold Coast,0.653,15.8
-2022,2022-03-24,Footscray,Carlton,0.701,21.3
-2022,2022-03-25,Sydney,Geelong,0.55,5
-2022,2022-03-26,Collingwood,Adelaide,0.63,13.3
-2022,2022-03-26,Essendon,Brisbane Lions,0.492,-0.8
-2022,2022-03-26,Port Adelaide,Hawthorn,0.743,26.5
-2022,2022-03-26,Gold Coast,Melbourne,0.349,-15.6
-2022,2022-03-27,North Melbourne,West Coast,0.419,-8.2
-2022,2022-03-27,Richmond,GWS,0.585,8.6
-2022,2022-03-27,Fremantle,St Kilda,0.538,3.8
-2022,2022-03-31,Footscray,Sydney,0.624,12.7
-2022,2022-04-01,Melbourne,Essendon,0.656,16.1
-2022,2022-04-01,Adelaide,Port Adelaide,0.322,-18.6
-2022,2022-04-02,GWS,Gold Coast,0.628,13.1
-2022,2022-04-02,Collingwood,Geelong,0.377,-12.6
-2022,2022-04-02,Brisbane Lions,North Melbourne,0.803,35.1
-2022,2022-04-03,Carlton,Hawthorn,0.546,4.6
-2022,2022-04-03,St Kilda,Richmond,0.491,-0.9
-2022,2022-04-03,West Coast,Fremantle,0.579,8
-2022,2022-04-07,Port Adelaide,Melbourne,0.543,4.3
-2022,2022-04-08,Geelong,Brisbane Lions,0.584,8.5
-2022,2022-04-09,Sydney,North Melbourne,0.788,32.8
-2022,2022-04-09,Collingwood,West Coast,0.537,3.7
-2022,2022-04-09,Richmond,Footscray,0.43,-7
-2022,2022-04-09,Fremantle,GWS,0.503,0.3
-2022,2022-04-10,Essendon,Adelaide,0.688,19.8
-2022,2022-04-10,Hawthorn,St Kilda,0.476,-2.4
-2022,2022-04-10,Gold Coast,Carlton,0.548,4.8
-2022,2022-04-14,Brisbane Lions,Collingwood,0.715,23
-2022,2022-04-15,North Melbourne,Footscray,0.256,-26.7
-2022,2022-04-15,West Coast,Sydney,0.494,-0.6
-2022,2022-04-16,St Kilda,Gold Coast,0.643,14.7
-2022,2022-04-16,Adelaide,Richmond,0.454,-4.6
-2022,2022-04-16,Melbourne,GWS,0.699,21.1
-2022,2022-04-17,Carlton,Port Adelaide,0.411,-9
-2022,2022-04-17,Essendon,Fremantle,0.65,15.5
-2022,2022-04-18,Hawthorn,Geelong,0.353,-15.1
-2022,2022-04-22,GWS,St Kilda,0.566,6.6
-2022,2022-04-23,Footscray,Adelaide,0.773,30.6
-2022,2022-04-23,Port Adelaide,West Coast,0.691,20.1
-2022,2022-04-23,Fremantle,Carlton,0.576,7.7
-2022,2022-04-24,North Melbourne,Geelong,0.274,-24.4
-2022,2022-04-24,Gold Coast,Brisbane Lions,0.348,-15.7
-2022,2022-04-24,Richmond,Melbourne,0.404,-9.7
-2022,2022-04-25,Hawthorn,Sydney,0.38,-12.2
-2022,2022-04-25,Essendon,Collingwood,0.592,9.3
-2022,2022-04-29,West Coast,Richmond,0.548,4.8
-2022,2022-04-30,Geelong,Fremantle,0.73,24.9
-2022,2022-04-30,Adelaide,GWS,0.462,-3.8
-2022,2022-04-30,Melbourne,Hawthorn,0.733,25.2
-2022,2022-04-30,St Kilda,Port Adelaide,0.4,-10.1
-2022,2022-04-30,Carlton,North Melbourne,0.637,14.1
-2022,2022-05-01,Collingwood,Gold Coast,0.617,11.9
-2022,2022-05-01,Footscray,Essendon,0.635,13.8
-2022,2022-05-01,Sydney,Brisbane Lions,0.557,5.7
-2022,2022-05-06,Port Adelaide,Footscray,0.565,6.5
-2022,2022-05-06,Fremantle,North Melbourne,0.681,19
-2022,2022-05-07,Richmond,Collingwood,0.599,10
-2022,2022-05-07,Sydney,Gold Coast,0.726,24.4
-2022,2022-05-07,GWS,Geelong,0.443,-5.7
-2022,2022-05-07,Essendon,Hawthorn,0.62,12.2
-2022,2022-05-07,Brisbane Lions,West Coast,0.682,19.1
-2022,2022-05-08,Melbourne,St Kilda,0.689,19.9
-2022,2022-05-08,Carlton,Adelaide,0.621,12.3
-2022,2022-05-13,Collingwood,Footscray,0.355,-14.9
-2022,2022-05-14,Hawthorn,Richmond,0.431,-6.9
-2022,2022-05-14,North Melbourne,Port Adelaide,0.272,-24.6
-2022,2022-05-14,St Kilda,Geelong,0.41,-9.1
-2022,2022-05-14,Sydney,Essendon,0.636,14
-2022,2022-05-14,Adelaide,Brisbane Lions,0.378,-12.5
-2022,2022-05-15,Gold Coast,Fremantle,0.552,5.2
-2022,2022-05-15,GWS,Carlton,0.601,10.2
-2022,2022-05-15,West Coast,Melbourne,0.422,-7.9
-2022,2022-05-20,Carlton,Sydney,0.443,-5.7
-2022,2022-05-20,Geelong,Port Adelaide,0.578,7.9
-2022,2022-05-20,GWS,West Coast,0.556,5.6
-2022,2022-05-20,Hawthorn,Brisbane Lions,0.358,-14.6
-2022,2022-05-20,North Melbourne,Melbourne,0.242,-28.5
-2022,2022-05-20,Richmond,Essendon,0.535,3.5
-2022,2022-05-20,Footscray,Gold Coast,0.762,29.1
-2022,2022-05-20,Adelaide,St Kilda,0.496,-0.4
-2022,2022-05-20,Fremantle,Collingwood,0.567,6.7
-2022,2022-05-27,Brisbane Lions,GWS,0.661,16.7
-2022,2022-05-27,Collingwood,Carlton,0.538,3.8
-2022,2022-05-27,Geelong,Adelaide,0.762,29.1
-2022,2022-05-27,Melbourne,Fremantle,0.76,28.8
-2022,2022-05-27,St Kilda,North Melbourne,0.673,18
-2022,2022-05-27,Sydney,Richmond,0.635,13.8
-2022,2022-05-27,Gold Coast,Hawthorn,0.518,1.8
-2022,2022-05-27,Port Adelaide,Essendon,0.668,17.5
-2022,2022-05-27,West Coast,Footscray,0.444,-5.6
-2022,2022-06-03,Hawthorn,Collingwood,0.502,0.2
-2022,2022-06-03,Melbourne,Sydney,0.646,15
-2022,2022-06-03,Footscray,Geelong,0.553,5.3
-2022,2022-06-03,Adelaide,West Coast,0.487,-1.3
-2022,2022-06-03,Gold Coast,North Melbourne,0.612,11.4
-2022,2022-06-03,Fremantle,Brisbane Lions,0.419,-8.2
-2022,2022-06-10,Brisbane Lions,St Kilda,0.69,20
-2022,2022-06-10,Collingwood,Melbourne,0.338,-16.8
-2022,2022-06-10,Essendon,Carlton,0.601,10.2
-2022,2022-06-10,North Melbourne,GWS,0.395,-10.7
-2022,2022-06-10,Richmond,Port Adelaide,0.49,-1
-2022,2022-06-10,Fremantle,Hawthorn,0.593,9.4
-2022,2022-06-17,Gold Coast,Adelaide,0.593,9.4
-2022,2022-06-17,GWS,Footscray,0.422,-7.9
-2022,2022-06-17,Richmond,Carlton,0.608,11
-2022,2022-06-17,St Kilda,Essendon,0.494,-0.6
-2022,2022-06-17,Port Adelaide,Sydney,0.614,11.6
-2022,2022-06-17,West Coast,Geelong,0.463,-3.7
-2022,2022-06-24,Carlton,Fremantle,0.58,8.1
-2022,2022-06-24,Collingwood,GWS,0.514,1.4
-2022,2022-06-24,Geelong,Richmond,0.61,11.2
-2022,2022-06-24,Melbourne,Brisbane Lions,0.624,12.7
-2022,2022-06-24,North Melbourne,Adelaide,0.468,-3.2
-2022,2022-06-24,Sydney,St Kilda,0.67,17.7
-2022,2022-06-24,Footscray,Hawthorn,0.717,23.2
-2022,2022-06-24,Port Adelaide,Gold Coast,0.753,27.9
-2022,2022-06-24,West Coast,Essendon,0.552,5.2
-2022,2022-07-01,Brisbane Lions,Footscray,0.556,5.6
-2022,2022-07-01,Carlton,St Kilda,0.49,-1
-2022,2022-07-01,Essendon,Sydney,0.518,1.8
-2022,2022-07-01,Geelong,North Melbourne,0.776,31.1
-2022,2022-07-01,Gold Coast,Collingwood,0.544,4.4
-2022,2022-07-01,GWS,Hawthorn,0.62,12.2
-2022,2022-07-01,Richmond,West Coast,0.609,11.1
-2022,2022-07-01,Adelaide,Melbourne,0.335,-17.1
-2022,2022-07-01,Fremantle,Port Adelaide,0.409,-9.2
-2022,2022-07-08,Brisbane Lions,Essendon,0.659,16.5
-2022,2022-07-08,Collingwood,North Melbourne,0.65,15.5
-2022,2022-07-08,Geelong,Melbourne,0.492,-0.8
-2022,2022-07-08,Gold Coast,Richmond,0.468,-3.2
-2022,2022-07-08,Hawthorn,Adelaide,0.602,10.3
-2022,2022-07-08,St Kilda,Fremantle,0.618,12
-2022,2022-07-08,Sydney,Footscray,0.533,3.3
-2022,2022-07-08,Port Adelaide,GWS,0.669,17.6
-2022,2022-07-08,West Coast,Carlton,0.624,12.7
-2022,2022-07-15,Carlton,Geelong,0.369,-13.4
-2022,2022-07-15,Essendon,Gold Coast,0.674,18.2
-2022,2022-07-15,GWS,Brisbane Lions,0.447,-5.3
-2022,2022-07-15,Hawthorn,West Coast,0.513,1.3
-2022,2022-07-15,North Melbourne,Richmond,0.345,-16
-2022,2022-07-15,Footscray,St Kilda,0.667,17.4
-2022,2022-07-15,Adelaide,Collingwood,0.527,2.7
-2022,2022-07-15,Melbourne,Port Adelaide,0.565,6.5
-2022,2022-07-15,Fremantle,Sydney,0.443,-5.7
-2022,2022-07-22,Brisbane Lions,Gold Coast,0.709,22.3
-2022,2022-07-22,Carlton,GWS,0.506,0.6
-2022,2022-07-22,Collingwood,Essendon,0.464,-3.6
-2022,2022-07-22,North Melbourne,Hawthorn,0.441,-5.9
-2022,2022-07-22,Richmond,Fremantle,0.653,15.8
-2022,2022-07-22,Sydney,Adelaide,0.739,26
-2022,2022-07-22,Footscray,Melbourne,0.51,1
-2022,2022-07-22,Port Adelaide,Geelong,0.583,8.4
-2022,2022-07-22,West Coast,St Kilda,0.588,8.9
-2022,2022-07-29,Collingwood,Port Adelaide,0.419,-8.2
-2022,2022-07-29,Essendon,North Melbourne,0.703,21.5
-2022,2022-07-29,Geelong,Footscray,0.515,1.5
-2022,2022-07-29,Gold Coast,West Coast,0.502,0.2
-2022,2022-07-29,Richmond,Brisbane Lions,0.501,0.1
-2022,2022-07-29,St Kilda,Hawthorn,0.586,8.7
-2022,2022-07-29,Sydney,GWS,0.595,9.6
-2022,2022-07-29,Adelaide,Carlton,0.535,3.5
-2022,2022-07-29,Fremantle,Melbourne,0.373,-13
-2022,2022-08-05,Brisbane Lions,Carlton,0.722,23.9
-2022,2022-08-05,Geelong,St Kilda,0.655,16
-2022,2022-08-05,GWS,Essendon,0.531,3.1
-2022,2022-08-05,Hawthorn,Gold Coast,0.544,4.4
-2022,2022-08-05,Melbourne,Collingwood,0.711,22.5
-2022,2022-08-05,North Melbourne,Sydney,0.337,-16.9
-2022,2022-08-05,Footscray,Fremantle,0.742,26.4
-2022,2022-08-05,Port Adelaide,Richmond,0.663,16.9
-2022,2022-08-05,West Coast,Adelaide,0.668,17.5
-2022,2022-08-12,Essendon,Port Adelaide,0.483,-1.7
-2022,2022-08-12,Gold Coast,Geelong,0.387,-11.5
-2022,2022-08-12,Melbourne,Carlton,0.719,23.5
-2022,2022-08-12,Richmond,Hawthorn,0.624,12.7
-2022,2022-08-12,St Kilda,Brisbane Lions,0.458,-4.2
-2022,2022-08-12,Sydney,Collingwood,0.695,20.6
-2022,2022-08-12,Footscray,GWS,0.681,19
-2022,2022-08-12,Adelaide,North Melbourne,0.644,14.8
-2022,2022-08-12,Fremantle,West Coast,0.478,-2.2
-2022,2022-08-19,Brisbane Lions,Melbourne,0.534,3.4
-2022,2022-08-19,Carlton,Collingwood,0.519,1.9
-2022,2022-08-19,Essendon,Richmond,0.522,2.2
-2022,2022-08-19,Geelong,West Coast,0.687,19.7
-2022,2022-08-19,GWS,Fremantle,0.607,10.9
-2022,2022-08-19,Hawthorn,Footscray,0.337,-16.9
-2022,2022-08-19,North Melbourne,Gold Coast,0.495,-0.5
-2022,2022-08-19,St Kilda,Sydney,0.482,-1.8
-2022,2022-08-19,Port Adelaide,Adelaide,0.726,24.4
+2022,2022-03-24,Footscray,Carlton,0.579,8
+2022,2022-03-25,Sydney,Geelong,0.538,3.8
+2022,2022-03-26,Collingwood,Adelaide,0.623,12.6
+2022,2022-03-26,Essendon,Brisbane Lions,0.489,-1.1
+2022,2022-03-26,Port Adelaide,Hawthorn,0.655,16
+2022,2022-03-26,Gold Coast,Melbourne,0.478,-2.2
+2022,2022-03-27,North Melbourne,West Coast,0.524,2.4
+2022,2022-03-27,Richmond,GWS,0.575,7.6
+2022,2022-03-27,Fremantle,St Kilda,0.578,7.9
+2022,2022-03-31,Footscray,Sydney,0.567,6.7
+2022,2022-04-01,Melbourne,Essendon,0.653,15.8
+2022,2022-04-01,Adelaide,Port Adelaide,0.423,-7.8
+2022,2022-04-02,GWS,Gold Coast,0.529,2.9
+2022,2022-04-02,Collingwood,Geelong,0.427,-7.4
+2022,2022-04-02,Brisbane Lions,North Melbourne,0.713,22.7
+2022,2022-04-03,Carlton,Hawthorn,0.55,5
+2022,2022-04-03,St Kilda,Richmond,0.517,1.7
+2022,2022-04-03,West Coast,Fremantle,0.518,1.8
+2022,2022-04-07,Port Adelaide,Melbourne,0.54,4
+2022,2022-04-08,Geelong,Brisbane Lions,0.622,12.5
+2022,2022-04-09,Sydney,North Melbourne,0.716,23.1
+2022,2022-04-09,Collingwood,West Coast,0.607,10.9
+2022,2022-04-09,Richmond,Footscray,0.477,-2.3
+2022,2022-04-09,Fremantle,GWS,0.559,5.9
+2022,2022-04-10,Essendon,Adelaide,0.595,9.6
+2022,2022-04-10,Hawthorn,St Kilda,0.531,3.1
+2022,2022-04-10,Gold Coast,Carlton,0.575,7.6
+2022,2022-04-14,Brisbane Lions,Collingwood,0.635,13.8
+2022,2022-04-15,North Melbourne,Footscray,0.391,-11.1
+2022,2022-04-15,West Coast,Sydney,0.486,-1.4
+2022,2022-04-16,St Kilda,Gold Coast,0.56,6
+2022,2022-04-16,Adelaide,Richmond,0.537,3.7
+2022,2022-04-16,Melbourne,GWS,0.672,17.9
+2022,2022-04-17,Carlton,Port Adelaide,0.519,1.9
+2022,2022-04-17,Essendon,Fremantle,0.57,7
+2022,2022-04-18,Hawthorn,Geelong,0.406,-9.5
+2022,2022-04-22,GWS,St Kilda,0.55,5
+2022,2022-04-23,Footscray,Adelaide,0.668,17.5
+2022,2022-04-23,Port Adelaide,West Coast,0.667,17.4
+2022,2022-04-23,Fremantle,Carlton,0.557,5.7
+2022,2022-04-24,North Melbourne,Geelong,0.347,-15.8
+2022,2022-04-24,Gold Coast,Brisbane Lions,0.47,-3
+2022,2022-04-24,Richmond,Melbourne,0.425,-7.6
+2022,2022-04-25,Hawthorn,Sydney,0.446,-5.4
+2022,2022-04-25,Essendon,Collingwood,0.499,-0.1
+2022,2022-04-29,West Coast,Richmond,0.552,5.2
+2022,2022-04-30,Geelong,Fremantle,0.695,20.6
+2022,2022-04-30,Adelaide,GWS,0.535,3.5
+2022,2022-04-30,Melbourne,Hawthorn,0.645,14.9
+2022,2022-04-30,St Kilda,Port Adelaide,0.449,-5.1
+2022,2022-04-30,Carlton,North Melbourne,0.615,11.7
+2022,2022-05-01,Collingwood,Gold Coast,0.582,8.3
+2022,2022-05-01,Footscray,Essendon,0.607,10.9
+2022,2022-05-01,Sydney,Brisbane Lions,0.583,8.4
+2022,2022-05-06,Port Adelaide,Footscray,0.588,8.9
+2022,2022-05-06,Fremantle,North Melbourne,0.642,14.6
+2022,2022-05-07,Richmond,Collingwood,0.524,2.4
+2022,2022-05-07,Sydney,Gold Coast,0.639,14.3
+2022,2022-05-07,GWS,Geelong,0.429,-7.1
+2022,2022-05-07,Essendon,Hawthorn,0.523,2.3
+2022,2022-05-07,Brisbane Lions,West Coast,0.666,17.3
+2022,2022-05-08,Melbourne,St Kilda,0.647,15.1
+2022,2022-05-08,Carlton,Adelaide,0.622,12.5
+2022,2022-05-13,Collingwood,Footscray,0.474,-2.6
+2022,2022-05-14,Hawthorn,Richmond,0.512,1.2
+2022,2022-05-14,North Melbourne,Port Adelaide,0.389,-11.3
+2022,2022-05-14,St Kilda,Geelong,0.411,-9
+2022,2022-05-14,Sydney,Essendon,0.664,17
+2022,2022-05-14,Adelaide,Brisbane Lions,0.474,-2.6
+2022,2022-05-15,Gold Coast,Fremantle,0.597,9.8
+2022,2022-05-15,GWS,Carlton,0.527,2.7
+2022,2022-05-15,West Coast,Melbourne,0.447,-5.3
+2022,2022-05-20,Carlton,Sydney,0.516,1.6
+2022,2022-05-20,Geelong,Port Adelaide,0.624,12.7
+2022,2022-05-20,GWS,West Coast,0.562,6.2
+2022,2022-05-20,Hawthorn,Brisbane Lions,0.449,-5.1
+2022,2022-05-20,North Melbourne,Melbourne,0.35,-15.5
+2022,2022-05-20,Richmond,Essendon,0.553,5.3
+2022,2022-05-20,Footscray,Gold Coast,0.628,13.1
+2022,2022-05-20,Adelaide,St Kilda,0.553,5.3
+2022,2022-05-20,Fremantle,Collingwood,0.557,5.7
+2022,2022-05-27,Brisbane Lions,GWS,0.639,14.3
+2022,2022-05-27,Collingwood,Carlton,0.529,2.9
+2022,2022-05-27,Geelong,Adelaide,0.717,23.2
+2022,2022-05-27,Melbourne,Fremantle,0.69,20
+2022,2022-05-27,St Kilda,North Melbourne,0.595,9.6
+2022,2022-05-27,Sydney,Richmond,0.646,15
+2022,2022-05-27,Gold Coast,Hawthorn,0.549,4.9
+2022,2022-05-27,Port Adelaide,Essendon,0.662,16.8
+2022,2022-05-27,West Coast,Footscray,0.495,-0.5
+2022,2022-06-03,Hawthorn,Collingwood,0.507,0.7
+2022,2022-06-03,Melbourne,Sydney,0.615,11.7
+2022,2022-06-03,Footscray,Geelong,0.481,-1.9
+2022,2022-06-03,Adelaide,West Coast,0.566,6.6
+2022,2022-06-03,Gold Coast,North Melbourne,0.615,11.7
+2022,2022-06-03,Fremantle,Brisbane Lions,0.499,-0.1
+2022,2022-06-10,Brisbane Lions,St Kilda,0.654,15.9
+2022,2022-06-10,Collingwood,Melbourne,0.43,-7
+2022,2022-06-10,Essendon,Carlton,0.499,-0.1
+2022,2022-06-10,North Melbourne,GWS,0.493,-0.7
+2022,2022-06-10,Richmond,Port Adelaide,0.514,1.4
+2022,2022-06-10,Fremantle,Hawthorn,0.578,7.9
+2022,2022-06-17,Gold Coast,Adelaide,0.621,12.3
+2022,2022-06-17,GWS,Footscray,0.479,-2.1
+2022,2022-06-17,Richmond,Carlton,0.524,2.4
+2022,2022-06-17,St Kilda,Essendon,0.538,3.8
+2022,2022-06-17,Port Adelaide,Sydney,0.579,8
+2022,2022-06-17,West Coast,Geelong,0.443,-5.7
+2022,2022-06-24,Carlton,Fremantle,0.599,10
+2022,2022-06-24,Collingwood,GWS,0.58,8.1
+2022,2022-06-24,Geelong,Richmond,0.632,13.5
+2022,2022-06-24,Melbourne,Brisbane Lions,0.617,11.9
+2022,2022-06-24,North Melbourne,Adelaide,0.494,-0.6
+2022,2022-06-24,Sydney,St Kilda,0.657,16.2
+2022,2022-06-24,Footscray,Hawthorn,0.602,10.3
+2022,2022-06-24,Port Adelaide,Gold Coast,0.638,14.2
+2022,2022-06-24,West Coast,Essendon,0.574,7.5
+2022,2022-07-01,Brisbane Lions,Footscray,0.589,9
+2022,2022-07-01,Carlton,St Kilda,0.549,4.9
+2022,2022-07-01,Essendon,Sydney,0.488,-1.2
+2022,2022-07-01,Geelong,North Melbourne,0.711,22.5
+2022,2022-07-01,Gold Coast,Collingwood,0.58,8.1
+2022,2022-07-01,GWS,Hawthorn,0.551,5.1
+2022,2022-07-01,Richmond,West Coast,0.605,10.7
+2022,2022-07-01,Adelaide,Melbourne,0.434,-6.6
+2022,2022-07-01,Fremantle,Port Adelaide,0.498,-0.2
+2022,2022-07-08,Brisbane Lions,Essendon,0.662,16.8
+2022,2022-07-08,Collingwood,North Melbourne,0.619,12.1
+2022,2022-07-08,Geelong,Melbourne,0.538,3.8
+2022,2022-07-08,Gold Coast,Richmond,0.58,8.1
+2022,2022-07-08,Hawthorn,Adelaide,0.6,10.1
+2022,2022-07-08,St Kilda,Fremantle,0.579,8
+2022,2022-07-08,Sydney,Footscray,0.592,9.3
+2022,2022-07-08,Port Adelaide,GWS,0.638,14.2
+2022,2022-07-08,West Coast,Carlton,0.546,4.6
+2022,2022-07-15,Carlton,Geelong,0.427,-7.4
+2022,2022-07-15,Essendon,Gold Coast,0.55,5
+2022,2022-07-15,GWS,Brisbane Lions,0.472,-2.8
+2022,2022-07-15,Hawthorn,West Coast,0.589,9
+2022,2022-07-15,North Melbourne,Richmond,0.449,-5.1
+2022,2022-07-15,Footscray,St Kilda,0.599,10
+2022,2022-07-15,Adelaide,Collingwood,0.535,3.5
+2022,2022-07-15,Melbourne,Port Adelaide,0.568,6.8
+2022,2022-07-15,Fremantle,Sydney,0.497,-0.3
+2022,2022-07-22,Brisbane Lions,Gold Coast,0.595,9.6
+2022,2022-07-22,Carlton,GWS,0.581,8.2
+2022,2022-07-22,Collingwood,Essendon,0.558,5.8
+2022,2022-07-22,North Melbourne,Hawthorn,0.469,-3.1
+2022,2022-07-22,Richmond,Fremantle,0.591,9.2
+2022,2022-07-22,Sydney,Adelaide,0.68,18.8
+2022,2022-07-22,Footscray,Melbourne,0.484,-1.6
+2022,2022-07-22,Port Adelaide,Geelong,0.536,3.6
+2022,2022-07-22,West Coast,St Kilda,0.567,6.7
+2022,2022-07-29,Collingwood,Port Adelaide,0.519,1.9
+2022,2022-07-29,Essendon,North Melbourne,0.587,8.8
+2022,2022-07-29,Geelong,Footscray,0.586,8.7
+2022,2022-07-29,Gold Coast,West Coast,0.608,11
+2022,2022-07-29,Richmond,Brisbane Lions,0.515,1.5
+2022,2022-07-29,St Kilda,Hawthorn,0.532,3.2
+2022,2022-07-29,Sydney,GWS,0.597,9.8
+2022,2022-07-29,Adelaide,Carlton,0.533,3.3
+2022,2022-07-29,Fremantle,Melbourne,0.458,-4.2
+2022,2022-08-05,Brisbane Lions,Carlton,0.636,14
+2022,2022-08-05,Geelong,St Kilda,0.653,15.8
+2022,2022-08-05,GWS,Essendon,0.559,5.9
+2022,2022-08-05,Hawthorn,Gold Coast,0.512,1.2
+2022,2022-08-05,Melbourne,Collingwood,0.625,12.8
+2022,2022-08-05,North Melbourne,Sydney,0.429,-7.1
+2022,2022-08-05,Footscray,Fremantle,0.646,15
+2022,2022-08-05,Port Adelaide,Richmond,0.641,14.5
+2022,2022-08-05,West Coast,Adelaide,0.594,9.5
+2022,2022-08-12,Essendon,Port Adelaide,0.489,-1.1
+2022,2022-08-12,Gold Coast,Geelong,0.474,-2.6
+2022,2022-08-12,Melbourne,Carlton,0.625,12.8
+2022,2022-08-12,Richmond,Hawthorn,0.546,4.6
+2022,2022-08-12,St Kilda,Brisbane Lions,0.499,-0.1
+2022,2022-08-12,Sydney,Collingwood,0.638,14.2
+2022,2022-08-12,Footscray,GWS,0.629,13.2
+2022,2022-08-12,Adelaide,North Melbourne,0.62,12.2
+2022,2022-08-12,Fremantle,West Coast,0.54,4
+2022,2022-08-19,Brisbane Lions,Melbourne,0.541,4.1
+2022,2022-08-19,Carlton,Collingwood,0.529,2.9
+2022,2022-08-19,Essendon,Richmond,0.504,0.4
+2022,2022-08-19,Geelong,West Coast,0.704,21.7
+2022,2022-08-19,GWS,Fremantle,0.552,5.2
+2022,2022-08-19,Hawthorn,Footscray,0.46,-4
+2022,2022-08-19,North Melbourne,Gold Coast,0.492,-0.8
+2022,2022-08-19,St Kilda,Sydney,0.496,-0.4
+2022,2022-08-19,Port Adelaide,Adelaide,0.632,13.5

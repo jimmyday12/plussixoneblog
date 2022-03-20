@@ -23,7 +23,7 @@ filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2022
-new_season <- TRUE
+new_season <- FALSE
 save_data <- TRUE
 
 # Set ELO Parameters
@@ -51,7 +51,7 @@ if(new_results | new_fixture) {
 
 
 # Manual override
-new_data <- TRUE
+# new_data <- TRUE
 
 # Get Data ----------------------------------------------------------------
 if (new_data) {
@@ -355,6 +355,6 @@ print(proc.time() - ptm)
 message("Finished!")
 #rm(sim_dat)
 #rm(dat)
-# blogdown:::serve_site()
+blogdown:::serve_site()
 # blogdown::hugo_build()
 # blogdown::build_site()
