@@ -350,7 +350,7 @@ combine_finals_sims <- function(final_game,
                                 ladder = NULL,
                                 home_and_away_complete = FALSE) {
   
-  final_summary_long <- bind_rows(final_game)
+  final_summary_long <- purrr::reduce(final_game, bind_rows)
   final_summary_wide <- final_summary_long %>%
     group_by(Season, Team) %>%
     summarise(
@@ -360,8 +360,9 @@ combine_finals_sims <- function(final_game,
       make_semis = sum(Game == "SF") + make_prelim,
       make_finals = n()
     ) %>%
-    mutate_if(is.numeric, ~./sim_num) %>%
-    mutate_all(replace_na, 0)
+    mutate_if(is.numeric, ~./sim_num)
+  
+  final_summary_wide[is.na(final_summary_wide)] <- 0
   
   if(home_and_away_complete) {
     final_ladder <- ladder %>%
@@ -409,8 +410,9 @@ combine_finals_sims <- function(final_game,
     mutate(elo.change = elo - elo.old)
   
   sims_combined <- sims_combined %>%
-    left_join(elos) %>%
-    mutate_all(replace_na, 0)
+    left_join(elos)
+  
+  sims_combined[is.na(sims_combined)] <- 0
   
   
   # # Get current results

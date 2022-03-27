@@ -344,7 +344,7 @@ tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mon
 }
 
 .container {
-  min-width: 100% !important; 
+  min-width: 100% !important;  
   max-width: 1054px !important;
   width: 100%;
 }
