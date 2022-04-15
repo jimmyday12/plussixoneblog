@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2022,16021,2022-04-15,"Fri, 15",00:00,5,Docklands,North Melbourne,Footscray,-9.6,0.405,Footscray by 10
 2022,16022,2022-04-15,"Fri, 15",00:00,5,Perth Stadium,West Coast,Sydney,-5.7,0.443,Sydney by 6
 2022,16023,2022-04-16,"Sat, 16",00:00,5,Docklands,St Kilda,Gold Coast,13.3,0.63,St Kilda by 13
 2022,16024,2022-04-16,"Sat, 16",00:00,5,Adelaide Oval,Adelaide,Richmond,-0,0.5,Draw
@@ -8,10 +7,10 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16027,2022-04-17,"Sun, 17",00:00,5,Docklands,Essendon,Fremantle,1,0.51,Essendon by 1
 2022,16028,2022-04-18,"Mon, 18",00:00,5,M.C.G.,Hawthorn,Geelong,-6.4,0.436,Geelong by 6
 2022,16029,2022-04-22,"Fri, 22",00:00,6,Manuka Oval,GWS,St Kilda,-4.1,0.459,St Kilda by 4
-2022,16030,2022-04-23,"Sat, 23",00:00,6,Eureka Stadium,Footscray,Adelaide,16.1,0.656,Footscray by 16
+2022,16030,2022-04-23,"Sat, 23",00:00,6,Eureka Stadium,Footscray,Adelaide,18.7,0.679,Footscray by 19
 2022,16031,2022-04-23,"Sat, 23",00:00,6,Adelaide Oval,Port Adelaide,West Coast,13,0.627,Port Adelaide by 13
 2022,16032,2022-04-23,"Sat, 23",00:00,6,Perth Stadium,Fremantle,Carlton,9.8,0.597,Fremantle by 10
-2022,16033,2022-04-24,"Sun, 24",00:00,6,Bellerive Oval,North Melbourne,Geelong,-16.1,0.344,Geelong by 16
+2022,16033,2022-04-24,"Sun, 24",00:00,6,Bellerive Oval,North Melbourne,Geelong,-18.7,0.321,Geelong by 19
 2022,16034,2022-04-24,"Sun, 24",00:00,6,Carrara,Gold Coast,Brisbane Lions,-7.1,0.429,Brisbane Lions by 7
 2022,16035,2022-04-24,"Sun, 24",00:00,6,M.C.G.,Richmond,Melbourne,-8.1,0.42,Melbourne by 8
 2022,16036,2022-04-25,"Mon, 25",00:00,6,University of Tasmania Stadium,Hawthorn,Sydney,-4.8,0.452,Sydney by 5
@@ -21,12 +20,12 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16040,2022-04-30,"Sat, 30",00:00,7,Adelaide Oval,Adelaide,GWS,4.1,0.541,Adelaide by 4
 2022,16041,2022-04-30,"Sat, 30",00:00,7,M.C.G.,Melbourne,Hawthorn,16,0.655,Melbourne by 16
 2022,16042,2022-04-30,"Sat, 30",00:00,7,Cazalys Stadium,St Kilda,Port Adelaide,9.4,0.593,St Kilda by 9
-2022,16043,2022-04-30,"Sat, 30",00:00,7,Docklands,Carlton,North Melbourne,13.1,0.628,Carlton by 13
+2022,16043,2022-04-30,"Sat, 30",00:00,7,Docklands,Carlton,North Melbourne,15.7,0.652,Carlton by 16
 2022,16044,2022-05-01,"Sun, 01",00:00,7,M.C.G.,Collingwood,Gold Coast,9.5,0.594,Collingwood by 10
-2022,16045,2022-05-01,"Sun, 01",00:00,7,Docklands,Footscray,Essendon,10,0.599,Footscray by 10
+2022,16045,2022-05-01,"Sun, 01",00:00,7,Docklands,Footscray,Essendon,12.7,0.624,Footscray by 13
 2022,16046,2022-05-01,"Sun, 01",00:00,7,S.C.G.,Sydney,Brisbane Lions,5.7,0.557,Sydney by 6
-2022,16047,2022-05-06,"Fri, 06",00:00,8,Adelaide Oval,Port Adelaide,Footscray,4.2,0.542,Port Adelaide by 4
-2022,16048,2022-05-06,"Fri, 06",00:00,8,Perth Stadium,Fremantle,North Melbourne,20.1,0.691,Fremantle by 20
+2022,16047,2022-05-06,"Fri, 06",00:00,8,Adelaide Oval,Port Adelaide,Footscray,1.7,0.517,Port Adelaide by 2
+2022,16048,2022-05-06,"Fri, 06",00:00,8,Perth Stadium,Fremantle,North Melbourne,22.7,0.713,Fremantle by 23
 2022,16049,2022-05-07,"Sat, 07",00:00,8,M.C.G.,Richmond,Collingwood,3.8,0.538,Richmond by 4
 2022,16050,2022-05-07,"Sat, 07",00:00,8,S.C.G.,Sydney,Gold Coast,15.8,0.653,Sydney by 16
 2022,16051,2022-05-07,"Sat, 07",00:00,8,Manuka Oval,GWS,Geelong,-8,0.421,Geelong by 8
@@ -34,9 +33,9 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16053,2022-05-07,"Sat, 07",00:00,8,Gabba,Brisbane Lions,West Coast,24.2,0.725,Brisbane Lions by 24
 2022,16054,2022-05-08,"Sun, 08",00:00,8,M.C.G.,Melbourne,St Kilda,10.9,0.607,Melbourne by 11
 2022,16055,2022-05-08,"Sun, 08",00:00,8,Docklands,Carlton,Adelaide,13.8,0.635,Carlton by 14
-2022,16056,2022-05-13,"Fri, 13",00:00,9,Docklands,Collingwood,Footscray,1.2,0.512,Collingwood by 1
+2022,16056,2022-05-13,"Fri, 13",00:00,9,Docklands,Collingwood,Footscray,-1.4,0.486,Footscray by 1
 2022,16057,2022-05-14,"Sat, 14",00:00,9,M.C.G.,Hawthorn,Richmond,0.7,0.507,Hawthorn by 1
-2022,16058,2022-05-14,"Sat, 14",00:00,9,Bellerive Oval,North Melbourne,Port Adelaide,-5.3,0.447,Port Adelaide by 5
+2022,16058,2022-05-14,"Sat, 14",00:00,9,Bellerive Oval,North Melbourne,Port Adelaide,-7.9,0.422,Port Adelaide by 8
 2022,16059,2022-05-14,"Sat, 14",00:00,9,Docklands,St Kilda,Geelong,-0.7,0.493,Geelong by 1
 2022,16060,2022-05-14,"Sat, 14",00:00,9,S.C.G.,Sydney,Essendon,20.2,0.692,Sydney by 20
 2022,16061,2022-05-14,"Sat, 14",00:00,9,Adelaide Oval,Adelaide,Brisbane Lions,-8,0.421,Brisbane Lions by 8
@@ -45,8 +44,8 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16064,2022-05-15,"Sun, 15",00:00,9,Perth Stadium,West Coast,Melbourne,-11.2,0.39,Melbourne by 11
 2022,16065,2022-05-20,"Fri, 20",00:00,10,Docklands,Carlton,Sydney,0.3,0.503,Carlton by 0
 2022,16066,2022-05-21,"Sat, 21",00:00,10,Kardinia Park,Geelong,Port Adelaide,19,0.681,Geelong by 19
-2022,16067,2022-05-21,"Sat, 21",00:00,10,Eureka Stadium,Footscray,Gold Coast,10.4,0.603,Footscray by 10
-2022,16068,2022-05-21,"Sat, 21",00:00,10,Docklands,North Melbourne,Melbourne,-19.8,0.312,Melbourne by 20
+2022,16067,2022-05-21,"Sat, 21",00:00,10,Eureka Stadium,Footscray,Gold Coast,13.1,0.628,Footscray by 13
+2022,16068,2022-05-21,"Sat, 21",00:00,10,Docklands,North Melbourne,Melbourne,-22.4,0.29,Melbourne by 22
 2022,16069,2022-05-21,"Sat, 21",00:00,10,Adelaide Oval,Adelaide,St Kilda,-3.2,0.468,St Kilda by 3
 2022,16070,2022-05-21,"Sat, 21",00:00,10,M.C.G.,Richmond,Essendon,9.7,0.596,Richmond by 10
 2022,16071,2022-05-22,"Sun, 22",00:00,10,GIANTS Stadium,GWS,West Coast,7.3,0.572,GWS by 7
@@ -56,25 +55,25 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16075,2022-05-28,"Sat, 28",00:00,11,Gabba,Brisbane Lions,GWS,20.1,0.691,Brisbane Lions by 20
 2022,16076,2022-05-28,"Sat, 28",00:00,11,Kardinia Park,Geelong,Adelaide,23.5,0.719,Geelong by 24
 2022,16077,2022-05-28,"Sat, 28",00:00,11,M.C.G.,Melbourne,Fremantle,18.8,0.68,Melbourne by 19
-2022,16078,2022-05-28,"Sat, 28",00:00,11,Perth Stadium,West Coast,Footscray,-0.7,0.493,Footscray by 1
+2022,16078,2022-05-28,"Sat, 28",00:00,11,Perth Stadium,West Coast,Footscray,-3.3,0.467,Footscray by 3
 2022,16079,2022-05-28,"Sat, 28",00:00,11,Marrara Oval,Gold Coast,Hawthorn,2.9,0.529,Gold Coast by 3
-2022,16080,2022-05-29,"Sun, 29",00:00,11,Docklands,St Kilda,North Melbourne,18.3,0.675,St Kilda by 18
+2022,16080,2022-05-29,"Sun, 29",00:00,11,Docklands,St Kilda,North Melbourne,20.8,0.697,St Kilda by 21
 2022,16081,2022-05-29,"Sun, 29",00:00,11,M.C.G.,Collingwood,Carlton,3.9,0.539,Collingwood by 4
 2022,16082,2022-05-29,"Sun, 29",00:00,11,Adelaide Oval,Port Adelaide,Essendon,11.4,0.612,Port Adelaide by 11
 2022,16083,2022-06-03,"Fri, 03",00:00,12,M.C.G.,Hawthorn,Collingwood,1.6,0.516,Hawthorn by 2
 2022,16084,2022-06-03,"Fri, 03",00:00,12,M.C.G.,Melbourne,Sydney,13.3,0.63,Melbourne by 13
-2022,16085,2022-06-03,"Fri, 03",00:00,12,Docklands,Footscray,Geelong,-3.5,0.465,Geelong by 4
+2022,16085,2022-06-03,"Fri, 03",00:00,12,Docklands,Footscray,Geelong,-0.9,0.491,Geelong by 1
 2022,16086,2022-06-03,"Fri, 03",00:00,12,Adelaide Oval,Adelaide,West Coast,8.3,0.582,Adelaide by 8
 2022,16087,2022-06-03,"Fri, 03",00:00,12,Perth Stadium,Fremantle,Brisbane Lions,0.1,0.501,Fremantle by 0
-2022,16088,2022-06-04,"Sat, 04",00:00,12,Marrara Oval,Gold Coast,North Melbourne,13,0.627,Gold Coast by 13
+2022,16088,2022-06-04,"Sat, 04",00:00,12,Marrara Oval,Gold Coast,North Melbourne,15.6,0.651,Gold Coast by 16
 2022,16089,2022-06-10,"Fri, 10",00:00,13,Gabba,Brisbane Lions,St Kilda,12.8,0.625,Brisbane Lions by 13
 2022,16090,2022-06-10,"Fri, 10",00:00,13,M.C.G.,Collingwood,Melbourne,-9,0.411,Melbourne by 9
 2022,16091,2022-06-10,"Fri, 10",00:00,13,M.C.G.,Essendon,Carlton,-2,0.48,Carlton by 2
-2022,16092,2022-06-10,"Fri, 10",00:00,13,Docklands,North Melbourne,GWS,-0.2,0.498,GWS by 0
+2022,16092,2022-06-10,"Fri, 10",00:00,13,Docklands,North Melbourne,GWS,-2.8,0.472,GWS by 3
 2022,16093,2022-06-10,"Fri, 10",00:00,13,M.C.G.,Richmond,Port Adelaide,11.2,0.61,Richmond by 11
 2022,16094,2022-06-10,"Fri, 10",00:00,13,Perth Stadium,Fremantle,Hawthorn,10.1,0.6,Fremantle by 10
 2022,16095,2022-06-17,"Fri, 17",00:00,14,Carrara,Gold Coast,Adelaide,13.5,0.632,Gold Coast by 14
-2022,16096,2022-06-17,"Fri, 17",00:00,14,GIANTS Stadium,GWS,Footscray,-1.3,0.487,Footscray by 1
+2022,16096,2022-06-17,"Fri, 17",00:00,14,GIANTS Stadium,GWS,Footscray,-3.9,0.461,Footscray by 4
 2022,16097,2022-06-17,"Fri, 17",00:00,14,M.C.G.,Richmond,Carlton,4.8,0.548,Richmond by 5
 2022,16098,2022-06-17,"Fri, 17",00:00,14,Docklands,St Kilda,Essendon,12.9,0.626,St Kilda by 13
 2022,16099,2022-06-17,"Fri, 17",00:00,14,Adelaide Oval,Port Adelaide,Sydney,-0.8,0.492,Sydney by 1
@@ -83,50 +82,50 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16102,2022-06-24,"Fri, 24",00:00,15,M.C.G.,Collingwood,GWS,11,0.608,Collingwood by 11
 2022,16103,2022-06-24,"Fri, 24",00:00,15,M.C.G.,Geelong,Richmond,10,0.599,Geelong by 10
 2022,16104,2022-06-24,"Fri, 24",00:00,15,M.C.G.,Melbourne,Brisbane Lions,10.9,0.607,Melbourne by 11
-2022,16105,2022-06-24,"Fri, 24",00:00,15,Bellerive Oval,North Melbourne,Adelaide,-0.6,0.494,Adelaide by 1
+2022,16105,2022-06-24,"Fri, 24",00:00,15,Bellerive Oval,North Melbourne,Adelaide,-3.2,0.468,Adelaide by 3
 2022,16106,2022-06-24,"Fri, 24",00:00,15,S.C.G.,Sydney,St Kilda,10.4,0.603,Sydney by 10
-2022,16107,2022-06-24,"Fri, 24",00:00,15,Docklands,Footscray,Hawthorn,5.6,0.556,Footscray by 6
+2022,16107,2022-06-24,"Fri, 24",00:00,15,Docklands,Footscray,Hawthorn,8.3,0.582,Footscray by 8
 2022,16108,2022-06-24,"Fri, 24",00:00,15,Adelaide Oval,Port Adelaide,Gold Coast,7,0.57,Port Adelaide by 7
 2022,16109,2022-06-24,"Fri, 24",00:00,15,Perth Stadium,West Coast,Essendon,6.3,0.563,West Coast by 6
-2022,16110,2022-07-01,"Fri, 01",00:00,16,Gabba,Brisbane Lions,Footscray,15.7,0.652,Brisbane Lions by 16
+2022,16110,2022-07-01,"Fri, 01",00:00,16,Gabba,Brisbane Lions,Footscray,13.1,0.628,Brisbane Lions by 13
 2022,16111,2022-07-01,"Fri, 01",00:00,16,Docklands,Carlton,St Kilda,-2.3,0.477,St Kilda by 2
 2022,16112,2022-07-01,"Fri, 01",00:00,16,M.C.G.,Essendon,Sydney,-4.4,0.456,Sydney by 4
-2022,16113,2022-07-01,"Fri, 01",00:00,16,Kardinia Park,Geelong,North Melbourne,22.9,0.714,Geelong by 23
+2022,16113,2022-07-01,"Fri, 01",00:00,16,Kardinia Park,Geelong,North Melbourne,25.4,0.734,Geelong by 25
 2022,16114,2022-07-01,"Fri, 01",00:00,16,Carrara,Gold Coast,Collingwood,6.8,0.568,Gold Coast by 7
 2022,16115,2022-07-01,"Fri, 01",00:00,16,GIANTS Stadium,GWS,Hawthorn,1.3,0.513,GWS by 1
 2022,16116,2022-07-01,"Fri, 01",00:00,16,M.C.G.,Richmond,West Coast,16.1,0.656,Richmond by 16
 2022,16117,2022-07-01,"Fri, 01",00:00,16,Adelaide Oval,Adelaide,Melbourne,-11,0.392,Melbourne by 11
 2022,16118,2022-07-01,"Fri, 01",00:00,16,Perth Stadium,Fremantle,Port Adelaide,11.4,0.612,Fremantle by 11
 2022,16119,2022-07-08,"Fri, 08",00:00,17,Gabba,Brisbane Lions,Essendon,22.7,0.713,Brisbane Lions by 23
-2022,16120,2022-07-08,"Fri, 08",00:00,17,M.C.G.,Collingwood,North Melbourne,14.6,0.642,Collingwood by 15
+2022,16120,2022-07-08,"Fri, 08",00:00,17,M.C.G.,Collingwood,North Melbourne,17.1,0.665,Collingwood by 17
 2022,16121,2022-07-08,"Fri, 08",00:00,17,Kardinia Park,Geelong,Melbourne,-0.2,0.498,Melbourne by 0
 2022,16122,2022-07-08,"Fri, 08",00:00,17,Carrara,Gold Coast,Richmond,5.5,0.555,Gold Coast by 6
 2022,16123,2022-07-08,"Fri, 08",00:00,17,Docklands,Hawthorn,Adelaide,13.4,0.631,Hawthorn by 13
 2022,16124,2022-07-08,"Fri, 08",00:00,17,Docklands,St Kilda,Fremantle,11,0.608,St Kilda by 11
-2022,16125,2022-07-08,"Fri, 08",00:00,17,S.C.G.,Sydney,Footscray,13.3,0.63,Sydney by 13
+2022,16125,2022-07-08,"Fri, 08",00:00,17,S.C.G.,Sydney,Footscray,10.8,0.606,Sydney by 11
 2022,16126,2022-07-08,"Fri, 08",00:00,17,Adelaide Oval,Port Adelaide,GWS,8.7,0.586,Port Adelaide by 9
 2022,16127,2022-07-08,"Fri, 08",00:00,17,Perth Stadium,West Coast,Carlton,1.6,0.516,West Coast by 2
 2022,16128,2022-07-15,"Fri, 15",00:00,18,M.C.G.,Carlton,Geelong,-6.2,0.438,Geelong by 6
 2022,16129,2022-07-15,"Fri, 15",00:00,18,Docklands,Essendon,Gold Coast,3.3,0.533,Essendon by 3
 2022,16130,2022-07-15,"Fri, 15",00:00,18,Manuka Oval,GWS,Brisbane Lions,-8.7,0.414,Brisbane Lions by 9
 2022,16131,2022-07-15,"Fri, 15",00:00,18,M.C.G.,Hawthorn,West Coast,14,0.636,Hawthorn by 14
-2022,16132,2022-07-15,"Fri, 15",00:00,18,Docklands,North Melbourne,Richmond,-8.9,0.412,Richmond by 9
-2022,16133,2022-07-15,"Fri, 15",00:00,18,Docklands,Footscray,St Kilda,-0,0.5,Draw
+2022,16132,2022-07-15,"Fri, 15",00:00,18,Docklands,North Melbourne,Richmond,-11.5,0.387,Richmond by 12
+2022,16133,2022-07-15,"Fri, 15",00:00,18,Docklands,Footscray,St Kilda,2.6,0.526,Footscray by 3
 2022,16134,2022-07-15,"Fri, 15",00:00,18,Adelaide Oval,Adelaide,Collingwood,1.1,0.511,Adelaide by 1
 2022,16135,2022-07-15,"Fri, 15",00:00,18,TIO Traeger Park,Melbourne,Port Adelaide,17.1,0.665,Melbourne by 17
 2022,16136,2022-07-15,"Fri, 15",00:00,18,Perth Stadium,Fremantle,Sydney,2.5,0.525,Fremantle by 2
 2022,16137,2022-07-22,"Fri, 22",00:00,19,Gabba,Brisbane Lions,Gold Coast,13.7,0.634,Brisbane Lions by 14
 2022,16138,2022-07-22,"Fri, 22",00:00,19,Docklands,Carlton,GWS,10,0.599,Carlton by 10
 2022,16139,2022-07-22,"Fri, 22",00:00,19,M.C.G.,Collingwood,Essendon,8.7,0.586,Collingwood by 9
-2022,16140,2022-07-22,"Fri, 22",00:00,19,Bellerive Oval,North Melbourne,Hawthorn,-6.4,0.436,Hawthorn by 6
+2022,16140,2022-07-22,"Fri, 22",00:00,19,Bellerive Oval,North Melbourne,Hawthorn,-9,0.411,Hawthorn by 9
 2022,16141,2022-07-22,"Fri, 22",00:00,19,Docklands,Richmond,Fremantle,7.5,0.574,Richmond by 8
 2022,16142,2022-07-22,"Fri, 22",00:00,19,S.C.G.,Sydney,Adelaide,21.5,0.703,Sydney by 22
-2022,16143,2022-07-22,"Fri, 22",00:00,19,Docklands,Footscray,Melbourne,-7.3,0.428,Melbourne by 7
+2022,16143,2022-07-22,"Fri, 22",00:00,19,Docklands,Footscray,Melbourne,-4.6,0.454,Melbourne by 5
 2022,16144,2022-07-22,"Fri, 22",00:00,19,Adelaide Oval,Port Adelaide,Geelong,-2.7,0.473,Geelong by 3
 2022,16145,2022-07-22,"Fri, 22",00:00,19,Perth Stadium,West Coast,St Kilda,-3.5,0.465,St Kilda by 4
 2022,16146,2022-07-29,"Fri, 29",00:00,20,M.C.G.,Collingwood,Port Adelaide,10.2,0.601,Collingwood by 10
-2022,16147,2022-07-29,"Fri, 29",00:00,20,Docklands,Essendon,North Melbourne,8.3,0.582,Essendon by 8
-2022,16148,2022-07-29,"Fri, 29",00:00,20,Kardinia Park,Geelong,Footscray,10.3,0.602,Geelong by 10
+2022,16147,2022-07-29,"Fri, 29",00:00,20,Docklands,Essendon,North Melbourne,10.8,0.606,Essendon by 11
+2022,16148,2022-07-29,"Fri, 29",00:00,20,Kardinia Park,Geelong,Footscray,7.8,0.577,Geelong by 8
 2022,16149,2022-07-29,"Fri, 29",00:00,20,Carrara,Gold Coast,West Coast,13.8,0.635,Gold Coast by 14
 2022,16150,2022-07-29,"Fri, 29",00:00,20,M.C.G.,Richmond,Brisbane Lions,-0.1,0.499,Brisbane Lions by 0
 2022,16151,2022-07-29,"Fri, 29",00:00,20,Docklands,St Kilda,Hawthorn,8.5,0.584,St Kilda by 8
@@ -138,8 +137,8 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16157,2022-08-05,"Fri, 05",00:00,21,GIANTS Stadium,GWS,Essendon,5.9,0.559,GWS by 6
 2022,16158,2022-08-05,"Fri, 05",00:00,21,University of Tasmania Stadium,Hawthorn,Gold Coast,3.3,0.533,Hawthorn by 3
 2022,16159,2022-08-05,"Fri, 05",00:00,21,M.C.G.,Melbourne,Collingwood,14.7,0.643,Melbourne by 15
-2022,16160,2022-08-05,"Fri, 05",00:00,21,Docklands,North Melbourne,Sydney,-9.9,0.402,Sydney by 10
-2022,16161,2022-08-05,"Fri, 05",00:00,21,Docklands,Footscray,Fremantle,8.2,0.581,Footscray by 8
+2022,16160,2022-08-05,"Fri, 05",00:00,21,Docklands,North Melbourne,Sydney,-12.6,0.377,Sydney by 13
+2022,16161,2022-08-05,"Fri, 05",00:00,21,Docklands,Footscray,Fremantle,10.8,0.606,Footscray by 11
 2022,16162,2022-08-05,"Fri, 05",00:00,21,Adelaide Oval,Port Adelaide,Richmond,4.7,0.547,Port Adelaide by 5
 2022,16163,2022-08-05,"Fri, 05",00:00,21,Perth Stadium,West Coast,Adelaide,7.9,0.578,West Coast by 8
 2022,16164,2022-08-12,"Fri, 12",00:00,22,Docklands,Essendon,Port Adelaide,4.3,0.543,Essendon by 4
@@ -148,15 +147,15 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16167,2022-08-12,"Fri, 12",00:00,22,M.C.G.,Richmond,Hawthorn,5,0.55,Richmond by 5
 2022,16168,2022-08-12,"Fri, 12",00:00,22,Docklands,St Kilda,Brisbane Lions,3,0.53,St Kilda by 3
 2022,16169,2022-08-12,"Fri, 12",00:00,22,S.C.G.,Sydney,Collingwood,14.5,0.641,Sydney by 14
-2022,16170,2022-08-12,"Fri, 12",00:00,22,Docklands,Footscray,GWS,12.3,0.621,Footscray by 12
-2022,16171,2022-08-12,"Fri, 12",00:00,22,Adelaide Oval,Adelaide,North Melbourne,12.2,0.62,Adelaide by 12
+2022,16170,2022-08-12,"Fri, 12",00:00,22,Docklands,Footscray,GWS,14.9,0.645,Footscray by 15
+2022,16171,2022-08-12,"Fri, 12",00:00,22,Adelaide Oval,Adelaide,North Melbourne,14.8,0.644,Adelaide by 15
 2022,16172,2022-08-12,"Fri, 12",00:00,22,Perth Stadium,Fremantle,West Coast,11.2,0.61,Fremantle by 11
 2022,16173,2022-08-19,"Fri, 19",00:00,23,Gabba,Brisbane Lions,Melbourne,5.2,0.552,Brisbane Lions by 5
 2022,16174,2022-08-19,"Fri, 19",00:00,23,M.C.G.,Carlton,Collingwood,1.9,0.519,Carlton by 2
 2022,16175,2022-08-19,"Fri, 19",00:00,23,M.C.G.,Essendon,Richmond,-3.9,0.461,Richmond by 4
 2022,16176,2022-08-19,"Fri, 19",00:00,23,Kardinia Park,Geelong,West Coast,23.6,0.72,Geelong by 24
 2022,16177,2022-08-19,"Fri, 19",00:00,23,Manuka Oval,GWS,Fremantle,-0.8,0.492,Fremantle by 1
-2022,16178,2022-08-19,"Fri, 19",00:00,23,University of Tasmania Stadium,Hawthorn,Footscray,0.7,0.507,Hawthorn by 1
-2022,16179,2022-08-19,"Fri, 19",00:00,23,Docklands,North Melbourne,Gold Coast,-2,0.48,Gold Coast by 2
+2022,16178,2022-08-19,"Fri, 19",00:00,23,University of Tasmania Stadium,Hawthorn,Footscray,-1.9,0.481,Footscray by 2
+2022,16179,2022-08-19,"Fri, 19",00:00,23,Docklands,North Melbourne,Gold Coast,-4.6,0.454,Gold Coast by 5
 2022,16180,2022-08-19,"Fri, 19",00:00,23,Docklands,St Kilda,Sydney,5.4,0.554,St Kilda by 5
 2022,16181,2022-08-19,"Fri, 19",00:00,23,Adelaide Oval,Port Adelaide,Adelaide,7.6,0.575,Port Adelaide by 8
