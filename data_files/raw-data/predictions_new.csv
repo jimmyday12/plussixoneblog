@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2022,2022-04-22,GWS,St Kilda,0.438,-6.2
 2022,2022-04-23,Footscray,Adelaide,0.672,17.9
 2022,2022-04-23,Port Adelaide,West Coast,0.653,15.8
 2022,2022-04-23,Fremantle,Carlton,0.623,12.6
@@ -10,7 +9,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2022,2022-04-25,Essendon,Collingwood,0.445,-5.5
 2022,2022-04-29,West Coast,Richmond,0.478,-2.2
 2022,2022-04-30,Geelong,Fremantle,0.621,12.3
-2022,2022-04-30,Adelaide,GWS,0.565,6.5
+2022,2022-04-30,Adelaide,GWS,0.564,6.4
 2022,2022-04-30,Melbourne,Hawthorn,0.665,17.1
 2022,2022-04-30,St Kilda,Port Adelaide,0.596,9.7
 2022,2022-04-30,Carlton,North Melbourne,0.65,15.5
