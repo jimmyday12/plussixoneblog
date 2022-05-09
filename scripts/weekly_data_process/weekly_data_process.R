@@ -304,7 +304,20 @@ if (new_data) {
     
     # Save elo
     write_csv(aflm_data$elo, file = here::here("data_files", "raw-data", "AFLM_elo.csv"))
+    #elo <- read_csv(here::here("data_files", "raw-data", "AFLM_elo.csv"))
+    elo <- aflm_data$elo
     
+    current_elo <- elo %>% 
+      group_by(Team) %>% 
+      filter(Game == max(Game)) %>%
+      filter(Game > 16000) %>%
+      arrange(desc(ELO)) %>%
+      mutate(ELO_change = ELO - ELO_pre,
+             Season = format(Date, "%Y")) %>%
+      select(Team, Date, Game, Season, Round, ELO, ELO_pre, ELO_change) %>%
+      mutate(Updated = Sys.time())
+    
+    write_csv(current_elo, file = here::here("data_files", "raw-data", "current_elo.csv"))
     
     # Save sims
     if (!season_complete) {
