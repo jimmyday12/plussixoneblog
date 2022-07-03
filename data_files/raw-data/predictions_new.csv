@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2022,2022-07-03,Richmond,West Coast,0.798,34.3
 2022,2022-07-03,GWS,Hawthorn,0.552,5.2
 2022,2022-07-03,Fremantle,Port Adelaide,0.602,10.3
 2022,2022-07-07,Geelong,Melbourne,0.509,0.9
@@ -35,7 +34,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2022,2022-07-30,St Kilda,Hawthorn,0.617,11.9
 2022,2022-07-30,Geelong,Footscray,0.578,7.9
 2022,2022-07-30,Adelaide,Carlton,0.454,-4.6
-2022,2022-07-31,Gold Coast,West Coast,0.769,30.1
+2022,2022-07-31,Gold Coast,West Coast,0.77,30.2
 2022,2022-07-31,Richmond,Brisbane Lions,0.518,1.8
 2022,2022-07-31,Essendon,North Melbourne,0.685,19.4
 2022,2022-08-05,Melbourne,Collingwood,0.655,16

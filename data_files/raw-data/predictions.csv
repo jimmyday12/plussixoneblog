@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2022,16116,2022-07-03,"Sun, 03",00:00,16,M.C.G.,Richmond,West Coast,34.3,0.798,Richmond by 34
 2022,16117,2022-07-03,"Sun, 03",00:00,16,GIANTS Stadium,GWS,Hawthorn,5.2,0.552,GWS by 5
 2022,16118,2022-07-03,"Sun, 03",00:00,16,Perth Stadium,Fremantle,Port Adelaide,10.3,0.602,Fremantle by 10
 2022,16119,2022-07-07,"Thu, 07",00:00,17,Kardinia Park,Geelong,Melbourne,0.9,0.509,Geelong by 1
@@ -35,7 +34,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16149,2022-07-30,"Sat, 30",00:00,20,Docklands,St Kilda,Hawthorn,11.9,0.617,St Kilda by 12
 2022,16150,2022-07-30,"Sat, 30",00:00,20,Kardinia Park,Geelong,Footscray,7.9,0.578,Geelong by 8
 2022,16151,2022-07-30,"Sat, 30",00:00,20,Adelaide Oval,Adelaide,Carlton,-4.6,0.454,Carlton by 5
-2022,16152,2022-07-31,"Sun, 31",00:00,20,Carrara,Gold Coast,West Coast,30.1,0.769,Gold Coast by 30
+2022,16152,2022-07-31,"Sun, 31",00:00,20,Carrara,Gold Coast,West Coast,30.2,0.77,Gold Coast by 30
 2022,16153,2022-07-31,"Sun, 31",00:00,20,M.C.G.,Richmond,Brisbane Lions,1.8,0.518,Richmond by 2
 2022,16154,2022-07-31,"Sun, 31",00:00,20,Docklands,Essendon,North Melbourne,19.4,0.685,Essendon by 19
 2022,16155,2022-08-05,"Fri, 05",00:00,21,M.C.G.,Melbourne,Collingwood,16,0.655,Melbourne by 16
