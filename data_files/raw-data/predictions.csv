@@ -1,11 +1,9 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2022,16134,2022-07-17,"Sun, 17",00:00,18,M.C.G.,Hawthorn,West Coast,24.5,0.727,Hawthorn by 24
-2022,16135,2022-07-17,"Sun, 17",00:00,18,TIO Traeger Park,Melbourne,Port Adelaide,13.4,0.631,Melbourne by 13
 2022,16136,2022-07-17,"Sun, 17",00:00,18,Docklands,Essendon,Gold Coast,-0.8,0.492,Gold Coast by 1
 2022,16137,2022-07-22,"Fri, 22",00:00,19,Docklands,Richmond,Fremantle,7.1,0.571,Richmond by 7
 2022,16138,2022-07-23,"Sat, 23",00:00,19,Bellerive Oval,North Melbourne,Hawthorn,-14.6,0.358,Hawthorn by 15
 2022,16139,2022-07-23,"Sat, 23",00:00,19,S.C.G.,Sydney,Adelaide,30.1,0.769,Sydney by 30
-2022,16140,2022-07-23,"Sat, 23",00:00,19,Adelaide Oval,Port Adelaide,Geelong,-2.1,0.479,Geelong by 2
+2022,16140,2022-07-23,"Sat, 23",00:00,19,Adelaide Oval,Port Adelaide,Geelong,-2.2,0.478,Geelong by 2
 2022,16141,2022-07-23,"Sat, 23",00:00,19,Gabba,Brisbane Lions,Gold Coast,13.5,0.632,Brisbane Lions by 14
 2022,16142,2022-07-23,"Sat, 23",00:00,19,Docklands,Footscray,Melbourne,-3.4,0.466,Melbourne by 3
 2022,16143,2022-07-24,"Sun, 24",00:00,19,Docklands,Carlton,GWS,14.9,0.645,Carlton by 15
