@@ -1,6 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2022,16147,2022-07-30,"Sat, 30",00:00,20,M.C.G.,Collingwood,Port Adelaide,5.5,0.555,Collingwood by 6
-2022,16148,2022-07-30,"Sat, 30",00:00,20,S.C.G.,Sydney,GWS,19.4,0.685,Sydney by 19
 2022,16149,2022-07-30,"Sat, 30",00:00,20,Docklands,St Kilda,Hawthorn,9.8,0.597,St Kilda by 10
 2022,16150,2022-07-30,"Sat, 30",00:00,20,Kardinia Park,Geelong,Footscray,9.5,0.594,Geelong by 10
 2022,16151,2022-07-30,"Sat, 30",00:00,20,Adelaide Oval,Adelaide,Carlton,-6.1,0.439,Carlton by 6
@@ -9,28 +7,28 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16154,2022-07-31,"Sun, 31",00:00,20,Docklands,Essendon,North Melbourne,20.9,0.698,Essendon by 21
 2022,16155,2022-08-05,"Fri, 05",00:00,21,M.C.G.,Melbourne,Collingwood,16.7,0.661,Melbourne by 17
 2022,16156,2022-08-06,"Sat, 06",00:00,21,University of Tasmania Stadium,Hawthorn,Gold Coast,-1.9,0.481,Gold Coast by 2
-2022,16157,2022-08-06,"Sat, 06",00:00,21,GIANTS Stadium,GWS,Essendon,3.9,0.539,GWS by 4
+2022,16157,2022-08-06,"Sat, 06",00:00,21,GIANTS Stadium,GWS,Essendon,3,0.53,GWS by 3
 2022,16158,2022-08-06,"Sat, 06",00:00,21,Docklands,Footscray,Fremantle,11.1,0.609,Footscray by 11
 2022,16159,2022-08-06,"Sat, 06",00:00,21,Kardinia Park,Geelong,St Kilda,15.1,0.647,Geelong by 15
 2022,16160,2022-08-06,"Sat, 06",00:00,21,Adelaide Oval,Port Adelaide,Richmond,6.3,0.563,Port Adelaide by 6
-2022,16161,2022-08-07,"Sun, 07",00:00,21,Docklands,North Melbourne,Sydney,-27.5,0.25,Sydney by 28
+2022,16161,2022-08-07,"Sun, 07",00:00,21,Docklands,North Melbourne,Sydney,-28.5,0.242,Sydney by 28
 2022,16162,2022-08-07,"Sun, 07",00:00,21,Gabba,Brisbane Lions,Carlton,16.4,0.658,Brisbane Lions by 16
 2022,16163,2022-08-07,"Sun, 07",00:00,21,Perth Stadium,West Coast,Adelaide,-3.1,0.469,Adelaide by 3
 2022,16164,2022-08-12,"Fri, 12",00:00,22,Docklands,St Kilda,Brisbane Lions,-1.7,0.483,Brisbane Lions by 2
-2022,16165,2022-08-13,"Sat, 13",00:00,22,Docklands,Footscray,GWS,20.4,0.693,Footscray by 20
+2022,16165,2022-08-13,"Sat, 13",00:00,22,Docklands,Footscray,GWS,21.3,0.701,Footscray by 21
 2022,16166,2022-08-13,"Sat, 13",00:00,22,Adelaide Oval,Adelaide,North Melbourne,21.2,0.7,Adelaide by 21
 2022,16167,2022-08-13,"Sat, 13",00:00,22,Carrara,Gold Coast,Geelong,-5.6,0.444,Geelong by 6
 2022,16168,2022-08-13,"Sat, 13",00:00,22,M.C.G.,Melbourne,Carlton,14.3,0.639,Melbourne by 14
 2022,16169,2022-08-13,"Sat, 13",00:00,22,Perth Stadium,Fremantle,West Coast,29.5,0.765,Fremantle by 30
 2022,16170,2022-08-14,"Sun, 14",00:00,22,M.C.G.,Richmond,Hawthorn,12.2,0.62,Richmond by 12
-2022,16171,2022-08-14,"Sun, 14",00:00,22,S.C.G.,Sydney,Collingwood,18.4,0.676,Sydney by 18
-2022,16172,2022-08-14,"Sun, 14",00:00,22,Docklands,Essendon,Port Adelaide,-1.3,0.487,Port Adelaide by 1
+2022,16171,2022-08-14,"Sun, 14",00:00,22,S.C.G.,Sydney,Collingwood,19.4,0.685,Sydney by 19
+2022,16172,2022-08-14,"Sun, 14",00:00,22,Docklands,Essendon,Port Adelaide,-1.2,0.488,Port Adelaide by 1
 2022,16173,2022-08-19,"Fri, 19",00:00,23,Gabba,Brisbane Lions,Melbourne,5,0.55,Brisbane Lions by 5
-2022,16174,2022-08-20,"Sat, 20",00:00,23,Manuka Oval,GWS,Fremantle,-5.9,0.441,Fremantle by 6
+2022,16174,2022-08-20,"Sat, 20",00:00,23,Manuka Oval,GWS,Fremantle,-6.9,0.431,Fremantle by 7
 2022,16175,2022-08-20,"Sat, 20",00:00,23,Docklands,North Melbourne,Gold Coast,-16.5,0.341,Gold Coast by 16
 2022,16176,2022-08-20,"Sat, 20",00:00,23,Kardinia Park,Geelong,West Coast,44,0.853,Geelong by 44
 2022,16177,2022-08-20,"Sat, 20",00:00,23,M.C.G.,Essendon,Richmond,-7.9,0.422,Richmond by 8
 2022,16178,2022-08-20,"Sat, 20",00:00,23,Adelaide Oval,Port Adelaide,Adelaide,16.9,0.663,Port Adelaide by 17
 2022,16179,2022-08-21,"Sun, 21",00:00,23,University of Tasmania Stadium,Hawthorn,Footscray,-9.2,0.409,Footscray by 9
 2022,16180,2022-08-21,"Sun, 21",00:00,23,M.C.G.,Carlton,Collingwood,5.3,0.553,Carlton by 5
-2022,16181,2022-08-21,"Sun, 21",00:00,23,Docklands,St Kilda,Sydney,-1.3,0.487,Sydney by 1
+2022,16181,2022-08-21,"Sun, 21",00:00,23,Docklands,St Kilda,Sydney,-2.3,0.477,Sydney by 2
