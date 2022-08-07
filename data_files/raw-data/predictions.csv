@@ -1,20 +1,19 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2022,16163,2022-08-07,"Sun, 07",00:00,21,Perth Stadium,West Coast,Adelaide,-3.4,0.466,Adelaide by 3
 2022,16164,2022-08-12,"Fri, 12",00:00,22,Docklands,St Kilda,Brisbane Lions,-2.4,0.476,Brisbane Lions by 2
 2022,16165,2022-08-13,"Sat, 13",00:00,22,Docklands,Footscray,GWS,19.4,0.685,Footscray by 19
-2022,16166,2022-08-13,"Sat, 13",00:00,22,Adelaide Oval,Adelaide,North Melbourne,22.7,0.713,Adelaide by 23
+2022,16166,2022-08-13,"Sat, 13",00:00,22,Adelaide Oval,Adelaide,North Melbourne,23.1,0.716,Adelaide by 23
 2022,16167,2022-08-13,"Sat, 13",00:00,22,Carrara,Gold Coast,Geelong,-7.6,0.425,Geelong by 8
 2022,16168,2022-08-13,"Sat, 13",00:00,22,M.C.G.,Melbourne,Carlton,14.9,0.645,Melbourne by 15
-2022,16169,2022-08-13,"Sat, 13",00:00,22,Perth Stadium,Fremantle,West Coast,29.5,0.765,Fremantle by 30
+2022,16169,2022-08-13,"Sat, 13",00:00,22,Perth Stadium,Fremantle,West Coast,29.9,0.768,Fremantle by 30
 2022,16170,2022-08-14,"Sun, 14",00:00,22,M.C.G.,Richmond,Hawthorn,13.3,0.63,Richmond by 13
 2022,16171,2022-08-14,"Sun, 14",00:00,22,S.C.G.,Sydney,Collingwood,19,0.681,Sydney by 19
 2022,16172,2022-08-14,"Sun, 14",00:00,22,Docklands,Essendon,Port Adelaide,-0.3,0.497,Port Adelaide by 0
 2022,16173,2022-08-19,"Fri, 19",00:00,23,Gabba,Brisbane Lions,Melbourne,5.9,0.559,Brisbane Lions by 6
 2022,16174,2022-08-20,"Sat, 20",00:00,23,Manuka Oval,GWS,Fremantle,-7,0.43,Fremantle by 7
 2022,16175,2022-08-20,"Sat, 20",00:00,23,Docklands,North Melbourne,Gold Coast,-16.2,0.343,Gold Coast by 16
-2022,16176,2022-08-20,"Sat, 20",00:00,23,Kardinia Park,Geelong,West Coast,44.4,0.855,Geelong by 44
+2022,16176,2022-08-20,"Sat, 20",00:00,23,Kardinia Park,Geelong,West Coast,44.8,0.857,Geelong by 45
 2022,16177,2022-08-20,"Sat, 20",00:00,23,M.C.G.,Essendon,Richmond,-9.2,0.409,Richmond by 9
-2022,16178,2022-08-20,"Sat, 20",00:00,23,Adelaide Oval,Port Adelaide,Adelaide,14.9,0.645,Port Adelaide by 15
+2022,16178,2022-08-20,"Sat, 20",00:00,23,Adelaide Oval,Port Adelaide,Adelaide,14.6,0.642,Port Adelaide by 15
 2022,16179,2022-08-21,"Sun, 21",00:00,23,University of Tasmania Stadium,Hawthorn,Footscray,-7.9,0.422,Footscray by 8
 2022,16180,2022-08-21,"Sun, 21",00:00,23,M.C.G.,Carlton,Collingwood,3.3,0.533,Carlton by 3
 2022,16181,2022-08-21,"Sun, 21",00:00,23,Docklands,St Kilda,Sydney,-3,0.47,Sydney by 3
