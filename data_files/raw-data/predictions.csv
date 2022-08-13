@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2022,16167,2022-08-13,"Sat, 13",00:00,22,Carrara,Gold Coast,Geelong,-7.6,0.425,Geelong by 8
 2022,16168,2022-08-13,"Sat, 13",00:00,22,M.C.G.,Melbourne,Carlton,14.9,0.645,Melbourne by 15
 2022,16169,2022-08-13,"Sat, 13",00:00,22,Perth Stadium,Fremantle,West Coast,29.9,0.768,Fremantle by 30
 2022,16170,2022-08-14,"Sun, 14",00:00,22,M.C.G.,Richmond,Hawthorn,13.3,0.63,Richmond by 13
@@ -7,8 +6,8 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2022,16172,2022-08-14,"Sun, 14",00:00,22,Docklands,Essendon,Port Adelaide,-0.1,0.499,Port Adelaide by 0
 2022,16173,2022-08-19,"Fri, 19",00:00,23,Gabba,Brisbane Lions,Melbourne,6.2,0.562,Brisbane Lions by 6
 2022,16174,2022-08-20,"Sat, 20",00:00,23,Manuka Oval,GWS,Fremantle,-6.8,0.432,Fremantle by 7
-2022,16175,2022-08-20,"Sat, 20",00:00,23,Docklands,North Melbourne,Gold Coast,-16.4,0.342,Gold Coast by 16
-2022,16176,2022-08-20,"Sat, 20",00:00,23,Kardinia Park,Geelong,West Coast,44.8,0.857,Geelong by 45
+2022,16175,2022-08-20,"Sat, 20",00:00,23,Docklands,North Melbourne,Gold Coast,-15.4,0.351,Gold Coast by 15
+2022,16176,2022-08-20,"Sat, 20",00:00,23,Kardinia Park,Geelong,West Coast,45.6,0.861,Geelong by 46
 2022,16177,2022-08-20,"Sat, 20",00:00,23,M.C.G.,Essendon,Richmond,-9.1,0.41,Richmond by 9
 2022,16178,2022-08-20,"Sat, 20",00:00,23,Adelaide Oval,Port Adelaide,Adelaide,14.4,0.64,Port Adelaide by 14
 2022,16179,2022-08-21,"Sun, 21",00:00,23,University of Tasmania Stadium,Hawthorn,Footscray,-7.7,0.424,Footscray by 8
