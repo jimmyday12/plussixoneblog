@@ -15551,26 +15551,7 @@ Geelong,15,NA,NA,,2022,22
 Geelong,16,NA,NA,,2022,22
 Geelong,17,NA,NA,,2022,22
 Geelong,18,NA,NA,,2022,22
-West Coast,17,79.74,1,80,2022,23
-West Coast,18,20.26,2,20,2022,23
-West Coast,1,NA,NA,,2022,23
-West Coast,2,NA,NA,,2022,23
-West Coast,3,NA,NA,,2022,23
-West Coast,4,NA,NA,,2022,23
-West Coast,5,NA,NA,,2022,23
-West Coast,6,NA,NA,,2022,23
-West Coast,7,NA,NA,,2022,23
-West Coast,8,NA,NA,,2022,23
-West Coast,9,NA,NA,,2022,23
-West Coast,10,NA,NA,,2022,23
-West Coast,11,NA,NA,,2022,23
-West Coast,12,NA,NA,,2022,23
-West Coast,13,NA,NA,,2022,23
-West Coast,14,NA,NA,,2022,23
-West Coast,15,NA,NA,,2022,23
-West Coast,16,NA,NA,,2022,23
-North Melbourne,18,79.74,1,80,2022,23
-North Melbourne,17,20.26,2,20,2022,23
+North Melbourne,18,100,1,100,2022,23
 North Melbourne,1,NA,NA,,2022,23
 North Melbourne,2,NA,NA,,2022,23
 North Melbourne,3,NA,NA,,2022,23
@@ -15587,8 +15568,26 @@ North Melbourne,13,NA,NA,,2022,23
 North Melbourne,14,NA,NA,,2022,23
 North Melbourne,15,NA,NA,,2022,23
 North Melbourne,16,NA,NA,,2022,23
-GWS,16,76.38000000000001,1,76,2022,23
-GWS,15,23.62,2,24,2022,23
+North Melbourne,17,NA,NA,,2022,23
+West Coast,17,100,1,100,2022,23
+West Coast,1,NA,NA,,2022,23
+West Coast,2,NA,NA,,2022,23
+West Coast,3,NA,NA,,2022,23
+West Coast,4,NA,NA,,2022,23
+West Coast,5,NA,NA,,2022,23
+West Coast,6,NA,NA,,2022,23
+West Coast,7,NA,NA,,2022,23
+West Coast,8,NA,NA,,2022,23
+West Coast,9,NA,NA,,2022,23
+West Coast,10,NA,NA,,2022,23
+West Coast,11,NA,NA,,2022,23
+West Coast,12,NA,NA,,2022,23
+West Coast,13,NA,NA,,2022,23
+West Coast,14,NA,NA,,2022,23
+West Coast,15,NA,NA,,2022,23
+West Coast,16,NA,NA,,2022,23
+West Coast,18,NA,NA,,2022,23
+GWS,16,100,1,100,2022,23
 GWS,1,NA,NA,,2022,23
 GWS,2,NA,NA,,2022,23
 GWS,3,NA,NA,,2022,23
@@ -15603,11 +15602,11 @@ GWS,11,NA,NA,,2022,23
 GWS,12,NA,NA,,2022,23
 GWS,13,NA,NA,,2022,23
 GWS,14,NA,NA,,2022,23
+GWS,15,NA,NA,,2022,23
 GWS,17,NA,NA,,2022,23
 GWS,18,NA,NA,,2022,23
-Essendon,15,76.1,1,76,2022,23
-Essendon,16,23.62,2,24,2022,23
-Essendon,14,0.27999999999999997,3,<1,2022,23
+Essendon,15,99.72,1,100,2022,23
+Essendon,14,0.27999999999999997,2,<1,2022,23
 Essendon,1,NA,NA,,2022,23
 Essendon,2,NA,NA,,2022,23
 Essendon,3,NA,NA,,2022,23
@@ -15621,10 +15620,11 @@ Essendon,10,NA,NA,,2022,23
 Essendon,11,NA,NA,,2022,23
 Essendon,12,NA,NA,,2022,23
 Essendon,13,NA,NA,,2022,23
+Essendon,16,NA,NA,,2022,23
 Essendon,17,NA,NA,,2022,23
 Essendon,18,NA,NA,,2022,23
-Adelaide,14,86.66,1,87,2022,23
-Adelaide,13,13.059999999999999,2,13,2022,23
+Adelaide,14,86.68,1,87,2022,23
+Adelaide,13,13.04,2,13,2022,23
 Adelaide,15,0.27999999999999997,3,<1,2022,23
 Adelaide,1,NA,NA,,2022,23
 Adelaide,2,NA,NA,,2022,23
@@ -15641,8 +15641,8 @@ Adelaide,12,NA,NA,,2022,23
 Adelaide,16,NA,NA,,2022,23
 Adelaide,17,NA,NA,,2022,23
 Adelaide,18,NA,NA,,2022,23
-Hawthorn,13,86.94,1,87,2022,23
-Hawthorn,14,13.059999999999999,2,13,2022,23
+Hawthorn,13,86.96000000000001,1,87,2022,23
+Hawthorn,14,13.04,2,13,2022,23
 Hawthorn,1,NA,NA,,2022,23
 Hawthorn,2,NA,NA,,2022,23
 Hawthorn,3,NA,NA,,2022,23
@@ -15659,26 +15659,8 @@ Hawthorn,15,NA,NA,,2022,23
 Hawthorn,16,NA,NA,,2022,23
 Hawthorn,17,NA,NA,,2022,23
 Hawthorn,18,NA,NA,,2022,23
-Gold Coast,12,85.65,1,86,2022,23
-Gold Coast,11,14.35,2,14,2022,23
-Gold Coast,1,NA,NA,,2022,23
-Gold Coast,2,NA,NA,,2022,23
-Gold Coast,3,NA,NA,,2022,23
-Gold Coast,4,NA,NA,,2022,23
-Gold Coast,5,NA,NA,,2022,23
-Gold Coast,6,NA,NA,,2022,23
-Gold Coast,7,NA,NA,,2022,23
-Gold Coast,8,NA,NA,,2022,23
-Gold Coast,9,NA,NA,,2022,23
-Gold Coast,10,NA,NA,,2022,23
-Gold Coast,13,NA,NA,,2022,23
-Gold Coast,14,NA,NA,,2022,23
-Gold Coast,15,NA,NA,,2022,23
-Gold Coast,16,NA,NA,,2022,23
-Gold Coast,17,NA,NA,,2022,23
-Gold Coast,18,NA,NA,,2022,23
-Port Adelaide,11,85.65,1,86,2022,23
-Port Adelaide,12,14.35,2,14,2022,23
+Port Adelaide,11,82.44,1,82,2022,23
+Port Adelaide,12,17.560000000000002,2,18,2022,23
 Port Adelaide,1,NA,NA,,2022,23
 Port Adelaide,2,NA,NA,,2022,23
 Port Adelaide,3,NA,NA,,2022,23
@@ -15695,6 +15677,24 @@ Port Adelaide,15,NA,NA,,2022,23
 Port Adelaide,16,NA,NA,,2022,23
 Port Adelaide,17,NA,NA,,2022,23
 Port Adelaide,18,NA,NA,,2022,23
+Gold Coast,12,82.44,1,82,2022,23
+Gold Coast,11,17.560000000000002,2,18,2022,23
+Gold Coast,1,NA,NA,,2022,23
+Gold Coast,2,NA,NA,,2022,23
+Gold Coast,3,NA,NA,,2022,23
+Gold Coast,4,NA,NA,,2022,23
+Gold Coast,5,NA,NA,,2022,23
+Gold Coast,6,NA,NA,,2022,23
+Gold Coast,7,NA,NA,,2022,23
+Gold Coast,8,NA,NA,,2022,23
+Gold Coast,9,NA,NA,,2022,23
+Gold Coast,10,NA,NA,,2022,23
+Gold Coast,13,NA,NA,,2022,23
+Gold Coast,14,NA,NA,,2022,23
+Gold Coast,15,NA,NA,,2022,23
+Gold Coast,16,NA,NA,,2022,23
+Gold Coast,17,NA,NA,,2022,23
+Gold Coast,18,NA,NA,,2022,23
 St Kilda,10,85.47,1,85,2022,23
 St Kilda,9,14.530000000000001,2,15,2022,23
 St Kilda,1,NA,NA,,2022,23
@@ -15767,12 +15767,12 @@ Richmond,15,NA,NA,,2022,23
 Richmond,16,NA,NA,,2022,23
 Richmond,17,NA,NA,,2022,23
 Richmond,18,NA,NA,,2022,23
-Brisbane Lions,5,52.12,1,52,2022,23
-Brisbane Lions,6,26.32,2,26,2022,23
-Brisbane Lions,4,21.560000000000002,3,22,2022,23
+Brisbane Lions,5,57.97,1,58,2022,23
+Brisbane Lions,6,42.03,2,42,2022,23
 Brisbane Lions,1,NA,NA,,2022,23
 Brisbane Lions,2,NA,NA,,2022,23
 Brisbane Lions,3,NA,NA,,2022,23
+Brisbane Lions,4,NA,NA,,2022,23
 Brisbane Lions,7,NA,NA,,2022,23
 Brisbane Lions,8,NA,NA,,2022,23
 Brisbane Lions,9,NA,NA,,2022,23
@@ -15785,28 +15785,10 @@ Brisbane Lions,15,NA,NA,,2022,23
 Brisbane Lions,16,NA,NA,,2022,23
 Brisbane Lions,17,NA,NA,,2022,23
 Brisbane Lions,18,NA,NA,,2022,23
-Fremantle,6,35.96,1,36,2022,23
-Fremantle,4,33.1,2,33,2022,23
-Fremantle,3,15.55,3,16,2022,23
-Fremantle,5,15.39,4,15,2022,23
-Fremantle,1,NA,NA,,2022,23
-Fremantle,2,NA,NA,,2022,23
-Fremantle,7,NA,NA,,2022,23
-Fremantle,8,NA,NA,,2022,23
-Fremantle,9,NA,NA,,2022,23
-Fremantle,10,NA,NA,,2022,23
-Fremantle,11,NA,NA,,2022,23
-Fremantle,12,NA,NA,,2022,23
-Fremantle,13,NA,NA,,2022,23
-Fremantle,14,NA,NA,,2022,23
-Fremantle,15,NA,NA,,2022,23
-Fremantle,16,NA,NA,,2022,23
-Fremantle,17,NA,NA,,2022,23
-Fremantle,18,NA,NA,,2022,23
-Collingwood,6,37.72,1,38,2022,23
-Collingwood,4,23.02,2,23,2022,23
-Collingwood,5,21.17,3,21,2022,23
-Collingwood,3,18.09,4,18,2022,23
+Collingwood,6,57.97,1,58,2022,23
+Collingwood,4,22.85,2,23,2022,23
+Collingwood,3,17.76,3,18,2022,23
+Collingwood,5,1.4200000000000002,4,1,2022,23
 Collingwood,1,NA,NA,,2022,23
 Collingwood,2,NA,NA,,2022,23
 Collingwood,7,NA,NA,,2022,23
@@ -15821,10 +15803,28 @@ Collingwood,15,NA,NA,,2022,23
 Collingwood,16,NA,NA,,2022,23
 Collingwood,17,NA,NA,,2022,23
 Collingwood,18,NA,NA,,2022,23
-Sydney,3,65.75999999999999,1,66,2022,23
-Sydney,4,22.32,2,22,2022,23
-Sydney,5,11.32,3,11,2022,23
-Sydney,2,0.6,4,<1,2022,23
+Fremantle,4,52.470000000000006,1,52,2022,23
+Fremantle,3,24.69,2,25,2022,23
+Fremantle,5,22.84,3,23,2022,23
+Fremantle,1,NA,NA,,2022,23
+Fremantle,2,NA,NA,,2022,23
+Fremantle,6,NA,NA,,2022,23
+Fremantle,7,NA,NA,,2022,23
+Fremantle,8,NA,NA,,2022,23
+Fremantle,9,NA,NA,,2022,23
+Fremantle,10,NA,NA,,2022,23
+Fremantle,11,NA,NA,,2022,23
+Fremantle,12,NA,NA,,2022,23
+Fremantle,13,NA,NA,,2022,23
+Fremantle,14,NA,NA,,2022,23
+Fremantle,15,NA,NA,,2022,23
+Fremantle,16,NA,NA,,2022,23
+Fremantle,17,NA,NA,,2022,23
+Fremantle,18,NA,NA,,2022,23
+Sydney,3,56.82000000000001,1,57,2022,23
+Sydney,4,24.68,2,25,2022,23
+Sydney,5,17.77,3,18,2022,23
+Sydney,2,0.73,4,<1,2022,23
 Sydney,1,NA,NA,,2022,23
 Sydney,6,NA,NA,,2022,23
 Sydney,7,NA,NA,,2022,23
@@ -15839,8 +15839,8 @@ Sydney,15,NA,NA,,2022,23
 Sydney,16,NA,NA,,2022,23
 Sydney,17,NA,NA,,2022,23
 Sydney,18,NA,NA,,2022,23
-Melbourne,2,99.4,1,99,2022,23
-Melbourne,3,0.6,2,<1,2022,23
+Melbourne,2,99.27,1,99,2022,23
+Melbourne,3,0.73,2,<1,2022,23
 Melbourne,1,NA,NA,,2022,23
 Melbourne,4,NA,NA,,2022,23
 Melbourne,5,NA,NA,,2022,23
