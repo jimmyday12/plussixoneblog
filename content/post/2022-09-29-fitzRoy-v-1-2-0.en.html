@@ -1,0 +1,151 @@
+---
+title: fitzRoy v1.2.0
+author: James Day
+date: '2022-09-29'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+
+
+<p>I’m excited to announce the official v1.2.0 release of fitzRoy has landed on CRAN!</p>
+<p>This release includes a few new features and some improvements to bugs that had been reported. Read on to find out about them.</p>
+<div id="breaking-change---default-argument-behaviour" class="section level3">
+<h3>Breaking Change - default argument behaviour</h3>
+<p>There was some inconsistencies in how <code>fetch_player_stats_afltables</code> handled NULL dates. For most functions, this would return the current season. However, for this particular function it was returning all data which was confusing. This has been changed to be consistent with other functions but will break existing code that relied on the incorrect logic so you should update your code where needed.</p>
+<pre class="r"><code>player_stats &lt;- fetch_player_details()
+
+head(player_stats)</code></pre>
+<pre><code>## # A tibble: 6 × 17
+##   firstName surname      id team  season jumpe…¹ posit…² provi…³ dateO…⁴ draft…⁵
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+## 1 Tom       Doedee      813 Adel…   2022      39 KEY_DE… CD_I10… 1997-0… 2015   
+## 2 Lachlan   Murphy     1723 Adel…   2022       4 MEDIUM… CD_I10… 1998-1… 2017   
+## 3 Mitchell  Hinge      1292 Adel…   2022      20 MEDIUM… CD_I10… 1998-0… 2020   
+## 4 Jordon    Butts      1824 Adel…   2022      41 KEY_DE… CD_I10… 1999-1… 2018   
+## 5 Elliott   Himmelbe…  1357 Adel…   2022      34 KEY_FO… CD_I10… 1998-0… 2016   
+## 6 Lachlan   Sholl      1761 Adel…   2022      38 MIDFIE… CD_I10… 2000-0… 2018   
+## # … with 7 more variables: heightInCm &lt;int&gt;, weightInKg &lt;int&gt;,
+## #   recruitedFrom &lt;chr&gt;, debutYear &lt;chr&gt;, draftType &lt;chr&gt;, draftPosition &lt;chr&gt;,
+## #   data_accessed &lt;date&gt;, and abbreviated variable names ¹​jumperNumber,
+## #   ²​position, ³​providerId, ⁴​dateOfBirth, ⁵​draftYear
+## # ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
+<div id="second-2022-aflw-season-is-now-returned" class="section level3">
+<h3>Second 2022 AFLW Season is now returned</h3>
+<p>Having two seasons in the same year for the AFLW competition was causing issues with all <code>fetch_*</code> functions. Specifically, the functions were only returning data for the first of the two seasons.</p>
+<p>A change has been made that now returns both seasons when setting the <code>season</code> argument to “2022”. This has been determined as the simplest, least disruptive option for now but may be reviewed in the future. You can use various fields in the returned data to filter out the season you are interested in.</p>
+<pre class="r"><code>aflw_fixture &lt;- fetch_fixture_afl(2022, round_number = 1, comp = &quot;AFLW&quot;)
+
+aflw_fixture %&gt;%
+  dplyr::select(compSeason.id, compSeason.shortName,
+                round.id, round.name, 
+                home.team.name, away.team.name, venue.name)</code></pre>
+<pre><code>## # A tibble: 16 × 7
+##    compSeason.id compSeason.shortName round.id round.n…¹ home.…² away.…³ venue…⁴
+##            &lt;int&gt; &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1            41 AFLW Season 6             578 Round 1   St Kil… Richmo… Skybus…
+##  2            41 AFLW Season 6             578 Round 1   Kangar… Geelon… Arden …
+##  3            41 AFLW Season 6             578 Round 1   Wester… Melbou… Victor…
+##  4            41 AFLW Season 6             578 Round 1   Freman… West C… Freman…
+##  5            41 AFLW Season 6             578 Round 1   Adelai… Brisba… Flinde…
+##  6            41 AFLW Season 6             578 Round 1   Carlton Collin… Ikon P…
+##  7            41 AFLW Season 6             578 Round 1   Gold C… GWS Gi… Great …
+##  8            51 AFLW Season 7             728 Round 1   Carlton Collin… Ikon P…
+##  9            51 AFLW Season 7             728 Round 1   Adelai… Melbou… ACH Gr…
+## 10            51 AFLW Season 7             728 Round 1   Kangar… Gold C… Blunds…
+## 11            51 AFLW Season 7             728 Round 1   West C… Port A… Minera…
+## 12            51 AFLW Season 7             728 Round 1   Sydney… St Kil… North …
+## 13            51 AFLW Season 7             728 Round 1   Essend… Hawtho… Marvel…
+## 14            51 AFLW Season 7             728 Round 1   Wester… GWS Gi… Ikon P…
+## 15            51 AFLW Season 7             728 Round 1   Brisba… Freman… Gabba  
+## 16            51 AFLW Season 7             728 Round 1   Geelon… Richmo… GMHBA …
+## # … with abbreviated variable names ¹​round.name, ²​home.team.name,
+## #   ³​away.team.name, ⁴​venue.name</code></pre>
+</div>
+<div id="non-afl-data" class="section level3">
+<h3>Non-AFL data</h3>
+<p>An experimental feature as of version 1.2.0 is returning non-AFL related data. This only works for the source <code>AFL</code> but there are other comps that are available. These comps do not have as much data as the AFLM and AFLW comps but some functions will work.</p>
+<p>Available comps include</p>
+<ul>
+<li>“VFL”</li>
+<li>“VFLW”</li>
+<li>“WAFL”</li>
+<li>“U18B”</li>
+<li>“U18G”</li>
+</ul>
+<p>You will have to experiment with which dates, rounds and comps work for various functions but the API should at least return a NULL value or warning if no data exists. You will also note that not all data exists, particularly advanced statistics. Please note this feature is experimental and will be improved over time.</p>
+<pre class="r"><code>fetch_fixture(2022, source = &quot;AFL&quot;, comp = &quot;VFL&quot;)</code></pre>
+<pre><code>## # A tibble: 198 × 53
+##       id provid…¹ utcSt…² status compS…³ compS…⁴ compS…⁵ compS…⁶ compS…⁷ round…⁸
+##    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;
+##  1  4348 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  2  4347 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  3  4350 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  4  4349 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  5  4162 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  6  4164 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  7  4163 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  8  4167 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+##  9  4165 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+## 10  4168 CD_M202… 2022-0… CONCL…      47 CD_S20… 2022 V… 2022 V…      26     637
+## # … with 188 more rows, 43 more variables: round.providerId &lt;chr&gt;,
+## #   round.abbreviation &lt;chr&gt;, round.name &lt;chr&gt;, round.roundNumber &lt;int&gt;,
+## #   round.byes &lt;list&gt;, home.team.id &lt;int&gt;, home.team.providerId &lt;chr&gt;,
+## #   home.team.name &lt;chr&gt;, home.team.abbreviation &lt;chr&gt;,
+## #   home.team.nickname &lt;chr&gt;, home.team.teamType &lt;chr&gt;,
+## #   home.team.club.id &lt;int&gt;, home.team.club.providerId &lt;chr&gt;,
+## #   home.team.club.name &lt;chr&gt;, home.team.club.abbreviation &lt;chr&gt;, …
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+<pre class="r"><code>fetch_player_stats(2022, round = 1, source = &quot;AFL&quot;, comp = &quot;VFLW&quot;)</code></pre>
+<pre><code>## # A tibble: 252 × 70
+##    providerId     utcSt…¹ status compS…² round…³ round…⁴ venue…⁵ home.…⁶ home.…⁷
+##    &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  2 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  3 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  4 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  5 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  6 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  7 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  8 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+##  9 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+## 10 CD_M202246401… 2022-0… CONCL… 2022 V… Round 1       1 Casey … Casey … Melbou…
+## # … with 242 more rows, 61 more variables: away.team.name &lt;chr&gt;,
+## #   away.team.club.name &lt;chr&gt;, player.jumperNumber &lt;int&gt;,
+## #   player.photoURL &lt;chr&gt;, player.player.position &lt;chr&gt;,
+## #   player.player.player.playerId &lt;chr&gt;, player.player.player.captain &lt;lgl&gt;,
+## #   player.player.player.playerJumperNumber &lt;int&gt;,
+## #   player.player.player.givenName &lt;chr&gt;, player.player.player.surname &lt;chr&gt;,
+## #   teamId &lt;chr&gt;, gamesPlayed &lt;lgl&gt;, timeOnGroundPercentage &lt;lgl&gt;, …
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+<pre class="r"><code>fetch_fixture(2022, source = &quot;AFL&quot;, comp = &quot;WAFL&quot;)</code></pre>
+<pre><code>## # A tibble: 96 × 53
+##       id provid…¹ utcSt…² status compS…³ compS…⁴ compS…⁵ compS…⁶ compS…⁷ round…⁸
+##    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;
+##  1  4458 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     681
+##  2  4457 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     681
+##  3  4459 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     681
+##  4  4460 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     681
+##  5  4461 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     681
+##  6  4462 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     682
+##  7  4463 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     682
+##  8  4464 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     682
+##  9  4465 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     682
+## 10  4466 CD_M202… 2022-0… CONCL…      49 CD_S20… 2022 W… 2022 W…      24     682
+## # … with 86 more rows, 43 more variables: round.providerId &lt;chr&gt;,
+## #   round.abbreviation &lt;chr&gt;, round.name &lt;chr&gt;, round.roundNumber &lt;int&gt;,
+## #   round.byes &lt;list&gt;, home.team.id &lt;int&gt;, home.team.providerId &lt;chr&gt;,
+## #   home.team.name &lt;chr&gt;, home.team.abbreviation &lt;chr&gt;,
+## #   home.team.nickname &lt;chr&gt;, home.team.teamType &lt;chr&gt;,
+## #   home.team.club.id &lt;int&gt;, home.team.club.providerId &lt;chr&gt;,
+## #   home.team.club.name &lt;chr&gt;, home.team.club.abbreviation &lt;chr&gt;, …
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+<div id="other-changes" class="section level3">
+<h3>Other changes</h3>
+<p>You can read about the rest of the bugs in the <a href="https://jimmyday12.github.io/fitzRoy/news/index.html">changelog</a></p>
+</div>

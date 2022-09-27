@@ -1,0 +1,79 @@
+---
+title: fitzRoy v1.2.0
+author: James Day
+date: '2022-09-29'
+slug: []
+categories:
+  - fitzroy
+tags: []
+subtitle: ''
+---
+
+I'm excited to announce the official v1.2.0 release of fitzRoy has landed on CRAN!
+
+This release includes a few new features and some improvements to bugs that had been reported. Read on to find out about them. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(fitzRoy)
+library(tidyverse)
+```
+
+### Breaking Change - default argument behaviour
+
+There was some inconsistencies in how `fetch_player_stats_afltables` handled NULL dates. For most functions, this would return the current season. However, for this particular function it was returning all data which was confusing. This has been changed to be consistent with other functions but will break existing code that relied on the incorrect logic so you should update your code where needed. 
+
+```{r}
+player_stats <- fetch_player_details()
+
+head(player_stats)
+```
+
+
+### Second 2022 AFLW Season is now returned
+
+Having two seasons in the same year for the AFLW competition was causing issues with all `fetch_*` functions. Specifically, the functions were only returning data for the first of the two seasons. 
+
+A change has been made that now returns both seasons when setting the `season` argument to "2022". This has been determined as the simplest, least disruptive option for now but may be reviewed in the future. You can use various fields in the returned data to filter out the season you are interested in. 
+
+```{r}
+aflw_fixture <- fetch_fixture_afl(2022, round_number = 1, comp = "AFLW")
+
+aflw_fixture %>%
+  dplyr::select(compSeason.id, compSeason.shortName,
+                round.id, round.name, 
+                home.team.name, away.team.name, venue.name)
+
+```
+
+
+
+### Non-AFL data
+
+An experimental feature as of version 1.2.0 is returning non-AFL related data. This only works for the source `AFL` but there are other comps that are available. These comps do not have as much data as the AFLM and AFLW comps but some functions will work. 
+
+Available comps include
+
+* "VFL"
+* "VFLW"
+* "WAFL"
+* "U18B"
+* "U18G"
+
+You will have to experiment with which dates, rounds and comps work for various functions but the API should at least return a NULL value or warning if no data exists. You will also note that not all data exists, particularly advanced statistics. Please note this feature is experimental and will be improved over time. 
+
+```{r}
+fetch_fixture(2022, source = "AFL", comp = "VFL")
+```
+
+```{r}
+fetch_player_stats(2022, round = 1, source = "AFL", comp = "VFLW")
+```
+
+```{r}
+fetch_fixture(2022, source = "AFL", comp = "WAFL")
+```
+
+### Other changes
+
+You can read about the rest of the bugs in the [changelog](https://jimmyday12.github.io/fitzRoy/news/index.html)
