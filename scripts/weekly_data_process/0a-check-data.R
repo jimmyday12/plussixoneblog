@@ -1,5 +1,5 @@
 # Check results
-check_results <- function() {
+check_results <- function(season) {
   new_results <- fetch_results_footywire(season, 
                                          round_number = NULL, 
                                          last_n_matches = 9) 
@@ -30,7 +30,7 @@ check_results <- function() {
   
 }
 
-check_fixture <- function() {
+check_fixture <- function(season) {
   old_dat <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
   
   if(is_null(old_dat$predictions)) return(FALSE)

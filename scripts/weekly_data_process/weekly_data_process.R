@@ -22,8 +22,8 @@ source(here::here("scripts", "weekly_data_process", "5-finals_sims.R"))
 filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
-season <- 2022
-new_season <- FALSE
+season <- 2023
+new_season <- TRUE
 save_data <- TRUE
 
 # Set ELO Parameters
@@ -38,10 +38,10 @@ sim_num <-  10000
 # Check Data ----------------------------------------------------------------
 
 # First check if new results exist
-new_results <- check_results()
-new_fixture <- check_fixture()
+new_results <- check_results(season)
+new_fixture <- check_fixture(season)
 
-if(new_results | new_fixture) {
+if(new_results | new_fixture | new_season) {
   message("New data found")
   new_data <- TRUE
 } else{
