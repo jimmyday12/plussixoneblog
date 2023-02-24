@@ -291,7 +291,7 @@ if (new_data) {
     # Save data
     
     write_rds(aflm_data, file = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
-    
+    write_csv(aflm_data$results, file = here::here("data_files", "processed-data", "AFLM_results.csv"))
     # Save Predictions
     if (!season_complete) {
       
@@ -300,10 +300,12 @@ if (new_data) {
       select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
     write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
     write_csv(predictions_csv, file = here::here("data_files", "raw-data", "predictions_new.csv"))
+    write_csv(predictions_csv, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
     }
     
     # Save elo
     write_csv(aflm_data$elo, file = here::here("data_files", "raw-data", "AFLM_elo.csv"))
+    write_csv(aflm_data$elo, file = here::here("data_files", "processed-data", "AFLM_elo.csv"))
     #elo <- read_csv(here::here("data_files", "raw-data", "AFLM_elo.csv"))
     elo <- aflm_data$elo
     
@@ -344,6 +346,11 @@ if (new_data) {
                 file = 
                   here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
       
+      write_csv(aflm_finals_sims$sims_combined,
+                file = here::here("data_files", "processed-data", "AFLM_sims_combined.csv"))
+      
+      write_csv(aflm_finals_sims$home_away_ongoing,
+                file = here::here("data_files", "processed-data", "AFLM_home_away_ongoing.csv"))
       
       # Save finals
       write_rds(finals_dat, 
