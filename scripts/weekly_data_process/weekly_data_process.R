@@ -300,7 +300,7 @@ if (new_data) {
       select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
     write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
     write_csv(predictions_csv, file = here::here("data_files", "raw-data", "predictions_new.csv"))
-    write_csv(predictions_csv, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
+    write_csv(aflm_data$predictions, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
     }
     
     # Save elo
@@ -346,10 +346,10 @@ if (new_data) {
                 file = 
                   here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
       
-      write_csv(aflm_finals_sims$sims_combined,
+      write_csv(finals_dat$sims_combined,
                 file = here::here("data_files", "processed-data", "AFLM_sims_combined.csv"))
       
-      write_csv(aflm_finals_sims$home_away_ongoing,
+      write_csv(data.frame(home_away_ongoing =finals_dat$home_away_ongoing),
                 file = here::here("data_files", "processed-data", "AFLM_home_away_ongoing.csv"))
       
       # Save finals
@@ -373,8 +373,4 @@ if (new_data) {
 
 print(proc.time() - ptm)
 message("Finished!")
-#rm(sim_dat)
-#rm(dat)
-# blogdown:::serve_site()
-# blogdown::hugo_build()
-# blogdown::build_site()
+
