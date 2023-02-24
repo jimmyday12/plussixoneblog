@@ -4,7 +4,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16193,2023-03-18,"Sat, 18",00:00,1,Docklands,North Melbourne,West Coast,4.3,0.543,North Melbourne by 4
 2023,16194,2023-03-18,"Sat, 18",00:00,1,Adelaide Oval,Port Adelaide,Brisbane Lions,2.3,0.523,Port Adelaide by 2
 2023,16195,2023-03-18,"Sat, 18",00:00,1,M.C.G.,Melbourne,Footscray,10.4,0.603,Melbourne by 10
-2023,16196,2023-03-18,"Sat, 18",00:00,1,Carrara,Gold Coast,Sydney,-4.9,0.451,Sydney by 5
+2023,16196,2023-03-18,"Sat, 18",00:00,1,Heritage Bank Stadium,Gold Coast,Sydney,-10,0.401,Sydney by 10
 2023,16197,2023-03-19,"Sun, 19",00:00,1,GIANTS Stadium,GWS,Adelaide,7.9,0.578,GWS by 8
 2023,16198,2023-03-19,"Sun, 19",00:00,1,M.C.G.,Hawthorn,Essendon,5.9,0.559,Hawthorn by 6
 2023,16199,2023-03-19,"Sun, 19",00:00,1,Docklands,St Kilda,Fremantle,3.5,0.535,St Kilda by 4
@@ -23,7 +23,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16212,2023-04-01,"Sat, 01",00:00,3,GIANTS Stadium,GWS,Carlton,-4.3,0.457,Carlton by 4
 2023,16213,2023-04-01,"Sat, 01",00:00,3,M.C.G.,St Kilda,Essendon,12.1,0.619,St Kilda by 12
 2023,16214,2023-04-01,"Sat, 01",00:00,3,Adelaide Oval,Port Adelaide,Adelaide,17.7,0.67,Port Adelaide by 18
-2023,16215,2023-04-02,"Sun, 02",00:00,3,Carrara,Gold Coast,Geelong,-10.9,0.393,Geelong by 11
+2023,16215,2023-04-02,"Sun, 02",00:00,3,Heritage Bank Stadium,Gold Coast,Geelong,-15.7,0.348,Geelong by 16
 2023,16216,2023-04-02,"Sun, 02",00:00,3,M.C.G.,Melbourne,Sydney,9.3,0.592,Melbourne by 9
 2023,16217,2023-04-02,"Sun, 02",00:00,3,Perth Stadium,Fremantle,West Coast,30.2,0.77,Fremantle by 30
 2023,16218,2023-04-06,"Thu, 06",00:00,4,Gabba,Brisbane Lions,Collingwood,15.5,0.65,Brisbane Lions by 16
@@ -50,7 +50,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16239,2023-04-22,"Sat, 22",00:00,6,Kardinia Park,Geelong,Sydney,14,0.636,Geelong by 14
 2023,16240,2023-04-23,"Sun, 23",00:00,6,University of Tasmania Stadium,Hawthorn,Adelaide,7.6,0.575,Hawthorn by 8
 2023,16241,2023-04-23,"Sun, 23",00:00,6,Docklands,Carlton,St Kilda,4,0.54,Carlton by 4
-2023,16242,2023-04-23,"Sun, 23",00:00,6,Carrara,Gold Coast,North Melbourne,32.7,0.787,Gold Coast by 33
+2023,16242,2023-04-23,"Sun, 23",00:00,6,Heritage Bank Stadium,Gold Coast,North Melbourne,28.1,0.755,Gold Coast by 28
 2023,16243,2023-04-24,"Mon, 24",00:00,6,M.C.G.,Melbourne,Richmond,8.3,0.582,Melbourne by 8
 2023,16244,2023-04-25,"Tue, 25",00:00,6,M.C.G.,Collingwood,Essendon,14.3,0.639,Collingwood by 14
 2023,16245,2023-04-28,"Fri, 28",00:00,7,Docklands,St Kilda,Port Adelaide,4.2,0.542,St Kilda by 4
@@ -65,7 +65,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16254,2023-05-05,"Fri, 05",00:00,8,Docklands,Carlton,Brisbane Lions,-0.4,0.496,Brisbane Lions by 0
 2023,16255,2023-05-06,"Sat, 06",00:00,8,M.C.G.,Richmond,West Coast,38.1,0.821,Richmond by 38
 2023,16256,2023-05-06,"Sat, 06",00:00,8,Kardinia Park,Geelong,Adelaide,36.3,0.81,Geelong by 36
-2023,16257,2023-05-06,"Sat, 06",00:00,8,Carrara,Gold Coast,Melbourne,-6.3,0.437,Melbourne by 6
+2023,16257,2023-05-06,"Sat, 06",00:00,8,Heritage Bank Stadium,Gold Coast,Melbourne,-11.1,0.391,Melbourne by 11
 2023,16258,2023-05-06,"Sat, 06",00:00,8,Manuka Oval,GWS,Footscray,-8.3,0.418,Footscray by 8
 2023,16259,2023-05-06,"Sat, 06",00:00,8,Perth Stadium,Fremantle,Hawthorn,18.7,0.679,Fremantle by 19
 2023,16260,2023-05-07,"Sun, 07",00:00,8,Adelaide Oval,Port Adelaide,Essendon,21.1,0.699,Port Adelaide by 21
@@ -124,10 +124,10 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16313,2023-06-24,"Sat, 24",00:00,15,S.C.G.,Sydney,West Coast,42.4,0.845,Sydney by 42
 2023,16314,2023-06-24,"Sat, 24",00:00,15,Perth Stadium,Fremantle,Essendon,21.8,0.705,Fremantle by 22
 2023,16315,2023-06-25,"Sun, 25",00:00,15,M.C.G.,Collingwood,Adelaide,20.9,0.698,Collingwood by 21
-2023,16316,2023-06-25,"Sun, 25",00:00,15,Carrara,Gold Coast,Hawthorn,13.1,0.628,Gold Coast by 13
+2023,16316,2023-06-25,"Sun, 25",00:00,15,Heritage Bank Stadium,Gold Coast,Hawthorn,8.2,0.581,Gold Coast by 8
 2023,16317,2023-06-29,"Thu, 29",00:00,16,Gabba,Brisbane Lions,Richmond,10.1,0.6,Brisbane Lions by 10
 2023,16318,2023-06-29,"Thu, 29",00:00,16,M.C.G.,Essendon,Port Adelaide,-5.4,0.446,Port Adelaide by 5
-2023,16319,2023-06-29,"Thu, 29",00:00,16,Carrara,Gold Coast,Collingwood,4.8,0.548,Gold Coast by 5
+2023,16319,2023-06-29,"Thu, 29",00:00,16,Heritage Bank Stadium,Gold Coast,Collingwood,-0.1,0.499,Collingwood by 0
 2023,16320,2023-06-29,"Thu, 29",00:00,16,M.C.G.,Hawthorn,Carlton,-4.9,0.451,Carlton by 5
 2023,16321,2023-06-29,"Thu, 29",00:00,16,S.C.G.,Sydney,Geelong,2.1,0.521,Sydney by 2
 2023,16322,2023-06-29,"Thu, 29",00:00,16,Docklands,Footscray,Fremantle,8.9,0.588,Footscray by 9
@@ -146,7 +146,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16335,2023-07-13,"Thu, 13",00:00,18,Docklands,Carlton,Port Adelaide,5.3,0.553,Carlton by 5
 2023,16336,2023-07-13,"Thu, 13",00:00,18,M.C.G.,Collingwood,Fremantle,5.4,0.554,Collingwood by 5
 2023,16337,2023-07-13,"Thu, 13",00:00,18,Kardinia Park,Geelong,Essendon,30.1,0.769,Geelong by 30
-2023,16338,2023-07-13,"Thu, 13",00:00,18,Carrara,Gold Coast,St Kilda,6.2,0.562,Gold Coast by 6
+2023,16338,2023-07-13,"Thu, 13",00:00,18,Heritage Bank Stadium,Gold Coast,St Kilda,1.6,0.516,Gold Coast by 2
 2023,16339,2023-07-13,"Thu, 13",00:00,18,M.C.G.,Melbourne,Brisbane Lions,11.1,0.609,Melbourne by 11
 2023,16340,2023-07-13,"Thu, 13",00:00,18,Docklands,North Melbourne,Hawthorn,-16.9,0.337,Hawthorn by 17
 2023,16341,2023-07-13,"Thu, 13",00:00,18,S.C.G.,Sydney,Footscray,13.8,0.635,Sydney by 14
@@ -164,7 +164,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16353,2023-07-28,"Fri, 28",00:00,20,M.C.G.,Collingwood,Carlton,3.5,0.535,Collingwood by 4
 2023,16354,2023-07-28,"Fri, 28",00:00,20,Docklands,Essendon,Sydney,-13,0.373,Sydney by 13
 2023,16355,2023-07-28,"Fri, 28",00:00,20,Kardinia Park,Geelong,Fremantle,20.9,0.698,Geelong by 21
-2023,16356,2023-07-28,"Fri, 28",00:00,20,Carrara,Gold Coast,Brisbane Lions,-7.9,0.422,Brisbane Lions by 8
+2023,16356,2023-07-28,"Fri, 28",00:00,20,Heritage Bank Stadium,Gold Coast,Brisbane Lions,-7.8,0.423,Brisbane Lions by 8
 2023,16357,2023-07-28,"Fri, 28",00:00,20,Docklands,Hawthorn,St Kilda,-3.9,0.461,St Kilda by 4
 2023,16358,2023-07-28,"Fri, 28",00:00,20,M.C.G.,Richmond,Melbourne,-2.5,0.475,Melbourne by 2
 2023,16359,2023-07-28,"Fri, 28",00:00,20,Eureka Stadium,Footscray,GWS,19.3,0.684,Footscray by 19
@@ -189,7 +189,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16378,2023-08-11,"Fri, 11",00:00,22,Adelaide Oval,Port Adelaide,GWS,17.7,0.67,Port Adelaide by 18
 2023,16379,2023-08-11,"Fri, 11",00:00,22,Perth Stadium,West Coast,Fremantle,-24.4,0.274,Fremantle by 24
 2023,16380,2023-08-18,"Fri, 18",00:00,23,Docklands,Collingwood,Brisbane Lions,-0.1,0.499,Brisbane Lions by 0
-2023,16381,2023-08-18,"Fri, 18",00:00,23,Carrara,Gold Coast,Carlton,4.9,0.549,Gold Coast by 5
+2023,16381,2023-08-18,"Fri, 18",00:00,23,Heritage Bank Stadium,Gold Coast,Carlton,0.5,0.505,Gold Coast by 0
 2023,16382,2023-08-18,"Fri, 18",00:00,23,GIANTS Stadium,GWS,Essendon,6.7,0.567,GWS by 7
 2023,16383,2023-08-18,"Fri, 18",00:00,23,M.C.G.,Melbourne,Hawthorn,22.1,0.708,Melbourne by 22
 2023,16384,2023-08-18,"Fri, 18",00:00,23,M.C.G.,Richmond,North Melbourne,37.2,0.816,Richmond by 37
