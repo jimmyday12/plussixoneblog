@@ -23,7 +23,7 @@ filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2023
-new_season <- TRUE
+new_season <- FALSE
 save_data <- TRUE
 
 # Set ELO Parameters
