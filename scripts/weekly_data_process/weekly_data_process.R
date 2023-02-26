@@ -365,10 +365,10 @@ if (new_data) {
   }
   
   # Touch files ------------------------------------------------------------------
-  blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
-  blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
-  blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
-  blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
+  #blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
+  #blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
+  #blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
+  #blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
 }
 
 print(proc.time() - ptm)

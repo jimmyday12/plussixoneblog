@@ -1,4 +1,4 @@
-name: Get new data and rebuild site
+name: Get new data
 
 on:
   workflow_dispatch:
@@ -21,17 +21,8 @@ jobs:
         run: |
           install.packages(c("devtools", "tidyverse", "pacman", "here", "fst", "blogdown", "lubridate", "reactable", "htmltools"))
           devtools::install_github("jimmyday12/fitzRoy", force = TRUE)
-        shell: Rscript {0}
-      - name: Install Hugo
-        run: Rscript -e 'blogdown::install_hugo(extended = TRUE, version = "0.66.0")'
       - name: Get data
         run: Rscript -e 'source(here::here("scripts", "weekly_data_process", "weekly_data_process.R"), echo = TRUE)'
-      - name: Build site
-        run: |
-          blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
-          blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
-          blogdown:::build_site(TRUE, build_rmd = 'timestamp')
-        shell: Rscript {0}  
       - uses: EndBug/add-and-commit@v7.1.0
         with:
           author_name: github-actions
