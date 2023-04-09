@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2023,16224,2023-04-09,"Sun, 09",00:00,4,Docklands,Essendon,GWS,13.1,0.628,Essendon by 13
 2023,16225,2023-04-09,"Sun, 09",00:00,4,Perth Stadium,West Coast,Melbourne,-15.8,0.347,Melbourne by 16
 2023,16226,2023-04-10,"Mon, 10",00:00,4,M.C.G.,Geelong,Hawthorn,17.3,0.666,Geelong by 17
 2023,16227,2023-04-13,"Thu, 13",00:00,5,Adelaide Oval,Adelaide,Carlton,2.7,0.527,Adelaide by 3
@@ -77,7 +76,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2023,16299,2023-06-10,"Sat, 10",00:00,13,M.C.G.,Hawthorn,Brisbane Lions,-5,0.45,Brisbane Lions by 5
 2023,16300,2023-06-10,"Sat, 10",00:00,13,Adelaide Oval,Adelaide,West Coast,16.5,0.659,Adelaide by 16
 2023,16301,2023-06-10,"Sat, 10",00:00,13,Perth Stadium,Fremantle,Richmond,3.5,0.535,Fremantle by 4
-2023,16302,2023-06-11,"Sun, 11",00:00,13,Bellerive Oval,North Melbourne,GWS,-6.2,0.438,GWS by 6
+2023,16302,2023-06-11,"Sun, 11",00:00,13,Bellerive Oval,North Melbourne,GWS,-6.3,0.437,GWS by 6
 2023,16303,2023-06-11,"Sun, 11",00:00,13,M.C.G.,Carlton,Essendon,4.1,0.541,Carlton by 4
 2023,16304,2023-06-12,"Mon, 12",00:00,13,M.C.G.,Melbourne,Collingwood,8.5,0.584,Melbourne by 8
 2023,16305,2023-06-15,"Thu, 15",00:00,14,Adelaide Oval,Port Adelaide,Geelong,3.4,0.534,Port Adelaide by 3
