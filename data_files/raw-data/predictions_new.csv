@@ -3,7 +3,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-04-22,Port Adelaide,West Coast,0.712,22.6
 2023,2023-04-22,GWS,Brisbane Lions,0.44,-6
 2023,2023-04-22,Geelong,Sydney,0.546,4.6
-2023,2023-04-23,Hawthorn,Adelaide,0.41,-9.1
+2023,2023-04-23,Hawthorn,Adelaide,0.415,-8.6
 2023,2023-04-23,Carlton,St Kilda,0.457,-4.3
 2023,2023-04-23,Gold Coast,North Melbourne,0.62,12.2
 2023,2023-04-24,Melbourne,Richmond,0.624,12.7
@@ -41,7 +41,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-05-20,Fremantle,Geelong,0.504,0.4
 2023,2023-05-20,Brisbane Lions,Gold Coast,0.643,14.7
 2023,2023-05-20,Essendon,Richmond,0.529,2.9
-2023,2023-05-21,Hawthorn,West Coast,0.553,5.3
+2023,2023-05-21,Hawthorn,West Coast,0.558,5.8
 2023,2023-05-21,Carlton,Collingwood,0.459,-4.1
 2023,2023-05-21,GWS,St Kilda,0.417,-8.4
 2023,2023-05-26,Sydney,Carlton,0.687,19.7
