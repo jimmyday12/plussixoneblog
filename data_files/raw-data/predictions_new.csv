@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2023,2023-04-21,Fremantle,Footscray,0.615,11.7
 2023,2023-04-22,Port Adelaide,West Coast,0.712,22.6
 2023,2023-04-22,GWS,Brisbane Lions,0.44,-6
 2023,2023-04-22,Geelong,Sydney,0.546,4.6
@@ -85,7 +84,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-06-29,Gold Coast,Collingwood,0.403,-9.8
 2023,2023-06-29,Hawthorn,Carlton,0.408,-9.3
 2023,2023-06-29,Sydney,Geelong,0.613,11.5
-2023,2023-06-29,Footscray,Fremantle,0.539,3.9
+2023,2023-06-29,Footscray,Fremantle,0.54,4
 2023,2023-06-29,Adelaide,North Melbourne,0.719,23.5
 2023,2023-06-29,Melbourne,GWS,0.689,19.9
 2023,2023-06-29,West Coast,St Kilda,0.369,-13.4
