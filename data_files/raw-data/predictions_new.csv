@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2023,2023-05-19,Port Adelaide,Melbourne,0.46,-4
 2023,2023-05-20,North Melbourne,Sydney,0.325,-18.3
 2023,2023-05-20,Footscray,Adelaide,0.575,7.6
 2023,2023-05-20,Fremantle,Geelong,0.454,-4.6
@@ -87,7 +86,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-29,Essendon,Sydney,0.529,2.9
 2023,2023-07-29,Adelaide,Port Adelaide,0.512,1.2
 2023,2023-07-30,Hawthorn,St Kilda,0.329,-17.8
-2023,2023-07-30,Richmond,Melbourne,0.409,-9.2
+2023,2023-07-30,Richmond,Melbourne,0.408,-9.3
 2023,2023-07-30,West Coast,North Melbourne,0.567,6.7
 2023,2023-08-04,Footscray,Richmond,0.517,1.7
 2023,2023-08-05,Essendon,West Coast,0.77,30.2
@@ -123,5 +122,5 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-25,Hawthorn,Fremantle,0.437,-6.3
 2023,2023-08-25,North Melbourne,Gold Coast,0.354,-15
 2023,2023-08-25,Sydney,Melbourne,0.492,-0.8
-2023,2023-08-25,Port Adelaide,Richmond,0.581,8.2
+2023,2023-08-25,Port Adelaide,Richmond,0.58,8.1
 2023,2023-08-25,West Coast,Adelaide,0.359,-14.5
