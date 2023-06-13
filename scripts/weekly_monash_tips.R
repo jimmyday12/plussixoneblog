@@ -39,6 +39,8 @@ round_fnc <- function(x) {
     }
 }
   
+#round <- 15
+#round <- 16
   
 predictions <- predictions %>%
   filter(Round.Number == min(Round.Number)) %>%
@@ -70,9 +72,11 @@ pred_games <- monash_games %>%
 pred_games
 
 # Submit - normal
-pred_games %>%
+x <- pred_games %>%
   select(-`Std. Dev.`, -Probability) %>%
   monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "normal")
+
+x
 
 #pred_games %>%
 #  select(-`Std. Dev.`, -Probability) %>%
@@ -88,3 +92,9 @@ pred_games %>%
   select(-`Std. Dev.`, -Margin) %>%
   monashtipr::submit_tips(user = user, pass = pass, round = round, comp = "info")
 
+# Write results
+x <- x %>%
+  mutate(Date = Sys.Date(),
+         Round = round)
+
+write_csv(x, here::here("data_files", "monash", "monash_latest.csv"))
