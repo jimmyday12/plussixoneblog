@@ -97,4 +97,4 @@ x <- x %>%
   mutate(Date = Sys.Date(),
          Round = round)
 
-write_csv(x, here::here("data_files", "monash", "monash_latest.csv"))
+write_csv(x, here::here("monash_latest.csv"))
