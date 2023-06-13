@@ -9,7 +9,7 @@ on:
       - main
       
 jobs:
-  get-data-and-rebuild:
+  do-monash-tips:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
