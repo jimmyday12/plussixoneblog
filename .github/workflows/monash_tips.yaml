@@ -1,4 +1,4 @@
-name: Try Monash Tips
+name: update data
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
       - main
       
 jobs:
-  do-monash-tips:
+  update-data:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
