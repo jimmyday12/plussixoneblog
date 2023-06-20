@@ -8,7 +8,8 @@ library(tidyverse)
 # Get user/password
 user <- Sys.getenv("MONASH_REAL_USER")
 pass =  Sys.getenv("MONASH_REAL_PASS")
-
+user
+pass
 # Function to map my predictions names to monash names
 map_names_to_monash <- function(names) {
   dplyr::case_when(
