@@ -20,6 +20,9 @@ jobs:
           devtools::install_github("jimmyday12/fitzRoy", force = TRUE)
         shell: Rscript {0}
       - name: run tips script
+        env:
+          MONASH_REAL_USER: ${{ secrets.MONASH_REAL_USER }}
+          MONASH_REAL_PASS: ${{ secrets.MONASH_REAL_PASS }}
         run: Rscript -e 'source(here::here("scripts", "weekly_monash_tips.R"), echo = TRUE)'
       - uses: EndBug/add-and-commit@v7.1.0
         with:
