@@ -7,9 +7,9 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-02,Hawthorn,Carlton,0.4,-10.1
 2023,2023-07-02,Melbourne,GWS,0.686,19.5
 2023,2023-07-02,West Coast,St Kilda,0.275,-24.2
-2023,2023-07-06,Richmond,Sydney,0.552,5.2
+2023,2023-07-06,Richmond,Sydney,0.536,3.6
 2023,2023-07-07,Footscray,Collingwood,0.441,-5.9
-2023,2023-07-08,Brisbane Lions,West Coast,0.86,45.4
+2023,2023-07-08,Brisbane Lions,West Coast,0.867,46.9
 2023,2023-07-08,GWS,Hawthorn,0.619,12.1
 2023,2023-07-08,St Kilda,Melbourne,0.438,-6.2
 2023,2023-07-08,Port Adelaide,Gold Coast,0.654,15.9
@@ -17,18 +17,18 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-09,Essendon,Adelaide,0.578,7.9
 2023,2023-07-09,Fremantle,Carlton,0.563,6.3
 2023,2023-07-13,Sydney,Footscray,0.629,13.2
-2023,2023-07-14,Melbourne,Brisbane Lions,0.621,12.3
+2023,2023-07-14,Melbourne,Brisbane Lions,0.606,10.8
 2023,2023-07-15,Collingwood,Fremantle,0.683,19.2
 2023,2023-07-15,Gold Coast,St Kilda,0.474,-2.6
 2023,2023-07-15,Carlton,Port Adelaide,0.521,2.1
 2023,2023-07-15,Geelong,Essendon,0.612,11.4
 2023,2023-07-15,Adelaide,GWS,0.627,13
 2023,2023-07-16,North Melbourne,Hawthorn,0.459,-4.1
-2023,2023-07-16,West Coast,Richmond,0.277,-24
+2023,2023-07-16,West Coast,Richmond,0.29,-22.4
 2023,2023-07-21,Essendon,Footscray,0.534,3.4
-2023,2023-07-22,Richmond,Hawthorn,0.682,19.1
+2023,2023-07-22,Richmond,Hawthorn,0.668,17.5
 2023,2023-07-22,Carlton,West Coast,0.813,36.7
-2023,2023-07-22,Brisbane Lions,Geelong,0.571,7.1
+2023,2023-07-22,Brisbane Lions,Geelong,0.586,8.7
 2023,2023-07-22,Fremantle,Sydney,0.507,0.7
 2023,2023-07-22,Port Adelaide,Collingwood,0.539,3.9
 2023,2023-07-23,GWS,Gold Coast,0.519,1.9
@@ -37,13 +37,13 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-28,Collingwood,Carlton,0.624,12.7
 2023,2023-07-29,Geelong,Fremantle,0.681,19
 2023,2023-07-29,Footscray,GWS,0.619,12.1
-2023,2023-07-29,Gold Coast,Brisbane Lions,0.425,-7.6
+2023,2023-07-29,Gold Coast,Brisbane Lions,0.409,-9.2
 2023,2023-07-29,Essendon,Sydney,0.533,3.3
 2023,2023-07-29,Adelaide,Port Adelaide,0.484,-1.6
 2023,2023-07-30,Hawthorn,St Kilda,0.365,-13.8
-2023,2023-07-30,Richmond,Melbourne,0.431,-6.9
+2023,2023-07-30,Richmond,Melbourne,0.416,-8.5
 2023,2023-07-30,West Coast,North Melbourne,0.494,-0.6
-2023,2023-08-04,Footscray,Richmond,0.507,0.7
+2023,2023-08-04,Footscray,Richmond,0.523,2.3
 2023,2023-08-05,Essendon,West Coast,0.82,37.9
 2023,2023-08-05,Adelaide,Gold Coast,0.612,11.4
 2023,2023-08-05,Hawthorn,Collingwood,0.31,-20
@@ -51,18 +51,18 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-05,GWS,Sydney,0.436,-6.4
 2023,2023-08-06,North Melbourne,Melbourne,0.233,-29.8
 2023,2023-08-06,St Kilda,Carlton,0.563,6.3
-2023,2023-08-06,Fremantle,Brisbane Lions,0.481,-1.9
+2023,2023-08-06,Fremantle,Brisbane Lions,0.466,-3.4
 2023,2023-08-11,Collingwood,Geelong,0.535,3.5
 2023,2023-08-12,North Melbourne,Essendon,0.323,-18.5
 2023,2023-08-12,Sydney,Gold Coast,0.654,15.9
-2023,2023-08-12,Brisbane Lions,Adelaide,0.65,15.5
+2023,2023-08-12,Brisbane Lions,Adelaide,0.664,17
 2023,2023-08-12,Carlton,Melbourne,0.401,-10
 2023,2023-08-12,West Coast,Fremantle,0.274,-24.4
 2023,2023-08-13,Hawthorn,Footscray,0.398,-10.3
-2023,2023-08-13,St Kilda,Richmond,0.535,3.5
+2023,2023-08-13,St Kilda,Richmond,0.551,5.1
 2023,2023-08-13,Port Adelaide,GWS,0.667,17.4
-2023,2023-08-18,Collingwood,Brisbane Lions,0.588,8.9
-2023,2023-08-19,Richmond,North Melbourne,0.745,26.8
+2023,2023-08-18,Collingwood,Brisbane Lions,0.572,7.3
+2023,2023-08-19,Richmond,North Melbourne,0.733,25.2
 2023,2023-08-19,Gold Coast,Carlton,0.509,0.9
 2023,2023-08-19,GWS,Essendon,0.481,-1.9
 2023,2023-08-19,St Kilda,Geelong,0.476,-2.4
@@ -70,12 +70,12 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-20,Footscray,West Coast,0.816,37.2
 2023,2023-08-20,Melbourne,Hawthorn,0.76,28.8
 2023,2023-08-20,Fremantle,Port Adelaide,0.509,0.9
-2023,2023-08-25,Brisbane Lions,St Kilda,0.627,13
+2023,2023-08-25,Brisbane Lions,St Kilda,0.641,14.5
 2023,2023-08-25,Carlton,GWS,0.613,11.5
 2023,2023-08-25,Essendon,Collingwood,0.443,-5.7
 2023,2023-08-25,Geelong,Footscray,0.619,12.1
 2023,2023-08-25,Hawthorn,Fremantle,0.464,-3.6
 2023,2023-08-25,North Melbourne,Gold Coast,0.358,-14.6
 2023,2023-08-25,Sydney,Melbourne,0.51,1
-2023,2023-08-25,Port Adelaide,Richmond,0.603,10.4
+2023,2023-08-25,Port Adelaide,Richmond,0.618,12
 2023,2023-08-25,West Coast,Adelaide,0.294,-21.9
