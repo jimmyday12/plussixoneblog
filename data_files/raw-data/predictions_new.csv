@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2023,2023-07-08,Brisbane Lions,West Coast,0.865,46.4
 2023,2023-07-08,GWS,Hawthorn,0.636,14
 2023,2023-07-08,St Kilda,Melbourne,0.44,-6
 2023,2023-07-08,Port Adelaide,Gold Coast,0.673,18
@@ -7,18 +6,18 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-09,Essendon,Adelaide,0.569,6.9
 2023,2023-07-09,Fremantle,Carlton,0.547,4.7
 2023,2023-07-13,Sydney,Footscray,0.623,12.6
-2023,2023-07-14,Melbourne,Brisbane Lions,0.6,10.1
+2023,2023-07-14,Melbourne,Brisbane Lions,0.596,9.7
 2023,2023-07-15,Collingwood,Fremantle,0.705,21.8
 2023,2023-07-15,Gold Coast,St Kilda,0.457,-4.3
 2023,2023-07-15,Carlton,Port Adelaide,0.531,3.1
 2023,2023-07-15,Geelong,Essendon,0.616,11.8
 2023,2023-07-15,Adelaide,GWS,0.627,13
 2023,2023-07-16,North Melbourne,Hawthorn,0.464,-3.6
-2023,2023-07-16,West Coast,Richmond,0.292,-22.1
+2023,2023-07-16,West Coast,Richmond,0.288,-22.6
 2023,2023-07-21,Essendon,Footscray,0.529,2.9
 2023,2023-07-22,Richmond,Hawthorn,0.681,19
-2023,2023-07-22,Carlton,West Coast,0.817,37.4
-2023,2023-07-22,Brisbane Lions,Geelong,0.585,8.6
+2023,2023-07-22,Carlton,West Coast,0.82,37.9
+2023,2023-07-22,Brisbane Lions,Geelong,0.589,9
 2023,2023-07-22,Fremantle,Sydney,0.506,0.6
 2023,2023-07-22,Port Adelaide,Collingwood,0.52,2
 2023,2023-07-23,GWS,Gold Coast,0.544,4.4
@@ -27,40 +26,40 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-28,Collingwood,Carlton,0.632,13.5
 2023,2023-07-29,Geelong,Fremantle,0.686,19.5
 2023,2023-07-29,Footscray,GWS,0.617,11.9
-2023,2023-07-29,Gold Coast,Brisbane Lions,0.39,-11.2
+2023,2023-07-29,Gold Coast,Brisbane Lions,0.386,-11.6
 2023,2023-07-29,Essendon,Sydney,0.535,3.5
 2023,2023-07-29,Adelaide,Port Adelaide,0.489,-1.1
 2023,2023-07-30,Hawthorn,St Kilda,0.358,-14.6
 2023,2023-07-30,Richmond,Melbourne,0.425,-7.6
-2023,2023-07-30,West Coast,North Melbourne,0.505,0.5
+2023,2023-07-30,West Coast,North Melbourne,0.501,0.1
 2023,2023-08-04,Footscray,Richmond,0.524,2.4
-2023,2023-08-05,Essendon,West Coast,0.816,37.2
+2023,2023-08-05,Essendon,West Coast,0.819,37.7
 2023,2023-08-05,Adelaide,Gold Coast,0.637,14.1
 2023,2023-08-05,Hawthorn,Collingwood,0.283,-23.2
 2023,2023-08-05,Geelong,Port Adelaide,0.615,11.7
 2023,2023-08-05,GWS,Sydney,0.446,-5.4
 2023,2023-08-06,North Melbourne,Melbourne,0.232,-29.9
 2023,2023-08-06,St Kilda,Carlton,0.547,4.7
-2023,2023-08-06,Fremantle,Brisbane Lions,0.461,-3.9
+2023,2023-08-06,Fremantle,Brisbane Lions,0.457,-4.3
 2023,2023-08-11,Collingwood,Geelong,0.555,5.5
 2023,2023-08-12,North Melbourne,Essendon,0.318,-19.1
 2023,2023-08-12,Sydney,Gold Coast,0.668,17.5
-2023,2023-08-12,Brisbane Lions,Adelaide,0.657,16.2
+2023,2023-08-12,Brisbane Lions,Adelaide,0.661,16.7
 2023,2023-08-12,Carlton,Melbourne,0.418,-8.3
-2023,2023-08-12,West Coast,Fremantle,0.281,-23.5
+2023,2023-08-12,West Coast,Fremantle,0.277,-24
 2023,2023-08-13,Hawthorn,Footscray,0.383,-11.9
 2023,2023-08-13,St Kilda,Richmond,0.544,4.4
 2023,2023-08-13,Port Adelaide,GWS,0.664,17
-2023,2023-08-18,Collingwood,Brisbane Lions,0.592,9.3
+2023,2023-08-18,Collingwood,Brisbane Lions,0.588,8.9
 2023,2023-08-19,Richmond,North Melbourne,0.74,26.1
 2023,2023-08-19,Gold Coast,Carlton,0.477,-2.3
 2023,2023-08-19,GWS,Essendon,0.489,-1.1
 2023,2023-08-19,St Kilda,Geelong,0.47,-3
 2023,2023-08-19,Adelaide,Sydney,0.545,4.5
-2023,2023-08-20,Footscray,West Coast,0.816,37.2
+2023,2023-08-20,Footscray,West Coast,0.819,37.7
 2023,2023-08-20,Melbourne,Hawthorn,0.765,29.5
 2023,2023-08-20,Fremantle,Port Adelaide,0.502,0.2
-2023,2023-08-25,Brisbane Lions,St Kilda,0.645,14.9
+2023,2023-08-25,Brisbane Lions,St Kilda,0.649,15.4
 2023,2023-08-25,Carlton,GWS,0.619,12.1
 2023,2023-08-25,Essendon,Collingwood,0.42,-8.1
 2023,2023-08-25,Geelong,Footscray,0.617,11.9
@@ -68,4 +67,4 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-25,North Melbourne,Gold Coast,0.37,-13.3
 2023,2023-08-25,Sydney,Melbourne,0.513,1.3
 2023,2023-08-25,Port Adelaide,Richmond,0.618,12
-2023,2023-08-25,West Coast,Adelaide,0.292,-22.1
+2023,2023-08-25,West Coast,Adelaide,0.288,-22.6
