@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2023,2023-07-08,GWS,Hawthorn,0.636,14
 2023,2023-07-08,St Kilda,Melbourne,0.44,-6
 2023,2023-07-08,Port Adelaide,Gold Coast,0.673,18
 2023,2023-07-09,Geelong,North Melbourne,0.794,33.7
@@ -11,7 +10,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-07-15,Gold Coast,St Kilda,0.457,-4.3
 2023,2023-07-15,Carlton,Port Adelaide,0.531,3.1
 2023,2023-07-15,Geelong,Essendon,0.616,11.8
-2023,2023-07-15,Adelaide,GWS,0.627,13
+2023,2023-07-15,Adelaide,GWS,0.628,13.1
 2023,2023-07-16,North Melbourne,Hawthorn,0.464,-3.6
 2023,2023-07-16,West Coast,Richmond,0.288,-22.6
 2023,2023-07-21,Essendon,Footscray,0.529,2.9
@@ -37,7 +36,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-05,Adelaide,Gold Coast,0.637,14.1
 2023,2023-08-05,Hawthorn,Collingwood,0.283,-23.2
 2023,2023-08-05,Geelong,Port Adelaide,0.615,11.7
-2023,2023-08-05,GWS,Sydney,0.446,-5.4
+2023,2023-08-05,GWS,Sydney,0.445,-5.5
 2023,2023-08-06,North Melbourne,Melbourne,0.232,-29.9
 2023,2023-08-06,St Kilda,Carlton,0.547,4.7
 2023,2023-08-06,Fremantle,Brisbane Lions,0.457,-4.3
@@ -60,7 +59,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-20,Melbourne,Hawthorn,0.765,29.5
 2023,2023-08-20,Fremantle,Port Adelaide,0.502,0.2
 2023,2023-08-25,Brisbane Lions,St Kilda,0.649,15.4
-2023,2023-08-25,Carlton,GWS,0.619,12.1
+2023,2023-08-25,Carlton,GWS,0.62,12.2
 2023,2023-08-25,Essendon,Collingwood,0.42,-8.1
 2023,2023-08-25,Geelong,Footscray,0.617,11.9
 2023,2023-08-25,Hawthorn,Fremantle,0.456,-4.4
