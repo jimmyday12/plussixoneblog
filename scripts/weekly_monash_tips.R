@@ -95,7 +95,7 @@ pred_games %>%
 
 # Write results
 x <- x %>%
-  mutate(Date = Sys.Date(),
+  mutate(Date = Sys.time(),
          Round = round)
 
 write_csv(x, here::here("monash_latest.csv"))
