@@ -10,24 +10,24 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-04,Footscray,Richmond,0.538,3.8
 2023,2023-08-05,Essendon,West Coast,0.81,36.3
 2023,2023-08-05,Adelaide,Gold Coast,0.635,13.8
-2023,2023-08-05,Hawthorn,Collingwood,0.292,-22.1
+2023,2023-08-05,Hawthorn,Collingwood,0.298,-21.4
 2023,2023-08-05,Geelong,Port Adelaide,0.639,14.3
 2023,2023-08-05,GWS,Sydney,0.454,-4.6
 2023,2023-08-06,North Melbourne,Melbourne,0.227,-30.6
-2023,2023-08-06,St Kilda,Carlton,0.503,0.3
+2023,2023-08-06,St Kilda,Carlton,0.495,-0.5
 2023,2023-08-06,Fremantle,Brisbane Lions,0.427,-7.4
-2023,2023-08-11,Collingwood,Geelong,0.542,4.2
+2023,2023-08-11,Collingwood,Geelong,0.534,3.4
 2023,2023-08-12,North Melbourne,Essendon,0.329,-17.8
 2023,2023-08-12,Sydney,Gold Coast,0.676,18.4
 2023,2023-08-12,Brisbane Lions,Adelaide,0.67,17.7
-2023,2023-08-12,Carlton,Melbourne,0.449,-5.1
+2023,2023-08-12,Carlton,Melbourne,0.457,-4.3
 2023,2023-08-12,West Coast,Fremantle,0.293,-22
 2023,2023-08-13,Hawthorn,Footscray,0.385,-11.7
 2023,2023-08-13,St Kilda,Richmond,0.53,3
 2023,2023-08-13,Port Adelaide,GWS,0.644,14.8
-2023,2023-08-18,Collingwood,Brisbane Lions,0.59,9.1
+2023,2023-08-18,Collingwood,Brisbane Lions,0.582,8.3
 2023,2023-08-19,Richmond,North Melbourne,0.746,26.9
-2023,2023-08-19,Gold Coast,Carlton,0.443,-5.7
+2023,2023-08-19,Gold Coast,Carlton,0.435,-6.5
 2023,2023-08-19,GWS,Essendon,0.524,2.4
 2023,2023-08-19,St Kilda,Geelong,0.437,-6.3
 2023,2023-08-19,Adelaide,Sydney,0.535,3.5
@@ -35,8 +35,8 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2023,2023-08-20,Melbourne,Hawthorn,0.751,27.6
 2023,2023-08-20,Fremantle,Port Adelaide,0.484,-1.6
 2023,2023-08-25,Brisbane Lions,St Kilda,0.667,17.4
-2023,2023-08-25,Carlton,GWS,0.633,13.6
-2023,2023-08-25,Essendon,Collingwood,0.395,-10.7
+2023,2023-08-25,Carlton,GWS,0.64,14.4
+2023,2023-08-25,Essendon,Collingwood,0.402,-9.9
 2023,2023-08-25,Geelong,Footscray,0.622,12.5
 2023,2023-08-25,Hawthorn,Fremantle,0.498,-0.2
 2023,2023-08-25,North Melbourne,Gold Coast,0.365,-13.8
