@@ -1,13 +1,11 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2023,16386,2023-08-20,"Sun, 20",00:00,23,Docklands,Footscray,West Coast,40.2,0.833,Footscray by 40
-2023,16387,2023-08-20,"Sun, 20",00:00,23,M.C.G.,Melbourne,Hawthorn,26.7,0.744,Melbourne by 27
 2023,16388,2023-08-20,"Sun, 20",00:00,23,Perth Stadium,Fremantle,Port Adelaide,0.8,0.508,Fremantle by 1
 2023,16389,2023-08-25,"Fri, 25",00:00,24,M.C.G.,Essendon,Collingwood,-11.2,0.39,Collingwood by 11
 2023,16390,2023-08-26,"Sat, 26",00:00,24,M.C.G.,Hawthorn,Fremantle,-1,0.49,Fremantle by 1
 2023,16391,2023-08-26,"Sat, 26",00:00,24,Bellerive Oval,North Melbourne,Gold Coast,-14.7,0.357,Gold Coast by 15
 2023,16392,2023-08-26,"Sat, 26",00:00,24,Gabba,Brisbane Lions,St Kilda,14.9,0.645,Brisbane Lions by 15
-2023,16393,2023-08-26,"Sat, 26",00:00,24,Kardinia Park,Geelong,Footscray,10.2,0.601,Geelong by 10
-2023,16394,2023-08-26,"Sat, 26",00:00,24,Perth Stadium,West Coast,Adelaide,-24.5,0.273,Adelaide by 24
+2023,16393,2023-08-26,"Sat, 26",00:00,24,Kardinia Park,Geelong,Footscray,11.4,0.612,Geelong by 11
+2023,16394,2023-08-26,"Sat, 26",00:00,24,Perth Stadium,West Coast,Adelaide,-23.2,0.283,Adelaide by 23
 2023,16395,2023-08-27,"Sun, 27",00:00,24,Adelaide Oval,Port Adelaide,Richmond,13.4,0.631,Port Adelaide by 13
 2023,16396,2023-08-27,"Sun, 27",00:00,24,S.C.G.,Sydney,Melbourne,2.2,0.522,Sydney by 2
 2023,16397,2023-08-27,"Sun, 27",00:00,24,Docklands,Carlton,GWS,13.3,0.63,Carlton by 13
