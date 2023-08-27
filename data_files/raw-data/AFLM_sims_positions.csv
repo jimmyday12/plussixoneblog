@@ -23741,8 +23741,7 @@ Fremantle,15,NA,NA,,2023,24
 Fremantle,16,NA,NA,,2023,24
 Fremantle,17,NA,NA,,2023,24
 Fremantle,18,NA,NA,,2023,24
-Geelong,12,78.71000000000001,1,79,2023,24
-Geelong,13,21.29,2,21,2023,24
+Geelong,12,100,1,100,2023,24
 Geelong,1,NA,NA,,2023,24
 Geelong,2,NA,NA,,2023,24
 Geelong,3,NA,NA,,2023,24
@@ -23754,14 +23753,13 @@ Geelong,8,NA,NA,,2023,24
 Geelong,9,NA,NA,,2023,24
 Geelong,10,NA,NA,,2023,24
 Geelong,11,NA,NA,,2023,24
+Geelong,13,NA,NA,,2023,24
 Geelong,14,NA,NA,,2023,24
 Geelong,15,NA,NA,,2023,24
 Geelong,16,NA,NA,,2023,24
 Geelong,17,NA,NA,,2023,24
 Geelong,18,NA,NA,,2023,24
-Richmond,13,78.71000000000001,1,79,2023,24
-Richmond,10,19.71,2,20,2023,24
-Richmond,11,1.58,3,2,2023,24
+Richmond,13,100,1,100,2023,24
 Richmond,1,NA,NA,,2023,24
 Richmond,2,NA,NA,,2023,24
 Richmond,3,NA,NA,,2023,24
@@ -23771,14 +23769,15 @@ Richmond,6,NA,NA,,2023,24
 Richmond,7,NA,NA,,2023,24
 Richmond,8,NA,NA,,2023,24
 Richmond,9,NA,NA,,2023,24
+Richmond,10,NA,NA,,2023,24
+Richmond,11,NA,NA,,2023,24
 Richmond,12,NA,NA,,2023,24
 Richmond,14,NA,NA,,2023,24
 Richmond,15,NA,NA,,2023,24
 Richmond,16,NA,NA,,2023,24
 Richmond,17,NA,NA,,2023,24
 Richmond,18,NA,NA,,2023,24
-Adelaide,10,80.28999999999999,1,80,2023,24
-Adelaide,11,19.71,2,20,2023,24
+Adelaide,10,100,1,100,2023,24
 Adelaide,1,NA,NA,,2023,24
 Adelaide,2,NA,NA,,2023,24
 Adelaide,3,NA,NA,,2023,24
@@ -23788,6 +23787,7 @@ Adelaide,6,NA,NA,,2023,24
 Adelaide,7,NA,NA,,2023,24
 Adelaide,8,NA,NA,,2023,24
 Adelaide,9,NA,NA,,2023,24
+Adelaide,11,NA,NA,,2023,24
 Adelaide,12,NA,NA,,2023,24
 Adelaide,13,NA,NA,,2023,24
 Adelaide,14,NA,NA,,2023,24
@@ -23795,8 +23795,7 @@ Adelaide,15,NA,NA,,2023,24
 Adelaide,16,NA,NA,,2023,24
 Adelaide,17,NA,NA,,2023,24
 Adelaide,18,NA,NA,,2023,24
-Essendon,11,78.71000000000001,1,79,2023,24
-Essendon,12,21.29,2,21,2023,24
+Essendon,11,100,1,100,2023,24
 Essendon,1,NA,NA,,2023,24
 Essendon,2,NA,NA,,2023,24
 Essendon,3,NA,NA,,2023,24
@@ -23807,6 +23806,7 @@ Essendon,7,NA,NA,,2023,24
 Essendon,8,NA,NA,,2023,24
 Essendon,9,NA,NA,,2023,24
 Essendon,10,NA,NA,,2023,24
+Essendon,12,NA,NA,,2023,24
 Essendon,13,NA,NA,,2023,24
 Essendon,14,NA,NA,,2023,24
 Essendon,15,NA,NA,,2023,24
@@ -23903,10 +23903,10 @@ Carlton,15,NA,NA,,2023,24
 Carlton,16,NA,NA,,2023,24
 Carlton,17,NA,NA,,2023,24
 Carlton,18,NA,NA,,2023,24
-Melbourne,4,91.23,1,91,2023,24
-Melbourne,3,8.77,2,9,2023,24
+Melbourne,4,100,1,100,2023,24
 Melbourne,1,NA,NA,,2023,24
 Melbourne,2,NA,NA,,2023,24
+Melbourne,3,NA,NA,,2023,24
 Melbourne,5,NA,NA,,2023,24
 Melbourne,6,NA,NA,,2023,24
 Melbourne,7,NA,NA,,2023,24
@@ -23921,24 +23921,6 @@ Melbourne,15,NA,NA,,2023,24
 Melbourne,16,NA,NA,,2023,24
 Melbourne,17,NA,NA,,2023,24
 Melbourne,18,NA,NA,,2023,24
-Port Adelaide,3,91.23,1,91,2023,24
-Port Adelaide,4,8.77,2,9,2023,24
-Port Adelaide,1,NA,NA,,2023,24
-Port Adelaide,2,NA,NA,,2023,24
-Port Adelaide,5,NA,NA,,2023,24
-Port Adelaide,6,NA,NA,,2023,24
-Port Adelaide,7,NA,NA,,2023,24
-Port Adelaide,8,NA,NA,,2023,24
-Port Adelaide,9,NA,NA,,2023,24
-Port Adelaide,10,NA,NA,,2023,24
-Port Adelaide,11,NA,NA,,2023,24
-Port Adelaide,12,NA,NA,,2023,24
-Port Adelaide,13,NA,NA,,2023,24
-Port Adelaide,14,NA,NA,,2023,24
-Port Adelaide,15,NA,NA,,2023,24
-Port Adelaide,16,NA,NA,,2023,24
-Port Adelaide,17,NA,NA,,2023,24
-Port Adelaide,18,NA,NA,,2023,24
 Brisbane Lions,2,100,1,100,2023,24
 Brisbane Lions,1,NA,NA,,2023,24
 Brisbane Lions,3,NA,NA,,2023,24
@@ -23957,6 +23939,24 @@ Brisbane Lions,15,NA,NA,,2023,24
 Brisbane Lions,16,NA,NA,,2023,24
 Brisbane Lions,17,NA,NA,,2023,24
 Brisbane Lions,18,NA,NA,,2023,24
+Port Adelaide,3,100,1,100,2023,24
+Port Adelaide,1,NA,NA,,2023,24
+Port Adelaide,2,NA,NA,,2023,24
+Port Adelaide,4,NA,NA,,2023,24
+Port Adelaide,5,NA,NA,,2023,24
+Port Adelaide,6,NA,NA,,2023,24
+Port Adelaide,7,NA,NA,,2023,24
+Port Adelaide,8,NA,NA,,2023,24
+Port Adelaide,9,NA,NA,,2023,24
+Port Adelaide,10,NA,NA,,2023,24
+Port Adelaide,11,NA,NA,,2023,24
+Port Adelaide,12,NA,NA,,2023,24
+Port Adelaide,13,NA,NA,,2023,24
+Port Adelaide,14,NA,NA,,2023,24
+Port Adelaide,15,NA,NA,,2023,24
+Port Adelaide,16,NA,NA,,2023,24
+Port Adelaide,17,NA,NA,,2023,24
+Port Adelaide,18,NA,NA,,2023,24
 Collingwood,1,100,1,100,2023,24
 Collingwood,2,NA,NA,,2023,24
 Collingwood,3,NA,NA,,2023,24
