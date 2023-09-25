@@ -385,8 +385,10 @@ combine_finals_sims <- function(final_game,
       filter(Round == max(Round))
   }
   
+  last_completed_round <- last(results$Round)
   sims_combined <- final_ladder %>%
-    left_join(final_summary_wide, by = c("Team", "Season"))
+    left_join(final_summary_wide, by = c("Team", "Season")) %>%
+    mutate(Round = last_completed_round)
   
   # Add elo
   elos <- elo.data %>% 
