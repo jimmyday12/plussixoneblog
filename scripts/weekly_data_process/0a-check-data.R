@@ -30,16 +30,22 @@ check_results <- function(season) {
   
 }
 
-check_fixture <- function(season) {
+check_fixture <- function(season, new_season = FALSE) {
   old_dat <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
   
   if(is_null(old_dat$predictions)) return(FALSE)
+  
   old <-  old_dat$predictions %>%
     slice(head(row_number(), 9)) %>%
     filter(Round.Number == first(Round.Number)) %>%
     select(Home.Team, Away.Team, Date, Venue, Round.Number) 
   
-  new_fixtures <- fitzRoy::fetch_fixture_afl(season, round_number = old$Round.Number[1])
+  if (new_season) {
+    new_fixtures <- fitzRoy::fetch_fixture_afl(season, round_number = 1)
+  } else {
+    new_fixtures <- fitzRoy::fetch_fixture_afl(season, round_number = old$Round.Number[1])
+  }
+  
   
   new <- new_fixtures %>%
     mutate(Date = lubridate::ymd_hms(new_fixtures$utcStartTime) %>% as.Date(),

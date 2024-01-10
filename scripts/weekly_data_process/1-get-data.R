@@ -76,8 +76,8 @@ convert_results_afl <- function(df) {
 get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = FALSE) {
   
 # Get fixture data using FitzRoy
-fixture <- fitzRoy::fetch_fixture_footywire(season) %>%
-  filter(Date >= filt_date)
+#fixture <- fitzRoy::fetch_fixture_footywire(season) %>%
+#  filter(Date >= filt_date)
 
 # get afl fixture
 fixture_afl <- fitzRoy::fetch_fixture_afl(season)
