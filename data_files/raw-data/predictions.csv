@@ -74,7 +74,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2024,16479,2024-05-09,"Thu, 09",00:00,9,M.C.G.,Carlton,Melbourne,-4.8,0.452,Melbourne by 5
 2024,16480,2024-05-10,"Fri, 10",00:00,9,Kardinia Park,Geelong,Port Adelaide,12.2,0.62,Geelong by 12
 2024,16481,2024-05-10,"Fri, 10",00:00,9,Perth Stadium,Fremantle,Sydney,0.1,0.501,Fremantle by 0
-2024,16482,2024-05-11,"Sat, 11",00:00,9,University of Tasmania Stadium,Hawthorn,St Kilda,-11.5,0.387,St Kilda by 12
+2024,16482,2024-05-11,"Sat, 11",00:00,9,York Park,Hawthorn,St Kilda,-10.9,0.393,St Kilda by 11
 2024,16483,2024-05-11,"Sat, 11",00:00,9,Docklands,Essendon,GWS,-0.9,0.491,GWS by 1
 2024,16484,2024-05-11,"Sat, 11",00:00,9,M.C.G.,Richmond,Footscray,-0,0.5,Draw
 2024,16485,2024-05-11,"Sat, 11",00:00,9,Marrara Oval,Gold Coast,North Melbourne,18.6,0.678,Gold Coast by 19
@@ -107,7 +107,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2024,16512,2024-06-02,"Sun, 02",00:00,12,Heritage Bank Stadium,Gold Coast,Essendon,3.4,0.534,Gold Coast by 3
 2024,16513,2024-06-06,"Thu, 06",00:00,13,Adelaide Oval,Adelaide,Richmond,12.1,0.619,Adelaide by 12
 2024,16514,2024-06-07,"Fri, 07",00:00,13,Docklands,Footscray,Brisbane Lions,-0.8,0.492,Brisbane Lions by 1
-2024,16515,2024-06-08,"Sat, 08",00:00,13,University of Tasmania Stadium,Hawthorn,GWS,-12.3,0.379,GWS by 12
+2024,16515,2024-06-08,"Sat, 08",00:00,13,York Park,Hawthorn,GWS,-12,0.382,GWS by 12
 2024,16516,2024-06-08,"Sat, 08",00:00,13,Perth Stadium,West Coast,North Melbourne,-0.4,0.496,North Melbourne by 0
 2024,16517,2024-06-08,"Sat, 08",00:00,13,Docklands,St Kilda,Gold Coast,15.3,0.648,St Kilda by 15
 2024,16518,2024-06-09,"Sun, 09",00:00,13,S.C.G.,Sydney,Geelong,5.6,0.556,Sydney by 6
@@ -145,7 +145,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2024,16550,2024-07-05,"Fri, 05",00:00,17,Perth Stadium,Fremantle,Richmond,6.9,0.569,Fremantle by 7
 2024,16551,2024-07-12,"Fri, 12",00:00,18,M.C.G.,Collingwood,Geelong,5,0.55,Collingwood by 5
 2024,16552,2024-07-12,"Fri, 12",00:00,18,Heritage Bank Stadium,Gold Coast,Port Adelaide,-5.8,0.442,Port Adelaide by 6
-2024,16553,2024-07-12,"Fri, 12",00:00,18,University of Tasmania Stadium,Hawthorn,Fremantle,-6.9,0.431,Fremantle by 7
+2024,16553,2024-07-12,"Fri, 12",00:00,18,York Park,Hawthorn,Fremantle,-6.6,0.434,Fremantle by 7
 2024,16554,2024-07-12,"Fri, 12",00:00,18,M.C.G.,Melbourne,Essendon,20.8,0.697,Melbourne by 21
 2024,16555,2024-07-12,"Fri, 12",00:00,18,M.C.G.,Richmond,GWS,3.5,0.535,Richmond by 4
 2024,16556,2024-07-12,"Fri, 12",00:00,18,S.C.G.,Sydney,North Melbourne,34.7,0.8,Sydney by 35
@@ -200,7 +200,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2024,16605,2024-08-23,"Fri, 23",00:00,24,Gabba,Brisbane Lions,Essendon,24.2,0.725,Brisbane Lions by 24
 2024,16606,2024-08-23,"Fri, 23",00:00,24,Docklands,Carlton,St Kilda,5.4,0.554,Carlton by 5
 2024,16607,2024-08-23,"Fri, 23",00:00,24,Kardinia Park,Geelong,West Coast,45.4,0.86,Geelong by 45
-2024,16608,2024-08-23,"Fri, 23",00:00,24,University of Tasmania Stadium,Hawthorn,North Melbourne,11.7,0.615,Hawthorn by 12
+2024,16608,2024-08-23,"Fri, 23",00:00,24,York Park,Hawthorn,North Melbourne,11.8,0.616,Hawthorn by 12
 2024,16609,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Melbourne,Collingwood,5.2,0.552,Melbourne by 5
 2024,16610,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Richmond,Gold Coast,12.2,0.62,Richmond by 12
 2024,16611,2024-08-23,"Fri, 23",00:00,24,S.C.G.,Sydney,Adelaide,10.8,0.606,Sydney by 11
