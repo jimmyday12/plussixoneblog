@@ -131,9 +131,9 @@ replace_teams <- function(Team) {
 }
 
 elo_simple <- elo_dat |> 
-  select(round.year, Round.Number, Team, ELO_pre) |> 
   mutate(Team = replace_teams(Team),
          round.year = format(Date, "%Y")) |> 
+  select(round.year, Round.Number, Team, ELO_pre) |> 
   rename(round.roundNumber = Round.Number)
 
 # Venue ----
@@ -174,6 +174,26 @@ final_dat <- results |>
          margin, 
          home_elo:rating_selected_away)
 
+
+final_dat <- final_dat |> 
+  select(match.matchId,
+         round.year,
+         margin,
+         home_elo,
+         away_elo,
+         Home.Venue.Exp,
+         Away.Venue.Exp, 
+         Home.Interstate, 
+         Away.Interstate, 
+         shotsAtGoal_diff,
+         score_for_diff,
+         score_against_diff,
+         win_diff,
+         percentage_l5_diff,
+         wins_l5_diff,
+         rating_selected_home,
+         rating_selected_away
+         )
 
 # Modelling -----------
 
@@ -278,7 +298,9 @@ xgb_fit <- fit(final_xgb, data = dat_train)
 
 predict <- dat_test |> 
   select(match.matchId, round.year, margin) |> 
-  bind_cols(predict(xgb_fit, dat_test, type = "conf_int")) 
+  bind_cols(predict(xgb_fit, dat_test, type = "numeric")) 
+
+mean(abs(predict$margin - predict$.pred))
 
 predict
 
