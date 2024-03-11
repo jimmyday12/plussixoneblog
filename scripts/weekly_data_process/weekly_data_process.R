@@ -25,6 +25,7 @@ grand_final_bug <- FALSE
 season <- 2024
 new_season <- TRUE
 save_data <- TRUE
+opening_round = TRUE
 
 # Set ELO Parameters
 e <- 1.7
@@ -58,10 +59,11 @@ if (new_data) {
   dat <- get_data(season,
                   filt_date,
                   grand_final_bug = grand_final_bug,
-                  fixture_bug = fixture_bug
+                  fixture_bug = fixture_bug,
+                  opening_round = opening_round
   )
   
-  # check if home and away season is done
+   # check if home and away season is done
   home_away_ongoing <- any(dat$fixture$status != "CONCLUDED" & !dat$fixture$Finals)
   finals_started <- any(dat$fixture$status == "CONCLUDED" & dat$fixture$Finals)
   finals_scheduled <- any(dat$fixture$Finals)

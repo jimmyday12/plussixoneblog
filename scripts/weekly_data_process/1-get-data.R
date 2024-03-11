@@ -3,7 +3,9 @@ convert_teams_afl <- function(team){
     team == "Western Bulldogs" ~ "Footscray",
     team == "Adelaide Crows" ~ "Adelaide",
     team == "GWS Giants" ~ "GWS",
+    team == "GWS GIANTS" ~ "GWS",
     team == "Gold Coast Suns" ~ "Gold Coast",
+    team == "Gold Coast SUNS" ~ "Gold Coast",
     team == "West Coast Eagles" ~ "West Coast",
     team == "Sydney Swans" ~ "Sydney",
     team == "Geelong Cats" ~ "Geelong",
@@ -16,8 +18,12 @@ convert_results <- function(df) {
   mutate(Season = Date[1] %>% format("%Y") %>% as.numeric(),
          Home.Team = ifelse(Home.Team == "Western Bulldogs", "Footscray", Home.Team),
          Home.Team = ifelse(Home.Team == "Brisbane", "Brisbane Lions", Home.Team),
+         Home.Team = ifelse(Home.Team == "GWS GIANTS", "GWS", Home.Team),
+         Home.Team = ifelse(Home.Team == "Gold Coast SUNS", "Gold Coast", Home.Team),
          Away.Team = ifelse(Away.Team == "Western Bulldogs", "Footscray", Away.Team),
          Away.Team = ifelse(Away.Team == "Brisbane", "Brisbane Lions", Away.Team),
+         Away.Team = ifelse(Away.Team == "GWS GIANTS", "GWS", Away.Team),
+         Away.Team = ifelse(Away.Team == "Gold Coast SUNS", "Gold Coast", Away.Team),
          Margin = Home.Points - Away.Points,
          Round.Type = ifelse(stringr::str_detect(Round, "Round"), "Regular", "Finals"),
          Round.Number = stringr::str_extract(Round, "[0-9]+") %>% as.numeric())
@@ -56,9 +62,11 @@ convert_results_afl <- function(df) {
            Margin)
   
   fix_names <- data.frame(
-    old_name = c("Western Bulldogs", "Adelaide Crows", "GWS Giants", "Gold Coast Suns", 
+    old_name = c("Western Bulldogs", "Adelaide Crows", "GWS Giants", "GWS GIANTS", 
+                 "Gold Coast Suns", "Gold Coast SUNS", 
                  "West Coast Eagles", "Geelong Cats", "Sydney Swans"),
-    new_name = c("Footscray", "Adelaide", "GWS", "Gold Coast", 
+    new_name = c("Footscray", "Adelaide", "GWS", "GWS", 
+                 "Gold Coast", "Gold Coast", 
                  "West Coast", "Geelong", "Sydney")
   )
   
@@ -73,7 +81,7 @@ convert_results_afl <- function(df) {
 }
 
 
-get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = FALSE) {
+get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = FALSE, opening_round = FALSE) {
   
 # Get fixture data using FitzRoy
 #fixture <- fitzRoy::fetch_fixture_footywire(season) %>%
@@ -167,7 +175,12 @@ df <- results %>%
 if (nrow(df) == 0){
   ladder <- NULL
 } else {
-  ladder <- fitzRoy::fetch_ladder_afl(season, round_number = max(df$Round.Number), comp = "AFLM")
+  if (opening_round) {
+    round_number_afl <- max(df$Round.Number) - 1
+  } else {
+    round_number_afl <- max(df$Round.Number)
+  }
+  ladder <- fitzRoy::fetch_ladder_afl(season, round_number = round_number_afl, comp = "AFLM")
   
   ladder <- ladder %>%
     mutate(team.name = convert_teams_afl(team.name))
