@@ -13,6 +13,8 @@ map_outcome_to_margin <- function(outcome, B) {
 
 # Function to calculate k (how much weight we add to each result)
 calculate_k <- function(margin, k_val, round) {
+  round <- max(round, 1)
+  
   mult <- (log(abs(margin) + 1) - log(round))
   x <- k_val * ifelse(mult <= 0, 1, mult)
   ifelse(x < k_val, k_val, x)
@@ -24,6 +26,13 @@ calculate_hga <- function(experience, interstate, home.team, e, d, h){
 }
 
 run_elo <- function(results, carryOver, B, e, d, h) {
+  
+  #results <- results |> 
+  #  select(
+  #    Season, seas_rnd, Round.Number,
+  #    Home.Team, Home.Points, Home.Venue.Exp, Home.Interstate, Home.Factor,
+  #    Away.Team, Away.Points, Away.Venue.Exp, Away.Interstate, Away.Factor,
+  #  )
   
   # Run ELO
   elo.data <- elo.run(
@@ -37,6 +46,8 @@ run_elo <- function(results, carryOver, B, e, d, h) {
       k(calculate_k(Home.Points - Away.Points, k_val, Round.Number)),
     data = results
   )
+  
+  data.frame(elo.data) |> tail()
   
   # Need to combine this with results to get into long format. May be able to simplify.
   elo <- results %>%

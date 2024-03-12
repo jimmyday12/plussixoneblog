@@ -133,6 +133,20 @@ seasons <- 1897:season
 
 results <- fetch_results_afltables(seasons, NULL)
 
+## Check which seasons have openeing round
+seasons_afl <- 2015:season
+
+ind_opening_round <- seasons_afl |> 
+  purrr::map(fetch_fixture_afl, 0) |> 
+  purrr::map_lgl(~nrow(.x) > 0) 
+
+seasons_opening_round <- seasons_afl[ind_opening_round]
+
+results <- results |> 
+    mutate(Round.Number = ifelse(Season %in% seasons_opening_round, 
+                                 Round.Number - 1, 
+                                 Round.Number))
+
 # Check for new results
 #results_new <- fetch_results_footywire(season, last_n_matches = 10)
 #results_new <- convert_results(results_new)
@@ -175,11 +189,7 @@ df <- results %>%
 if (nrow(df) == 0){
   ladder <- NULL
 } else {
-  if (opening_round) {
-    round_number_afl <- max(df$Round.Number) - 1
-  } else {
-    round_number_afl <- max(df$Round.Number)
-  }
+  round_number_afl <- max(df$Round.Number)
   ladder <- fitzRoy::fetch_ladder_afl(season, round_number = round_number_afl, comp = "AFLM")
   
   ladder <- ladder %>%

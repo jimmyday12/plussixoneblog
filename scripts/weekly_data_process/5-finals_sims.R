@@ -97,6 +97,8 @@ do_finals_sims <- function(sim_data_all,
                            finals_week = NULL,
                            finals_results = NULL){
   
+  cli_progress_step("Setting up Finals Sims")
+  
   form <- elo:::clean_elo_formula(stats::terms(elo.data))
   
   # This is inefficient
@@ -143,7 +145,9 @@ do_finals_sims <- function(sim_data_all,
   }
   
   #game_dat <-  game_dat
+  cli_progress_step("Simulating Finals Week 1")
   if (finals_week < 1){
+
   # Step 2 - create fixture
   wk1_fixture <- create_finals_fixture(week = 1, 
                                        season = last(game_dat$Season),
@@ -162,6 +166,7 @@ do_finals_sims <- function(sim_data_all,
   
   # Step 5 - simulate results
   wk1_results <- simulate_finals(form, wk1_fixture, finals_elos, sim_num)
+  
   } else {
     wk1_results <- finals_results %>%
       filter(Finals_week == 1) %>%
@@ -178,9 +183,11 @@ do_finals_sims <- function(sim_data_all,
 
   }
   
+  
   # Week 2 -----------------------------------------------------------------------
+  cli_progress_step("Simulating Finals Week 2")
   if (finals_week < 2) {
-    
+  
   # Step 1 - get week 2 teams
   wk2_teams <- wk1_results %>%
     map(~mutate(.x,
@@ -225,6 +232,7 @@ do_finals_sims <- function(sim_data_all,
   
   # Week 3 -----------------------------------------------------------------------
   # Step 1 - get week 2 teams
+  cli_progress_step("Simulating Finals Week 3")
   if (finals_week < 3) {
   
   wk3_teams <- wk2_results %>%
@@ -273,6 +281,7 @@ do_finals_sims <- function(sim_data_all,
   
   
   # Week 4 -----------------------------------------------------------------------
+  cli_progress_step("Simulating Fnals Week 4")
   if (finals_week < 4) {
   # Step 1 - get week 2 teams
   
@@ -313,6 +322,7 @@ do_finals_sims <- function(sim_data_all,
         map(~mutate(wk4_results, Sim = .x))
   }
   # Combine and sunmmarise -------------------------------------------------------
+  cli_progress_step("Combining finals sims data")
   final_teams <- wk4_results %>%
     map2(.y = wk4_teams, 
          ~mutate(.x,
@@ -339,6 +349,8 @@ do_finals_sims <- function(sim_data_all,
   finals_dat <- list(final_teams = final_teams,
        final_results = final_results,
        final_game = final_game)
+
+  return(finals_dat)
 }
 
 
@@ -349,6 +361,8 @@ combine_finals_sims <- function(final_game,
                                 sim_num = 1,
                                 ladder = NULL,
                                 home_and_away_complete = FALSE) {
+  
+  cli_progress_step("Combining Finals Sims")
   
   final_summary_long <- purrr::reduce(final_game, bind_rows)
   final_summary_wide <- final_summary_long %>%
