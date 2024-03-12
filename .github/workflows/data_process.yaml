@@ -29,5 +29,5 @@ jobs:
           message: Show GitHub logo
           committer_name: GitHub Actions
           committer_email: 41898282+github-actions[bot]@users.noreply.github.com
-          pull: --rebase
+          pull: '--rebase --autostash ...'
           add: "."
