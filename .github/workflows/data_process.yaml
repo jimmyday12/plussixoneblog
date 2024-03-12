@@ -26,6 +26,8 @@ jobs:
         run: Rscript -e 'source(here::here("scripts", "weekly_data_process", "weekly_data_process.R"), echo = TRUE)'
       - uses: EndBug/add-and-commit@v9
         with:
-          author_name: github-actions
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
-          pull: --rebase
+        message: Show GitHub logo
+        committer_name: GitHub Actions
+        committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+        pull: --rebase
+        add: .
