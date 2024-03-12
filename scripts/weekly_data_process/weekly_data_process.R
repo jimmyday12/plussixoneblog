@@ -1,13 +1,12 @@
 # Script to run weekly updating of data, ratings simulations and predictions. Data should be saved into github for us by blog.
-ptm <- proc.time()
 set.seed(42)
-cli_progress_step("Starting Script")
+
 # Preamble ----------------------------------------------------------------
 # Load libraries
 library(fitzRoy)
 library(pacman)
 pacman::p_load(tidyverse, elo, here, lubridate, tibbletime, cli)
-
+cli_progress_step("Setup")
 # source functions
 source(here::here("scripts", "weekly_data_process", "0-functions.R"))
 source(here::here("scripts", "weekly_data_process", "0a-check-data.R"))
@@ -37,16 +36,16 @@ B <- 0.04
 sim_num <-  10000
 
 # Check Data ----------------------------------------------------------------
-
+cli_progress_step("Checking for new data")
 # First check if new results exist
 new_results <- check_results(season)
 new_fixture <- check_fixture(season, new_season)
 
 if(new_results | new_fixture | new_season) {
-  cli_progress_step("New data found")
+  cli_alert_info("New data found")
   new_data <- TRUE
 } else{
-  cli_progress_step("No new data found")
+  cli_alert_info("No new data found")
   new_data <- FALSE
 }
 
@@ -56,6 +55,7 @@ if(new_results | new_fixture | new_season) {
 
 # Get Data ----------------------------------------------------------------
 if (new_data) {
+  cli_progress_step("Getting data")
   dat <- get_data(season,
                   filt_date,
                   grand_final_bug = grand_final_bug,
@@ -67,11 +67,10 @@ if (new_data) {
   home_away_ongoing <- any(dat$fixture$status != "CONCLUDED" & !dat$fixture$Finals)
   finals_started <- any(dat$fixture$status == "CONCLUDED" & dat$fixture$Finals)
   finals_scheduled <- any(dat$fixture$Finals)
-  
-  print(proc.time() - ptm)
-  cli_progress_step("Data Loaded")
+
   
   # Data Cleaning -----------------------------------------------------------
+  cli_progress_step("Cleaning data")
   # Bind together and fix stadiums
   # Fixture is broken, lets see if removing round helps
   #dat$fixture$Round = NA
@@ -116,13 +115,9 @@ if (new_data) {
   
   if (covid_seas & !season_complete) dat$fixture <- fix_covid_season(dat$fixture)
   
-  print(proc.time() - ptm)
-  cli_progress_step("Data Cleaned")
-  
-  
   
   # Run ELO calculation -----------------------------------------------------
-  
+  cli_progress_step("Doing ELOs")
   elo_dat <- run_elo(dat$results,
                      carryOver = carryOver,
                      B = B, e = e, d = d, h = h
@@ -130,21 +125,15 @@ if (new_data) {
   
   dat$results <- elo_dat$results
   
-  # Message
-  print(proc.time() - ptm)
-  cli_progress_step("ELO Run")
-  
   # In season stuff --------------------------------------------------------
   if (!season_complete){
   # Predictions ------------------------------------------------------------
-
+    cli_progress_step("Doing Predictions")
     # Do predictions
     
     dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data, carryOver, new_season)
     
     # Message
-    print(proc.time() - ptm)
-    cli_progress_step("Predictions Done")
     
   }
   
@@ -153,7 +142,7 @@ if (new_data) {
   # Skip if home_away has finished
   if (home_away_ongoing) {
     
-    cli_progress_step("Doing In Season Simulations...")
+    cli_progress_step("Doing In Season Simulations")
     sim_dat <- list()
     
     # do sims
@@ -202,10 +191,7 @@ if (new_data) {
       sim_dat$sim_data_summary %>%
       arrange(Wins)
     #rm(past_sims)
-    
-    # MEssage
-    print(proc.time() - ptm)
-    cli_progress_step("In Season Sims done")
+
   }
   
   # Finals Sims -------------------------------------------------------------
@@ -277,10 +263,6 @@ if (new_data) {
     
   }
   
-  
-  
-  print(proc.time() - ptm)
-  cli_progress_step("Finals Sims done")
   }
   # Save Data ---------------------------------------------------------------
   
@@ -367,9 +349,6 @@ if (new_data) {
     }
     }
     
-    # Message
-    print(proc.time() - ptm)
-    cli_progress_step("Data saved")
   }
   
   # Touch files ------------------------------------------------------------------
@@ -379,6 +358,6 @@ if (new_data) {
   #blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
 }
 
-print(proc.time() - ptm)
-cli_progress_step("Finished!")
+
+cli_alert_success("Finished!")
 
