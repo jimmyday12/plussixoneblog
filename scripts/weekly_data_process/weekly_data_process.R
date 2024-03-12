@@ -1,12 +1,12 @@
 # Script to run weekly updating of data, ratings simulations and predictions. Data should be saved into github for us by blog.
 ptm <- proc.time()
 set.seed(42)
-message("Starting Script")
+cli_progress_step("Starting Script")
 # Preamble ----------------------------------------------------------------
 # Load libraries
 library(fitzRoy)
 library(pacman)
-pacman::p_load(tidyverse, elo, here, lubridate, tibbletime)
+pacman::p_load(tidyverse, elo, here, lubridate, tibbletime, cli)
 
 # source functions
 source(here::here("scripts", "weekly_data_process", "0-functions.R"))
@@ -23,7 +23,7 @@ filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2024
-new_season <- TRUE
+new_season <- FALSE
 save_data <- TRUE
 opening_round = TRUE
 
@@ -43,10 +43,10 @@ new_results <- check_results(season)
 new_fixture <- check_fixture(season, new_season)
 
 if(new_results | new_fixture | new_season) {
-  message("New data found")
+  cli_progress_step("New data found")
   new_data <- TRUE
 } else{
-  message("No new data found")
+  cli_progress_step("No new data found")
   new_data <- FALSE
 }
 
@@ -69,7 +69,7 @@ if (new_data) {
   finals_scheduled <- any(dat$fixture$Finals)
   
   print(proc.time() - ptm)
-  message("Data Loaded")
+  cli_progress_step("Data Loaded")
   
   # Data Cleaning -----------------------------------------------------------
   # Bind together and fix stadiums
@@ -117,7 +117,7 @@ if (new_data) {
   if (covid_seas & !season_complete) dat$fixture <- fix_covid_season(dat$fixture)
   
   print(proc.time() - ptm)
-  message("Data Cleaned")
+  cli_progress_step("Data Cleaned")
   
   
   
@@ -132,7 +132,7 @@ if (new_data) {
   
   # Message
   print(proc.time() - ptm)
-  message("ELO Run")
+  cli_progress_step("ELO Run")
   
   # In season stuff --------------------------------------------------------
   if (!season_complete){
@@ -144,7 +144,7 @@ if (new_data) {
     
     # Message
     print(proc.time() - ptm)
-    message("Predictions Done")
+    cli_progress_step("Predictions Done")
     
   }
   
@@ -153,7 +153,7 @@ if (new_data) {
   # Skip if home_away has finished
   if (home_away_ongoing) {
     
-    message("Doing In Season Simulations...")
+    cli_progress_step("Doing In Season Simulations...")
     sim_dat <- list()
     
     # do sims
@@ -185,6 +185,8 @@ if (new_data) {
     # Combine these simulations with previous ones for plotting
     # Load old sims
     past_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
+    #past_sims$sim_data_summary <- past_sims$sim_data_summary |> mutate(Season == 2024)
+    
     combine_past_sims(sim_dat$sim_data_summary, round, season, past_sims)
     
     sim_dat$simCount <- count_sims(
@@ -203,7 +205,7 @@ if (new_data) {
     
     # MEssage
     print(proc.time() - ptm)
-    message("In Season Sims done")
+    cli_progress_step("In Season Sims done")
   }
   
   # Finals Sims -------------------------------------------------------------
@@ -212,7 +214,7 @@ if (new_data) {
     
   
   if (home_away_ongoing) {
-    message("Doing Finals Sims H&A")
+    cli_progress_step("Doing Finals Sims H&A")
     last_round <- last(dat$fixture$Round.Number)
     
     finals_sims <- do_finals_sims(
@@ -237,14 +239,18 @@ if (new_data) {
   }
   
   if (finals_scheduled | finals_started) {
-    message("Doing Finals Sims In Finals")
+    cli_progress_step("Doing Finals Sims In Finals")
     final_sim_num <- 1000
     sim_dat <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
+    
     finals_results <- dat$results %>% 
       filter(Season == season & Round.Type == "Finals")
     
+    if(nrow(finals_results) == 0) finals_results <- NULL
+    
     finals_weeks_completed <- length(unique(finals_results$Round))
     last_round <- last(dat$fixture$Round.Number)
+    
     
     finals_sims <- do_finals_sims(sim_data_all = sim_dat$sim_data_all, 
                                   game_dat = dat$game_dat, 
@@ -274,14 +280,14 @@ if (new_data) {
   
   
   print(proc.time() - ptm)
-  message("Finals Sims done")
+  cli_progress_step("Finals Sims done")
   }
   # Save Data ---------------------------------------------------------------
   
   if(save_data) {
     
     
-    message("Saving data")
+    cli_progress_step("Saving data")
     # Create list
     aflm_data <- list(
       results = dat$results,
@@ -363,7 +369,7 @@ if (new_data) {
     
     # Message
     print(proc.time() - ptm)
-    message("Data saved")
+    cli_progress_step("Data saved")
   }
   
   # Touch files ------------------------------------------------------------------
@@ -374,5 +380,5 @@ if (new_data) {
 }
 
 print(proc.time() - ptm)
-message("Finished!")
+cli_progress_step("Finished!")
 
