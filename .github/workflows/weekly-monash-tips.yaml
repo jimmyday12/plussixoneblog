@@ -24,8 +24,10 @@ jobs:
           MONASH_REAL_USER: ${{ secrets.MONASH_REAL_USER }}
           MONASH_REAL_PASS: ${{ secrets.MONASH_REAL_PASS }}
         run: Rscript -e 'source(here::here("scripts", "weekly_monash_tips.R"), echo = TRUE)'
-      - uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
-          pull: --rebase
+      - name: Commit and Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "updating data"
+          git push 
