@@ -29,5 +29,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "updating data"
-          git push 
+          git commit -m 'updating weekly data' || echo "No changes to commit"
+          git push || echo "No changes to commit"
