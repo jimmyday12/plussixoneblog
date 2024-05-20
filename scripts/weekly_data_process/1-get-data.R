@@ -9,6 +9,12 @@ convert_teams_afl <- function(team){
     team == "West Coast Eagles" ~ "West Coast",
     team == "Sydney Swans" ~ "Sydney",
     team == "Geelong Cats" ~ "Geelong",
+    team == "Narrm" ~ "Melbourne",
+    team == "Walyalup" ~ "Fremantle",
+    team == "Yartapuulti" ~ "Port Adelaide",
+    team == "Euro-Yroke" ~ "St Kilda",
+    team == "Kuwarna" ~ "Adelaide",
+    team == "Waalitj Marawar" ~ "West Coast",
     TRUE ~ team)
 }
 
@@ -61,22 +67,9 @@ convert_results_afl <- function(df) {
            Away.Team, Away.Goals, Away.Behinds, Away.Points,
            Margin)
   
-  fix_names <- data.frame(
-    old_name = c("Western Bulldogs", "Adelaide Crows", "GWS Giants", "GWS GIANTS", 
-                 "Gold Coast Suns", "Gold Coast SUNS", 
-                 "West Coast Eagles", "Geelong Cats", "Sydney Swans"),
-    new_name = c("Footscray", "Adelaide", "GWS", "GWS", 
-                 "Gold Coast", "Gold Coast", 
-                 "West Coast", "Geelong", "Sydney")
-  )
-  
   df %>%
-    left_join(fix_names, by = c("Home.Team" = "old_name")) %>%
-    mutate(Home.Team = ifelse(is.na(new_name), Home.Team, new_name)) %>%
-    select(-new_name) %>%
-    left_join(fix_names, by = c("Away.Team" = "old_name")) %>%
-    mutate(Away.Team = ifelse(is.na(new_name), Away.Team, new_name)) %>%
-    select(-new_name)
+    mutate(Home.Team = convert_teams_afl(Home.Team),
+           Away.Team = convert_teams_afl(Away.Team))
   
 }
 
