@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2024,2024-06-21,Carlton,Geelong,0.534,3.4
 2024,2024-06-22,Port Adelaide,Brisbane Lions,0.542,4.2
 2024,2024-06-22,GWS,Sydney,0.459,-4.1
 2024,2024-06-22,Melbourne,North Melbourne,0.702,21.4
@@ -54,7 +53,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2024,2024-08-02,West Coast,Gold Coast,0.458,-4.2
 2024,2024-08-03,North Melbourne,Richmond,0.471,-2.9
 2024,2024-08-03,Geelong,Adelaide,0.621,12.3
-2024,2024-08-03,Collingwood,Carlton,0.52,2
+2024,2024-08-03,Collingwood,Carlton,0.521,2.1
 2024,2024-08-03,Port Adelaide,Sydney,0.491,-0.9
 2024,2024-08-04,GWS,Hawthorn,0.595,9.6
 2024,2024-08-04,Essendon,Fremantle,0.542,4.2
@@ -76,7 +75,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2024,2024-08-17,St Kilda,Geelong,0.481,-1.9
 2024,2024-08-18,Footscray,North Melbourne,0.705,21.8
 2024,2024-08-18,Hawthorn,Richmond,0.589,9
-2024,2024-08-18,West Coast,Carlton,0.409,-9.2
+2024,2024-08-18,West Coast,Carlton,0.408,-9.3
 2024,2024-08-23,Brisbane Lions,Essendon,0.643,14.7
 2024,2024-08-23,Carlton,St Kilda,0.584,8.5
 2024,2024-08-23,Geelong,West Coast,0.729,24.7
