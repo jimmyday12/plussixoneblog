@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2024,2024-07-26,Carlton,Port Adelaide,0.617,11.9
 2024,2024-07-27,North Melbourne,Geelong,0.353,-15.1
 2024,2024-07-27,Gold Coast,Brisbane Lions,0.451,-4.9
 2024,2024-07-27,St Kilda,Essendon,0.536,3.6
@@ -12,8 +11,8 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2024,2024-08-02,West Coast,Gold Coast,0.439,-6.1
 2024,2024-08-03,North Melbourne,Richmond,0.498,-0.2
 2024,2024-08-03,Geelong,Adelaide,0.609,11.1
-2024,2024-08-03,Collingwood,Carlton,0.481,-1.9
-2024,2024-08-03,Port Adelaide,Sydney,0.485,-1.5
+2024,2024-08-03,Collingwood,Carlton,0.488,-1.2
+2024,2024-08-03,Port Adelaide,Sydney,0.492,-0.8
 2024,2024-08-04,GWS,Hawthorn,0.579,8
 2024,2024-08-04,Essendon,Fremantle,0.52,2
 2024,2024-08-04,St Kilda,Brisbane Lions,0.501,0.1
@@ -22,25 +21,25 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2024,2024-08-10,North Melbourne,West Coast,0.544,4.4
 2024,2024-08-10,Fremantle,Geelong,0.579,8
 2024,2024-08-10,Essendon,Gold Coast,0.57,7
-2024,2024-08-10,Melbourne,Port Adelaide,0.591,9.2
-2024,2024-08-11,Carlton,Hawthorn,0.591,9.2
+2024,2024-08-10,Melbourne,Port Adelaide,0.583,8.4
+2024,2024-08-11,Carlton,Hawthorn,0.584,8.5
 2024,2024-08-11,Richmond,St Kilda,0.426,-7.5
 2024,2024-08-11,Adelaide,Footscray,0.541,4.1
 2024,2024-08-16,Essendon,Sydney,0.449,-5.1
 2024,2024-08-17,Gold Coast,Melbourne,0.49,-1
 2024,2024-08-17,GWS,Fremantle,0.529,2.9
 2024,2024-08-17,Collingwood,Brisbane Lions,0.522,2.2
-2024,2024-08-17,Port Adelaide,Adelaide,0.535,3.5
+2024,2024-08-17,Port Adelaide,Adelaide,0.542,4.2
 2024,2024-08-17,St Kilda,Geelong,0.483,-1.7
 2024,2024-08-18,Footscray,North Melbourne,0.708,22.1
 2024,2024-08-18,Hawthorn,Richmond,0.63,13.3
-2024,2024-08-18,West Coast,Carlton,0.372,-13.1
+2024,2024-08-18,West Coast,Carlton,0.379,-12.3
 2024,2024-08-23,Brisbane Lions,Essendon,0.658,16.4
-2024,2024-08-23,Carlton,St Kilda,0.595,9.6
+2024,2024-08-23,Carlton,St Kilda,0.588,8.9
 2024,2024-08-23,Geelong,West Coast,0.749,27.3
 2024,2024-08-23,Hawthorn,North Melbourne,0.666,17.3
 2024,2024-08-23,Melbourne,Collingwood,0.548,4.8
 2024,2024-08-23,Richmond,Gold Coast,0.482,-1.8
 2024,2024-08-23,Sydney,Adelaide,0.674,18.2
 2024,2024-08-23,Footscray,GWS,0.584,8.5
-2024,2024-08-23,Fremantle,Port Adelaide,0.604,10.6
+2024,2024-08-23,Fremantle,Port Adelaide,0.597,9.8
