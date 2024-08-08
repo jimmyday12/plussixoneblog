@@ -17,12 +17,12 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2024,16602,2024-08-18,"Sun, 18",00:00,23,Docklands,Footscray,North Melbourne,24.5,0.727,Footscray by 24
 2024,16603,2024-08-18,"Sun, 18",00:00,23,M.C.G.,Hawthorn,Richmond,15.7,0.652,Hawthorn by 16
 2024,16604,2024-08-18,"Sun, 18",00:00,23,Perth Stadium,West Coast,Carlton,-12,0.382,Carlton by 12
-2024,16605,2024-08-23,"Fri, 23",00:00,24,Gabba,Brisbane Lions,Essendon,19.4,0.685,Brisbane Lions by 19
-2024,16606,2024-08-23,"Fri, 23",00:00,24,Docklands,Carlton,St Kilda,9.3,0.592,Carlton by 9
-2024,16607,2024-08-23,"Fri, 23",00:00,24,Kardinia Park,Geelong,West Coast,27.5,0.75,Geelong by 28
-2024,16608,2024-08-23,"Fri, 23",00:00,24,University of Tasmania Stadium,Hawthorn,North Melbourne,18.6,0.678,Hawthorn by 19
-2024,16609,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Melbourne,Collingwood,3.2,0.532,Melbourne by 3
-2024,16610,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Richmond,Gold Coast,-1.4,0.486,Gold Coast by 1
-2024,16611,2024-08-23,"Fri, 23",00:00,24,S.C.G.,Sydney,Adelaide,16.2,0.657,Sydney by 16
-2024,16612,2024-08-23,"Fri, 23",00:00,24,Eureka Stadium,Footscray,GWS,10.7,0.605,Footscray by 11
-2024,16613,2024-08-23,"Fri, 23",00:00,24,Perth Stadium,Fremantle,Port Adelaide,8.2,0.581,Fremantle by 8
+2024,16605,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Melbourne,Collingwood,3.2,0.532,Melbourne by 3
+2024,16606,2024-08-24,"Sat, 24",00:00,24,Kardinia Park,Geelong,West Coast,27.5,0.75,Geelong by 28
+2024,16607,2024-08-24,"Sat, 24",00:00,24,M.C.G.,Richmond,Gold Coast,-1.4,0.486,Gold Coast by 1
+2024,16608,2024-08-24,"Sat, 24",00:00,24,York Park,Hawthorn,North Melbourne,19.1,0.682,Hawthorn by 19
+2024,16609,2024-08-24,"Sat, 24",00:00,24,Gabba,Brisbane Lions,Essendon,19.4,0.685,Brisbane Lions by 19
+2024,16610,2024-08-24,"Sat, 24",00:00,24,S.C.G.,Sydney,Adelaide,16.2,0.657,Sydney by 16
+2024,16611,2024-08-25,"Sun, 25",00:00,24,Eureka Stadium,Footscray,GWS,10.7,0.605,Footscray by 11
+2024,16612,2024-08-25,"Sun, 25",00:00,24,Docklands,Carlton,St Kilda,9.3,0.592,Carlton by 9
+2024,16613,2024-08-25,"Sun, 25",00:00,24,Perth Stadium,Fremantle,Port Adelaide,8.2,0.581,Fremantle by 8
