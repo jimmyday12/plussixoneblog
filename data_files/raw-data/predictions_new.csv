@@ -1,12 +1,11 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2024,2024-08-11,Adelaide,Footscray,0.506,0.6
 2024,2024-08-16,Essendon,Sydney,0.472,-2.8
 2024,2024-08-17,Gold Coast,Melbourne,0.494,-0.6
 2024,2024-08-17,GWS,Fremantle,0.541,4.1
 2024,2024-08-17,Collingwood,Brisbane Lions,0.517,1.7
-2024,2024-08-17,Port Adelaide,Adelaide,0.576,7.7
+2024,2024-08-17,Port Adelaide,Adelaide,0.567,6.7
 2024,2024-08-17,St Kilda,Geelong,0.478,-2.2
-2024,2024-08-18,Footscray,North Melbourne,0.729,24.7
+2024,2024-08-18,Footscray,North Melbourne,0.722,23.9
 2024,2024-08-18,Hawthorn,Richmond,0.673,18
 2024,2024-08-18,West Coast,Carlton,0.398,-10.3
 2024,2024-08-23,Melbourne,Collingwood,0.527,2.7
@@ -14,7 +13,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2024,2024-08-24,Richmond,Gold Coast,0.475,-2.5
 2024,2024-08-24,Hawthorn,North Melbourne,0.693,20.4
 2024,2024-08-24,Brisbane Lions,Essendon,0.68,18.8
-2024,2024-08-24,Sydney,Adelaide,0.654,15.9
-2024,2024-08-25,Footscray,GWS,0.597,9.8
+2024,2024-08-24,Sydney,Adelaide,0.645,14.9
+2024,2024-08-25,Footscray,GWS,0.588,8.9
 2024,2024-08-25,Carlton,St Kilda,0.569,6.9
 2024,2024-08-25,Fremantle,Port Adelaide,0.573,7.4
