@@ -1,18 +1,16 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2024,16597,2024-08-17,"Sat, 17",00:00,23,People First Stadium,Gold Coast,Melbourne,-0.6,0.494,Melbourne by 1
-2024,16598,2024-08-17,"Sat, 17",00:00,23,ENGIE Stadium,GWS,Fremantle,4.1,0.541,GWS by 4
 2024,16599,2024-08-17,"Sat, 17",00:00,23,M.C.G.,Collingwood,Brisbane Lions,1.7,0.517,Collingwood by 2
 2024,16600,2024-08-17,"Sat, 17",00:00,23,Adelaide Oval,Port Adelaide,Adelaide,6.7,0.567,Port Adelaide by 7
 2024,16601,2024-08-17,"Sat, 17",00:00,23,Docklands,St Kilda,Geelong,-2.2,0.478,Geelong by 2
 2024,16602,2024-08-18,"Sun, 18",00:00,23,Docklands,Footscray,North Melbourne,23.9,0.722,Footscray by 24
 2024,16603,2024-08-18,"Sun, 18",00:00,23,M.C.G.,Hawthorn,Richmond,18,0.673,Hawthorn by 18
 2024,16604,2024-08-18,"Sun, 18",00:00,23,Perth Stadium,West Coast,Carlton,-10.3,0.398,Carlton by 10
-2024,16605,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Melbourne,Collingwood,2.7,0.527,Melbourne by 3
+2024,16605,2024-08-23,"Fri, 23",00:00,24,M.C.G.,Melbourne,Collingwood,3.8,0.538,Melbourne by 4
 2024,16606,2024-08-24,"Sat, 24",00:00,24,Kardinia Park,Geelong,West Coast,27.7,0.752,Geelong by 28
-2024,16607,2024-08-24,"Sat, 24",00:00,24,M.C.G.,Richmond,Gold Coast,-2.5,0.475,Gold Coast by 2
+2024,16607,2024-08-24,"Sat, 24",00:00,24,M.C.G.,Richmond,Gold Coast,-1.3,0.487,Gold Coast by 1
 2024,16608,2024-08-24,"Sat, 24",00:00,24,University of Tasmania Stadium,Hawthorn,North Melbourne,20.4,0.693,Hawthorn by 20
 2024,16609,2024-08-24,"Sat, 24",00:00,24,Gabba,Brisbane Lions,Essendon,19.8,0.688,Brisbane Lions by 20
 2024,16610,2024-08-24,"Sat, 24",00:00,24,S.C.G.,Sydney,Adelaide,15.8,0.653,Sydney by 16
-2024,16611,2024-08-25,"Sun, 25",00:00,24,Eureka Stadium,Footscray,GWS,8.9,0.588,Footscray by 9
+2024,16611,2024-08-25,"Sun, 25",00:00,24,Eureka Stadium,Footscray,GWS,8.8,0.587,Footscray by 9
 2024,16612,2024-08-25,"Sun, 25",00:00,24,Docklands,Carlton,St Kilda,6.9,0.569,Carlton by 7
-2024,16613,2024-08-25,"Sun, 25",00:00,24,Perth Stadium,Fremantle,Port Adelaide,7.4,0.573,Fremantle by 7
+2024,16613,2024-08-25,"Sun, 25",00:00,24,Perth Stadium,Fremantle,Port Adelaide,7.3,0.572,Fremantle by 7
