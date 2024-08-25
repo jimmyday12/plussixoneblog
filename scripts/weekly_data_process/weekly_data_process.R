@@ -42,10 +42,11 @@ new_results <- check_results(season)
 new_fixture <- check_fixture(season, new_season)
 
 if(new_results | new_fixture | new_season) {
-  cli_alert_info("New data found")
+  
+  cli_alert_info("New data found!")
   new_data <- TRUE
 } else{
-  cli_alert_info("No new data found")
+  cli_alert_info("No new data found!")
   new_data <- FALSE
 }
 
@@ -127,13 +128,14 @@ if (new_data) {
   
   # In season stuff --------------------------------------------------------
   if (!season_complete){
-  # Predictions ------------------------------------------------------------
+  
+    # Predictions ------------------------------------------------------------
+    
     cli_progress_step("Doing Predictions")
     # Do predictions
-    
     dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data, carryOver, new_season)
     
-    # Message
+    cli_progress_done()
     
   }
   
@@ -141,8 +143,7 @@ if (new_data) {
   # Simulation --------------------------------------------------------------
   # Skip if home_away has finished
   if (home_away_ongoing) {
-    cli_alert_info("Home and away still ongoing")
-    cli_progress_step("Doing In Season Simulations")
+    cli_progress_step("Home and away still ongoing. Doing In Season Simulations")
     sim_dat <- list()
     
     # do sims
@@ -227,8 +228,7 @@ if (new_data) {
   }
   
   if (finals_scheduled | finals_started) {
-    cli_alert_info("Finals in progress")
-    cli_progress_step("Doing Finals Sims In Finals")
+    cli_progress_step("Finals in progress. Doing Finals Sims In Finals")
     final_sim_num <- 1000
     sim_dat <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
     
@@ -353,14 +353,9 @@ if (new_data) {
       
     }
     }
-    
+    cli_progress_done()
   }
-  
-  # Touch files ------------------------------------------------------------------
-  #blogdown:::touch_file(here::here("content", "page", "aflm-ratings-and-simulations.Rmd"))
-  #blogdown:::touch_file(here::here("content", "page", "aflm-current-tips.Rmd"))
-  #blogdown:::touch_file(here::here("content", "page", "aflm-predictions.Rmd"))
-  #blogdown:::touch_file(here::here("content", "page", "aflm-games.Rmd"))
+
 }
 
 
