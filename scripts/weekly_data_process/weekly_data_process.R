@@ -141,7 +141,7 @@ if (new_data) {
   # Simulation --------------------------------------------------------------
   # Skip if home_away has finished
   if (home_away_ongoing) {
-    
+    cli_alert_info("Home and away still ongoing")
     cli_progress_step("Doing In Season Simulations")
     sim_dat <- list()
     
@@ -192,12 +192,14 @@ if (new_data) {
       arrange(Wins)
     #rm(past_sims)
 
+  } else {
+    cli_alert_info("Home and away finished")
   }
   
   # Finals Sims -------------------------------------------------------------
   # source finals sims
   if (!season_complete){
-    
+    cli_alert_info("Season still going...")
   
   if (home_away_ongoing) {
     cli_progress_step("Doing Finals Sims H&A")
@@ -225,6 +227,7 @@ if (new_data) {
   }
   
   if (finals_scheduled | finals_started) {
+    cli_alert_info("Finals in progress")
     cli_progress_step("Doing Finals Sims In Finals")
     final_sim_num <- 1000
     sim_dat <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
@@ -263,6 +266,8 @@ if (new_data) {
     
   }
   
+  } else {
+    cli_alert_info("Season completed!")
   }
   # Save Data ---------------------------------------------------------------
   

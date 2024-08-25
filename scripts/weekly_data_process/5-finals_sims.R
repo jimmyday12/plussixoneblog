@@ -431,33 +431,6 @@ combine_finals_sims <- function(final_game,
   sims_combined[is.na(sims_combined)] <- 0
   
   
-  # # Get current results
-  # res <- results
-  # res <- res %>% 
-  #   filter(Season == max(sims_combined$Season)) %>%
-  #   select(Season, Home.Team, Away.Team, Home.Points, Away.Points, Round) %>%
-  #   mutate(Margin = Home.Points - Away.Points,
-  #          Home.Result = case_when(Margin > 0 ~ 1,
-  #                                  Margin < 0 ~ 0,
-  #                                  TRUE ~ 0.5))
-  # 
-  # win_loss <- res %>%
-  #   pivot_longer(cols = c("Home.Team", "Away.Team"),
-  #                names_to = "Status", 
-  #                values_to = "Team") %>%
-  #   mutate(Result = ifelse(Status == "Home.Team", Home.Result, 1-Home.Result)) %>%
-  #   select(Season, Team, Round, Result) %>%
-  #   group_by(Team, Season) %>%
-  #   mutate(Wins = ifelse(Result == 1, 1, 0),
-  #          Losses = ifelse(Result == 0, 1, 0),
-  #          Draws = ifelse(Result == 0.5, 1, 0)) %>%
-  #   summarise(Wins = sum(Wins),
-  #             Losses = sum(Losses),
-  #             Draws = sum(Draws)) %>%
-  #   mutate(Form = ifelse(Draws > 0, 
-  #                        paste0(Wins, "-", Losses, "-", Draws),
-  #                        paste0(Wins, "-", Losses)))
-  
   if (!is.null(ladder)) {
     win_loss <- ladder %>% 
     rename(Team = team.name,
@@ -482,7 +455,4 @@ combine_finals_sims <- function(final_game,
                            win_loss = win_loss)
   
 }
-# Summarise across all
-
-
 

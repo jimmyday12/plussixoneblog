@@ -212,7 +212,6 @@ states$venue <- states$venue %>%
 
 write_rds(states, here::here("data_files", "raw-data", "states.rds"))
 
-message("Data loaded")
 dat <- list(fixture = fixture,
             results = results,
             ladder = ladder,
