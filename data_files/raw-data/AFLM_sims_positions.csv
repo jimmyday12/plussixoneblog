@@ -32147,26 +32147,7 @@ Adelaide,14,NA,NA,,2024,24
 Adelaide,16,NA,NA,,2024,24
 Adelaide,17,NA,NA,,2024,24
 Adelaide,18,NA,NA,,2024,24
-St Kilda,14,68.5,1,68,2024,24
-St Kilda,12,31.5,2,32,2024,24
-St Kilda,1,NA,NA,,2024,24
-St Kilda,2,NA,NA,,2024,24
-St Kilda,3,NA,NA,,2024,24
-St Kilda,4,NA,NA,,2024,24
-St Kilda,5,NA,NA,,2024,24
-St Kilda,6,NA,NA,,2024,24
-St Kilda,7,NA,NA,,2024,24
-St Kilda,8,NA,NA,,2024,24
-St Kilda,9,NA,NA,,2024,24
-St Kilda,10,NA,NA,,2024,24
-St Kilda,11,NA,NA,,2024,24
-St Kilda,13,NA,NA,,2024,24
-St Kilda,15,NA,NA,,2024,24
-St Kilda,16,NA,NA,,2024,24
-St Kilda,17,NA,NA,,2024,24
-St Kilda,18,NA,NA,,2024,24
-Gold Coast,12,68.5,1,68,2024,24
-Gold Coast,13,31.5,2,32,2024,24
+Gold Coast,13,100,1,100,2024,24
 Gold Coast,1,NA,NA,,2024,24
 Gold Coast,2,NA,NA,,2024,24
 Gold Coast,3,NA,NA,,2024,24
@@ -32178,13 +32159,13 @@ Gold Coast,8,NA,NA,,2024,24
 Gold Coast,9,NA,NA,,2024,24
 Gold Coast,10,NA,NA,,2024,24
 Gold Coast,11,NA,NA,,2024,24
+Gold Coast,12,NA,NA,,2024,24
 Gold Coast,14,NA,NA,,2024,24
 Gold Coast,15,NA,NA,,2024,24
 Gold Coast,16,NA,NA,,2024,24
 Gold Coast,17,NA,NA,,2024,24
 Gold Coast,18,NA,NA,,2024,24
-Melbourne,13,68.5,1,68,2024,24
-Melbourne,14,31.5,2,32,2024,24
+Melbourne,14,100,1,100,2024,24
 Melbourne,1,NA,NA,,2024,24
 Melbourne,2,NA,NA,,2024,24
 Melbourne,3,NA,NA,,2024,24
@@ -32197,10 +32178,29 @@ Melbourne,9,NA,NA,,2024,24
 Melbourne,10,NA,NA,,2024,24
 Melbourne,11,NA,NA,,2024,24
 Melbourne,12,NA,NA,,2024,24
+Melbourne,13,NA,NA,,2024,24
 Melbourne,15,NA,NA,,2024,24
 Melbourne,16,NA,NA,,2024,24
 Melbourne,17,NA,NA,,2024,24
 Melbourne,18,NA,NA,,2024,24
+St Kilda,12,100,1,100,2024,24
+St Kilda,1,NA,NA,,2024,24
+St Kilda,2,NA,NA,,2024,24
+St Kilda,3,NA,NA,,2024,24
+St Kilda,4,NA,NA,,2024,24
+St Kilda,5,NA,NA,,2024,24
+St Kilda,6,NA,NA,,2024,24
+St Kilda,7,NA,NA,,2024,24
+St Kilda,8,NA,NA,,2024,24
+St Kilda,9,NA,NA,,2024,24
+St Kilda,10,NA,NA,,2024,24
+St Kilda,11,NA,NA,,2024,24
+St Kilda,13,NA,NA,,2024,24
+St Kilda,14,NA,NA,,2024,24
+St Kilda,15,NA,NA,,2024,24
+St Kilda,16,NA,NA,,2024,24
+St Kilda,17,NA,NA,,2024,24
+St Kilda,18,NA,NA,,2024,24
 Essendon,11,100,1,100,2024,24
 Essendon,1,NA,NA,,2024,24
 Essendon,2,NA,NA,,2024,24
@@ -32219,6 +32219,24 @@ Essendon,15,NA,NA,,2024,24
 Essendon,16,NA,NA,,2024,24
 Essendon,17,NA,NA,,2024,24
 Essendon,18,NA,NA,,2024,24
+Carlton,9,67.81,1,68,2024,24
+Carlton,8,32.190000000000005,2,32,2024,24
+Carlton,1,NA,NA,,2024,24
+Carlton,2,NA,NA,,2024,24
+Carlton,3,NA,NA,,2024,24
+Carlton,4,NA,NA,,2024,24
+Carlton,5,NA,NA,,2024,24
+Carlton,6,NA,NA,,2024,24
+Carlton,7,NA,NA,,2024,24
+Carlton,10,NA,NA,,2024,24
+Carlton,11,NA,NA,,2024,24
+Carlton,12,NA,NA,,2024,24
+Carlton,13,NA,NA,,2024,24
+Carlton,14,NA,NA,,2024,24
+Carlton,15,NA,NA,,2024,24
+Carlton,16,NA,NA,,2024,24
+Carlton,17,NA,NA,,2024,24
+Carlton,18,NA,NA,,2024,24
 Collingwood,10,67.81,1,68,2024,24
 Collingwood,9,32.190000000000005,2,32,2024,24
 Collingwood,1,NA,NA,,2024,24
@@ -32237,9 +32255,8 @@ Collingwood,15,NA,NA,,2024,24
 Collingwood,16,NA,NA,,2024,24
 Collingwood,17,NA,NA,,2024,24
 Collingwood,18,NA,NA,,2024,24
-Fremantle,9,45.22,1,45,2024,24
+Fremantle,8,67.81,1,68,2024,24
 Fremantle,10,32.190000000000005,2,32,2024,24
-Fremantle,8,22.59,3,23,2024,24
 Fremantle,1,NA,NA,,2024,24
 Fremantle,2,NA,NA,,2024,24
 Fremantle,3,NA,NA,,2024,24
@@ -32247,6 +32264,7 @@ Fremantle,4,NA,NA,,2024,24
 Fremantle,5,NA,NA,,2024,24
 Fremantle,6,NA,NA,,2024,24
 Fremantle,7,NA,NA,,2024,24
+Fremantle,9,NA,NA,,2024,24
 Fremantle,11,NA,NA,,2024,24
 Fremantle,12,NA,NA,,2024,24
 Fremantle,13,NA,NA,,2024,24
@@ -32255,24 +32273,6 @@ Fremantle,15,NA,NA,,2024,24
 Fremantle,16,NA,NA,,2024,24
 Fremantle,17,NA,NA,,2024,24
 Fremantle,18,NA,NA,,2024,24
-Carlton,8,77.41,1,77,2024,24
-Carlton,9,22.59,2,23,2024,24
-Carlton,1,NA,NA,,2024,24
-Carlton,2,NA,NA,,2024,24
-Carlton,3,NA,NA,,2024,24
-Carlton,4,NA,NA,,2024,24
-Carlton,5,NA,NA,,2024,24
-Carlton,6,NA,NA,,2024,24
-Carlton,7,NA,NA,,2024,24
-Carlton,10,NA,NA,,2024,24
-Carlton,11,NA,NA,,2024,24
-Carlton,12,NA,NA,,2024,24
-Carlton,13,NA,NA,,2024,24
-Carlton,14,NA,NA,,2024,24
-Carlton,15,NA,NA,,2024,24
-Carlton,16,NA,NA,,2024,24
-Carlton,17,NA,NA,,2024,24
-Carlton,18,NA,NA,,2024,24
 Footscray,6,100,1,100,2024,24
 Footscray,1,NA,NA,,2024,24
 Footscray,2,NA,NA,,2024,24
@@ -32345,8 +32345,8 @@ GWS,15,NA,NA,,2024,24
 GWS,16,NA,NA,,2024,24
 GWS,17,NA,NA,,2024,24
 GWS,18,NA,NA,,2024,24
-Geelong,3,75.51,1,76,2024,24
-Geelong,2,24.490000000000002,2,24,2024,24
+Geelong,3,75.69,1,76,2024,24
+Geelong,2,24.310000000000002,2,24,2024,24
 Geelong,1,NA,NA,,2024,24
 Geelong,4,NA,NA,,2024,24
 Geelong,5,NA,NA,,2024,24
@@ -32363,8 +32363,8 @@ Geelong,15,NA,NA,,2024,24
 Geelong,16,NA,NA,,2024,24
 Geelong,17,NA,NA,,2024,24
 Geelong,18,NA,NA,,2024,24
-Port Adelaide,2,75.51,1,76,2024,24
-Port Adelaide,3,24.490000000000002,2,24,2024,24
+Port Adelaide,2,75.69,1,76,2024,24
+Port Adelaide,3,24.310000000000002,2,24,2024,24
 Port Adelaide,1,NA,NA,,2024,24
 Port Adelaide,4,NA,NA,,2024,24
 Port Adelaide,5,NA,NA,,2024,24
