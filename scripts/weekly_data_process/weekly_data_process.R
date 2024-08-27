@@ -24,7 +24,7 @@ grand_final_bug <- FALSE
 season <- 2024
 new_season <- FALSE
 save_data <- TRUE
-opening_round = TRUE
+opening_round = FALSE
 
 # Set ELO Parameters
 e <- 1.7

@@ -80,6 +80,7 @@ get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = F
 #fixture <- fitzRoy::fetch_fixture_footywire(season) %>%
 #  filter(Date >= filt_date)
 
+cli::cli_progress_step("Fetching fixture")
 # get afl fixture
 fixture_afl <- fitzRoy::fetch_fixture_afl(season)
 
@@ -121,12 +122,13 @@ if (grand_final_bug){
 if(fixture_bug) fixture$Round.Number = fixture$Round.Number - 1
 
 # Get results
+cli::cli_progress_step("Fetching AFL Tables Results")
 
 seasons <- 1897:season
-
 results <- fetch_results_afltables(seasons, NULL)
 
 ## Check which seasons have openeing round
+cli::cli_progress_step("Checking for opening round")
 seasons_afl <- 2015:season
 
 ind_opening_round <- seasons_afl |> 
@@ -134,6 +136,7 @@ ind_opening_round <- seasons_afl |>
   purrr::map_lgl(~nrow(.x) > 0) 
 
 seasons_opening_round <- seasons_afl[ind_opening_round]
+
 
 results <- results |> 
     mutate(Round.Number = ifelse(Season %in% seasons_opening_round, 
@@ -143,9 +146,11 @@ results <- results |>
 # Check for new results
 #results_new <- fetch_results_footywire(season, last_n_matches = 10)
 #results_new <- convert_results(results_new)
+cli::cli_progress_step("Getting AFL.com.au results")
 results_new <- fetch_results(season, comp = "AFLM")
 
 if (!is.null(results_new)) {
+  cli::cli_progress_step("Merging Results")
   results_new <- convert_results_afl(results_new)
   
   results <- bind_rows(results, results_new) %>%
@@ -176,6 +181,7 @@ results <- results %>%
   mutate(Round.Number = ifelse(Round.Number < max(Round.Number) & is.na(Game),rnd + 1, Round.Number))
 
 # Ladder 
+cli::cli_progress_step("Getting Ladder")
 df <- results %>% 
   filter(Season == season & Round.Type == "Regular" & !is.na(Margin))
 
@@ -191,6 +197,7 @@ if (nrow(df) == 0){
 
 
 # Get states data - this comes from another script I run when a new venue or team occurs
+cli::cli_progress_step("Getting venues data")
 states <- read_rds(here::here("data_files", "raw-data", "states.rds"))
 
 states$venue <- states$venue %>%
@@ -210,7 +217,11 @@ states$venue <- states$venue %>%
   select(-starts_with("dist")) %>%
   distinct()
 
+
+
 write_rds(states, here::here("data_files", "raw-data", "states.rds"))
+
+cli::cli_progress_done()
 
 dat <- list(fixture = fixture,
             results = results,

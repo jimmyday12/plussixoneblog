@@ -25,7 +25,7 @@ check_results <- function(season) {
     filter(Round == last(Round)) %>%
     select(Home.Team, Away.Team, Date, Venue) 
   
-  return(!isTRUE(dplyr::all_equal(new, old)))
+  return(!isTRUE(dplyr::all.equal(new, old)))
 
   
 }
@@ -55,6 +55,6 @@ check_fixture <- function(season, new_season = FALSE) {
            Venue = venue_fix(venue.name)) %>%
     select(Home.Team, Away.Team, Date, Venue, Round.Number)
   
-  return(!isTRUE(dplyr::all_equal(new, old)))
+  return(!isTRUE(dplyr::all.equal(new, old)))
   
 }
