@@ -93,6 +93,7 @@ do_finals_sims <- function(sim_data_all,
                            sim_elo_perterbed,
                            last_round,
                            ladder = NULL,
+                           home_away_ongoing = FALSE,
                            finals_started = FALSE,
                            finals_week = NULL,
                            finals_results = NULL){
@@ -121,8 +122,8 @@ do_finals_sims <- function(sim_data_all,
   if (is.null(finals_week)) finals_week <- 0
   # Week 1 -----------------------------------------------------------------------
   # Step 1 - get top 8
-  if (is.null(ladder) | !finals_started){
-
+  
+  if (is.null(ladder) | home_away_ongoing){
   sim_ladder <- sim_data_all %>%
     filter(Top.8) %>%
     arrange(Sim, Rank) %>%
@@ -130,6 +131,7 @@ do_finals_sims <- function(sim_data_all,
     select(Sim, Team, Rank) %>%
     group_split() %>%
     .[1:sim_num]
+  
   } else {
     sim_ladder <- ladder %>%
       rename(Team = team.name, Rank = position) %>%
@@ -139,10 +141,15 @@ do_finals_sims <- function(sim_data_all,
     sim_ladder <- 1:sim_num %>%
       map(~mutate(sim_ladder, Sim = .x))
     
+  }
+  
+  if(finals_started) {
     finals_results <- finals_results %>%
       left_join(sim_ladder[[1]], by = c("Home.Team" = "Team"))
-
+    
   }
+    
+ 
   
   #game_dat <-  game_dat
   cli_progress_step("Simulating Finals Week 1")

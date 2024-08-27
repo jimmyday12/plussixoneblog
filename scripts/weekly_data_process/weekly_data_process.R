@@ -203,7 +203,7 @@ if (new_data) {
     cli_alert_info("Season still going...")
   
   if (home_away_ongoing) {
-    cli_progress_step("Doing Finals Sims H&A")
+    cli_progress_step("H&A In Progress. Doing Finals Sims in H&A")
     last_round <- last(dat$fixture$Round.Number)
     
     finals_sims <- do_finals_sims(
@@ -248,6 +248,7 @@ if (new_data) {
                                   sim_elo_perterbed = NULL,
                                   last_round = last_round,
                                   ladder = dat$ladder,
+                                  home_away_ongoing = home_away_ongoing,
                                   finals_started = finals_started,
                                   finals_week = finals_weeks_completed,
                                   finals_results = finals_results)
