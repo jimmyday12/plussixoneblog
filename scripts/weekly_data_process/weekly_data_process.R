@@ -5,8 +5,15 @@ set.seed(42)
 # Load libraries
 library(fitzRoy)
 library(pacman)
-pacman::p_load(tidyverse, elo, here, lubridate, tibbletime, cli)
+library(tidyverse)
+library(elo)
+library(here)
+library(lubridate)
+library(tibbletime)
+library(cli)
+
 cli_progress_step("Setup")
+
 # source functions
 source(here::here("scripts", "weekly_data_process", "0-functions.R"))
 source(here::here("scripts", "weekly_data_process", "0a-check-data.R"))
