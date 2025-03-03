@@ -1,5 +1,6 @@
 # Check results
 check_results <- function(season) {
+  
   new_results <- fetch_results_footywire(season, 
                                          round_number = NULL, 
                                          last_n_matches = 9) 

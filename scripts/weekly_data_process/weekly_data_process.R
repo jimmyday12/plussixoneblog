@@ -28,10 +28,10 @@ source(here::here("scripts", "weekly_data_process", "5-finals_sims.R"))
 filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
-season <- 2024
-new_season <- FALSE
+season <- 2025
+new_season <- TRUE
 save_data <- TRUE
-opening_round = FALSE
+opening_round = TRUE
 
 # Set ELO Parameters
 e <- 1.7
@@ -43,12 +43,14 @@ B <- 0.04
 sim_num <-  10000
 
 # Check Data ----------------------------------------------------------------
+if(!new_season){
 cli_progress_step("Checking for new data")
+
 # First check if new results exist
 new_results <- check_results(season)
 new_fixture <- check_fixture(season, new_season)
 
-if(new_results | new_fixture | new_season) {
+if(new_results | new_fixture) {
   
   cli_alert_info("New data found!")
   new_data <- TRUE
@@ -56,6 +58,14 @@ if(new_results | new_fixture | new_season) {
   cli_alert_info("No new data found!")
   new_data <- FALSE
 }
+
+} else {
+  cli_alert_info("New season - running script!")
+  new_data <- TRUE
+}
+
+
+
 
 
 # Manual override
