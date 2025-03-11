@@ -29,9 +29,9 @@ filt_date <- Sys.Date()
 fixture_bug <- FALSE
 grand_final_bug <- FALSE
 season <- 2025
-new_season <- TRUE
+new_season <- FALSE
 save_data <- TRUE
-opening_round = TRUE
+opening_round = FALSE
 
 # Set ELO Parameters
 e <- 1.7
