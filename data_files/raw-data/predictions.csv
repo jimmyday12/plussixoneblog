@@ -1,206 +1,205 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2025,16625,2025-03-13,"Thu, 13",00:00,1,M.C.G.,Richmond,Carlton,-14.7,0.357,Carlton by 15
-2025,16626,2025-03-14,"Fri, 14",00:00,1,M.C.G.,Hawthorn,Essendon,10.6,0.604,Hawthorn by 11
-2025,16627,2025-03-15,"Sat, 15",00:00,1,Kardinia Park,Geelong,Fremantle,11.5,0.613,Geelong by 12
-2025,16628,2025-03-15,"Sat, 15",00:00,1,S.C.G.,Sydney,Brisbane Lions,1.1,0.511,Sydney by 1
-2025,16629,2025-03-15,"Sat, 15",00:00,1,Docklands,Footscray,North Melbourne,26.5,0.743,Footscray by 26
-2025,16630,2025-03-15,"Sat, 15",00:00,1,M.C.G.,Collingwood,Port Adelaide,5,0.55,Collingwood by 5
-2025,16631,2025-03-16,"Sun, 16",00:00,1,Adelaide Oval,Adelaide,St Kilda,7.8,0.577,Adelaide by 8
-2025,16632,2025-03-16,"Sun, 16",00:00,1,M.C.G.,Melbourne,GWS,6.3,0.563,Melbourne by 6
-2025,16633,2025-03-16,"Sun, 16",00:00,1,Perth Stadium,West Coast,Gold Coast,-6,0.44,Gold Coast by 6
-2025,16634,2025-03-20,"Thu, 20",00:00,2,M.C.G.,Carlton,Hawthorn,2.9,0.529,Carlton by 3
-2025,16635,2025-03-21,"Fri, 21",00:00,2,M.C.G.,Footscray,Collingwood,8.7,0.586,Footscray by 9
-2025,16636,2025-03-22,"Sat, 22",00:00,2,M.C.G.,Essendon,Adelaide,4.1,0.541,Essendon by 4
-2025,16637,2025-03-22,"Sat, 22",00:00,2,Adelaide Oval,Port Adelaide,Richmond,25.1,0.732,Port Adelaide by 25
-2025,16638,2025-03-22,"Sat, 22",00:00,2,Docklands,St Kilda,Geelong,-2.9,0.471,Geelong by 3
-2025,16639,2025-03-23,"Sun, 23",00:00,2,Gabba,Brisbane Lions,West Coast,34.8,0.801,Brisbane Lions by 35
-2025,16640,2025-03-23,"Sun, 23",00:00,2,Docklands,North Melbourne,Melbourne,-15.3,0.352,Melbourne by 15
-2025,16641,2025-03-23,"Sun, 23",00:00,2,Perth Stadium,Fremantle,Sydney,7.9,0.578,Fremantle by 8
-2025,16642,2025-03-27,"Thu, 27",00:00,3,Docklands,Essendon,Port Adelaide,0.6,0.506,Essendon by 1
-2025,16643,2025-03-28,"Fri, 28",00:00,3,Docklands,Carlton,Footscray,-0.1,0.499,Footscray by 0
-2025,16644,2025-03-29,"Sat, 29",00:00,3,M.C.G.,Melbourne,Gold Coast,12.2,0.62,Melbourne by 12
-2025,16645,2025-03-29,"Sat, 29",00:00,3,Docklands,St Kilda,Richmond,17.3,0.666,St Kilda by 17
-2025,16646,2025-03-29,"Sat, 29",00:00,3,York Park,Hawthorn,GWS,3.9,0.539,Hawthorn by 4
-2025,16647,2025-03-29,"Sat, 29",00:00,3,Gabba,Brisbane Lions,Geelong,12,0.618,Brisbane Lions by 12
-2025,16648,2025-03-30,"Sun, 30",00:00,3,Adelaide Oval,Adelaide,North Melbourne,24.9,0.73,Adelaide by 25
-2025,16649,2025-03-30,"Sun, 30",00:00,3,Perth Stadium,West Coast,Fremantle,-16.7,0.339,Fremantle by 17
-2025,16650,2025-04-03,"Thu, 03",00:00,4,M.C.G.,Collingwood,Carlton,-0.4,0.496,Carlton by 0
-2025,16651,2025-04-04,"Fri, 04",00:00,4,Kardinia Park,Geelong,Melbourne,8.2,0.581,Geelong by 8
-2025,16652,2025-04-05,"Sat, 05",00:00,4,People First Stadium,Gold Coast,Adelaide,0.4,0.504,Gold Coast by 0
-2025,16653,2025-04-05,"Sat, 05",00:00,4,M.C.G.,Richmond,Brisbane Lions,-16.5,0.341,Brisbane Lions by 16
-2025,16654,2025-04-05,"Sat, 05",00:00,4,Docklands,North Melbourne,Sydney,-12.3,0.379,Sydney by 12
-2025,16655,2025-04-06,"Sun, 06",00:00,4,ENGIE Stadium,GWS,West Coast,22.7,0.713,GWS by 23
-2025,16656,2025-04-06,"Sun, 06",00:00,4,Adelaide Oval,Port Adelaide,St Kilda,11.1,0.609,Port Adelaide by 11
-2025,16657,2025-04-06,"Sun, 06",00:00,4,Perth Stadium,Fremantle,Footscray,4.3,0.543,Fremantle by 4
-2025,16658,2025-04-10,"Thu, 10",00:00,5,Adelaide Oval,Adelaide,Geelong,1.4,0.514,Adelaide by 1
-2025,16659,2025-04-11,"Fri, 11",00:00,5,Adelaide Oval,Collingwood,Sydney,0.1,0.501,Collingwood by 0
-2025,16660,2025-04-12,"Sat, 12",00:00,5,Barossa Park,North Melbourne,Gold Coast,-11.5,0.387,Gold Coast by 12
-2025,16661,2025-04-12,"Sat, 12",00:00,5,Adelaide Oval,Carlton,West Coast,23.1,0.716,Carlton by 23
-2025,16662,2025-04-12,"Sat, 12",00:00,5,Norwood Oval,Footscray,Brisbane Lions,-1,0.49,Brisbane Lions by 1
-2025,16663,2025-04-12,"Sat, 12",00:00,5,Adelaide Oval,Melbourne,Essendon,8.4,0.583,Melbourne by 8
-2025,16664,2025-04-13,"Sun, 13",00:00,5,Barossa Park,Richmond,Fremantle,-14.1,0.363,Fremantle by 14
-2025,16665,2025-04-13,"Sun, 13",00:00,5,Norwood Oval,St Kilda,GWS,-0.2,0.498,GWS by 0
-2025,16666,2025-04-13,"Sun, 13",00:00,5,Adelaide Oval,Port Adelaide,Hawthorn,7.5,0.574,Port Adelaide by 8
-2025,16667,2025-04-17,"Thu, 17",00:00,6,Gabba,Brisbane Lions,Collingwood,17.9,0.672,Brisbane Lions by 18
-2025,16668,2025-04-18,"Fri, 18",00:00,6,Docklands,North Melbourne,Carlton,-17.8,0.329,Carlton by 18
-2025,16669,2025-04-18,"Fri, 18",00:00,6,Perth Stadium,West Coast,Essendon,-4.7,0.453,Essendon by 5
-2025,16670,2025-04-19,"Sat, 19",00:00,6,M.C.G.,Melbourne,Fremantle,6.5,0.565,Melbourne by 6
-2025,16671,2025-04-19,"Sat, 19",00:00,6,Adelaide Oval,Adelaide,GWS,4.7,0.547,Adelaide by 5
-2025,16672,2025-04-19,"Sat, 19",00:00,6,Docklands,Richmond,Gold Coast,-3.9,0.461,Gold Coast by 4
-2025,16673,2025-04-20,"Sun, 20",00:00,6,S.C.G.,Sydney,Port Adelaide,8.1,0.58,Sydney by 8
-2025,16674,2025-04-20,"Sun, 20",00:00,6,Docklands,Footscray,St Kilda,9.4,0.593,Footscray by 9
-2025,16675,2025-04-21,"Mon, 21",00:00,6,M.C.G.,Geelong,Hawthorn,5.4,0.554,Geelong by 5
-2025,16676,2025-04-24,"Thu, 24",00:00,7,M.C.G.,Melbourne,Richmond,18.5,0.677,Melbourne by 18
-2025,16677,2025-04-25,"Fri, 25",00:00,7,M.C.G.,Collingwood,Essendon,7.4,0.573,Collingwood by 7
-2025,16678,2025-04-25,"Fri, 25",00:00,7,Perth Stadium,Fremantle,Adelaide,11.2,0.61,Fremantle by 11
-2025,16679,2025-04-26,"Sat, 26",00:00,7,Docklands,St Kilda,Brisbane Lions,-2.4,0.476,Brisbane Lions by 2
-2025,16680,2025-04-26,"Sat, 26",00:00,7,Adelaide Oval,Port Adelaide,North Melbourne,28.3,0.756,Port Adelaide by 28
-2025,16681,2025-04-26,"Sat, 26",00:00,7,Manuka Oval,GWS,Footscray,-0.3,0.497,Footscray by 0
-2025,16682,2025-04-27,"Sun, 27",00:00,7,People First Stadium,Gold Coast,Sydney,-2.7,0.473,Sydney by 3
-2025,16683,2025-04-27,"Sun, 27",00:00,7,M.C.G.,Carlton,Geelong,0.4,0.504,Carlton by 0
-2025,16684,2025-04-27,"Sun, 27",00:00,7,Docklands,Hawthorn,West Coast,27.9,0.753,Hawthorn by 28
-2025,16685,2025-05-01,"Thu, 01",00:00,8,Docklands,Essendon,North Melbourne,15.9,0.654,Essendon by 16
-2025,16686,2025-05-02,"Fri, 02",00:00,8,Docklands,St Kilda,Fremantle,4.9,0.549,St Kilda by 5
-2025,16687,2025-05-03,"Sat, 03",00:00,8,Eureka Stadium,Footscray,Port Adelaide,11.4,0.612,Footscray by 11
-2025,16688,2025-05-03,"Sat, 03",00:00,8,Adelaide Oval,Adelaide,Carlton,4.1,0.541,Adelaide by 4
-2025,16689,2025-05-03,"Sat, 03",00:00,8,M.C.G.,Collingwood,Geelong,-2.9,0.471,Geelong by 3
-2025,16690,2025-05-03,"Sat, 03",00:00,8,Perth Stadium,West Coast,Melbourne,-10.2,0.399,Melbourne by 10
-2025,16691,2025-05-04,"Sun, 04",00:00,8,S.C.G.,Sydney,GWS,3.5,0.535,Sydney by 4
-2025,16692,2025-05-04,"Sun, 04",00:00,8,M.C.G.,Hawthorn,Richmond,20.5,0.694,Hawthorn by 20
-2025,16693,2025-05-04,"Sun, 04",00:00,8,Gabba,Brisbane Lions,Gold Coast,16.2,0.657,Brisbane Lions by 16
-2025,16694,2025-05-08,"Thu, 08",00:00,9,Perth Stadium,Fremantle,Collingwood,10.7,0.605,Fremantle by 11
-2025,16695,2025-05-09,"Fri, 09",00:00,9,M.C.G.,St Kilda,Carlton,-1.1,0.489,Carlton by 1
-2025,16696,2025-05-10,"Sat, 10",00:00,9,M.C.G.,Melbourne,Hawthorn,0.8,0.508,Melbourne by 1
-2025,16697,2025-05-10,"Sat, 10",00:00,9,Docklands,Essendon,Sydney,0.7,0.507,Essendon by 1
-2025,16698,2025-05-10,"Sat, 10",00:00,9,Marrara Oval,Gold Coast,Footscray,-6,0.44,Footscray by 6
-2025,16699,2025-05-10,"Sat, 10",00:00,9,Adelaide Oval,Port Adelaide,Adelaide,6.2,0.562,Port Adelaide by 6
-2025,16700,2025-05-11,"Sun, 11",00:00,9,M.C.G.,Richmond,West Coast,10.6,0.604,Richmond by 11
-2025,16701,2025-05-11,"Sun, 11",00:00,9,Kardinia Park,Geelong,GWS,11.3,0.611,Geelong by 11
-2025,16702,2025-05-11,"Sun, 11",00:00,9,Ninja Stadium,North Melbourne,Brisbane Lions,-24.4,0.274,Brisbane Lions by 24
-2025,16703,2025-05-15,"Thu, 15",00:00,10,Marrara Oval,Gold Coast,Hawthorn,-3.1,0.469,Hawthorn by 3
-2025,16704,2025-05-16,"Fri, 16",00:00,10,S.C.G.,Sydney,Carlton,7.5,0.574,Sydney by 8
-2025,16705,2025-05-17,"Sat, 17",00:00,10,M.C.G.,Collingwood,Adelaide,8.5,0.584,Collingwood by 8
-2025,16706,2025-05-17,"Sat, 17",00:00,10,Adelaide Oval,Port Adelaide,Geelong,4.8,0.548,Port Adelaide by 5
-2025,16707,2025-05-17,"Sat, 17",00:00,10,ENGIE Stadium,GWS,Fremantle,3.3,0.533,GWS by 3
-2025,16708,2025-05-17,"Sat, 17",00:00,10,Docklands,Footscray,Essendon,13.4,0.631,Footscray by 13
-2025,16709,2025-05-18,"Sun, 18",00:00,10,M.C.G.,Richmond,North Melbourne,6.4,0.564,Richmond by 6
-2025,16710,2025-05-18,"Sun, 18",00:00,10,Gabba,Brisbane Lions,Melbourne,16.8,0.662,Brisbane Lions by 17
-2025,16711,2025-05-18,"Sun, 18",00:00,10,Perth Stadium,West Coast,St Kilda,-8.6,0.415,St Kilda by 9
-2025,16712,2025-05-22,"Thu, 22",00:00,11,Kardinia Park,Geelong,Footscray,3.1,0.531,Geelong by 3
-2025,16713,2025-05-23,"Fri, 23",00:00,11,M.C.G.,Essendon,Richmond,12.9,0.626,Essendon by 13
-2025,16714,2025-05-24,"Sat, 24",00:00,11,Docklands,Carlton,GWS,8.4,0.583,Carlton by 8
-2025,16715,2025-05-24,"Sat, 24",00:00,11,M.C.G.,Hawthorn,Brisbane Lions,1.2,0.512,Hawthorn by 1
-2025,16716,2025-05-24,"Sat, 24",00:00,11,Docklands,North Melbourne,Collingwood,-14.2,0.362,Collingwood by 14
-2025,16717,2025-05-24,"Sat, 24",00:00,11,Perth Stadium,Fremantle,Port Adelaide,7.9,0.578,Fremantle by 8
-2025,16718,2025-05-25,"Sun, 25",00:00,11,Adelaide Oval,Adelaide,West Coast,24.4,0.726,Adelaide by 24
-2025,16719,2025-05-25,"Sun, 25",00:00,11,M.C.G.,Melbourne,Sydney,6.2,0.562,Melbourne by 6
-2025,16720,2025-05-25,"Sun, 25",00:00,11,Docklands,St Kilda,Gold Coast,10.4,0.603,St Kilda by 10
-2025,16721,2025-05-29,"Thu, 29",00:00,12,Gabba,Brisbane Lions,Essendon,22.3,0.709,Brisbane Lions by 22
-2025,16722,2025-05-30,"Fri, 30",00:00,12,M.C.G.,Collingwood,Hawthorn,-0.3,0.497,Hawthorn by 0
-2025,16723,2025-05-31,"Sat, 31",00:00,12,People First Stadium,Gold Coast,Fremantle,-2.4,0.476,Fremantle by 2
-2025,16724,2025-05-31,"Sat, 31",00:00,12,ENGIE Stadium,GWS,Richmond,20.4,0.693,GWS by 20
-2025,16725,2025-05-31,"Sat, 31",00:00,12,S.C.G.,Sydney,Adelaide,11.4,0.612,Sydney by 11
-2025,16726,2025-06-01,"Sun, 01",00:00,12,TIO Traeger Park,Melbourne,St Kilda,4.4,0.544,Melbourne by 4
-2025,16727,2025-06-01,"Sun, 01",00:00,12,Perth Stadium,West Coast,Geelong,-14.9,0.355,Geelong by 15
-2025,16728,2025-06-05,"Thu, 05",00:00,13,Docklands,Footscray,Hawthorn,6,0.56,Footscray by 6
-2025,16729,2025-06-06,"Fri, 06",00:00,13,Adelaide Oval,Adelaide,Brisbane Lions,-2.5,0.475,Brisbane Lions by 2
-2025,16730,2025-06-07,"Sat, 07",00:00,13,M.C.G.,Richmond,Sydney,-9.3,0.408,Sydney by 9
-2025,16731,2025-06-07,"Sat, 07",00:00,13,Kardinia Park,Geelong,Gold Coast,17,0.664,Geelong by 17
-2025,16732,2025-06-07,"Sat, 07",00:00,13,Manuka Oval,GWS,Port Adelaide,3.4,0.534,GWS by 3
-2025,16733,2025-06-08,"Sun, 08",00:00,13,Hands Oval,North Melbourne,West Coast,2.5,0.525,North Melbourne by 2
-2025,16734,2025-06-08,"Sun, 08",00:00,13,M.C.G.,Carlton,Essendon,10.6,0.604,Carlton by 11
-2025,16735,2025-06-09,"Mon, 09",00:00,13,M.C.G.,Melbourne,Collingwood,4,0.54,Melbourne by 4
-2025,16736,2025-06-12,"Thu, 12",00:00,14,Docklands,St Kilda,Footscray,-3.6,0.464,Footscray by 4
-2025,16737,2025-06-13,"Fri, 13",00:00,14,York Park,Hawthorn,Adelaide,7.1,0.571,Hawthorn by 7
-2025,16738,2025-06-14,"Sat, 14",00:00,14,Gabba,Brisbane Lions,GWS,15.4,0.649,Brisbane Lions by 15
-2025,16739,2025-06-14,"Sat, 14",00:00,14,M.C.G.,Essendon,Geelong,-7.3,0.428,Geelong by 7
-2025,16740,2025-06-14,"Sat, 14",00:00,14,Perth Stadium,North Melbourne,Fremantle,-22.1,0.292,Fremantle by 22
-2025,16741,2025-06-15,"Sun, 15",00:00,14,Adelaide Oval,Port Adelaide,Melbourne,9.5,0.594,Port Adelaide by 10
-2025,16742,2025-06-15,"Sun, 15",00:00,14,Perth Stadium,West Coast,Carlton,-12.3,0.379,Carlton by 12
-2025,16743,2025-06-19,"Thu, 19",00:00,15,Perth Stadium,Fremantle,Essendon,14.8,0.644,Fremantle by 15
-2025,16744,2025-06-20,"Fri, 20",00:00,15,Kardinia Park,Geelong,Brisbane Lions,4.2,0.542,Geelong by 4
-2025,16745,2025-06-21,"Sat, 21",00:00,15,M.C.G.,Carlton,North Melbourne,24,0.723,Carlton by 24
-2025,16746,2025-06-21,"Sat, 21",00:00,15,Adelaide Oval,Port Adelaide,Sydney,8.1,0.58,Port Adelaide by 8
-2025,16747,2025-06-21,"Sat, 21",00:00,15,Docklands,Collingwood,St Kilda,2.9,0.529,Collingwood by 3
-2025,16748,2025-06-22,"Sun, 22",00:00,15,ENGIE Stadium,GWS,Gold Coast,9,0.589,GWS by 9
-2025,16749,2025-06-22,"Sun, 22",00:00,15,Docklands,Footscray,Richmond,23.7,0.721,Footscray by 24
-2025,16750,2025-06-28,"Sat, 28",00:00,16,Docklands,Collingwood,West Coast,24.5,0.727,Collingwood by 24
-2025,16751,2025-06-28,"Sat, 28",00:00,16,M.C.G.,Richmond,Adelaide,-5.9,0.441,Adelaide by 6
-2025,16752,2025-06-28,"Sat, 28",00:00,16,People First Stadium,Gold Coast,Melbourne,-1,0.49,Melbourne by 1
-2025,16753,2025-06-28,"Sat, 28",00:00,16,S.C.G.,Sydney,Footscray,4.6,0.546,Sydney by 5
-2025,16754,2025-06-28,"Sat, 28",00:00,16,York Park,Hawthorn,North Melbourne,24,0.723,Hawthorn by 24
-2025,16755,2025-06-28,"Sat, 28",00:00,16,Adelaide Oval,Port Adelaide,Carlton,7.5,0.574,Port Adelaide by 8
-2025,16756,2025-06-28,"Sat, 28",00:00,16,Perth Stadium,Fremantle,St Kilda,10.9,0.607,Fremantle by 11
-2025,16757,2025-07-04,"Fri, 04",00:00,17,Kardinia Park,Geelong,Richmond,24,0.723,Geelong by 24
-2025,16758,2025-07-04,"Fri, 04",00:00,17,Docklands,St Kilda,Hawthorn,-0.5,0.495,Hawthorn by 0
-2025,16759,2025-07-04,"Fri, 04",00:00,17,Docklands,North Melbourne,Footscray,-20.7,0.304,Footscray by 21
-2025,16760,2025-07-04,"Fri, 04",00:00,17,Docklands,Essendon,Gold Coast,6.4,0.564,Essendon by 6
-2025,16761,2025-07-04,"Fri, 04",00:00,17,M.C.G.,Carlton,Collingwood,6.1,0.561,Carlton by 6
-2025,16762,2025-07-04,"Fri, 04",00:00,17,S.C.G.,Sydney,Fremantle,8.3,0.582,Sydney by 8
-2025,16763,2025-07-04,"Fri, 04",00:00,17,Gabba,Brisbane Lions,Port Adelaide,15.3,0.648,Brisbane Lions by 15
-2025,16764,2025-07-04,"Fri, 04",00:00,17,Adelaide Oval,Adelaide,Melbourne,6.1,0.561,Adelaide by 6
-2025,16765,2025-07-04,"Fri, 04",00:00,17,Perth Stadium,West Coast,GWS,-11.6,0.386,GWS by 12
-2025,16766,2025-07-11,"Fri, 11",00:00,18,ENGIE Stadium,GWS,Geelong,0.1,0.501,GWS by 0
-2025,16767,2025-07-11,"Fri, 11",00:00,18,Eureka Stadium,Footscray,Adelaide,14.4,0.64,Footscray by 14
-2025,16768,2025-07-11,"Fri, 11",00:00,18,Docklands,St Kilda,Sydney,4.7,0.547,St Kilda by 5
-2025,16769,2025-07-11,"Fri, 11",00:00,18,Docklands,Carlton,Brisbane Lions,1.2,0.512,Carlton by 1
-2025,16770,2025-07-11,"Fri, 11",00:00,18,M.C.G.,Melbourne,North Melbourne,21.9,0.706,Melbourne by 22
-2025,16771,2025-07-11,"Fri, 11",00:00,18,M.C.G.,Richmond,Essendon,-7.1,0.429,Essendon by 7
-2025,16772,2025-07-11,"Fri, 11",00:00,18,People First Stadium,Gold Coast,Collingwood,0.3,0.503,Gold Coast by 0
-2025,16773,2025-07-11,"Fri, 11",00:00,18,Adelaide Oval,Port Adelaide,West Coast,27.7,0.752,Port Adelaide by 28
-2025,16774,2025-07-11,"Fri, 11",00:00,18,Perth Stadium,Fremantle,Hawthorn,7.4,0.573,Fremantle by 7
-2025,16775,2025-07-18,"Fri, 18",00:00,19,Kardinia Park,Geelong,St Kilda,9.7,0.596,Geelong by 10
-2025,16776,2025-07-18,"Fri, 18",00:00,19,Docklands,Essendon,GWS,0.8,0.508,Essendon by 1
-2025,16777,2025-07-18,"Fri, 18",00:00,19,M.C.G.,Carlton,Melbourne,4.9,0.549,Carlton by 5
-2025,16778,2025-07-18,"Fri, 18",00:00,19,M.C.G.,Collingwood,Fremantle,5.3,0.553,Collingwood by 5
-2025,16779,2025-07-18,"Fri, 18",00:00,19,S.C.G.,Sydney,North Melbourne,28.3,0.756,Sydney by 28
-2025,16780,2025-07-18,"Fri, 18",00:00,19,Gabba,Brisbane Lions,Footscray,11.9,0.617,Brisbane Lions by 12
-2025,16781,2025-07-18,"Fri, 18",00:00,19,York Park,Hawthorn,Port Adelaide,4.1,0.541,Hawthorn by 4
-2025,16782,2025-07-18,"Fri, 18",00:00,19,Adelaide Oval,Adelaide,Gold Coast,10.6,0.604,Adelaide by 11
-2025,16783,2025-07-18,"Fri, 18",00:00,19,Perth Stadium,West Coast,Richmond,5.3,0.553,West Coast by 5
-2025,16784,2025-07-25,"Fri, 25",00:00,20,ENGIE Stadium,GWS,Sydney,3.3,0.533,GWS by 3
-2025,16785,2025-07-25,"Fri, 25",00:00,20,Docklands,North Melbourne,Geelong,-20,0.31,Geelong by 20
-2025,16786,2025-07-25,"Fri, 25",00:00,20,Docklands,St Kilda,Melbourne,1.9,0.519,St Kilda by 2
-2025,16787,2025-07-25,"Fri, 25",00:00,20,Docklands,Essendon,Footscray,-7.7,0.424,Footscray by 8
-2025,16788,2025-07-25,"Fri, 25",00:00,20,M.C.G.,Richmond,Collingwood,-11.5,0.387,Collingwood by 12
-2025,16789,2025-07-25,"Fri, 25",00:00,20,M.C.G.,Hawthorn,Carlton,2.8,0.528,Hawthorn by 3
-2025,16790,2025-07-25,"Fri, 25",00:00,20,People First Stadium,Gold Coast,Brisbane Lions,-9.6,0.405,Brisbane Lions by 10
-2025,16791,2025-07-25,"Fri, 25",00:00,20,Adelaide Oval,Adelaide,Port Adelaide,-0.5,0.495,Port Adelaide by 0
-2025,16792,2025-07-25,"Fri, 25",00:00,20,Perth Stadium,Fremantle,West Coast,22.4,0.71,Fremantle by 22
-2025,16793,2025-08-01,"Fri, 01",00:00,21,Kardinia Park,Geelong,Port Adelaide,11.2,0.61,Geelong by 11
-2025,16794,2025-08-01,"Fri, 01",00:00,21,Docklands,St Kilda,North Melbourne,20,0.69,St Kilda by 20
-2025,16795,2025-08-01,"Fri, 01",00:00,21,Docklands,Melbourne,West Coast,25.5,0.735,Melbourne by 26
-2025,16796,2025-08-01,"Fri, 01",00:00,21,Docklands,Footscray,GWS,11.3,0.611,Footscray by 11
-2025,16797,2025-08-01,"Fri, 01",00:00,21,M.C.G.,Collingwood,Brisbane Lions,-2.1,0.479,Brisbane Lions by 2
-2025,16798,2025-08-01,"Fri, 01",00:00,21,People First Stadium,Gold Coast,Richmond,14.7,0.643,Gold Coast by 15
-2025,16799,2025-08-01,"Fri, 01",00:00,21,S.C.G.,Sydney,Essendon,15.1,0.647,Sydney by 15
-2025,16800,2025-08-01,"Fri, 01",00:00,21,Adelaide Oval,Adelaide,Hawthorn,4.1,0.541,Adelaide by 4
-2025,16801,2025-08-01,"Fri, 01",00:00,21,Perth Stadium,Fremantle,Carlton,7.3,0.572,Fremantle by 7
-2025,16802,2025-08-08,"Fri, 08",00:00,22,Kardinia Park,Geelong,Essendon,13.6,0.633,Geelong by 14
-2025,16803,2025-08-08,"Fri, 08",00:00,22,Manuka Oval,GWS,North Melbourne,23.6,0.72,GWS by 24
-2025,16804,2025-08-08,"Fri, 08",00:00,22,Docklands,Carlton,Gold Coast,14,0.636,Carlton by 14
-2025,16805,2025-08-08,"Fri, 08",00:00,22,M.C.G.,Richmond,St Kilda,-10.8,0.394,St Kilda by 11
-2025,16806,2025-08-08,"Fri, 08",00:00,22,M.C.G.,Melbourne,Footscray,-1.7,0.483,Footscray by 2
-2025,16807,2025-08-08,"Fri, 08",00:00,22,M.C.G.,Hawthorn,Collingwood,6.1,0.561,Hawthorn by 6
-2025,16808,2025-08-08,"Fri, 08",00:00,22,Gabba,Brisbane Lions,Sydney,15.4,0.649,Brisbane Lions by 15
-2025,16809,2025-08-08,"Fri, 08",00:00,22,Adelaide Oval,Port Adelaide,Fremantle,8.3,0.582,Port Adelaide by 8
-2025,16810,2025-08-08,"Fri, 08",00:00,22,Perth Stadium,West Coast,Adelaide,-8.4,0.417,Adelaide by 8
-2025,16811,2025-08-15,"Fri, 15",00:00,23,Ninja Stadium,North Melbourne,Richmond,-0,0.5,Draw
-2025,16812,2025-08-15,"Fri, 15",00:00,23,Docklands,Essendon,St Kilda,-1.2,0.488,St Kilda by 1
-2025,16813,2025-08-15,"Fri, 15",00:00,23,Docklands,Footscray,West Coast,30.9,0.775,Footscray by 31
-2025,16814,2025-08-15,"Fri, 15",00:00,23,Docklands,Carlton,Port Adelaide,8.3,0.582,Carlton by 8
-2025,16815,2025-08-15,"Fri, 15",00:00,23,M.C.G.,Hawthorn,Melbourne,4.9,0.549,Hawthorn by 5
-2025,16816,2025-08-15,"Fri, 15",00:00,23,People First Stadium,Gold Coast,GWS,-2.3,0.477,GWS by 2
-2025,16817,2025-08-15,"Fri, 15",00:00,23,S.C.G.,Sydney,Geelong,4.9,0.549,Sydney by 5
-2025,16818,2025-08-15,"Fri, 15",00:00,23,Adelaide Oval,Adelaide,Collingwood,7.5,0.574,Adelaide by 8
-2025,16819,2025-08-15,"Fri, 15",00:00,23,Perth Stadium,Fremantle,Brisbane Lions,0.7,0.507,Fremantle by 1
-2025,16820,2025-08-22,"Fri, 22",00:00,24,ENGIE Stadium,GWS,St Kilda,6.4,0.564,GWS by 6
-2025,16821,2025-08-22,"Fri, 22",00:00,24,Docklands,North Melbourne,Adelaide,-9,0.411,Adelaide by 9
-2025,16822,2025-08-22,"Fri, 22",00:00,24,Docklands,Footscray,Fremantle,11.4,0.612,Footscray by 11
-2025,16823,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Collingwood,Melbourne,1.7,0.517,Collingwood by 2
-2025,16824,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Richmond,Geelong,-17.3,0.334,Geelong by 17
-2025,16825,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Essendon,Carlton,-4.8,0.452,Carlton by 5
-2025,16826,2025-08-22,"Fri, 22",00:00,24,Gabba,Brisbane Lions,Hawthorn,15,0.646,Brisbane Lions by 15
-2025,16827,2025-08-22,"Fri, 22",00:00,24,People First Stadium,Gold Coast,Essendon,4.7,0.547,Gold Coast by 5
-2025,16828,2025-08-22,"Fri, 22",00:00,24,Adelaide Oval,Port Adelaide,Gold Coast,14,0.636,Port Adelaide by 14
-2025,16829,2025-08-22,"Fri, 22",00:00,24,Perth Stadium,West Coast,Sydney,-11.7,0.385,Sydney by 12
+2025,16625,2025-03-14,"Fri, 14",00:00,1,M.C.G.,Hawthorn,Essendon,10.6,0.604,Hawthorn by 11
+2025,16626,2025-03-15,"Sat, 15",00:00,1,Kardinia Park,Geelong,Fremantle,11.5,0.613,Geelong by 12
+2025,16627,2025-03-15,"Sat, 15",00:00,1,S.C.G.,Sydney,Brisbane Lions,1.1,0.511,Sydney by 1
+2025,16628,2025-03-15,"Sat, 15",00:00,1,Docklands,Footscray,North Melbourne,26.5,0.743,Footscray by 26
+2025,16629,2025-03-15,"Sat, 15",00:00,1,M.C.G.,Collingwood,Port Adelaide,5.2,0.552,Collingwood by 5
+2025,16630,2025-03-16,"Sun, 16",00:00,1,Adelaide Oval,Adelaide,St Kilda,7.8,0.577,Adelaide by 8
+2025,16631,2025-03-16,"Sun, 16",00:00,1,M.C.G.,Melbourne,GWS,6.4,0.564,Melbourne by 6
+2025,16632,2025-03-16,"Sun, 16",00:00,1,Perth Stadium,West Coast,Gold Coast,-6,0.44,Gold Coast by 6
+2025,16633,2025-03-20,"Thu, 20",00:00,2,M.C.G.,Carlton,Hawthorn,2.9,0.529,Carlton by 3
+2025,16634,2025-03-21,"Fri, 21",00:00,2,M.C.G.,Footscray,Collingwood,8.5,0.584,Footscray by 8
+2025,16635,2025-03-22,"Sat, 22",00:00,2,M.C.G.,Essendon,Adelaide,4.1,0.541,Essendon by 4
+2025,16636,2025-03-22,"Sat, 22",00:00,2,Adelaide Oval,Port Adelaide,Richmond,25.1,0.732,Port Adelaide by 25
+2025,16637,2025-03-22,"Sat, 22",00:00,2,Docklands,St Kilda,Geelong,-2.9,0.471,Geelong by 3
+2025,16638,2025-03-23,"Sun, 23",00:00,2,Gabba,Brisbane Lions,West Coast,34.8,0.801,Brisbane Lions by 35
+2025,16639,2025-03-23,"Sun, 23",00:00,2,Docklands,North Melbourne,Melbourne,-15.3,0.352,Melbourne by 15
+2025,16640,2025-03-23,"Sun, 23",00:00,2,Perth Stadium,Fremantle,Sydney,7.9,0.578,Fremantle by 8
+2025,16641,2025-03-27,"Thu, 27",00:00,3,Docklands,Essendon,Port Adelaide,0.6,0.506,Essendon by 1
+2025,16642,2025-03-28,"Fri, 28",00:00,3,Docklands,Carlton,Footscray,-0.1,0.499,Footscray by 0
+2025,16643,2025-03-29,"Sat, 29",00:00,3,M.C.G.,Melbourne,Gold Coast,12.2,0.62,Melbourne by 12
+2025,16644,2025-03-29,"Sat, 29",00:00,3,Docklands,St Kilda,Richmond,17.3,0.666,St Kilda by 17
+2025,16645,2025-03-29,"Sat, 29",00:00,3,York Park,Hawthorn,GWS,4.1,0.541,Hawthorn by 4
+2025,16646,2025-03-29,"Sat, 29",00:00,3,Gabba,Brisbane Lions,Geelong,12,0.618,Brisbane Lions by 12
+2025,16647,2025-03-30,"Sun, 30",00:00,3,Adelaide Oval,Adelaide,North Melbourne,24.9,0.73,Adelaide by 25
+2025,16648,2025-03-30,"Sun, 30",00:00,3,Perth Stadium,West Coast,Fremantle,-16.7,0.339,Fremantle by 17
+2025,16649,2025-04-03,"Thu, 03",00:00,4,M.C.G.,Collingwood,Carlton,-0.2,0.498,Carlton by 0
+2025,16650,2025-04-04,"Fri, 04",00:00,4,Kardinia Park,Geelong,Melbourne,8.2,0.581,Geelong by 8
+2025,16651,2025-04-05,"Sat, 05",00:00,4,People First Stadium,Gold Coast,Adelaide,0.4,0.504,Gold Coast by 0
+2025,16652,2025-04-05,"Sat, 05",00:00,4,M.C.G.,Richmond,Brisbane Lions,-16.5,0.341,Brisbane Lions by 16
+2025,16653,2025-04-05,"Sat, 05",00:00,4,Docklands,North Melbourne,Sydney,-12.3,0.379,Sydney by 12
+2025,16654,2025-04-06,"Sun, 06",00:00,4,ENGIE Stadium,GWS,West Coast,22.4,0.71,GWS by 22
+2025,16655,2025-04-06,"Sun, 06",00:00,4,Adelaide Oval,Port Adelaide,St Kilda,11.1,0.609,Port Adelaide by 11
+2025,16656,2025-04-06,"Sun, 06",00:00,4,Perth Stadium,Fremantle,Footscray,4.3,0.543,Fremantle by 4
+2025,16657,2025-04-10,"Thu, 10",00:00,5,Adelaide Oval,Adelaide,Geelong,1.4,0.514,Adelaide by 1
+2025,16658,2025-04-11,"Fri, 11",00:00,5,Adelaide Oval,Collingwood,Sydney,0.3,0.503,Collingwood by 0
+2025,16659,2025-04-12,"Sat, 12",00:00,5,Barossa Park,North Melbourne,Gold Coast,-11.5,0.387,Gold Coast by 12
+2025,16660,2025-04-12,"Sat, 12",00:00,5,Adelaide Oval,Carlton,West Coast,23.1,0.716,Carlton by 23
+2025,16661,2025-04-12,"Sat, 12",00:00,5,Norwood Oval,Footscray,Brisbane Lions,-1,0.49,Brisbane Lions by 1
+2025,16662,2025-04-12,"Sat, 12",00:00,5,Adelaide Oval,Melbourne,Essendon,8.4,0.583,Melbourne by 8
+2025,16663,2025-04-13,"Sun, 13",00:00,5,Barossa Park,Richmond,Fremantle,-14.1,0.363,Fremantle by 14
+2025,16664,2025-04-13,"Sun, 13",00:00,5,Norwood Oval,St Kilda,GWS,-0,0.5,Draw
+2025,16665,2025-04-13,"Sun, 13",00:00,5,Adelaide Oval,Port Adelaide,Hawthorn,7.5,0.574,Port Adelaide by 8
+2025,16666,2025-04-17,"Thu, 17",00:00,6,Gabba,Brisbane Lions,Collingwood,17.8,0.671,Brisbane Lions by 18
+2025,16667,2025-04-18,"Fri, 18",00:00,6,Docklands,North Melbourne,Carlton,-17.8,0.329,Carlton by 18
+2025,16668,2025-04-18,"Fri, 18",00:00,6,Perth Stadium,West Coast,Essendon,-4.7,0.453,Essendon by 5
+2025,16669,2025-04-19,"Sat, 19",00:00,6,M.C.G.,Melbourne,Fremantle,6.5,0.565,Melbourne by 6
+2025,16670,2025-04-19,"Sat, 19",00:00,6,Adelaide Oval,Adelaide,GWS,4.9,0.549,Adelaide by 5
+2025,16671,2025-04-19,"Sat, 19",00:00,6,Docklands,Richmond,Gold Coast,-3.9,0.461,Gold Coast by 4
+2025,16672,2025-04-20,"Sun, 20",00:00,6,S.C.G.,Sydney,Port Adelaide,8.1,0.58,Sydney by 8
+2025,16673,2025-04-20,"Sun, 20",00:00,6,Docklands,Footscray,St Kilda,9.4,0.593,Footscray by 9
+2025,16674,2025-04-21,"Mon, 21",00:00,6,M.C.G.,Geelong,Hawthorn,5.4,0.554,Geelong by 5
+2025,16675,2025-04-24,"Thu, 24",00:00,7,M.C.G.,Melbourne,Richmond,18.5,0.677,Melbourne by 18
+2025,16676,2025-04-25,"Fri, 25",00:00,7,M.C.G.,Collingwood,Essendon,7.5,0.574,Collingwood by 8
+2025,16677,2025-04-25,"Fri, 25",00:00,7,Perth Stadium,Fremantle,Adelaide,11.2,0.61,Fremantle by 11
+2025,16678,2025-04-26,"Sat, 26",00:00,7,Docklands,St Kilda,Brisbane Lions,-2.4,0.476,Brisbane Lions by 2
+2025,16679,2025-04-26,"Sat, 26",00:00,7,Adelaide Oval,Port Adelaide,North Melbourne,28.3,0.756,Port Adelaide by 28
+2025,16680,2025-04-26,"Sat, 26",00:00,7,Manuka Oval,GWS,Footscray,-0.4,0.496,Footscray by 0
+2025,16681,2025-04-27,"Sun, 27",00:00,7,People First Stadium,Gold Coast,Sydney,-2.7,0.473,Sydney by 3
+2025,16682,2025-04-27,"Sun, 27",00:00,7,M.C.G.,Carlton,Geelong,0.4,0.504,Carlton by 0
+2025,16683,2025-04-27,"Sun, 27",00:00,7,Docklands,Hawthorn,West Coast,27.9,0.753,Hawthorn by 28
+2025,16684,2025-05-01,"Thu, 01",00:00,8,Docklands,Essendon,North Melbourne,15.9,0.654,Essendon by 16
+2025,16685,2025-05-02,"Fri, 02",00:00,8,Docklands,St Kilda,Fremantle,4.9,0.549,St Kilda by 5
+2025,16686,2025-05-03,"Sat, 03",00:00,8,Eureka Stadium,Footscray,Port Adelaide,11.4,0.612,Footscray by 11
+2025,16687,2025-05-03,"Sat, 03",00:00,8,Adelaide Oval,Adelaide,Carlton,4.1,0.541,Adelaide by 4
+2025,16688,2025-05-03,"Sat, 03",00:00,8,M.C.G.,Collingwood,Geelong,-2.7,0.473,Geelong by 3
+2025,16689,2025-05-03,"Sat, 03",00:00,8,Perth Stadium,West Coast,Melbourne,-10.2,0.399,Melbourne by 10
+2025,16690,2025-05-04,"Sun, 04",00:00,8,S.C.G.,Sydney,GWS,3.6,0.536,Sydney by 4
+2025,16691,2025-05-04,"Sun, 04",00:00,8,M.C.G.,Hawthorn,Richmond,20.5,0.694,Hawthorn by 20
+2025,16692,2025-05-04,"Sun, 04",00:00,8,Gabba,Brisbane Lions,Gold Coast,16.2,0.657,Brisbane Lions by 16
+2025,16693,2025-05-08,"Thu, 08",00:00,9,Perth Stadium,Fremantle,Collingwood,10.6,0.604,Fremantle by 11
+2025,16694,2025-05-09,"Fri, 09",00:00,9,M.C.G.,St Kilda,Carlton,-1.1,0.489,Carlton by 1
+2025,16695,2025-05-10,"Sat, 10",00:00,9,M.C.G.,Melbourne,Hawthorn,0.8,0.508,Melbourne by 1
+2025,16696,2025-05-10,"Sat, 10",00:00,9,Docklands,Essendon,Sydney,0.7,0.507,Essendon by 1
+2025,16697,2025-05-10,"Sat, 10",00:00,9,Marrara Oval,Gold Coast,Footscray,-6,0.44,Footscray by 6
+2025,16698,2025-05-10,"Sat, 10",00:00,9,Adelaide Oval,Port Adelaide,Adelaide,6.2,0.562,Port Adelaide by 6
+2025,16699,2025-05-11,"Sun, 11",00:00,9,M.C.G.,Richmond,West Coast,10.6,0.604,Richmond by 11
+2025,16700,2025-05-11,"Sun, 11",00:00,9,Kardinia Park,Geelong,GWS,11.4,0.612,Geelong by 11
+2025,16701,2025-05-11,"Sun, 11",00:00,9,Ninja Stadium,North Melbourne,Brisbane Lions,-24.4,0.274,Brisbane Lions by 24
+2025,16702,2025-05-15,"Thu, 15",00:00,10,Marrara Oval,Gold Coast,Hawthorn,-3.1,0.469,Hawthorn by 3
+2025,16703,2025-05-16,"Fri, 16",00:00,10,S.C.G.,Sydney,Carlton,7.5,0.574,Sydney by 8
+2025,16704,2025-05-17,"Sat, 17",00:00,10,M.C.G.,Collingwood,Adelaide,8.7,0.586,Collingwood by 9
+2025,16705,2025-05-17,"Sat, 17",00:00,10,Adelaide Oval,Port Adelaide,Geelong,4.8,0.548,Port Adelaide by 5
+2025,16706,2025-05-17,"Sat, 17",00:00,10,ENGIE Stadium,GWS,Fremantle,3,0.53,GWS by 3
+2025,16707,2025-05-17,"Sat, 17",00:00,10,Docklands,Footscray,Essendon,13.4,0.631,Footscray by 13
+2025,16708,2025-05-18,"Sun, 18",00:00,10,M.C.G.,Richmond,North Melbourne,6.4,0.564,Richmond by 6
+2025,16709,2025-05-18,"Sun, 18",00:00,10,Gabba,Brisbane Lions,Melbourne,16.8,0.662,Brisbane Lions by 17
+2025,16710,2025-05-18,"Sun, 18",00:00,10,Perth Stadium,West Coast,St Kilda,-8.6,0.415,St Kilda by 9
+2025,16711,2025-05-22,"Thu, 22",00:00,11,Kardinia Park,Geelong,Footscray,3.1,0.531,Geelong by 3
+2025,16712,2025-05-23,"Fri, 23",00:00,11,M.C.G.,Essendon,Richmond,12.9,0.626,Essendon by 13
+2025,16713,2025-05-24,"Sat, 24",00:00,11,Docklands,Carlton,GWS,8.5,0.584,Carlton by 8
+2025,16714,2025-05-24,"Sat, 24",00:00,11,M.C.G.,Hawthorn,Brisbane Lions,1.2,0.512,Hawthorn by 1
+2025,16715,2025-05-24,"Sat, 24",00:00,11,Docklands,North Melbourne,Collingwood,-14.4,0.36,Collingwood by 14
+2025,16716,2025-05-24,"Sat, 24",00:00,11,Perth Stadium,Fremantle,Port Adelaide,7.9,0.578,Fremantle by 8
+2025,16717,2025-05-25,"Sun, 25",00:00,11,Adelaide Oval,Adelaide,West Coast,24.4,0.726,Adelaide by 24
+2025,16718,2025-05-25,"Sun, 25",00:00,11,M.C.G.,Melbourne,Sydney,6.2,0.562,Melbourne by 6
+2025,16719,2025-05-25,"Sun, 25",00:00,11,Docklands,St Kilda,Gold Coast,10.4,0.603,St Kilda by 10
+2025,16720,2025-05-29,"Thu, 29",00:00,12,Gabba,Brisbane Lions,Essendon,22.3,0.709,Brisbane Lions by 22
+2025,16721,2025-05-30,"Fri, 30",00:00,12,M.C.G.,Collingwood,Hawthorn,-0.2,0.498,Hawthorn by 0
+2025,16722,2025-05-31,"Sat, 31",00:00,12,People First Stadium,Gold Coast,Fremantle,-2.4,0.476,Fremantle by 2
+2025,16723,2025-05-31,"Sat, 31",00:00,12,ENGIE Stadium,GWS,Richmond,20.1,0.691,GWS by 20
+2025,16724,2025-05-31,"Sat, 31",00:00,12,S.C.G.,Sydney,Adelaide,11.4,0.612,Sydney by 11
+2025,16725,2025-06-01,"Sun, 01",00:00,12,TIO Traeger Park,Melbourne,St Kilda,4.4,0.544,Melbourne by 4
+2025,16726,2025-06-01,"Sun, 01",00:00,12,Perth Stadium,West Coast,Geelong,-14.9,0.355,Geelong by 15
+2025,16727,2025-06-05,"Thu, 05",00:00,13,Docklands,Footscray,Hawthorn,6,0.56,Footscray by 6
+2025,16728,2025-06-06,"Fri, 06",00:00,13,Adelaide Oval,Adelaide,Brisbane Lions,-2.5,0.475,Brisbane Lions by 2
+2025,16729,2025-06-07,"Sat, 07",00:00,13,M.C.G.,Richmond,Sydney,-9.3,0.408,Sydney by 9
+2025,16730,2025-06-07,"Sat, 07",00:00,13,Kardinia Park,Geelong,Gold Coast,17,0.664,Geelong by 17
+2025,16731,2025-06-07,"Sat, 07",00:00,13,Manuka Oval,GWS,Port Adelaide,3.2,0.532,GWS by 3
+2025,16732,2025-06-08,"Sun, 08",00:00,13,Hands Oval,North Melbourne,West Coast,2.5,0.525,North Melbourne by 2
+2025,16733,2025-06-08,"Sun, 08",00:00,13,M.C.G.,Carlton,Essendon,10.6,0.604,Carlton by 11
+2025,16734,2025-06-09,"Mon, 09",00:00,13,M.C.G.,Melbourne,Collingwood,3.9,0.539,Melbourne by 4
+2025,16735,2025-06-12,"Thu, 12",00:00,14,Docklands,St Kilda,Footscray,-3.6,0.464,Footscray by 4
+2025,16736,2025-06-13,"Fri, 13",00:00,14,York Park,Hawthorn,Adelaide,7.1,0.571,Hawthorn by 7
+2025,16737,2025-06-14,"Sat, 14",00:00,14,Gabba,Brisbane Lions,GWS,15.5,0.65,Brisbane Lions by 16
+2025,16738,2025-06-14,"Sat, 14",00:00,14,M.C.G.,Essendon,Geelong,-7.3,0.428,Geelong by 7
+2025,16739,2025-06-14,"Sat, 14",00:00,14,Perth Stadium,North Melbourne,Fremantle,-22.1,0.292,Fremantle by 22
+2025,16740,2025-06-15,"Sun, 15",00:00,14,Adelaide Oval,Port Adelaide,Melbourne,9.5,0.594,Port Adelaide by 10
+2025,16741,2025-06-15,"Sun, 15",00:00,14,Perth Stadium,West Coast,Carlton,-12.3,0.379,Carlton by 12
+2025,16742,2025-06-19,"Thu, 19",00:00,15,Perth Stadium,Fremantle,Essendon,14.8,0.644,Fremantle by 15
+2025,16743,2025-06-20,"Fri, 20",00:00,15,Kardinia Park,Geelong,Brisbane Lions,4.2,0.542,Geelong by 4
+2025,16744,2025-06-21,"Sat, 21",00:00,15,M.C.G.,Carlton,North Melbourne,24,0.723,Carlton by 24
+2025,16745,2025-06-21,"Sat, 21",00:00,15,Adelaide Oval,Port Adelaide,Sydney,8.1,0.58,Port Adelaide by 8
+2025,16746,2025-06-21,"Sat, 21",00:00,15,Docklands,Collingwood,St Kilda,3,0.53,Collingwood by 3
+2025,16747,2025-06-22,"Sun, 22",00:00,15,ENGIE Stadium,GWS,Gold Coast,8.8,0.587,GWS by 9
+2025,16748,2025-06-22,"Sun, 22",00:00,15,Docklands,Footscray,Richmond,23.7,0.721,Footscray by 24
+2025,16749,2025-06-28,"Sat, 28",00:00,16,Docklands,Collingwood,West Coast,24.6,0.728,Collingwood by 25
+2025,16750,2025-06-28,"Sat, 28",00:00,16,M.C.G.,Richmond,Adelaide,-5.9,0.441,Adelaide by 6
+2025,16751,2025-06-28,"Sat, 28",00:00,16,People First Stadium,Gold Coast,Melbourne,-1,0.49,Melbourne by 1
+2025,16752,2025-06-28,"Sat, 28",00:00,16,S.C.G.,Sydney,Footscray,4.6,0.546,Sydney by 5
+2025,16753,2025-06-28,"Sat, 28",00:00,16,York Park,Hawthorn,North Melbourne,24,0.723,Hawthorn by 24
+2025,16754,2025-06-28,"Sat, 28",00:00,16,Adelaide Oval,Port Adelaide,Carlton,7.5,0.574,Port Adelaide by 8
+2025,16755,2025-06-28,"Sat, 28",00:00,16,Perth Stadium,Fremantle,St Kilda,10.9,0.607,Fremantle by 11
+2025,16756,2025-07-04,"Fri, 04",00:00,17,Kardinia Park,Geelong,Richmond,24,0.723,Geelong by 24
+2025,16757,2025-07-04,"Fri, 04",00:00,17,Docklands,St Kilda,Hawthorn,-0.5,0.495,Hawthorn by 0
+2025,16758,2025-07-04,"Fri, 04",00:00,17,Docklands,North Melbourne,Footscray,-20.7,0.304,Footscray by 21
+2025,16759,2025-07-04,"Fri, 04",00:00,17,Docklands,Essendon,Gold Coast,6.4,0.564,Essendon by 6
+2025,16760,2025-07-04,"Fri, 04",00:00,17,M.C.G.,Carlton,Collingwood,5.9,0.559,Carlton by 6
+2025,16761,2025-07-04,"Fri, 04",00:00,17,S.C.G.,Sydney,Fremantle,8.3,0.582,Sydney by 8
+2025,16762,2025-07-04,"Fri, 04",00:00,17,Gabba,Brisbane Lions,Port Adelaide,15.3,0.648,Brisbane Lions by 15
+2025,16763,2025-07-04,"Fri, 04",00:00,17,Adelaide Oval,Adelaide,Melbourne,6.1,0.561,Adelaide by 6
+2025,16764,2025-07-04,"Fri, 04",00:00,17,Perth Stadium,West Coast,GWS,-11.5,0.387,GWS by 12
+2025,16765,2025-07-11,"Fri, 11",00:00,18,ENGIE Stadium,GWS,Geelong,-0.1,0.499,Geelong by 0
+2025,16766,2025-07-11,"Fri, 11",00:00,18,Eureka Stadium,Footscray,Adelaide,14.4,0.64,Footscray by 14
+2025,16767,2025-07-11,"Fri, 11",00:00,18,Docklands,St Kilda,Sydney,4.7,0.547,St Kilda by 5
+2025,16768,2025-07-11,"Fri, 11",00:00,18,Docklands,Carlton,Brisbane Lions,1.2,0.512,Carlton by 1
+2025,16769,2025-07-11,"Fri, 11",00:00,18,M.C.G.,Melbourne,North Melbourne,21.9,0.706,Melbourne by 22
+2025,16770,2025-07-11,"Fri, 11",00:00,18,M.C.G.,Richmond,Essendon,-7.1,0.429,Essendon by 7
+2025,16771,2025-07-11,"Fri, 11",00:00,18,People First Stadium,Gold Coast,Collingwood,0.1,0.501,Gold Coast by 0
+2025,16772,2025-07-11,"Fri, 11",00:00,18,Adelaide Oval,Port Adelaide,West Coast,27.7,0.752,Port Adelaide by 28
+2025,16773,2025-07-11,"Fri, 11",00:00,18,Perth Stadium,Fremantle,Hawthorn,7.4,0.573,Fremantle by 7
+2025,16774,2025-07-18,"Fri, 18",00:00,19,Kardinia Park,Geelong,St Kilda,9.7,0.596,Geelong by 10
+2025,16775,2025-07-18,"Fri, 18",00:00,19,Docklands,Essendon,GWS,0.9,0.509,Essendon by 1
+2025,16776,2025-07-18,"Fri, 18",00:00,19,M.C.G.,Carlton,Melbourne,4.9,0.549,Carlton by 5
+2025,16777,2025-07-18,"Fri, 18",00:00,19,M.C.G.,Collingwood,Fremantle,5.5,0.555,Collingwood by 6
+2025,16778,2025-07-18,"Fri, 18",00:00,19,S.C.G.,Sydney,North Melbourne,28.3,0.756,Sydney by 28
+2025,16779,2025-07-18,"Fri, 18",00:00,19,Gabba,Brisbane Lions,Footscray,11.9,0.617,Brisbane Lions by 12
+2025,16780,2025-07-18,"Fri, 18",00:00,19,York Park,Hawthorn,Port Adelaide,4.1,0.541,Hawthorn by 4
+2025,16781,2025-07-18,"Fri, 18",00:00,19,Adelaide Oval,Adelaide,Gold Coast,10.6,0.604,Adelaide by 11
+2025,16782,2025-07-18,"Fri, 18",00:00,19,Perth Stadium,West Coast,Richmond,5.3,0.553,West Coast by 5
+2025,16783,2025-07-25,"Fri, 25",00:00,20,ENGIE Stadium,GWS,Sydney,3.1,0.531,GWS by 3
+2025,16784,2025-07-25,"Fri, 25",00:00,20,Docklands,North Melbourne,Geelong,-20,0.31,Geelong by 20
+2025,16785,2025-07-25,"Fri, 25",00:00,20,Docklands,St Kilda,Melbourne,1.9,0.519,St Kilda by 2
+2025,16786,2025-07-25,"Fri, 25",00:00,20,Docklands,Essendon,Footscray,-7.7,0.424,Footscray by 8
+2025,16787,2025-07-25,"Fri, 25",00:00,20,M.C.G.,Richmond,Collingwood,-11.7,0.385,Collingwood by 12
+2025,16788,2025-07-25,"Fri, 25",00:00,20,M.C.G.,Hawthorn,Carlton,2.8,0.528,Hawthorn by 3
+2025,16789,2025-07-25,"Fri, 25",00:00,20,People First Stadium,Gold Coast,Brisbane Lions,-9.6,0.405,Brisbane Lions by 10
+2025,16790,2025-07-25,"Fri, 25",00:00,20,Adelaide Oval,Adelaide,Port Adelaide,-0.5,0.495,Port Adelaide by 0
+2025,16791,2025-07-25,"Fri, 25",00:00,20,Perth Stadium,Fremantle,West Coast,22.4,0.71,Fremantle by 22
+2025,16792,2025-08-01,"Fri, 01",00:00,21,Kardinia Park,Geelong,Port Adelaide,11.2,0.61,Geelong by 11
+2025,16793,2025-08-01,"Fri, 01",00:00,21,Docklands,St Kilda,North Melbourne,20,0.69,St Kilda by 20
+2025,16794,2025-08-01,"Fri, 01",00:00,21,Docklands,Melbourne,West Coast,25.5,0.735,Melbourne by 26
+2025,16795,2025-08-01,"Fri, 01",00:00,21,Docklands,Footscray,GWS,11.4,0.612,Footscray by 11
+2025,16796,2025-08-01,"Fri, 01",00:00,21,M.C.G.,Collingwood,Brisbane Lions,-1.9,0.481,Brisbane Lions by 2
+2025,16797,2025-08-01,"Fri, 01",00:00,21,People First Stadium,Gold Coast,Richmond,14.7,0.643,Gold Coast by 15
+2025,16798,2025-08-01,"Fri, 01",00:00,21,S.C.G.,Sydney,Essendon,15.1,0.647,Sydney by 15
+2025,16799,2025-08-01,"Fri, 01",00:00,21,Adelaide Oval,Adelaide,Hawthorn,4.1,0.541,Adelaide by 4
+2025,16800,2025-08-01,"Fri, 01",00:00,21,Perth Stadium,Fremantle,Carlton,7.3,0.572,Fremantle by 7
+2025,16801,2025-08-08,"Fri, 08",00:00,22,Kardinia Park,Geelong,Essendon,13.6,0.633,Geelong by 14
+2025,16802,2025-08-08,"Fri, 08",00:00,22,Manuka Oval,GWS,North Melbourne,23.5,0.719,GWS by 24
+2025,16803,2025-08-08,"Fri, 08",00:00,22,Docklands,Carlton,Gold Coast,14,0.636,Carlton by 14
+2025,16804,2025-08-08,"Fri, 08",00:00,22,M.C.G.,Richmond,St Kilda,-10.8,0.394,St Kilda by 11
+2025,16805,2025-08-08,"Fri, 08",00:00,22,M.C.G.,Melbourne,Footscray,-1.7,0.483,Footscray by 2
+2025,16806,2025-08-08,"Fri, 08",00:00,22,M.C.G.,Hawthorn,Collingwood,5.9,0.559,Hawthorn by 6
+2025,16807,2025-08-08,"Fri, 08",00:00,22,Gabba,Brisbane Lions,Sydney,15.4,0.649,Brisbane Lions by 15
+2025,16808,2025-08-08,"Fri, 08",00:00,22,Adelaide Oval,Port Adelaide,Fremantle,8.3,0.582,Port Adelaide by 8
+2025,16809,2025-08-08,"Fri, 08",00:00,22,Perth Stadium,West Coast,Adelaide,-8.4,0.417,Adelaide by 8
+2025,16810,2025-08-15,"Fri, 15",00:00,23,Ninja Stadium,North Melbourne,Richmond,-0,0.5,Draw
+2025,16811,2025-08-15,"Fri, 15",00:00,23,Docklands,Essendon,St Kilda,-1.2,0.488,St Kilda by 1
+2025,16812,2025-08-15,"Fri, 15",00:00,23,Docklands,Footscray,West Coast,30.9,0.775,Footscray by 31
+2025,16813,2025-08-15,"Fri, 15",00:00,23,Docklands,Carlton,Port Adelaide,8.3,0.582,Carlton by 8
+2025,16814,2025-08-15,"Fri, 15",00:00,23,M.C.G.,Hawthorn,Melbourne,4.9,0.549,Hawthorn by 5
+2025,16815,2025-08-15,"Fri, 15",00:00,23,People First Stadium,Gold Coast,GWS,-2.2,0.478,GWS by 2
+2025,16816,2025-08-15,"Fri, 15",00:00,23,S.C.G.,Sydney,Geelong,4.9,0.549,Sydney by 5
+2025,16817,2025-08-15,"Fri, 15",00:00,23,Adelaide Oval,Adelaide,Collingwood,7.4,0.573,Adelaide by 7
+2025,16818,2025-08-15,"Fri, 15",00:00,23,Perth Stadium,Fremantle,Brisbane Lions,0.7,0.507,Fremantle by 1
+2025,16819,2025-08-22,"Fri, 22",00:00,24,ENGIE Stadium,GWS,St Kilda,6.2,0.562,GWS by 6
+2025,16820,2025-08-22,"Fri, 22",00:00,24,Docklands,North Melbourne,Adelaide,-9,0.411,Adelaide by 9
+2025,16821,2025-08-22,"Fri, 22",00:00,24,Docklands,Footscray,Fremantle,11.4,0.612,Footscray by 11
+2025,16822,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Collingwood,Melbourne,1.9,0.519,Collingwood by 2
+2025,16823,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Richmond,Geelong,-17.3,0.334,Geelong by 17
+2025,16824,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Essendon,Carlton,-4.8,0.452,Carlton by 5
+2025,16825,2025-08-22,"Fri, 22",00:00,24,Gabba,Brisbane Lions,Hawthorn,15,0.646,Brisbane Lions by 15
+2025,16826,2025-08-22,"Fri, 22",00:00,24,People First Stadium,Gold Coast,Essendon,4.7,0.547,Gold Coast by 5
+2025,16827,2025-08-22,"Fri, 22",00:00,24,Adelaide Oval,Port Adelaide,Gold Coast,14,0.636,Port Adelaide by 14
+2025,16828,2025-08-22,"Fri, 22",00:00,24,Perth Stadium,West Coast,Sydney,-11.7,0.385,Sydney by 12
