@@ -10,7 +10,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-03-28,Carlton,Footscray,0.502,0.2
 2025,2025-03-29,Melbourne,Gold Coast,0.583,8.4
 2025,2025-03-29,St Kilda,Richmond,0.586,8.7
-2025,2025-03-29,Hawthorn,GWS,0.548,4.8
+2025,2025-03-29,Hawthorn,GWS,0.544,4.4
 2025,2025-03-29,Brisbane Lions,Geelong,0.592,9.3
 2025,2025-03-30,Adelaide,North Melbourne,0.668,17.5
 2025,2025-03-30,West Coast,Fremantle,0.427,-7.4
@@ -26,7 +26,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-04-11,Collingwood,Sydney,0.52,2
 2025,2025-04-12,North Melbourne,Gold Coast,0.441,-5.9
 2025,2025-04-12,Carlton,West Coast,0.631,13.4
-2025,2025-04-12,Footscray,Brisbane Lions,0.506,0.6
+2025,2025-04-12,Footscray,Brisbane Lions,0.508,0.8
 2025,2025-04-12,Melbourne,Essendon,0.558,5.8
 2025,2025-04-13,Richmond,Fremantle,0.46,-4
 2025,2025-04-13,St Kilda,GWS,0.487,-1.3
@@ -101,7 +101,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-06-08,Carlton,Essendon,0.561,6.1
 2025,2025-06-09,Melbourne,Collingwood,0.515,1.5
 2025,2025-06-12,St Kilda,Footscray,0.486,-1.4
-2025,2025-06-13,Hawthorn,Adelaide,0.57,7
+2025,2025-06-13,Hawthorn,Adelaide,0.567,6.7
 2025,2025-06-14,Brisbane Lions,GWS,0.603,10.4
 2025,2025-06-14,Essendon,Geelong,0.463,-3.7
 2025,2025-06-14,North Melbourne,Fremantle,0.39,-11.2
@@ -118,7 +118,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-06-28,Richmond,Adelaide,0.505,0.5
 2025,2025-06-28,Gold Coast,Melbourne,0.53,3
 2025,2025-06-28,Sydney,Footscray,0.575,7.6
-2025,2025-06-28,Hawthorn,North Melbourne,0.659,16.5
+2025,2025-06-28,Hawthorn,North Melbourne,0.658,16.4
 2025,2025-06-28,Port Adelaide,Carlton,0.573,7.4
 2025,2025-06-28,Fremantle,St Kilda,0.593,9.4
 2025,2025-07-04,Geelong,Richmond,0.639,14.3
@@ -145,7 +145,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-07-18,Collingwood,Fremantle,0.593,9.4
 2025,2025-07-18,Sydney,North Melbourne,0.686,19.5
 2025,2025-07-18,Brisbane Lions,Footscray,0.601,10.2
-2025,2025-07-18,Hawthorn,Port Adelaide,0.58,8.1
+2025,2025-07-18,Hawthorn,Port Adelaide,0.576,7.7
 2025,2025-07-18,Adelaide,Gold Coast,0.587,8.8
 2025,2025-07-18,West Coast,Richmond,0.545,4.5
 2025,2025-07-25,GWS,Sydney,0.537,3.7
