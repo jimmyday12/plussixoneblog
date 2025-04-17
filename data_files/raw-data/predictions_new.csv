@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2025,2025-04-17,Brisbane Lions,Collingwood,0.61,11.2
 2025,2025-04-18,North Melbourne,Carlton,0.423,-7.8
 2025,2025-04-18,West Coast,Essendon,0.482,-1.8
 2025,2025-04-19,Melbourne,Fremantle,0.518,1.8
@@ -26,7 +25,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-05-04,Sydney,GWS,0.524,2.4
 2025,2025-05-04,Hawthorn,Richmond,0.664,17
 2025,2025-05-04,Brisbane Lions,Gold Coast,0.573,7.4
-2025,2025-05-08,Fremantle,Collingwood,0.57,7
+2025,2025-05-08,Fremantle,Collingwood,0.569,6.9
 2025,2025-05-09,St Kilda,Carlton,0.519,1.9
 2025,2025-05-10,Melbourne,Hawthorn,0.449,-5.1
 2025,2025-05-10,Essendon,Sydney,0.518,1.8
@@ -42,7 +41,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-05-17,GWS,Fremantle,0.552,5.2
 2025,2025-05-17,Footscray,Essendon,0.577,7.8
 2025,2025-05-18,Richmond,North Melbourne,0.53,3
-2025,2025-05-18,Brisbane Lions,Melbourne,0.677,18.5
+2025,2025-05-18,Brisbane Lions,Melbourne,0.676,18.4
 2025,2025-05-18,West Coast,St Kilda,0.455,-4.5
 2025,2025-05-22,Geelong,Footscray,0.563,6.3
 2025,2025-05-23,Essendon,Richmond,0.602,10.3
@@ -61,7 +60,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-06-01,Melbourne,St Kilda,0.486,-1.4
 2025,2025-06-01,West Coast,Geelong,0.405,-9.6
 2025,2025-06-05,Footscray,Hawthorn,0.514,1.4
-2025,2025-06-06,Adelaide,Brisbane Lions,0.537,3.7
+2025,2025-06-06,Adelaide,Brisbane Lions,0.536,3.6
 2025,2025-06-07,Richmond,Sydney,0.443,-5.7
 2025,2025-06-07,Geelong,Gold Coast,0.609,11.1
 2025,2025-06-07,GWS,Port Adelaide,0.571,7.1
@@ -112,7 +111,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-07-18,Carlton,Melbourne,0.577,7.8
 2025,2025-07-18,Collingwood,Fremantle,0.589,9
 2025,2025-07-18,Sydney,North Melbourne,0.701,21.3
-2025,2025-07-18,Brisbane Lions,Footscray,0.62,12.2
+2025,2025-07-18,Brisbane Lions,Footscray,0.619,12.1
 2025,2025-07-18,Hawthorn,Port Adelaide,0.569,6.9
 2025,2025-07-18,Adelaide,Gold Coast,0.578,7.9
 2025,2025-07-18,West Coast,Richmond,0.558,5.8
