@@ -11,7 +11,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-06-21,Carlton,North Melbourne,0.643,14.7
 2025,2025-06-21,Port Adelaide,Sydney,0.555,5.5
 2025,2025-06-21,Collingwood,St Kilda,0.613,11.5
-2025,2025-06-22,GWS,Gold Coast,0.522,2.2
+2025,2025-06-22,GWS,Gold Coast,0.521,2.1
 2025,2025-06-22,Footscray,Richmond,0.695,20.6
 2025,2025-06-26,Port Adelaide,Carlton,0.551,5.1
 2025,2025-06-27,Sydney,Footscray,0.531,3.1
@@ -25,7 +25,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-07-04,West Coast,GWS,0.425,-7.6
 2025,2025-07-05,Essendon,Gold Coast,0.51,1
 2025,2025-07-05,Geelong,Richmond,0.714,22.9
-2025,2025-07-05,Brisbane Lions,Port Adelaide,0.658,16.4
+2025,2025-07-05,Brisbane Lions,Port Adelaide,0.657,16.2
 2025,2025-07-05,St Kilda,Hawthorn,0.469,-3.1
 2025,2025-07-06,Sydney,Fremantle,0.557,5.7
 2025,2025-07-06,Adelaide,Melbourne,0.652,15.7
@@ -40,7 +40,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-07-13,Port Adelaide,West Coast,0.688,19.8
 2025,2025-07-17,Essendon,GWS,0.518,1.8
 2025,2025-07-18,Brisbane Lions,Footscray,0.588,8.9
-2025,2025-07-19,Hawthorn,Port Adelaide,0.594,9.5
+2025,2025-07-19,Hawthorn,Port Adelaide,0.593,9.4
 2025,2025-07-19,Sydney,North Melbourne,0.683,19.2
 2025,2025-07-19,Carlton,Melbourne,0.56,6
 2025,2025-07-19,West Coast,Richmond,0.56,6
@@ -71,7 +71,7 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2025,2025-08-09,Brisbane Lions,Sydney,0.635,13.8
 2025,2025-08-09,Carlton,Gold Coast,0.56,6
 2025,2025-08-09,Port Adelaide,Fremantle,0.532,3.2
-2025,2025-08-10,GWS,North Melbourne,0.649,15.4
+2025,2025-08-10,GWS,North Melbourne,0.647,15.1
 2025,2025-08-10,Melbourne,Footscray,0.455,-4.5
 2025,2025-08-10,West Coast,Adelaide,0.389,-11.3
 2025,2025-08-15,Essendon,St Kilda,0.505,0.5
