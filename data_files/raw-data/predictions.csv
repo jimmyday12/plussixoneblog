@@ -1,18 +1,17 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2025,16801,2025-08-03,"Sun, 03",00:00,21,Perth Stadium,Fremantle,Carlton,14.3,0.639,Fremantle by 14
 2025,16802,2025-08-07,"Thu, 07",00:00,22,M.C.G.,Hawthorn,Collingwood,1.7,0.517,Hawthorn by 2
 2025,16803,2025-08-08,"Fri, 08",00:00,22,Kardinia Park,Geelong,Essendon,22.9,0.714,Geelong by 23
 2025,16804,2025-08-09,"Sat, 09",00:00,22,M.C.G.,Richmond,St Kilda,-6.3,0.437,St Kilda by 6
 2025,16805,2025-08-09,"Sat, 09",00:00,22,Gabba,Brisbane Lions,Sydney,15.4,0.649,Brisbane Lions by 15
-2025,16806,2025-08-09,"Sat, 09",00:00,22,Docklands,Carlton,Gold Coast,0.4,0.504,Carlton by 0
-2025,16807,2025-08-09,"Sat, 09",00:00,22,Adelaide Oval,Port Adelaide,Fremantle,-0.2,0.498,Fremantle by 0
+2025,16806,2025-08-09,"Sat, 09",00:00,22,Docklands,Carlton,Gold Coast,0.1,0.501,Carlton by 0
+2025,16807,2025-08-09,"Sat, 09",00:00,22,Adelaide Oval,Port Adelaide,Fremantle,-0.5,0.495,Fremantle by 0
 2025,16808,2025-08-10,"Sun, 10",00:00,22,Corroboree Group Oval Manuka,GWS,North Melbourne,20.5,0.694,GWS by 20
 2025,16809,2025-08-10,"Sun, 10",00:00,22,M.C.G.,Melbourne,Footscray,-8.5,0.416,Footscray by 8
 2025,16810,2025-08-10,"Sun, 10",00:00,22,Perth Stadium,West Coast,Adelaide,-19.3,0.316,Adelaide by 19
 2025,16811,2025-08-15,"Fri, 15",00:00,23,Docklands,Essendon,St Kilda,-2.3,0.477,St Kilda by 2
-2025,16812,2025-08-15,"Fri, 15",00:00,23,Perth Stadium,Fremantle,Brisbane Lions,4.4,0.544,Fremantle by 4
+2025,16812,2025-08-15,"Fri, 15",00:00,23,Perth Stadium,Fremantle,Brisbane Lions,4.7,0.547,Fremantle by 5
 2025,16813,2025-08-16,"Sat, 16",00:00,23,People First Stadium,Gold Coast,GWS,3.5,0.535,Gold Coast by 4
-2025,16814,2025-08-16,"Sat, 16",00:00,23,Docklands,Carlton,Port Adelaide,9.8,0.597,Carlton by 10
+2025,16814,2025-08-16,"Sat, 16",00:00,23,Docklands,Carlton,Port Adelaide,9.5,0.594,Carlton by 10
 2025,16815,2025-08-16,"Sat, 16",00:00,23,M.C.G.,Hawthorn,Melbourne,10.9,0.607,Hawthorn by 11
 2025,16816,2025-08-16,"Sat, 16",00:00,23,Adelaide Oval,Adelaide,Collingwood,9.7,0.596,Adelaide by 10
 2025,16817,2025-08-17,"Sun, 17",00:00,23,Ninja Stadium,North Melbourne,Richmond,3.8,0.538,North Melbourne by 4
@@ -20,10 +19,10 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2025,16819,2025-08-17,"Sun, 17",00:00,23,Docklands,Footscray,West Coast,35.9,0.808,Footscray by 36
 2025,16820,2025-08-22,"Fri, 22",00:00,24,ENGIE Stadium,GWS,St Kilda,11.8,0.616,GWS by 12
 2025,16821,2025-08-22,"Fri, 22",00:00,24,Docklands,North Melbourne,Adelaide,-14.5,0.359,Adelaide by 14
-2025,16822,2025-08-22,"Fri, 22",00:00,24,Docklands,Footscray,Fremantle,14,0.636,Footscray by 14
+2025,16822,2025-08-22,"Fri, 22",00:00,24,Docklands,Footscray,Fremantle,13.6,0.633,Footscray by 14
 2025,16823,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Collingwood,Melbourne,12.1,0.619,Collingwood by 12
 2025,16824,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Richmond,Geelong,-20.8,0.303,Geelong by 21
-2025,16825,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Essendon,Carlton,-4.4,0.456,Carlton by 4
+2025,16825,2025-08-22,"Fri, 22",00:00,24,M.C.G.,Essendon,Carlton,-4.1,0.459,Carlton by 4
 2025,16826,2025-08-22,"Fri, 22",00:00,24,Gabba,Brisbane Lions,Hawthorn,9.7,0.596,Brisbane Lions by 10
 2025,16827,2025-08-22,"Fri, 22",00:00,24,People First Stadium,Gold Coast,Essendon,17.6,0.669,Gold Coast by 18
 2025,16828,2025-08-22,"Fri, 22",00:00,24,Adelaide Oval,Port Adelaide,Gold Coast,-1.2,0.488,Gold Coast by 1
