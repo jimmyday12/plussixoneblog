@@ -1,4 +1,3 @@
-library(furrr)
 
 # Helper functions -------------------------------------------------------
 
@@ -42,15 +41,14 @@ create_finals_fixture <- function(week = 1, season, last_game_num, last_round) {
     )
 }
 
-# PERF: future_map2 used here for parallelisation — sim loop is embarrassingly parallel
 simulate_finals <- function(form, fixture, elos, sim_num) {
-  probs <- future_map2(
+  probs <- map2(
     .x = elos,
     .y = fixture,
     .f = ~ elo::elo.prob(form, data = .y, elos = .x)
   )
   
-  future_map2(
+  map2(
     .x = fixture,
     .y = probs,
     .f = ~ mutate(.x,

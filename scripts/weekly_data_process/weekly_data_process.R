@@ -11,6 +11,8 @@ library(here)
 library(lubridate)
 library(tibbletime)
 library(cli)
+#library(furrr)
+#plan(multisession)
 
 cli_progress_step("Setup")
 
@@ -376,6 +378,7 @@ if (new_data) {
 
 }
 
+#plan(sequential)
 
 cli_alert_success("Finished!")
 
