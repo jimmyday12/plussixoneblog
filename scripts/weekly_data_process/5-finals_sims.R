@@ -448,13 +448,12 @@ combine_finals_sims <- function(final_game,
   final_summary_wide <- final_summary_long %>%
     group_by(Season, Team) %>%
     summarise(
-      win_league    = sum(Game == "Premier"),
-      make_gf       = sum(Game == "GF")  + win_league,
-      make_prelim   = sum(Game == "PF")  + make_gf,
-      make_semis    = sum(Game == "SF")  + make_prelim,
-      make_elim     = sum(Game == "EF")  + make_semis,   # NEW: EF stage
-      make_wildcard = sum(Game == "WC")  + make_elim,    # NEW: WC stage
-      make_finals   = n()
+      win_league  = sum(Game == "Premier"),
+      make_gf     = sum(Finals_week >= 5),   # reached GF week
+      make_prelim = sum(Finals_week >= 4),   # reached PF week
+      make_semis  = sum(Finals_week >= 3),   # survived week 2 (QF winners' bye counts)
+      make_qf_ef  = sum(Finals_week >= 2),   # reached QF/EF week (top 6 bye + WC winners)
+      make_finals = n()                      # top 10
     ) %>%
     mutate_if(is.numeric, ~ . / sim_num)
   
