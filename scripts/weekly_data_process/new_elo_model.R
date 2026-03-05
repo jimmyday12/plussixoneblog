@@ -199,11 +199,11 @@ get_final_elos <- function(model) {
 
 # Perturb ratings for simulation uncertainty.
 # Replaces: perturb_elos() in 4-sims.R
-# sd=85 reflects typical ELO uncertainty range (~1 win probability tier)
-perturb_elos_new <- function(model, sd = 85) {
-  ratings   <- get_final_elos(model)
+perturb_elos_new <- function(model, sd = NULL) {
+  ratings <- get_final_elos(model)
+  if (is.null(sd)) sd <- sd(ratings)  # scale to actual rating spread
   perturbed <- ratings + rnorm(length(ratings), mean = 0, sd = sd)
-  perturbed + 1500 - mean(perturbed)  # re-centre around 1500
+  perturbed + 1500 - mean(perturbed)
 }
 
 # ── Long format output ────────────────────────────────────────────────────────
