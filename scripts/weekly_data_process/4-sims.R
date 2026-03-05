@@ -1,59 +1,54 @@
-perturb_elos <- function(x) {
-  x <- final.elos(x) + rnorm(length(x$teams), mean = 0, sd = 85)
-  x + 1500 - mean(x)
-} # function to map over
+# 4-sims.R
+# Updated to use new_elo_model.R instead of elo package.
+# perturb_elos removed — use perturb_elos_new() from new_elo_model.R
+# elo.prob removed    — use predict_with_ratings() from new_elo_model.R
+# margin calc updated — use calibrate_margin() from new_elo_model.R
 
-do_sims <- function(sim_num, results, fixture, elo.data){
+do_sims <- function(sim_num, results, fixture, elo_dat, params, margin_cal) {
   
   sim_res <- results %>%
     filter(year(Date) == min(fixture$Season)) %>%
     mutate(
       Season.Game = Game - min(Game) + 1,
-      Round = Round.Number
+      Round       = Round.Number
     )
   
   remaining_fixture <- fixture
   
-  # Get ELOS and perturb them
-  form <- elo:::clean_elo_formula(stats::terms(elo.data)) # needed for elo.prob
-  
   sims    <- 1:sim_num
   n_games <- nrow(remaining_fixture)
   
-  # PERF: was map_df(~mutate(sim_res, Sim = .x)) — created 10k copies one at a time.
-  # Row-repeat + single mutate is equivalent but ~10x faster.
+  # PERF: row-repeat + single mutate vs map_df creating 10k copies one at a time
   res <- sim_res[rep(seq_len(nrow(sim_res)), sim_num), ] %>%
     mutate(Sim = rep(sims, each = nrow(sim_res)))
   
-  # Now simulate
-  sim_elo_perterbed <- sims %>%
-    rep_along(list(elo.data)) %>%
-    map(perturb_elos)
+  # Perturb ELO ratings for each simulation
+  sim_elo_perterbed <- map(sims, ~ perturb_elos_new(elo_dat))
   
-  # PERF: was map2_df over 10k ELOs, binding tibbles one at a time (O(n^2) copies).
-  # Instead: compute all probs as a list of vectors, then build one dataframe
-  # by repeating the fixture sim_num times and unlisting the probs in one shot.
+  # PERF: compute all probs as list of vectors, build one dataframe in one shot
   all_probs <- sim_elo_perterbed %>%
-    map(~elo.prob(form, data = remaining_fixture, elos = .x))
+    map(~ predict_with_ratings(params, remaining_fixture, .x))
   
   sim_data <- remaining_fixture[rep(seq_len(n_games), sim_num), ] %>%
     mutate(
       Sim         = rep(sims, each = n_games),
       Probability = unlist(all_probs),
-      Margin      = ceiling(map_outcome_to_margin(Probability, B = B))
+      Margin      = ceiling(calibrate_margin(Probability, margin_cal))
     ) %>%
     bind_rows(res)
   
-  list(sim_data          = sim_data,
-       sim_elo_perterbed = sim_elo_perterbed)
+  list(
+    sim_data          = sim_data,
+    sim_elo_perterbed = sim_elo_perterbed
+  )
 }
 
-# Summarise simulated data
+# Summarise simulated data ------------------------------------------------
+
 win_calc <- function(x) case_when(x == 0 ~ 0.5, x > 0 ~ 1, TRUE ~ 0)
 
 combine_sim_dat <- function(sim_data, results = NULL) {
   
-  # PERF: gather() is deprecated and slower on large data — pivot_longer is faster
   sim_data_all <- sim_data %>%
     pivot_longer(c(Home.Team, Away.Team), names_to = "Status", values_to = "Team") %>%
     mutate(
@@ -86,8 +81,8 @@ combine_sim_dat <- function(sim_data, results = NULL) {
     arrange(Rank)
 }
 
-calculate_sim_perc <- function(sim_dat_all, season, round, sim_num){
-  sim_data_summary <- sim_dat_all %>%
+calculate_sim_perc <- function(sim_dat_all, season, round, sim_num) {
+  sim_dat_all %>%
     group_by(Team) %>%
     dplyr::summarise(
       Season = season,
@@ -102,8 +97,8 @@ calculate_sim_perc <- function(sim_dat_all, season, round, sim_num){
     )
 }
 
-combine_past_sims <- function(sim_data_summary, round, season, past_sims){
-  sim_data_summary <- past_sims$sim_data_summary %>%
+combine_past_sims <- function(sim_data_summary, round, season, past_sims) {
+  past_sims$sim_data_summary %>%
     filter(!(Round == round & Season == season)) %>%
     bind_rows(sim_data_summary)
 }
@@ -134,7 +129,8 @@ count_sims <- function(sim_data_all, sim_data_summary, sim_num, season, round, p
       txt   = case_when(
         Freq < 1 ~ "<1",
         Freq > 1 ~ as.character(round(Freq, 0)),
-        TRUE     ~ "")
+        TRUE     ~ ""
+      )
     ) %>%
     arrange(Team, order)
   
@@ -151,7 +147,7 @@ count_sims <- function(sim_data_all, sim_data_summary, sim_num, season, round, p
   }
 }
 
-predict_perc <- function(games, pf, pa, pf_sd, pa_sd, games_left, elo_marg){
+predict_perc <- function(games, pf, pa, pf_sd, pa_sd, games_left, elo_marg) {
   pf_avg <- pf / games
   pa_avg <- pa / games
   
@@ -178,9 +174,8 @@ predict_perc <- function(games, pf, pa, pf_sd, pa_sd, games_left, elo_marg){
   return(adj_perc)
 }
 
-calculate_perc <- function(results, sim_data_all){
+calculate_perc <- function(results, sim_data_all) {
   
-  # PERF: gather() -> pivot_longer(), faster on large data
   results_ladder <- results %>%
     pivot_longer(c(Home.Team, Away.Team), names_to = "Status", values_to = "Team") %>%
     mutate(

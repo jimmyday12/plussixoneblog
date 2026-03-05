@@ -25,6 +25,8 @@ source(here::here("scripts", "weekly_data_process", "2a-covid_fix.R"))
 source(here::here("scripts", "weekly_data_process", "3-elo-run.R"))
 source(here::here("scripts", "weekly_data_process", "4-sims.R"))
 source(here::here("scripts", "weekly_data_process", "5-finals_sims.R"))
+source(here::here("scripts", "weekly_data_process", "new_elo_model.R"))
+
 
 # Set some parameters
 filt_date <- Sys.Date()
@@ -35,13 +37,23 @@ new_season <- TRUE
 save_data <- TRUE
 opening_round = TRUE
 
+
+# New ELO parameters (tuned 2026)
+params <- list(
+  v             = 5.980,
+  base_k        = 6.730,
+  carryOver     = 0.619,
+  finals_k_mult = 0.354,
+  B             = 0.040
+)
+
 # Set ELO Parameters
-e <- 1.7
-d <- -32
-h <- 20
-k_val <- 20
-carryOver <- 0.5
-B <- 0.04
+#e <- 1.7
+#d <- -32
+#h <- 20
+#k_val <- 20
+#carryOver <- 0.5
+#B <- 0.04
 sim_num <-  10000
 
 # Check Data ----------------------------------------------------------------
@@ -138,12 +150,9 @@ if (new_data) {
   
   # Run ELO calculation -----------------------------------------------------
   cli_progress_step("Doing ELOs")
-  elo_dat <- run_elo(dat$results,
-                     carryOver = carryOver,
-                     B = B, e = e, d = d, h = h
-  )
-  
+  elo_dat <- run_new_elo(dat$results, params, use_margin = FALSE)
   dat$results <- elo_dat$results
+  margin_cal  <- fit_margin_calibration(elo_dat$results)  
   
   # In season stuff --------------------------------------------------------
   if (!season_complete){
@@ -152,8 +161,20 @@ if (new_data) {
     
     cli_progress_step("Doing Predictions")
     # Do predictions
-    dat$predictions <- do_elo_predictions(dat$fixture, elo_dat$elo.data, carryOver, new_season)
-    
+    dat$predictions <- dat$fixture %>%
+      mutate(
+        Day        = format(Date, "%a, %d"),
+        Time       = format(Date, "%H:%M"),
+        Probability = round(predict_with_ratings(params, dat$fixture, elo_dat$final_ratings), 3),
+        Prediction  = round(calibrate_margin(Probability, margin_cal), 1),
+        Result      = case_when(
+          Probability > 0.5 ~ paste(Home.Team, "by", round(abs(Prediction), 0)),
+          Probability < 0.5 ~ paste(Away.Team, "by", round(abs(Prediction), 0)),
+          TRUE ~ "Draw"
+        )
+      ) %>%
+      select(Season, Game, Date, Day, Time, Round.Number, Venue,
+             Home.Team, Away.Team, Prediction, Probability, Result)    
     cli_progress_done()
     
   }
@@ -168,7 +189,7 @@ if (new_data) {
     # do sims
     sim_dat <- append(
       sim_dat,
-      do_sims(sim_num, dat$results, dat$fixture, elo_dat$elo.data)
+      do_sims(sim_num, dat$results, dat$fixture, elo_dat, params, margin_cal)
     )
     
     # combine
@@ -229,7 +250,9 @@ if (new_data) {
       sim_data_all = sim_dat$sim_data_all,
       game_dat = dat$game_dat,
       sim_num = sim_num,
-      elo.data = elo_dat$elo.data,
+      elo_dat = elo_dat,
+      params = params,
+      margin_cal = margin_cal,
       sim_elo_perterbed = sim_dat$sim_elo_perterbed,
       last_round = last_round
     )
@@ -238,7 +261,7 @@ if (new_data) {
       final_game = finals_sims$final_game,
       sim_data_summary = sim_dat$sim_data_summary,
       results = dat$results,
-      elo.data = elo_dat$elo.data,
+      elo_dat = elo_dat,
       sim_num = sim_num,
       ladder = dat$ladder
     )
@@ -263,7 +286,9 @@ if (new_data) {
     finals_sims <- do_finals_sims(sim_data_all = sim_dat$sim_data_all, 
                                   game_dat = dat$game_dat, 
                                   sim_num = final_sim_num,
-                                  elo.data = elo_dat$elo.data,
+                                  elo_dat = elo_dat,
+                                  params = params,
+                                  margin_cal = margin_cal,
                                   sim_elo_perterbed = NULL,
                                   last_round = last_round,
                                   ladder = dat$ladder,
@@ -276,7 +301,7 @@ if (new_data) {
       final_game = finals_sims$final_game,
       sim_data_summary = sim_dat$sim_data_summary,
       results = dat$results,
-      elo.data = elo_dat$elo.data,
+      elo_dat = elo_dat,
       sim_num = final_sim_num,
       ladder = dat$ladder,
       home_and_away_complete = TRUE
@@ -297,9 +322,8 @@ if (new_data) {
     cli_progress_step("Saving data")
     # Create list
     aflm_data <- list(
-      results = dat$results,
-      elo.data = elo_dat$elo.data,
-      elo = elo_dat$elo,
+      results     = dat$results,
+      elo         = elo_to_long(elo_dat$results),
       predictions = dat$predictions
     )
     

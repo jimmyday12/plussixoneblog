@@ -1,33 +1,39 @@
+# 5-finals_sims.R
+# Updated to use new_elo_model.R instead of elo package.
+# elo.prob replaced    — predict_with_ratings() from new_elo_model.R
+# perturb_elos removed — perturb_elos_new() from new_elo_model.R
+# margin calc updated  — calibrate_margin() from new_elo_model.R
+# ELO extraction in combine_finals_sims updated to use elo_dat directly
 
-# Helper functions -------------------------------------------------------
+# Helper functions --------------------------------------------------------
 
 create_finals_fixture <- function(week = 1, season, last_game_num, last_round) {
   
-  if (week == 1) {  # NEW: Wildcard round
+  if (week == 1) {  # Wildcard round
     dat <- tibble(
       Game      = (last_game_num + 1):(last_game_num + 2),
       Game_Name = c("WC1", "WC2"))
   }
   
-  if (week == 2) {  # Was week 1: QF + EF
+  if (week == 2) {  # QF + EF
     dat <- tibble(
       Game      = (last_game_num + 1):(last_game_num + 4),
       Game_Name = c("QF1", "QF2", "EF1", "EF2"))
   }
   
-  if (week == 3) {  # Was week 2: SF
+  if (week == 3) {  # SF
     dat <- tibble(
       Game      = (last_game_num + 1):(last_game_num + 2),
       Game_Name = c("SF1", "SF2"))
   }
   
-  if (week == 4) {  # Was week 3: PF
+  if (week == 4) {  # PF
     dat <- tibble(
       Game      = (last_game_num + 1):(last_game_num + 2),
       Game_Name = c("PF1", "PF2"))
   }
   
-  if (week == 5) {  # Was week 4: GF
+  if (week == 5) {  # GF
     dat <- tibble(
       Game      = last_game_num + 1,
       Game_Name = c("GF"))
@@ -41,11 +47,11 @@ create_finals_fixture <- function(week = 1, season, last_game_num, last_round) {
     )
 }
 
-simulate_finals <- function(form, fixture, elos, sim_num) {
+simulate_finals <- function(fixture, elos, sim_num, params, margin_cal) {
   probs <- map2(
     .x = elos,
     .y = fixture,
-    .f = ~ elo::elo.prob(form, data = .y, elos = .x)
+    .f = ~ predict_with_ratings(params, .y, .x)
   )
   
   map2(
@@ -53,7 +59,7 @@ simulate_finals <- function(form, fixture, elos, sim_num) {
     .y = probs,
     .f = ~ mutate(.x,
                   Probability = .y,
-                  Margin      = ceiling(map_outcome_to_margin(Probability, B = B)),
+                  Margin      = ceiling(calibrate_margin(Probability, margin_cal)),
                   Win         = rbinom(n(), 1, Probability))
   ) %>%
     map2(.y = 1:sim_num, ~ mutate(.x, Sim = .y))
@@ -72,7 +78,7 @@ add_formula_variables <- function(fixture) {
     )
 }
 
-# Name helpers: map ladder position to game name (used when finals_started = TRUE)
+# Name helpers ------------------------------------------------------------
 
 get_wc_names <- function(ladder_pos) {
   case_when(
@@ -84,7 +90,7 @@ get_wc_names <- function(ladder_pos) {
   )
 }
 
-get_wk2_names <- function(ladder_pos) {  # QF/EF week
+get_wk2_names <- function(ladder_pos) {
   case_when(
     ladder_pos == 1 ~ "QF1",
     ladder_pos == 4 ~ "QF1",
@@ -96,7 +102,7 @@ get_wk2_names <- function(ladder_pos) {  # QF/EF week
   )
 }
 
-get_wk3_names <- function(ladder_pos) {  # SF week
+get_wk3_names <- function(ladder_pos) {
   case_when(
     ladder_pos == 1 ~ "SF1",
     ladder_pos == 4 ~ "SF1",
@@ -106,7 +112,7 @@ get_wk3_names <- function(ladder_pos) {  # SF week
   )
 }
 
-get_wk4_names <- function(ladder_pos) {  # PF week
+get_wk4_names <- function(ladder_pos) {
   case_when(
     ladder_pos == 1 ~ "PF1",
     ladder_pos == 4 ~ "PF1",
@@ -116,13 +122,15 @@ get_wk4_names <- function(ladder_pos) {  # PF week
   )
 }
 
-# Main simulation function -----------------------------------------------
+# Main simulation function ------------------------------------------------
 
 do_finals_sims <- function(sim_data_all,
                            game_dat,
                            sim_num,
-                           elo.data,
-                           sim_elo_perterbed,    # passed in from do_sims(); no longer recomputed
+                           elo_dat,              # replaces elo.data
+                           params,               # new: ELO params list
+                           margin_cal,           # new: margin calibration fit
+                           sim_elo_perterbed,    # passed from do_sims(); no longer recomputed
                            last_round,
                            ladder            = NULL,
                            home_away_ongoing = FALSE,
@@ -132,14 +140,9 @@ do_finals_sims <- function(sim_data_all,
   
   cli_progress_step("Setting up Finals Sims")
   
-  form <- elo:::clean_elo_formula(stats::terms(elo.data))
-  
-  # PERF FIX: use passed-in perturbed ELOs when available rather than recomputing.
-  # Original code always recomputed, discarding sim_elo_perterbed entirely.
+  # PERF FIX: use passed-in perturbed ELOs when available rather than recomputing
   if (is.null(sim_elo_perterbed)) {
-    finals_elos <- 1:sim_num %>%
-      rep_along(list(elo.data)) %>%
-      map(perturb_elos)
+    finals_elos <- map(1:sim_num, ~ perturb_elos_new(elo_dat))
   } else {
     finals_elos <- sim_elo_perterbed[1:sim_num]
   }
@@ -154,11 +157,11 @@ do_finals_sims <- function(sim_data_all,
   
   if (is.null(finals_week)) finals_week <- 0
   
-  # Build sim ladders (Top 10) ---------------------------------------------
+  # Build sim ladders (Top 10) ----------------------------------------------
   
   if (is.null(ladder) | home_away_ongoing) {
     sim_ladder <- sim_data_all %>%
-      filter(Top.10) %>%                  # was Top.8
+      filter(Top.10) %>%
       arrange(Sim, Rank) %>%
       group_by(Sim) %>%
       select(Sim, Team, Rank) %>%
@@ -168,15 +171,13 @@ do_finals_sims <- function(sim_data_all,
     sim_ladder <- ladder %>%
       rename(Team = team.name, Rank = position) %>%
       select(Team, Rank) %>%
-      filter(Rank <= 10) %>%              # was < 9
+      filter(Rank <= 10) %>%
       arrange(Rank)
     
-    sim_ladder <- 1:sim_num %>%
-      map(~ mutate(sim_ladder, Sim = .x))
+    sim_ladder <- map(1:sim_num, ~ mutate(sim_ladder, Sim = .x))
   }
   
   # Week 1 — Wildcard Round ------------------------------------------------
-  # NEW: 7th hosts 10th (WC1), 8th hosts 9th (WC2). Teams 1-6 have a bye.
   
   cli_progress_step("Simulating Finals Week 1 (Wildcard)")
   
@@ -192,24 +193,21 @@ do_finals_sims <- function(sim_data_all,
     wk1_fixture <- sim_ladder %>%
       map(~ wk1_base_fixture %>%
             mutate(
-              Home.Team = .x$Team[c(7, 8)],   # 7th and 8th are home
-              Away.Team = .x$Team[c(10, 9)]   # vs 10th and 9th
+              Home.Team = .x$Team[c(7, 8)],
+              Away.Team = .x$Team[c(10, 9)]
             )) %>%
       map(add_formula_variables)
     
-    wk1_results <- simulate_finals(form, wk1_fixture, finals_elos, sim_num)
+    wk1_results <- simulate_finals(wk1_fixture, finals_elos, sim_num, params, margin_cal)
     
   } else {
-    # Finals already started — use actual results
     wk1_results <- finals_results %>%
       filter(Finals_week == 1) %>%
       mutate(Game_Name = get_wc_names(Rank))
     
-    wk1_results <- 1:sim_num %>%
-      map(~ mutate(wk1_results, Sim = .x))
+    wk1_results <- map(1:sim_num, ~ mutate(wk1_results, Sim = .x))
   }
   
-  # Extract WC winners/losers (needed for EF matchups in Week 2)
   wk1_teams <- wk1_results %>%
     map(~ mutate(.x,
                  Winner = ifelse(Win == 1, Home.Team, Away.Team),
@@ -217,9 +215,6 @@ do_finals_sims <- function(sim_data_all,
           select(Season, Finals_week, Game_Name, Winner, Loser, Sim))
   
   # Week 2 — Qualifying + Elimination Finals --------------------------------
-  # QF1: 1 vs 4,  QF2: 2 vs 3
-  # EF1: 5 vs winner of WC2 (8/9 game = lower-seeded WC winner)
-  # EF2: 6 vs winner of WC1 (7/10 game = higher-seeded WC winner)
   
   cli_progress_step("Simulating Finals Week 2 (QF/EF)")
   
@@ -233,8 +228,8 @@ do_finals_sims <- function(sim_data_all,
     )
     
     wk2_fixture <- map2(sim_ladder, wk1_teams, function(ldr, wc) {
-      wc1_winner <- wc$Winner[wc$Game_Name == "WC1"]  # higher-seeded WC winner
-      wc2_winner <- wc$Winner[wc$Game_Name == "WC2"]  # lower-seeded WC winner
+      wc1_winner <- wc$Winner[wc$Game_Name == "WC1"]
+      wc2_winner <- wc$Winner[wc$Game_Name == "WC2"]
       wk2_base_fixture %>%
         mutate(
           Home.Team = c(ldr$Team[1], ldr$Team[2], ldr$Team[5], ldr$Team[6]),
@@ -243,15 +238,14 @@ do_finals_sims <- function(sim_data_all,
     }) %>%
       map(add_formula_variables)
     
-    wk2_results <- simulate_finals(form, wk2_fixture, finals_elos, sim_num)
+    wk2_results <- simulate_finals(wk2_fixture, finals_elos, sim_num, params, margin_cal)
     
   } else {
     wk2_results <- finals_results %>%
       filter(Finals_week == 2) %>%
       mutate(Game_Name = get_wk2_names(Rank))
     
-    wk2_results <- 1:sim_num %>%
-      map(~ mutate(wk2_results, Sim = .x))
+    wk2_results <- map(1:sim_num, ~ mutate(wk2_results, Sim = .x))
     
     wk3_teams <- wk2_results %>%
       map(~ mutate(.x,
@@ -267,8 +261,6 @@ do_finals_sims <- function(sim_data_all,
           select(Season, Finals_week, Game_Name, Winner, Loser, Sim))
   
   # Week 3 — Semi Finals ----------------------------------------------------
-  # SF1: loser QF1 (home) vs winner EF1
-  # SF2: loser QF2 (home) vs winner EF2
   
   cli_progress_step("Simulating Finals Week 3 (Semi-Finals)")
   
@@ -291,15 +283,14 @@ do_finals_sims <- function(sim_data_all,
             )) %>%
       map(add_formula_variables)
     
-    wk3_results <- simulate_finals(form, wk3_fixture, finals_elos, sim_num)
+    wk3_results <- simulate_finals(wk3_fixture, finals_elos, sim_num, params, margin_cal)
     
   } else {
     wk3_results <- finals_results %>%
       filter(Finals_week == 3) %>%
       mutate(Game_Name = get_wk3_names(Rank))
     
-    wk3_results <- 1:sim_num %>%
-      map(~ mutate(wk3_results, Sim = .x))
+    wk3_results <- map(1:sim_num, ~ mutate(wk3_results, Sim = .x))
     
     wk4_teams <- wk3_results %>%
       map(~ mutate(.x,
@@ -318,8 +309,6 @@ do_finals_sims <- function(sim_data_all,
            distinct())
   
   # Week 4 — Preliminary Finals ---------------------------------------------
-  # PF1: winner QF1 (home) vs winner SF2
-  # PF2: winner QF2 (home) vs winner SF1
   
   cli_progress_step("Simulating Finals Week 4 (Preliminary Finals)")
   
@@ -342,15 +331,14 @@ do_finals_sims <- function(sim_data_all,
             )) %>%
       map(add_formula_variables)
     
-    wk4_results <- simulate_finals(form, wk4_fixture, finals_elos, sim_num)
+    wk4_results <- simulate_finals(wk4_fixture, finals_elos, sim_num, params, margin_cal)
     
   } else {
     wk4_results <- finals_results %>%
       filter(Finals_week == 4) %>%
       mutate(Game_Name = get_wk4_names(Rank))
     
-    wk4_results <- 1:sim_num %>%
-      map(~ mutate(wk4_results, Sim = .x))
+    wk4_results <- map(1:sim_num, ~ mutate(wk4_results, Sim = .x))
   }
   
   wk4_teams <- wk4_results %>%
@@ -382,18 +370,17 @@ do_finals_sims <- function(sim_data_all,
             )) %>%
       map(add_formula_variables)
     
-    wk5_results <- simulate_finals(form, wk5_fixture, finals_elos, sim_num)
+    wk5_results <- simulate_finals(wk5_fixture, finals_elos, sim_num, params, margin_cal)
     
   } else {
     wk5_results <- finals_results %>%
       filter(Finals_week == 5) %>%
       mutate(Game_Name = "GF")
     
-    wk5_results <- 1:sim_num %>%
-      map(~ mutate(wk5_results, Sim = .x))
+    wk5_results <- map(1:sim_num, ~ mutate(wk5_results, Sim = .x))
   }
   
-  # Combine and summarise --------------------------------------------------
+  # Combine and summarise ---------------------------------------------------
   
   cli_progress_step("Combining finals sims data")
   
@@ -422,38 +409,35 @@ do_finals_sims <- function(sim_data_all,
           ) %>%
           select(Season, Team, Game, Finals_week, Sim))
   
-  finals_dat <- list(
+  list(
     final_teams   = final_teams,
     final_results = final_results,
     final_game    = final_game
   )
-  
-  return(finals_dat)
 }
 
 combine_finals_sims <- function(final_game,
                                 sim_data_summary,
                                 results,
-                                elo.data,
+                                elo_dat,              # replaces elo.data
                                 sim_num               = 1,
                                 ladder                = NULL,
                                 home_and_away_complete = FALSE) {
   
   cli_progress_step("Combining Finals Sims")
   
-  # PERF FIX: bind_rows(list) is O(n) vs reduce(bind_rows) which is O(n^2).
-  # With sim_num = 10000 this makes a substantial difference.
+  # PERF FIX: bind_rows(list) is O(n) vs reduce(bind_rows) which is O(n^2)
   final_summary_long <- bind_rows(final_game)
   
   final_summary_wide <- final_summary_long %>%
     group_by(Season, Team) %>%
     summarise(
       win_league  = sum(Game == "Premier"),
-      make_gf     = sum(Finals_week >= 5),   # reached GF week
-      make_prelim = sum(Finals_week >= 4),   # reached PF week
-      make_semis  = sum(Finals_week >= 3),   # survived week 2 (QF winners' bye counts)
-      make_qf_ef  = sum(Finals_week >= 2),   # reached QF/EF week (top 6 bye + WC winners)
-      make_finals = n()                      # top 10
+      make_gf     = sum(Finals_week >= 5),
+      make_prelim = sum(Finals_week >= 4),
+      make_semis  = sum(Finals_week >= 3),
+      make_qf_ef  = sum(Finals_week >= 2),
+      make_finals = n()
     ) %>%
     mutate_if(is.numeric, ~ . / sim_num)
   
@@ -472,7 +456,7 @@ combine_finals_sims <- function(final_game,
       ) %>%
       select(Rank, Team, Season, Round, Margin, Wins, Perc) %>%
       mutate(
-        Top.10 = as.numeric(Rank <= 10),   # was Top.8 / Rank <= 8
+        Top.10 = as.numeric(Rank <= 10),
         Top.4  = as.numeric(Rank <= 4),
         Top.2  = as.numeric(Rank <= 2),
         Top.1  = as.numeric(Rank == 1)
@@ -489,21 +473,27 @@ combine_finals_sims <- function(final_game,
     left_join(final_summary_wide, by = c("Team", "Season")) %>%
     mutate(Round = last_completed_round)
   
-  # Add ELO
-  elos <- elo.data %>%
-    as.matrix() %>%
-    tail(2) %>%
-    t() %>%
-    as.data.frame() %>%
-    rownames_to_column("Team")
-  
-  names(elos) <- c("Team", "elo.old", "elo")
-  
-  elos <- elos %>%
-    mutate(elo.change = elo - elo.old)
+  # Extract ELOs from new model
+  # elo_dat$results has Home/Away ELO pre/post for every game
+  # Get each team's most recent post-game ELO and pre-game ELO (= previous game's post)
+  elos <- elo_dat$results %>%
+    pivot_longer(
+      cols      = c(Home.Team, Away.Team),
+      names_to  = "Status",
+      values_to = "Team"
+    ) %>%
+    mutate(
+      elo     = ifelse(Status == "Home.Team", Home.ELO,     Away.ELO),
+      elo_pre = ifelse(Status == "Home.Team", Home.ELO_pre, Away.ELO_pre)
+    ) %>%
+    group_by(Team) %>%
+    slice_max(Game, n = 1) %>%
+    ungroup() %>%
+    mutate(elo.change = elo - elo_pre) %>%
+    select(Team, elo.old = elo_pre, elo, elo.change)
   
   sims_combined <- sims_combined %>%
-    left_join(elos)
+    left_join(elos, by = "Team")
   
   sims_combined[is.na(sims_combined)] <- 0
   
