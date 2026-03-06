@@ -342,6 +342,24 @@ if (new_data) {
     write_csv(aflm_data$predictions, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
     }
     
+    # Save predictions history
+    pred_history_path <- here::here("data_files", "processed-data", 
+                                    paste0("AFLM_predictions_history_", 
+                                           max(dat$predictions$Season), ".csv"))
+    
+    new_preds <- dat$predictions %>%
+      mutate(Predicted_Round = round,
+             Predicted_At    = format(Sys.time(), "%Y-%m-%d %H:%M"),
+             Time            = as.character(Time))
+    
+    if (file.exists(pred_history_path)) {
+      existing <- read_csv(pred_history_path, show_col_types = FALSE) %>%
+        filter(Predicted_Round != unique(new_preds$Predicted_Round))
+      bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
+    } else {
+      write_csv(new_preds, pred_history_path)
+    }
+    
     # Save elo
     write_csv(aflm_data$elo, file = here::here("data_files", "raw-data", "AFLM_elo.csv"))
     write_csv(aflm_data$elo, file = here::here("data_files", "processed-data", "AFLM_elo.csv"))
@@ -408,6 +426,7 @@ if (new_data) {
       write_rds(finals_dat, 
                 file = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
       
+
     }
     }
     cli_progress_done()
