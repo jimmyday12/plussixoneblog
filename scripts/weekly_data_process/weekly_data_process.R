@@ -352,7 +352,8 @@ if (new_data) {
              Round.Number == min(dat$predictions$Round.Number)) %>%
       mutate(Predicted_Round = round,
              Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
-             Time            = NA_character_)
+             Time            = NA_character_) %>%
+      select(any_of(names(dat$predictions)), Predicted_Round, Predicted_At, Time)
     
     new_preds <- dat$predictions %>%
       mutate(Predicted_Round = round,
