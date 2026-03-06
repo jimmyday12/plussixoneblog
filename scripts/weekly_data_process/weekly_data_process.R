@@ -371,11 +371,17 @@ if (new_data) {
         bind_rows(current_round_results)
       
       if (file.exists(pred_history_path)) {
-        existing <- read_csv(pred_history_path, show_col_types = FALSE) %>%
-          mutate(Time         = as.character(Time),
-                 Predicted_At = as.character(Predicted_At)) %>%
-          filter(Predicted_Round != unique(new_preds$Predicted_Round))
-        bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
+        existing <- read_csv(pred_history_path, show_col_types = FALSE)
+        
+        if (nrow(existing) == 0) {
+          write_csv(new_preds, pred_history_path)
+        } else {
+          existing <- existing %>%
+            mutate(Time         = as.character(Time),
+                   Predicted_At = as.character(Predicted_At)) %>%
+            filter(Predicted_Round != unique(new_preds$Predicted_Round))
+          bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
+        }
       } else {
         write_csv(new_preds, pred_history_path)
       }
@@ -428,11 +434,18 @@ if (new_data) {
           mutate(Updated = format(Sys.time(), "%Y-%m-%d %H:%M"))
         
         if (file.exists(existing_path)) {
-          existing <- read_csv(existing_path, show_col_types = FALSE) %>%
-            mutate(Season = as.numeric(Season),
-                   Round  = as.numeric(Round)) %>%
-            filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
-          bind_rows(existing, new_sims) %>% write_csv(existing_path)
+          existing <- read_csv(existing_path, show_col_types = FALSE)
+          
+          if (nrow(existing) == 0) {
+            write_csv(new_sims, existing_path)
+          } else {
+            existing <- existing %>%
+              mutate(Season = as.numeric(Season),
+                     Round  = as.numeric(Round),
+                     Margin = as.numeric(Margin)) %>%
+              filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
+            bind_rows(existing, new_sims) %>% write_csv(existing_path)
+          }
         } else {
           write_csv(new_sims, existing_path)
         }
