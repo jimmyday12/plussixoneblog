@@ -16,7 +16,7 @@ library(cli)
 
 cli_progress_step("Setup")
 
-# source functions
+# Source functions
 source(here::here("scripts", "weekly_data_process", "0-functions.R"))
 source(here::here("scripts", "weekly_data_process", "0a-check-data.R"))
 source(here::here("scripts", "weekly_data_process", "1-get-data.R"))
@@ -27,16 +27,38 @@ source(here::here("scripts", "weekly_data_process", "4-sims.R"))
 source(here::here("scripts", "weekly_data_process", "5-finals_sims.R"))
 source(here::here("scripts", "weekly_data_process", "new_elo_model.R"))
 
-
 # Set some parameters
-filt_date <- Sys.Date()
-fixture_bug <- FALSE
+filt_date       <- Sys.Date()
+fixture_bug     <- FALSE
 grand_final_bug <- FALSE
-season <- 2026
-new_season <- TRUE
-save_data <- TRUE
-opening_round = TRUE
+save_data       <- TRUE
+sim_num         <- 10000
 
+# Derive season and new_season automatically from fixture/results availability
+.current_year <- lubridate::year(Sys.Date())
+
+.next_fixture <- tryCatch(
+  suppressWarnings(fitzRoy::fetch_fixture_afl(season = .current_year + 1)),
+  error   = function(e) NULL,
+  warning = function(w) NULL
+)
+
+if (!is.null(.next_fixture) && nrow(.next_fixture) > 0) {
+  .afl_year  <- .current_year + 1
+  new_season <- TRUE
+} else {
+  .afl_year <- .current_year
+  .recent_results <- tryCatch(
+    suppressWarnings(fitzRoy::fetch_results_afl(season = .afl_year)),
+    error   = function(e) NULL,
+    warning = function(w) NULL
+  )
+  new_season <- is.null(.recent_results) || nrow(.recent_results) == 0
+  rm(.recent_results)
+}
+
+season <- .afl_year
+rm(.next_fixture, .current_year, .afl_year)
 
 # New ELO parameters (tuned 2026)
 params <- list(
@@ -47,40 +69,24 @@ params <- list(
   B             = 0.040
 )
 
-# Set ELO Parameters
-#e <- 1.7
-#d <- -32
-#h <- 20
-#k_val <- 20
-#carryOver <- 0.5
-#B <- 0.04
-sim_num <-  10000
-
 # Check Data ----------------------------------------------------------------
-if(!new_season){
-cli_progress_step("Checking for new data")
-
-# First check if new results exist
-new_results <- check_results(season)
-new_fixture <- check_fixture(season, new_season)
-
-if(new_results | new_fixture) {
+if (!new_season) {
+  cli_progress_step("Checking for new data")
   
-  cli_alert_info("New data found!")
-  new_data <- TRUE
-} else{
-  cli_alert_info("No new data found!")
-  new_data <- FALSE
-}
-
+  new_results <- check_results(season)
+  new_fixture <- check_fixture(season, new_season)
+  
+  if (new_results | new_fixture) {
+    cli_alert_info("New data found!")
+    new_data <- TRUE
+  } else {
+    cli_alert_info("No new data found!")
+    new_data <- FALSE
+  }
 } else {
   cli_alert_info("New season - running script!")
   new_data <- TRUE
 }
-
-
-
-
 
 # Manual override
 # new_data <- TRUE
@@ -94,6 +100,10 @@ if (new_data) {
                   fixture_bug = fixture_bug,
                   opening_round = opening_round
   )
+  
+  # check if it's opening round
+  opening_round <- new_season | 
+    isTRUE(max(dat$results$Round.Number[dat$results$Season == season], na.rm = TRUE) == 0)
   
    # check if home and away season is done
   home_away_ongoing <- any(dat$fixture$status != "CONCLUDED" & !dat$fixture$Finals)
@@ -318,8 +328,8 @@ if (new_data) {
   
   if(save_data) {
     
-    
     cli_progress_step("Saving data")
+    
     # Create list
     aflm_data <- list(
       results     = dat$results,
@@ -327,63 +337,63 @@ if (new_data) {
       predictions = dat$predictions
     )
     
-    # Save data
-    
+    # Save core data
     write_rds(aflm_data, file = here::here("data_files", "raw-data", "AFLM.rds"), compress = "bz")
     write_csv(aflm_data$results, file = here::here("data_files", "processed-data", "AFLM_results.csv"))
-    # Save Predictions
-    if (!season_complete) {
-      
     
-    predictions_csv <- aflm_data$predictions %>%
-      select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
-    write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
-    write_csv(predictions_csv, file = here::here("data_files", "raw-data", "predictions_new.csv"))
-    write_csv(aflm_data$predictions, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
+    # Save predictions
+    if (!season_complete) {
+      predictions_csv <- aflm_data$predictions %>%
+        select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
+      write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
+      write_csv(predictions_csv,       file = here::here("data_files", "raw-data", "predictions_new.csv"))
+      write_csv(aflm_data$predictions, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
     }
     
     # Save predictions history
-    pred_history_path <- here::here("data_files", "processed-data", 
-                                    paste0("AFLM_predictions_history_", 
-                                           max(dat$predictions$Season), ".csv"))
-    
-    current_round_results <- dat$results %>%
-      filter(Season == max(dat$predictions$Season),
-             Round.Number == min(dat$predictions$Round.Number)) %>%
-      mutate(Predicted_Round = round,
-             Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
-             Time            = NA_character_) %>%
-      select(any_of(names(dat$predictions)), Predicted_Round, Predicted_At, Time)
-    
-    new_preds <- dat$predictions %>%
-      mutate(Predicted_Round = round,
-             Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
-             Time            = as.character(Time)) %>%
-      bind_rows(current_round_results)
-    
-    if (file.exists(existing_path)) {
-      existing <- read_csv(existing_path, show_col_types = FALSE) %>%
-        mutate(Season = as.numeric(Season),
-               Round  = as.numeric(Round)) %>%
-        filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
-      bind_rows(existing, new_sims) %>% write_csv(existing_path)
-    } else {
-      write_csv(new_sims, existing_path)
+    if (!season_complete) {
+      pred_history_path <- here::here("data_files", "processed-data",
+                                      paste0("AFLM_predictions_history_",
+                                             max(dat$predictions$Season), ".csv"))
+      
+      current_round_results <- dat$results %>%
+        filter(Season == max(dat$predictions$Season),
+               Round.Number == min(dat$predictions$Round.Number)) %>%
+        mutate(Predicted_Round = round,
+               Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
+               Time            = NA_character_) %>%
+        select(any_of(names(dat$predictions)), Predicted_Round, Predicted_At, Time)
+      
+      new_preds <- dat$predictions %>%
+        mutate(Predicted_Round = round,
+               Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
+               Time            = as.character(Time)) %>%
+        bind_rows(current_round_results)
+      
+      if (file.exists(pred_history_path)) {
+        existing <- read_csv(pred_history_path, show_col_types = FALSE) %>%
+          mutate(Time         = as.character(Time),
+                 Predicted_At = as.character(Predicted_At)) %>%
+          filter(Predicted_Round != unique(new_preds$Predicted_Round))
+        bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
+      } else {
+        write_csv(new_preds, pred_history_path)
+      }
     }
     
-    # Save elo
+    # Save ELO
     write_csv(aflm_data$elo, file = here::here("data_files", "raw-data", "AFLM_elo.csv"))
     write_csv(aflm_data$elo, file = here::here("data_files", "processed-data", "AFLM_elo.csv"))
-    #elo <- read_csv(here::here("data_files", "raw-data", "AFLM_elo.csv"))
+    
     elo <- aflm_data$elo
     
-    current_elo <- elo %>% 
-      group_by(Team) %>% 
+    current_elo <- elo %>%
+      group_by(Team) %>%
       filter(Game == max(Game)) %>%
       filter(Game > 16000) %>%
       arrange(desc(ELO)) %>%
       mutate(ELO_change = ELO - ELO_pre,
-             Season = format(Date, "%Y")) %>%
+             Season     = format(Date, "%Y")) %>%
       select(Team, Date, Game, Season, Round, ELO, ELO_pre, ELO_change) %>%
       mutate(Updated = Sys.time())
     
@@ -391,61 +401,56 @@ if (new_data) {
     
     # Save sims
     if (!season_complete) {
-      
-    
-    if (home_away_ongoing | finals_scheduled | finals_started) {
-      aflm_sims <- list(
-        sim_data_summary = sim_dat$sim_data_summary,
-        sim_data_all = sim_dat$sim_data_all,
-        simCount = sim_dat$simCount
-      )
-      
-      
-      # Save data
-      write_rds(aflm_sims, 
-                file = 
-                  here::here("data_files", "raw-data", "AFLM_sims.rds"), 
-                compress = "bz")
-      
-      # Writing csv
-      write_csv(aflm_sims$sim_data_summary, 
-                file = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
-      write_csv(aflm_sims$simCount, 
-                file = 
-                  here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
-      
-      write_csv(finals_dat$sims_combined,
-                file = here::here("data_files", "processed-data", "AFLM_sims_combined.csv"))
-      
-      existing_path <- here::here("data_files", "processed-data", "AFLM_sims_history.csv")
-      
-      new_sims <- finals_dat$sims_combined %>%
-        mutate(Updated = format(Sys.time(), "%Y-%m-%d %H:%M"))
-      
-      if (file.exists(existing_path)) {
-        existing <- read_csv(existing_path, show_col_types = FALSE) %>%
-          filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
-        bind_rows(existing, new_sims) %>% write_csv(existing_path)
-      } else {
-        write_csv(new_sims, existing_path)
+      if (home_away_ongoing | finals_scheduled | finals_started) {
+        
+        aflm_sims <- list(
+          sim_data_summary = sim_dat$sim_data_summary,
+          sim_data_all     = sim_dat$sim_data_all,
+          simCount         = sim_dat$simCount
+        )
+        
+        write_rds(aflm_sims,
+                  file     = here::here("data_files", "raw-data", "AFLM_sims.rds"),
+                  compress = "bz")
+        
+        write_csv(aflm_sims$sim_data_summary,
+                  file = here::here("data_files", "raw-data", "AFLM_sims_summary.csv"))
+        write_csv(aflm_sims$simCount,
+                  file = here::here("data_files", "raw-data", "AFLM_sims_positions.csv"))
+        
+        write_csv(finals_dat$sims_combined,
+                  file = here::here("data_files", "processed-data", "AFLM_sims_combined.csv"))
+        
+        # Sims history
+        existing_path <- here::here("data_files", "processed-data", "AFLM_sims_history.csv")
+        
+        new_sims <- finals_dat$sims_combined %>%
+          mutate(Updated = format(Sys.time(), "%Y-%m-%d %H:%M"))
+        
+        if (file.exists(existing_path)) {
+          existing <- read_csv(existing_path, show_col_types = FALSE) %>%
+            mutate(Season = as.numeric(Season),
+                   Round  = as.numeric(Round)) %>%
+            filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
+          bind_rows(existing, new_sims) %>% write_csv(existing_path)
+        } else {
+          write_csv(new_sims, existing_path)
+        }
+        
+        write_csv(data.frame(home_away_ongoing = finals_dat$home_away_ongoing),
+                  file = here::here("data_files", "processed-data", "AFLM_home_away_ongoing.csv"))
+        
+        write_rds(finals_dat,
+                  file     = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"),
+                  compress = "bz")
       }
-      
-      write_csv(data.frame(home_away_ongoing =finals_dat$home_away_ongoing),
-                file = here::here("data_files", "processed-data", "AFLM_home_away_ongoing.csv"))
-      
-      # Save finals
-      write_rds(finals_dat, 
-                file = here::here("data_files", "raw-data", "AFLM_finals_sims.rds"), compress = "bz")
-      
-
     }
-    }
+    
     cli_progress_done()
   }
-
+  
 }
 
 #plan(sequential)
 
 cli_alert_success("Finished!")
-
