@@ -276,6 +276,7 @@ if (new_data) {
       ladder = dat$ladder
     )
     
+
     finals_dat$home_away_ongoing <- home_away_ongoing
   }
   
@@ -431,10 +432,16 @@ if (new_data) {
         existing_path <- here::here("data_files", "processed-data", "AFLM_sims_history.csv")
         
         new_sims <- finals_dat$sims_combined %>%
-          mutate(Updated = format(Sys.time(), "%Y-%m-%d %H:%M"))
+          mutate(Updated = Sys.time())
         
         if (file.exists(existing_path)) {
-          existing <- read_csv(existing_path, show_col_types = FALSE)
+          existing <- read_csv(existing_path, show_col_types = FALSE,
+                               col_types = cols(
+                                 Season = col_double(),
+                                 Round  = col_double(),
+                                 Margin = col_double(),
+                                 .default = col_guess()
+                               ))
           
           if (nrow(existing) == 0) {
             write_csv(new_sims, existing_path)

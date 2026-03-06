@@ -441,7 +441,8 @@ combine_finals_sims <- function(final_game,
     ) %>%
     mutate_if(is.numeric, ~ . / sim_num)
   
-  final_summary_wide[is.na(final_summary_wide)] <- 0
+  final_summary_wide <- final_summary_wide %>%
+    mutate(across(where(is.numeric), ~replace_na(., 0)))
   
   if (home_and_away_complete) {
     final_ladder <- ladder %>%
@@ -496,7 +497,8 @@ combine_finals_sims <- function(final_game,
   sims_combined <- sims_combined %>%
     left_join(elos, by = "Team")
   
-  sims_combined[is.na(sims_combined)] <- 0
+  sims_combined <- sims_combined %>%
+    mutate(across(where(is.numeric), ~replace_na(., 0)))
   
   if (!is.null(ladder)) {
     win_loss <- ladder %>%
