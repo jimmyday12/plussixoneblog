@@ -388,6 +388,19 @@ if (new_data) {
       write_csv(finals_dat$sims_combined,
                 file = here::here("data_files", "processed-data", "AFLM_sims_combined.csv"))
       
+      existing_path <- here::here("data_files", "processed-data", "AFLM_sims_history.csv")
+      
+      new_sims <- finals_dat$sims_combined %>%
+        mutate(Updated = format(Sys.time(), "%Y-%m-%d %H:%M"))
+      
+      if (file.exists(existing_path)) {
+        existing <- read_csv(existing_path, show_col_types = FALSE) %>%
+          filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
+        bind_rows(existing, new_sims) %>% write_csv(existing_path)
+      } else {
+        write_csv(new_sims, existing_path)
+      }
+      
       write_csv(data.frame(home_away_ongoing =finals_dat$home_away_ongoing),
                 file = here::here("data_files", "processed-data", "AFLM_home_away_ongoing.csv"))
       

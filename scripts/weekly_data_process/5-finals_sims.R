@@ -467,7 +467,8 @@ combine_finals_sims <- function(final_game,
       filter(Round == max(Round))
   }
   
-  last_completed_round <- last(results$Round)
+  current_season_results <- results %>% filter(Season == max(Season, na.rm = TRUE))
+  last_completed_round <- if (nrow(current_season_results) == 0) 0 else last(current_season_results$Round)
   
   sims_combined <- final_ladder %>%
     left_join(final_summary_wide, by = c("Team", "Season")) %>%
