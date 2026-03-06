@@ -361,14 +361,14 @@ if (new_data) {
              Time            = as.character(Time)) %>%
       bind_rows(current_round_results)
     
-    if (file.exists(pred_history_path)) {
-      existing <- read_csv(pred_history_path, show_col_types = FALSE) %>%
-        mutate(Time         = as.character(Time),
-               Predicted_At = as.character(Predicted_At)) %>%
-        filter(Predicted_Round != unique(new_preds$Predicted_Round))
-      bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
+    if (file.exists(existing_path)) {
+      existing <- read_csv(existing_path, show_col_types = FALSE) %>%
+        mutate(Season = as.numeric(Season),
+               Round  = as.numeric(Round)) %>%
+        filter(!(Season == unique(new_sims$Season) & Round == unique(new_sims$Round)))
+      bind_rows(existing, new_sims) %>% write_csv(existing_path)
     } else {
-      write_csv(new_preds, pred_history_path)
+      write_csv(new_sims, existing_path)
     }
     
     # Save elo
