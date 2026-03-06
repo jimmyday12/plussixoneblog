@@ -347,13 +347,23 @@ if (new_data) {
                                     paste0("AFLM_predictions_history_", 
                                            max(dat$predictions$Season), ".csv"))
     
+    current_round_results <- dat$results %>%
+      filter(Season == max(dat$predictions$Season),
+             Round.Number == min(dat$predictions$Round.Number)) %>%
+      mutate(Predicted_Round = round,
+             Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
+             Time            = NA_character_)
+    
     new_preds <- dat$predictions %>%
       mutate(Predicted_Round = round,
-             Predicted_At    = format(Sys.time(), "%Y-%m-%d %H:%M"),
-             Time            = as.character(Time))
+             Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
+             Time            = as.character(Time)) %>%
+      bind_rows(current_round_results)
     
     if (file.exists(pred_history_path)) {
       existing <- read_csv(pred_history_path, show_col_types = FALSE) %>%
+        mutate(Time         = as.character(Time),
+               Predicted_At = as.character(Predicted_At)) %>%
         filter(Predicted_Round != unique(new_preds$Predicted_Round))
       bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
     } else {
