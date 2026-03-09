@@ -29,12 +29,16 @@ do_sims <- function(sim_num, results, fixture, elo_dat, params, margin_cal) {
   all_probs <- sim_elo_perterbed %>%
     map(~ predict_with_ratings(params, remaining_fixture, .x))
   
+  # With this:
   sim_data <- remaining_fixture[rep(seq_len(n_games), sim_num), ] %>%
     mutate(
-      Sim         = rep(sims, each = n_games),
+      Sim        = rep(sims, each = n_games),
       Probability = unlist(all_probs),
-      Margin      = ceiling(calibrate_margin(Probability, margin_cal))
+      Home_Win   = rbinom(n(), 1, Probability),
+      Margin     = ceiling(abs(calibrate_margin(Probability, margin_cal))) * 
+        ifelse(Home_Win == 1, 1, -1)
     ) %>%
+    select(-Home_Win) %>%
     bind_rows(res)
   
   list(

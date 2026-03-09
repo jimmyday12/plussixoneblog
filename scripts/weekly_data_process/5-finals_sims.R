@@ -59,8 +59,9 @@ simulate_finals <- function(fixture, elos, sim_num, params, margin_cal) {
     .y = probs,
     .f = ~ mutate(.x,
                   Probability = .y,
-                  Margin      = ceiling(calibrate_margin(Probability, margin_cal)),
-                  Win         = rbinom(n(), 1, Probability))
+                  Win         = rbinom(n(), 1, Probability),
+                  Margin      = ceiling(abs(calibrate_margin(Probability, margin_cal))) *
+                    ifelse(Win == 1, 1, -1))
   ) %>%
     map2(.y = 1:sim_num, ~ mutate(.x, Sim = .y))
 }

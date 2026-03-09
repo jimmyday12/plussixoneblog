@@ -46,6 +46,7 @@ sim_num         <- 10000
 if (!is.null(.next_fixture) && nrow(.next_fixture) > 0) {
   .afl_year  <- .current_year + 1
   new_season <- TRUE
+  cli_progress_step("New AFL season!")
 } else {
   .afl_year <- .current_year
   .recent_results <- tryCatch(
@@ -89,7 +90,7 @@ if (!new_season) {
 }
 
 # Manual override
-# new_data <- TRUE
+new_data <- TRUE
 
 # Get Data ----------------------------------------------------------------
 if (new_data) {
