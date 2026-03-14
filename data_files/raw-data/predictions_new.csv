@@ -1,5 +1,4 @@
 Season,Date,Home.Team,Away.Team,Probability,Prediction
-2026,2026-03-14,Geelong,Fremantle,0.636,10.3
 2026,2026-03-14,Sydney,Brisbane Lions,0.635,10.2
 2026,2026-03-14,Collingwood,Adelaide,0.576,5
 2026,2026-03-15,North Melbourne,Port Adelaide,0.454,-4.7
@@ -9,110 +8,110 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2026,2026-03-20,Adelaide,Footscray,0.608,7.8
 2026,2026-03-21,Richmond,Gold Coast,0.333,-15.5
 2026,2026-03-21,GWS,St Kilda,0.674,14
-2026,2026-03-21,Fremantle,Melbourne,0.798,29.3
+2026,2026-03-21,Fremantle,Melbourne,0.781,26.8
 2026,2026-03-22,Port Adelaide,Essendon,0.747,22.3
 2026,2026-03-22,West Coast,North Melbourne,0.487,-2.1
-2026,2026-03-26,Geelong,Adelaide,0.61,7.9
+2026,2026-03-26,Geelong,Adelaide,0.633,10
 2026,2026-03-27,Collingwood,GWS,0.49,-1.9
 2026,2026-03-28,St Kilda,Brisbane Lions,0.421,-7.4
-2026,2026-03-28,Fremantle,Richmond,0.864,40.2
+2026,2026-03-28,Fremantle,Richmond,0.852,38
 2026,2026-03-28,Essendon,North Melbourne,0.478,-2.8
 2026,2026-03-29,Port Adelaide,West Coast,0.811,31.3
 2026,2026-03-29,Carlton,Melbourne,0.566,4.2
 2026,2026-04-02,Brisbane Lions,Collingwood,0.635,10.2
 2026,2026-04-03,North Melbourne,Carlton,0.391,-10
-2026,2026-04-03,Adelaide,Fremantle,0.659,12.5
+2026,2026-04-03,Adelaide,Fremantle,0.68,14.6
 2026,2026-04-04,Richmond,Port Adelaide,0.402,-9.1
 2026,2026-04-04,West Coast,Sydney,0.274,-22
 2026,2026-04-05,Melbourne,Gold Coast,0.429,-6.8
 2026,2026-04-05,Footscray,Essendon,0.806,30.5
-2026,2026-04-06,Hawthorn,Geelong,0.523,0.7
+2026,2026-04-06,Hawthorn,Geelong,0.498,-1.2
 2026,2026-04-09,Adelaide,Carlton,0.766,24.8
-2026,2026-04-10,Collingwood,Fremantle,0.51,-0.3
+2026,2026-04-10,Collingwood,Fremantle,0.535,1.7
 2026,2026-04-11,North Melbourne,Brisbane Lions,0.243,-25.9
 2026,2026-04-11,Essendon,Melbourne,0.428,-6.9
 2026,2026-04-11,Sydney,Gold Coast,0.433,-6.4
 2026,2026-04-11,Hawthorn,Footscray,0.473,-3.2
-2026,2026-04-12,Geelong,West Coast,0.845,36.8
+2026,2026-04-12,Geelong,West Coast,0.857,38.9
 2026,2026-04-12,GWS,Richmond,0.804,30.2
 2026,2026-04-12,Port Adelaide,St Kilda,0.641,10.8
 2026,2026-04-16,Carlton,Collingwood,0.337,-15.1
-2026,2026-04-17,Geelong,Footscray,0.583,5.6
+2026,2026-04-17,Geelong,Footscray,0.607,7.7
 2026,2026-04-17,Sydney,GWS,0.565,4.1
 2026,2026-04-18,Gold Coast,Essendon,0.774,25.9
 2026,2026-04-18,Hawthorn,Port Adelaide,0.669,13.5
 2026,2026-04-18,Adelaide,St Kilda,0.781,26.8
 2026,2026-04-19,North Melbourne,Richmond,0.635,10.2
 2026,2026-04-19,Melbourne,Brisbane Lions,0.342,-14.6
-2026,2026-04-19,West Coast,Fremantle,0.157,-38.9
+2026,2026-04-19,West Coast,Fremantle,0.171,-36.6
 2026,2026-04-23,Footscray,Sydney,0.676,14.2
 2026,2026-04-24,Richmond,Melbourne,0.388,-10.3
 2026,2026-04-25,Hawthorn,Gold Coast,0.654,12
 2026,2026-04-25,Essendon,Collingwood,0.215,-29.8
-2026,2026-04-25,Port Adelaide,Geelong,0.456,-4.6
-2026,2026-04-25,Fremantle,Carlton,0.743,21.8
+2026,2026-04-25,Port Adelaide,Geelong,0.432,-6.5
+2026,2026-04-25,Fremantle,Carlton,0.724,19.5
 2026,2026-04-26,St Kilda,West Coast,0.782,27
 2026,2026-04-26,Brisbane Lions,Adelaide,0.631,9.8
 2026,2026-04-26,GWS,North Melbourne,0.761,24.1
 2026,2026-04-30,Collingwood,Hawthorn,0.519,0.4
-2026,2026-05-01,Footscray,Fremantle,0.624,9.2
+2026,2026-05-01,Footscray,Fremantle,0.647,11.3
 2026,2026-05-01,Adelaide,Port Adelaide,0.672,13.8
 2026,2026-05-02,Essendon,Brisbane Lions,0.289,-20.2
 2026,2026-05-02,West Coast,Richmond,0.541,2.2
-2026,2026-05-02,Geelong,North Melbourne,0.846,37
+2026,2026-05-02,Geelong,North Melbourne,0.858,39.1
 2026,2026-05-02,Carlton,St Kilda,0.49,-1.9
 2026,2026-05-03,Sydney,Melbourne,0.801,29.7
 2026,2026-05-03,Gold Coast,GWS,0.533,1.5
-2026,2026-05-07,Fremantle,Hawthorn,0.635,10.2
+2026,2026-05-07,Fremantle,Hawthorn,0.612,8.1
 2026,2026-05-08,Brisbane Lions,Carlton,0.756,23.4
 2026,2026-05-08,Port Adelaide,Footscray,0.426,-7
 2026,2026-05-09,North Melbourne,Sydney,0.35,-13.8
 2026,2026-05-09,GWS,Essendon,0.796,29
 2026,2026-05-09,Gold Coast,St Kilda,0.754,23.2
-2026,2026-05-09,Geelong,Collingwood,0.462,-4.1
+2026,2026-05-09,Geelong,Collingwood,0.486,-2.2
 2026,2026-05-10,Melbourne,West Coast,0.639,10.6
 2026,2026-05-10,Richmond,Adelaide,0.256,-24.2
-2026,2026-05-14,Brisbane Lions,Geelong,0.638,10.5
+2026,2026-05-14,Brisbane Lions,Geelong,0.615,8.4
 2026,2026-05-15,Sydney,Collingwood,0.598,6.9
 2026,2026-05-15,Gold Coast,Port Adelaide,0.738,21.2
 2026,2026-05-16,Adelaide,North Melbourne,0.863,40
 2026,2026-05-16,Melbourne,Hawthorn,0.296,-19.4
 2026,2026-05-16,Carlton,Footscray,0.29,-20.1
-2026,2026-05-17,Essendon,Fremantle,0.293,-19.8
+2026,2026-05-17,Essendon,Fremantle,0.314,-17.5
 2026,2026-05-17,St Kilda,Richmond,0.737,21
 2026,2026-05-17,West Coast,GWS,0.253,-24.6
 2026,2026-05-21,Hawthorn,Adelaide,0.577,5.1
 2026,2026-05-22,Richmond,Essendon,0.475,-3
-2026,2026-05-22,Fremantle,St Kilda,0.774,25.9
+2026,2026-05-22,Fremantle,St Kilda,0.756,23.4
 2026,2026-05-23,North Melbourne,Gold Coast,0.319,-16.9
-2026,2026-05-23,Geelong,Sydney,0.72,19
+2026,2026-05-23,Geelong,Sydney,0.74,21.4
 2026,2026-05-23,Collingwood,West Coast,0.902,47.6
 2026,2026-05-23,Port Adelaide,Carlton,0.61,7.9
 2026,2026-05-24,GWS,Brisbane Lions,0.572,4.7
 2026,2026-05-24,Footscray,Melbourne,0.823,33.2
 2026,2026-05-28,St Kilda,Hawthorn,0.399,-9.3
-2026,2026-05-29,Carlton,Geelong,0.369,-12
+2026,2026-05-29,Carlton,Geelong,0.346,-14.2
 2026,2026-05-30,Sydney,Richmond,0.874,42
-2026,2026-05-30,Brisbane Lions,Fremantle,0.68,14.6
+2026,2026-05-30,Brisbane Lions,Fremantle,0.701,16.9
 2026,2026-05-30,Footscray,Collingwood,0.638,10.5
 2026,2026-05-31,Melbourne,GWS,0.277,-21.6
 2026,2026-05-31,West Coast,Essendon,0.495,-1.5
-2026,2026-06-04,Adelaide,Geelong,0.626,9.4
+2026,2026-06-04,Adelaide,Geelong,0.603,7.3
 2026,2026-06-05,Hawthorn,Footscray,0.554,3.2
-2026,2026-06-06,North Melbourne,Fremantle,0.275,-21.9
+2026,2026-06-06,North Melbourne,Fremantle,0.294,-19.7
 2026,2026-06-06,Gold Coast,Brisbane Lions,0.556,3.4
 2026,2026-06-06,West Coast,Port Adelaide,0.374,-11.6
 2026,2026-06-07,Sydney,St Kilda,0.76,24
 2026,2026-06-07,Essendon,Carlton,0.35,-13.8
 2026,2026-06-08,Collingwood,Melbourne,0.721,19.1
 2026,2026-06-11,Footscray,Adelaide,0.624,9.2
-2026,2026-06-12,Geelong,Gold Coast,0.699,16.6
+2026,2026-06-12,Geelong,Gold Coast,0.719,18.9
 2026,2026-06-13,Melbourne,Essendon,0.585,5.8
 2026,2026-06-13,North Melbourne,West Coast,0.513,-0
 2026,2026-06-13,Port Adelaide,Sydney,0.523,0.7
 2026,2026-06-14,Richmond,Brisbane Lions,0.2,-32
 2026,2026-06-14,St Kilda,GWS,0.405,-8.8
-2026,2026-06-18,Fremantle,Geelong,0.645,11.1
+2026,2026-06-18,Fremantle,Geelong,0.599,7
 2026,2026-06-19,Gold Coast,Hawthorn,0.565,4.1
 2026,2026-06-20,Adelaide,Melbourne,0.814,31.7
 2026,2026-06-20,GWS,Carlton,0.722,19.2
@@ -125,11 +124,11 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2026,2026-06-22,Hawthorn,GWS,0.593,6.5
 2026,2026-06-22,North Melbourne,Essendon,0.525,0.9
 2026,2026-06-22,Port Adelaide,Adelaide,0.328,-16
-2026,2026-06-22,Fremantle,Gold Coast,0.654,12
+2026,2026-06-22,Fremantle,Gold Coast,0.631,9.8
 2026,2026-06-29,Essendon,St Kilda,0.358,-13
-2026,2026-06-29,Geelong,Brisbane Lions,0.676,14.2
+2026,2026-06-29,Geelong,Brisbane Lions,0.697,16.4
 2026,2026-06-29,Gold Coast,Collingwood,0.584,5.7
-2026,2026-06-29,GWS,Fremantle,0.547,2.7
+2026,2026-06-29,GWS,Fremantle,0.571,4.6
 2026,2026-06-29,Hawthorn,Melbourne,0.836,35.3
 2026,2026-06-29,Richmond,Carlton,0.328,-16
 2026,2026-06-29,Sydney,Footscray,0.537,1.9
@@ -138,43 +137,43 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2026,2026-07-06,Brisbane Lions,Essendon,0.846,37
 2026,2026-07-06,Carlton,Hawthorn,0.354,-13.4
 2026,2026-07-06,Collingwood,North Melbourne,0.689,15.6
-2026,2026-07-06,GWS,Geelong,0.595,6.6
+2026,2026-07-06,GWS,Geelong,0.572,4.7
 2026,2026-07-06,Melbourne,Richmond,0.61,7.9
 2026,2026-07-06,St Kilda,Port Adelaide,0.57,4.5
 2026,2026-07-06,Footscray,West Coast,0.894,45.9
 2026,2026-07-06,Adelaide,Gold Coast,0.683,14.9
-2026,2026-07-06,Fremantle,Sydney,0.669,13.5
+2026,2026-07-06,Fremantle,Sydney,0.647,11.3
 2026,2026-07-13,Collingwood,Carlton,0.663,12.9
 2026,2026-07-13,Essendon,GWS,0.277,-21.6
-2026,2026-07-13,Geelong,St Kilda,0.781,26.8
+2026,2026-07-13,Geelong,St Kilda,0.797,29.1
 2026,2026-07-13,Gold Coast,Footscray,0.545,2.5
 2026,2026-07-13,North Melbourne,Melbourne,0.549,2.8
 2026,2026-07-13,Richmond,Hawthorn,0.21,-30.5
 2026,2026-07-13,Sydney,Adelaide,0.565,4.1
-2026,2026-07-13,Port Adelaide,Fremantle,0.477,-2.9
+2026,2026-07-13,Port Adelaide,Fremantle,0.501,-1
 2026,2026-07-13,West Coast,Brisbane Lions,0.248,-25.2
 2026,2026-07-20,Brisbane Lions,Port Adelaide,0.776,26.1
 2026,2026-07-20,Carlton,Gold Coast,0.418,-7.7
 2026,2026-07-20,GWS,Sydney,0.661,12.7
 2026,2026-07-20,Hawthorn,Essendon,0.774,25.9
 2026,2026-07-20,North Melbourne,St Kilda,0.383,-10.7
-2026,2026-07-20,Melbourne,Geelong,0.311,-17.8
+2026,2026-07-20,Melbourne,Geelong,0.29,-20.1
 2026,2026-07-20,Footscray,Richmond,0.87,41.3
 2026,2026-07-20,Adelaide,Collingwood,0.641,10.8
-2026,2026-07-20,Fremantle,West Coast,0.842,36.3
+2026,2026-07-20,Fremantle,West Coast,0.828,34
 2026,2026-07-27,Carlton,Brisbane Lions,0.405,-8.8
-2026,2026-07-27,Collingwood,Geelong,0.535,1.7
+2026,2026-07-27,Collingwood,Geelong,0.511,-0.2
 2026,2026-07-27,Essendon,Adelaide,0.282,-21.1
 2026,2026-07-27,Gold Coast,Melbourne,0.79,28.1
 2026,2026-07-27,Hawthorn,North Melbourne,0.819,32.5
 2026,2026-07-27,Richmond,West Coast,0.687,15.3
 2026,2026-07-27,St Kilda,Sydney,0.467,-3.7
 2026,2026-07-27,Port Adelaide,GWS,0.481,-2.6
-2026,2026-07-27,Fremantle,Footscray,0.597,6.8
+2026,2026-07-27,Fremantle,Footscray,0.573,4.8
 2026,2026-08-03,Brisbane Lions,Hawthorn,0.676,14.2
-2026,2026-08-03,Geelong,Essendon,0.858,39.1
+2026,2026-08-03,Geelong,Essendon,0.87,41.3
 2026,2026-08-03,GWS,Gold Coast,0.598,6.9
-2026,2026-08-03,Melbourne,Fremantle,0.371,-11.8
+2026,2026-08-03,Melbourne,Fremantle,0.395,-9.7
 2026,2026-08-03,St Kilda,Carlton,0.513,-0
 2026,2026-08-03,Sydney,Port Adelaide,0.725,19.6
 2026,2026-08-03,Footscray,North Melbourne,0.793,28.6
@@ -184,15 +183,15 @@ Season,Date,Home.Team,Away.Team,Probability,Prediction
 2026,2026-08-10,Essendon,Sydney,0.323,-16.5
 2026,2026-08-10,GWS,West Coast,0.897,46.5
 2026,2026-08-10,Hawthorn,Collingwood,0.485,-2.3
-2026,2026-08-10,North Melbourne,Geelong,0.339,-14.9
+2026,2026-08-10,North Melbourne,Geelong,0.318,-17.1
 2026,2026-08-10,Richmond,St Kilda,0.432,-6.5
 2026,2026-08-10,Footscray,Carlton,0.713,18.2
 2026,2026-08-10,Port Adelaide,Melbourne,0.682,14.8
-2026,2026-08-10,Fremantle,Adelaide,0.591,6.3
+2026,2026-08-10,Fremantle,Adelaide,0.568,4.4
 2026,2026-08-17,Collingwood,Brisbane Lions,0.58,5.4
-2026,2026-08-17,Carlton,Fremantle,0.413,-8.1
+2026,2026-08-17,Carlton,Fremantle,0.437,-6.1
 2026,2026-08-17,Essendon,Port Adelaide,0.421,-7.4
-2026,2026-08-17,Geelong,Richmond,0.883,43.8
+2026,2026-08-17,Geelong,Richmond,0.892,45.5
 2026,2026-08-17,Melbourne,Footscray,0.338,-15
 2026,2026-08-17,St Kilda,Gold Coast,0.429,-6.8
 2026,2026-08-17,Sydney,North Melbourne,0.829,34.1
