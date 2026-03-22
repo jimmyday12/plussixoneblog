@@ -124,7 +124,8 @@ if (new_data) {
   dat$game_dat <- dat$game_dat[!dup_games,]
   
   dat$game_dat <- dat$game_dat %>%
-    mutate(Game = row_number()) %>%
+    mutate(Game = if_else(!is.na(Game), Game,
+                          max(Game, na.rm = TRUE) + cumsum(is.na(Game)))) %>%
     ungroup() %>%
     mutate(Venue = stringr::str_trim(Venue) %>% venue_fix()) %>%
     mutate(Round = Round.Number) 
@@ -381,7 +382,12 @@ if (new_data) {
           existing <- existing %>%
             mutate(Time         = as.character(Time),
                    Predicted_At = as.character(Predicted_At)) %>%
-            filter(Predicted_Round != unique(new_preds$Predicted_Round))
+            filter(Predicted_Round != unique(new_preds$Predicted_Round)) %>%
+            select(-Game) %>%
+            left_join(
+              dat$game_dat %>% select(Game, Season, Round.Number, Home.Team, Away.Team),
+              by = c("Season", "Round.Number", "Home.Team", "Away.Team")
+            )
           bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
         }
       } else {
