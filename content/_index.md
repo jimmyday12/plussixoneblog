@@ -1,1 +1,0 @@
-Welcome to 2022 season! 
