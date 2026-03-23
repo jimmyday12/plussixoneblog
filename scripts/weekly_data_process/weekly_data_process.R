@@ -346,7 +346,7 @@ if (new_data) {
     # Save predictions
     if (!season_complete) {
       predictions_csv <- aflm_data$predictions %>%
-        select(Season, Date, Home.Team, Away.Team, Probability, Prediction)
+        select(Season, round = Round.Number, Date, Home.Team, Away.Team, Probability, Prediction)
       write_csv(aflm_data$predictions, file = here::here("data_files", "raw-data", "predictions.csv"))
       write_csv(predictions_csv,       file = here::here("data_files", "raw-data", "predictions_new.csv"))
       write_csv(aflm_data$predictions, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
