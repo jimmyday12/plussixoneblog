@@ -359,9 +359,12 @@ if (new_data) {
                                       paste0("AFLM_predictions_history_",
                                              max(dat$predictions$Season), ".csv"))
       
+      # Capture all current-season results not in predictions (fixture),
+      # including mid-round games completed between runs and Opening Round
       current_round_results <- dat$results %>%
-        filter(Season == max(dat$predictions$Season),
-               Round.Number == min(dat$predictions$Round.Number)) %>%
+        filter(Season == max(dat$predictions$Season)) %>%
+        anti_join(dat$predictions,
+                  by = c("Season", "Round.Number", "Home.Team", "Away.Team")) %>%
         mutate(Predicted_Round = round,
                Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
                Time            = NA_character_) %>%
