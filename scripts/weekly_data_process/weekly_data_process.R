@@ -33,6 +33,7 @@ fixture_bug     <- FALSE
 grand_final_bug <- FALSE
 save_data       <- TRUE
 sim_num         <- 10000
+manual_overide  <- TRUE
 
 # Derive season and new_season automatically from fixture/results availability
 .current_year <- lubridate::year(Sys.Date())
@@ -90,7 +91,10 @@ if (!new_season) {
 }
 
 # Manual override
-new_data <- TRUE
+if(manual_overide) {
+  new_data <- TRUE
+}
+
 
 # Get Data ----------------------------------------------------------------
 if (new_data) {
