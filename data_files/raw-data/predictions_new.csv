@@ -1,5 +1,4 @@
 Season,round,Date,Home.Team,Away.Team,Probability,Prediction
-2026,4,2026-04-02,Brisbane Lions,Collingwood,0.646,11.2
 2026,4,2026-04-03,North Melbourne,Carlton,0.457,-4.5
 2026,4,2026-04-03,Adelaide,Fremantle,0.632,9.9
 2026,4,2026-04-04,Richmond,Port Adelaide,0.44,-5.9
@@ -28,13 +27,13 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,7,2026-04-23,Footscray,Sydney,0.715,18.4
 2026,7,2026-04-24,Richmond,Melbourne,0.313,-17.6
 2026,7,2026-04-25,Hawthorn,Gold Coast,0.653,11.9
-2026,7,2026-04-25,Essendon,Collingwood,0.187,-34
+2026,7,2026-04-25,Essendon,Collingwood,0.186,-34.1
 2026,7,2026-04-25,Port Adelaide,Geelong,0.342,-14.6
 2026,7,2026-04-25,Fremantle,Carlton,0.77,25.3
 2026,7,2026-04-26,St Kilda,West Coast,0.713,18.2
-2026,7,2026-04-26,Brisbane Lions,Adelaide,0.664,13
+2026,7,2026-04-26,Brisbane Lions,Adelaide,0.663,12.9
 2026,7,2026-04-26,GWS,North Melbourne,0.666,13.2
-2026,8,2026-04-30,Collingwood,Hawthorn,0.486,-2.2
+2026,8,2026-04-30,Collingwood,Hawthorn,0.487,-2.1
 2026,8,2026-05-01,Footscray,Fremantle,0.664,13
 2026,8,2026-05-01,Adelaide,Port Adelaide,0.707,17.5
 2026,8,2026-05-02,Essendon,Brisbane Lions,0.244,-25.8
@@ -44,12 +43,12 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,8,2026-05-03,Sydney,Melbourne,0.764,24.5
 2026,8,2026-05-03,Gold Coast,GWS,0.622,9
 2026,9,2026-05-07,Fremantle,Hawthorn,0.61,7.9
-2026,9,2026-05-08,Brisbane Lions,Carlton,0.787,27.7
+2026,9,2026-05-08,Brisbane Lions,Carlton,0.786,27.5
 2026,9,2026-05-08,Port Adelaide,Footscray,0.32,-16.8
 2026,9,2026-05-09,North Melbourne,Sydney,0.38,-11
 2026,9,2026-05-09,GWS,Essendon,0.74,21.4
 2026,9,2026-05-09,Gold Coast,St Kilda,0.781,26.8
-2026,9,2026-05-09,Geelong,Collingwood,0.516,0.2
+2026,9,2026-05-09,Geelong,Collingwood,0.515,0.1
 2026,9,2026-05-10,Melbourne,West Coast,0.61,7.9
 2026,9,2026-05-10,Richmond,Adelaide,0.255,-24.4
 2026,10,2026-05-14,Brisbane Lions,Geelong,0.598,6.9
@@ -73,7 +72,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,12,2026-05-28,St Kilda,Hawthorn,0.365,-12.4
 2026,12,2026-05-29,Carlton,Geelong,0.293,-19.8
 2026,12,2026-05-30,Sydney,Richmond,0.886,44.4
-2026,12,2026-05-30,Brisbane Lions,Fremantle,0.685,15.1
+2026,12,2026-05-30,Brisbane Lions,Fremantle,0.684,15
 2026,12,2026-05-30,Footscray,Collingwood,0.682,14.8
 2026,12,2026-05-31,Melbourne,GWS,0.401,-9.1
 2026,12,2026-05-31,West Coast,Essendon,0.625,9.3
@@ -84,7 +83,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,13,2026-06-06,West Coast,Port Adelaide,0.524,0.8
 2026,13,2026-06-07,Sydney,St Kilda,0.764,24.5
 2026,13,2026-06-07,Essendon,Carlton,0.339,-14.9
-2026,13,2026-06-08,Collingwood,Melbourne,0.672,13.8
+2026,13,2026-06-08,Collingwood,Melbourne,0.673,13.9
 2026,14,2026-06-11,Footscray,Adelaide,0.689,15.6
 2026,14,2026-06-12,Geelong,Gold Coast,0.715,18.4
 2026,14,2026-06-13,Melbourne,Essendon,0.68,14.6
@@ -96,7 +95,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,15,2026-06-19,Gold Coast,Hawthorn,0.553,3.1
 2026,15,2026-06-20,Adelaide,Melbourne,0.759,23.8
 2026,15,2026-06-20,GWS,Carlton,0.664,13
-2026,15,2026-06-20,Collingwood,Port Adelaide,0.777,26.3
+2026,15,2026-06-20,Collingwood,Port Adelaide,0.778,26.4
 2026,15,2026-06-21,Richmond,North Melbourne,0.492,-1.7
 2026,15,2026-06-21,St Kilda,Footscray,0.255,-24.4
 2026,16,2026-06-22,Brisbane Lions,Sydney,0.697,16.4
@@ -133,7 +132,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,19,2026-07-13,Sydney,Adelaide,0.59,6.2
 2026,19,2026-07-13,Port Adelaide,Fremantle,0.407,-8.6
 2026,19,2026-07-13,West Coast,Brisbane Lions,0.309,-18
-2026,20,2026-07-20,Brisbane Lions,Port Adelaide,0.825,33.5
+2026,20,2026-07-20,Brisbane Lions,Port Adelaide,0.824,33.3
 2026,20,2026-07-20,Carlton,Gold Coast,0.355,-13.3
 2026,20,2026-07-20,GWS,Sydney,0.57,4.5
 2026,20,2026-07-20,Hawthorn,Essendon,0.824,33.3
@@ -143,7 +142,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,20,2026-07-20,Adelaide,Collingwood,0.619,8.7
 2026,20,2026-07-20,Fremantle,West Coast,0.793,28.6
 2026,21,2026-07-27,Carlton,Brisbane Lions,0.363,-12.6
-2026,21,2026-07-27,Collingwood,Geelong,0.481,-2.6
+2026,21,2026-07-27,Collingwood,Geelong,0.482,-2.5
 2026,21,2026-07-27,Essendon,Adelaide,0.266,-23
 2026,21,2026-07-27,Gold Coast,Melbourne,0.769,25.2
 2026,21,2026-07-27,Hawthorn,North Melbourne,0.818,32.4
@@ -151,7 +150,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,21,2026-07-27,St Kilda,Sydney,0.462,-4.1
 2026,21,2026-07-27,Port Adelaide,GWS,0.498,-1.2
 2026,21,2026-07-27,Fremantle,Footscray,0.555,3.3
-2026,22,2026-08-03,Brisbane Lions,Hawthorn,0.658,12.4
+2026,22,2026-08-03,Brisbane Lions,Hawthorn,0.657,12.3
 2026,22,2026-08-03,Geelong,Essendon,0.9,47.2
 2026,22,2026-08-03,GWS,Gold Coast,0.482,-2.5
 2026,22,2026-08-03,Melbourne,Fremantle,0.421,-7.4
@@ -169,7 +168,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,23,2026-08-10,Footscray,Carlton,0.774,25.9
 2026,23,2026-08-10,Port Adelaide,Melbourne,0.568,4.4
 2026,23,2026-08-10,Fremantle,Adelaide,0.62,8.8
-2026,24,2026-08-17,Collingwood,Brisbane Lions,0.568,4.4
+2026,24,2026-08-17,Collingwood,Brisbane Lions,0.569,4.4
 2026,24,2026-08-17,Carlton,Fremantle,0.377,-11.3
 2026,24,2026-08-17,Essendon,Port Adelaide,0.441,-5.8
 2026,24,2026-08-17,Geelong,Richmond,0.912,49.7
