@@ -1,5 +1,5 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2026,16929,2026-05-21,"Thu, 21",00:00,11,York Park,Hawthorn,Adelaide,9.8,0.63,Hawthorn by 10
+2026,16929,2026-05-21,"Thu, 21",00:00,11,University of Tasmania Stadium,Hawthorn,Adelaide,1.2,0.529,Hawthorn by 1
 2026,16930,2026-05-22,"Fri, 22",00:00,11,M.C.G.,Richmond,Essendon,-4.4,0.458,Essendon by 4
 2026,16931,2026-05-22,"Fri, 22",00:00,11,Perth Stadium,Fremantle,St Kilda,36.6,0.844,Fremantle by 37
 2026,16932,2026-05-23,"Sat, 23",00:00,11,Docklands,North Melbourne,Gold Coast,-17.3,0.316,Gold Coast by 17
@@ -47,7 +47,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2026,16974,2026-07-02,"Thu, 02",00:00,17,Kardinia Park,Geelong,Brisbane Lions,22.3,0.747,Geelong by 22
 2026,16975,2026-07-03,"Fri, 03",00:00,17,S.C.G.,Sydney,Footscray,25.9,0.774,Sydney by 26
 2026,16976,2026-07-03,"Fri, 03",00:00,17,Perth Stadium,West Coast,Adelaide,-27.5,0.231,Adelaide by 28
-2026,16977,2026-07-04,"Sat, 04",00:00,17,York Park,Hawthorn,Melbourne,25.1,0.768,Hawthorn by 25
+2026,16977,2026-07-04,"Sat, 04",00:00,17,University of Tasmania Stadium,Hawthorn,Melbourne,13.1,0.665,Hawthorn by 13
 2026,16978,2026-07-04,"Sat, 04",00:00,17,Corroboree Group Oval Manuka,GWS,Fremantle,-26.2,0.241,Fremantle by 26
 2026,16979,2026-07-04,"Sat, 04",00:00,17,People First Stadium,Gold Coast,Collingwood,8.2,0.613,Gold Coast by 8
 2026,16980,2026-07-04,"Sat, 04",00:00,17,M.C.G.,Richmond,Carlton,-15.5,0.333,Carlton by 16
@@ -83,7 +83,7 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2026,17010,2026-07-30,"Thu, 30",00:00,21,M.C.G.,Collingwood,Geelong,-11.3,0.377,Geelong by 11
 2026,17011,2026-07-31,"Fri, 31",00:00,21,Perth Stadium,Fremantle,Footscray,31.1,0.81,Fremantle by 31
 2026,17012,2026-08-01,"Sat, 01",00:00,21,Docklands,St Kilda,Sydney,-13.7,0.351,Sydney by 14
-2026,17013,2026-08-01,"Sat, 01",00:00,21,York Park,Hawthorn,North Melbourne,36.3,0.842,Hawthorn by 36
+2026,17013,2026-08-01,"Sat, 01",00:00,21,University of Tasmania Stadium,Hawthorn,North Melbourne,34.1,0.829,Hawthorn by 34
 2026,17014,2026-08-01,"Sat, 01",00:00,21,Adelaide Oval,Port Adelaide,GWS,-1,0.5,Draw
 2026,17015,2026-08-01,"Sat, 01",00:00,21,Docklands,Carlton,Brisbane Lions,-18.4,0.305,Brisbane Lions by 18
 2026,17016,2026-08-02,"Sun, 02",00:00,21,M.C.G.,Richmond,West Coast,6.7,0.595,Richmond by 7
