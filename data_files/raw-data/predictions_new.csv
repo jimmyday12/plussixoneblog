@@ -1,5 +1,4 @@
 Season,round,Date,Home.Team,Away.Team,Probability,Prediction
-2026,12,2026-05-28,St Kilda,Hawthorn,0.365,-12.4
 2026,12,2026-05-29,Carlton,Geelong,0.222,-28.8
 2026,12,2026-05-30,Sydney,Richmond,0.939,55.6
 2026,12,2026-05-30,Brisbane Lions,Fremantle,0.498,-1.2
@@ -7,7 +6,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,12,2026-05-31,Melbourne,GWS,0.49,-1.8
 2026,12,2026-05-31,West Coast,Essendon,0.604,7.4
 2026,13,2026-06-04,Adelaide,Geelong,0.474,-3.1
-2026,13,2026-06-05,Hawthorn,Footscray,0.694,16.1
+2026,13,2026-06-05,Hawthorn,Footscray,0.696,16.3
 2026,13,2026-06-06,North Melbourne,Fremantle,0.191,-33.4
 2026,13,2026-06-06,Gold Coast,Brisbane Lions,0.457,-4.4
 2026,13,2026-06-06,West Coast,Port Adelaide,0.524,0.9
@@ -20,14 +19,14 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,14,2026-06-13,North Melbourne,West Coast,0.566,4.2
 2026,14,2026-06-13,Port Adelaide,Sydney,0.251,-24.9
 2026,14,2026-06-14,Richmond,Brisbane Lions,0.178,-35.4
-2026,14,2026-06-14,St Kilda,GWS,0.54,2.1
+2026,14,2026-06-14,St Kilda,GWS,0.539,2.1
 2026,15,2026-06-18,Fremantle,Geelong,0.688,15.5
 2026,15,2026-06-19,Gold Coast,Hawthorn,0.403,-8.9
 2026,15,2026-06-20,Adelaide,Melbourne,0.695,16.2
 2026,15,2026-06-20,GWS,Carlton,0.61,8
 2026,15,2026-06-20,Collingwood,Port Adelaide,0.8,29.6
 2026,15,2026-06-21,Richmond,North Melbourne,0.445,-5.4
-2026,15,2026-06-21,St Kilda,Footscray,0.399,-9.3
+2026,15,2026-06-21,St Kilda,Footscray,0.398,-9.4
 2026,16,2026-06-25,Brisbane Lions,Sydney,0.536,1.8
 2026,16,2026-06-26,Hawthorn,GWS,0.744,21.9
 2026,16,2026-06-27,Carlton,West Coast,0.732,20.5
@@ -73,7 +72,7 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,20,2026-07-26,North Melbourne,St Kilda,0.399,-9.3
 2026,21,2026-07-30,Collingwood,Geelong,0.364,-12.4
 2026,21,2026-07-31,Fremantle,Footscray,0.8,29.6
-2026,21,2026-08-01,St Kilda,Sydney,0.363,-12.5
+2026,21,2026-08-01,St Kilda,Sydney,0.362,-12.6
 2026,21,2026-08-01,Hawthorn,North Melbourne,0.83,34.3
 2026,21,2026-08-01,Port Adelaide,GWS,0.429,-6.7
 2026,21,2026-08-01,Carlton,Brisbane Lions,0.369,-12
