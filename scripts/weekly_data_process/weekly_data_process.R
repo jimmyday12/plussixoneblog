@@ -395,7 +395,17 @@ if (new_data) {
               dat$game_dat %>% select(Game, Season, Round.Number, Home.Team, Away.Team),
               by = c("Season", "Round.Number", "Home.Team", "Away.Team")
             )
-          bind_rows(existing, new_preds) %>% write_csv(pred_history_path)
+          combined <- bind_rows(existing, new_preds)
+          latest_dates <- combined %>%
+            group_by(Game) %>%
+            slice_max(Predicted_Round, n = 1, with_ties = FALSE) %>%
+            ungroup() %>%
+            select(Game, Date_latest = Date, Day_latest = Day)
+          combined <- combined %>%
+            left_join(latest_dates, by = "Game") %>%
+            mutate(Date = Date_latest, Day = Day_latest) %>%
+            select(-Date_latest, -Day_latest)
+          write_csv(combined, pred_history_path)
         }
       } else {
         write_csv(new_preds, pred_history_path)
