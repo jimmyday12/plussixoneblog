@@ -1,5 +1,4 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2026,16968,2026-06-26,"Fri, 26",00:00,16,M.C.G.,Hawthorn,GWS,27.2,0.784,Hawthorn by 27
 2026,16969,2026-06-27,"Sat, 27",00:00,16,Docklands,Carlton,West Coast,35.1,0.835,Carlton by 35
 2026,16970,2026-06-27,"Sat, 27",00:00,16,M.C.G.,Collingwood,Richmond,29.6,0.8,Collingwood by 30
 2026,16971,2026-06-27,"Sat, 27",00:00,16,Adelaide Oval,Port Adelaide,Adelaide,-36,0.175,Adelaide by 36
@@ -8,17 +7,17 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2026,16974,2026-07-02,"Thu, 02",00:00,17,Kardinia Park,Geelong,Brisbane Lions,14.5,0.679,Geelong by 14
 2026,16975,2026-07-03,"Fri, 03",00:00,17,S.C.G.,Sydney,Footscray,16.1,0.694,Sydney by 16
 2026,16976,2026-07-03,"Fri, 03",00:00,17,Perth Stadium,West Coast,Adelaide,-38.5,0.16,Adelaide by 38
-2026,16977,2026-07-04,"Sat, 04",00:00,17,York Park,Hawthorn,Melbourne,31.3,0.811,Hawthorn by 31
-2026,16978,2026-07-04,"Sat, 04",00:00,17,Corroboree Group Oval Manuka,GWS,Fremantle,-34.4,0.185,Fremantle by 34
+2026,16977,2026-07-04,"Sat, 04",00:00,17,York Park,Hawthorn,Melbourne,32.7,0.82,Hawthorn by 33
+2026,16978,2026-07-04,"Sat, 04",00:00,17,Corroboree Group Oval Manuka,GWS,Fremantle,-35.7,0.177,Fremantle by 36
 2026,16979,2026-07-04,"Sat, 04",00:00,17,People First Stadium,Gold Coast,Collingwood,-4.8,0.453,Collingwood by 5
 2026,16980,2026-07-04,"Sat, 04",00:00,17,M.C.G.,Richmond,Carlton,-31,0.207,Carlton by 31
 2026,16981,2026-07-05,"Sun, 05",00:00,17,Docklands,Essendon,St Kilda,-29.8,0.215,St Kilda by 30
 2026,16982,2026-07-05,"Sun, 05",00:00,17,Adelaide Oval,Port Adelaide,North Melbourne,0.7,0.522,Port Adelaide by 1
 2026,16983,2026-07-09,"Thu, 09",00:00,18,Perth Stadium,Fremantle,Sydney,21.5,0.741,Fremantle by 22
 2026,16984,2026-07-10,"Fri, 10",00:00,18,Docklands,Collingwood,North Melbourne,-1,0.5,Draw
-2026,16985,2026-07-11,"Sat, 11",00:00,18,Docklands,St Kilda,Port Adelaide,18.7,0.717,St Kilda by 19
-2026,16986,2026-07-11,"Sat, 11",00:00,18,ENGIE Stadium,GWS,Geelong,-16.2,0.326,Geelong by 16
-2026,16987,2026-07-11,"Sat, 11",00:00,18,M.C.G.,Carlton,Hawthorn,-15.7,0.331,Hawthorn by 16
+2026,16985,2026-07-11,"Sat, 11",00:00,18,Docklands,St Kilda,Port Adelaide,18.6,0.717,St Kilda by 19
+2026,16986,2026-07-11,"Sat, 11",00:00,18,ENGIE Stadium,GWS,Geelong,-17.6,0.313,Geelong by 18
+2026,16987,2026-07-11,"Sat, 11",00:00,18,M.C.G.,Carlton,Hawthorn,-17,0.318,Hawthorn by 17
 2026,16988,2026-07-11,"Sat, 11",00:00,18,Adelaide Oval,Adelaide,Gold Coast,32.2,0.817,Adelaide by 32
 2026,16989,2026-07-12,"Sun, 12",00:00,18,Docklands,Footscray,West Coast,47.4,0.901,Footscray by 47
 2026,16990,2026-07-12,"Sun, 12",00:00,18,M.C.G.,Melbourne,Richmond,28.7,0.794,Melbourne by 29
@@ -29,40 +28,40 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2026,16995,2026-07-18,"Sat, 18",00:00,19,Docklands,North Melbourne,Melbourne,0.6,0.521,North Melbourne by 1
 2026,16996,2026-07-18,"Sat, 18",00:00,19,M.C.G.,Collingwood,Carlton,-0.1,0.512,Collingwood by 0
 2026,16997,2026-07-18,"Sat, 18",00:00,19,Perth Stadium,West Coast,Brisbane Lions,-32.2,0.199,Brisbane Lions by 32
-2026,16998,2026-07-19,"Sun, 19",00:00,19,M.C.G.,Richmond,Hawthorn,-47.1,0.114,Hawthorn by 47
+2026,16998,2026-07-19,"Sun, 19",00:00,19,M.C.G.,Richmond,Hawthorn,-48.3,0.108,Hawthorn by 48
 2026,16999,2026-07-19,"Sun, 19",00:00,19,People First Stadium,Gold Coast,Footscray,-11.8,0.371,Footscray by 12
-2026,17000,2026-07-19,"Sun, 19",00:00,19,Docklands,Essendon,GWS,-23.6,0.261,GWS by 24
+2026,17000,2026-07-19,"Sun, 19",00:00,19,Docklands,Essendon,GWS,-22.2,0.272,GWS by 22
 2026,17001,2026-07-23,"Thu, 23",00:00,20,Adelaide Oval,Adelaide,Collingwood,25.4,0.771,Adelaide by 25
 2026,17002,2026-07-24,"Fri, 24",00:00,20,M.C.G.,Melbourne,Geelong,-9.9,0.392,Geelong by 10
 2026,17003,2026-07-24,"Fri, 24",00:00,20,Perth Stadium,Fremantle,West Coast,55.9,0.94,Fremantle by 56
 2026,17004,2026-07-25,"Sat, 25",00:00,20,Docklands,Carlton,Gold Coast,6.9,0.598,Carlton by 7
-2026,17005,2026-07-25,"Sat, 25",00:00,20,M.C.G.,Hawthorn,Essendon,47.8,0.903,Hawthorn by 48
-2026,17006,2026-07-25,"Sat, 25",00:00,20,ENGIE Stadium,GWS,Sydney,-16.8,0.32,Sydney by 17
+2026,17005,2026-07-25,"Sat, 25",00:00,20,M.C.G.,Hawthorn,Essendon,48.9,0.908,Hawthorn by 49
+2026,17006,2026-07-25,"Sat, 25",00:00,20,ENGIE Stadium,GWS,Sydney,-18.2,0.307,Sydney by 18
 2026,17007,2026-07-25,"Sat, 25",00:00,20,Docklands,Footscray,Richmond,47.4,0.901,Footscray by 47
 2026,17008,2026-07-26,"Sun, 26",00:00,20,Gabba,Brisbane Lions,Port Adelaide,42.8,0.878,Brisbane Lions by 43
 2026,17009,2026-07-26,"Sun, 26",00:00,20,Docklands,North Melbourne,St Kilda,-3.6,0.468,St Kilda by 4
 2026,17010,2026-07-30,"Thu, 30",00:00,21,M.C.G.,Collingwood,Geelong,-9.2,0.4,Geelong by 9
 2026,17011,2026-07-31,"Fri, 31",00:00,21,Perth Stadium,Fremantle,Footscray,30,0.803,Fremantle by 30
 2026,17012,2026-08-01,"Sat, 01",00:00,21,Docklands,St Kilda,Sydney,-14.8,0.34,Sydney by 15
-2026,17013,2026-08-01,"Sat, 01",00:00,21,York Park,Hawthorn,North Melbourne,30.9,0.809,Hawthorn by 31
-2026,17014,2026-08-01,"Sat, 01",00:00,21,Adelaide Oval,Port Adelaide,GWS,-3,0.475,GWS by 3
+2026,17013,2026-08-01,"Sat, 01",00:00,21,York Park,Hawthorn,North Melbourne,32.3,0.818,Hawthorn by 32
+2026,17014,2026-08-01,"Sat, 01",00:00,21,Adelaide Oval,Port Adelaide,GWS,-1.8,0.49,GWS by 2
 2026,17015,2026-08-01,"Sat, 01",00:00,21,Docklands,Carlton,Brisbane Lions,-6.7,0.429,Brisbane Lions by 7
 2026,17016,2026-08-02,"Sun, 02",00:00,21,M.C.G.,Richmond,West Coast,10.1,0.634,Richmond by 10
 2026,17017,2026-08-02,"Sun, 02",00:00,21,People First Stadium,Gold Coast,Melbourne,0.7,0.522,Gold Coast by 1
 2026,17018,2026-08-02,"Sun, 02",00:00,21,Docklands,Essendon,Adelaide,-42.5,0.138,Adelaide by 42
 2026,17019,2026-08-06,"Thu, 06",00:00,22,Docklands,Footscray,North Melbourne,17,0.702,Footscray by 17
-2026,17020,2026-08-07,"Fri, 07",00:00,22,Gabba,Brisbane Lions,Hawthorn,9.9,0.632,Brisbane Lions by 10
+2026,17020,2026-08-07,"Fri, 07",00:00,22,Gabba,Brisbane Lions,Hawthorn,8.6,0.618,Brisbane Lions by 9
 2026,17021,2026-08-08,"Sat, 08",00:00,22,M.C.G.,Melbourne,Fremantle,-21.3,0.28,Fremantle by 21
 2026,17022,2026-08-08,"Sat, 08",00:00,22,S.C.G.,Sydney,Port Adelaide,46.2,0.895,Sydney by 46
 2026,17023,2026-08-08,"Sat, 08",00:00,22,Kardinia Park,Geelong,Essendon,54.1,0.932,Geelong by 54
 2026,17024,2026-08-08,"Sat, 08",00:00,22,Adelaide Oval,Adelaide,Richmond,53.9,0.931,Adelaide by 54
-2026,17025,2026-08-09,"Sun, 09",00:00,22,Corroboree Group Oval Manuka,GWS,Gold Coast,3.2,0.554,GWS by 3
+2026,17025,2026-08-09,"Sun, 09",00:00,22,Corroboree Group Oval Manuka,GWS,Gold Coast,2,0.539,GWS by 2
 2026,17026,2026-08-09,"Sun, 09",00:00,22,Perth Stadium,West Coast,Collingwood,-17.7,0.312,Collingwood by 18
 2026,17027,2026-08-09,"Sun, 09",00:00,22,Docklands,St Kilda,Carlton,-3.7,0.467,Carlton by 4
 2026,17028,2026-08-10,"Mon, 10",00:00,23,Gabba,Brisbane Lions,Gold Coast,25.8,0.774,Brisbane Lions by 26
 2026,17029,2026-08-10,"Mon, 10",00:00,23,M.C.G.,Essendon,Sydney,-45.7,0.121,Sydney by 46
-2026,17030,2026-08-10,"Mon, 10",00:00,23,ENGIE Stadium,GWS,West Coast,33.1,0.823,GWS by 33
-2026,17031,2026-08-10,"Mon, 10",00:00,23,M.C.G.,Hawthorn,Collingwood,12.8,0.662,Hawthorn by 13
+2026,17030,2026-08-10,"Mon, 10",00:00,23,ENGIE Stadium,GWS,West Coast,31.7,0.814,GWS by 32
+2026,17031,2026-08-10,"Mon, 10",00:00,23,M.C.G.,Hawthorn,Collingwood,14.1,0.675,Hawthorn by 14
 2026,17032,2026-08-10,"Mon, 10",00:00,23,Docklands,North Melbourne,Geelong,-9.5,0.397,Geelong by 10
 2026,17033,2026-08-10,"Mon, 10",00:00,23,M.C.G.,Richmond,St Kilda,-15.9,0.329,St Kilda by 16
 2026,17034,2026-08-10,"Mon, 10",00:00,23,Docklands,Footscray,Carlton,10.9,0.643,Footscray by 11
@@ -75,5 +74,5 @@ Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Prob
 2026,17041,2026-08-17,"Mon, 17",00:00,24,M.C.G.,Melbourne,Footscray,-2.5,0.481,Footscray by 2
 2026,17042,2026-08-17,"Mon, 17",00:00,24,Docklands,St Kilda,Gold Coast,4,0.564,St Kilda by 4
 2026,17043,2026-08-17,"Mon, 17",00:00,24,S.C.G.,Sydney,North Melbourne,38.4,0.854,Sydney by 38
-2026,17044,2026-08-17,"Mon, 17",00:00,24,Adelaide Oval,Adelaide,GWS,30.3,0.805,Adelaide by 30
-2026,17045,2026-08-17,"Mon, 17",00:00,24,Perth Stadium,West Coast,Hawthorn,-37.5,0.166,Hawthorn by 38
+2026,17044,2026-08-17,"Mon, 17",00:00,24,Adelaide Oval,Adelaide,GWS,31.7,0.814,Adelaide by 32
+2026,17045,2026-08-17,"Mon, 17",00:00,24,Perth Stadium,West Coast,Hawthorn,-38.9,0.158,Hawthorn by 39
