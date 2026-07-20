@@ -1,18 +1,20 @@
 # Check results
 check_results <- function(season) {
-  
-  new_results <- fetch_results_footywire(season, 
-                                         round_number = NULL, 
-                                         last_n_matches = 9) 
-  
-  if(is.null(new_results)) {
+
+  new_results <- tryCatch(
+    fitzRoy::fetch_results_afl(season, round_number = NULL),
+    error   = function(e) NULL,
+    warning = function(w) NULL
+  )
+
+  if(is.null(new_results) || nrow(new_results) == 0) {
     return(FALSE)
   }
-  
+
   old_results <- read_rds(here::here("data_files", "raw-data", "AFLM.rds"))
-  
-  new <- new_results %>% 
-    convert_results() %>%
+
+  new <- new_results %>%
+    convert_results_afl() %>%
     select(Home.Team, Away.Team, Round, Date, Venue) %>%
     filter(Round == last(Round)) %>%
     mutate(Venue = trimws(Venue),
