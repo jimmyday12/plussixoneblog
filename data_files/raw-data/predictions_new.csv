@@ -1,9 +1,9 @@
 Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,21,2026-07-30,Collingwood,Geelong,0.572,4.7
 2026,21,2026-07-31,Fremantle,Footscray,0.784,27.3
-2026,21,2026-08-01,St Kilda,Sydney,0.402,-9
+2026,21,2026-08-01,St Kilda,Sydney,0.394,-9.7
 2026,21,2026-08-01,Hawthorn,North Melbourne,0.813,31.6
-2026,21,2026-08-01,Port Adelaide,GWS,0.526,1
+2026,21,2026-08-01,Port Adelaide,GWS,0.534,1.6
 2026,21,2026-08-01,Carlton,Brisbane Lions,0.358,-13
 2026,21,2026-08-02,Richmond,West Coast,0.629,9.6
 2026,21,2026-08-02,Gold Coast,Melbourne,0.296,-19.4
@@ -11,15 +11,15 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,22,2026-08-06,Footscray,North Melbourne,0.793,28.6
 2026,22,2026-08-07,Brisbane Lions,Hawthorn,0.692,15.9
 2026,22,2026-08-08,Melbourne,Fremantle,0.332,-15.6
-2026,22,2026-08-08,Sydney,Port Adelaide,0.869,41.2
+2026,22,2026-08-08,Sydney,Port Adelaide,0.873,41.9
 2026,22,2026-08-08,Geelong,Essendon,0.923,52.2
 2026,22,2026-08-08,Adelaide,Richmond,0.936,55.1
-2026,22,2026-08-09,GWS,Gold Coast,0.614,8.3
+2026,22,2026-08-09,GWS,Gold Coast,0.606,7.6
 2026,22,2026-08-09,West Coast,Collingwood,0.17,-36.7
 2026,22,2026-08-09,St Kilda,Carlton,0.517,0.3
 2026,23,2026-08-10,Brisbane Lions,Gold Coast,0.877,42.7
-2026,23,2026-08-10,Essendon,Sydney,0.138,-42.3
-2026,23,2026-08-10,GWS,West Coast,0.828,34
+2026,23,2026-08-10,Essendon,Sydney,0.134,-43.1
+2026,23,2026-08-10,GWS,West Coast,0.797,29.1
 2026,23,2026-08-10,Hawthorn,Collingwood,0.513,-0.1
 2026,23,2026-08-10,North Melbourne,Geelong,0.326,-16.2
 2026,23,2026-08-10,Richmond,St Kilda,0.253,-24.6
@@ -32,6 +32,6 @@ Season,round,Date,Home.Team,Away.Team,Probability,Prediction
 2026,24,2026-08-17,Geelong,Richmond,0.936,55.1
 2026,24,2026-08-17,Melbourne,Footscray,0.513,-0.1
 2026,24,2026-08-17,St Kilda,Gold Coast,0.709,17.7
-2026,24,2026-08-17,Sydney,North Melbourne,0.886,44.4
-2026,24,2026-08-17,Adelaide,GWS,0.791,28.3
+2026,24,2026-08-17,Sydney,North Melbourne,0.89,45.2
+2026,24,2026-08-17,Adelaide,GWS,0.796,29
 2026,24,2026-08-17,West Coast,Hawthorn,0.143,-41.4
