@@ -105,6 +105,17 @@ fixture <- fixture_afl %>%
   mutate(Date = ymd(format(Date, "%Y-%m-%d"))) %>%
   rename(Round.Number = Round)
 
+# Drop finals fixture rows where the AFL API hasn't determined the
+# competing teams yet (placeholders like "10th", "Winner of QF1", etc).
+# These aren't real teams, and finals matchups are simulated separately
+# in 5-finals_sims.R, so these rows are just noise for the elo/experience
+# calculations downstream.
+placeholder_team_pattern <- "^[0-9]+(st|nd|rd|th)$|Winner of|Loser of|ranked"
+
+fixture <- fixture %>%
+  filter(!str_detect(Home.Team, placeholder_team_pattern) &
+         !str_detect(Away.Team, placeholder_team_pattern))
+
 if (grand_final_bug){
   # temp
   fixture <- tibble(
