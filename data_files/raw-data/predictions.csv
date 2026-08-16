@@ -1,13 +1,11 @@
 Season,Game,Date,Day,Time,Round.Number,Venue,Home.Team,Away.Team,Prediction,Probability,Result
-2026,17034,2026-08-16,"Sun, 16",00:00,23,ENGIE Stadium,GWS,West Coast,31.3,0.811,GWS by 31
-2026,17035,2026-08-16,"Sun, 16",00:00,23,Docklands,Footscray,Carlton,1.9,0.538,Footscray by 2
 2026,17036,2026-08-16,"Sun, 16",00:00,23,M.C.G.,Essendon,Sydney,-47.2,0.113,Sydney by 47
-2026,17037,2026-08-20,"Thu, 20",00:00,24,Docklands,St Kilda,Gold Coast,13.3,0.668,St Kilda by 13
+2026,17037,2026-08-20,"Thu, 20",00:00,24,Docklands,St Kilda,Gold Coast,13.4,0.668,St Kilda by 13
 2026,17038,2026-08-21,"Fri, 21",00:00,24,M.C.G.,Collingwood,Brisbane Lions,0.5,0.52,Collingwood by 0
-2026,17039,2026-08-22,"Sat, 22",00:00,24,Docklands,Carlton,Fremantle,-16,0.328,Fremantle by 16
-2026,17040,2026-08-22,"Sat, 22",00:00,24,M.C.G.,Melbourne,Footscray,13.1,0.666,Melbourne by 13
+2026,17039,2026-08-22,"Sat, 22",00:00,24,Docklands,Carlton,Fremantle,-15.7,0.331,Fremantle by 16
+2026,17040,2026-08-22,"Sat, 22",00:00,24,M.C.G.,Melbourne,Footscray,13.5,0.669,Melbourne by 14
 2026,17041,2026-08-22,"Sat, 22",00:00,24,Kardinia Park,Geelong,Richmond,58.4,0.95,Geelong by 58
-2026,17042,2026-08-22,"Sat, 22",00:00,24,Adelaide Oval,Adelaide,GWS,30.2,0.804,Adelaide by 30
+2026,17042,2026-08-22,"Sat, 22",00:00,24,Adelaide Oval,Adelaide,GWS,29,0.796,Adelaide by 29
 2026,17043,2026-08-23,"Sun, 23",00:00,24,Docklands,Essendon,Port Adelaide,-6.9,0.427,Port Adelaide by 7
 2026,17044,2026-08-23,"Sun, 23",00:00,24,S.C.G.,Sydney,North Melbourne,46,0.894,Sydney by 46
-2026,17045,2026-08-23,"Sun, 23",00:00,24,Perth Stadium,West Coast,Hawthorn,-43.3,0.133,Hawthorn by 43
+2026,17045,2026-08-23,"Sun, 23",00:00,24,Perth Stadium,West Coast,Hawthorn,-44.2,0.128,Hawthorn by 44
