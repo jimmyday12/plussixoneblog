@@ -170,6 +170,11 @@ if (new_data) {
   dat$results <- elo_dat$results
   margin_cal  <- fit_margin_calibration(elo_dat$results)  
   
+  # Last completed round. Defined here rather than inside the simulation block
+  # below because that block is skipped once the H&A season is done, but finals
+  # and the prediction history still need it
+  current_round <- if (new_season) 0 else last(dat$results$Round)
+  
   # In season stuff --------------------------------------------------------
   if (!season_complete){
   
@@ -215,17 +220,15 @@ if (new_data) {
     
     if (new_season) {
       season <- last(dat$results$Season) + 1
-      round <- 0
     } else {
       season <- last(dat$results$Season)
-      round <- last(dat$results$Round)
     }
     
     # summarise
     sim_dat$sim_data_summary <- calculate_sim_perc(
       sim_dat$sim_data_all,
       season,
-      round, sim_num
+      current_round, sim_num
     )
     
     # Combine these simulations with previous ones for plotting
@@ -233,14 +236,14 @@ if (new_data) {
     past_sims <- read_rds(here::here("data_files", "raw-data", "AFLM_sims.rds"))
     #past_sims$sim_data_summary <- past_sims$sim_data_summary |> mutate(Season == 2024)
     
-    combine_past_sims(sim_dat$sim_data_summary, round, season, past_sims)
+    combine_past_sims(sim_dat$sim_data_summary, current_round, season, past_sims)
     
     sim_dat$simCount <- count_sims(
       sim_dat$sim_data_all,
       sim_dat$sim_data_summary,
       sim_num,
       season,
-      round,
+      current_round,
       past_sims
     )
     
@@ -369,13 +372,13 @@ if (new_data) {
         filter(Season == max(dat$predictions$Season)) %>%
         anti_join(dat$predictions,
                   by = c("Season", "Round.Number", "Home.Team", "Away.Team")) %>%
-        mutate(Predicted_Round = round,
+        mutate(Predicted_Round = current_round,
                Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
                Time            = NA_character_) %>%
         select(any_of(names(dat$predictions)), Predicted_Round, Predicted_At, Time)
       
       new_preds <- dat$predictions %>%
-        mutate(Predicted_Round = round,
+        mutate(Predicted_Round = current_round,
                Predicted_At    = as.character(format(Sys.time(), "%Y-%m-%d %H:%M")),
                Time            = as.character(Time)) %>%
         bind_rows(current_round_results)
