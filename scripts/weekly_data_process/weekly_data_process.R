@@ -154,12 +154,15 @@ if (new_data) {
     filter(is.na(Home.Points))
   
   
-  season_complete <- nrow(dat$fixture) == 0 &  
-    last(dat$results$Round.Type == "Finals") &
-    last(dat$results$Round.Number > 26)
+  # The season is done once every game in the fixture has been played. Testing
+  # the full fixture rather than the filtered one matters between finals weeks,
+  # when the next week's games are still listed with placeholder teams and
+  # dat$fixture can be empty even though the season has games to go
+  season_complete <- nrow(dat$fixture_all) > 0 &&
+    all(dat$fixture_all$status == "CONCLUDED")
     
   # COVID Fix
-  covid_seas <- last(dat$fixture$Round) < 18
+  covid_seas <- isTRUE(last(dat$fixture$Round) < 18)
   
   if (covid_seas & !season_complete) dat$fixture <- fix_covid_season(dat$fixture)
   
@@ -360,8 +363,10 @@ if (new_data) {
       write_csv(aflm_data$predictions, file = here::here("data_files", "processed-data", "AFLM_predictions.csv"))
     }
     
-    # Save predictions history
-    if (!season_complete) {
+    # Save predictions history. Nothing to record if there are no predictions -
+    # between finals weeks the fixture can be empty while we wait on the AFL to
+    # name the next week's games
+    if (!season_complete && nrow(dat$predictions) > 0) {
       pred_history_path <- here::here("data_files", "processed-data",
                                       paste0("AFLM_predictions_history_",
                                              max(dat$predictions$Season), ".csv"))
