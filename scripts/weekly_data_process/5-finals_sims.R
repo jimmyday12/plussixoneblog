@@ -79,6 +79,37 @@ add_formula_variables <- function(fixture) {
     )
 }
 
+# Completed finals are matched back to their spot in the bracket (WC1, QF2, EF1
+# ...) by the ladder position of the home team, so results need the home and
+# away ladder joined on before the name helpers below can label them. Returns
+# NULL when that isn't possible, which leaves the week to be simulated instead.
+prep_finals_results <- function(finals_results, ladder) {
+  if (is.null(finals_results) || nrow(finals_results) == 0) return(NULL)
+  
+  if (is.null(ladder) || nrow(ladder) == 0) {
+    cli_alert_warning("No ladder available - completed finals will be simulated instead")
+    return(NULL)
+  }
+  
+  ladder_pos <- ladder %>%
+    transmute(Home.Team = team.name, Rank = position)
+  
+  finals_results <- finals_results %>%
+    select(-any_of("Rank")) %>%
+    left_join(ladder_pos, by = "Home.Team")
+  
+  if (any(is.na(finals_results$Rank))) {
+    cli_alert_warning("Couldn't find a ladder position for every finalist - completed finals will be simulated instead")
+    return(NULL)
+  }
+  
+  finals_results %>%
+    mutate(
+      Finals_week = Round - min(Round, na.rm = TRUE) + 1,
+      Win         = as.numeric(Margin > 0)
+    )
+}
+
 # Name helpers ------------------------------------------------------------
 
 get_wc_names <- function(ladder_pos) {
@@ -148,15 +179,11 @@ do_finals_sims <- function(sim_data_all,
     finals_elos <- sim_elo_perterbed[1:sim_num]
   }
   
-  if (!is.null(finals_results)) {
-    finals_results <- finals_results %>%
-      mutate(
-        Finals_week = Round - min(Round) + 1,
-        Win         = as.numeric(Margin > 0)
-      )
-  }
+  finals_results <- prep_finals_results(finals_results, ladder)
   
-  if (is.null(finals_week)) finals_week <- 0
+  # Without usable results there is nothing completed to read the bracket from,
+  # so simulate every week from the ladder
+  if (is.null(finals_results) || is.null(finals_week)) finals_week <- 0
   
   # Build sim ladders (Top 10) ----------------------------------------------
   
@@ -445,7 +472,8 @@ combine_finals_sims <- function(final_game,
   final_summary_wide <- final_summary_wide %>%
     mutate(across(where(is.numeric), ~replace_na(., 0)))
   
-  if (home_and_away_complete) {
+  # Fall back to the simulated ladder if we couldn't get the real one
+  if (home_and_away_complete && !is.null(ladder) && nrow(ladder) > 0) {
     final_ladder <- ladder %>%
       mutate(Margin = pointsFor - pointsAgainst) %>%
       rename(

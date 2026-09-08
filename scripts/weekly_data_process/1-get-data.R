@@ -44,6 +44,18 @@ convert_results <- function(df) {
     select(-Time)
 }
 
+# Round types come from the round name: everything AFL.com.au calls a "Round" is
+# home and away, the rest are finals. The Wildcard Round (new in 2026) is a
+# finals round that happens to be named like a home and away one, so call it out
+# explicitly - getting it wrong puts it on the ladder and shifts every finals
+# week by one.
+is_finals_round <- function(round_name) {
+  finals <- !stringr::str_detect(round_name, "Round") |
+    stringr::str_detect(tolower(round_name), "wild ?card")
+  
+  ifelse(is.na(finals), FALSE, finals)
+}
+
 convert_results_afl <- function(df) {
   df <- df %>%
     rename(Round = round.abbreviation,
@@ -60,7 +72,7 @@ convert_results_afl <- function(df) {
     mutate(Game = as.numeric(NA),
            Season = as.numeric(round.year),
            Date = lubridate::as_date(match.date, tz = "GMT"),
-           Round.Type = ifelse(stringr::str_detect(round.name, "Round"), "Regular", "Finals"),
+           Round.Type = ifelse(is_finals_round(round.name), "Finals", "Regular"),
            Margin = Home.Points - Away.Points) %>%
     select(Game, Date, Season, Date, Round, Round.Number, Round.Type,Venue,
            Home.Team, Home.Goals, Home.Behinds, Home.Points,
@@ -73,6 +85,57 @@ convert_results_afl <- function(df) {
   
 }
 
+
+# AFL Tables labels rounds with its own codes (R1, R2, ..., QF, SF, PF, GF) and
+# fitzRoy maps those onto round numbers using a fixed set of levels. Any round
+# it doesn't know about - the Wildcard Round, new in 2026 - comes back with
+# Round.Number = NA and Round.Type = "Regular", which then poisons everything
+# keyed off round numbers (the ladder lookup below, finals weeks, sims).
+# AFL.com.au numbers every round it plays, so use it as the source of truth for
+# any game that appears in both sets of results.
+patch_round_data_afl <- function(results, results_afl) {
+  if (is.null(results_afl) || nrow(results_afl) == 0) return(results)
+
+  round_lookup <- results_afl %>%
+    transmute(Date,
+              Home.Team,
+              Away.Team,
+              Round.Number.afl = as.numeric(Round.Number),
+              Round.Type.afl   = as.character(Round.Type)) %>%
+    distinct(Date, Home.Team, Away.Team, .keep_all = TRUE)
+
+  results %>%
+    left_join(round_lookup, by = c("Date", "Home.Team", "Away.Team")) %>%
+    mutate(Round.Number = coalesce(Round.Number.afl, as.numeric(Round.Number)),
+           Round.Type   = coalesce(Round.Type.afl, as.character(Round.Type))) %>%
+    select(-Round.Number.afl, -Round.Type.afl)
+}
+
+# The AFL only publishes a ladder for home and away rounds and fitzRoy returns
+# NULL (with a warning) whenever it can't find one, which used to blow up the
+# whole run. Walk back a few rounds before giving up so an unexpected round -
+# a new round type, or a round the API hasn't caught up with - can't stop us.
+fetch_ladder_safe <- function(season, round_number, comp = "AFLM", max_tries = 3) {
+  if (length(round_number) != 1 || !is.finite(round_number)) return(NULL)
+
+  rounds <- round_number - seq_len(max_tries) + 1
+  rounds <- rounds[rounds >= 0]
+
+  for (rnd in rounds) {
+    ladder <- tryCatch(
+      suppressWarnings(fitzRoy::fetch_ladder_afl(season,
+                                                 round_number = rnd,
+                                                 comp = comp)),
+      error = function(e) NULL
+    )
+
+    if (!is.null(ladder) && nrow(ladder) > 0) return(ladder)
+
+    cli::cli_alert_warning("No ladder found for round {rnd} of {season}")
+  }
+
+  NULL
+}
 
 get_data <- function(season, filt_date, grand_final_bug = FALSE, fixture_bug = FALSE, opening_round = FALSE) {
   
@@ -93,7 +156,7 @@ fixture_afl <- fixture_afl %>%
          Away.Team = away.team.name,
          Venue = venue.name,
          Season = lubridate::ymd_hms(fixture_afl$utcStartTime) %>% format("%Y") %>% as.numeric(),
-         Finals = ifelse(str_detect(round.name, "Round"), FALSE, TRUE) 
+         Finals = is_finals_round(round.name)
          ) %>%
   select(Game, Date, Round, round.name, Home.Team, Away.Team, Venue, Season, Finals, status)
 
@@ -111,6 +174,11 @@ fixture <- fixture_afl %>%
 # in 5-finals_sims.R, so these rows are just noise for the elo/experience
 # calculations downstream.
 placeholder_team_pattern <- "^[0-9]+(st|nd|rd|th)$|Winner of|Loser of|ranked"
+
+# Keep the unfiltered fixture around - the placeholder rows are still the only
+# record that games are left to play, which is how we tell a gap between finals
+# weeks apart from the end of the season
+fixture_all <- fixture
 
 fixture <- fixture %>%
   filter(!str_detect(Home.Team, placeholder_team_pattern) &
@@ -164,6 +232,9 @@ if (!is.null(results_new)) {
   cli::cli_progress_step("Merging Results")
   results_new <- convert_results_afl(results_new)
   
+  # Take round number and round type from AFL.com.au wherever it has the game
+  results <- patch_round_data_afl(results, results_new)
+  
   results <- bind_rows(results, results_new) %>%
     group_by(Date, Home.Team, Away.Team) %>% 
     filter(!(row_number() == 2 & is.na(Game))) %>%
@@ -189,7 +260,7 @@ if (length(season_rounds) == 0){
 
 
 results <- results %>%
-  mutate(Round.Number = ifelse(Round.Number < max(Round.Number) & is.na(Game),rnd + 1, Round.Number))
+  mutate(Round.Number = ifelse(Round.Number < max(Round.Number, na.rm = TRUE) & is.na(Game),rnd + 1, Round.Number))
 
 # Ladder 
 cli::cli_progress_step("Getting Ladder")
@@ -199,9 +270,14 @@ df <- results %>%
 if (nrow(df) == 0){
   ladder <- NULL
 } else {
-  round_number_afl <- max(df$Round.Number)
-  ladder <- fitzRoy::fetch_ladder_afl(season, round_number = round_number_afl, comp = "AFLM")
-  
+  # Last completed home and away round - finals rounds don't have a ladder
+  round_number_afl <- suppressWarnings(max(df$Round.Number, na.rm = TRUE))
+  ladder <- fetch_ladder_safe(season, round_number_afl, comp = "AFLM")
+}
+
+if (is.null(ladder)) {
+  cli::cli_alert_warning("No ladder data available for {season}")
+} else {
   ladder <- ladder %>%
     mutate(team.name = convert_teams_afl(team.name))
 }
@@ -235,6 +311,7 @@ write_rds(states, here::here("data_files", "raw-data", "states.rds"))
 cli::cli_progress_done()
 
 dat <- list(fixture = fixture,
+            fixture_all = fixture_all,
             results = results,
             ladder = ladder,
             states = states)
